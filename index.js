@@ -14,16 +14,26 @@ module.exports = function(content) {
 	var imports = extractImports(tree);
 	
 	imports.forEach(function(imp) {
-		result.push("require(" + JSON.stringify(__filename) + " + \"!\" + " + JSON.stringify(imp.url) + ")");
+		if(imp.media.length > 0) {
+			result.push(JSON.stringify("@media " + imp.media.join("") + "{"));
+		}
+		result.push("require(" + JSON.stringify(__filename) + " + \"!\" + " + JSON.stringify(urlToRequire(imp.url)) + ")");
+		if(imp.media.length > 0) {
+			result.push(JSON.stringify("}"));
+		}
 	});
 	
 	result.push(JSON.stringify(csso.translate(tree)));
-	console.dir(result);
 	return "module.exports =\n\t" + result.join(" +\n\t") + ";";
 }
 
+function urlToRequire(url) {
+	if(/^~/.test(url))
+		return url.substring(1);
+	else
+		return "./"+url;
+}
 function extractImports(tree) {
-	console.dir(tree);
 	var results = [];
 	var removes = [];
 	for(var i = 1; i < tree.length; i++) {
@@ -43,9 +53,14 @@ function extractImports(tree) {
 				} else if(item[0] === "uri") {
 					imp.url = item[1][0] === "string" ? JSON.parse(item[1][1]) : item[1][1];
 				} else if(item[0] === "ident" && item[1] !== "url") {
-					imp.media.push(item[1]);
+					imp.media.push(csso.translate(item));
+				} else if(item[0] !== "s" || imp.media.length > 0) {
+					imp.media.push(csso.translate(item));
 				}
 			}
+			while(imp.media.length > 0 &&
+				/^\s*$/.test(imp.media[imp.media.length-1]))
+				imp.media.pop();
 			if(imp.url !== null) {
 				results.push(imp);
 				removes.push(i);
