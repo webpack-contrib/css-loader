@@ -39,6 +39,6 @@ vows.describe("url").addBatch({
 				test(".class { background: green url( \"img.png\" ) xyz }",
 					["\".class { background: green url( \"+require(\"file/auto!./img.png\")+\" ) xyz }\""]),
 	"background img 2":
-				test(".class { background: green url(~img/png ) xyz }",
-					["\".class { background: green url(\"+require(\"file/auto!img/png\")+\" ) xyz }\""])
+				test(".class { background: green url(~img/png ) url(aaa) xyz }",
+					["\".class { background: green url(\"+require(\"file/auto!img/png\")+\" ) url(\"+require(\"file/auto!./aaa\")+\") xyz }\""])
 }).export(module);

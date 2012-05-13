@@ -3,7 +3,6 @@
 	Author Tobias Koppers @sokra
 */
 var csso = require("csso");
-var uriRegExp = /%CSSURL\[%(.*)%\]CSSURL%/g;
 module.exports = function(content) {
 	var isRequireUrl = !this || !this.options || !this.options.css ||
 					typeof this.options.css.requireUrl === "string";
@@ -32,8 +31,9 @@ module.exports = function(content) {
 
 	var css = JSON.stringify(csso.translate(tree));
 	if(isRequireUrl) {
-		css = css.replace(uriRegExp, function(match) {
-			match = uriRegExp.exec(match);
+		var uriRegExp = /%CSSURL\[%(.*?)%\]CSSURL%/g;
+		css = css.replace(uriRegExp, function(str) {
+			match = /^%CSSURL\[%(.*?)%\]CSSURL%$/.exec(str);
 			var url = JSON.parse("\"" + match[1] + "\"");
 			return "\"+require(" + JSON.stringify(requireUrl + urlToRequire(url)) + ")+\"";
 		});
