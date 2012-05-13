@@ -22,7 +22,7 @@ module.exports = function(content) {
 
 	imports.forEach(function(imp) {
 		if(imp.media.length > 0) {
-			result.push(JSON.stringify("@media(" + imp.media.join("") + "){"));
+			result.push(JSON.stringify("@media " + imp.media.join("") + "{"));
 		}
 		result.push("require(" + JSON.stringify(__filename + "!" + urlToRequire(imp.url)) + ")");
 		if(imp.media.length > 0) {

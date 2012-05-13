@@ -31,7 +31,7 @@ vows.describe("url").addBatch({
 						"\"\\n.class { a: b c d; }\""]),
 	"import with media":
 				test("@import url(~test/css) screen and print;\n.class { a: b c d; }",
-					["\"@media(screen and print){\"",
+					["\"@media screen and print{\"",
 						"require("+JSON.stringify(path.join(__dirname, "..", "index.js")+"!test/css")+")",
 						"\"}\"",
 						"\"\\n.class { a: b c d; }\""]),
