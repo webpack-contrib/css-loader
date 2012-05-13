@@ -1,10 +1,16 @@
 {
 	"name": "css-loader",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"author": "Tobias Koppers @sokra",
 	"description": "css loader module for webpack",
 	"dependencies": {
 		"csso": "1.2.x"
+	},
+	"devDependencies": {
+		"vows": "0.6.2"
+	},
+	"scripts": {
+		"test": "node node_modules/vows/bin/vows"
 	},
 	"licenses": [
 		{

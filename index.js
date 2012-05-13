@@ -3,27 +3,43 @@
 	Author Tobias Koppers @sokra
 */
 var csso = require("csso");
+var uriRegExp = /%CSSURL\[%(.*)%\]CSSURL%/g;
 module.exports = function(content) {
-	var options = this;
+	var isRequireUrl = !this || !this.options || !this.options.css ||
+					typeof this.options.css.requireUrl === "string";
+	var requireUrl = this && this.options && this.options.css &&
+					this.options.css.requireUrl ||
+					"file/auto!";
 	var result = [];
 	var tree = csso.parse(content, "stylesheet");
-	if(options.minimize)
+	if(this && this.minimize)
 		tree = csso.compress(tree);
 	tree = csso.cleanInfo(tree);
-	
+
 	var imports = extractImports(tree);
-	
+	if(isRequireUrl)
+		annotateUrls(tree);
+
 	imports.forEach(function(imp) {
 		if(imp.media.length > 0) {
-			result.push(JSON.stringify("@media " + imp.media.join("") + "{"));
+			result.push(JSON.stringify("@media(" + imp.media.join("") + "){"));
 		}
-		result.push("require(" + JSON.stringify(__filename) + " + \"!\" + " + JSON.stringify(urlToRequire(imp.url)) + ")");
+		result.push("require(" + JSON.stringify(__filename + "!" + urlToRequire(imp.url)) + ")");
 		if(imp.media.length > 0) {
 			result.push(JSON.stringify("}"));
 		}
 	});
-	
-	result.push(JSON.stringify(csso.translate(tree)));
+
+	var css = JSON.stringify(csso.translate(tree));
+	if(isRequireUrl) {
+		css = css.replace(uriRegExp, function(match) {
+			match = uriRegExp.exec(match);
+			var url = JSON.parse("\"" + match[1] + "\"");
+			return "\"+require(" + JSON.stringify(requireUrl + urlToRequire(url)) + ")+\"";
+		});
+
+	}
+	result.push(css);
 	return "module.exports =\n\t" + result.join(" +\n\t") + ";";
 }
 
@@ -71,4 +87,31 @@ function extractImports(tree) {
 		tree.splice(i, 1);
 	});
 	return results;
+}
+function annotateUrls(tree) {
+	function iterateChildren() {
+		for(var i = 1; i < tree.length; i++) {
+			annotateUrls(tree[i]);
+		}
+	}
+	switch(tree[0]) {
+	case "stylesheet": return iterateChildren();
+	case "ruleset": return iterateChildren();
+	case "block": return iterateChildren();
+	case "declaration": return iterateChildren();
+	case "value": return iterateChildren();
+	case "uri":
+		for(var i = 1; i < tree.length; i++) {
+			var item = tree[i];
+			switch(item[0]) {
+			case "ident":
+			case "raw":
+				item[1] = "%CSSURL[%" + item[1] + "%]CSSURL%";
+				return;
+			case "string":
+				item[1] = "%CSSURL[%" + item[1].substring(1, item[1].length-1) + "%]CSSURL%";
+				return;
+			}
+		}
+	}
 }
