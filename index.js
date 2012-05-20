@@ -4,6 +4,7 @@
 */
 var csso = require("csso");
 module.exports = function(content) {
+	this.cacheable && this.cacheable();
 	var isRequireUrl = !this || !this.options || !this.options.css ||
 					typeof this.options.css.requireUrl === "string";
 	var requireUrl = this && this.options && this.options.css &&
