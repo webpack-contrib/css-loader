@@ -24,7 +24,7 @@ module.exports = function(content) {
 		if(imp.media.length > 0) {
 			result.push(JSON.stringify("@media " + imp.media.join("") + "{"));
 		}
-		result.push("require(" + JSON.stringify(__filename + "!" + urlToRequire(imp.url)) + ")");
+		result.push("require(" + JSON.stringify("!" + __filename + "!" + urlToRequire(imp.url)) + ")");
 		if(imp.media.length > 0) {
 			result.push(JSON.stringify("}"));
 		}
