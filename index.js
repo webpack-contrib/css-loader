@@ -9,7 +9,7 @@ module.exports = function(content) {
 					typeof this.options.css.requireUrl === "string";
 	var requireUrl = this && this.options && this.options.css &&
 					this.options.css.requireUrl ||
-					"file/auto!";
+					"file!";
 	var result = [];
 	var tree = csso.parse(content, "stylesheet");
 	if(this && this.minimize)
