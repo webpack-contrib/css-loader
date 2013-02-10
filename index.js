@@ -8,8 +8,8 @@ module.exports = function(content) {
 	var isRequireUrl = !this || !this.options || !this.options.css ||
 					typeof this.options.css.requireUrl === "string";
 	var requireUrl = this && this.options && this.options.css &&
-					this.options.css.requireUrl ||
-					"file!";
+					this.options.css.requireUrl;
+	if(typeof requireUrl !== "string") requireUrl = "!file!";
 	var result = [];
 	var tree = csso.parse(content, "stylesheet");
 	if(this && this.minimize)
