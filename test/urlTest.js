@@ -1,0 +1,38 @@
+var should = require("should");
+var path = require("path");
+var cssLoader = require("../index.js");
+
+function test(name, input, result) {
+	it(name, function() {
+		var output = cssLoader(input);
+		output.should.be.eql("module.exports =\n\t" + result.join(" +\n\t") + ";");
+	});
+}
+
+function testMinimize(name, input, result) {
+	it(name, function() {
+		var output = cssLoader.call({minimize: true}, input);
+		output.should.be.eql("module.exports =\n\t" + result.join(" +\n\t") + ";");
+	});
+}
+
+describe("url", function() {
+	test("simple", ".class { a: b c d; }",
+					["\".class { a: b c d; }\""]);
+	test("simple2", ".class { a: b c d; }\n.two {}",
+					["\".class { a: b c d; }\\n.two {}\""]);
+	test("import", "@import url(test.css);\n.class { a: b c d; }",
+					["require("+JSON.stringify("!"+path.join(__dirname, "..", "index.js")+"!./test.css")+")",
+						"\"\\n.class { a: b c d; }\""]);
+	test("import with media", "@import url(~test/css) screen and print;\n.class { a: b c d; }",
+					["\"@media screen and print{\"",
+						"require("+JSON.stringify("!"+path.join(__dirname, "..", "index.js")+"!test/css")+")",
+						"\"}\"",
+						"\"\\n.class { a: b c d; }\""]);
+	test("background img", ".class { background: green url( \"img.png\" ) xyz }",
+					["\".class { background: green url( \"+require(\"./img.png\")+\" ) xyz }\""]);
+	test("background img 2", ".class { background: green url(~img/png ) url(aaa) xyz }",
+					["\".class { background: green url(\"+require(\"img/png\")+\" ) url(\"+require(\"./aaa\")+\") xyz }\""]);
+	testMinimize("minimized simple", ".class { a: b c d; }",
+					["\".class{a:b c d}\""]);
+});
