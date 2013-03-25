@@ -4,14 +4,31 @@ var cssLoader = require("../index.js");
 
 function test(name, input, result) {
 	it(name, function() {
-		var output = cssLoader(input);
+		var output;
+		cssLoader.call({
+			loaders: [{request: "loader"}],
+			loaderIndex: 0,
+			resource: "test.css",
+			callback: function(err, result) {
+				output = result;
+			}
+		}, input);
 		output.should.be.eql("module.exports =\n\t" + result.join(" +\n\t") + ";");
 	});
 }
 
 function testMinimize(name, input, result) {
 	it(name, function() {
-		var output = cssLoader.call({minimize: true}, input);
+		var output;
+		cssLoader.call({
+			loaders: [{request: "loader"}],
+			loaderIndex: 0,
+			resource: "test.css",
+			minimize: true,
+			callback: function(err, result) {
+				output = result;
+			}
+		}, input);
 		output.should.be.eql("module.exports =\n\t" + result.join(" +\n\t") + ";");
 	});
 }
