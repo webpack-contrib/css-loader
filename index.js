@@ -3,6 +3,8 @@
 	Author Tobias Koppers @sokra
 */
 var csso = require("csso");
+var SourceNode = require("source-map").SourceNode;
+var loaderUtils = require("loader-utils");
 module.exports = function(content) {
 	this.cacheable && this.cacheable();
 	var result = [];
@@ -33,7 +35,15 @@ module.exports = function(content) {
 		return "\"+require(" + JSON.stringify(urlToRequire(url)) + ")+\"";
 	});
 	result.push(css);
-	return "module.exports =\n\t" + result.join(" +\n\t") + ";";
+	var cssRequest = loaderUtils.getRemainingRequest(this);
+	var node = new SourceNode(1, 0,
+		cssRequest,
+		"module.exports =\n\t" + result.join(" +\n\t") + ";");
+	var stringWithMap = node.toStringWithSourceMap({
+		file: loaderUtils.getCurrentRequest(this)
+	});
+	stringWithMap.map.setSourceContent(cssRequest, content);
+	this.callback(null, stringWithMap.code, stringWithMap.map.toJSON());
 }
 
 function urlToRequire(url) {
