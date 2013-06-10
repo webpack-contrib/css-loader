@@ -101,6 +101,7 @@ function annotateUrls(tree) {
 	case "stylesheet": return iterateChildren();
 	case "ruleset": return iterateChildren();
 	case "block": return iterateChildren();
+	case "atruleb": return iterateChildren();
 	case "declaration": return iterateChildren();
 	case "value": return iterateChildren();
 	case "uri":
