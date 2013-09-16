@@ -31,6 +31,13 @@ module.exports = function(content) {
 	var uriRegExp = /%CSSURL\[%(.*?)%\]CSSURL%/g;
 	css = css.replace(uriRegExp, function(str) {
 		var match = /^%CSSURL\[%(.*?)%\]CSSURL%$/.exec(str);
+		var idx = match[1].indexOf("?");
+		if(idx < 0) idx = match[1].indexOf("#");
+		if(idx >= 0) {
+			// in cases like url('webfont.eot?#iefix')
+			var url = JSON.parse("\"" + match[1].substr(0, idx) + "\"");
+			return "\"+require(" + JSON.stringify(urlToRequire(url)) + ")+\"" + match[1].substr(idx);
+		}
 		var url = JSON.parse("\"" + match[1] + "\"");
 		return "\"+require(" + JSON.stringify(urlToRequire(url)) + ")+\"";
 	});
