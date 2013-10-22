@@ -9,11 +9,9 @@ var css = require("css!./file.css");
 
 css code will be minimized if specified by the module system.
 
-`@import` will be required with this css loader.
-
-`url(...)` will be required. You should define useful loaders by config.
-
-Good loaders to require these files is the [file-loader](https://github.com/webpack/file-loader) and the [url-loader](https://github.com/webpack/url-loader).
+`@import` and `url(...)` are interpreted like `require()` and will be resolved by the css-loader.
+Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader)
+and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see below).
 
 ### Example config
 
