@@ -34,6 +34,10 @@ function testMinimize(name, input, result) {
 }
 
 describe("url", function() {
+	test("empty", "",
+					["\"\""]);
+	testMinimize("empty minimized", "",
+					["\"\""]);
 	test("simple", ".class { a: b c d; }",
 					["\".class { a: b c d; }\""]);
 	test("simple2", ".class { a: b c d; }\n.two {}",

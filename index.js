@@ -9,25 +9,27 @@ module.exports = function(content) {
 	this.cacheable && this.cacheable();
 	var result = [];
 	var tree = csso.parse(content, "stylesheet");
-	if(this && this.minimize) {
+	if(tree && this && this.minimize) {
 		tree = csso.compress(tree);
 		tree = csso.cleanInfo(tree);
 	}
 
-	var imports = extractImports(tree);
-	annotateUrls(tree);
+	if(tree) {
+		var imports = extractImports(tree);
+		annotateUrls(tree);
 
-	imports.forEach(function(imp) {
-		if(imp.media.length > 0) {
-			result.push(JSON.stringify("@media " + imp.media.join("") + "{"));
-		}
-		result.push("require(" + JSON.stringify("!" + __filename + "!" + urlToRequire(imp.url)) + ")");
-		if(imp.media.length > 0) {
-			result.push(JSON.stringify("}"));
-		}
-	});
+		imports.forEach(function(imp) {
+			if(imp.media.length > 0) {
+				result.push(JSON.stringify("@media " + imp.media.join("") + "{"));
+			}
+			result.push("require(" + JSON.stringify("!" + __filename + "!" + urlToRequire(imp.url)) + ")");
+			if(imp.media.length > 0) {
+				result.push(JSON.stringify("}"));
+			}
+		});
+	}
 
-	var css = JSON.stringify(csso.translate(tree));
+	var css = JSON.stringify(tree ? csso.translate(tree) : "");
 	var uriRegExp = /%CSSURL\[%(.*?)%\]CSSURL%/g;
 	css = css.replace(uriRegExp, function(str) {
 		var match = /^%CSSURL\[%(.*?)%\]CSSURL%$/.exec(str);
