@@ -33,7 +33,7 @@ module.exports = function(content) {
 	var uriRegExp = /%CSSURL\[%(.*?)%\]CSSURL%/g;
 	css = css.replace(uriRegExp, function(str) {
 		var match = /^%CSSURL\[%(.*?)%\]CSSURL%$/.exec(str);
-		if(/^data:|^https?:\/\//.test(match[1])) return match[1];
+		if(/^data:|^(https?:)?\/\//.test(match[1])) return match[1];
 		var idx = match[1].indexOf("?");
 		if(idx < 0) idx = match[1].indexOf("#");
 		if(idx >= 0) {
