@@ -19,12 +19,16 @@ module.exports = function(content) {
 		annotateUrls(tree);
 
 		imports.forEach(function(imp) {
-			if(imp.media.length > 0) {
-				result.push(JSON.stringify("@media " + imp.media.join("") + "{"));
-			}
-			result.push("require(" + JSON.stringify("!" + __filename + "!" + urlToRequire(imp.url)) + ")");
-			if(imp.media.length > 0) {
-				result.push(JSON.stringify("}"));
+			if(/^data:|^(https?:)?\/\//.test(imp.url)) {
+				result.push(JSON.stringify("@import url(" + imp.url + ")" + imp.media.join("") + ";"));
+			} else {
+				if(imp.media.length > 0) {
+					result.push(JSON.stringify("@media " + imp.media.join("") + "{"));
+				}
+				result.push("require(" + JSON.stringify("!" + __filename + "!" + urlToRequire(imp.url)) + ")");
+				if(imp.media.length > 0) {
+					result.push(JSON.stringify("}"));
+				}
 			}
 		});
 	}

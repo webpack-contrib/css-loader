@@ -50,6 +50,10 @@ describe("url", function() {
 						"require("+JSON.stringify("!"+path.join(__dirname, "..", "index.js")+"!test/css")+")",
 						"\"}\"",
 						"\"\\n.class { a: b c d; }\""]);
+	test("import external", "@import url(http://example.com/style.css);\n@import url(\"//example.com/style.css\");",
+					["\"@import url(http://example.com/style.css);\"",
+						"\"@import url(//example.com/style.css);\"",
+						"\"\\n\""]);
 	test("background img", ".class { background: green url( \"img.png\" ) xyz }",
 					["\".class { background: green url( \"+require(\"./img.png\")+\" ) xyz }\""]);
 	test("background img 2", ".class { background: green url(~img/png ) url(aaa) xyz }",
