@@ -26,7 +26,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.css/, loader: "style-loader!css-loader" },
-      { test: /\.png/, loader: "url-loader?limit=100000&minetype=image/png" },
+      { test: /\.png/, loader: "url-loader?limit=100000&mimetype=image/png" },
       { test: /\.jpg/, loader: "file-loader" }
     ]
   }
