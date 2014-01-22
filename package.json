@@ -15,6 +15,10 @@
 	"scripts": {
 		"test": "mocha --reporter spec"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:webpack/css-loader.git"
+	},
 	"licenses": [
 		{
 			"type": "MIT",
