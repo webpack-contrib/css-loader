@@ -58,9 +58,12 @@ describe("url", function() {
 					["\".class { background: green url( \"+require(\"./img.png\")+\" ) xyz }\""]);
 	test("background img 2", ".class { background: green url(~img/png ) url(aaa) xyz }",
 					["\".class { background: green url(\"+require(\"img/png\")+\" ) url(\"+require(\"./aaa\")+\") xyz }\""]);
-	test("background img external", 
+	test("background img external",
 		".class { background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz }",
 		["\".class { background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz }\""]);
+	test("filter hash",
+		".highlight { filter: url(#highlight); }",
+		["\".highlight { filter: url(#highlight); }\""]);
 	test("font face", "@font-face { src: url(regular.woff) format('woff'), url(~truetype/regular.ttf) format('truetype') }",
 					["\"@font-face { src: url(\"+require(\"./regular.woff\")+\") format('woff'), url(\"+require(\"truetype/regular.ttf\")+\") format('truetype') }\""]);
 	testMinimize("minimized simple", ".class { a: b c d; }",

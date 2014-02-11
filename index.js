@@ -40,10 +40,13 @@ module.exports = function(content) {
 		if(/^data:|^(https?:)?\/\//.test(match[1])) return match[1];
 		var idx = match[1].indexOf("?");
 		if(idx < 0) idx = match[1].indexOf("#");
-		if(idx >= 0) {
+		if(idx > 0) {
 			// in cases like url('webfont.eot?#iefix')
 			var url = JSON.parse("\"" + match[1].substr(0, idx) + "\"");
 			return "\"+require(" + JSON.stringify(urlToRequire(url)) + ")+\"" + match[1].substr(idx);
+		} else if(idx === 0) {
+			// only hash
+			return match[1];
 		}
 		var url = JSON.parse("\"" + match[1] + "\"");
 		return "\"+require(" + JSON.stringify(urlToRequire(url)) + ")+\"";
