@@ -1,5 +1,9 @@
 # css loader for webpack
 
+## installation
+
+`npm install css-loader`
+
 ## Usage
 
 ``` javascript
