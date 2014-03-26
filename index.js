@@ -136,4 +136,4 @@ function annotateUrls(tree) {
 		}
 	}
 }
-module.exports.seperableIfResolve = true;
+
