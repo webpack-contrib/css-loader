@@ -119,6 +119,8 @@ function annotateUrls(tree) {
 	case "ruleset": return iterateChildren();
 	case "block": return iterateChildren();
 	case "atruleb": return iterateChildren();
+	case "atruler": return iterateChildren();
+	case "atrulers": return iterateChildren();
 	case "declaration": return iterateChildren();
 	case "value": return iterateChildren();
 	case "uri":

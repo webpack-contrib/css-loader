@@ -66,6 +66,8 @@ describe("url", function() {
 		["\".highlight { filter: url(#highlight); }\""]);
 	test("font face", "@font-face { src: url(regular.woff) format('woff'), url(~truetype/regular.ttf) format('truetype') }",
 					["\"@font-face { src: url(\"+require(\"./regular.woff\")+\") format('woff'), url(\"+require(\"truetype/regular.ttf\")+\") format('truetype') }\""]);
+	test("media query", "@media (min-width: 500px) { body { background: url(image.png); } }",
+					["\"@media (min-width: 500px) { body { background: url(\"+require(\"./image.png\")+\"); } }\""]);
 	testMinimize("minimized simple", ".class { a: b c d; }",
 					["\".class{a:b c d}\""]);
 });
