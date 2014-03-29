@@ -39,6 +39,27 @@ module.exports = {
 };
 ```
 
+### 'Root-relative' urls
+
+For urls that start with a `/`, the default behavior is to not translate them:
+* `url(/image.png)` => `url(/image.png)`
+
+If a `root` query parameter is set, however, it will be prepended to the url
+and then translated:
+
+With a config like:
+
+``` javascript
+    loaders: [
+      { test: /\.css/, loader: "style-loader!css-loader?root=." },
+      ...
+    ]
+```
+
+The result is:
+
+* `url(/image.png)` => `require("./image.png")`
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)

@@ -8,6 +8,10 @@ var loaderUtils = require("loader-utils");
 module.exports = function(content) {
 	this.cacheable && this.cacheable();
 	var result = [];
+	var query = loaderUtils.parseQuery(this.query);
+	var root = query.root;
+	if(root !== undefined && root !== false && typeof root !== "string")
+		throw new Error("Invalid value to query parameter root");
 	var tree = csso.parse(content, "stylesheet");
 	if(tree && this && this.minimize) {
 		tree = csso.compress(tree);
@@ -38,18 +42,19 @@ module.exports = function(content) {
 	css = css.replace(uriRegExp, function(str) {
 		var match = /^%CSSURL\[%(.*?)%\]CSSURL%$/.exec(str);
 		if(/^data:|^(https?:)?\/\//.test(match[1])) return match[1];
+		if((root === undefined || root === false) && /^\//.test(match[1])) return match[1];
 		var idx = match[1].indexOf("?");
 		if(idx < 0) idx = match[1].indexOf("#");
 		if(idx > 0) {
 			// in cases like url('webfont.eot?#iefix')
 			var url = JSON.parse("\"" + match[1].substr(0, idx) + "\"");
-			return "\"+require(" + JSON.stringify(urlToRequire(url)) + ")+\"" + match[1].substr(idx);
+			return "\"+require(" + JSON.stringify(urlToRequire(url, root)) + ")+\"" + match[1].substr(idx);
 		} else if(idx === 0) {
 			// only hash
 			return match[1];
 		}
 		var url = JSON.parse("\"" + match[1] + "\"");
-		return "\"+require(" + JSON.stringify(urlToRequire(url)) + ")+\"";
+		return "\"+require(" + JSON.stringify(urlToRequire(url, root)) + ")+\"";
 	});
 	result.push(css);
 	var cssRequest = loaderUtils.getRemainingRequest(this);
@@ -63,9 +68,11 @@ module.exports = function(content) {
 	this.callback(null, stringWithMap.code, stringWithMap.map.toJSON());
 }
 
-function urlToRequire(url) {
+function urlToRequire(url, root) {
 	if(/^~/.test(url))
 		return url.substring(1);
+	else if(root !== undefined && /^\//.test(url))
+		return root.replace(/\/$/, '')+'/'+url.replace(/^\//, '');
 	else
 		return "./"+url;
 }
