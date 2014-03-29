@@ -58,6 +58,8 @@ describe("url", function() {
 					["\".class { background: green url( \"+require(\"./img.png\")+\" ) xyz }\""]);
 	test("background img 2", ".class { background: green url(~img/png ) url(aaa) xyz }",
 					["\".class { background: green url(\"+require(\"img/png\")+\" ) url(\"+require(\"./aaa\")+\") xyz }\""]);
+	test("background img absolute", ".class { background: green url(/img.png) xyz }",
+					["\".class { background: green url(/img.png) xyz }\""]);
 	test("background img external",
 		".class { background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz }",
 		["\".class { background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz }\""]);
