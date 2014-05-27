@@ -12,7 +12,7 @@ module.exports = function(content) {
 	var root = query.root;
 	var tree = csso.parse(content, "stylesheet");
 	if(tree && this && this.minimize) {
-		tree = csso.compress(tree);
+		tree = csso.compress(tree, query.disableStructuralMinification);
 		tree = csso.cleanInfo(tree);
 	}
 
