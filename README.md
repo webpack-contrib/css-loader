@@ -13,8 +13,6 @@ var css = require("css!./file.css");
 // => returns css code from file.css, resolves imports and url(...)
 ```
 
-css code will be minimized if specified by the module system.
-
 `@import` and `url(...)` are interpreted like `require()` and will be resolved by the css-loader.
 Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader)
 and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see below).
@@ -59,6 +57,12 @@ With a config like:
 The result is:
 
 * `url(/image.png)` => `require("./image.png")`
+
+### Minification
+
+By default the css-loader minimizes the css if specified by the module system.
+
+In some cases the structural minification is destructive to the css, so you can disable it with the `disableStructuralMinification` query parameter. `require("css-loader?disableStructuralMinification!./file.css")`
 
 ## License
 
