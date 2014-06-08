@@ -49,7 +49,7 @@ With a config like:
 
 ``` javascript
     loaders: [
-      { test: /\.css/, loader: "style-loader!css-loader?root=." },
+      { test: /\.css$/, loader: "style-loader!css-loader?root=." },
       ...
     ]
 ```
