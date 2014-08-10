@@ -10,8 +10,10 @@ module.exports = function(content) {
 	var result = [];
 	var query = loaderUtils.parseQuery(this.query);
 	var root = query.root;
+	var forceMinimize = query.minimize;
+	var minimize = typeof forceMinimize !== "undefined" ? !!forceMinimize : (this && this.minimize);
 	var tree = csso.parse(content, "stylesheet");
-	if(tree && this && this.minimize) {
+	if(tree && minimize) {
 		tree = csso.compress(tree, query.disableStructuralMinification);
 		tree = csso.cleanInfo(tree);
 	}

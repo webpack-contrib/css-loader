@@ -64,6 +64,12 @@ By default the css-loader minimizes the css if specified by the module system.
 
 In some cases the structural minification is destructive to the css, so you can disable it with the `disableStructuralMinification` query parameter. `require("css-loader?disableStructuralMinification!./file.css")`
 
+You can also disable or enforce minification with the `minimize` query parameter.
+
+`require("css-loader?minimize!./file.css")` (enforced)
+
+`require("css-loader?-minimize!./file.css")` (disabled)
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
