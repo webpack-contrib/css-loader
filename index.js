@@ -42,7 +42,7 @@ module.exports = function(content) {
 		var match = /^%CSSURL\[%(["']?(.*?)["']?)%\]CSSURL%$/.exec(JSON.parse('"' + str + '"'));
 		var url = loaderUtils.parseString(match[2]);
 		if(!loaderUtils.isUrlRequest(match[2], root)) return JSON.stringify(match[1]).replace(/^"|"$/g, "");
-		var idx = url.indexOf("?");
+		var idx = url.indexOf("?#");
 		if(idx < 0) idx = url.indexOf("#");
 		if(idx > 0) {
 			// in cases like url('webfont.eot?#iefix')
