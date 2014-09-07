@@ -58,6 +58,14 @@ The result is:
 
 * `url(/image.png)` => `require("./image.png")`
 
+### SourceMaps
+
+To include SourceMaps set the `sourceMap` query param.
+
+`require("css-loader?sourceMap!./file.css")`
+
+I. e. the extract-text-webpack-plugin can handle them.
+
 ### Minification
 
 By default the css-loader minimizes the css if specified by the module system.
@@ -69,6 +77,8 @@ You can also disable or enforce minification with the `minimize` query parameter
 `require("css-loader?minimize!./file.css")` (enforced)
 
 `require("css-loader?-minimize!./file.css")` (disabled)
+
+You cannot use minimize with SourceMaps.
 
 ## License
 

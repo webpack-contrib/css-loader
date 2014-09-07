@@ -5,7 +5,7 @@
 	"description": "css loader module for webpack",
 	"dependencies": {
 		"csso": "1.3.x",
-		"source-map": "0.1.x",
+		"source-map": "~0.1.38",
 		"loader-utils": "~0.2.2"
 	},
 	"devDependencies": {

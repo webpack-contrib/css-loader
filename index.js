@@ -3,11 +3,13 @@
 	Author Tobias Koppers @sokra
 */
 var csso = require("csso");
-var SourceNode = require("source-map").SourceNode;
+var SourceMapGenerator = require("source-map").SourceMapGenerator;
 var loaderUtils = require("loader-utils");
+
 module.exports = function(content) {
 	this.cacheable && this.cacheable();
 	var result = [];
+	var queryString = this.query || "";
 	var query = loaderUtils.parseQuery(this.query);
 	var root = query.root;
 	var forceMinimize = query.minimize;
@@ -24,17 +26,14 @@ module.exports = function(content) {
 
 		imports.forEach(function(imp) {
 			if(!loaderUtils.isUrlRequest(imp.url)) {
-				result.push(JSON.stringify("@import url(" + imp.url + ")" + imp.media.join("") + ";"));
+				result.push("exports.push([module.id, " + JSON.stringify("@import url(" + imp.url + ");") + ", " + JSON.stringify(imp.media.join("")) + "]);");
 			} else {
-				if(imp.media.length > 0) {
-					result.push(JSON.stringify("@media " + imp.media.join("") + "{"));
-				}
-				result.push("require(" + JSON.stringify("!" + __filename + "!" + loaderUtils.urlToRequest(imp.url)) + ")");
-				if(imp.media.length > 0) {
-					result.push(JSON.stringify("}"));
-				}
+				var importUrl = "-!" +
+					this.loaders.slice(this.loaderIndex).map(function(x) { return x.request; }).join("!") + "!" +
+					loaderUtils.urlToRequest(imp.url);
+				result.push("require(" + JSON.stringify(require.resolve("./mergeImport")) + ")(exports, require(" + JSON.stringify(importUrl) + "), " + JSON.stringify(imp.media.join("")) + ");");
 			}
-		});
+		}, this);
 	}
 
 	var css = JSON.stringify(tree ? csso.translate(tree) : "");
@@ -55,16 +54,33 @@ module.exports = function(content) {
 		}
 		return "\"+require(" + JSON.stringify(loaderUtils.urlToRequest(url, root)) + ")+\"";
 	});
-	result.push(css);
-	var cssRequest = loaderUtils.getRemainingRequest(this);
-	var node = new SourceNode(1, 0,
-		cssRequest,
-		"module.exports =\n\t" + result.join(" +\n\t") + ";");
-	var stringWithMap = node.toStringWithSourceMap({
-		file: loaderUtils.getCurrentRequest(this)
-	});
-	stringWithMap.map.setSourceContent(cssRequest, content);
-	this.callback(null, stringWithMap.code, stringWithMap.map.toJSON());
+	if(query.sourceMap && !minimize) {
+		var cssRequest = loaderUtils.getRemainingRequest(this);
+		var request = loaderUtils.getCurrentRequest(this);
+		var sourceMap = new SourceMapGenerator({
+			file: request
+		});
+		var lines = content.split("\n").length;
+		for(var i = 0; i < lines; i++) {
+			sourceMap.addMapping({
+				generated: {
+					line: i+1,
+					column: 0
+				},
+				source: cssRequest,
+				original: {
+					line: i+1,
+					column: 0
+				},
+			});
+		}
+		sourceMap.setSourceContent(cssRequest, content);
+		result.push("exports.push([module.id, " + css + ", \"\", " + JSON.stringify(sourceMap.toJSON()) + "]);");
+	} else {
+		result.push("exports.push([module.id, " + css + ", \"\"]);");
+	}
+	return "exports = module.exports = require(" + JSON.stringify(require.resolve("./cssToString")) + ")();\n" +
+		result.join("\n");
 }
 
 function extractImports(tree) {
