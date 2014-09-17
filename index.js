@@ -41,18 +41,23 @@ module.exports = function(content) {
 	css = css.replace(uriRegExp, function(str) {
 		var match = /^%CSSURL\[%(["']?(.*?)["']?)%\]CSSURL%$/.exec(JSON.parse('"' + str + '"'));
 		var url = loaderUtils.parseString(match[2]);
-		if(!loaderUtils.isUrlRequest(match[2], root)) return JSON.stringify(match[1]).replace(/^"|"$/g, "");
+		var urlRoot = root;
+		if (urlRoot === "~") {
+			url = url.replace(/^\//, "~");
+			urlRoot = null;
+		}
+		if(!loaderUtils.isUrlRequest(match[2], urlRoot)) return JSON.stringify(match[1]).replace(/^"|"$/g, "");
 		var idx = url.indexOf("?#");
 		if(idx < 0) idx = url.indexOf("#");
 		if(idx > 0) {
 			// in cases like url('webfont.eot?#iefix')
 			var request = url.substr(0, idx);
-			return "\"+require(" + JSON.stringify(loaderUtils.urlToRequest(request, root)) + ")+\"" + url.substr(idx);
+			return "\"+require(" + JSON.stringify(loaderUtils.urlToRequest(request, urlRoot)) + ")+\"" + url.substr(idx);
 		} else if(idx === 0) {
 			// only hash
 			return JSON.stringify(match[1]).replace(/^"|"$/g, "");
 		}
-		return "\"+require(" + JSON.stringify(loaderUtils.urlToRequest(url, root)) + ")+\"";
+		return "\"+require(" + JSON.stringify(loaderUtils.urlToRequest(url, urlRoot)) + ")+\"";
 	});
 	if(query.sourceMap && !minimize) {
 		var cssRequest = loaderUtils.getRemainingRequest(this);

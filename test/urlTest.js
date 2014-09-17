@@ -107,6 +107,9 @@ describe("url", function() {
 	test("background img absolute with root", ".class { background: green url(/img.png) xyz }", [
 		[1, ".class { background: green url({./img.png}) xyz }", ""]
 	], "?root=.");
+	test("background img absolute with root = ~", ".class { background: green url(/img.png) xyz }", [
+		[1, ".class { background: green url({img.png}) xyz }", ""]
+	], "?root=~");
 	test("background img external",
 		".class { background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz }", [
 		[1, ".class { background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz }", ""]
