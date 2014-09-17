@@ -58,6 +58,10 @@ The result is:
 
 * `url(/image.png)` => `require("./image.png")`
 
+If you want your urls that start with `/` to be resolved as modules, specify `root=~`:
+
+* `url(/image.png)` => `require("image.png")`
+
 ### SourceMaps
 
 To include SourceMaps set the `sourceMap` query param.
