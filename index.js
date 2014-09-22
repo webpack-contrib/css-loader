@@ -13,6 +13,7 @@ module.exports = function(content) {
 	var query = loaderUtils.parseQuery(this.query);
 	var root = query.root;
 	var forceMinimize = query.minimize;
+	var importLoaders = parseInt(query.importLoaders, 10) || 0;
 	var minimize = typeof forceMinimize !== "undefined" ? !!forceMinimize : (this && this.minimize);
 	var tree = csso.parse(content, "stylesheet");
 	if(tree && minimize) {
@@ -29,7 +30,10 @@ module.exports = function(content) {
 				result.push("exports.push([module.id, " + JSON.stringify("@import url(" + imp.url + ");") + ", " + JSON.stringify(imp.media.join("")) + "]);");
 			} else {
 				var importUrl = "-!" +
-					this.loaders.slice(this.loaderIndex).map(function(x) { return x.request; }).join("!") + "!" +
+					this.loaders.slice(
+						this.loaderIndex,
+						this.loaderIndex + 1 + importLoaders
+					).map(function(x) { return x.request; }).join("!") + "!" +
 					loaderUtils.urlToRequest(imp.url);
 				result.push("require(" + JSON.stringify(require.resolve("./mergeImport")) + ")(exports, require(" + JSON.stringify(importUrl) + "), " + JSON.stringify(imp.media.join("")) + ");");
 			}

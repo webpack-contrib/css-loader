@@ -66,6 +66,24 @@ To include SourceMaps set the `sourceMap` query param.
 
 I. e. the extract-text-webpack-plugin can handle them.
 
+### importing and chained loaders
+
+The query parameter `importLoaders` allow to configure which loaders should be applied to `@import`ed resources.
+
+`importLoaders` (int): That many loaders after the css-loader are used to import resources.
+
+Examples:
+
+``` js
+require("style-loader!css-loader?importLoaders=1!autoprefixer-loader!...")
+// => imported resources are handled this way:
+require("css-loader?importLoaders=1!autoprefixer-loader!...")
+
+require("style-loader!css-loader!stylus-loader!...")
+// => imported resources are handled this way:
+require("css-loader!...")
+```
+
 ### Minification
 
 By default the css-loader minimizes the css if specified by the module system.
