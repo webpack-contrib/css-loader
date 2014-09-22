@@ -6,7 +6,7 @@ var csso = require("csso");
 var SourceMapGenerator = require("source-map").SourceMapGenerator;
 var loaderUtils = require("loader-utils");
 
-module.exports = function(content) {
+module.exports = function(content, map) {
 	this.cacheable && this.cacheable();
 	var result = [];
 	var queryString = this.query || "";
@@ -61,25 +61,30 @@ module.exports = function(content) {
 	if(query.sourceMap && !minimize) {
 		var cssRequest = loaderUtils.getRemainingRequest(this);
 		var request = loaderUtils.getCurrentRequest(this);
-		var sourceMap = new SourceMapGenerator({
-			file: request
-		});
-		var lines = content.split("\n").length;
-		for(var i = 0; i < lines; i++) {
-			sourceMap.addMapping({
-				generated: {
-					line: i+1,
-					column: 0
-				},
-				source: cssRequest,
-				original: {
-					line: i+1,
-					column: 0
-				},
+		if(!map) {
+			var sourceMap = new SourceMapGenerator({
+				file: request
 			});
+			var lines = content.split("\n").length;
+			for(var i = 0; i < lines; i++) {
+				sourceMap.addMapping({
+					generated: {
+						line: i+1,
+						column: 0
+					},
+					source: cssRequest,
+					original: {
+						line: i+1,
+						column: 0
+					},
+				});
+			}
+			sourceMap.setSourceContent(cssRequest, content);
+			map = JSON.stringify(sourceMap.toJSON());
+		} else if(typeof map !== "string") {
+			map = JSON.stringify(map);
 		}
-		sourceMap.setSourceContent(cssRequest, content);
-		result.push("exports.push([module.id, " + css + ", \"\", " + JSON.stringify(sourceMap.toJSON()) + "]);");
+		result.push("exports.push([module.id, " + css + ", \"\", " + map + "]);");
 	} else {
 		result.push("exports.push([module.id, " + css + ", \"\"]);");
 	}
