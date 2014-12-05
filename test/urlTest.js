@@ -119,6 +119,10 @@ describe("url", function() {
 		".highlight { filter: url(#highlight); }", [
 		[1, ".highlight { filter: url(#highlight); }", ""]
 	]);
+	test("filter hash quotation marks",
+		".highlight { filter: url('#line-marker'); }", [
+		[1, ".highlight { filter: url('#line-marker'); }", ""]
+	]);
 	test("font face", "@font-face { src: url(regular.woff) format('woff'), url(~truetype/regular.ttf) format('truetype') }", [
 		[1, "@font-face { src: url({./regular.woff}) format('woff'), url({truetype/regular.ttf}) format('truetype') }", ""]
 	]);
