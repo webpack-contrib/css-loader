@@ -17,7 +17,7 @@ var css = require("css!./file.css");
 Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader)
 and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see below).
 
-To be combatible to existing css files:
+To be compatible with existing css files:
 * `url(image.png)` => `require("./image.png")`
 * `url(~module/image.png)` => `require("module/image.png")`
 
