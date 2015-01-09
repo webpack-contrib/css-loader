@@ -13,6 +13,7 @@ module.exports = function(content, map) {
 	var query = loaderUtils.parseQuery(this.query);
 	var root = query.root;
 	var forceMinimize = query.minimize;
+	var skipRequireAndAddPath = query.skipRequireAndAddPath;
 	var importLoaders = parseInt(query.importLoaders, 10) || 0;
 	var minimize = typeof forceMinimize !== "undefined" ? !!forceMinimize : (this && this.minimize);
 	var tree = csso.parse(content, "stylesheet");
@@ -46,6 +47,9 @@ module.exports = function(content, map) {
 		var match = /^%CSSURL\[%(["']?(.*?)["']?)%\]CSSURL%$/.exec(JSON.parse('"' + str + '"'));
 		var url = loaderUtils.parseString(match[2]);
 		if(!loaderUtils.isUrlRequest(match[2], root)) return JSON.stringify(match[1]).replace(/^"|"$/g, "");
+		if(skipRequireAndAddPath) {
+			return skipRequireAndAddPath + url;
+		}
 		var idx = url.indexOf("?#");
 		if(idx < 0) idx = url.indexOf("#");
 		if(idx > 0) {

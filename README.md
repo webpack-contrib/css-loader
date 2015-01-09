@@ -58,6 +58,25 @@ The result is:
 
 * `url(/image.png)` => `require("./image.png")`
 
+### 'Skip require and prepend' urls
+
+If you don't want to process the images but rather want to transform the URLs use this parameter
+
+If a `skipRequireAndAddPath` query parameter is set, it will be prepended to the url and assets won't be added to webpack bundle:
+
+With a config like:
+
+``` javascript
+    loaders: [
+      { test: /\.css$/, loader: "style-loader!css-loader?skipRequireAndAddPath=app/images" },
+      ...
+    ]
+```
+
+The result is:
+
+* `url(/image.png)` => `require("app/images/image.png")`
+
 ### SourceMaps
 
 To include SourceMaps set the `sourceMap` query param.
