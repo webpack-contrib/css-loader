@@ -44,8 +44,8 @@ module.exports = function(content, map) {
 	var uriRegExp = /%CSSURL\[%(.*?)%\]CSSURL%/g;
 	css = css.replace(uriRegExp, function(str) {
 		var match = /^%CSSURL\[%(["']?(.*?)["']?)%\]CSSURL%$/.exec(JSON.parse('"' + str + '"'));
-		var url = loaderUtils.parseString(match[2]);
-		if(!loaderUtils.isUrlRequest(match[2], root)) return JSON.stringify(match[1]).replace(/^"|"$/g, "");
+		var url = loaderUtils.parseString(match[1]);
+		if(!loaderUtils.isUrlRequest(url, root)) return JSON.stringify(match[1]).replace(/^"|"$/g, "");
 		var idx = url.indexOf("?#");
 		if(idx < 0) idx = url.indexOf("#");
 		if(idx > 0) {
