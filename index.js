@@ -15,7 +15,7 @@ module.exports = function(content, map) {
 	var forceMinimize = query.minimize;
 	var importLoaders = parseInt(query.importLoaders, 10) || 0;
 	var minimize = typeof forceMinimize !== "undefined" ? !!forceMinimize : (this && this.minimize);
-	var tree = csso.parse(content, "stylesheet");
+	var tree = csso.parse(prepareContentForCsso(content), "stylesheet");
 	if(tree && minimize) {
 		tree = csso.compress(tree, query.disableStructuralMinification);
 		tree = csso.cleanInfo(tree);
@@ -161,4 +161,9 @@ function annotateUrls(tree) {
 		}
 	}
 }
-
+// Quickfix for https://github.com/webpack/css-loader/issues/36
+// Remove this test when the problem has been fixed at https://github.com/css/csso/issues/185
+// or when another css parser is used
+function prepareContentForCsso(content) {
+	return content.replace(/\*\/\w*@/g, "*/a{}@");
+}
