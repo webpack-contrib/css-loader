@@ -133,6 +133,15 @@ describe("url", function() {
 	test("media query", "@media (min-width: 500px) { body { background: url(image.png); } }", [
 		[1, "@media (min-width: 500px) { body { background: url({./image.png}); } }", ""]
 	]);
+	// Quickfix for https://github.com/webpack/css-loader/issues/36
+	// Remove this test when the problem has been fixed at https://github.com/css/csso/issues/185
+	// or when another css parser is used
+	test("csso parse error", "/**/@import url(test.css);", [
+		[2, ".test{a: b}", ""],
+		[1, "/**/a{}", ""]
+	], "", {
+		"./test.css": [[2, ".test{a: b}", ""]]
+	});
 	testMinimize("minimized simple", ".class { a: b c d; }", [
 		[1, ".class{a:b c d}", ""]
 	]);
