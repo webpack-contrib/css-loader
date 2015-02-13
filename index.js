@@ -58,7 +58,7 @@ module.exports = function(content, map) {
 		}
 		return "\"+require(" + JSON.stringify(loaderUtils.urlToRequest(url, root)) + ")+\"";
 	});
-	if(query.sourceMap && !minimize) {
+	if(this.sourceMap && !minimize) {
 		var cssRequest = loaderUtils.getRemainingRequest(this);
 		var request = loaderUtils.getCurrentRequest(this);
 		if(!map) {
