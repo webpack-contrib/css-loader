@@ -58,14 +58,6 @@ The result is:
 
 * `url(/image.png)` => `require("./image.png")`
 
-### SourceMaps
-
-To include SourceMaps set the `sourceMap` query param.
-
-`require("css-loader?sourceMap!./file.css")`
-
-I. e. the extract-text-webpack-plugin can handle them.
-
 ### importing and chained loaders
 
 The query parameter `importLoaders` allow to configure which loaders should be applied to `@import`ed resources.
