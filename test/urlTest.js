@@ -8,6 +8,7 @@ function test(name, input, result, query, modules) {
 		var output = cssLoader.call({
 			loaders: [{request: "loader"}],
 			loaderIndex: 0,
+			context: "",
 			resource: "test.css",
 			query: query
 		}, input);
@@ -20,6 +21,7 @@ function testMinimize(name, input, result, query, modules) {
 		var output = cssLoader.call({
 			loaders: [{request: "loader"}],
 			loaderIndex: 0,
+			context: "",
 			resource: "test.css",
 			minimize: true,
 			query: query
@@ -33,10 +35,8 @@ function assetEvaluated(output, result, modules) {
 		var fn = vm.runInThisContext("(function(module, exports, require) {" + output + "})", "testcase.js");
 		var m = { exports: {}, id: 1 };
 		fn(m, m.exports, function(module) {
-			if(module === require.resolve("../mergeImport"))
-				return require("../mergeImport");
-			if(module === require.resolve("../cssToString"))
-				return require("../cssToString");
+			if(module === "./lib/css-base.js")
+				return require("../lib/css-base");
 			if(module.indexOf("-!loader!") === 0)
 				module = module.substr(9);
 			if(modules && modules[module])
@@ -48,6 +48,7 @@ function assetEvaluated(output, result, modules) {
 		throw e;
 	}
 	delete m.exports.toString;
+	delete m.exports.i;
 	m.exports.should.be.eql(result);
 
 }
@@ -93,13 +94,13 @@ describe("url", function() {
 		[1, "\n", ""]
 	]);
 	test("background img", ".class { background: green url( \"img.png\" ) xyz }", [
-		[1, ".class { background: green url( {./img.png} ) xyz }", ""]
+		[1, ".class { background: green url({./img.png}) xyz }", ""]
 	]);
 	test("background img 2", ".class { background: green url(~img/png) url(aaa) xyz }", [
 		[1, ".class { background: green url({img/png}) url({./aaa}) xyz }", ""]
 	]);
 	test("background img 3", ".class { background: green url( 'img.png' ) xyz }", [
-		[1, ".class { background: green url( {./img.png} ) xyz }", ""]
+		[1, ".class { background: green url({./img.png}) xyz }", ""]
 	]);
 	test("background img absolute", ".class { background: green url(/img.png) xyz }", [
 		[1, ".class { background: green url(/img.png) xyz }", ""]
