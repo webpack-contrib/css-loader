@@ -88,15 +88,13 @@ require("css-loader!...")
 
 By default the css-loader minimizes the css if specified by the module system.
 
-In some cases the structural minification is destructive to the css, so you can disable it with the `disableStructuralMinification` query parameter. `require("css-loader?disableStructuralMinification!./file.css")`
+In some cases the minification is destructive to the css, so you can provide some options to it. clean-css is used for minification and you find a [list of options here](https://github.com/jakubpawlowicz/clean-css#how-to-use-clean-css-programmatically). Just provide them as query parameter: i. e. `require("css-loader?-restructuring&compatibility")` to disable restructuring and enable compatibility mode.
 
 You can also disable or enforce minification with the `minimize` query parameter.
 
 `require("css-loader?minimize!./file.css")` (enforced)
 
 `require("css-loader?-minimize!./file.css")` (disabled)
-
-You cannot use minimize with SourceMaps.
 
 ## License
 
