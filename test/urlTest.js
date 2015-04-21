@@ -6,10 +6,14 @@ var vm = require("vm");
 function test(name, input, result, query, modules) {
 	it(name, function() {
 		var output = cssLoader.call({
+			options: {
+				context: ""
+			},
 			loaders: [{request: "loader"}],
 			loaderIndex: 0,
 			context: "",
 			resource: "test.css",
+			request: "css-loader!test.css",
 			query: query
 		}, input);
 		assetEvaluated(output, result, modules);
@@ -19,10 +23,14 @@ function test(name, input, result, query, modules) {
 function testMinimize(name, input, result, query, modules) {
 	it(name, function() {
 		var output = cssLoader.call({
+			options: {
+				context: ""
+			},
 			loaders: [{request: "loader"}],
 			loaderIndex: 0,
 			context: "",
 			resource: "test.css",
+			request: "css-loader!test.css",
 			minimize: true,
 			query: query
 		}, input);
@@ -134,6 +142,18 @@ describe("url", function() {
 	test("media query", "@media (min-width: 500px) { body { background: url(image.png); } }", [
 		[1, "@media (min-width: 500px) { body { background: url({./image.png}); } }", ""]
 	]);
+	test("placeholder", ".[className] { background: red; }\n#[someId] { background: green; }\n" +
+		".[className] .[subClass] { color: green; }\n#[someId] .[subClass] { color: blue; }", function() { var r = [
+			[1, ".ze24205081ae540afa51bd4cce768e8b7 { background: red; }\n#zdf12049771f7fc796a63a3945da3a66d { background: green; }\n" +
+				".ze24205081ae540afa51bd4cce768e8b7 .z9f634213cd27594c1a13d18554d47a8c { color: green; }\n#zdf12049771f7fc796a63a3945da3a66d .z9f634213cd27594c1a13d18554d47a8c { color: blue; }", ""]
+		];
+		r.placeholders = {
+			className: "ze24205081ae540afa51bd4cce768e8b7",
+			someId: "zdf12049771f7fc796a63a3945da3a66d",
+			subClass: "z9f634213cd27594c1a13d18554d47a8c"
+		};
+		return r;
+	}());
 	testMinimize("minimized simple", ".class { a: b c d; }", [
 		[1, ".class{a:b c d}", ""]
 	]);

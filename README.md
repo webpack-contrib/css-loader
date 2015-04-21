@@ -37,6 +37,38 @@ module.exports = {
 };
 ```
 
+### Placeholders
+
+(experimental)
+
+Special selectors are automatically replaced with random identifiers, which are exported:
+
+``` css
+.[className] { background: red; }
+#[someId] { background: green; }
+.[className] .[subClass] { color: green; }
+#[someId] .[subClass] { color: blue; }
+```
+
+is transformed to
+
+``` css
+.ze24205081ae540afa51bd4cce768e8b7 { background: red; }
+#zdf12049771f7fc796a63a3945da3a66d { background: green; }
+.ze24205081ae540afa51bd4cce768e8b7 .z9f634213cd27594c1a13d18554d47a8c { color: green; }
+#zdf12049771f7fc796a63a3945da3a66d .z9f634213cd27594c1a13d18554d47a8c { color: blue; }
+```
+
+and the identifiers are exported:
+
+``` js
+exports.placeholders = {
+  className: "ze24205081ae540afa51bd4cce768e8b7",
+  someId: "zdf12049771f7fc796a63a3945da3a66d",
+  subClass: "z9f634213cd27594c1a13d18554d47a8c"
+}
+```
+
 ### 'Root-relative' urls
 
 For urls that start with a `/`, the default behavior is to not translate them:
