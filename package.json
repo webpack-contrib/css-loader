@@ -4,7 +4,7 @@
   "author": "Tobias Koppers @sokra",
   "description": "css loader module for webpack",
   "dependencies": {
-    "clean-css": "^3.1.9",
+    "clean-css": "^3.2.3",
     "fastparse": "^1.0.0",
     "loader-utils": "~0.2.2",
     "source-list-map": "^0.1.4"
