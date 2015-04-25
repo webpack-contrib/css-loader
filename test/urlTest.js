@@ -1,7 +1,31 @@
-var should = require("should");
-var path = require("path");
+/*globals describe it */
+
+require("should");
 var cssLoader = require("../index.js");
 var vm = require("vm");
+
+function assetEvaluated(output, result, modules) {
+	try {
+		var fn = vm.runInThisContext("(function(module, exports, require) {" + output + "})", "testcase.js");
+		var m = { exports: {}, id: 1 };
+		fn(m, m.exports, function(module) {
+			if(module === "./lib/css-base.js")
+				return require("../lib/css-base");
+			if(module.indexOf("-!loader!") === 0)
+				module = module.substr(9);
+			if(modules && modules[module])
+				return modules[module];
+			return "{" + module + "}";
+		});
+	} catch(e) {
+		console.error(output);
+		throw e;
+	}
+	delete m.exports.toString;
+	delete m.exports.i;
+	m.exports.should.be.eql(result);
+
+}
 
 function test(name, input, result, query, modules) {
 	it(name, function() {
@@ -36,29 +60,6 @@ function testMinimize(name, input, result, query, modules) {
 		}, input);
 		assetEvaluated(output, result, modules);
 	});
-}
-
-function assetEvaluated(output, result, modules) {
-	try {
-		var fn = vm.runInThisContext("(function(module, exports, require) {" + output + "})", "testcase.js");
-		var m = { exports: {}, id: 1 };
-		fn(m, m.exports, function(module) {
-			if(module === "./lib/css-base.js")
-				return require("../lib/css-base");
-			if(module.indexOf("-!loader!") === 0)
-				module = module.substr(9);
-			if(modules && modules[module])
-				return modules[module];
-			return "{" + module + "}";
-		});
-	} catch(e) {
-		console.error(output);
-		throw e;
-	}
-	delete m.exports.toString;
-	delete m.exports.i;
-	m.exports.should.be.eql(result);
-
 }
 
 describe("url", function() {
@@ -142,18 +143,27 @@ describe("url", function() {
 	test("media query", "@media (min-width: 500px) { body { background: url(image.png); } }", [
 		[1, "@media (min-width: 500px) { body { background: url({./image.png}); } }", ""]
 	]);
-	test("placeholder", ".[className] { background: red; }\n#[someId] { background: green; }\n" +
-		".[className] .[subClass] { color: green; }\n#[someId] .[subClass] { color: blue; }", function() { var r = [
-			[1, ".z857c3103f06630f914262cbc4bce752f { background: red; }\n#z5a79ec8f696debd47ffff36ec4ae1eb8 { background: green; }\n" +
-				".z857c3103f06630f914262cbc4bce752f .zaf1bf69321affd3c299f08aee1373fba { color: green; }\n#z5a79ec8f696debd47ffff36ec4ae1eb8 .zaf1bf69321affd3c299f08aee1373fba { color: blue; }", ""]
+	test("locals", ".local[className] { background: red; }\n#local[someId] { background: green; }\n" +
+		".local[className] .local[subClass] { color: green; }\n#local[someId] .local[subClass] { color: blue; }", function() { var r = [
+			[1, "._23_aKvs-b8bW2Vg3fwHozO { background: red; }\n#_1j3LM6lKkKzRIt19ImYVnD { background: green; }\n" +
+				"._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 { color: green; }\n#_1j3LM6lKkKzRIt19ImYVnD ._13LGdX8RMStbBE9w-t0gZ1 { color: blue; }", ""]
 		];
-		r.placeholders = {
-			className: "z857c3103f06630f914262cbc4bce752f",
-			someId: "z5a79ec8f696debd47ffff36ec4ae1eb8",
-			subClass: "zaf1bf69321affd3c299f08aee1373fba"
+		r.locals = {
+			className: "_23_aKvs-b8bW2Vg3fwHozO",
+			someId: "_1j3LM6lKkKzRIt19ImYVnD",
+			subClass: "_13LGdX8RMStbBE9w-t0gZ1"
 		};
 		return r;
 	}());
+	test("locals-format", ".local[test] { background: red; }",
+		function() { var r = [
+			[1, ".test-3tNsp { background: red; }", ""]
+		];
+		r.locals = {
+			test: "test-3tNsp"
+		};
+		return r;
+	}(), "?localIdentName=[local]-[hash:base64:5]");
 	testMinimize("minimized simple", ".class { a: b c d; }", [
 		[1, ".class{a:b c d}", ""]
 	]);

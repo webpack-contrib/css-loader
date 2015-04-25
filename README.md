@@ -2,7 +2,7 @@
 
 ## installation
 
-`npm install css-loader`
+`npm install css-loader --save-dev`
 
 ## Usage
 
@@ -30,43 +30,11 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.png$/, loader: "url-loader?limit=100000&mimetype=image/png" },
+      { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.jpg$/, loader: "file-loader" }
     ]
   }
 };
-```
-
-### Placeholders
-
-(experimental)
-
-Special selectors are automatically replaced with random identifiers, which are exported:
-
-``` css
-.[className] { background: red; }
-#[someId] { background: green; }
-.[className] .[subClass] { color: green; }
-#[someId] .[subClass] { color: blue; }
-```
-
-is transformed to
-
-``` css
-.ze24205081ae540afa51bd4cce768e8b7 { background: red; }
-#zdf12049771f7fc796a63a3945da3a66d { background: green; }
-.ze24205081ae540afa51bd4cce768e8b7 .z9f634213cd27594c1a13d18554d47a8c { color: green; }
-#zdf12049771f7fc796a63a3945da3a66d .z9f634213cd27594c1a13d18554d47a8c { color: blue; }
-```
-
-and the identifiers are exported:
-
-``` js
-exports.placeholders = {
-  className: "ze24205081ae540afa51bd4cce768e8b7",
-  someId: "zdf12049771f7fc796a63a3945da3a66d",
-  subClass: "z9f634213cd27594c1a13d18554d47a8c"
-}
 ```
 
 ### 'Root-relative' urls
@@ -89,6 +57,48 @@ With a config like:
 The result is:
 
 * `url(/image.png)` => `require("./image.png")`
+
+### Local scope
+
+(experimental)
+
+By default CSS exports all class names into a global selector scope. This is a feature which tries to offer a local selector scope.
+
+The syntax `.local[className]` can be used to declare `className` in the local scope. The local identifiers are exported by the module.
+
+It does it by replacing the selectors by unique identifiers. The choosen unique identifiers are exported by the module.
+
+Example:
+
+``` css
+.local[className] { background: red; }
+#local[someId] { background: green; }
+.local[className] .local[subClass] { color: green; }
+#local[someId] .local[subClass] { color: blue; }
+```
+
+is transformed to
+
+``` css
+.ze24205081ae540afa51bd4cce768e8b7 { background: red; }
+#zdf12049771f7fc796a63a3945da3a66d { background: green; }
+.ze24205081ae540afa51bd4cce768e8b7 .z9f634213cd27594c1a13d18554d47a8c { color: green; }
+#zdf12049771f7fc796a63a3945da3a66d .z9f634213cd27594c1a13d18554d47a8c { color: blue; }
+```
+
+and the identifiers are exported:
+
+``` js
+exports.locals = {
+  className: "ze24205081ae540afa51bd4cce768e8b7",
+  someId: "zdf12049771f7fc796a63a3945da3a66d",
+  subClass: "z9f634213cd27594c1a13d18554d47a8c"
+}
+```
+
+You can configure the generated ident with the `localIdentName` query parameter (default `[hash:base64]`). Example: `css-loader?localIdentName=[path][name]---[local]---[hash:base64:5]` for easier debugging.
+
+Note: For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` in the prerendering bundle. It doesn't embed CSS but only exports the identifier mappings.
 
 ### SourceMaps
 
