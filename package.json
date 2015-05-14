@@ -10,11 +10,16 @@
     "source-list-map": "^0.1.4"
   },
   "devDependencies": {
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.13",
     "mocha": "^2.2.4",
     "should": "^5.2.0"
   },
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha",
+    "travis": "npm run cover -- --report lcovonly",
+    "cover": "istanbul cover -x *.runtime.js node_modules/mocha/bin/_mocha",
+    "publish-patch": "mocha && npm version patch && git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
