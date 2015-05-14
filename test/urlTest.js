@@ -143,6 +143,9 @@ describe("url", function() {
 	test("media query", "@media (min-width: 500px) { body { background: url(image.png); } }", [
 		[1, "@media (min-width: 500px) { body { background: url({./image.png}); } }", ""]
 	]);
+	test("url in string", "a { content: \"do not use url(path)\"; } b { content: 'do not \"use\" url(path)'; }", [
+		[1, "a { content: \"do not use url(path)\"; } b { content: 'do not \"use\" url(path)'; }", ""]
+	]);
 	test("locals", ".local[className] { background: red; }\n#local[someId] { background: green; }\n" +
 		".local[className] .local[subClass] { color: green; }\n#local[someId] .local[subClass] { color: blue; }", function() { var r = [
 			[1, "._23_aKvs-b8bW2Vg3fwHozO { background: red; }\n#_1j3LM6lKkKzRIt19ImYVnD { background: green; }\n" +
