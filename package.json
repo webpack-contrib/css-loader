@@ -25,10 +25,5 @@
     "type": "git",
     "url": "git@github.com:webpack/css-loader.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
-    }
-  ]
+  "license": "MIT"
 }
