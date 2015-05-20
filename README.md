@@ -60,45 +60,100 @@ The result is:
 
 ### Local scope
 
-(experimental)
+By default CSS exports all class names into a global selector scope. This is a feature which offer a local selector scope.
 
-By default CSS exports all class names into a global selector scope. This is a feature which tries to offer a local selector scope.
-
-The syntax `.local[className]` can be used to declare `className` in the local scope. The local identifiers are exported by the module.
+The syntax `:local(.className)` can be used to declare `className` in the local scope. The local identifiers are exported by the module.
 
 It does it by replacing the selectors by unique identifiers. The choosen unique identifiers are exported by the module.
 
 Example:
 
 ``` css
-.local[className] { background: red; }
-#local[someId] { background: green; }
-.local[className] .local[subClass] { color: green; }
-#local[someId] .local[subClass] { color: blue; }
+:local(.className) { background: red; }
+:local(#someId) { background: green; }
+:local(.className .subClass) { color: green; }
+:local(#someId .subClass) { color: blue; }
 ```
 
 is transformed to
 
 ``` css
-.ze24205081ae540afa51bd4cce768e8b7 { background: red; }
-#zdf12049771f7fc796a63a3945da3a66d { background: green; }
-.ze24205081ae540afa51bd4cce768e8b7 .z9f634213cd27594c1a13d18554d47a8c { color: green; }
-#zdf12049771f7fc796a63a3945da3a66d .z9f634213cd27594c1a13d18554d47a8c { color: blue; }
+._23_aKvs-b8bW2Vg3fwHozO { background: red; }
+#_1j3LM6lKkKzRIt19ImYVnD { background: green; }
+._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 { color: green; }
+#_1j3LM6lKkKzRIt19ImYVnD ._13LGdX8RMStbBE9w-t0gZ1 { color: blue; }
 ```
 
 and the identifiers are exported:
 
 ``` js
 exports.locals = {
-  className: "ze24205081ae540afa51bd4cce768e8b7",
-  someId: "zdf12049771f7fc796a63a3945da3a66d",
-  subClass: "z9f634213cd27594c1a13d18554d47a8c"
+  className: "_23_aKvs-b8bW2Vg3fwHozO",
+  someId: "_1j3LM6lKkKzRIt19ImYVnD",
+  subClass: "_13LGdX8RMStbBE9w-t0gZ1"
 }
 ```
 
 You can configure the generated ident with the `localIdentName` query parameter (default `[hash:base64]`). Example: `css-loader?localIdentName=[path][name]---[local]---[hash:base64:5]` for easier debugging.
 
 Note: For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` in the prerendering bundle. It doesn't embed CSS but only exports the identifier mappings.
+
+### Inheriting
+
+(experimental)
+
+When declaring a local class name you can inherit from another local class name.
+
+``` css
+:local(.className) {
+  background: red;
+  color: yellow;
+}
+
+:local(.subClass):extends(.className) {
+  background: blue;
+}
+```
+
+This doesn't result in any change to the CSS itself but exports multiple class names:
+
+``` js
+exports.locals = {
+  className: "_23_aKvs-b8bW2Vg3fwHozO",
+  subClass: "_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO"
+}
+```
+
+and CSS is transformed to:
+
+``` css
+._23_aKvs-b8bW2Vg3fwHozO {
+  background: red;
+  color: yellow;
+}
+
+._13LGdX8RMStbBE9w-t0gZ1 {
+  background: blue;
+}
+```
+
+### Importing local class names
+
+(experimental)
+
+To import a local class name from another module:
+
+``` css
+:local(.continueButton):extends(.button from "library/button.css") {
+  background: red;
+}
+```
+
+``` css
+:local(.nameEdit):extends(.edit.highlight from "./edit.css") {
+  background: red;
+}
+```
 
 ### SourceMaps
 
