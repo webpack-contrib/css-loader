@@ -38,7 +38,10 @@ exports.test = function test(name, input, result, query, modules) {
 			context: "",
 			resource: "test.css",
 			request: "css-loader!test.css",
-			query: query
+			query: query,
+			emitError: function(message) {
+				throw new Error(message);
+			}
 		}, input);
 		assetEvaluated(output, result, modules);
 	});
@@ -56,7 +59,10 @@ exports.testMinimize = function testMinimize(name, input, result, query, modules
 			resource: "test.css",
 			request: "css-loader!test.css",
 			minimize: true,
-			query: query
+			query: query,
+			emitError: function(message) {
+				throw new Error(message);
+			}
 		}, input);
 		assetEvaluated(output, result, modules);
 	});

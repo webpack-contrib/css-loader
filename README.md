@@ -64,24 +64,26 @@ By default CSS exports all class names into a global selector scope. This is a f
 
 The syntax `:local(.className)` can be used to declare `className` in the local scope. The local identifiers are exported by the module.
 
-It does it by replacing the selectors by unique identifiers. The choosen unique identifiers are exported by the module.
+With `:local` (without brackets) local mode can be switched on for this selector. `:global(.className)` can be used to declare an explicit global selector. With `:global` (without brackets) global mode can be switched on for this selector.
+
+The loader replaces local selectors with unique identifiers. The choosen unique identifiers are exported by the module.
 
 Example:
 
 ``` css
 :local(.className) { background: red; }
-:local(#someId) { background: green; }
+:local .className { color: green; }
 :local(.className .subClass) { color: green; }
-:local(#someId .subClass) { color: blue; }
+:local .className .subClass :global(.global-class-name) { color: blue; }
 ```
 
 is transformed to
 
 ``` css
 ._23_aKvs-b8bW2Vg3fwHozO { background: red; }
-#_1j3LM6lKkKzRIt19ImYVnD { background: green; }
+._23_aKvs-b8bW2Vg3fwHozO { color: green; }
 ._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 { color: green; }
-#_1j3LM6lKkKzRIt19ImYVnD ._13LGdX8RMStbBE9w-t0gZ1 { color: blue; }
+._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 .global-class-name { color: blue; }
 ```
 
 and the identifiers are exported:
@@ -89,18 +91,32 @@ and the identifiers are exported:
 ``` js
 exports.locals = {
   className: "_23_aKvs-b8bW2Vg3fwHozO",
-  someId: "_1j3LM6lKkKzRIt19ImYVnD",
   subClass: "_13LGdX8RMStbBE9w-t0gZ1"
 }
 ```
+
+Camelcasing is recommended for local selectors. They are easier to use in the importing javascript module.
+
+You can use `:local(#someId)`, but this is not recommended. Use classes instead of ids.
 
 You can configure the generated ident with the `localIdentName` query parameter (default `[hash:base64]`). Example: `css-loader?localIdentName=[path][name]---[local]---[hash:base64:5]` for easier debugging.
 
 Note: For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` in the prerendering bundle. It doesn't embed CSS but only exports the identifier mappings.
 
-### Inheriting
+### Module mode
 
 (experimental)
+
+The query parameter `module` enables **CSS module** mode. (`css-loader?module`)
+
+* Local scoped by default.
+* `url(...)` URLs behave like requests in modules:
+  * `./file.png` instead of `file.png`
+  * `module/file.png` instead of `~module/file.png`
+
+Thanks to @markdalgleish for prior work on this topic.
+
+### Inheriting
 
 When declaring a local class name you can inherit from another local class name.
 
@@ -110,7 +126,8 @@ When declaring a local class name you can inherit from another local class name.
   color: yellow;
 }
 
-:local(.subClass):extends(.className) {
+:local(.subClass) {
+  extends: className;
   background: blue;
 }
 ```
@@ -139,18 +156,30 @@ and CSS is transformed to:
 
 ### Importing local class names
 
-(experimental)
-
 To import a local class name from another module:
 
 ``` css
-:local(.continueButton):extends(.button from "library/button.css") {
+:local(.continueButton) {
+  extends: button from "library/button.css";
   background: red;
 }
 ```
 
 ``` css
-:local(.nameEdit):extends(.edit.highlight from "./edit.css") {
+:local(.nameEdit) {
+  extends: edit highlight from "./edit.css";
+  background: red;
+}
+```
+
+To import from multiple modules use multiple `extends:` rules. You can also use `url(...)` to specify the module (it behave a bit different).
+
+``` css
+:local(.className) {
+  extends: edit hightlight from "./edit.css";
+  extends: button from url("button.css");
+  /* equal to 'extends: button from "./button.css";' */
+  extends: classFromThisModule;
   background: red;
 }
 ```
