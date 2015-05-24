@@ -107,7 +107,7 @@ Note: For prerendering with extract-text-webpack-plugin you should use `css-load
 
 (experimental)
 
-The query parameter `module` enables **CSS module** mode. (`css-loader?module`)
+The query parameter `module` enables **CSS Module** mode. (`css-loader?module`)
 
 * Local scoped by default.
 * `url(...)` URLs behave like requests in modules:
