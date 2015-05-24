@@ -1,0 +1,8 @@
+._a_ ._b_, ._c_ ._d_, #_id_ {
+	color: green;
+	font-size: 1.5pt;
+}
+a[href="#b.c"]._x_._y_ {
+	color: green;
+	font-size: 1.5pt;
+}
