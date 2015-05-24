@@ -114,7 +114,7 @@ The query parameter `module` enables **CSS module** mode. (`css-loader?module`)
   * `./file.png` instead of `file.png`
   * `module/file.png` instead of `~module/file.png`
 
-Thanks to @markdalgleish for prior work on this topic.
+Thanks to [@markdalgleish](https://github.com/markdalgleish) for prior work on this topic.
 
 ### Inheriting
 
