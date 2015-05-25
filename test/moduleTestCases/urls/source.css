@@ -1,0 +1,8 @@
+.a {
+	background: url(./module);
+	background: url("./module");
+	background: url('./module');
+	background: url("./module#?iefix");
+	background: url("#hash");
+	background: url("#");
+}

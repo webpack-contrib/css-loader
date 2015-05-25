@@ -1,6 +1,6 @@
 /*globals describe */
 
-var test = require("./helpers").testWithoutLocals;
+var test = require("./helpers").testSingleItem;
 
 var path = require("path");
 var fs = require("fs");
@@ -12,6 +12,6 @@ describe("module", function() {
 		var source = fs.readFileSync(path.join(testCasesPath, name, "source.css"), "utf-8");
 		var expected = fs.readFileSync(path.join(testCasesPath, name, "expected.css"), "utf-8");
 
-		test(name, source, [[1, expected, ""]], "?module&localIdentName=_[local]_");
+		test(name, source, expected, "?module&localIdentName=_[local]_");
 	});
 });

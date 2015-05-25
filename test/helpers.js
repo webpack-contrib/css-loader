@@ -4,7 +4,7 @@ require("should");
 var cssLoader = require("../index.js");
 var vm = require("vm");
 
-function assetEvaluated(output, result, modules, noLocals) {
+function getEvaluated(output, result, modules) {
 	try {
 		var fn = vm.runInThisContext("(function(module, exports, require) {" + output + "})", "testcase.js");
 		var m = { exports: {}, id: 1 };
@@ -23,9 +23,12 @@ function assetEvaluated(output, result, modules, noLocals) {
 	}
 	delete m.exports.toString;
 	delete m.exports.i;
-	if(noLocals) delete m.exports.locals;
-	m.exports.should.be.eql(result);
+	return m.exports;
+}
 
+function assetEvaluated(output, result, modules) {
+	var exports = getEvaluated(output, result, modules);
+	exports.should.be.eql(result);
 }
 
 exports.test = function test(name, input, result, query, modules) {
@@ -48,7 +51,7 @@ exports.test = function test(name, input, result, query, modules) {
 	});
 };
 
-exports.testWithoutLocals = function testWithoutLocals(name, input, result, query, modules) {
+exports.testSingleItem = function testSingleItem(name, input, result, query, modules) {
 	it(name, function() {
 		var output = cssLoader.call({
 			options: {
@@ -64,7 +67,13 @@ exports.testWithoutLocals = function testWithoutLocals(name, input, result, quer
 				throw new Error(message);
 			}
 		}, input);
-		assetEvaluated(output, result, modules, true);
+		var exports = getEvaluated(output, result, modules);
+		Array.isArray(exports).should.be.eql(true);
+		(exports.length).should.be.eql(1);
+		(exports[0].length).should.be.eql(3);
+		(exports[0][0]).should.be.eql(1);
+		(exports[0][2]).should.be.eql("");
+		(exports[0][1]).should.be.eql(result);
 	});
 };
 
