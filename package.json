@@ -10,6 +10,7 @@
     "source-list-map": "^0.1.4"
   },
   "devDependencies": {
+    "codecov.io": "^0.1.2",
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.13",
     "mocha": "^2.2.4",
