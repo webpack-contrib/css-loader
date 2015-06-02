@@ -7,6 +7,7 @@
     "clean-css": "^3.1.9",
     "fastparse": "^1.1.1",
     "loader-utils": "~0.2.2",
+    "lodash.clone": "^3.0.2",
     "source-list-map": "^0.1.4"
   },
   "devDependencies": {
