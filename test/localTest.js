@@ -113,4 +113,9 @@ describe("local", function() {
 		someId: "_1j3LM6lKkKzRIt19ImYVnD",
 		subClass: "_13LGdX8RMStbBE9w-t0gZ1"
 	}, "?module");
+	testLocal("class name parsing", ".-a0-34a___f { color: red; }", [
+		[1, "._1YJOcrkc6cyZmBAAvyPFOn { color: red; }", ""]
+	], {
+		"-a0-34a___f": "_1YJOcrkc6cyZmBAAvyPFOn"
+	}, "?module");
 });
