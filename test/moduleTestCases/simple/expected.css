@@ -6,3 +6,6 @@ a[href="#b.c"]._x_._y_ {
 	color: green;
 	font-size: 1.5pt;
 }
+@keyframes _z_ {
+  2.5% {color: green;}
+}
