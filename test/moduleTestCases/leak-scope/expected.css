@@ -18,8 +18,8 @@
 }
 
 ._c_ {
-	animation: c1;
-	animation: _c2_, c3, _c4_;
+	animation: _c1_;
+	animation: _c2_, _c3_, _c4_;
 }
 
 @keyframes d {
@@ -29,7 +29,7 @@
 
 .d1 {
 	animation: d1;
-	animation: d2, _d3_, d4;
+	animation: d2, d3, d4;
 }
 
 .d2 {

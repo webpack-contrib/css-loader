@@ -4,9 +4,13 @@
   "author": "Tobias Koppers @sokra",
   "description": "css loader module for webpack",
   "dependencies": {
-    "clean-css": "^3.1.9",
-    "fastparse": "^1.1.1",
+    "css-selector-tokenizer": "^0.5.1",
+    "cssnano": "^1.4.2",
     "loader-utils": "~0.2.2",
+    "postcss": "^4.1.11",
+    "postcss-modules-extract-imports": "0.0.5",
+    "postcss-modules-local-by-default": "0.0.10",
+    "postcss-modules-scope": "0.0.7",
     "source-list-map": "^0.1.4"
   },
   "devDependencies": {
@@ -14,7 +18,7 @@
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.13",
     "mocha": "^2.2.4",
-    "should": "^5.2.0"
+    "should": "^7.0.1"
   },
   "scripts": {
     "test": "mocha",

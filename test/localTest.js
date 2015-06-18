@@ -31,13 +31,13 @@ describe("local", function() {
 		c7: "_c7"
 	}, "?localIdentName=_[local]");
 	testLocal("comment in local", ":local(.c1/*.c2*/.c3) { background: red; }", [
-		[1, "._c1/*.c2*/._c3 { background: red; }", ""]
+		[1, "._c1._c3 { background: red; }", ""]
 	], {
 		c1: "_c1",
 		c3: "_c3"
 	}, "?localIdentName=_[local]");
 	testLocal("comment in local", ":local(.c1/*.c2*/.c3) { background: red; }", [
-		[1, "._c1/*.c2*/._c3 { background: red; }", ""]
+		[1, "._c1._c3 { background: red; }", ""]
 	], {
 		c1: "_c1",
 		c3: "_c3"
@@ -50,16 +50,16 @@ describe("local", function() {
 		c4: "_c4"
 	}, "?localIdentName=_[local]");
 
-	testLocal("extends class simple", ":local(.c1) { a: 1; }\n:local(.c2) { extends: c1; b: 1; }", [
+	testLocal("composes class simple", ":local(.c1) { a: 1; }\n:local(.c2) { composes: c1; b: 1; }", [
 		[1, "._c1 { a: 1; }\n._c2 { b: 1; }", ""]
 	], {
 		c1: "_c1",
 		c2: "_c2 _c1"
 	}, "?localIdentName=_[local]");
-	testLocal("extends class from module", [
-		":local(.c1) { extends: c2 from \"./module\"; b: 1; }",
-		":local(.c3) { extends: c1; b: 3; }",
-		":local(.c5) { extends: c2 c4 from \"./module\"; b: 5; }"
+	testLocal("composes class from module", [
+		":local(.c1) { composes: c2 from \"./module\"; b: 1; }",
+		":local(.c3) { composes: c1; b: 3; }",
+		":local(.c5) { composes: c2 c4 from \"./module\"; b: 5; }"
 	].join("\n"), [
 		[2, ".test{c: d}", ""],
 		[1, [
@@ -83,12 +83,12 @@ describe("local", function() {
 			return r;
 		}())
 	});
-	testLocal("extends class from module with import", [
+	testLocal("composes class from module with import", [
 		"@import url(\"module\");",
-		":local(.c1) { extends: c2 c3 from \"./module\"; extends: c4 from url(module); b: 1; }"
+		":local(.c1) { composes: c2 c3 from \"./module\"; composes: c4 from \"./module\"; b: 1; }"
 	].join("\n"), [
 		[2, ".test{c: d}", ""],
-		[1, "\n._c1 { b: 1; }", ""]
+		[1, "._c1 { b: 1; }", ""]
 	], {
 		c1: "_c1 imported-c2 imported-c3 imported-c4"
 	}, "?localIdentName=_[local]", {
