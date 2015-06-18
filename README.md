@@ -110,15 +110,13 @@ You can configure the generated ident with the `localIdentName` query parameter 
 
 Note: For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` **in the prerendering bundle**. It doesn't embed CSS but only exports the identifier mappings.
 
-### Module mode
-
-(experimental)
+### CSS Modules
 
 See [CSS Modules](https://github.com/css-modules/css-modules).
 
-The query parameter `module` enables **CSS Module** mode. (`css-loader?module`)
+The query parameter `modules` enables the **CSS Modules** spec. (`css-loader?modules`)
 
-This enables Local scoped CSS by default. (You can leave it with `:global(...)` or `:global` for selectors and/or rules.)
+This enables Local scoped CSS by default. (You can switch it off with `:global(...)` or `:global` for selectors and/or rules.)
 
 ### Composing CSS classes
 
