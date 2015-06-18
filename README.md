@@ -17,7 +17,7 @@ var css = require("css!./file.css");
 Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader)
 and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see below).
 
-To be compatible with existing css files:
+To be compatible with existing css files (if not in CSS Module mode):
 * `url(image.png)` => `require("./image.png")`
 * `url(~module/image.png)` => `require("module/image.png")`
 
@@ -58,6 +58,8 @@ The result is:
 
 * `url(/image.png)` => `require("./image.png")`
 
+Using 'Root-relative' urls is not recommended. You should only use it for legacy CSS files.
+
 ### Local scope
 
 By default CSS exports all class names into a global selector scope. This is a feature which offer a local selector scope.
@@ -97,28 +99,30 @@ exports.locals = {
 
 Camelcasing is recommended for local selectors. They are easier to use in the importing javascript module.
 
+`url(...)` URLs in block scoped (`:local .abc`) rules behave like requests in modules:
+  * `./file.png` instead of `file.png`
+  * `module/file.png` instead of `~module/file.png`
+
+
 You can use `:local(#someId)`, but this is not recommended. Use classes instead of ids.
 
 You can configure the generated ident with the `localIdentName` query parameter (default `[hash:base64]`). Example: `css-loader?localIdentName=[path][name]---[local]---[hash:base64:5]` for easier debugging.
 
-Note: For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` in the prerendering bundle. It doesn't embed CSS but only exports the identifier mappings.
+Note: For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` **in the prerendering bundle**. It doesn't embed CSS but only exports the identifier mappings.
 
 ### Module mode
 
 (experimental)
 
+See [CSS Modules](https://github.com/css-modules/css-modules).
+
 The query parameter `module` enables **CSS Module** mode. (`css-loader?module`)
 
-* Local scoped by default.
-* `url(...)` URLs behave like requests in modules:
-  * `./file.png` instead of `file.png`
-  * `module/file.png` instead of `~module/file.png`
+This enables Local scoped CSS by default. (You can leave it with `:global(...)` or `:global` for selectors and/or rules.)
 
-Thanks to [@markdalgleish](https://github.com/markdalgleish) for prior work on this topic.
+### Composing CSS classes
 
-### Inheriting
-
-When declaring a local class name you can inherit from another local class name.
+When declaring a local class name you can compose a local class from another local class name.
 
 ``` css
 :local(.className) {
@@ -127,7 +131,7 @@ When declaring a local class name you can inherit from another local class name.
 }
 
 :local(.subClass) {
-  extends: className;
+  composes: className;
   background: blue;
 }
 ```
@@ -160,26 +164,25 @@ To import a local class name from another module:
 
 ``` css
 :local(.continueButton) {
-  extends: button from "library/button.css";
+  composes: button from "library/button.css";
   background: red;
 }
 ```
 
 ``` css
 :local(.nameEdit) {
-  extends: edit highlight from "./edit.css";
+  composes: edit highlight from "./edit.css";
   background: red;
 }
 ```
 
-To import from multiple modules use multiple `extends:` rules. You can also use `url(...)` to specify the module (it behave a bit different).
+To import from multiple modules use multiple `composes:` rules.
 
 ``` css
 :local(.className) {
-  extends: edit hightlight from "./edit.css";
-  extends: button from url("button.css");
-  /* equal to 'extends: button from "./button.css";' */
-  extends: classFromThisModule;
+  composes: edit hightlight from "./edit.css";
+  composes: button from "module/button.css";
+  composes: classFromThisModule;
   background: red;
 }
 ```
@@ -191,6 +194,8 @@ To include SourceMaps set the `sourceMap` query param.
 `require("css-loader?sourceMap!./file.css")`
 
 I. e. the extract-text-webpack-plugin can handle them.
+
+They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS SourceMap do not). In addition to that relative paths are buggy and you need to use an absolute public path which include the server url.
 
 ### importing and chained loaders
 
@@ -209,6 +214,8 @@ require("style-loader!css-loader!stylus-loader!...")
 // => imported resources are handled this way:
 require("css-loader!...")
 ```
+
+This may change in the future, when the module system (i. e. webpack) supports loader matching by origin.
 
 ### Minification
 
