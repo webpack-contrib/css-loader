@@ -131,4 +131,16 @@ describe("local", function() {
 	], {
 		"-a0-34a___f": "_1YJOcrkc6cyZmBAAvyPFOn"
 	}, "?module");
+	testLocal("imported values in decl", ".className { color: IMPORTED_NAME; }\n" +
+		":import(\"./vars.css\") { IMPORTED_NAME: primary-color; }", [
+		[1, "._className { color: red; }", ""]
+	], {
+		"className": "_className"
+	}, "?module&localIdentName=_[local]", {
+		"./vars.css": {
+			locals: {
+				"primary-color": "red"
+			}
+		}
+	});
 });
