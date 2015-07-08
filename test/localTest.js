@@ -96,6 +96,33 @@ describe("local", function() {
 			return r;
 		}())
 	});
+	testLocal("composes class with hyphen from module", [
+		":local(.c1) { composes: c-2 from \"./module\"; b: 1; }",
+		":local(.c3) { composes: c1; b: 3; }",
+		":local(.c5) { composes: c-2 c4 from \"./module\"; b: 5; }"
+	].join("\n"), [
+		[2, ".test{c: d}", ""],
+		[1, [
+			"._c1 { b: 1; }",
+			"._c3 { b: 3; }",
+			"._c5 { b: 5; }"
+		].join("\n"), ""]
+	], {
+		c1: "_c1 imported-c-2",
+		c3: "_c3 _c1 imported-c-2",
+		c5: "_c5 imported-c-2 imported-c4"
+	}, "?localIdentName=_[local]", {
+		"./module": (function() {
+			var r = [
+				[2, ".test{c: d}", ""]
+			];
+			r.locals = {
+				"c-2": "imported-c-2",
+				c4: "imported-c4"
+			};
+			return r;
+		}())
+	});
 	testLocal("composes class from module with import", [
 		"@import url(\"module\");",
 		":local(.c1) { composes: c2 c3 from \"./module\"; composes: c4 from \"./module\"; b: 1; }"
