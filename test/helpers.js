@@ -52,6 +52,26 @@ exports.test = function test(name, input, result, query, modules) {
 	});
 };
 
+exports.testWithMap = function test(name, input, map, result, query, modules) {
+	it(name, function() {
+		var output = cssLoader.call({
+			options: {
+				context: ""
+			},
+			loaders: [{request: "loader"}],
+			loaderIndex: 0,
+			context: "",
+			resource: "test.css",
+			request: "css-loader!test.css",
+			query: query,
+			emitError: function(message) {
+				throw new Error(message);
+			}
+		}, input, map);
+		assetEvaluated(output, result, modules);
+	});
+};
+
 exports.testLocals = function testLocals(name, input, result, query, modules) {
 	it(name, function() {
 		var output = cssLoaderLocals.call({
