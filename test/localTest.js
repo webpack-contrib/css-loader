@@ -170,4 +170,9 @@ describe("local", function() {
 			}
 		}
 	});
+	testLocal("issue-109", ".bar-1 { color: red; }", [
+		[1, ".file--bar-1--2ESB7 { color: red; }", ""]
+	], {
+		"bar-1": "file--bar-1--2ESB7"
+	}, "?modules&importLoaders=1&localIdentName=[name]--[local]--[hash:base64:5]");
 });
