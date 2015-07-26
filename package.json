@@ -9,7 +9,7 @@
     "loader-utils": "~0.2.2",
     "postcss": "^4.1.11",
     "postcss-modules-extract-imports": "0.0.5",
-    "postcss-modules-local-by-default": "0.0.10",
+    "postcss-modules-local-by-default": "0.0.11",
     "postcss-modules-scope": "0.0.7",
     "source-list-map": "^0.1.4"
   },
