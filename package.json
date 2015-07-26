@@ -5,7 +5,7 @@
   "description": "css loader module for webpack",
   "dependencies": {
     "css-selector-tokenizer": "^0.5.1",
-    "cssnano": "^1.4.2",
+    "cssnano": "^2.1.0",
     "loader-utils": "~0.2.2",
     "postcss": "^4.1.11",
     "postcss-modules-extract-imports": "0.0.5",
