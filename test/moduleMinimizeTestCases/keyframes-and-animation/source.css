@@ -1,0 +1,28 @@
+@keyframes bounce {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(-50%);
+		opacity: 1;
+	}
+}
+
+@keyframes bounce2 {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	50% {
+		transform: translateY(-50%);
+		opacity: 1;
+	}
+}
+
+/* comment */
+.bounce {
+	animation-name: bounce;
+	animation: bounce2 1s ease;
+	z-index: 1442;
+}
