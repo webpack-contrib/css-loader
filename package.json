@@ -5,9 +5,9 @@
   "description": "css loader module for webpack",
   "dependencies": {
     "css-selector-tokenizer": "^0.5.1",
-    "cssnano": "^2.6.1",
+    "cssnano": ">=2.6.1 <4",
     "loader-utils": "~0.2.2",
-    "postcss": "^4.1.11",
+    "postcss": ">=4.1.11 <6",
     "postcss-modules-extract-imports": "0.0.5",
     "postcss-modules-local-by-default": "0.0.12",
     "postcss-modules-scope": "0.0.8",

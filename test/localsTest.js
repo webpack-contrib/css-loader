@@ -33,4 +33,20 @@ describe("locals", function() {
 			}
 		}
 	);
+	testLocals("should return only locals with importing",
+		":local(.abc) { composes: def from \"./module1.css\"; composes: def from \"./module2.css\"; }",
+		{
+			abc: "_abc imported_def1 imported_ghi1 imported_def2"
+		},
+		"?localIdentName=_[local]",
+		{
+			"./module1.css": {
+				def: "imported_def1 imported_ghi1",
+				ghi: "imported_ghi1"
+			},
+			"./module2.css": {
+				def: "imported_def2"
+			}
+		}
+	);
 });

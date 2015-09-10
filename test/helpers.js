@@ -32,109 +32,93 @@ function assetEvaluated(output, result, modules) {
 	exports.should.be.eql(result);
 }
 
+function runLoader(loader, input, map, addOptions, callback) {
+	var opt = {
+		options: {
+			context: ""
+		},
+		callback: callback,
+		async: function() {
+			return callback;
+		},
+		loaders: [{request: "loader"}],
+		loaderIndex: 0,
+		context: "",
+		resource: "test.css",
+		request: "css-loader!test.css",
+		emitError: function(message) {
+			throw new Error(message);
+		}
+	};
+	Object.keys(addOptions).forEach(function(key) {
+		opt[key] = addOptions[key];
+	});
+	loader.call(opt, input, map);
+}
+
 exports.test = function test(name, input, result, query, modules) {
-	it(name, function() {
-		var output = cssLoader.call({
-			options: {
-				context: ""
-			},
-			loaders: [{request: "loader"}],
-			loaderIndex: 0,
-			context: "",
-			resource: "test.css",
-			request: "css-loader!test.css",
-			query: query,
-			emitError: function(message) {
-				throw new Error(message);
-			}
-		}, input);
-		assetEvaluated(output, result, modules);
+	it(name, function(done) {
+		runLoader(cssLoader, input, undefined, {
+			query: query
+		}, function(err, output) {
+			if(err) return done(err);
+			assetEvaluated(output, result, modules);
+			done();
+		});
 	});
 };
 
 exports.testWithMap = function test(name, input, map, result, query, modules) {
-	it(name, function() {
-		var output = cssLoader.call({
-			options: {
-				context: ""
-			},
-			loaders: [{request: "loader"}],
-			loaderIndex: 0,
-			context: "",
-			resource: "test.css",
-			request: "css-loader!test.css",
-			query: query,
-			emitError: function(message) {
-				throw new Error(message);
-			}
-		}, input, map);
-		assetEvaluated(output, result, modules);
+	it(name, function(done) {
+		runLoader(cssLoader, input, map, {
+			query: query
+		}, function(err, output) {
+			if(err) return done(err);
+			assetEvaluated(output, result, modules);
+			done();
+		});
 	});
 };
 
 exports.testLocals = function testLocals(name, input, result, query, modules) {
-	it(name, function() {
-		var output = cssLoaderLocals.call({
-			options: {
-				context: ""
-			},
-			loaders: [{request: "loader"}],
-			loaderIndex: 0,
-			context: "",
-			resource: "test.css",
-			request: "css-loader/locals!test.css",
-			query: query,
-			emitError: function(message) {
-				throw new Error(message);
-			}
-		}, input);
-		assetEvaluated(output, result, modules);
+	it(name, function(done) {
+		runLoader(cssLoaderLocals, input, undefined, {
+			query: query
+		}, function(err, output) {
+			if(err) return done(err);
+			assetEvaluated(output, result, modules);
+			done();
+		});
 	});
 };
 
 exports.testSingleItem = function testSingleItem(name, input, result, query, modules) {
-	it(name, function() {
-		var output = cssLoader.call({
-			options: {
-				context: ""
-			},
-			loaders: [{request: "loader"}],
-			loaderIndex: 0,
-			context: "",
-			resource: "test.css",
-			request: "css-loader!test.css",
-			query: query,
-			emitError: function(message) {
-				throw new Error(message);
-			}
-		}, input);
-		var exports = getEvaluated(output, modules);
-		Array.isArray(exports).should.be.eql(true);
-		(exports.length).should.be.eql(1);
-		(exports[0].length >= 3).should.be.eql(true);
-		(exports[0][0]).should.be.eql(1);
-		(exports[0][2]).should.be.eql("");
-		(exports[0][1]).should.be.eql(result);
+	it(name, function(done) {
+		runLoader(cssLoader, input, undefined, {
+			query: query
+		}, function(err, output) {
+			if(err) return done(err);
+			var exports = getEvaluated(output, modules);
+			Array.isArray(exports).should.be.eql(true);
+			(exports.length).should.be.eql(1);
+			(exports[0].length >= 3).should.be.eql(true);
+			(exports[0][0]).should.be.eql(1);
+			(exports[0][2]).should.be.eql("");
+			(exports[0][1]).should.be.eql(result);
+			done();
+		});
 	});
 };
 
 exports.testMinimize = function testMinimize(name, input, result, query, modules) {
-	it(name, function() {
-		var output = cssLoader.call({
-			options: {
-				context: ""
-			},
-			loaders: [{request: "loader"}],
-			loaderIndex: 0,
-			context: "",
-			resource: "test.css",
-			request: "css-loader!test.css",
+	it(name, function(done) {
+		runLoader(cssLoader, input, undefined, {
 			minimize: true,
-			query: query,
-			emitError: function(message) {
-				throw new Error(message);
-			}
-		}, input);
-		assetEvaluated(output, result, modules);
+			query: query
+		}, function(err, output) {
+			if(err) return done(err);
+			assetEvaluated(output, result, modules);
+			done();
+		});
 	});
 };
