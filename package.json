@@ -7,10 +7,10 @@
     "css-selector-tokenizer": "^0.5.1",
     "cssnano": ">=2.6.1 <4",
     "loader-utils": "~0.2.2",
-    "postcss": ">=4.1.11 <6",
-    "postcss-modules-extract-imports": "0.0.5",
-    "postcss-modules-local-by-default": "0.0.12",
-    "postcss-modules-scope": "0.0.8",
+    "postcss": "^5.0.6",
+    "postcss-modules-extract-imports": "1.0.0-beta2",
+    "postcss-modules-local-by-default": "1.0.0-beta1",
+    "postcss-modules-scope": "1.0.0-beta2",
     "source-list-map": "^0.1.4"
   },
   "devDependencies": {
