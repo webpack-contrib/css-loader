@@ -7,6 +7,7 @@
     "css-selector-tokenizer": "^0.5.1",
     "cssnano": ">=2.6.1 <4",
     "loader-utils": "~0.2.2",
+    "object-assign": "^4.0.1",
     "postcss": "^5.0.6",
     "postcss-modules-extract-imports": "1.0.0-beta2",
     "postcss-modules-local-by-default": "1.0.0-beta1",
