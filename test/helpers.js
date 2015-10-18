@@ -10,10 +10,10 @@ function getEvaluated(output, modules) {
 		var fn = vm.runInThisContext("(function(module, exports, require) {" + output + "})", "testcase.js");
 		var m = { exports: {}, id: 1 };
 		fn(m, m.exports, function(module) {
-			if(module === require.resolve("../lib/css-base"))
+			if(module.indexOf("css-base") >= 0)
 				return require("../lib/css-base");
-			if(module.indexOf("-!loader!") === 0)
-				module = module.substr(9);
+			if(module.indexOf("-!/path/css-loader!") === 0)
+				module = module.substr(19);
 			if(modules && modules[module])
 				return modules[module];
 			return "{" + module + "}";
@@ -41,7 +41,7 @@ function runLoader(loader, input, map, addOptions, callback) {
 		async: function() {
 			return callback;
 		},
-		loaders: [{request: "loader"}],
+		loaders: [{request: "/path/css-loader"}],
 		loaderIndex: 0,
 		context: "",
 		resource: "test.css",
@@ -73,6 +73,16 @@ exports.testWithMap = function test(name, input, map, result, query, modules) {
 		runLoader(cssLoader, input, map, {
 			query: query
 		}, function(err, output) {
+			if(err) return done(err);
+			assetEvaluated(output, result, modules);
+			done();
+		});
+	});
+};
+
+exports.testMap = function test(name, input, map, addOptions, result, modules) {
+	it(name, function(done) {
+		runLoader(cssLoader, input, map, addOptions, function(err, output) {
 			if(err) return done(err);
 			assetEvaluated(output, result, modules);
 			done();
