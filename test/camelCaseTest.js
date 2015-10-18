@@ -13,7 +13,7 @@ describe("camelCase", function() {
 		]
 	};
 	exports.with.locals = {'btn-info': '_38r5hlPyrqKLodJwWOdM1k'};
-	exports.without.locals = {btnInfo: '_38r5hlPyrqKLodJwWOdM1k'};
+	exports.without.locals = {btnInfo: '_38r5hlPyrqKLodJwWOdM1k', 'btn-info': '_38r5hlPyrqKLodJwWOdM1k'};
 	test("with", css, exports.with, "?modules");
 	test("without", css, exports.without, "?modules&camelCase");
 });
