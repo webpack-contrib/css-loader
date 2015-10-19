@@ -47,4 +47,7 @@ describe("url", function() {
 	test("url in string", "a { content: \"do not use url(path)\"; } b { content: 'do not \"use\" url(path)'; }", [
 		[1, "a { content: \"do not use url(path)\"; } b { content: 'do not \"use\" url(path)'; }", ""]
 	]);
+	test("keyframe background img", "@keyframes anim { background: green url('img.png') xyz }", [
+		[1, "@keyframes anim { background: green url({./img.png}) xyz }", ""]
+	]);
 });
