@@ -6,14 +6,14 @@ describe("camelCase", function() {
 	var css = ".btn-info { color: blue; }";
 	var exports = {
 		with: [
-			[1, "._38r5hlPyrqKLodJwWOdM1k { color: blue; }", ""]
+			[1, ".Vh87YsUQA8A0EbntSqs6 { color: blue; }", ""]
 		],
 		without: [
-			[1, "._38r5hlPyrqKLodJwWOdM1k { color: blue; }", ""]
+			[1, ".Vh87YsUQA8A0EbntSqs6 { color: blue; }", ""]
 		]
 	};
-	exports.with.locals = {'btn-info': '_38r5hlPyrqKLodJwWOdM1k'};
-	exports.without.locals = {btnInfo: '_38r5hlPyrqKLodJwWOdM1k', 'btn-info': '_38r5hlPyrqKLodJwWOdM1k'};
+	exports.with.locals = {'btn-info': 'Vh87YsUQA8A0EbntSqs6'};
+	exports.without.locals = {btnInfo: 'Vh87YsUQA8A0EbntSqs6', 'btn-info': 'Vh87YsUQA8A0EbntSqs6'};
 	test("with", css, exports.with, "?modules");
 	test("without", css, exports.without, "?modules&camelCase");
 });

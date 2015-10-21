@@ -45,6 +45,7 @@ function runLoader(loader, input, map, addOptions, callback) {
 		loaderIndex: 0,
 		context: "",
 		resource: "test.css",
+		resourcePath: "test.css",
 		request: "css-loader!test.css",
 		emitError: function(message) {
 			throw new Error(message);
@@ -58,9 +59,9 @@ function runLoader(loader, input, map, addOptions, callback) {
 
 exports.test = function test(name, input, result, query, modules) {
 	it(name, function(done) {
-		runLoader(cssLoader, input, undefined, {
+		runLoader(cssLoader, input, undefined, !query || typeof query === "string" ? {
 			query: query
-		}, function(err, output) {
+		} : query, function(err, output) {
 			if(err) return done(err);
 			assetEvaluated(output, result, modules);
 			done();
