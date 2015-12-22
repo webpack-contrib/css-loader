@@ -50,7 +50,7 @@ describe("url", function() {
 	test("keyframe background img", "@keyframes anim { background: green url('img.png') xyz }", [
 		[1, "@keyframes anim { background: green url({./img.png}) xyz }", ""]
 	]);
-	test("-webkit-image-set", "background-image: -webkit-image-set(url('url1x.png') 1x, url('url2x.png') 2x)", [
-		[1, "background-image: -webkit-image-set(url({./url1x.png}) 1x, url({./url2x.png}) 2x)", ""]
+	test("-webkit-image-set", ".a { background-image: -webkit-image-set(url('url1x.png') 1x, url('url2x.png') 2x) }", [
+		[1, ".a { background-image: -webkit-image-set(url({./url1x.png}) 1x, url({./url2x.png}) 2x) }", ""]
 	]);
 });
