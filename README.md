@@ -227,6 +227,12 @@ You can also disable or enforce minification with the `minimize` query parameter
 
 `require("css-loader?-minimize!./file.css")` (disabled)
 
+### Disable behavior
+
+`css-loader?-url` disables `url(...)` handling.
+
+`css-loader?-import` disables `@import` handling.
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
