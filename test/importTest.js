@@ -36,4 +36,7 @@ describe("import", function() {
 		[1, "@import url(//example.com/style.css);", ""],
 		[1, "", ""]
 	]);
+	test("import disabled", "@import url(test.css);\n.class { a: b c d; }", [
+		[1, "@import url(test.css);\n.class { a: b c d; }", ""]
+	], "?-import");
 });
