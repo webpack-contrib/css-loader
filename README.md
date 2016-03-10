@@ -233,6 +233,27 @@ You can also disable or enforce minification with the `minimize` query parameter
 
 `css-loader?-import` disables `@import` handling.
 
+### Camel case
+
+By default, the exported JSON keys mirror the class names. If you want to camelize class names (useful in Javascript), pass the query parameter `camelCase` to the loader.
+
+Example:
+
+`css-loader?camelCase`
+
+Usage:
+```css
+/* file.css */
+
+.class-name { /* ... */ }
+```
+
+```js
+// javascript
+
+require('file.css').className
+```
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
