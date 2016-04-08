@@ -12,6 +12,9 @@ describe("url", function() {
 	test("background img 3", ".class { background: green url( 'img.png' ) xyz }", [
 		[1, ".class { background: green url({./img.png}) xyz }", ""]
 	]);
+	test("background img 4", ".class { background: green url( '~@img/img/img.png' ) xyz }", [
+		[1, ".class { background: green url({@img/img/img.png}) xyz }", ""]
+	]);
 	test("background img absolute", ".class { background: green url(/img.png) xyz }", [
 		[1, ".class { background: green url(/img.png) xyz }", ""]
 	]);

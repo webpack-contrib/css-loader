@@ -49,4 +49,28 @@ describe("locals", function() {
 			}
 		}
 	);
+	testLocals("should return locals from external module",
+		":local(.abc) { composes: def from \"~test/module.css\"; }",
+		{
+			abc: "_abc imported_def1"
+		},
+		"?localIdentName=_[local]",
+		{
+			"test/module.css": {
+				def: "imported_def1"
+			}
+		}
+	);
+	testLocals("should return locals from external private module",
+		":local(.abc) { composes: def from \"~@test/test/module.css\"; }",
+		{
+			abc: "_abc imported_def1"
+		},
+		"?localIdentName=_[local]",
+		{
+			"@test/test/module.css": {
+				def: "imported_def1"
+			}
+		}
+	);
 });
