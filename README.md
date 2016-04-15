@@ -204,9 +204,9 @@ The query parameter `importLoaders` allow to configure which loaders should be a
 Examples:
 
 ``` js
-require("style-loader!css-loader?importLoaders=1!autoprefixer-loader!...")
+require("style-loader!css-loader?importLoaders=1!postcss-loader!...")
 // => imported resources are handled this way:
-require("css-loader?importLoaders=1!autoprefixer-loader!...")
+require("css-loader?importLoaders=1!postcss-loader!...")
 
 require("style-loader!css-loader!stylus-loader!...")
 // => imported resources are handled this way:
