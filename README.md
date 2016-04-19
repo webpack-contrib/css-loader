@@ -254,6 +254,34 @@ Usage:
 require('file.css').className
 ```
 
+### Use extra postcss plugins
+
+You can add your own [postcss](http://postcss.org/) plugins into this loader pipeline.
+It could be better for performance than using extra `postcss-loader`, because plugin will be called in the chain with other
+plugins used by `css-loader`, without extra parsing of css.
+
+Usage:
+```js
+// webpack.config.js
+var autoprefixer = require("autoprefixer")
+module.exports = {
+  modules: [
+    {
+      test: /\.css$/,
+      loader: [
+        "style",
+        "css?modules&afterModules=autoprefixer"
+      ]
+    }
+  ]
+  cssLoader: {
+    autoprefixer: function(pipeline) {
+      pipeline.use(autoprefixer)
+    }
+  }
+}
+```
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
