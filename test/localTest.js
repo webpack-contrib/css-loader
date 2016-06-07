@@ -15,18 +15,18 @@ function testLocalMinimize(name, input, result, localsResult, query, modules) {
 
 describe("local", function() {
 	testLocal("locals-format", ":local(.test) { background: red; }", [
-		[1, ".test-2_pBx { background: red; }", ""]
+		[1, ".test-CRBG9 { background: red; }", ""]
 	], {
-		test: "test-2_pBx"
+		test: "test-CRBG9"
 	}, "?localIdentName=[local]-[hash:base64:5]");
 	testLocal("locals", ":local(.className) { background: red; }\n:local(#someId) { background: green; }\n" +
 		":local(.className .subClass) { color: green; }\n:local(#someId .subClass) { color: blue; }", [
-		[1, "._23J0282swY7bwvI2X4fHiV { background: red; }\n#_3vpqN0v_IxlO3TzQjbpB33 { background: green; }\n" +
-			"._23J0282swY7bwvI2X4fHiV ._1s1VsToXFz17cPAltMg7jz { color: green; }\n#_3vpqN0v_IxlO3TzQjbpB33 ._1s1VsToXFz17cPAltMg7jz { color: blue; }", ""]
+		[1, "._2UEI_i8RIy-UrVRaoBHhBk { background: red; }\n#_1ejdFqws16MG8Y8X3yDdXH { background: green; }\n" +
+			"._2UEI_i8RIy-UrVRaoBHhBk ._1auRgXL3-Be4hsuCNGjxeO { color: green; }\n#_1ejdFqws16MG8Y8X3yDdXH ._1auRgXL3-Be4hsuCNGjxeO { color: blue; }", ""]
 	], {
-		className: "_23J0282swY7bwvI2X4fHiV",
-		someId: "_3vpqN0v_IxlO3TzQjbpB33",
-		subClass: "_1s1VsToXFz17cPAltMg7jz"
+		className: "_2UEI_i8RIy-UrVRaoBHhBk",
+		someId: "_1ejdFqws16MG8Y8X3yDdXH",
+		subClass: "_1auRgXL3-Be4hsuCNGjxeO"
 	});
 	testLocalMinimize("minimized plus local", ":local(.localClass) { background: red; }\n:local .otherClass { background: red; }\n:local(.empty) { }", [
 		[1, "._localClass,._otherClass{background:red}", ""]
@@ -146,17 +146,17 @@ describe("local", function() {
 	});
 	testLocal("module mode", ".className { background: url(./file.png); }\n#someId { background: url('module/file.jpg'); }\n" +
 		".className .subClass { font-size: 5.5pt; }\n#someId .subClass { color: blue; }", [
-		[1, "._23J0282swY7bwvI2X4fHiV { background: url({./file.png}); }\n#_3vpqN0v_IxlO3TzQjbpB33 { background: url({module/file.jpg}); }\n" +
-			"._23J0282swY7bwvI2X4fHiV ._1s1VsToXFz17cPAltMg7jz { font-size: 5.5pt; }\n#_3vpqN0v_IxlO3TzQjbpB33 ._1s1VsToXFz17cPAltMg7jz { color: blue; }", ""]
+		[1, "._3AoOZnb2gi0Z1HrqmzpOdy { background: url({./file.png}); }\n#_-Q_-eYs4B4Vn2f8Zoo8qF { background: url({module/file.jpg}); }\n" +
+			"._3AoOZnb2gi0Z1HrqmzpOdy .MH3-hInT-U-s6n70upuJl { font-size: 5.5pt; }\n#_-Q_-eYs4B4Vn2f8Zoo8qF .MH3-hInT-U-s6n70upuJl { color: blue; }", ""]
 	], {
-		className: "_23J0282swY7bwvI2X4fHiV",
-		someId: "_3vpqN0v_IxlO3TzQjbpB33",
-		subClass: "_1s1VsToXFz17cPAltMg7jz"
+		className: "_3AoOZnb2gi0Z1HrqmzpOdy",
+		someId: "_-Q_-eYs4B4Vn2f8Zoo8qF",
+		subClass: "MH3-hInT-U-s6n70upuJl"
 	}, "?module");
 	testLocal("class name parsing", ".-a0-34a___f { color: red; }", [
-		[1, "._3ZMCqVa1XidxdqbX65hZ5D { color: red; }", ""]
+		[1, "._2jMTI13a5iSEevjgB3oOZA { color: red; }", ""]
 	], {
-		"-a0-34a___f": "_3ZMCqVa1XidxdqbX65hZ5D"
+		"-a0-34a___f": "_2jMTI13a5iSEevjgB3oOZA"
 	}, "?module");
 	testLocal("imported values in decl", ".className { color: IMPORTED_NAME; }\n" +
 		":import(\"./vars.css\") { IMPORTED_NAME: primary-color; }", [
@@ -171,9 +171,9 @@ describe("local", function() {
 		}
 	});
 	testLocal("issue-109", ".bar-1 { color: red; }", [
-		[1, ".file--bar-1--2JvfJ { color: red; }", ""]
+		[1, ".file--bar-1--2AaXD { color: red; }", ""]
 	], {
-		"bar-1": "file--bar-1--2JvfJ"
+		"bar-1": "file--bar-1--2AaXD"
 	}, "?modules&importLoaders=1&localIdentName=[name]--[local]--[hash:base64:5]");
 	testLocal("path naming", ".bar { color: red; }", [
 		[1, ".path-to--file--bar { color: red; }", ""]
@@ -198,8 +198,8 @@ describe("local", function() {
 		}
 	});
 	testLocal("hash prefix", ".bar { color: red; }", [
-		[1, ".bar--58a3b08b9195a6af0de7431eaf3427c7 { color: red; }", ""]
+		[1, ".bar--f888243db8b4f2cc740167e39622284b { color: red; }", ""]
 	], {
-		"bar": "bar--58a3b08b9195a6af0de7431eaf3427c7"
+		"bar": "bar--f888243db8b4f2cc740167e39622284b"
 	}, "?modules&localIdentName=[local]--[hash]&hashPrefix=x");
 });
