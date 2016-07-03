@@ -5,7 +5,6 @@ var test = require("./helpers").test;
 
 function testLocal(name, input, result, localsResult, query, modules) {
 	result.locals = localsResult;
-  delete result.locals.__cssText__;
 	test(name, input, result, query, modules);
 }
 
