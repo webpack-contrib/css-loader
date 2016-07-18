@@ -1,6 +1,6 @@
 {
   "name": "css-loader-bbq",
-  "version": "0.23.5",
+  "version": "0.23.6",
   "author": "Tobias Koppers @sokra",
   "description": "css loader module for webpack",
   "engines": {
