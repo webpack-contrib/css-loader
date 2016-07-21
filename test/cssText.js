@@ -5,7 +5,6 @@ describe("cssText", function() {
 		".abc { color: red; }",
 		{
       abc: '_file__abc',
-      __cssText__: '._file__abc { color: red; }'
 		},
 		"?modules&localIdentName=_[name]__[local]&cssText"
 	);
