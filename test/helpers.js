@@ -133,3 +133,39 @@ exports.testMinimize = function testMinimize(name, input, result, query, modules
 		});
 	});
 };
+
+exports.testSelectorIsDifferent =
+	function testContains(name, input1, input2, query, modules) {
+		var selectorRegexp = /^([^{]*){/;
+
+		it(name, function(done) {
+			runLoader(cssLoader, input1, undefined, {
+				query: query
+			}, function(err, output) {
+				if(err) return done(err);
+				var exports1 = getEvaluated(output, modules);
+
+				runLoader(cssLoader, input2, undefined, {
+					query: query
+				}, function(err, output) {
+					if(err) return done(err);
+					var exports2 = getEvaluated(output, modules);
+
+					Array.isArray(exports1).should.be.eql(true);
+					(exports1.length).should.be.eql(1);
+					Array.isArray(exports2).should.be.eql(true);
+					(exports2.length).should.be.eql(1);
+
+					var content1 = exports1[0][1];
+					var content2 = exports2[0][1];
+
+					var selector1 = selectorRegexp.exec(content1)[1];
+					var selector2 = selectorRegexp.exec(content2)[1];
+
+					(selector1).should.not.eql(selector2);
+
+					done();
+				});
+			});
+		});
+	};
