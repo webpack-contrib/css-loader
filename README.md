@@ -62,7 +62,7 @@ Using 'Root-relative' urls is not recommended. You should only use it for legacy
 
 ### Local scope
 
-By default CSS exports all class names into a global selector scope. Styles can be locally scoped avoid globally scoping styles.
+By default CSS exports all class names into a global selector scope. Styles can be locally scoped to avoid globally scoping styles.
 
 The syntax `:local(.className)` can be used to declare `className` in the local scope. The local identifiers are exported by the module.
 
