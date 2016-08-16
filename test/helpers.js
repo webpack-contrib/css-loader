@@ -69,6 +69,23 @@ exports.test = function test(name, input, result, query, modules) {
 	});
 };
 
+exports.testError = function test(name, input, onError) {
+	it(name, function(done) {
+    runLoader(cssLoader, input, undefined, {}, function(err, output) {
+      if (!err) {
+        done(new Error('Expected error to be thrown'));
+      } else {
+        try {
+          onError(err);
+        } catch (error) {
+          return done(error);
+        }
+        done();
+      }
+		});
+	});
+};
+
 exports.testWithMap = function test(name, input, map, result, query, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, map, {
