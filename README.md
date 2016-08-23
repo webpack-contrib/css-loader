@@ -219,7 +219,24 @@ This may change in the future, when the module system (i. e. webpack) supports l
 
 By default the css-loader minimizes the css if specified by the module system.
 
-In some cases the minification is destructive to the css, so you can provide some options to it. cssnano is used for minification and you find a [list of options here](http://cssnano.co/options/). Just provide them as query parameter: i. e. `require("css-loader?-autoprefixer")` to disable removing of deprecated vendor prefixes.
+In some cases the minification is destructive to the css, so you can provide some options to it. cssnano is used for minification and you find a [list of options here](http://cssnano.co/options/). Just provide them as query parameter: i. e. `require("css-loader?-autoprefixer")` to disable removing of deprecated vendor prefixes. Or provide the path to the file with options by `minimizeConfigFile` query parameter:
+
+``` js
+// app/.cssnano.json
+{
+  "core": true
+}
+
+// app/webpack.config.js
+module.exports = {
+  ...,
+  module: {
+    loaders: [
+      { test: /\.css$/, loader: "css?minimizeConfigFile=.cssnano" }
+    ]
+  }
+};
+```
 
 You can also disable or enforce minification with the `minimize` query parameter.
 
