@@ -202,4 +202,19 @@ describe("local", function() {
 	], {
 		"bar": "bar--58a3b08b9195a6af0de7431eaf3427c7"
 	}, "?modules&localIdentName=[local]--[hash]&hashPrefix=x");
+	testLocal("prefixes leading digit with underscore", ":local(.test) { background: red; }", [
+		[1, "._1test { background: red; }", ""]
+	], {
+		test: "_1test"
+	}, "?localIdentName=1[local]");
+	testLocal("prefixes leading hyphen + digit with underscore", ":local(.test) { background: red; }", [
+		[1, "._-1test { background: red; }", ""]
+	], {
+		test: "_-1test"
+	}, "?localIdentName=-1[local]");
+	testLocal("prefixes two leading hyphens with underscore", ":local(.test) { background: red; }", [
+		[1, "._--test { background: red; }", ""]
+	], {
+		test: "_--test"
+	}, "?localIdentName=--[local]");
 });
