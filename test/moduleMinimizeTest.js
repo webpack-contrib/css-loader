@@ -7,7 +7,7 @@ var fs = require("fs");
 var testCasesPath = path.join(__dirname, "moduleMinimizeTestCases");
 var testCases = fs.readdirSync(testCasesPath);
 
-describe("module", function() {
+describe("module minimize", function() {
 	testCases.forEach(function(name) {
 		var source = fs.readFileSync(path.join(testCasesPath, name, "source.css"), "utf-8");
 		var expected = fs.readFileSync(path.join(testCasesPath, name, "expected.css"), "utf-8");
