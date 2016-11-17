@@ -9,7 +9,7 @@
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
 
 ``` javascript
-var css = require("css!./file.css");
+var css = require("css-loader!./file.css");
 // => returns css code from file.css, resolves imports and url(...)
 ```
 
