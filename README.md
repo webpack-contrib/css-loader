@@ -204,9 +204,9 @@ The query parameter `importLoaders` allow to configure which loaders should be a
 Examples:
 
 ``` js
-require("style-loader!css-loader?importLoaders=1!autoprefixer-loader!...")
+require("style-loader!css-loader?importLoaders=1!postcss-loader!...")
 // => imported resources are handled this way:
-require("css-loader?importLoaders=1!autoprefixer-loader!...")
+require("css-loader?importLoaders=1!postcss-loader!...")
 
 require("style-loader!css-loader!stylus-loader!...")
 // => imported resources are handled this way:
@@ -219,7 +219,7 @@ This may change in the future, when the module system (i. e. webpack) supports l
 
 By default the css-loader minimizes the css if specified by the module system.
 
-In some cases the minification is destructive to the css, so you can provide some options to it. cssnano is used for minification and you find a [list of options here](http://cssnano.co/options/). Just provide them as query parameter: i. e. `require("css-loader?-autoprefixer")` to disable removing of deprecated vendor prefixes.
+In some cases the minification is destructive to the css, so you can provide some options to it. cssnano is used for minification and you find a [list of options here](http://cssnano.co/options/). Just provide them as query parameter: i. e. `require("css-loader?-colormin")` to disable making color values as small as possible.
 
 You can also disable or enforce minification with the `minimize` query parameter.
 
