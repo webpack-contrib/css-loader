@@ -8,10 +8,10 @@
   },
   "dependencies": {
     "babel-code-frame": "^6.11.0",
-    "css-selector-tokenizer": "^0.6.0",
+    "css-selector-tokenizer": "^0.7.0",
     "cssnano": ">=2.6.1 <4",
     "loader-utils": "~0.2.2",
-    "lodash.camelcase": "^3.0.1",
+    "lodash.camelcase": "^4.3.0",
     "object-assign": "^4.0.1",
     "postcss": "^5.0.6",
     "postcss-modules-extract-imports": "^1.0.0",
@@ -23,9 +23,9 @@
   "devDependencies": {
     "codecov.io": "^0.1.2",
     "coveralls": "^2.11.2",
-    "istanbul": "^0.3.13",
-    "mocha": "^2.2.4",
-    "should": "^7.0.1"
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "should": "^11.1.1"
   },
   "scripts": {
     "test": "mocha",
