@@ -108,6 +108,27 @@ You can use `:local(#someId)`, but this is not recommended. Use classes instead 
 
 You can configure the generated ident with the `localIdentName` query parameter (default `[hash:base64]`). Example: `css-loader?localIdentName=[path][name]---[local]---[hash:base64:5]` for easier debugging.
 
+You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema. Note that this requires `webpack@2` since to be able to pass function in. For example:
+
+```js
+{
+    test: /\.css$/,
+    loaders: [
+        {
+            loader: 'css-loader',
+            query: {
+                modules: true,
+                importLoaders: 1,
+                getLocalIdent: function (loaderContext, localIdentName, localName, options) {
+                  return 'whatever_random_class_name'
+                }
+            }
+        }
+    ]
+},
+```
+
+
 Note: For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` **in the prerendering bundle**. It doesn't embed CSS but only exports the identifier mappings.
 
 ### CSS Modules
