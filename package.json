@@ -1,6 +1,6 @@
 {
   "name": "css-loader",
-  "version": "0.26.0",
+  "version": "0.26.1",
   "author": "Tobias Koppers @sokra",
   "description": "css loader module for webpack",
   "engines": {
