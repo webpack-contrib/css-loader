@@ -23,16 +23,11 @@ npm install --save-dev css-loader
 
 <h2 align="center">Usage</h2>
 
-**require**
-```js
-const css = require('css!./file.css')
-```
+Use the loader either via your webpack config, CLI or inline.
+
+### Via webpack config (recommended)
 
 **webpack.config.js**
-```js
-const css = require('file.css')
-```
-
 ```js
 module.exports = {
   module: {
@@ -43,17 +38,42 @@ module.exports = {
       }
     ]
   }
-};
+}
 ```
 
-`@import` and `url()` are interpreted like `require()` and will be resolved by the css-loader.
+**In your application**
+```js
+import css from 'file.css';
+```
+
+### CLI
+
+```bash
+webpack --module-bind 'css=style-loader!css-loader'
+```
+
+**In your application**
+```js
+import css from 'file.css';
+```
+
+### Inline
+
+**In your application**
+```js
+import css from 'style-loader!css-loader!./file.css';
+```
+
+<h2 align="center">Options</h2>
+
+`@import` and `url()` are interpreted like `import` and will be resolved by the css-loader.
 Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader)
 and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see below).
 
 To be compatible with existing css files (if not in CSS Module mode):
 
-* `url(image.png)` => `require("./image.png")`
-* `url(~module/image.png)` => `require("module/image.png")`
+* `url(image.png)` => `require('./image.png')`
+* `url(~module/image.png)` => `require('module/image.png')`
 
 <h2 align="center">Options</h2>
 
@@ -68,7 +88,7 @@ To be compatible with existing css files (if not in CSS Module mode):
 |**`camelCase`**|`false`|Export Classnames in CamelCase|
 |**`importLoaders`**|`0`|Number of loaders applied before CSS loader|
 
-This webpack config can load css files, embed small png images as Data URLs and jpg images as files.
+This webpack config can load CSS files, embed small png images as Data URLs and JPG images as files.
 
 **webpack.config.js**
 ```js
@@ -107,17 +127,17 @@ rules: [
   {
     test: /\.css$/,
     use: [
-      "style-loader",
+      'style-loader',
       {
-        loader: "css-loader",
-        options: { root: "." }
+        loader: 'css-loader',
+        options: { root: '.' }
       }
     ]
   }
 ]
 ```
 
-* `url(/image.png)` => `require("./image.png")`
+* `url(/image.png)` => `require('./image.png')`
 
 Using 'Root-relative' urls is not recommended. You should only use it for legacy CSS files.
 
@@ -151,8 +171,8 @@ The loader replaces local selectors with unique identifiers. The choosen unique 
 
 ``` js
 exports.locals = {
-  className: "_23_aKvs-b8bW2Vg3fwHozO",
-  subClass: "_13LGdX8RMStbBE9w-t0gZ1"
+  className: '_23_aKvs-b8bW2Vg3fwHozO',
+  subClass: '_13LGdX8RMStbBE9w-t0gZ1'
 }
 ```
 
@@ -231,8 +251,8 @@ This doesn't result in any change to the CSS itself but exports multiple class n
 
 ```js
 exports.locals = {
-  className: "_23_aKvs-b8bW2Vg3fwHozO",
-  subClass: "_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO"
+  className: '_23_aKvs-b8bW2Vg3fwHozO',
+  subClass: '_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO'
 }
 ```
 
@@ -253,14 +273,14 @@ To import a local class name from another module:
 
 ``` css
 :local(.continueButton) {
-  composes: button from "library/button.css";
+  composes: button from 'library/button.css';
   background: red;
 }
 ```
 
 ``` css
 :local(.nameEdit) {
-  composes: edit highlight from "./edit.css";
+  composes: edit highlight from './edit.css';
   background: red;
 }
 ```
@@ -269,8 +289,8 @@ To import from multiple modules use multiple `composes:` rules.
 
 ``` css
 :local(.className) {
-  composes: edit hightlight from "./edit.css";
-  composes: button from "module/button.css";
+  composes: edit hightlight from './edit.css';
+  composes: button from 'module/button.css';
   composes: classFromThisModule;
   background: red;
 }
@@ -370,7 +390,7 @@ By default, the exported JSON keys mirror the class names. If you want to cameli
 ```
 
 ```js
-const className = require('file.css').className
+import { className } from 'file.css';
 ```
 
 <h2 align="center">Maintainer</h2>
