@@ -275,6 +275,51 @@ Usage:
 require('file.css').className
 ```
 
+## As String
+
+By default the loader injects a function into the webpack bundle that exports the compiled css as a string. The `asString` query param will export the compiled css as an actual string into the bundle.
+
+Example:
+
+```javascript
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)();
+// imports
+
+
+// module
+exports.push([module.i, ".clear{ clear: both; }", ""]);
+
+// exports
+
+
+/***/ },
+```
+
+By setting the `asString` param to true.
+
+```javascript
+{
+  test: /\.css$/,
+  loaders: [
+    {
+      loader: 'css-loader',
+      query: {
+        asString: true
+      }
+    }
+  ]
+}
+```
+
+The bundle will have an actual string export:
+
+```javascript
+module.exports = ".clear{ clear: both; }";
+```
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
