@@ -37,6 +37,36 @@ module.exports = {
 };
 ```
 
+## Advanced options
+
+If you need to pass [more advanced options](https://github.com/webpack/css-loader/pull/348), especially those which cannot be stringified, you can also define an `cssLoader`-property on your `webpack.config.js`:
+
+``` javascript
+module.exports = {
+  module: {
+    loaders: [{
+      test: /\.css$/,
+      loader: "style-loader!css-loader"
+    }]
+  },
+  cssLoader: {}
+};
+```
+
+If you need to define two different loader configs, you can also change the config's property name via `css?config=otherCssLoaderConfig`:
+
+``` javascript
+module.exports = {
+  module: {
+    loaders: [{
+      test: /\.css$/,
+      loader: "style-loader!css-loader?config=otherCssLoaderConfig"
+    }]
+  },
+  otherCssLoaderConfig: {}
+};
+```
+
 ### 'Root-relative' urls
 
 For urls that start with a `/`, the default behavior is to not translate them:
