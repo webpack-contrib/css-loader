@@ -216,6 +216,23 @@ I. e. the extract-text-webpack-plugin can handle them.
 
 They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS SourceMap do not). In addition to that relative paths are buggy and you need to use an absolute public path which include the server url.
 
+`webpack://` is included in `sourceRoot` by default. You can override this by setting the `sourceRoot` param.
+
+```javascript
+{
+  loaders: [
+    { 
+      test: /\.css$/, 
+      loader: 'css-loader': {
+        query: {
+          sourceRoot: "file://path/to/app/root"
+        }
+      }
+    }
+  ]
+}
+```
+
 ### importing and chained loaders
 
 The query parameter `importLoaders` allow to configure which loaders should be applied to `@import`ed resources.
