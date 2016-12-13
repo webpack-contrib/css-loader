@@ -61,4 +61,40 @@ describe("source maps", function() {
 			version: 3
 		}]
 	]);
+
+	testMap("can define the sourceRoot", ".class { a: b c d; }", undefined, {
+		loaders: [{request: "/path/css-loader"}, {request: "/path/sass-loader"}],
+		options: { context: "/" },
+		resource: "/folder/test.scss",
+		request: "/path/css-loader!/path/sass-loader!/folder/test.scss",
+		query: "?sourceMap&sourceRoot=/a/b/c"
+	}, [
+		[1, ".class { a: b c d; }", "", {
+			file: 'test.scss',
+			mappings: 'AAAA,SAAS,SAAS,EAAE',
+			names: [],
+			sourceRoot: '/a/b/c',
+			sources: [ '/./folder/test.scss' ],
+			sourcesContent: [ '.class { a: b c d; }' ],
+			version: 3
+		}]
+	]);
+
+	testMap("can define a url encoded source root", ".class { a: b c d; }", undefined, {
+		loaders: [{request: "/path/css-loader"}, {request: "/path/sass-loader"}],
+		options: { context: "/" },
+		resource: "/folder/test.scss",
+		request: "/path/css-loader!/path/sass-loader!/folder/test.scss",
+		query: "?sourceMap&sourceRoot=" + encodeURIComponent("file://a /b?c&d#e")
+	}, [
+		[1, ".class { a: b c d; }", "", {
+			file: 'test.scss',
+			mappings: 'AAAA,SAAS,SAAS,EAAE',
+			names: [],
+			sourceRoot: 'file://a /b?c&d#e',
+			sources: [ '/./folder/test.scss' ],
+			sourcesContent: [ '.class { a: b c d; }' ],
+			version: 3
+		}]
+	]);
 });
