@@ -19,6 +19,7 @@
     "postcss-modules-local-by-default": "^1.0.1",
     "postcss-modules-scope": "^1.0.0",
     "postcss-modules-values": "^1.1.0",
+    "random-strings": "0.0.1",
     "source-list-map": "^0.1.7"
   },
   "devDependencies": {
