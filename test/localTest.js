@@ -15,7 +15,9 @@ function testLocal(name, input, result, localsResult, query, modules) {
 }
 
 function testLocalMinimize(name, input, result, localsResult, query, modules) {
-	Object.assign(result, localsResult);
+	Object.keys(localsResult).map(function(key) {
+		result[key] = localsResult[key];
+	});
 	result.default = cssBase(localsResult, input);
 	testMinimize(name, input, result, query, modules);
 }
