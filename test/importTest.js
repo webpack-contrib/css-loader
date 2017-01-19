@@ -1,42 +1,75 @@
 /*globals describe */
 
 var test = require("./helpers").test;
+var cssBase = require("../lib/css-base");
 
 describe("import", function() {
-	test("import", "@import url(test.css);\n.class { a: b c d; }", [
-		[2, ".test{a: b}", ""],
-		[1, ".class { a: b c d; }", ""]
-	], "", {
-		"./test.css": [[2, ".test{a: b}", ""]]
+	var module2 = {
+		$css: {
+			id: 2,
+			content: ".test{a: b};",
+			imports: []
+		}
+	};
+	var module1 = {
+		$css: {
+			id: 1,
+			content: ".class { a: b c d; }",
+			imports: [
+				[module2.$css, undefined]
+			]
+		}
+	};
+	var module3 = {
+		$css: {
+			id: 1,
+			content: ".class { a: b c d; }",
+			imports: [
+				[ module1.$css, "screen" ],
+				[ module2.$css, "screen and print" ]
+			]
+		}
+	};
+	var module4 = {
+		$css: {
+			id: 1,
+			content: "",
+			imports: [
+				[{ 
+					id: 1,
+					content: "@import url(http://example.com/style.css);",
+					imports: []
+				}, undefined],
+				[{ 
+					id: 1,
+					content: "@import url(//example.com/style.css);",
+					imports: []
+				}, undefined]
+			]
+		}
+	};
+	var module5 = {
+		$css: {
+			id: 1,
+			content: "@import url(test.css);\n.class { a: b c d; }",
+			imports: []
+		}
+	};
+
+	test("import", "@import url(test.css);\n.class { a: b c d; }", module1, "", {
+		"./test.css": module2
 	});
-	test("import with string", "@import \"test.css\";\n.class { a: b c d; }", [
-		[2, ".test{a: b}", ""],
-		[1, ".class { a: b c d; }", ""]
-	], "", {
-		"./test.css": [[2, ".test{a: b}", ""]]
+
+	test("import with string", "@import \"test.css\";\n.class { a: b c d; }", module1, "", {
+		"./test.css": module2
 	});
-	test("import 2", "@import url('test.css');\n.class { a: b c d; }", [
-		[2, ".test{a: b}", "screen"],
-		[1, ".class { a: b c d; }", ""]
-	], "", {
-		"./test.css": [[2, ".test{a: b}", "screen"]]
+
+	test("import with media", "@import url('test2.css') screen;\n@import url('test.css') screen and print;\n.class { a: b c d; }", module3, "", {
+		"./test2.css": module1,
+		"./test.css": module2
 	});
-	test("import with media", "@import url('~test/css') screen and print;\n.class { a: b c d; }", [
-		[3, ".test{a: b}", "((min-width: 100px)) and (screen and print)"],
-		[2, ".test{c: d}", "screen and print"],
-		[1, ".class { a: b c d; }", ""]
-	], "", {
-		"test/css": [
-			[3, ".test{a: b}", "(min-width: 100px)"],
-			[2, ".test{c: d}", ""]
-		]
-	});
-	test("import external", "@import url(http://example.com/style.css);\n@import url(\"//example.com/style.css\");", [
-		[1, "@import url(http://example.com/style.css);", ""],
-		[1, "@import url(//example.com/style.css);", ""],
-		[1, "", ""]
-	]);
-	test("import disabled", "@import url(test.css);\n.class { a: b c d; }", [
-		[1, "@import url(test.css);\n.class { a: b c d; }", ""]
-	], "?-import");
+
+	test("import external", "@import url(http://example.com/style.css);\n@import url(\"//example.com/style.css\");", module4);
+
+	test("import disabled", "@import url(test.css);\n.class { a: b c d; }", module5, "?-import");
 });
