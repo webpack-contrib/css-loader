@@ -23,6 +23,8 @@ npm install --save-dev css-loader
 
 <h2 align="center">Usage</h2>
 
+The `css-loader` interprets `@import` and `url()` like `requires`.
+
 Use the loader either via your webpack config, CLI or inline.
 
 ### Via webpack config (recommended)
