@@ -170,6 +170,37 @@ describe("local", function() {
 			}
 		}
 	});
+	testLocal("composes from import in @value", "@value colors: './colors.css';.className { composes: blue from colors; text-align: right; }", [
+		[2, "._blue { color: blue; }", ""],
+		[1, "._className { text-align: right; }", ""]
+	], {
+		"colors": "'./colors.css'",
+		"className": "_className _blue"
+	}, "?module&localIdentName=_[local]", {
+		"./colors.css":  (function() {
+			var r = [ [2, "._blue { color: blue; }", ""] ];
+			r.locals = {
+				blue: "_blue"
+			};
+			return r;
+		}())
+	});
+	testLocal("composes from @value imported in @value", "@value colors: './colors.css';@value blue from colors;.className { composes: blue; text-align: right; }", [
+		[2, "._blue { color: blue; }", ""],
+		[1, "._className { text-align: right; }", ""]
+	], {
+		"colors": "'./colors.css'",
+		"blue": "_blue",
+		"className": "_className _blue"
+	}, "?module&localIdentName=_[local]", {
+		"./colors.css":  (function() {
+			var r = [ [2, "._blue { color: blue; }", ""] ];
+			r.locals = {
+				blue: "_blue"
+			};
+			return r;
+		}())
+	});
 	testLocal("issue-109", ".bar-1 { color: red; }", [
 		[1, ".file--bar-1--2JvfJ { color: red; }", ""]
 	], {
