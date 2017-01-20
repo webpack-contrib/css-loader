@@ -88,7 +88,7 @@ To be compatible with existing css files (if not in CSS Module mode):
 |**`camelCase`**|`false`|Export Classnames in CamelCase|
 |**`importLoaders`**|`0`|Number of loaders applied before CSS loader|
 
-This webpack config can load CSS files, embed small png images as Data URLs and JPG images as files.
+The following webpack config can load CSS files, embed small PNG/JPG/GIF/SVG images as well as fonts as [Data URLs](https://tools.ietf.org/html/rfc2397) and copy larger files to the output directory.
 
 **webpack.config.js**
 ```js
@@ -100,12 +100,11 @@ module.exports = {
         use: [ 'style-loader', 'css-loader' ]
       },
       {
-        test: /\.png$/,
-        use: { loader: 'url-loader', options: { limit: 100000 } },
-      },
-      {
-        test: /\.jpg$/,
-        use: [ 'file-loader' ]
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000
+        }
       }
     ]
   }
