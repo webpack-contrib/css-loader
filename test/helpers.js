@@ -19,7 +19,7 @@ function getEvaluated(output, modules) {
 			return "{" + module + "}";
 		});
 	} catch(e) {
-		console.error(output);
+		console.error(output); // eslint-disable-line no-console
 		throw e;
 	}
 	delete m.exports.toString;
@@ -71,7 +71,7 @@ exports.test = function test(name, input, result, query, modules) {
 
 exports.testError = function test(name, input, onError) {
 	it(name, function(done) {
-    runLoader(cssLoader, input, undefined, {}, function(err, output) {
+    runLoader(cssLoader, input, undefined, {}, function(err, output) { // eslint-disable-line no-unused-vars
       if (!err) {
         done(new Error('Expected error to be thrown'));
       } else {
