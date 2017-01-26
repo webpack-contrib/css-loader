@@ -6,20 +6,20 @@ var testMap = require("./helpers").testMap;
 describe("source maps", function() {
 	testWithMap("falsy: null map doesn't cause an error", ".class { a: b c d; }", null, {
 		$css: {
-			id: 1, 
+			id: 1,
 			content: ".class { a: b c d; }",
 			imports: []
 		}
 	});
 	testWithMap("falsy: undefined map doesn't cause an error", ".class { a: b c d; }", undefined, {
 		$css: {
-			id: 1, 
+			id: 1,
 			content: ".class { a: b c d; }",
 			imports: []
 		}
 	});
 
-	var module_with_sourcemap = {
+	var moduleWithSourcemap = {
 		$css: {
 			id: 1,
 			content: ".class { a: b c d; }",
@@ -41,12 +41,12 @@ describe("source maps", function() {
 		resource: "/folder/test.css",
 		request: "/path/css-loader!/folder/test.css",
 		query: "?sourceMap"
-	}, module_with_sourcemap);
+	}, moduleWithSourcemap);
 
-	var module_with_sourcemap_2 = {
+	var moduleWithSourcemap2 = {
 		$css: {
 			id: 1,
-			content:  ".class { a: b c d; }",
+			content: ".class { a: b c d; }",
 			imports: [],
 			sourceMap: {
 				file: 'test.css',
@@ -65,14 +65,14 @@ describe("source maps", function() {
 		resource: "/folder/test.css",
 		request: "/path/css-loader!/folder/test.css",
 		query: "?sourceMap"
-	}, module_with_sourcemap_2);
+	}, moduleWithSourcemap2);
 
-	var module_with_sourcemap_3 = {
+	var moduleWithSourcemap3 = {
 		$css: {
 			id: 1,
 			content: ".class { a: b c d; }",
 			imports: [],
-			sourceMap:{
+			sourceMap: {
 				file: 'test.scss',
 				mappings: 'AAAA,SAAS,SAAS,EAAE',
 				names: [],
@@ -89,5 +89,5 @@ describe("source maps", function() {
 		resource: "/folder/test.scss",
 		request: "/path/css-loader!/path/sass-loader!/folder/test.scss",
 		query: "?sourceMap"
-	}, module_with_sourcemap_3);
+	}, moduleWithSourcemap3);
 });

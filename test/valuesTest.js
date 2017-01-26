@@ -6,7 +6,7 @@ var camelCase = require("../lib/camelCase");
 var cssBase = require("../lib/css-base");
 
 function testLocal(name, input, result, localsResult, query, modules) {
-	Object.keys(localsResult).map(function(key) {
+	Object.keys(localsResult).map(function(key) { // eslint-disable-line array-callback-return
 		var newKey = camelCase(key, query && query.camelCaseKeys ? query.camelCaseKeys : false);
 		result[newKey] = localsResult[key];
 	});

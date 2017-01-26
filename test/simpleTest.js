@@ -29,14 +29,14 @@ describe("simple", function() {
 	});
 	test("simple2", ".class { a: b c d; }\n.two {}", {
 		$css: {
-			id: 1, 
+			id: 1,
 			content: ".class { a: b c d; }\n.two {}",
 			imports: []
 		}
 	});
 	testMinimize("minimized simple", ".class { a: b c d; }", {
 		$css: {
-			id: 1, 
+			id: 1,
 			content: ".class{a:b c d}",
 			imports: []
 		}

@@ -7,12 +7,12 @@ describe("camelCase", function() {
 	var css = ".btn-info_is-disabled { color: blue; }";
 	var $css = {
 		id: 1,
-		content: "._1L-rnCOXCE_7H94L5XT4uB { color: blue; }", 
+		content: "._1L-rnCOXCE_7H94L5XT4uB { color: blue; }",
 		imports: []
 	};
 	var exports = {
 		with: {
-			default: { 'btn-info_is-disabled':'_1L-rnCOXCE_7H94L5XT4uB' }, 
+			default: { 'btn-info_is-disabled': '_1L-rnCOXCE_7H94L5XT4uB' },
 			export: { btnInfoIsDisabled: '_1L-rnCOXCE_7H94L5XT4uB' }
 		},
 

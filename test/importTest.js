@@ -1,7 +1,6 @@
 /*globals describe */
 
 var test = require("./helpers").test;
-var cssBase = require("../lib/css-base");
 
 describe("import", function() {
 	var module2 = {
@@ -35,12 +34,12 @@ describe("import", function() {
 			id: 1,
 			content: "",
 			imports: [
-				[{ 
+				[{
 					id: 1,
 					content: "@import url(http://example.com/style.css);",
 					imports: []
 				}, undefined],
-				[{ 
+				[{
 					id: 1,
 					content: "@import url(//example.com/style.css);",
 					imports: []
