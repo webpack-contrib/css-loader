@@ -83,7 +83,7 @@ To be compatible with existing css files (if not in CSS Module mode):
 |**`modules`**|`false`|Enable/Disable CSS Modules|
 |**`import`** |`true`| Enable/Disable @import handling|
 |**`url`**|`true`| Enable/Disable `url()` handling|
-|**`minimize`**|`true`|Enable/Disable minification|
+|**`minimize`**|`false`|Enable/Disable minification|
 |**`sourceMap`**|`false`|Enable/Disable Sourcemaps|
 |**`camelCase`**|`false`|Export Classnames in CamelCase|
 |**`importLoaders`**|`0`|Number of loaders applied before CSS loader|
@@ -399,7 +399,7 @@ import { className } from 'file.css';
   <tbody>
     <tr>
       <td align="center">
-        <img width="150 height="150" src="https://github.com/sokra.png?s=150">
+        <img width="150" height="150" src="https://github.com/sokra.png?s=150">
         <br>
         <a href="https://github.com/sokra">Tobias Koppers</a>
       </td>

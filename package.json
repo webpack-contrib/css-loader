@@ -4,7 +4,7 @@
   "author": "Tobias Koppers @sokra",
   "description": "css loader module for webpack",
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=0.12.0 || >=4.3.0 <5.0.0 || >=5.10"
   },
   "files": ["index.js", "locals.js", "lib"],
   "dependencies": {
@@ -22,15 +22,18 @@
     "source-list-map": "^0.1.7"
   },
   "devDependencies": {
-    "codecov.io": "^0.1.2",
-    "coveralls": "^2.11.2",
+    "codecov": "^1.0.1",
+    "eslint": "3.14.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.1.2",
-    "should": "^11.1.1"
+    "mocha": "^3.2.0",
+    "should": "^11.1.2"
   },
   "scripts": {
     "test": "mocha",
-    "travis": "npm run cover -- --report lcovonly",
+    "test:cover": "npm run cover -- --report lcovonly",
+    "lint": "eslint lib test",
+    "travis:test": "npm run cover",
+    "travis:lint": "npm run lint",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "publish-patch": "mocha && npm version patch && git push && git push --tags && npm publish"
   },
