@@ -320,6 +320,33 @@ They are not enabled by default because they expose a runtime overhead and incre
 }
 ```
 
+### toString
+
+You can also use the css-loader results directly as string, such as in Angular's component style. 
+
+**webpack.config.js**
+
+```js
+{
+   test: /\.css$/,
+   use: [
+     {
+       loaders: ['to-string-loader', 'css-loader']
+     }
+   ]
+}
+```
+
+or
+
+```js
+const cssText = require('./test.css').toString();
+
+console.log(cssText);
+```
+
+If there are SourceMaps, they will also be included in the result string.
+
 ### ImportLoaders
 
 The query parameter `importLoaders` allow to configure which loaders should be applied to `@import`ed resources.
