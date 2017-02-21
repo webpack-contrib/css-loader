@@ -86,7 +86,7 @@ To be compatible with existing css files (if not in CSS Module mode):
 |**`minimize`**|`false`|Enable/Disable minification|
 |**`sourceMap`**|`false`|Enable/Disable Sourcemaps|
 |**`camelCase`**|`false`|Export Classnames in CamelCase|
-|**`importLoaders`**|`0`|Number of loaders applied before CSS loader|
+|**`importLoaders`**|`{}`|Object containing loaders applied to @imports|
 
 This webpack config can load CSS files, embed small png images as Data URLs and JPG images as files.
 
@@ -321,9 +321,9 @@ They are not enabled by default because they expose a runtime overhead and incre
 
 ### ImportLoaders
 
-The query parameter `importLoaders` allow to configure which loaders should be applied to `@import`ed resources.
+The query parameter `importLoaders` allows you to configure which loaders should be applied to `@import`ed resources.
 
-`importLoaders`: That many loaders after the css-loader are used to import resources.
+`importLoaders`: An object containing two arrays, one of loaders to apply before the css-loader and another to apply afterwards.
 
 **webpack.config.js**
 ```js
@@ -332,8 +332,20 @@ The query parameter `importLoaders` allow to configure which loaders should be a
   use: [
     {
       loader: 'css-loader',
-      options: {
-        importLoaders: 1
+      query: {
+        importLoaders: {
+          beforeCssLoader: [
+            'postcss-loader'
+          ],
+          afterCssLoader: [
+            {
+              loader: 'babel-loader',
+              query: {
+                'presets': [ ['es2015', { modules: false }] ]
+              }
+            }
+          ]
+        }
       }
     },
     'postcss-loader'

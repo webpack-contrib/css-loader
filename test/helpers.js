@@ -4,10 +4,14 @@ require("should");
 var cssLoader = require("../index.js");
 var cssLoaderLocals = require("../locals.js");
 var vm = require("vm");
+var babel = require("babel-core");
 
 function getEvaluated(output, modules) {
 	try {
-		var fn = vm.runInThisContext("(function(module, exports, require) {" + output + "})", "testcase.js");
+		var result = babel.transform(output, {
+			presets: ['es2015']
+		});
+		var fn = vm.runInThisContext("(function(module, exports, require) {" + result.code + "\n})", "testcase.js");
 		var m = { exports: {}, id: 1 };
 		fn(m, m.exports, function(module) {
 			if(module.indexOf("css-base") >= 0)
@@ -127,12 +131,10 @@ exports.testSingleItem = function testSingleItem(name, input, result, query, mod
 		}, function(err, output) {
 			if(err) return done(err);
 			var exports = getEvaluated(output, modules);
-			Array.isArray(exports).should.be.eql(true);
-			(exports.length).should.be.eql(1);
-			(exports[0].length >= 3).should.be.eql(true);
-			(exports[0][0]).should.be.eql(1);
-			(exports[0][2]).should.be.eql("");
-			(exports[0][1]).should.be.eql(result);
+			(typeof exports).should.be.eql("object");
+			exports.$css.imports.length.should.be.eql(0);
+			exports.$css.id.should.be.eql(1);
+			exports.$css.content.should.be.eql(result);
 			done();
 		});
 	});
