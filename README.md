@@ -319,6 +319,22 @@ They are not enabled by default because they expose a runtime overhead and incre
 }
 ```
 
+Using the `sourceMapRoot` option you can configure the value emitted as `sourceRoot` in the source map information. (default: `webpack://`)
+
+```javascript
+{
+  test: /\.css$/,
+  use: [
+    {
+      loader: 'css-loader',
+      options: {
+        sourceMapRoot: 'file://some/path'
+      }
+    }
+  ]
+}
+```
+
 ### ImportLoaders
 
 The query parameter `importLoaders` allow to configure which loaders should be applied to `@import`ed resources.
