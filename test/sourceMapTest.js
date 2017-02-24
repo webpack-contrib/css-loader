@@ -52,11 +52,11 @@ describe("source maps", function() {
 		query: "?sourceMap"
 	}, [
 		[1, ".class { a: b c d; }", "", {
-			file: 'test.scss',
+			file: 'test.css',
 			mappings: 'AAAA,SAAS,SAAS,EAAE',
 			names: [],
 			sourceRoot: 'webpack://',
-			sources: [ '/./folder/test.scss' ],
+			sources: [ '/./folder/test.css' ],
 			sourcesContent: [ '.class { a: b c d; }' ],
 			version: 3
 		}]
