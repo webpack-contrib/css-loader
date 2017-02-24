@@ -21,8 +21,8 @@ describe("source maps", function() {
 			file: 'test.css',
 			mappings: 'AAAA,SAAS,SAAS,EAAE',
 			names: [],
-			sourceRoot: 'webpack://',
-			sources: [ '/./folder/test.css' ],
+			sourceRoot: '',
+			sources: [ '/folder/test.css' ],
 			sourcesContent: [ '.class { a: b c d; }' ],
 			version: 3
 		}]
@@ -38,8 +38,8 @@ describe("source maps", function() {
 			file: 'test.css',
 			mappings: 'AAAA,SAAS,SAAS,EAAE',
 			names: [],
-			sourceRoot: 'webpack://',
-			sources: [ '/../../folder/test.css' ],
+			sourceRoot: '',
+			sources: [ '/folder/test.css' ],
 			sourcesContent: [ '.class { a: b c d; }' ],
 			version: 3
 		}]
@@ -55,8 +55,8 @@ describe("source maps", function() {
 			file: 'test.scss',
 			mappings: 'AAAA,SAAS,SAAS,EAAE',
 			names: [],
-			sourceRoot: 'webpack://',
-			sources: [ '/./folder/test.scss' ],
+			sourceRoot: '',
+			sources: [ '/folder/test.scss' ],
 			sourcesContent: [ '.class { a: b c d; }' ],
 			version: 3
 		}]
