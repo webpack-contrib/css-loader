@@ -61,4 +61,21 @@ describe("source maps", function() {
 			version: 3
 		}]
 	]);
+	testMap("can specify the sourceMapRoot", ".class { a: b c d; }", undefined, {
+		loaders: [{request: "/path/css-loader"}],
+		options: { context: "/other-folder/sub", sourceMap: true },
+		resource: "/folder/test.css",
+		request: "/path/css-loader!/folder/test.css",
+		query: {sourceMap:true, sourceMapRoot: 'file://some/path/'}
+	}, [
+		[1, ".class { a: b c d; }", "", {
+			file: 'test.css',
+			mappings: 'AAAA,SAAS,SAAS,EAAE',
+			names: [],
+			sourceRoot: 'file://some/path/',
+			sources: [ '/../../folder/test.css' ],
+			sourcesContent: [ '.class { a: b c d; }' ],
+			version: 3
+		}]
+	]);
 });
