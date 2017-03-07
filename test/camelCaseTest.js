@@ -6,18 +6,18 @@ describe("camelCase", function() {
 	var css = ".btn-info_is-disabled { color: blue; }";
 	var exports = {
 		with: [
-			[1, "._1L-rnCOXCE_7H94L5XT4uB { color: blue; }", ""]
+			[1, ".test-css-file--btn-info_is-disabled { color: blue; }", ""]
 		],
 		without: [
-			[1, "._1L-rnCOXCE_7H94L5XT4uB { color: blue; }", ""]
+			[1, ".test-css-file--btn-info_is-disabled { color: blue; }", ""]
 		],
 		dashes: [
-			[1, "._1L-rnCOXCE_7H94L5XT4uB { color: blue; }", ""]
+			[1, ".test-css-file--btn-info_is-disabled { color: blue; }", ""]
 		]
 	};
-	exports.with.locals = {'btn-info_is-disabled': '_1L-rnCOXCE_7H94L5XT4uB'};
-	exports.without.locals = {btnInfoIsDisabled: '_1L-rnCOXCE_7H94L5XT4uB', 'btn-info_is-disabled': '_1L-rnCOXCE_7H94L5XT4uB'};
-	exports.dashes.locals = {btnInfo_isDisabled: '_1L-rnCOXCE_7H94L5XT4uB', 'btn-info_is-disabled': '_1L-rnCOXCE_7H94L5XT4uB'};
+	exports.with.locals = {'btn-info_is-disabled': 'test-css-file--btn-info_is-disabled'};
+	exports.without.locals = {btnInfoIsDisabled: 'test-css-file--btn-info_is-disabled', 'btn-info_is-disabled': 'test-css-file--btn-info_is-disabled'};
+	exports.dashes.locals = {btnInfo_isDisabled: 'test-css-file--btn-info_is-disabled', 'btn-info_is-disabled': 'test-css-file--btn-info_is-disabled'};
 	test("with", css, exports.with, "?modules");
 	test("without", css, exports.without, "?modules&camelCase");
 	test("dashes", css, exports.dashes, "?modules&camelCase=dashes");

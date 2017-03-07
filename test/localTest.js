@@ -21,12 +21,12 @@ describe("local", function() {
 	}, "?localIdentName=[local]-[hash:base64:5]");
 	testLocal("locals", ":local(.className) { background: red; }\n:local(#someId) { background: green; }\n" +
 		":local(.className .subClass) { color: green; }\n:local(#someId .subClass) { color: blue; }", [
-		[1, "._23J0282swY7bwvI2X4fHiV { background: red; }\n#_3vpqN0v_IxlO3TzQjbpB33 { background: green; }\n" +
-			"._23J0282swY7bwvI2X4fHiV ._1s1VsToXFz17cPAltMg7jz { color: green; }\n#_3vpqN0v_IxlO3TzQjbpB33 ._1s1VsToXFz17cPAltMg7jz { color: blue; }", ""]
+		[1, ".test-css-file--className { background: red; }\n#test-css-file--someId { background: green; }\n" +
+			".test-css-file--className .test-css-file--subClass { color: green; }\n#test-css-file--someId .test-css-file--subClass { color: blue; }", ""]
 	], {
-		className: "_23J0282swY7bwvI2X4fHiV",
-		someId: "_3vpqN0v_IxlO3TzQjbpB33",
-		subClass: "_1s1VsToXFz17cPAltMg7jz"
+		className: "test-css-file--className",
+		someId: "test-css-file--someId",
+		subClass: "test-css-file--subClass"
 	});
 	testLocalMinimize("minimized plus local", ":local(.localClass) { background: red; }\n:local .otherClass { background: red; }\n:local(.empty) { }", [
 		[1, "._localClass,._otherClass{background:red}", ""]
@@ -146,17 +146,17 @@ describe("local", function() {
 	});
 	testLocal("module mode", ".className { background: url(./file.png); }\n#someId { background: url('module/file.jpg'); }\n" +
 		".className .subClass { font-size: 5.5pt; }\n#someId .subClass { color: blue; }", [
-		[1, "._23J0282swY7bwvI2X4fHiV { background: url({./file.png}); }\n#_3vpqN0v_IxlO3TzQjbpB33 { background: url({module/file.jpg}); }\n" +
-			"._23J0282swY7bwvI2X4fHiV ._1s1VsToXFz17cPAltMg7jz { font-size: 5.5pt; }\n#_3vpqN0v_IxlO3TzQjbpB33 ._1s1VsToXFz17cPAltMg7jz { color: blue; }", ""]
+		[1, ".test-css-file--className { background: url({./file.png}); }\n#test-css-file--someId { background: url({module/file.jpg}); }\n" +
+			".test-css-file--className .test-css-file--subClass { font-size: 5.5pt; }\n#test-css-file--someId .test-css-file--subClass { color: blue; }", ""]
 	], {
-		className: "_23J0282swY7bwvI2X4fHiV",
-		someId: "_3vpqN0v_IxlO3TzQjbpB33",
-		subClass: "_1s1VsToXFz17cPAltMg7jz"
+		className: "test-css-file--className",
+		someId: "test-css-file--someId",
+		subClass: "test-css-file--subClass"
 	}, "?module");
 	testLocal("class name parsing", ".-a0-34a___f { color: red; }", [
-		[1, "._3ZMCqVa1XidxdqbX65hZ5D { color: red; }", ""]
+		[1, ".test-css-file---a0-34a___f { color: red; }", ""]
 	], {
-		"-a0-34a___f": "_3ZMCqVa1XidxdqbX65hZ5D"
+		"-a0-34a___f": "test-css-file---a0-34a___f"
 	}, "?module");
 	testLocal("imported values in decl", ".className { color: IMPORTED_NAME; }\n" +
 		":import(\"./vars.css\") { IMPORTED_NAME: primary-color; }", [
