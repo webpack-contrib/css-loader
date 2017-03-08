@@ -32,6 +32,10 @@ function assetEvaluated(output, result, modules) {
 	exports.should.be.eql(result);
 }
 
+function assertRaw(output, result) {
+	output.should.containEql(result);
+}
+
 function runLoader(loader, input, map, addOptions, callback) {
 	var opt = {
 		options: {
@@ -68,6 +72,18 @@ exports.test = function test(name, input, result, query, modules) {
 		});
 	});
 };
+
+exports.testRaw = function testRaw(name, input, result, query, modules) {
+	it(name, function(done) {
+		runLoader(cssLoader, input, undefined, !query || typeof query === "string" ? {
+			query: query
+		} : query, function(err, output) {
+			if(err) return done(err);
+			assertRaw(output, result, modules);
+			done();
+		});
+	});
+}
 
 exports.testError = function test(name, input, onError) {
 	it(name, function(done) {
