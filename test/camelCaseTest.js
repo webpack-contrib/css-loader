@@ -1,6 +1,7 @@
 /*globals describe */
 
 var test = require("./helpers").test;
+var testRaw = require("./helpers").testRaw;
 
 describe("camelCase", function() {
 	var css = ".btn-info_is-disabled { color: blue; }";
@@ -21,4 +22,7 @@ describe("camelCase", function() {
 	test("with", css, exports.with, "?modules");
 	test("without", css, exports.without, "?modules&camelCase");
 	test("dashes", css, exports.dashes, "?modules&camelCase=dashes");
+
+	testRaw("withoutRaw", '.a {}', 'exports.locals = {\n\t"a": "_1buUQJccBRS2-2i27LCoDf"\n};', "?modules&camelCase");
+	testRaw("dashesRaw", '.a {}', 'exports.locals = {\n\t"a": "_1buUQJccBRS2-2i27LCoDf"\n};', "?modules&camelCase=dashes");
 });
