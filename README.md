@@ -434,14 +434,14 @@ import { className } from 'file.css';
 [node]: https://img.shields.io/node/v/css-loader.svg
 [node-url]: https://nodejs.org
 
-[deps]: https://david-dm.org/webpack/css-loader.svg
-[deps-url]: https://david-dm.org/webpack/css-loader
+[deps]: https://david-dm.org/webpack-contrib/css-loader.svg
+[deps-url]: https://david-dm.org/webpack-contrib/css-loader
 
-[tests]: http://img.shields.io/travis/webpack/css-loader.svg
-[tests-url]: https://travis-ci.org/webpack/css-loader
+[tests]: http://img.shields.io/travis/webpack-contrib/css-loader.svg
+[tests-url]: https://travis-ci.org/webpack-contrib/css-loader
 
-[cover]: https://coveralls.io/repos/github/webpack/css-loader/badge.svg
-[cover-url]: https://coveralls.io/github/webpack/css-loader
+[cover]: https://coveralls.io/repos/github/webpack-contrib/css-loader/badge.svg
+[cover-url]: https://coveralls.io/github/webpack-contrib/css-loader
 
 [chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack
