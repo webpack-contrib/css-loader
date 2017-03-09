@@ -34,4 +34,16 @@ describe("css-base", function() {
 			"@media print{body { d: 4; }}" +
 			"@media screen{body { a: 1; }}");
 	});
+	it("should toString with source mapping", function() {
+		var m = base();
+		m.push([1, "body { a: 1; }", "", {
+			file: "test.scss",
+			sources: [
+				'./path/to/test.scss'
+			],
+			mappings: "AAAA;",
+			sourceRoot: "webpack://"
+		}]);
+		m.toString().should.be.eql("body { a: 1; }\n/*# sourceURL=webpack://./path/to/test.scss */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsiLCJzb3VyY2VSb290Ijoid2VicGFjazovLyJ9 */");
+	});
 });
