@@ -421,6 +421,15 @@ By default, the exported JSON keys mirror the class names. If you want to cameli
 import { className } from 'file.css';
 ```
 
+#### Possible options
+
+|Option|Behaviour|
+|:----:|:--------|
+|**`true`**|Class names will be camelized|
+|**`'dashes'`**|Only dashes in class names will be camelized|
+|**`'only'`** |Class names will be camelized, the original class name will be removed from the locals|
+|**`'dashesOnly'`**|Dashes in class names will be camelized, the original class name will be removed from the locals|
+
 <h2 align="center">Maintainers</h2>
 
 <table>
