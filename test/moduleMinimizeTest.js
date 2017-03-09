@@ -13,7 +13,7 @@ describe("module minimize", function() {
 		var expected = fs.readFileSync(path.join(testCasesPath, name, "expected.css"), "utf-8");
 
 		test(name, source, expected, '?' + JSON.stringify({
-        module:true,
+        module: true,
         sourceMap: true,
         minimize: {
           discardComments: false
