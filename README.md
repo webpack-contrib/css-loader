@@ -400,7 +400,7 @@ By default, the exported JSON keys mirror the class names. If you want to cameli
 
 #### Possible Options
 
-|Option|Behaviour|
+|Option|Description|
 |:----:|:--------|
 |**`true`**|Class names will be camelized|
 |**`'dashes'`**|Only dashes in class names will be camelized|
