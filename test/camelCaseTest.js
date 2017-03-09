@@ -30,7 +30,9 @@ describe("camelCase", function() {
 	test("with", css, exports.with, "?modules");
 	test("without", css, exports.without, "?modules&camelCase");
 	test("dashes", css, exports.dashes, "?modules&camelCase=dashes");
+	// Remove this option in v1.0.0 and make the removal of the original classname the default behaviour. See #440.
 	test("withoutOnly", css, exports.withoutOnly, "?modules&camelCase=only");
+	// Remove this option in v1.0.0 and make the removal of the original classname the default behaviour. See #440.
 	test("dashesOnly", css, exports.dashesOnly, "?modules&camelCase=dashesOnly");
 
 	testRaw("withoutRaw", '.a {}', 'exports.locals = {\n\t"a": "_1buUQJccBRS2-2i27LCoDf"\n};', "?modules&camelCase");
