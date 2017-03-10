@@ -13,13 +13,13 @@ matrix:
       node_js: "6"
       env: WEBPACK_VERSION="2.2.0" JOB_PART=test
     - os: linux
-      node_js: "4.7"
+      node_js: "4.3"
       env: WEBPACK_VERSION="2.2.0" JOB_PART=test
     - os: linux
       node_js: "7"
       env: WEBPACK_VERSION="2.2.0" JOB_PART=test
     - os: linux
-      node_js: "4.7"
+      node_js: "4.3"
       env: WEBPACK_VERSION="1.14.0" JOB_PART=test
 before_install:
   - nvm --version
