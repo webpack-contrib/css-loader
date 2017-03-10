@@ -467,8 +467,8 @@ import { className } from 'file.css';
 [tests]: http://img.shields.io/travis/webpack-contrib/css-loader.svg
 [tests-url]: https://travis-ci.org/webpack-contrib/css-loader
 
-[cover]: https://coveralls.io/repos/github/webpack-contrib/css-loader/badge.svg
-[cover-url]: https://coveralls.io/github/webpack-contrib/css-loader
+[cover]: https://codecov.io/gh/webpack-contrib/css-loader/branch/master/graph/badge.svg
+[cover-url]: https://codecov.io/gh/webpack-contrib/css-loader
 
 [chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack
