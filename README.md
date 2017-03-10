@@ -398,6 +398,15 @@ You can also disable or enforce minification with the `minimize` query parameter
 
 By default, the exported JSON keys mirror the class names. If you want to camelize class names (useful in JS), pass the query parameter `camelCase` to css-loader.
 
+#### Possible Options
+
+|Option|Description|
+|:----:|:--------|
+|**`true`**|Class names will be camelized|
+|**`'dashes'`**|Only dashes in class names will be camelized|
+|**`'only'`** |Class names will be camelized, the original class name will be removed from the locals|
+|**`'dashesOnly'`**|Dashes in class names will be camelized, the original class name will be removed from the locals|
+
 **webpack.config.js**
 ```js
 {
