@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.27.1"></a>
+# [0.27.1](https://github.com/webpack/css-loader/compare/v0.27.0...v0.27.1) (2017-03-10)
+
 <a name="0.27.0"></a>
 # [0.27.0](https://github.com/webpack/css-loader/compare/v0.26.2...v0.27.0) (2017-03-10)
 
