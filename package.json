@@ -31,7 +31,8 @@
     "eslint": "3.14.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
-    "should": "^11.1.2"
+    "should": "^11.1.2",
+    "standard-version": "^4.0.0"
   },
   "scripts": {
     "test": "mocha",
@@ -40,7 +41,7 @@
     "travis:test": "npm run cover",
     "travis:lint": "npm run lint",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "publish-patch": "mocha && npm version patch && git push && git push --tags && npm publish"
+    "release": "yarn run standard-version"
   },
   "repository": {
     "type": "git",
