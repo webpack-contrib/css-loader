@@ -35,7 +35,7 @@ describe("css-base", function() {
 			"@media screen{body { a: 1; }}");
 	});
 	it("should toString with source mapping", function() {
-		var m = base();
+		var m = base(true);
 		m.push([1, "body { a: 1; }", "", {
 			file: "test.scss",
 			sources: [
