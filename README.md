@@ -404,8 +404,8 @@ By default, the exported JSON keys mirror the class names. If you want to cameli
 |:----:|:--------|
 |**`true`**|Class names will be camelized|
 |**`'dashes'`**|Only dashes in class names will be camelized|
-|**`'only'`** |Class names will be camelized, the original class name will be removed from the locals|
-|**`'dashesOnly'`**|Dashes in class names will be camelized, the original class name will be removed from the locals|
+|**`'only'`** |Introduced in `0.27.1`. Class names will be camelized, the original class name will be removed from the locals|
+|**`'dashesOnly'`**|Introduced in `0.27.1`. Dashes in class names will be camelized, the original class name will be removed from the locals|
 
 **webpack.config.js**
 ```js
