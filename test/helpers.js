@@ -136,6 +136,16 @@ exports.testLocals = function testLocals(name, input, result, query, modules) {
 	});
 };
 
+exports.testLocal = function testLocal(name, input, result, localsResult, query, modules) {
+	result.locals = localsResult;
+	exports.test(name, input, result, query, modules);
+};
+
+exports.testLocalMinimize = function testLocalMinimize(name, input, result, localsResult, query, modules) {
+	result.locals = localsResult;
+	exports.testMinimize(name, input, result, query, modules);
+};
+
 exports.testSingleItem = function testSingleItem(name, input, result, query, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, undefined, {
