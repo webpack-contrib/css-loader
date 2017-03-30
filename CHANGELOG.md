@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.28.0"></a>
+# [0.28.0](https://github.com/webpack/css-loader/compare/v0.27.3...v0.28.0) (2017-03-30)
+
+
+### Features
+
+* add alias feature to rewrite URLs ([#274](https://github.com/webpack/css-loader/issues/274)) ([c8db489](https://github.com/webpack/css-loader/commit/c8db489))
+
+
+
 <a name="0.27.3"></a>
 ## [0.27.3](https://github.com/webpack/css-loader/compare/v0.27.2...v0.27.3) (2017-03-13)
 
