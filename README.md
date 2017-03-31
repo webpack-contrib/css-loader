@@ -205,8 +205,9 @@ You can configure the generated ident with the `localIdentName` query parameter 
 }
 ```
 
-You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema. Note that this requires `webpack >= v2.x.` since to be able to pass function in. For example:
+You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema. This requires `webpack >= 2.2.1` (it supports functions in the `options` object). For example:
 
+**webpack.config.js**
 ```js
 {
   test: /\.css$/,
