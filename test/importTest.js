@@ -31,6 +31,12 @@ describe("import", function() {
 			[2, ".test{c: d}", ""]
 		]
 	});
+	test("import 3", "@import url('~@test/test/test.css');\n.class { a: b c d; }", [
+		[2, ".test{a: b}", "screen"],
+		[1, ".class { a: b c d; }", ""]
+	], "", {
+		"@test/test/test.css": [[2, ".test{a: b}", "screen"]]
+	});
 	test("import external", "@import url(http://example.com/style.css);\n@import url(\"//example.com/style.css\");", [
 		[1, "@import url(http://example.com/style.css);", ""],
 		[1, "@import url(//example.com/style.css);", ""],
