@@ -12,6 +12,12 @@ describe("url", function() {
 	test("background img 3", ".class { background: green url( 'img.png' ) xyz }", [
 		[1, ".class { background: green url({./img.png}) xyz }", ""]
 	]);
+	test("background img contain space in name", ".class { background: green url( \"img img.png\" ) xyz }", [
+		[1, ".class { background: green url(\"{./img img.png}\") xyz }", ""]
+	]);
+	test("background 2 img contain space in name", ".class { background: green url( 'img img.png' ) xyz }", [
+		[1, ".class { background: green url('{./img img.png}') xyz }", ""]
+	]);
 	test("background img absolute", ".class { background: green url(/img.png) xyz }", [
 		[1, ".class { background: green url(/img.png) xyz }", ""]
 	]);
@@ -62,6 +68,12 @@ describe("url", function() {
 	], "?-url");
 	test("background img 3 with url", ".class { background: green url( 'img.png' ) xyz }", [
 		[1, ".class { background: green url( 'img.png' ) xyz }", ""]
+	], "?-url");
+	test("background img with url contain space in name", ".class { background: green url( \"img img.png\" ) xyz }", [
+		[1, ".class { background: green url( \"img img.png\" ) xyz }", ""]
+	], "?-url");
+	test("background 2 img with url contain space in name", ".class { background: green url( 'img img.png' ) xyz }", [
+		[1, ".class { background: green url( 'img img.png' ) xyz }", ""]
 	], "?-url");
 	test("background img absolute with url", ".class { background: green url(/img.png) xyz }", [
 		[1, ".class { background: green url(/img.png) xyz }", ""]
