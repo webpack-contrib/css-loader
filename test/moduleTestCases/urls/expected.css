@@ -1,6 +1,8 @@
 ._a_ {
 	background: url({./module});
 	background: url({./module});
+	background: url("{./module module}");
+	background: url('{./module module}');
 	background: url({./module});
 	background: url({./module}#?iefix);
 	background: url("#hash");
