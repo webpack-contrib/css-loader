@@ -15,7 +15,7 @@ describe("values", function() {
 			def: "red",
 			ghi: "1px solid black"
 		},
-		""
+		"?modules"
 	);
 	testLocals("should export values and locals",
 		"@value def: red; .ghi { color: def; }",
@@ -31,7 +31,7 @@ describe("values", function() {
 			[ 1, ".ghi { color: red; }", "" ]
 		], {
 			def: "red"
-		}, "", {
+		}, "?modules&moduleMode=global", {
 			"./file": (function() {
 				var a =  [[2, "", ""]];
 				a.locals = {
@@ -49,7 +49,7 @@ describe("values", function() {
 		], {
 			aaa: "red",
 			bbb: "green"
-		}, "", {
+		}, "?modules&moduleMode=global", {
 			"./file1": (function() {
 				var a =  [[2, "", ""]];
 				a.locals = {

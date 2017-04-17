@@ -10,7 +10,7 @@ describe("locals", function() {
 			ghi: "_ghi",
 			jkl: "_jkl"
 		},
-		"?localIdentName=_[local]"
+		"?modules&moduleMode=global&localIdentName=_[local]"
 	);
 	testLocals("should return only locals with composing",
 		":local(.abc) { color: red; } :local(.def) { composes: abc; background: green; }",
@@ -18,14 +18,14 @@ describe("locals", function() {
 			abc: "_abc",
 			def: "_def _abc"
 		},
-		"?localIdentName=_[local]"
+		"?modules&localIdentName=_[local]"
 	);
 	testLocals("should return only locals with importing",
 		":local(.abc) { composes: def from \"./module.css\"; }",
 		{
 			abc: "_abc imported_def imported_ghi"
 		},
-		"?localIdentName=_[local]",
+		"?modules&localIdentName=_[local]",
 		{
 			"./module.css": {
 				def: "imported_def imported_ghi",
@@ -38,7 +38,7 @@ describe("locals", function() {
 		{
 			abc: "_abc imported_def1 imported_ghi1 imported_def2"
 		},
-		"?localIdentName=_[local]",
+		"?modules&localIdentName=_[local]",
 		{
 			"./module1.css": {
 				def: "imported_def1 imported_ghi1",

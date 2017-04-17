@@ -11,6 +11,8 @@ describe("customGetLocalIdent", function() {
 			jkl: "foo"
 		},
         {
+            modules: true,
+            moduleMode: 'global',
             getLocalIdent: function () {
                 return 'foo'
             }

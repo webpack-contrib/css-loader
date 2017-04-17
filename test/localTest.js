@@ -18,7 +18,7 @@ describe("local", function() {
 		[1, ".test-2_pBx { background: red; }", ""]
 	], {
 		test: "test-2_pBx"
-	}, "?localIdentName=[local]-[hash:base64:5]");
+	}, "?modules&localIdentName=[local]-[hash:base64:5]");
 	testLocal("locals", ":local(.className) { background: red; }\n:local(#someId) { background: green; }\n" +
 		":local(.className .subClass) { color: green; }\n:local(#someId .subClass) { color: blue; }", [
 		[1, "._23J0282swY7bwvI2X4fHiV { background: red; }\n#_3vpqN0v_IxlO3TzQjbpB33 { background: green; }\n" +
@@ -27,14 +27,14 @@ describe("local", function() {
 		className: "_23J0282swY7bwvI2X4fHiV",
 		someId: "_3vpqN0v_IxlO3TzQjbpB33",
 		subClass: "_1s1VsToXFz17cPAltMg7jz"
-	});
+	}, "?modules");
 	testLocalMinimize("minimized plus local", ":local(.localClass) { background: red; }\n:local .otherClass { background: red; }\n:local(.empty) { }", [
 		[1, "._localClass,._otherClass{background:red}", ""]
 	], {
 		localClass: "_localClass",
 		otherClass: "_otherClass",
 		empty: "_empty"
-	}, "?localIdentName=_[local]");
+	}, "?modules&localIdentName=_[local]");
 	testLocal("mode switching", ".c1 :local .c2 .c3 :global .c4 :local .c5, .c6 :local .c7 { background: red; }\n.c8 { background: red; }", [
 		[1, ".c1 ._c2 ._c3 .c4 ._c5, .c6 ._c7 { background: red; }\n.c8 { background: red; }", ""]
 	], {
@@ -42,33 +42,33 @@ describe("local", function() {
 		c3: "_c3",
 		c5: "_c5",
 		c7: "_c7"
-	}, "?localIdentName=_[local]");
+	}, "?modules&moduleMode=global&localIdentName=_[local]");
 	testLocal("comment in local", ":local(.c1/*.c2*/.c3) { background: red; }", [
 		[1, "._c1._c3 { background: red; }", ""]
 	], {
 		c1: "_c1",
 		c3: "_c3"
-	}, "?localIdentName=_[local]");
+	}, "?modules&localIdentName=_[local]");
 	testLocal("comment in local", ":local(.c1/*.c2*/.c3) { background: red; }", [
 		[1, "._c1._c3 { background: red; }", ""]
 	], {
 		c1: "_c1",
 		c3: "_c3"
-	}, "?localIdentName=_[local]");
+	}, "?modules&localIdentName=_[local]");
 	testLocal("strings in local", ":local(.c1[data-attr=\".c2)]'\"]:not(.c3):not(.c4)) { background: red; }", [
 		[1, "._c1[data-attr=\".c2)]'\"]:not(._c3):not(._c4) { background: red; }", ""]
 	], {
 		c1: "_c1",
 		c3: "_c3",
 		c4: "_c4"
-	}, "?localIdentName=_[local]");
+	}, "?modules&localIdentName=_[local]");
 
 	testLocal("composes class simple", ":local(.c1) { a: 1; }\n:local(.c2) { composes: c1; b: 1; }", [
 		[1, "._c1 { a: 1; }\n._c2 { b: 1; }", ""]
 	], {
 		c1: "_c1",
 		c2: "_c2 _c1"
-	}, "?localIdentName=_[local]");
+	}, "?modules&localIdentName=_[local]");
 	testLocal("composes class from module", [
 		":local(.c1) { composes: c2 from \"./module\"; b: 1; }",
 		":local(.c3) { composes: c1; b: 3; }",
@@ -84,7 +84,7 @@ describe("local", function() {
 		c1: "_c1 imported-c2",
 		c3: "_c3 _c1 imported-c2",
 		c5: "_c5 imported-c2 imported-c4"
-	}, "?localIdentName=_[local]", {
+	}, "?modules&localIdentName=_[local]", {
 		"./module": (function() {
 			var r = [
 				[2, ".test{c: d}", ""]
@@ -111,7 +111,7 @@ describe("local", function() {
 		c1: "_c1 imported-c-2",
 		c3: "_c3 _c1 imported-c-2",
 		c5: "_c5 imported-c-2 imported-c4"
-	}, "?localIdentName=_[local]", {
+	}, "?modules&localIdentName=_[local]", {
 		"./module": (function() {
 			var r = [
 				[2, ".test{c: d}", ""]
@@ -131,7 +131,7 @@ describe("local", function() {
 		[1, "._c1 { b: 1; }", ""]
 	], {
 		c1: "_c1 imported-c2 imported-c3 imported-c4"
-	}, "?localIdentName=_[local]", {
+	}, "?modules&moduleMode=global&localIdentName=_[local]", {
 		"./module": (function() {
 			var r = [
 				[2, ".test{c: d}", ""]
@@ -152,18 +152,18 @@ describe("local", function() {
 		className: "_23J0282swY7bwvI2X4fHiV",
 		someId: "_3vpqN0v_IxlO3TzQjbpB33",
 		subClass: "_1s1VsToXFz17cPAltMg7jz"
-	}, "?module");
+	}, "?modules");
 	testLocal("class name parsing", ".-a0-34a___f { color: red; }", [
 		[1, "._3ZMCqVa1XidxdqbX65hZ5D { color: red; }", ""]
 	], {
 		"-a0-34a___f": "_3ZMCqVa1XidxdqbX65hZ5D"
-	}, "?module");
+	}, "?modules");
 	testLocal("imported values in decl", ".className { color: IMPORTED_NAME; }\n" +
 		":import(\"./vars.css\") { IMPORTED_NAME: primary-color; }", [
 		[1, "._className { color: red; }", ""]
 	], {
 		"className": "_className"
-	}, "?module&localIdentName=_[local]", {
+	}, "?modules&localIdentName=_[local]", {
 		"./vars.css": {
 			locals: {
 				"primary-color": "red"
@@ -206,15 +206,15 @@ describe("local", function() {
 		[1, "._1test { background: red; }", ""]
 	], {
 		test: "_1test"
-	}, "?localIdentName=1[local]");
+	}, "?modules&localIdentName=1[local]");
 	testLocal("prefixes leading hyphen + digit with underscore", ":local(.test) { background: red; }", [
 		[1, "._-1test { background: red; }", ""]
 	], {
 		test: "_-1test"
-	}, "?localIdentName=-1[local]");
+	}, "?modules&localIdentName=-1[local]");
 	testLocal("prefixes two leading hyphens with underscore", ":local(.test) { background: red; }", [
 		[1, "._--test { background: red; }", ""]
 	], {
 		test: "_--test"
-	}, "?localIdentName=--[local]");
+	}, "?modules&localIdentName=--[local]");
 });
