@@ -515,7 +515,7 @@ module.exports = {
         <img width="150" height="150"
         src="https://github.com/evilebottnawi.png?v=3&s=150">
         </br>
-        <a href="https://github.com/evilebottnawi.png">Evilebot Tnawi</a>
+        <a href="https://github.com/evilebottnawi">Evilebot Tnawi</a>
       </td>
       <td align="center">
         <img width="150" height="150"
