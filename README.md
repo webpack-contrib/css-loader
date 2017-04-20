@@ -83,6 +83,7 @@ To be compatible with existing css files (if not in CSS Module mode):
 |:--:|:-----:|:----------|
 |**`root`**|`/`|Path to resolve URLs, URLs starting with `/` will not be translated|
 |**`modules`**|`false`|Enable/Disable CSS Modules|
+|**`localByDefault`**|`true`|treat unmarked selectors as :local|
 |**`import`** |`true`| Enable/Disable @import handling|
 |**`url`**|`true`| Enable/Disable `url()` handling|
 |**`minimize`**|`false`|Enable/Disable minification|
@@ -233,6 +234,12 @@ Note: For prerendering with extract-text-webpack-plugin you should use `css-load
 The query parameter `modules` enables the **CSS Modules** spec.
 
 This enables local scoped CSS by default. (You can switch it off with `:global(...)` or `:global` for selectors and/or rules.)
+
+### :local by default
+
+The query parameter `localByDefault` allows you to override the _"locals by default when using `modules: true`"_ behavior'.
+
+For selectors that have not been marked using :local or :global - this will allow you to decide which should be default. This will help for projects that are being ported from non css modules usage to using css modules.
 
 ### CSS Composing
 

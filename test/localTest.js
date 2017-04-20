@@ -1,17 +1,7 @@
 /*globals describe */
 
-var test = require("./helpers").test;
-var testMinimize = require("./helpers").testMinimize;
-
-function testLocal(name, input, result, localsResult, query, modules) {
-	result.locals = localsResult;
-	test(name, input, result, query, modules);
-}
-
-function testLocalMinimize(name, input, result, localsResult, query, modules) {
-	result.locals = localsResult;
-	testMinimize(name, input, result, query, modules);
-}
+var testLocal = require("./helpers").testLocal;
+var testLocalMinimize = require("./helpers").testLocalMinimize;
 
 describe("local", function() {
 	testLocal("locals-format", ":local(.test) { background: red; }", [
