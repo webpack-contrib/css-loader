@@ -32,6 +32,9 @@ describe("simple", function() {
 	testMinimize("minimized simple", ".class { a: b c d; }", [
 		[1, ".class{a:b c d}", ""]
 	]);
+	test("charset directive", "@charset \"UTF-8\";\n .class { a: b c d; }", [
+		[1, "@charset \"UTF-8\";\n .class { a: b c d; }", ""]
+	]);
 	testError("error formatting", ".some {\n invalid css;\n}", function(err) {
 		assert.equal(err.message, [
 			'Unknown word (2:2)',
