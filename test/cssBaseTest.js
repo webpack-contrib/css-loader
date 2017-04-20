@@ -1,8 +1,26 @@
-/*globals describe it*/
+/*eslint-env mocha*/
 
 var base = require("../lib/css-base");
 
 describe("css-base", function() {
+	before(function() {
+		global.btoa = function btoa(str) {
+			var buffer = null;
+
+			if (str instanceof Buffer) {
+				buffer = str;
+			} else {
+				buffer = new Buffer(str.toString(), 'binary');
+			}
+
+			return buffer.toString('base64');
+		}
+	})
+
+	after(function () {
+		global.btoa = null;
+	})
+
 	it("should toString a single module", function() {
 		var m = base();
 		m.push([1, "body { a: 1; }", ""]);
@@ -45,5 +63,18 @@ describe("css-base", function() {
 			sourceRoot: "webpack://"
 		}]);
 		m.toString().should.be.eql("body { a: 1; }\n/*# sourceURL=webpack://./path/to/test.scss */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsiLCJzb3VyY2VSb290Ijoid2VicGFjazovLyJ9 */");
+	});
+	it("should toString without source mapping if btoa not avalibale", function() {
+		global.btoa = null;
+		var m = base(true);
+		m.push([1, "body { a: 1; }", "", {
+			file: "test.scss",
+			sources: [
+				'./path/to/test.scss'
+			],
+			mappings: "AAAA;",
+			sourceRoot: "webpack://"
+		}]);
+		m.toString().should.be.eql("body { a: 1; }");
 	});
 });
