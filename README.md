@@ -27,7 +27,7 @@ The `css-loader` interprets `@import` and `url()` like `import/require()`
 and will resolve them.
 
 Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader)
-and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see [below](https://github.com/webpack-contrib/css-loader/tree/readme#assets)).
+and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see [below](https://github.com/michael-ciniawsky/css-loader#assets)).
 
 **file.css**
 ```js
