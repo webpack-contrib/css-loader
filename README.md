@@ -166,7 +166,7 @@ Check out this [working bootstrap example](https://github.com/bbtfr/webpack2-boo
 To disable `@import` resolving by `css-loader` set the option to `false`
 
 ```css
-@import @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 ```
 
 > :waning: Use with caution, since this disables resolving for **all** `@import`s
