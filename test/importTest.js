@@ -15,12 +15,33 @@ describe("import", function() {
 	], "", {
 		"./test.css": [[2, ".test{a: b}", ""]]
 	});
+    test("import empty url", "@import url();\n.class { a: b c d; }", [
+        [1, "@import url();\n.class { a: b c d; }", ""]
+    ], "");
+    test("import empty url with quotes", "@import url('');\n.class { a: b c d; }", [
+        [1, "@import url('');\n.class { a: b c d; }", ""]
+    ], "");
 	test("import with string", "@import \"test.css\";\n.class { a: b c d; }", [
 		[2, ".test{a: b}", ""],
 		[1, ".class { a: b c d; }", ""]
 	], "", {
 		"./test.css": [[2, ".test{a: b}", ""]]
 	});
+	test("import with empty string", "@import \"\";\n.class { a: b c d; }", [
+		[1, "@import \"\";\n.class { a: b c d; }", ""]
+	], "");
+	test("import with string contain spaces", "@import \"   \";\n.class { a: b c d; }", [
+		[1, "@import \"   \";\n.class { a: b c d; }", ""]
+	], "");
+	test("import with string contain newline", "@import \"\n\";\n.class { a: b c d; }", [
+		[1, "@import \"\n\";\n.class { a: b c d; }", ""]
+	], "");
+	test("import with string contain CRLF", "@import \"\r\n\";\r\n.class { a: b c d; }", [
+		[1, "@import \"\r\n\";\r\n.class { a: b c d; }", ""]
+	], "");
+	test("import with string contain tab", "@import \"\t\";\n.class { a: b c d; }", [
+		[1, "@import \"\t\";\n.class { a: b c d; }", ""]
+	], "");
 	test("import 2", "@import url('test.css');\n.class { a: b c d; }", [
 		[2, ".test{a: b}", "screen"],
 		[1, ".class { a: b c d; }", ""]
