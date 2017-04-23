@@ -390,22 +390,22 @@ import { className } from 'file.css';
 
 ### `importLoaders`
 
-The query parameter `importLoaders` allow to configure which loaders should be applied to `@import`ed resources.
-
-`importLoaders`: That many loaders after the css-loader are used to import resources.
+The query parameter `importLoaders` allows to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
 
 **webpack.config.js**
 ```js
 {
   test: /\.css$/,
   use: [
+    'style-loader',
     {
       loader: 'css-loader',
       options: {
-        importLoaders: 1
+        importLoaders: 1 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
       }
     },
-    'postcss-loader'
+    'postcss-loader',
+    'sass-loader'
   ]
 }
 ```
