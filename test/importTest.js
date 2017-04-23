@@ -9,6 +9,12 @@ describe("import", function() {
 	], "", {
 		"./test.css": [[2, ".test{a: b}", ""]]
 	});
+	test("import camelcase", "@IMPORT url(test.css);\n.class { a: b c d; }", [
+		[2, ".test{a: b}", ""],
+		[1, ".class { a: b c d; }", ""]
+	], "", {
+		"./test.css": [[2, ".test{a: b}", ""]]
+	});
 	test("import with string", "@import \"test.css\";\n.class { a: b c d; }", [
 		[2, ".test{a: b}", ""],
 		[1, ".class { a: b c d; }", ""]
