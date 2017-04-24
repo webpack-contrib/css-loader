@@ -86,7 +86,7 @@ If there are SourceMaps, they will also be included in the result string.
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**`camelCase`**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**`importLoaders`**|`{Number}`|`0`|Number of loaders applied before CSS loader|
-|**`externals`**|`{}`|Import from globally available external object|
+|**`externals`**|`{Object}`|`{}`|Import from globally available external object|
 
 ### `root`
 
