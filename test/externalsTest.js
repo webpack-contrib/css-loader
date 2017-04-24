@@ -1,4 +1,4 @@
-/*globals describe */
+/*globals describe, before, after */
 
 var test = require("./helpers").test;
 
@@ -10,10 +10,8 @@ function testLocal(name, input, result, localsResult, query, modules) {
 describe("externals", function() {
 	before(function () {
 		global.External = {
-			External: {
-				c2: "imported-c2",
-				c4: "imported-c4"
-			}
+			c2: "imported-c2",
+			c4: "imported-c4"
 		};
 	});
 
@@ -31,17 +29,13 @@ describe("externals", function() {
 		// result
 		[
 			[
-				2,
-				".test{c: d}",
-				""
-			],
-			[
 				1,
 				[
 					"._c1 { b: 1; }",
 					"._c3 { b: 3; }",
 					"._c5 { b: 5; }"
-				].join("\n"), ""]
+				].join("\n"), ""
+			]
 		],
 
 		// localsResult
@@ -52,12 +46,15 @@ describe("externals", function() {
 		},
 
 		// query
-		{
-			localIdentName: '[name]__[local]___[hash:base64:5]',
-			externals: {
-				external: 'External'
-			}
-		},
+		'?localIdentName=_[local]&externals={"external":"External"}',
+
+		// @TODO: test with query as an object too
+		// {
+		// 	localIdentName: '_[local]',
+		// 	externals: {
+		// 		external: 'External'
+		// 	}
+		// },
 
 		// modules
 		{}
