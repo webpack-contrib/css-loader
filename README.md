@@ -73,6 +73,10 @@ console.log(css); // {String}
 
 If there are SourceMaps, they will also be included in the result string.
 
+If, for one reason or another, you need to extract CSS as a
+plain string resource (i.e. not wrapped in a JS module) you
+might want to check out the [extract-loader](https://github.com/peerigon/extract-loader). It's useful when you, for instance, need to post-process the CSS as a string.
+
 <h2 align="center">Options</h2>
 
 |Name|Type|Default|Description|
