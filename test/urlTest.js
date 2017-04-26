@@ -77,16 +77,16 @@ describe("url", function() {
 		[1, ".class { background: green url('') xyz }", ""]
 	]);
 	test("empty url with spaces and quotes", ".class { background: green url('   ') xyz }", [
-		[1, ".class { background: green url('   ') xyz }", ""]
+		[1, ".class { background: green url('') xyz }", ""]
 	]);
 	test("empty url with newline and quotes", ".class { background: green url('\n') xyz }", [
-		[1, ".class { background: green url('\n') xyz }", ""]
+		[1, ".class { background: green url('') xyz }", ""]
 	]);
 	test("empty url with CRLF and quotes", ".class { background: green url('\r\n') xyz }", [
-		[1, ".class { background: green url('\r\n') xyz }", ""]
+		[1, ".class { background: green url('') xyz }", ""]
 	]);
 	test("empty url with tab and quotes", ".class { background: green url('\t') xyz }", [
-		[1, ".class { background: green url('\t') xyz }", ""]
+		[1, ".class { background: green url('') xyz }", ""]
 	]);
 	test("external absolute url", ".class { background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", [
 		[1, ".class { background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", ""]
