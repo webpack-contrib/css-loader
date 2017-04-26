@@ -15,12 +15,12 @@ describe("url", function() {
 	test("background img 4", ".class { background: green url( img.png ) xyz }", [
 		[1, ".class { background: green url({./img.png}) xyz }", ""]
 	]);
-    test("background img contain space in name", ".class { background: green url( \"img img.png\" ) xyz }", [
-        [1, ".class { background: green url(\"{./img img.png}\") xyz }", ""]
-    ]);
-    test("background 2 img contain space in name", ".class { background: green url( 'img img.png' ) xyz }", [
-        [1, ".class { background: green url('{./img img.png}') xyz }", ""]
-    ]);
+	test("background img contain space in name", ".class { background: green url( \"img img.png\" ) xyz }", [
+		[1, ".class { background: green url(\"{./img img.png}\") xyz }", ""]
+	]);
+	test("background 2 img contain space in name", ".class { background: green url( 'img img.png' ) xyz }", [
+		[1, ".class { background: green url('{./img img.png}') xyz }", ""]
+	]);
 	test("background img absolute", ".class { background: green url(/img.png) xyz }", [
 		[1, ".class { background: green url(/img.png) xyz }", ""]
 	]);
@@ -78,6 +78,30 @@ describe("url", function() {
 	]);
 	test("-webkit-image-set", ".a { background-image: -webkit-image-set(url('url1x.png') 1x, url('url2x.png') 2x) }", [
 		[1, ".a { background-image: -webkit-image-set(url({./url1x.png}) 1x, url({./url2x.png}) 2x) }", ""]
+	]);
+	test("empty url", ".class { background: green url() xyz }", [
+		[1, ".class { background: green url() xyz }", ""]
+	]);
+	test("empty url with quotes", ".class { background: green url('') xyz }", [
+		[1, ".class { background: green url('') xyz }", ""]
+	]);
+	test("empty url with spaces and quotes", ".class { background: green url('   ') xyz }", [
+		[1, ".class { background: green url('') xyz }", ""]
+	]);
+	test("empty url with newline and quotes", ".class { background: green url('\n') xyz }", [
+		[1, ".class { background: green url('') xyz }", ""]
+	]);
+	test("empty url with CRLF and quotes", ".class { background: green url('\r\n') xyz }", [
+		[1, ".class { background: green url('') xyz }", ""]
+	]);
+	test("empty url with tab and quotes", ".class { background: green url('\t') xyz }", [
+		[1, ".class { background: green url('') xyz }", ""]
+	]);
+	test("external absolute url", ".class { background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", [
+		[1, ".class { background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", ""]
+	]);
+	test("external schema-less url", ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", [
+		[1, ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", ""]
 	]);
 
 	test("background img with url", ".class { background: green url( \"img.png\" ) xyz }", [
@@ -140,5 +164,29 @@ describe("url", function() {
 	], "?-url");
 	test("keyframe background img with url", "@keyframes anim { background: green url('img.png') xyz }", [
 		[1, "@keyframes anim { background: green url('img.png') xyz }", ""]
+	], "?-url");
+	test("empty url", ".class { background: green url() xyz }", [
+		[1, ".class { background: green url() xyz }", ""]
+	], "?-url");
+	test("empty url with quotes", ".class { background: green url('') xyz }", [
+		[1, ".class { background: green url('') xyz }", ""]
+	], "?-url");
+	test("empty url with spaces and quotes", ".class { background: green url('   ') xyz }", [
+		[1, ".class { background: green url('   ') xyz }", ""]
+	], "?-url");
+	test("empty url with newline and quotes", ".class { background: green url('\n') xyz }", [
+		[1, ".class { background: green url('\n') xyz }", ""]
+	], "?-url");
+	test("empty url with CRLF and quotes", ".class { background: green url('\r\n') xyz }", [
+		[1, ".class { background: green url('\r\n') xyz }", ""]
+	], "?-url");
+	test("empty url with tab and quotes", ".class { background: green url('\t') xyz }", [
+		[1, ".class { background: green url('\t') xyz }", ""]
+	], "?-url");
+	test("external absolute url", ".class { background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", [
+		[1, ".class { background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", ""]
+	], "?-url");
+	test("external schema-less url", ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", [
+		[1, ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", ""]
 	], "?-url");
 });
