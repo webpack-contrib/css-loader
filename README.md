@@ -78,6 +78,18 @@ plain string resource (i.e. not wrapped in a JS module) you
 might want to check out the [extract-loader](https://github.com/peerigon/extract-loader).
 It's useful when you, for instance, need to post process the CSS as a string.
 
+**webpack.config.js**
+```js
+{
+   test: /\.css$/,
+   use: [
+     'handlebars-loader', // handlebars loader expects raw resource string
+     'extract-loader',
+     'css-loader'
+   ]
+}
+```
+
 <h2 align="center">Options</h2>
 
 |Name|Type|Default|Description|
