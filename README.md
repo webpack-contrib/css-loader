@@ -73,6 +73,23 @@ console.log(css); // {String}
 
 If there are SourceMaps, they will also be included in the result string.
 
+If, for one reason or another, you need to extract CSS as a
+plain string resource (i.e. not wrapped in a JS module) you
+might want to check out the [extract-loader](https://github.com/peerigon/extract-loader).
+It's useful when you, for instance, need to post process the CSS as a string.
+
+**webpack.config.js**
+```js
+{
+   test: /\.css$/,
+   use: [
+     'handlebars-loader', // handlebars loader expects raw resource string
+     'extract-loader',
+     'css-loader'
+   ]
+}
+```
+
 <h2 align="center">Options</h2>
 
 |Name|Type|Default|Description|
@@ -170,7 +187,7 @@ To disable `@import` resolving by `css-loader` set the option to `false`
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 ```
 
-> :waning: Use with caution, since this disables resolving for **all** `@import`s
+> _⚠️ Use with caution, since this disables resolving for **all** `@import`s, including css modules `composes: xxx from 'path/to/file.css'` feature._
 
 ### [`modules`](https://github.com/css-modules/css-modules)
 
