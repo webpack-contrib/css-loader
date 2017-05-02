@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.28.1"></a>
+## [0.28.1](https://github.com/webpack/css-loader/compare/v0.28.0...v0.28.1) (2017-05-02)
+
+
+### Bug Fixes
+
+* allow to specify a full hostname as a root URL ([#521](https://github.com/webpack/css-loader/issues/521)) ([06d27a1](https://github.com/webpack/css-loader/commit/06d27a1))
+* case insensitivity of [@import](https://github.com/import) ([#514](https://github.com/webpack/css-loader/issues/514)) ([de4356b](https://github.com/webpack/css-loader/commit/de4356b))
+* don't handle empty [@import](https://github.com/import) and url() ([#513](https://github.com/webpack/css-loader/issues/513)) ([868fc94](https://github.com/webpack/css-loader/commit/868fc94))
+* imported variables are replaced in exports if followed by a comma ([#504](https://github.com/webpack/css-loader/issues/504)) ([956bad7](https://github.com/webpack/css-loader/commit/956bad7))
+* loader now correctly handles `url` with space(s) ([#495](https://github.com/webpack/css-loader/issues/495)) ([534ea55](https://github.com/webpack/css-loader/commit/534ea55))
+* url with a trailing space is now handled correctly ([#494](https://github.com/webpack/css-loader/issues/494)) ([e1ec4f2](https://github.com/webpack/css-loader/commit/e1ec4f2))
+* use `btoa` instead `Buffer` ([#501](https://github.com/webpack/css-loader/issues/501)) ([fbb0714](https://github.com/webpack/css-loader/commit/fbb0714))
+
+
+### Performance Improvements
+
+* generate source maps only when explicitly set ([#478](https://github.com/webpack/css-loader/issues/478)) ([b8f5c8f](https://github.com/webpack/css-loader/commit/b8f5c8f))
+
+
+
 <a name="0.28.0"></a>
 # [0.28.0](https://github.com/webpack/css-loader/compare/v0.27.3...v0.28.0) (2017-03-30)
 
