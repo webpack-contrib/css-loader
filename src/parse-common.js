@@ -3,7 +3,7 @@ export function throwUnexpectedToken(match, index, length, state) {
 }
 
 export function metablockEndMatch(match, index, length) {
-  this.currentBlock.end = index + length;
+  this.currentBlock.end = index + length - 1;
   this.currentImport = undefined;
   return 'topLevel';
 }

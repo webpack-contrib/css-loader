@@ -4,19 +4,19 @@ exports[`parse should parse at-import.css 1`] = `
 Object {
   "atImports": Array [
     Object {
-      "end": 15,
+      "end": 14,
       "mediaQuery": Array [],
       "start": 0,
       "url": "abc",
     },
     Object {
-      "end": 35,
+      "end": 34,
       "mediaQuery": Array [],
       "start": 15,
       "url": "abc",
     },
     Object {
-      "end": 64,
+      "end": 63,
       "mediaQuery": Array [
         "print,",
         "screen",
@@ -25,7 +25,7 @@ Object {
       "url": "abc",
     },
     Object {
-      "end": 173,
+      "end": 172,
       "mediaQuery": Array [
         "screen",
         "print",
@@ -48677,19 +48677,19 @@ Object {
   "imports": Array [],
   "metablocks": Array [
     Object {
-      "end": 37,
+      "end": 36,
       "start": 0,
     },
     Object {
-      "end": 51,
+      "end": 50,
       "start": 37,
     },
     Object {
-      "end": 112,
+      "end": 111,
       "start": 51,
     },
     Object {
-      "end": 233,
+      "end": 232,
       "start": 112,
     },
   ],
@@ -48786,32 +48786,36 @@ Object {
   "imports": Array [
     Object {
       "alias": "_imp_abc",
+      "from": "some-file.css",
       "importName": "abc",
     },
     Object {
       "alias": "_imp_def",
+      "from": "some-file.css",
       "importName": "def",
     },
     Object {
       "alias": "--hoho",
+      "from": "abc",
       "importName": "abc",
     },
     Object {
       "alias": "__123hihi",
+      "from": "sum(\\"zzz\\")",
       "importName": "__123hihi",
     },
   ],
   "metablocks": Array [
     Object {
-      "end": 64,
+      "end": 63,
       "start": 0,
     },
     Object {
-      "end": 96,
+      "end": 95,
       "start": 64,
     },
     Object {
-      "end": 249,
+      "end": 248,
       "start": 96,
     },
   ],

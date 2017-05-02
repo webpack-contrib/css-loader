@@ -1,0 +1,18 @@
+:import(some-file) {
+  abc: ABC;
+  def: DEF;
+}
+
+:import(other-file) {
+  hij: HIJ;
+}
+
+:export {
+  xyz: abc def hij klm;
+}
+
+body {
+  background: abc def hij klm
+}
+
+.abc { def: hij; }

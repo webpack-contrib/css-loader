@@ -25,7 +25,8 @@ function importFromRawMatch(match, index) {
 function importAliasMatch(match) {
   const importItem = {
     alias: match,
-    importName: null
+    importName: null,
+    from: this.currentImport,
   };
   this.imports.push(importItem);
   this.currentItem = importItem;

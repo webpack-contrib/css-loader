@@ -27,7 +27,7 @@ function atImportMediaMatch(match) {
 }
 
 function atImportEndMatch(match, index, length) {
-  this.currentItem.end = index + length;
+  this.currentItem.end = index + length - 1;
   return 'topLevel';
 }
 
