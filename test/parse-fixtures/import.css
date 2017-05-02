@@ -1,0 +1,20 @@
+:import("some-file.css") {
+  _imp_abc: abc;
+  _imp_def: def;
+}
+
+:import(abc) {
+  --hoho: abc
+}
+
+:import /*comment*/ ( /*comment*/ 'sum("zzz")' /*comment*/ ) /*comment*/ {
+   /*comment*/ __123hihi /*comment*/ : /*comment*/ __123hihi /*comment*/ ;
+}
+
+._imp_abc:not(div) {
+  background: _imp_def, red;
+}
+
+body {
+  --hoho: __123hihi;
+}
