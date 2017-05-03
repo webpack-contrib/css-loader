@@ -87,6 +87,9 @@ describe('webpack', () => {
             filename: 'bundle.js',
             libraryTarget: 'commonjs2',
           },
+          resolve: {
+            extensions: ['.css'],
+          },
           module: options,
         }, (err, stats) => {
           if (err) {

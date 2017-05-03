@@ -4,8 +4,8 @@ exports[`loader should process at-import.css 1`] = `
 Array [
   "// css runtime
 import * as runtime from \\"../runtime/index.js\\";
-import cssLoaderImport0 from \\"./abc\\";
-import cssLoaderImport1 from \\"./def\\";
+import cssLoaderImport0 from \\"abc\\";
+import cssLoaderImport1 from \\"def\\";
 
 // CSS
 export default /*#__PURE__*/runtime.create([

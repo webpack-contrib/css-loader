@@ -35,7 +35,10 @@ export default function loader(source, map) {
   // Interate parsed @import
   parseResult.atImports.forEach((imp) => {
     if (loaderUtils.isUrlRequest(imp.url, options.root)) {
-      const request = loaderUtils.urlToRequest(imp.url, options.root);
+      let request = imp.url;
+      if (/^\//.test(request)) {
+        request = loaderUtils.urlToRequest(request, options.root);
+      }
       replacer.replace(imp.start, imp.end, '');
       includedStylesheets.add(request);
       includedStylesheetsMediaQuery.set(request, imp.mediaQuery.join(' '));
