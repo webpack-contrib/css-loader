@@ -99,16 +99,16 @@ export default function loader(source, map) {
     declarations.join('\n'),
     '',
     '// CSS',
-    'export default runtime.a([',
+    'export default runtime.create([',
   ].concat(
     includedStylesheetsArray.map((include) => {
       if(!include.mediaQuery) return `  ${include.name},`;
-      return `  runtime.d(${include.name}, ${JSON.stringify(include.mediaQuery)},`;
+      return `  runtime.importStylesheet(${include.name}, ${JSON.stringify(include.mediaQuery)},`;
     })
   ).concat([
     sourceMap ?
-    `  runtime.b(module.id, ${cssJs}, ${sourceMap})` :
-    `  runtime.c(module.id, ${cssJs})`,
+    `  runtime.moduleWithSourceMap(module.id, ${cssJs}, ${sourceMap})` :
+    `  runtime.moduleWithoutSourceMap(module.id, ${cssJs})`,
     ']);'
   ]).join('\n');
 }
