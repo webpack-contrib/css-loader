@@ -5,13 +5,12 @@
 [![chat][chat]][chat-url]
 
 <div align="center">
-  <!-- replace with accurate logo e.g from https://worldvectorlogo.com/ -->
-  <img width="200" height="200" src="https://cdn.worldvectorlogo.com/logos/javascript.svg">
+  <img width="180" height="180" vspace="20"
+    src="https://cdn.worldvectorlogo.com/logos/css-3.svg">
   <a href="https://webpack.js.org/">
     <img width="200" height="200" vspace="" hspace="25" src="https://cdn.rawgit.com/webpack/media/e7485eb2/logo/icon-square-big.svg">
   </a>
-  <h1>css-loader</h1>
-  <p>css loader module for webpack</p>
+  <h1>CSS Loader</h1>
 </div>
 
 <h2 align="center">Install</h2>
@@ -22,75 +21,178 @@ npm install --save-dev css-loader
 
 <h2 align="center">Usage</h2>
 
-### Lorem
+The `css-loader` converts ICSS into EcmaScript Modules.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+### ICSS
+
+ICSS allows to describe imports and exports in CSS. The following syntax is allowed:
+
+#### Importing CSS
+
+``` css
+@import url('./other-file.css');
+@import url('other-module/style.css');
+```
+
+Imports other CSS files.
+
+#### Importing Symbols
+
+``` css
+:import('./module') {
+  local-alias: importedIdentifier;
+  other-name: otherIdentifier;
+}
+```
+
+Similar to
+
+``` js
+import { importedIdentifier as localAlias, otherIdentifier as otherName } from './module';
+```
+
+The local alias can be used in the complete file and has the value of the export from the module.
+
+The imported module could be another ICSS file or any other module.
+
+#### Exporting Symbols
+
+``` css
+:export {
+  exportedName: hello world;
+  otherExportedName: 5px   5px,   red;
+}
+```
+
+Similar to
+
+``` js
+export const exportedName = "hello world";
+export const otherExportedName = "5px 5px, red";
+```
+
+Note that spacing is not significant.
+
 
 <h2 align="center">Examples</h2>
 
-**webpack.config.js**
+### Resolving `url()`
 
-```js
-// Loader/plugin setup here..
+It's often needed to thread `url()`s in the CSS file as imports to other assets.
+You want to add all referenced assets into the dependency graph.
+
+This can be achieved by a postcss plugin: postcss-plugin-url.
+
+To enable postcss plugins in your CSS pipeline, chain css-loader with postcss-loader.
+Example configuration with style-loader:
+
+``` js
+const urlPlugin = require("postcss-plugin-url")
+
+rules: [
+  {
+    test: /\.css$/,
+    rules: [
+      {
+        issuer: { not: /\.css$/ },
+        use: "style-loader"
+      },
+      {
+        use: [
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            plugins: [
+              urlPlugin({})
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
 ```
 
-**file.ext**
+### Postprocessing CSS
 
-```js
-// Source code here...
-```
+It's often needed to use a preprocessor for CSS. Example: SASS.
 
-**bundle.js**
+``` js
+const urlPlugin = require("postcss-plugin-url")
 
-```js
-require("css-loader!./file.EXT");
-
-// Bundle code here...
+rules: [
+  {
+    test: /\.css$/,
+    rules: [
+      {
+        issuer: { not: /\.css$/ },
+        use: "style-loader"
+      },
+      {
+        use: [
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            plugins: [
+              urlPlugin({})
+            ]
+          },
+          "sass-loader"
+        ]
+      }
+    ]
+  }
+]
 ```
 
 <h2 align="center">Maintainers</h2>
-
-```bash
-https://api.github.com/users/MAINTAINER
-```
 
 <table>
   <tbody>
     <tr>
       <td align="center">
-        <a href="https://github.com/">
-          <img width="150" height="150" src="https://avatars.githubusercontent.com/u/5419992?v=3&s=150">
-          </br>
-          Name
-        </a>
+        <img width="150" height="150"
+        src="https://github.com/bebraw.png?v=3&s=150">
+        </br>
+        <a href="https://github.com/bebraw">Juho Vepsäläinen</a>
       </td>
       <td align="center">
-        <a href="https://github.com/">
-          <img width="150" height="150" src="https://avatars.githubusercontent.com/u/5419992?v=3&s=150">
-          </br>
-          Name
-        </a>
+        <img width="150" height="150"
+        src="https://github.com/d3viant0ne.png?v=3&s=150">
+        </br>
+        <a href="https://github.com/d3viant0ne">Joshua Wiens</a>
       </td>
       <td align="center">
-        <a href="https://github.com/">
-          <img width="150" height="150" src="https://avatars.githubusercontent.com/u/5419992?v=3&s=150">
-          </br>
-          Name
-        </a>
+        <img width="150" height="150"
+        src="https://github.com/SpaceK33z.png?v=3&s=150">
+        </br>
+        <a href="https://github.com/SpaceK33z">Kees Kluskens</a>
       </td>
       <td align="center">
-        <a href="https://github.com/">
-          <img width="150" height="150" src="https://avatars.githubusercontent.com/u/5419992?v=3&s=150">
-          </br>
-          Name
-        </a>
+        <img width="150" height="150"
+        src="https://github.com/TheLarkInn.png?v=3&s=150">
+        </br>
+        <a href="https://github.com/TheLarkInn">Sean Larkin</a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img width="150" height="150"
+        src="https://github.com/michael-ciniawsky.png?v=3&s=150">
+        </br>
+        <a href="https://github.com/michael-ciniawsky">Michael Ciniawsky</a>
       </td>
       <td align="center">
-        <a href="https://github.com/">
-          <img width="150" height="150" src="https://avatars.githubusercontent.com/u/5419992?v=3&s=150">
-          </br>
-          Name
-        </a>
+        <img width="150" height="150"
+        src="https://github.com/evilebottnawi.png?v=3&s=150">
+        </br>
+        <a href="https://github.com/evilebottnawi">Evilebot Tnawi</a>
+      </td>
+      <td align="center">
+        <img width="150" height="150"
+        src="https://github.com/joscha.png?v=3&s=150">
+        </br>
+        <a href="https://github.com/joscha">Joscha Feth</a>
       </td>
     </tr>
   <tbody>
