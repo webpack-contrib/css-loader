@@ -5,7 +5,7 @@ function atImportStartMatch(match, index) {
     start: index,
     end: null,
     url: null,
-    mediaQuery: []
+    mediaQuery: [],
   };
   this.atImports.push(item);
   this.currentItem = item;
@@ -27,7 +27,8 @@ function atImportMediaMatch(match) {
 }
 
 function atImportEndMatch(match, index, length) {
-  this.currentItem.end = index + length - 1;
+  const offset = length - 1;
+  this.currentItem.end = index + offset;
   return 'topLevel';
 }
 
@@ -40,11 +41,11 @@ export default {
     'comment',
     'whitespace',
     {
-      'url': 'atImport1',
+      url: 'atImport1',
       '"([^\\\\"]|\\\\.)*"': atImportStringMatch,
       '\'([^\\\\\']|\\\\.)*\'': atImportStringMatch,
     },
-    'nothingElse'
+    'nothingElse',
   ],
   atImport1: [
     'comment',
@@ -52,7 +53,7 @@ export default {
     {
       '\\(': 'atImport2',
     },
-    'nothingElse'
+    'nothingElse',
   ],
   atImport2: [
     'comment',
@@ -61,7 +62,7 @@ export default {
       '"([^\\\\"]|\\\\.)*"': atImportUrlMatch,
       '\'([^\\\\\']|\\\\.)*\'': atImportUrlMatch,
     },
-    'nothingElse'
+    'nothingElse',
   ],
   atImport3: [
     'comment',
@@ -69,7 +70,7 @@ export default {
     {
       '\\)': 'atImport4',
     },
-    'nothingElse'
+    'nothingElse',
   ],
   atImport4: [
     'comment',
@@ -78,7 +79,7 @@ export default {
       '[^;\\s]+': atImportMediaMatch,
       ';\\s*': atImportEndMatch,
     },
-    'nothingElse'
+    'nothingElse',
   ],
 
-}
+};

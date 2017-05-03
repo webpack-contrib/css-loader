@@ -2,7 +2,7 @@ import { IDENTIFIER, metablockEndMatch } from './parse-common';
 
 function exportStartMatch(match, index) {
   const block = {
-    start: index
+    start: index,
   };
   this.metablocks.push(block);
   this.currentBlock = block;
@@ -13,7 +13,7 @@ function exportIdentiferMatch(match, index) {
   const exportItem = {
     start: index,
     name: match,
-    value: []
+    value: [],
   };
   this.exports.push(exportItem);
   this.currentItem = exportItem;
@@ -33,18 +33,18 @@ export default {
     'comment',
     'whitespace',
     {
-      '\\{': 'export1'
+      '\\{': 'export1',
     },
-    'nothingElse'
+    'nothingElse',
   ],
   export1: [
     'comment',
     'whitespace',
     {
       [IDENTIFIER]: exportIdentiferMatch,
-      '\\}\\s*': metablockEndMatch
+      '\\}\\s*': metablockEndMatch,
     },
-    'nothingElse'
+    'nothingElse',
   ],
   export2: [
     'comment',
@@ -52,7 +52,7 @@ export default {
     {
       ':': 'export3',
     },
-    'nothingElse'
+    'nothingElse',
   ],
   export3: [
     'comment',
@@ -62,6 +62,6 @@ export default {
       ';': 'export1',
       '[^\\};\\s]+': exportValueMatch,
     },
-    'nothingElse'
+    'nothingElse',
   ],
-}
+};

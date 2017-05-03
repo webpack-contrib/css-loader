@@ -1,10 +1,10 @@
-import { CSS_IDENTIFIER, IDENTIFIER, metablockEndMatch, throwUnexpectedToken } from './parse-common';
 import loaderUtils from 'loader-utils';
+import { CSS_IDENTIFIER, IDENTIFIER, metablockEndMatch, throwUnexpectedToken } from './parse-common';
 
 function importStartMatch(match, index) {
   const block = {
     start: index,
-    end: null
+    end: null,
   };
   this.metablocks.push(block);
   this.currentBlock = block;
@@ -12,13 +12,13 @@ function importStartMatch(match, index) {
 }
 
 function importFromMatch(match, index) {
-  if(this.currentImport) throwUnexpectedToken(match, index);
+  if (this.currentImport) throwUnexpectedToken(match, index);
   const from = loaderUtils.parseString(match);
   this.currentImport = from;
 }
 
 function importFromRawMatch(match, index) {
-  if(this.currentImport) throwUnexpectedToken(match, index);
+  if (this.currentImport) throwUnexpectedToken(match, index);
   this.currentImport = match.trim();
 }
 
@@ -49,7 +49,7 @@ export default {
     {
       '\\(': 'import1',
     },
-    'nothingElse'
+    'nothingElse',
   ],
   import1: [
     'comment',
@@ -60,7 +60,7 @@ export default {
       '[^\\)]+': importFromRawMatch,
       '\\)': 'import2',
     },
-    'nothingElse'
+    'nothingElse',
   ],
   import2: [
     'comment',
@@ -68,7 +68,7 @@ export default {
     {
       '\\{': 'import3',
     },
-    'nothingElse'
+    'nothingElse',
   ],
   import3: [
     'comment',
@@ -77,7 +77,7 @@ export default {
       [CSS_IDENTIFIER]: importAliasMatch,
       '\\}\\s*': metablockEndMatch,
     },
-    'nothingElse'
+    'nothingElse',
   ],
   import4: [
     'comment',
@@ -85,7 +85,7 @@ export default {
     {
       ':': 'import5',
     },
-    'nothingElse'
+    'nothingElse',
   ],
   import5: [
     'comment',
@@ -93,7 +93,7 @@ export default {
     {
       [IDENTIFIER]: importNameMatch,
     },
-    'nothingElse'
+    'nothingElse',
   ],
   import6: [
     'comment',
@@ -101,8 +101,8 @@ export default {
     {
       [CSS_IDENTIFIER]: importAliasMatch,
       ';': 'import3',
-      '\\}\\s*': metablockEndMatch
+      '\\}\\s*': metablockEndMatch,
     },
-    'nothingElse'
+    'nothingElse',
   ],
-}
+};

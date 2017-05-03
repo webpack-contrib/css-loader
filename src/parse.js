@@ -1,5 +1,5 @@
-import { CSS_IDENTIFIER, throwUnexpectedToken } from './parse-common';
 import Parser from 'fastparse';
+import { CSS_IDENTIFIER, throwUnexpectedToken } from './parse-common';
 import atImportRules from './parse-at-import';
 import exportRules from './parse-export';
 import importRules from './parse-import';
@@ -28,16 +28,16 @@ function identifierMatch(match, index) {
 
 const parser = new Parser(Object.assign({
   // definitions
-	comment: {
-		'/\\*[\\s\\S]*?\\*/': true,
-	},
-	whitespace: {
-		'\\s+': true,
-	},
-	string: {
-		'"([^\\\\"]|\\\\.)*"': true,
-		'\'([^\\\\\']|\\\\.)*\'': true,
-	},
+  comment: {
+    '/\\*[\\s\\S]*?\\*/': true,
+  },
+  whitespace: {
+    '\\s+': true,
+  },
+  string: {
+    '"([^\\\\"]|\\\\.)*"': true,
+    '\'([^\\\\\']|\\\\.)*\'': true,
+  },
   nothingElse: {
     '\\s+': throwUnexpectedToken,
     '\\S+': throwUnexpectedToken,
@@ -54,7 +54,7 @@ const parser = new Parser(Object.assign({
     [CSS_IDENTIFIER]: identifierMatch,
 
     // ignore numbers, colors
-    ['([0-9]|#)' + CSS_IDENTIFIER]: true,
+    [`([0-9]|#)${CSS_IDENTIFIER}`]: true,
   },
 
   // states
@@ -64,13 +64,13 @@ const parser = new Parser(Object.assign({
     'importRuleStart',
     'atImportStart',
     'identifier',
-    'innerLevelStart'
+    'innerLevelStart',
   ],
   innerLevel: [
     'comment',
     'identifier',
     'innerLevelStart',
-    'innerLevelEnd'
+    'innerLevelEnd',
   ],
 
 }, importRules, atImportRules, exportRules));
@@ -93,5 +93,5 @@ export default function parse(source) {
     imports: context.imports,
     exports: context.exports,
     identifiers: context.identifiers,
-  }
+  };
 }

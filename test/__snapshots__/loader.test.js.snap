@@ -13,10 +13,10 @@ import cssLoaderImport3 from \\"some-file\\";
 import cssLoaderImport4 from \\"other-file\\";
 
 // CSS
-export default runtime.a([
+export default runtime.create([
   cssLoaderImport3,
   cssLoaderImport4,
-  runtime.c(module.id, \\"body {\\\\n  background: \\" + cssLoaderImport0_ABC + \\" \\" + cssLoaderImport1_DEF + \\" \\" + cssLoaderImport2_HIJ + \\" klm\\\\n}\\\\n\\\\n.\\" + cssLoaderImport0_ABC + \\" { \\" + cssLoaderImport1_DEF + \\": \\" + cssLoaderImport2_HIJ + \\"; }\\\\n\\")
+  runtime.moduleWithoutSourceMap(module.id, \\"body {\\\\n  background: \\" + cssLoaderImport0_ABC + \\" \\" + cssLoaderImport1_DEF + \\" \\" + cssLoaderImport2_HIJ + \\" klm\\\\n}\\\\n\\\\n.\\" + cssLoaderImport0_ABC + \\" { \\" + cssLoaderImport1_DEF + \\": \\" + cssLoaderImport2_HIJ + \\"; }\\\\n\\")
 ]);",
 ]
 `;
@@ -30,8 +30,8 @@ import * as runtime from \\"../runtime/index.js\\";
 
 
 // CSS
-export default runtime.a([
-  runtime.c(module.id, \\"body {\\\\n  background: red;\\\\n}\\\\n\\\\n.class {\\\\n  color: rgb(1, 2, 3);\\\\n}\\\\n\\")
+export default runtime.create([
+  runtime.moduleWithoutSourceMap(module.id, \\"body {\\\\n  background: red;\\\\n}\\\\n\\\\n.class {\\\\n  color: rgb(1, 2, 3);\\\\n}\\\\n\\")
 ]);",
 ]
 `;

@@ -11,7 +11,7 @@ export default function loader(source, map) {
   const parseResult = parse(source);
 
   let replacer;
-  if(options.sourceMap) {
+  if (options.sourceMap) {
     replacer = new ReplaceSource(
       map ? new SourceMapSource(source, remainingRequest, map) : new OriginalSource(source, remainingRequest),
       remainingRequest);
@@ -23,7 +23,7 @@ export default function loader(source, map) {
   const includedStylesheetsMediaQuery = new Map();
 
   parseResult.atImports.forEach((imp) => {
-    if(loaderUtils.isUrlRequest(imp.url, options.root)) {
+    if (loaderUtils.isUrlRequest(imp.url, options.root)) {
       const request = loaderUtils.urlToRequest(imp.url, options.root);
       replacer.replace(imp.start, imp.end, '');
       includedStylesheets.add(request);
@@ -42,7 +42,7 @@ export default function loader(source, map) {
   const importReplacements = new Map();
 
   let id = 0;
-  for(const pair of importedNames) {
+  for (const pair of importedNames) {
     const internalName = `cssLoaderImport${id}_${pair[1].importName}`;
     id += 1;
     importReplacements.set(pair[0], internalName);
@@ -50,13 +50,13 @@ export default function loader(source, map) {
     includedStylesheets.add(pair[1].from);
   }
 
-  for(const pair of importReplacements) {
+  for (const pair of importReplacements) {
     const identifier = parseResult.identifiers.get(pair[0]);
-    if(identifier) {
+    if (identifier) {
       columns = false;
-      const length = identifier.name.length;
+      const offset = identifier.name.length - 1;
       identifier.locations.forEach((loc) => {
-        replacer.replace(loc, loc + length - 1, `$CSS$LOADER$\{${pair[1]}}`);
+        replacer.replace(loc, loc + offset, `$CSS$LOADER$\{${pair[1]}}`);
       });
     }
   }
@@ -66,21 +66,21 @@ export default function loader(source, map) {
   });
 
   const includedStylesheetsArray = [];
-  for(const include of includedStylesheets) {
+  for (const include of includedStylesheets) {
     const internalName = `cssLoaderImport${id}`;
     id += 1;
     declarations.push(`import ${internalName} from ${loaderUtils.stringifyRequest(this, include)};`);
     includedStylesheetsArray.push({
       name: internalName,
-      mediaQuery: includedStylesheetsMediaQuery.get(include) || ''
+      mediaQuery: includedStylesheetsMediaQuery.get(include) || '',
     });
   }
 
   let css;
   let sourceMap;
-  if(options.sourceMap) {
+  if (options.sourceMap) {
     const sourceAndMap = replacer.sourceAndMap(typeof options.sourceMap === 'object' ? options.sourceMap : {
-      columns: columns
+      columns,
     });
     css = sourceAndMap.code;
     sourceMap = sourceAndMap.map;
@@ -93,22 +93,20 @@ export default function loader(source, map) {
 
   return [
     '// css runtime',
-    `import * as runtime from ${loaderUtils.stringifyRequest(this, require.resolve("../runtime"))};`,
+    `import * as runtime from ${loaderUtils.stringifyRequest(this, require.resolve('../runtime'))};`,
     '',
     '// declarations',
     declarations.join('\n'),
     '',
     '// CSS',
-    'export default runtime.create([',
+    'export default /*#__PURE__*/runtime.create([',
   ].concat(
     includedStylesheetsArray.map((include) => {
-      if(!include.mediaQuery) return `  ${include.name},`;
+      if (!include.mediaQuery) return `  ${include.name},`;
       return `  runtime.importStylesheet(${include.name}, ${JSON.stringify(include.mediaQuery)},`;
-    })
+    }),
   ).concat([
-    sourceMap ?
-    `  runtime.moduleWithSourceMap(module.id, ${cssJs}, ${sourceMap})` :
-    `  runtime.moduleWithoutSourceMap(module.id, ${cssJs})`,
-    ']);'
+    `  runtime.${sourceMap ? 'moduleWithSourceMap' : 'moduleWithoutSourceMap'}(module.id, ${cssJs}${sourceMap ? `, ${sourceMap}` : ''})`,
+    ']);',
   ]).join('\n');
 }

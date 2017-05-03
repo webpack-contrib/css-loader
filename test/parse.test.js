@@ -1,12 +1,10 @@
-/* global describe it expect */
-
 import fs from 'fs';
-import parse from '../src/parse';
 import path from 'path';
+import parse from '../src/parse';
 
 describe('parse', () => {
   const fixtures = path.resolve(__dirname, 'parse-fixtures');
-  const tests = fs.readdirSync(fixtures).filter((name) => /\.css$/.test(name));
+  const tests = fs.readdirSync(fixtures).filter(name => /\.css$/.test(name));
   tests.forEach((filename) => {
     it(`should parse ${filename}`, () => {
       const filepath = path.resolve(fixtures, filename);
