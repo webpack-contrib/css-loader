@@ -1,5 +1,5 @@
-export function throwUnexpectedToken(match, index, length, state) {
-  throw new Error(`Unexpected token '${match}' at ${index} in ${state}`);
+export function throwUnexpectedToken(match, index) {
+  throw new Error(`Unexpected token '${match}' at ${index}`);
 }
 
 export function metablockEndMatch(match, index, length) {

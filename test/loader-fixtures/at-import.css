@@ -1,0 +1,7 @@
+@import 'abc';
+@import 'def' print, screen;
+@import '//example.com/style.css';
+
+body {
+  background: red;
+}

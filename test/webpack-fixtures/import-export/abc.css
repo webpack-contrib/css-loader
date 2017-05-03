@@ -1,0 +1,7 @@
+:export {
+  def: 123px;
+}
+
+body {
+  background: red;
+}

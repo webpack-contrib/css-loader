@@ -1,4 +1,4 @@
-import { IDENTIFIER, metablockEndMatch } from './parse-common';
+import { CSS_IDENTIFIER, IDENTIFIER, metablockEndMatch } from './parse-common';
 
 function exportStartMatch(match, index) {
   const block = {
@@ -22,6 +22,13 @@ function exportIdentiferMatch(match, index) {
 
 function exportValueMatch(match) {
   this.currentItem.value.push(match);
+}
+
+function exportWhitespaceMatch() {
+  if (this.currentItem.value.length > 0 && this.currentItem.value[this.currentItem.value.length - 1] === ' ') {
+    return;
+  }
+  this.currentItem.value.push(' ');
 }
 
 export default {
@@ -50,17 +57,19 @@ export default {
     'comment',
     'whitespace',
     {
-      ':': 'export3',
+      ':\\s*': 'export3',
     },
     'nothingElse',
   ],
   export3: [
     'comment',
-    'whitespace',
     {
       '\\}\\s*': metablockEndMatch,
       ';': 'export1',
-      '[^\\};\\s]+': exportValueMatch,
+      '\\s+': exportWhitespaceMatch,
+      '[^\\};\\-_a-zA-Z0-9\\s]+': exportValueMatch,
+      [CSS_IDENTIFIER]: exportValueMatch,
+      '[\\-_a-zA-Z0-9]+': exportValueMatch,
     },
     'nothingElse',
   ],

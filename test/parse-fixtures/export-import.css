@@ -1,0 +1,13 @@
+:import(some-file) {
+  abc: ABC;
+  def: DEF;
+}
+
+:export {
+  a: abc;
+  b: abc def;
+  c: abc def hij;
+  d: xyz abc def hij;
+  e: xyz, abc, def, hij;
+  f: xyz abc-def hij;
+}

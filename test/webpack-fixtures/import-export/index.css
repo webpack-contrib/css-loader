@@ -1,0 +1,24 @@
+@import url("./abc.css");
+
+:import("./other.css") {
+  abc: abc;
+}
+
+:import("./abc.css") {
+  my-import: def;
+}
+
+:export {
+  xyz1: abc;
+  xyz2: red, 1px;
+  xyz3: my-import, 1px;
+  xyz4: no;
+}
+
+:export {
+  xyz4: yes;
+}
+
+body {
+  color: abc;
+}

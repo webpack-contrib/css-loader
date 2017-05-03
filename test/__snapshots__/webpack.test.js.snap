@@ -1,0 +1,375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`webpack should process at-import 1`] = `""`;
+
+exports[`webpack should process at-import 2`] = `
+Object {
+  "default": Array [
+    Array [
+      1,
+      "body {
+  background: blue;
+}
+",
+      "",
+      Object {
+        "file": "x",
+        "mappings": "AAAA;AACA;AACA",
+        "names": Array [],
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/at-import/other.css",
+        ],
+        "sourcesContent": Array [
+          "body {
+  background: blue;
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+    Array [
+      2,
+      "body {
+  background: green;
+}
+",
+      "",
+      Object {
+        "file": "x",
+        "mappings": "AAEA;AACA;AACA",
+        "names": Array [],
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/at-import/abc.css",
+        ],
+        "sourcesContent": Array [
+          "@import './other.css';
+
+body {
+  background: green;
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+    Array [
+      3,
+      "body {
+  background: red;
+}
+",
+      "",
+      Object {
+        "file": "x",
+        "mappings": "AAGA;AACA;AACA",
+        "names": Array [],
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/at-import/index.css",
+        ],
+        "sourcesContent": Array [
+          "@import './abc.css';
+@import './other.css';
+
+body {
+  background: red;
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+  ],
+}
+`;
+
+exports[`webpack should process at-import 3`] = `
+"body {
+  background: blue;
+}
+
+body {
+  background: green;
+}
+
+body {
+  background: red;
+}
+"
+`;
+
+exports[`webpack should process at-import-media 1`] = `""`;
+
+exports[`webpack should process at-import-media 2`] = `
+Object {
+  "default": Array [
+    Array [
+      3,
+      "body {
+  background: blue;
+}
+",
+      "(screen) and (print)",
+      Object {
+        "file": "x",
+        "mappings": "AAAA;AACA;AACA",
+        "names": Array [],
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/at-import-media/other.css",
+        ],
+        "sourcesContent": Array [
+          "body {
+  background: blue;
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+    Array [
+      1,
+      "body {
+  background: green;
+}
+",
+      "print",
+      Object {
+        "file": "x",
+        "mappings": "AAEA;AACA;AACA",
+        "names": Array [],
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/at-import-media/abc.css",
+        ],
+        "sourcesContent": Array [
+          "@import './other.css' screen;
+
+body {
+  background: green;
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+    Array [
+      2,
+      "body {
+  background: red;
+}
+",
+      "",
+      Object {
+        "file": "x",
+        "mappings": "AAEA;AACA;AACA",
+        "names": Array [],
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/at-import-media/index.css",
+        ],
+        "sourcesContent": Array [
+          "@import './abc.css' print;
+
+body {
+  background: red;
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+  ],
+}
+`;
+
+exports[`webpack should process at-import-media 3`] = `
+"@media (screen) and (print){body {
+  background: blue;
+}
+}
+@media print{body {
+  background: green;
+}
+}
+body {
+  background: red;
+}
+"
+`;
+
+exports[`webpack should process import-export 1`] = `""`;
+
+exports[`webpack should process import-export 2`] = `
+Object {
+  "default": Array [
+    Array [
+      1,
+      "body {
+  background: red;
+}
+",
+      "",
+      Object {
+        "file": "x",
+        "mappings": "AAIA;AACA;AACA",
+        "names": Array [],
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/import-export/abc.css",
+        ],
+        "sourcesContent": Array [
+          ":export {
+  def: 123px;
+}
+
+body {
+  background: red;
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+    Array [
+      2,
+      "body {
+  background: green;
+}
+
+",
+      "",
+      Object {
+        "file": "x",
+        "mappings": "AAAA;AACA;AACA",
+        "names": Array [],
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/import-export/other.css",
+        ],
+        "sourcesContent": Array [
+          "body {
+  background: green;
+}
+
+:export {
+  abc: red;
+  def: blue;
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+    Array [
+      3,
+      "body {
+  color: red;
+}
+",
+      "",
+      Object {
+        "file": "x",
+        "mappings": "AAqBA;AACA;AACA;",
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/import-export/index.css",
+        ],
+        "sourcesContent": Array [
+          "@import url(\\"./abc.css\\");
+
+:import(\\"./other.css\\") {
+  abc: abc;
+}
+
+:import(\\"./abc.css\\") {
+  my-import: def;
+}
+
+:export {
+  xyz1: abc;
+  xyz2: red, 1px;
+  xyz3: my-import, 1px;
+  xyz4: no;
+}
+
+:export {
+  xyz4: yes;
+}
+
+body {
+  color: abc;
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+  ],
+  "xyz1": "red",
+  "xyz2": "red, 1px",
+  "xyz3": "123px, 1px",
+  "xyz4": "yes",
+}
+`;
+
+exports[`webpack should process import-export 3`] = `
+"body {
+  background: red;
+}
+
+body {
+  background: green;
+}
+
+
+body {
+  color: red;
+}
+"
+`;
+
+exports[`webpack should process simple 1`] = `""`;
+
+exports[`webpack should process simple 2`] = `
+Object {
+  "default": Array [
+    Array [
+      1,
+      "body {
+  background: red;
+}
+
+.class {
+  color: rgb(1, 2, 3);
+}
+",
+      "",
+      Object {
+        "file": "x",
+        "mappings": "AAAA;AACA;AACA;;AAEA;AACA;AACA",
+        "names": Array [],
+        "sources": Array [
+          "webpack-css:///./webpack-fixtures/simple/index.css",
+        ],
+        "sourcesContent": Array [
+          "body {
+  background: red;
+}
+
+.class {
+  color: rgb(1, 2, 3);
+}
+",
+        ],
+        "version": 3,
+      },
+    ],
+  ],
+}
+`;
+
+exports[`webpack should process simple 3`] = `
+"body {
+  background: red;
+}
+
+.class {
+  color: rgb(1, 2, 3);
+}
+"
+`;

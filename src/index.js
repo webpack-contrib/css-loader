@@ -1,9 +1,18 @@
+import path from 'path';
 import OriginalSource from 'webpack-sources/lib/OriginalSource';
 import RawSource from 'webpack-sources/lib/RawSource';
 import ReplaceSource from 'webpack-sources/lib/ReplaceSource';
 import SourceMapSource from 'webpack-sources/lib/SourceMapSource';
 import loaderUtils from 'loader-utils';
 import parse from './parse';
+
+function toRelativeUrl(p, context) {
+  const url = path.relative(context, p).replace(/\\/g, '/');
+  if (/^\.\.?\//.test(url)) {
+    return url;
+  }
+  return `./${url}`;
+}
 
 export default function loader(source, map) {
   const options = loaderUtils.getOptions(this) || {};
@@ -19,9 +28,11 @@ export default function loader(source, map) {
     replacer = new ReplaceSource(new RawSource(source), remainingRequest);
   }
 
+  // List of @imports with media queries
   const includedStylesheets = new Set();
   const includedStylesheetsMediaQuery = new Map();
 
+  // Interate parsed @import
   parseResult.atImports.forEach((imp) => {
     if (loaderUtils.isUrlRequest(imp.url, options.root)) {
       const request = loaderUtils.urlToRequest(imp.url, options.root);
@@ -31,17 +42,29 @@ export default function loader(source, map) {
     }
   });
 
+  // Flag if column mappings make sense for this SourceMap
+  // It only makes sense if we don't replace values from imported values
   let columns = true;
+
+  // Mapping from css-identifier to import
   const importedNames = new Map();
 
+  // Interate parsed :import
   parseResult.imports.forEach((imp) => {
     importedNames.set(imp.alias, imp);
   });
 
+  // List of all declarates that should be emitted to the output
   const declarations = [];
+
+  // Mapping from css-identifier to imported identifier
   const importReplacements = new Map();
 
+  // Counter to generate unique ids for identifiers
   let id = 0;
+
+  // Iterate all imported names and internal identifiers
+  // Also make sure that :imports are imported like @imports
   for (const pair of importedNames) {
     const internalName = `cssLoaderImport${id}_${pair[1].importName}`;
     id += 1;
@@ -50,6 +73,7 @@ export default function loader(source, map) {
     includedStylesheets.add(pair[1].from);
   }
 
+  // Iterate all replacements and replace them with a maker token
   for (const pair of importReplacements) {
     const identifier = parseResult.identifiers.get(pair[0]);
     if (identifier) {
@@ -61,10 +85,12 @@ export default function loader(source, map) {
     }
   }
 
+  // Delete all metablocks, they only contain meta information and are not valid css
   parseResult.metablocks.forEach((block) => {
     replacer.replace(block.start, block.end, '');
   });
 
+  // Generate declarations for all imports
   const includedStylesheetsArray = [];
   for (const include of includedStylesheets) {
     const internalName = `cssLoaderImport${id}`;
@@ -76,14 +102,62 @@ export default function loader(source, map) {
     });
   }
 
+  // Mapping from exported name to exported value as array (will be joined by spaces)
+  const exportedNames = new Map();
+
+  // Iterate parsed exports
+  parseResult.exports.forEach((exp) => {
+    // Note this elimiate duplicates, only last exported value is valid
+    exportedNames.set(exp.name, exp.value);
+  });
+
+  for (const pair of exportedNames) {
+    const [name, value] = pair;
+    const processedValues = value.map((item) => {
+      const replacement = importReplacements.get(item);
+      if (replacement) {
+        return {
+          name: replacement,
+        };
+      }
+      return item;
+    }).reduce((arr, item) => {
+      if (typeof item === 'string' && arr.length > 0 && typeof arr[arr.length - 1] === 'string') {
+        arr[arr.length - 1] += item; // eslint-disable-line no-param-reassign
+        return arr;
+      }
+      arr.push(item);
+      return arr;
+    }, []);
+    if (processedValues.length === 1 && typeof processedValues[0] !== 'string') {
+      declarations.push(`export { ${processedValues[0].name} as ${name} };`);
+    } else {
+      const valuesJs = processedValues.map((item) => {
+        if (typeof item === 'string') {
+          return JSON.stringify(item);
+        }
+        return item.name;
+      }).join(' + ');
+      declarations.push(`export var ${name} = ${valuesJs};`);
+    }
+  }
+
   let css;
   let sourceMap;
   if (options.sourceMap) {
     const sourceAndMap = replacer.sourceAndMap(typeof options.sourceMap === 'object' ? options.sourceMap : {
       columns,
     });
-    css = sourceAndMap.code;
+    css = sourceAndMap.source;
     sourceMap = sourceAndMap.map;
+    if (options.sourceMapContext) {
+      sourceMap.sources = sourceMap.sources.map(absPath => toRelativeUrl(absPath, options.sourceMapContext));
+    }
+    if (options.sourceMapPrefix) {
+      sourceMap.sources = sourceMap.sources.map(sourcePath => options.sourceMapPrefix + sourcePath);
+    } else {
+      sourceMap.sources = sourceMap.sources.map(sourcePath => `webpack-css:///${sourcePath}`);
+    }
   } else {
     css = replacer.source();
     sourceMap = null;
@@ -94,8 +168,6 @@ export default function loader(source, map) {
   return [
     '// css runtime',
     `import * as runtime from ${loaderUtils.stringifyRequest(this, require.resolve('../runtime'))};`,
-    '',
-    '// declarations',
     declarations.join('\n'),
     '',
     '// CSS',
@@ -103,10 +175,10 @@ export default function loader(source, map) {
   ].concat(
     includedStylesheetsArray.map((include) => {
       if (!include.mediaQuery) return `  ${include.name},`;
-      return `  runtime.importStylesheet(${include.name}, ${JSON.stringify(include.mediaQuery)},`;
+      return `  runtime.importStylesheet(${include.name}, ${JSON.stringify(include.mediaQuery)}),`;
     }),
   ).concat([
-    `  runtime.${sourceMap ? 'moduleWithSourceMap' : 'moduleWithoutSourceMap'}(module.id, ${cssJs}${sourceMap ? `, ${sourceMap}` : ''})`,
+    `  runtime.${sourceMap ? 'moduleWithSourceMap' : 'moduleWithoutSourceMap'}(module.id, ${cssJs}${sourceMap ? `, ${JSON.stringify(sourceMap)}` : ''})`,
     ']);',
   ]).join('\n');
 }

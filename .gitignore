@@ -8,6 +8,7 @@ yarn-debug.log*
 /local
 /reports
 /node_modules
+/test/.output
 .DS_Store
 Thumbs.db
 .idea

@@ -48654,22 +48654,34 @@ Object {
       "start": 63,
       "value": Array [
         "a",
+        " ",
         "b",
+        " ",
         "c",
+        " ",
         "d",
+        " ",
         "1px",
+        " ",
         "-2px",
+        " ",
         "0",
+        " ",
         "-5",
+        " ",
         "----a----",
+        " ",
       ],
     },
     Object {
       "name": "myIdentifier2",
       "start": 149,
       "value": Array [
+        " ",
         "a",
+        " ",
         "b",
+        " ",
       ],
     },
   ],
@@ -48691,6 +48703,104 @@ Object {
     Object {
       "end": 232,
       "start": 112,
+    },
+  ],
+}
+`;
+
+exports[`parse should parse export-import.css 1`] = `
+Object {
+  "atImports": Array [],
+  "exports": Array [
+    Object {
+      "name": "a",
+      "start": 60,
+      "value": Array [
+        "abc",
+      ],
+    },
+    Object {
+      "name": "b",
+      "start": 70,
+      "value": Array [
+        "abc",
+        " ",
+        "def",
+      ],
+    },
+    Object {
+      "name": "c",
+      "start": 84,
+      "value": Array [
+        "abc",
+        " ",
+        "def",
+        " ",
+        "hij",
+      ],
+    },
+    Object {
+      "name": "d",
+      "start": 102,
+      "value": Array [
+        "xyz",
+        " ",
+        "abc",
+        " ",
+        "def",
+        " ",
+        "hij",
+      ],
+    },
+    Object {
+      "name": "e",
+      "start": 124,
+      "value": Array [
+        "xyz",
+        ",",
+        " ",
+        "abc",
+        ",",
+        " ",
+        "def",
+        ",",
+        " ",
+        "hij",
+      ],
+    },
+    Object {
+      "name": "f",
+      "start": 149,
+      "value": Array [
+        "xyz",
+        " ",
+        "abc-def",
+        " ",
+        "hij",
+      ],
+    },
+  ],
+  "identifiers": Array [],
+  "imports": Array [
+    Object {
+      "alias": "abc",
+      "from": "some-file",
+      "importName": "ABC",
+    },
+    Object {
+      "alias": "def",
+      "from": "some-file",
+      "importName": "DEF",
+    },
+  ],
+  "metablocks": Array [
+    Object {
+      "end": 47,
+      "start": 0,
+    },
+    Object {
+      "end": 170,
+      "start": 48,
     },
   ],
 }

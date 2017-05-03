@@ -1,0 +1,5 @@
+@import './abc.css' print;
+
+body {
+  background: red;
+}

@@ -1,0 +1,6 @@
+@import './abc.css';
+@import './other.css';
+
+body {
+  background: red;
+}

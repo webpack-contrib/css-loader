@@ -1,19 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`loader should process import.css 1`] = `
+exports[`loader should process at-import.css 1`] = `
+Array [
+  "// css runtime
+import * as runtime from \\"../runtime/index.js\\";
+import cssLoaderImport0 from \\"./abc\\";
+import cssLoaderImport1 from \\"./def\\";
+
+// CSS
+export default /*#__PURE__*/runtime.create([
+  cssLoaderImport0,
+  runtime.importStylesheet(cssLoaderImport1, \\"print, screen\\"),
+  runtime.moduleWithoutSourceMap(module.id, \\"@import '//example.com/style.css';\\\\n\\\\nbody {\\\\n  background: red;\\\\n}\\\\n\\")
+]);",
+]
+`;
+
+exports[`loader should process colors-numbers.css 1`] = `
 Array [
   "// css runtime
 import * as runtime from \\"../runtime/index.js\\";
 
-// declarations
+
+// CSS
+export default /*#__PURE__*/runtime.create([
+  runtime.moduleWithoutSourceMap(module.id, \\"body {\\\\n  background: #fff, #f00, #0f0, #00f, #000;\\\\n  margin: -0 -5 -5px -153px;\\\\n  padding: 0 5 5px 153px;\\\\n}\\\\n\\")
+]);",
+]
+`;
+
+exports[`loader should process export.css 1`] = `
+Array [
+  "// css runtime
+import * as runtime from \\"../runtime/index.js\\";
+export var abc = \\"ABC\\";
+export var def = \\"DEF\\";
+
+// CSS
+export default /*#__PURE__*/runtime.create([
+  runtime.moduleWithoutSourceMap(module.id, \\"\\")
+]);",
+]
+`;
+
+exports[`loader should process export-import.css 1`] = `
+Array [
+  "// css runtime
+import * as runtime from \\"../runtime/index.js\\";
+import { ABC as cssLoaderImport0_ABC } from \\"some-file\\";
+import { DEF as cssLoaderImport1_DEF } from \\"some-file\\";
+import cssLoaderImport2 from \\"some-file\\";
+export { cssLoaderImport0_ABC as a };
+export var b = cssLoaderImport0_ABC + \\" \\" + cssLoaderImport1_DEF;
+export var c = cssLoaderImport0_ABC + \\" \\" + cssLoaderImport1_DEF + \\" hij\\";
+export var d = \\"xyz \\" + cssLoaderImport0_ABC + \\" \\" + cssLoaderImport1_DEF + \\" hij\\";
+export var e = \\"xyz, \\" + cssLoaderImport0_ABC + \\", \\" + cssLoaderImport1_DEF + \\", hij\\";
+export var f = \\"xyz abc-def hij\\";
+
+// CSS
+export default /*#__PURE__*/runtime.create([
+  cssLoaderImport2,
+  runtime.moduleWithoutSourceMap(module.id, \\"\\")
+]);",
+]
+`;
+
+exports[`loader should process import.css 1`] = `
+Array [
+  "// css runtime
+import * as runtime from \\"../runtime/index.js\\";
 import { ABC as cssLoaderImport0_ABC } from \\"some-file\\";
 import { DEF as cssLoaderImport1_DEF } from \\"some-file\\";
 import { HIJ as cssLoaderImport2_HIJ } from \\"other-file\\";
 import cssLoaderImport3 from \\"some-file\\";
 import cssLoaderImport4 from \\"other-file\\";
+export var xyz = cssLoaderImport0_ABC + \\" \\" + cssLoaderImport1_DEF + \\" \\" + cssLoaderImport2_HIJ + \\" klm\\";
 
 // CSS
-export default runtime.create([
+export default /*#__PURE__*/runtime.create([
   cssLoaderImport3,
   cssLoaderImport4,
   runtime.moduleWithoutSourceMap(module.id, \\"body {\\\\n  background: \\" + cssLoaderImport0_ABC + \\" \\" + cssLoaderImport1_DEF + \\" \\" + cssLoaderImport2_HIJ + \\" klm\\\\n}\\\\n\\\\n.\\" + cssLoaderImport0_ABC + \\" { \\" + cssLoaderImport1_DEF + \\": \\" + cssLoaderImport2_HIJ + \\"; }\\\\n\\")
@@ -26,11 +90,9 @@ Array [
   "// css runtime
 import * as runtime from \\"../runtime/index.js\\";
 
-// declarations
-
 
 // CSS
-export default runtime.create([
+export default /*#__PURE__*/runtime.create([
   runtime.moduleWithoutSourceMap(module.id, \\"body {\\\\n  background: red;\\\\n}\\\\n\\\\n.class {\\\\n  color: rgb(1, 2, 3);\\\\n}\\\\n\\")
 ]);",
 ]
