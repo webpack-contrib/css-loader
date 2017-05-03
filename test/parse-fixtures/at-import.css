@@ -2,6 +2,7 @@
 @import url("abc");
 @import 'abc' print, screen;
 @import /*comment*/ url /*comment*/ ( /*comment*/ 'abc' /*comment*/ ) /*comment*/ screen /*comment*/ print;
+@import url(bootstrap-theme.css);
 
 @media screen {
   body {

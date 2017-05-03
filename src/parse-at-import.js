@@ -61,6 +61,7 @@ export default {
     {
       '"([^\\\\"]|\\\\.)*"': atImportUrlMatch,
       '\'([^\\\\\']|\\\\.)*\'': atImportUrlMatch,
+      '[^\\)]+': atImportUrlMatch,
     },
     'nothingElse',
   ],

@@ -25,13 +25,19 @@ Object {
       "url": "abc",
     },
     Object {
-      "end": 172,
+      "end": 171,
       "mediaQuery": Array [
         "screen",
         "print",
       ],
       "start": 64,
       "url": "abc",
+    },
+    Object {
+      "end": 206,
+      "mediaQuery": Array [],
+      "start": 172,
+      "url": "bootstrap-theme.css",
     },
   ],
   "exports": Array [],
@@ -40,7 +46,7 @@ Object {
       "media",
       Object {
         "locations": Array [
-          174,
+          208,
         ],
         "name": "media",
       },
@@ -49,7 +55,7 @@ Object {
       "screen",
       Object {
         "locations": Array [
-          180,
+          214,
         ],
         "name": "screen",
       },
@@ -58,7 +64,7 @@ Object {
       "body",
       Object {
         "locations": Array [
-          191,
+          225,
         ],
         "name": "body",
       },
@@ -67,7 +73,7 @@ Object {
       "background",
       Object {
         "locations": Array [
-          202,
+          236,
         ],
         "name": "background",
       },
@@ -76,7 +82,7 @@ Object {
       "red",
       Object {
         "locations": Array [
-          214,
+          248,
         ],
         "name": "red",
       },
