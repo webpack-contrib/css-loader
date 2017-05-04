@@ -1,0 +1,15 @@
+body {
+  background: url("these items should not be identifiers");
+  background: url("these \"should not be\" identifiers");
+  background: url('these items should not be identifiers');
+}
+
+.breadcrumb > li + li:before {
+  content: "/\00a0";
+  content: "\e055";
+  content: '\e056';
+  content: "";
+  content: " ";
+  content: '\00A0 \2014';
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}

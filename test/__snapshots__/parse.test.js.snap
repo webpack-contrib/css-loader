@@ -2791,8 +2791,6 @@ Object {
       Object {
         "locations": Array [
           1536,
-          4887,
-          4929,
         ],
         "name": "svg",
       },
@@ -3042,13 +3040,10 @@ Object {
           1931,
           1963,
           2006,
-          2031,
           2107,
           2136,
           2198,
           19180,
-          20523,
-          66642,
           108998,
           109087,
           109182,
@@ -3364,26 +3359,6 @@ Object {
           88142,
         ],
         "name": "type",
-      },
-    ],
-    Array [
-      "reset",
-      Object {
-        "locations": Array [
-          2053,
-          66611,
-        ],
-        "name": "reset",
-      },
-    ],
-    Array [
-      "submit",
-      Object {
-        "locations": Array [
-          2074,
-          66579,
-        ],
-        "name": "submit",
       },
     ],
     Array [
@@ -3727,90 +3702,6 @@ Object {
       },
     ],
     Array [
-      "checkbox",
-      Object {
-        "locations": Array [
-          2324,
-          45147,
-          45440,
-          48002,
-          48113,
-          48300,
-          48321,
-          48362,
-          48461,
-          48473,
-          48851,
-          48915,
-          49007,
-          49217,
-          49295,
-          51694,
-          51802,
-          52540,
-          52648,
-          53378,
-          53478,
-          55091,
-          55247,
-          55348,
-          55369,
-          55545,
-          55725,
-          74586,
-          74654,
-          77373,
-          87870,
-          88026,
-          88127,
-          88148,
-        ],
-        "name": "checkbox",
-      },
-    ],
-    Array [
-      "radio",
-      Object {
-        "locations": Array [
-          2348,
-          45126,
-          45413,
-          47994,
-          48099,
-          48237,
-          48255,
-          48290,
-          48444,
-          48453,
-          48820,
-          48885,
-          48967,
-          49194,
-          49262,
-          51673,
-          51776,
-          52519,
-          52622,
-          53359,
-          53454,
-          55068,
-          55218,
-          55305,
-          55323,
-          55520,
-          55700,
-          74469,
-          74534,
-          77333,
-          87847,
-          87997,
-          88084,
-          88102,
-        ],
-        "name": "radio",
-      },
-    ],
-    Array [
       "border-box",
       Object {
         "locations": Array [
@@ -3831,16 +3722,6 @@ Object {
       },
     ],
     Array [
-      "number",
-      Object {
-        "locations": Array [
-          2488,
-          2537,
-        ],
-        "name": "number",
-      },
-    ],
-    Array [
       "-webkit-inner-spin-button",
       Object {
         "locations": Array [
@@ -3856,19 +3737,6 @@ Object {
           2547,
         ],
         "name": "-webkit-outer-spin-button",
-      },
-    ],
-    Array [
-      "search",
-      Object {
-        "locations": Array [
-          2605,
-          2768,
-          2820,
-          45010,
-          47024,
-        ],
-        "name": "search",
       },
     ],
     Array [
@@ -5453,15 +5321,6 @@ Object {
       },
     ],
     Array [
-      "javascript",
-      Object {
-        "locations": Array [
-          3692,
-        ],
-        "name": "javascript",
-      },
-    ],
-    Array [
       "blockquote",
       Object {
         "locations": Array [
@@ -6256,26 +6115,6 @@ Object {
       },
     ],
     Array [
-      "Glyphicons",
-      Object {
-        "locations": Array [
-          4469,
-          5026,
-        ],
-        "name": "Glyphicons",
-      },
-    ],
-    Array [
-      "Halflings",
-      Object {
-        "locations": Array [
-          4480,
-          5037,
-        ],
-        "name": "Halflings",
-      },
-    ],
-    Array [
       "src",
       Object {
         "locations": Array [
@@ -6300,44 +6139,6 @@ Object {
       },
     ],
     Array [
-      "fonts",
-      Object {
-        "locations": Array [
-          4507,
-          4564,
-          4649,
-          4717,
-          4783,
-          4852,
-        ],
-        "name": "fonts",
-      },
-    ],
-    Array [
-      "glyphicons-halflings-regular",
-      Object {
-        "locations": Array [
-          4513,
-          4570,
-          4655,
-          4723,
-          4789,
-          4858,
-        ],
-        "name": "glyphicons-halflings-regular",
-      },
-    ],
-    Array [
-      "eot",
-      Object {
-        "locations": Array [
-          4542,
-          4599,
-        ],
-        "name": "eot",
-      },
-    ],
-    Array [
       "format",
       Object {
         "locations": Array [
@@ -6348,53 +6149,6 @@ Object {
           4921,
         ],
         "name": "format",
-      },
-    ],
-    Array [
-      "embedded-opentype",
-      Object {
-        "locations": Array [
-          4620,
-        ],
-        "name": "embedded-opentype",
-      },
-    ],
-    Array [
-      "woff2",
-      Object {
-        "locations": Array [
-          4684,
-          4700,
-        ],
-        "name": "woff2",
-      },
-    ],
-    Array [
-      "woff",
-      Object {
-        "locations": Array [
-          4752,
-          4767,
-        ],
-        "name": "woff",
-      },
-    ],
-    Array [
-      "ttf",
-      Object {
-        "locations": Array [
-          4818,
-        ],
-        "name": "ttf",
-      },
-    ],
-    Array [
-      "truetype",
-      Object {
-        "locations": Array [
-          4832,
-        ],
-        "name": "truetype",
       },
     ],
     Array [
@@ -6524,30 +6278,12 @@ Object {
       },
     ],
     Array [
-      "e001",
-      Object {
-        "locations": Array [
-          5594,
-        ],
-        "name": "e001",
-      },
-    ],
-    Array [
       "glyphicon-music",
       Object {
         "locations": Array [
           5604,
         ],
         "name": "glyphicon-music",
-      },
-    ],
-    Array [
-      "e002",
-      Object {
-        "locations": Array [
-          5642,
-        ],
-        "name": "e002",
       },
     ],
     Array [
@@ -6560,30 +6296,12 @@ Object {
       },
     ],
     Array [
-      "e003",
-      Object {
-        "locations": Array [
-          5691,
-        ],
-        "name": "e003",
-      },
-    ],
-    Array [
       "glyphicon-heart",
       Object {
         "locations": Array [
           5701,
         ],
         "name": "glyphicon-heart",
-      },
-    ],
-    Array [
-      "e005",
-      Object {
-        "locations": Array [
-          5739,
-        ],
-        "name": "e005",
       },
     ],
     Array [
@@ -6596,30 +6314,12 @@ Object {
       },
     ],
     Array [
-      "e006",
-      Object {
-        "locations": Array [
-          5786,
-        ],
-        "name": "e006",
-      },
-    ],
-    Array [
       "glyphicon-star-empty",
       Object {
         "locations": Array [
           5796,
         ],
         "name": "glyphicon-star-empty",
-      },
-    ],
-    Array [
-      "e007",
-      Object {
-        "locations": Array [
-          5839,
-        ],
-        "name": "e007",
       },
     ],
     Array [
@@ -6632,30 +6332,12 @@ Object {
       },
     ],
     Array [
-      "e008",
-      Object {
-        "locations": Array [
-          5886,
-        ],
-        "name": "e008",
-      },
-    ],
-    Array [
       "glyphicon-film",
       Object {
         "locations": Array [
           5896,
         ],
         "name": "glyphicon-film",
-      },
-    ],
-    Array [
-      "e009",
-      Object {
-        "locations": Array [
-          5933,
-        ],
-        "name": "e009",
       },
     ],
     Array [
@@ -6668,30 +6350,12 @@ Object {
       },
     ],
     Array [
-      "e010",
-      Object {
-        "locations": Array [
-          5984,
-        ],
-        "name": "e010",
-      },
-    ],
-    Array [
       "glyphicon-th",
       Object {
         "locations": Array [
           5994,
         ],
         "name": "glyphicon-th",
-      },
-    ],
-    Array [
-      "e011",
-      Object {
-        "locations": Array [
-          6029,
-        ],
-        "name": "e011",
       },
     ],
     Array [
@@ -6704,30 +6368,12 @@ Object {
       },
     ],
     Array [
-      "e012",
-      Object {
-        "locations": Array [
-          6079,
-        ],
-        "name": "e012",
-      },
-    ],
-    Array [
       "glyphicon-ok",
       Object {
         "locations": Array [
           6089,
         ],
         "name": "glyphicon-ok",
-      },
-    ],
-    Array [
-      "e013",
-      Object {
-        "locations": Array [
-          6124,
-        ],
-        "name": "e013",
       },
     ],
     Array [
@@ -6740,30 +6386,12 @@ Object {
       },
     ],
     Array [
-      "e014",
-      Object {
-        "locations": Array [
-          6173,
-        ],
-        "name": "e014",
-      },
-    ],
-    Array [
       "glyphicon-zoom-in",
       Object {
         "locations": Array [
           6183,
         ],
         "name": "glyphicon-zoom-in",
-      },
-    ],
-    Array [
-      "e015",
-      Object {
-        "locations": Array [
-          6223,
-        ],
-        "name": "e015",
       },
     ],
     Array [
@@ -6776,30 +6404,12 @@ Object {
       },
     ],
     Array [
-      "e016",
-      Object {
-        "locations": Array [
-          6274,
-        ],
-        "name": "e016",
-      },
-    ],
-    Array [
       "glyphicon-off",
       Object {
         "locations": Array [
           6284,
         ],
         "name": "glyphicon-off",
-      },
-    ],
-    Array [
-      "e017",
-      Object {
-        "locations": Array [
-          6320,
-        ],
-        "name": "e017",
       },
     ],
     Array [
@@ -6812,30 +6422,12 @@ Object {
       },
     ],
     Array [
-      "e018",
-      Object {
-        "locations": Array [
-          6369,
-        ],
-        "name": "e018",
-      },
-    ],
-    Array [
       "glyphicon-cog",
       Object {
         "locations": Array [
           6379,
         ],
         "name": "glyphicon-cog",
-      },
-    ],
-    Array [
-      "e019",
-      Object {
-        "locations": Array [
-          6415,
-        ],
-        "name": "e019",
       },
     ],
     Array [
@@ -6848,30 +6440,12 @@ Object {
       },
     ],
     Array [
-      "e020",
-      Object {
-        "locations": Array [
-          6463,
-        ],
-        "name": "e020",
-      },
-    ],
-    Array [
       "glyphicon-home",
       Object {
         "locations": Array [
           6473,
         ],
         "name": "glyphicon-home",
-      },
-    ],
-    Array [
-      "e021",
-      Object {
-        "locations": Array [
-          6510,
-        ],
-        "name": "e021",
       },
     ],
     Array [
@@ -6884,30 +6458,12 @@ Object {
       },
     ],
     Array [
-      "e022",
-      Object {
-        "locations": Array [
-          6557,
-        ],
-        "name": "e022",
-      },
-    ],
-    Array [
       "glyphicon-time",
       Object {
         "locations": Array [
           6567,
         ],
         "name": "glyphicon-time",
-      },
-    ],
-    Array [
-      "e023",
-      Object {
-        "locations": Array [
-          6604,
-        ],
-        "name": "e023",
       },
     ],
     Array [
@@ -6920,30 +6476,12 @@ Object {
       },
     ],
     Array [
-      "e024",
-      Object {
-        "locations": Array [
-          6651,
-        ],
-        "name": "e024",
-      },
-    ],
-    Array [
       "glyphicon-download-alt",
       Object {
         "locations": Array [
           6661,
         ],
         "name": "glyphicon-download-alt",
-      },
-    ],
-    Array [
-      "e025",
-      Object {
-        "locations": Array [
-          6706,
-        ],
-        "name": "e025",
       },
     ],
     Array [
@@ -6956,30 +6494,12 @@ Object {
       },
     ],
     Array [
-      "e026",
-      Object {
-        "locations": Array [
-          6757,
-        ],
-        "name": "e026",
-      },
-    ],
-    Array [
       "glyphicon-upload",
       Object {
         "locations": Array [
           6767,
         ],
         "name": "glyphicon-upload",
-      },
-    ],
-    Array [
-      "e027",
-      Object {
-        "locations": Array [
-          6806,
-        ],
-        "name": "e027",
       },
     ],
     Array [
@@ -6992,30 +6512,12 @@ Object {
       },
     ],
     Array [
-      "e028",
-      Object {
-        "locations": Array [
-          6854,
-        ],
-        "name": "e028",
-      },
-    ],
-    Array [
       "glyphicon-play-circle",
       Object {
         "locations": Array [
           6864,
         ],
         "name": "glyphicon-play-circle",
-      },
-    ],
-    Array [
-      "e029",
-      Object {
-        "locations": Array [
-          6908,
-        ],
-        "name": "e029",
       },
     ],
     Array [
@@ -7028,30 +6530,12 @@ Object {
       },
     ],
     Array [
-      "e030",
-      Object {
-        "locations": Array [
-          6957,
-        ],
-        "name": "e030",
-      },
-    ],
-    Array [
       "glyphicon-refresh",
       Object {
         "locations": Array [
           6967,
         ],
         "name": "glyphicon-refresh",
-      },
-    ],
-    Array [
-      "e031",
-      Object {
-        "locations": Array [
-          7007,
-        ],
-        "name": "e031",
       },
     ],
     Array [
@@ -7064,30 +6548,12 @@ Object {
       },
     ],
     Array [
-      "e032",
-      Object {
-        "locations": Array [
-          7058,
-        ],
-        "name": "e032",
-      },
-    ],
-    Array [
       "glyphicon-lock",
       Object {
         "locations": Array [
           7068,
         ],
         "name": "glyphicon-lock",
-      },
-    ],
-    Array [
-      "e033",
-      Object {
-        "locations": Array [
-          7105,
-        ],
-        "name": "e033",
       },
     ],
     Array [
@@ -7100,30 +6566,12 @@ Object {
       },
     ],
     Array [
-      "e034",
-      Object {
-        "locations": Array [
-          7152,
-        ],
-        "name": "e034",
-      },
-    ],
-    Array [
       "glyphicon-headphones",
       Object {
         "locations": Array [
           7162,
         ],
         "name": "glyphicon-headphones",
-      },
-    ],
-    Array [
-      "e035",
-      Object {
-        "locations": Array [
-          7205,
-        ],
-        "name": "e035",
       },
     ],
     Array [
@@ -7136,30 +6584,12 @@ Object {
       },
     ],
     Array [
-      "e036",
-      Object {
-        "locations": Array [
-          7258,
-        ],
-        "name": "e036",
-      },
-    ],
-    Array [
       "glyphicon-volume-down",
       Object {
         "locations": Array [
           7268,
         ],
         "name": "glyphicon-volume-down",
-      },
-    ],
-    Array [
-      "e037",
-      Object {
-        "locations": Array [
-          7312,
-        ],
-        "name": "e037",
       },
     ],
     Array [
@@ -7172,30 +6602,12 @@ Object {
       },
     ],
     Array [
-      "e038",
-      Object {
-        "locations": Array [
-          7364,
-        ],
-        "name": "e038",
-      },
-    ],
-    Array [
       "glyphicon-qrcode",
       Object {
         "locations": Array [
           7374,
         ],
         "name": "glyphicon-qrcode",
-      },
-    ],
-    Array [
-      "e039",
-      Object {
-        "locations": Array [
-          7413,
-        ],
-        "name": "e039",
       },
     ],
     Array [
@@ -7208,30 +6620,12 @@ Object {
       },
     ],
     Array [
-      "e040",
-      Object {
-        "locations": Array [
-          7463,
-        ],
-        "name": "e040",
-      },
-    ],
-    Array [
       "glyphicon-tag",
       Object {
         "locations": Array [
           7473,
         ],
         "name": "glyphicon-tag",
-      },
-    ],
-    Array [
-      "e041",
-      Object {
-        "locations": Array [
-          7509,
-        ],
-        "name": "e041",
       },
     ],
     Array [
@@ -7244,30 +6638,12 @@ Object {
       },
     ],
     Array [
-      "e042",
-      Object {
-        "locations": Array [
-          7556,
-        ],
-        "name": "e042",
-      },
-    ],
-    Array [
       "glyphicon-book",
       Object {
         "locations": Array [
           7566,
         ],
         "name": "glyphicon-book",
-      },
-    ],
-    Array [
-      "e043",
-      Object {
-        "locations": Array [
-          7603,
-        ],
-        "name": "e043",
       },
     ],
     Array [
@@ -7280,30 +6656,12 @@ Object {
       },
     ],
     Array [
-      "e044",
-      Object {
-        "locations": Array [
-          7654,
-        ],
-        "name": "e044",
-      },
-    ],
-    Array [
       "glyphicon-print",
       Object {
         "locations": Array [
           7664,
         ],
         "name": "glyphicon-print",
-      },
-    ],
-    Array [
-      "e045",
-      Object {
-        "locations": Array [
-          7702,
-        ],
-        "name": "e045",
       },
     ],
     Array [
@@ -7316,30 +6674,12 @@ Object {
       },
     ],
     Array [
-      "e046",
-      Object {
-        "locations": Array [
-          7751,
-        ],
-        "name": "e046",
-      },
-    ],
-    Array [
       "glyphicon-font",
       Object {
         "locations": Array [
           7761,
         ],
         "name": "glyphicon-font",
-      },
-    ],
-    Array [
-      "e047",
-      Object {
-        "locations": Array [
-          7798,
-        ],
-        "name": "e047",
       },
     ],
     Array [
@@ -7352,30 +6692,12 @@ Object {
       },
     ],
     Array [
-      "e048",
-      Object {
-        "locations": Array [
-          7845,
-        ],
-        "name": "e048",
-      },
-    ],
-    Array [
       "glyphicon-italic",
       Object {
         "locations": Array [
           7855,
         ],
         "name": "glyphicon-italic",
-      },
-    ],
-    Array [
-      "e049",
-      Object {
-        "locations": Array [
-          7894,
-        ],
-        "name": "e049",
       },
     ],
     Array [
@@ -7388,30 +6710,12 @@ Object {
       },
     ],
     Array [
-      "e050",
-      Object {
-        "locations": Array [
-          7948,
-        ],
-        "name": "e050",
-      },
-    ],
-    Array [
       "glyphicon-text-width",
       Object {
         "locations": Array [
           7958,
         ],
         "name": "glyphicon-text-width",
-      },
-    ],
-    Array [
-      "e051",
-      Object {
-        "locations": Array [
-          8001,
-        ],
-        "name": "e051",
       },
     ],
     Array [
@@ -7424,30 +6728,12 @@ Object {
       },
     ],
     Array [
-      "e052",
-      Object {
-        "locations": Array [
-          8054,
-        ],
-        "name": "e052",
-      },
-    ],
-    Array [
       "glyphicon-align-center",
       Object {
         "locations": Array [
           8064,
         ],
         "name": "glyphicon-align-center",
-      },
-    ],
-    Array [
-      "e053",
-      Object {
-        "locations": Array [
-          8109,
-        ],
-        "name": "e053",
       },
     ],
     Array [
@@ -7460,30 +6746,12 @@ Object {
       },
     ],
     Array [
-      "e054",
-      Object {
-        "locations": Array [
-          8163,
-        ],
-        "name": "e054",
-      },
-    ],
-    Array [
       "glyphicon-align-justify",
       Object {
         "locations": Array [
           8173,
         ],
         "name": "glyphicon-align-justify",
-      },
-    ],
-    Array [
-      "e055",
-      Object {
-        "locations": Array [
-          8219,
-        ],
-        "name": "e055",
       },
     ],
     Array [
@@ -7496,30 +6764,12 @@ Object {
       },
     ],
     Array [
-      "e056",
-      Object {
-        "locations": Array [
-          8266,
-        ],
-        "name": "e056",
-      },
-    ],
-    Array [
       "glyphicon-indent-left",
       Object {
         "locations": Array [
           8276,
         ],
         "name": "glyphicon-indent-left",
-      },
-    ],
-    Array [
-      "e057",
-      Object {
-        "locations": Array [
-          8320,
-        ],
-        "name": "e057",
       },
     ],
     Array [
@@ -7532,30 +6782,12 @@ Object {
       },
     ],
     Array [
-      "e058",
-      Object {
-        "locations": Array [
-          8375,
-        ],
-        "name": "e058",
-      },
-    ],
-    Array [
       "glyphicon-facetime-video",
       Object {
         "locations": Array [
           8385,
         ],
         "name": "glyphicon-facetime-video",
-      },
-    ],
-    Array [
-      "e059",
-      Object {
-        "locations": Array [
-          8432,
-        ],
-        "name": "e059",
       },
     ],
     Array [
@@ -7568,30 +6800,12 @@ Object {
       },
     ],
     Array [
-      "e060",
-      Object {
-        "locations": Array [
-          8482,
-        ],
-        "name": "e060",
-      },
-    ],
-    Array [
       "glyphicon-map-marker",
       Object {
         "locations": Array [
           8492,
         ],
         "name": "glyphicon-map-marker",
-      },
-    ],
-    Array [
-      "e062",
-      Object {
-        "locations": Array [
-          8535,
-        ],
-        "name": "e062",
       },
     ],
     Array [
@@ -7604,30 +6818,12 @@ Object {
       },
     ],
     Array [
-      "e063",
-      Object {
-        "locations": Array [
-          8584,
-        ],
-        "name": "e063",
-      },
-    ],
-    Array [
       "glyphicon-tint",
       Object {
         "locations": Array [
           8594,
         ],
         "name": "glyphicon-tint",
-      },
-    ],
-    Array [
-      "e064",
-      Object {
-        "locations": Array [
-          8631,
-        ],
-        "name": "e064",
       },
     ],
     Array [
@@ -7640,30 +6836,12 @@ Object {
       },
     ],
     Array [
-      "e065",
-      Object {
-        "locations": Array [
-          8678,
-        ],
-        "name": "e065",
-      },
-    ],
-    Array [
       "glyphicon-share",
       Object {
         "locations": Array [
           8688,
         ],
         "name": "glyphicon-share",
-      },
-    ],
-    Array [
-      "e066",
-      Object {
-        "locations": Array [
-          8726,
-        ],
-        "name": "e066",
       },
     ],
     Array [
@@ -7676,30 +6854,12 @@ Object {
       },
     ],
     Array [
-      "e067",
-      Object {
-        "locations": Array [
-          8774,
-        ],
-        "name": "e067",
-      },
-    ],
-    Array [
       "glyphicon-move",
       Object {
         "locations": Array [
           8784,
         ],
         "name": "glyphicon-move",
-      },
-    ],
-    Array [
-      "e068",
-      Object {
-        "locations": Array [
-          8821,
-        ],
-        "name": "e068",
       },
     ],
     Array [
@@ -7712,30 +6872,12 @@ Object {
       },
     ],
     Array [
-      "e069",
-      Object {
-        "locations": Array [
-          8877,
-        ],
-        "name": "e069",
-      },
-    ],
-    Array [
       "glyphicon-fast-backward",
       Object {
         "locations": Array [
           8887,
         ],
         "name": "glyphicon-fast-backward",
-      },
-    ],
-    Array [
-      "e070",
-      Object {
-        "locations": Array [
-          8933,
-        ],
-        "name": "e070",
       },
     ],
     Array [
@@ -7748,30 +6890,12 @@ Object {
       },
     ],
     Array [
-      "e071",
-      Object {
-        "locations": Array [
-          8984,
-        ],
-        "name": "e071",
-      },
-    ],
-    Array [
       "glyphicon-play",
       Object {
         "locations": Array [
           8994,
         ],
         "name": "glyphicon-play",
-      },
-    ],
-    Array [
-      "e072",
-      Object {
-        "locations": Array [
-          9031,
-        ],
-        "name": "e072",
       },
     ],
     Array [
@@ -7784,30 +6908,12 @@ Object {
       },
     ],
     Array [
-      "e073",
-      Object {
-        "locations": Array [
-          9079,
-        ],
-        "name": "e073",
-      },
-    ],
-    Array [
       "glyphicon-stop",
       Object {
         "locations": Array [
           9089,
         ],
         "name": "glyphicon-stop",
-      },
-    ],
-    Array [
-      "e074",
-      Object {
-        "locations": Array [
-          9126,
-        ],
-        "name": "e074",
       },
     ],
     Array [
@@ -7820,30 +6926,12 @@ Object {
       },
     ],
     Array [
-      "e075",
-      Object {
-        "locations": Array [
-          9176,
-        ],
-        "name": "e075",
-      },
-    ],
-    Array [
       "glyphicon-fast-forward",
       Object {
         "locations": Array [
           9186,
         ],
         "name": "glyphicon-fast-forward",
-      },
-    ],
-    Array [
-      "e076",
-      Object {
-        "locations": Array [
-          9231,
-        ],
-        "name": "e076",
       },
     ],
     Array [
@@ -7856,30 +6944,12 @@ Object {
       },
     ],
     Array [
-      "e077",
-      Object {
-        "locations": Array [
-          9286,
-        ],
-        "name": "e077",
-      },
-    ],
-    Array [
       "glyphicon-eject",
       Object {
         "locations": Array [
           9296,
         ],
         "name": "glyphicon-eject",
-      },
-    ],
-    Array [
-      "e078",
-      Object {
-        "locations": Array [
-          9334,
-        ],
-        "name": "e078",
       },
     ],
     Array [
@@ -7896,15 +6966,6 @@ Object {
       },
     ],
     Array [
-      "e079",
-      Object {
-        "locations": Array [
-          9389,
-        ],
-        "name": "e079",
-      },
-    ],
-    Array [
       "glyphicon-chevron-right",
       Object {
         "locations": Array [
@@ -7918,30 +6979,12 @@ Object {
       },
     ],
     Array [
-      "e080",
-      Object {
-        "locations": Array [
-          9445,
-        ],
-        "name": "e080",
-      },
-    ],
-    Array [
       "glyphicon-plus-sign",
       Object {
         "locations": Array [
           9455,
         ],
         "name": "glyphicon-plus-sign",
-      },
-    ],
-    Array [
-      "e081",
-      Object {
-        "locations": Array [
-          9497,
-        ],
-        "name": "e081",
       },
     ],
     Array [
@@ -7954,30 +6997,12 @@ Object {
       },
     ],
     Array [
-      "e082",
-      Object {
-        "locations": Array [
-          9550,
-        ],
-        "name": "e082",
-      },
-    ],
-    Array [
       "glyphicon-remove-sign",
       Object {
         "locations": Array [
           9560,
         ],
         "name": "glyphicon-remove-sign",
-      },
-    ],
-    Array [
-      "e083",
-      Object {
-        "locations": Array [
-          9604,
-        ],
-        "name": "e083",
       },
     ],
     Array [
@@ -7990,30 +7015,12 @@ Object {
       },
     ],
     Array [
-      "e084",
-      Object {
-        "locations": Array [
-          9654,
-        ],
-        "name": "e084",
-      },
-    ],
-    Array [
       "glyphicon-question-sign",
       Object {
         "locations": Array [
           9664,
         ],
         "name": "glyphicon-question-sign",
-      },
-    ],
-    Array [
-      "e085",
-      Object {
-        "locations": Array [
-          9710,
-        ],
-        "name": "e085",
       },
     ],
     Array [
@@ -8026,30 +7033,12 @@ Object {
       },
     ],
     Array [
-      "e086",
-      Object {
-        "locations": Array [
-          9762,
-        ],
-        "name": "e086",
-      },
-    ],
-    Array [
       "glyphicon-screenshot",
       Object {
         "locations": Array [
           9772,
         ],
         "name": "glyphicon-screenshot",
-      },
-    ],
-    Array [
-      "e087",
-      Object {
-        "locations": Array [
-          9815,
-        ],
-        "name": "e087",
       },
     ],
     Array [
@@ -8062,30 +7051,12 @@ Object {
       },
     ],
     Array [
-      "e088",
-      Object {
-        "locations": Array [
-          9871,
-        ],
-        "name": "e088",
-      },
-    ],
-    Array [
       "glyphicon-ok-circle",
       Object {
         "locations": Array [
           9881,
         ],
         "name": "glyphicon-ok-circle",
-      },
-    ],
-    Array [
-      "e089",
-      Object {
-        "locations": Array [
-          9923,
-        ],
-        "name": "e089",
       },
     ],
     Array [
@@ -8098,30 +7069,12 @@ Object {
       },
     ],
     Array [
-      "e090",
-      Object {
-        "locations": Array [
-          9976,
-        ],
-        "name": "e090",
-      },
-    ],
-    Array [
       "glyphicon-arrow-left",
       Object {
         "locations": Array [
           9986,
         ],
         "name": "glyphicon-arrow-left",
-      },
-    ],
-    Array [
-      "e091",
-      Object {
-        "locations": Array [
-          10029,
-        ],
-        "name": "e091",
       },
     ],
     Array [
@@ -8134,30 +7087,12 @@ Object {
       },
     ],
     Array [
-      "e092",
-      Object {
-        "locations": Array [
-          10083,
-        ],
-        "name": "e092",
-      },
-    ],
-    Array [
       "glyphicon-arrow-up",
       Object {
         "locations": Array [
           10093,
         ],
         "name": "glyphicon-arrow-up",
-      },
-    ],
-    Array [
-      "e093",
-      Object {
-        "locations": Array [
-          10134,
-        ],
-        "name": "e093",
       },
     ],
     Array [
@@ -8170,30 +7105,12 @@ Object {
       },
     ],
     Array [
-      "e094",
-      Object {
-        "locations": Array [
-          10187,
-        ],
-        "name": "e094",
-      },
-    ],
-    Array [
       "glyphicon-share-alt",
       Object {
         "locations": Array [
           10197,
         ],
         "name": "glyphicon-share-alt",
-      },
-    ],
-    Array [
-      "e095",
-      Object {
-        "locations": Array [
-          10239,
-        ],
-        "name": "e095",
       },
     ],
     Array [
@@ -8206,30 +7123,12 @@ Object {
       },
     ],
     Array [
-      "e096",
-      Object {
-        "locations": Array [
-          10293,
-        ],
-        "name": "e096",
-      },
-    ],
-    Array [
       "glyphicon-resize-small",
       Object {
         "locations": Array [
           10303,
         ],
         "name": "glyphicon-resize-small",
-      },
-    ],
-    Array [
-      "e097",
-      Object {
-        "locations": Array [
-          10348,
-        ],
-        "name": "e097",
       },
     ],
     Array [
@@ -8242,30 +7141,12 @@ Object {
       },
     ],
     Array [
-      "e101",
-      Object {
-        "locations": Array [
-          10407,
-        ],
-        "name": "e101",
-      },
-    ],
-    Array [
       "glyphicon-gift",
       Object {
         "locations": Array [
           10417,
         ],
         "name": "glyphicon-gift",
-      },
-    ],
-    Array [
-      "e102",
-      Object {
-        "locations": Array [
-          10454,
-        ],
-        "name": "e102",
       },
     ],
     Array [
@@ -8278,30 +7159,12 @@ Object {
       },
     ],
     Array [
-      "e103",
-      Object {
-        "locations": Array [
-          10501,
-        ],
-        "name": "e103",
-      },
-    ],
-    Array [
       "glyphicon-fire",
       Object {
         "locations": Array [
           10511,
         ],
         "name": "glyphicon-fire",
-      },
-    ],
-    Array [
-      "e104",
-      Object {
-        "locations": Array [
-          10548,
-        ],
-        "name": "e104",
       },
     ],
     Array [
@@ -8314,30 +7177,12 @@ Object {
       },
     ],
     Array [
-      "e105",
-      Object {
-        "locations": Array [
-          10599,
-        ],
-        "name": "e105",
-      },
-    ],
-    Array [
       "glyphicon-eye-close",
       Object {
         "locations": Array [
           10609,
         ],
         "name": "glyphicon-eye-close",
-      },
-    ],
-    Array [
-      "e106",
-      Object {
-        "locations": Array [
-          10651,
-        ],
-        "name": "e106",
       },
     ],
     Array [
@@ -8350,30 +7195,12 @@ Object {
       },
     ],
     Array [
-      "e107",
-      Object {
-        "locations": Array [
-          10706,
-        ],
-        "name": "e107",
-      },
-    ],
-    Array [
       "glyphicon-plane",
       Object {
         "locations": Array [
           10716,
         ],
         "name": "glyphicon-plane",
-      },
-    ],
-    Array [
-      "e108",
-      Object {
-        "locations": Array [
-          10754,
-        ],
-        "name": "e108",
       },
     ],
     Array [
@@ -8386,30 +7213,12 @@ Object {
       },
     ],
     Array [
-      "e109",
-      Object {
-        "locations": Array [
-          10805,
-        ],
-        "name": "e109",
-      },
-    ],
-    Array [
       "glyphicon-random",
       Object {
         "locations": Array [
           10815,
         ],
         "name": "glyphicon-random",
-      },
-    ],
-    Array [
-      "e110",
-      Object {
-        "locations": Array [
-          10854,
-        ],
-        "name": "e110",
       },
     ],
     Array [
@@ -8422,30 +7231,12 @@ Object {
       },
     ],
     Array [
-      "e111",
-      Object {
-        "locations": Array [
-          10904,
-        ],
-        "name": "e111",
-      },
-    ],
-    Array [
       "glyphicon-magnet",
       Object {
         "locations": Array [
           10914,
         ],
         "name": "glyphicon-magnet",
-      },
-    ],
-    Array [
-      "e112",
-      Object {
-        "locations": Array [
-          10953,
-        ],
-        "name": "e112",
       },
     ],
     Array [
@@ -8458,30 +7249,12 @@ Object {
       },
     ],
     Array [
-      "e113",
-      Object {
-        "locations": Array [
-          11006,
-        ],
-        "name": "e113",
-      },
-    ],
-    Array [
       "glyphicon-chevron-down",
       Object {
         "locations": Array [
           11016,
         ],
         "name": "glyphicon-chevron-down",
-      },
-    ],
-    Array [
-      "e114",
-      Object {
-        "locations": Array [
-          11061,
-        ],
-        "name": "e114",
       },
     ],
     Array [
@@ -8494,30 +7267,12 @@ Object {
       },
     ],
     Array [
-      "e115",
-      Object {
-        "locations": Array [
-          11111,
-        ],
-        "name": "e115",
-      },
-    ],
-    Array [
       "glyphicon-shopping-cart",
       Object {
         "locations": Array [
           11121,
         ],
         "name": "glyphicon-shopping-cart",
-      },
-    ],
-    Array [
-      "e116",
-      Object {
-        "locations": Array [
-          11167,
-        ],
-        "name": "e116",
       },
     ],
     Array [
@@ -8530,30 +7285,12 @@ Object {
       },
     ],
     Array [
-      "e117",
-      Object {
-        "locations": Array [
-          11222,
-        ],
-        "name": "e117",
-      },
-    ],
-    Array [
       "glyphicon-folder-open",
       Object {
         "locations": Array [
           11232,
         ],
         "name": "glyphicon-folder-open",
-      },
-    ],
-    Array [
-      "e118",
-      Object {
-        "locations": Array [
-          11276,
-        ],
-        "name": "e118",
       },
     ],
     Array [
@@ -8566,30 +7303,12 @@ Object {
       },
     ],
     Array [
-      "e119",
-      Object {
-        "locations": Array [
-          11334,
-        ],
-        "name": "e119",
-      },
-    ],
-    Array [
       "glyphicon-resize-horizontal",
       Object {
         "locations": Array [
           11344,
         ],
         "name": "glyphicon-resize-horizontal",
-      },
-    ],
-    Array [
-      "e120",
-      Object {
-        "locations": Array [
-          11394,
-        ],
-        "name": "e120",
       },
     ],
     Array [
@@ -8602,30 +7321,12 @@ Object {
       },
     ],
     Array [
-      "e121",
-      Object {
-        "locations": Array [
-          11440,
-        ],
-        "name": "e121",
-      },
-    ],
-    Array [
       "glyphicon-bullhorn",
       Object {
         "locations": Array [
           11450,
         ],
         "name": "glyphicon-bullhorn",
-      },
-    ],
-    Array [
-      "e122",
-      Object {
-        "locations": Array [
-          11491,
-        ],
-        "name": "e122",
       },
     ],
     Array [
@@ -8638,30 +7339,12 @@ Object {
       },
     ],
     Array [
-      "e123",
-      Object {
-        "locations": Array [
-          11538,
-        ],
-        "name": "e123",
-      },
-    ],
-    Array [
       "glyphicon-certificate",
       Object {
         "locations": Array [
           11548,
         ],
         "name": "glyphicon-certificate",
-      },
-    ],
-    Array [
-      "e124",
-      Object {
-        "locations": Array [
-          11592,
-        ],
-        "name": "e124",
       },
     ],
     Array [
@@ -8674,30 +7357,12 @@ Object {
       },
     ],
     Array [
-      "e125",
-      Object {
-        "locations": Array [
-          11644,
-        ],
-        "name": "e125",
-      },
-    ],
-    Array [
       "glyphicon-thumbs-down",
       Object {
         "locations": Array [
           11654,
         ],
         "name": "glyphicon-thumbs-down",
-      },
-    ],
-    Array [
-      "e126",
-      Object {
-        "locations": Array [
-          11698,
-        ],
-        "name": "e126",
       },
     ],
     Array [
@@ -8710,30 +7375,12 @@ Object {
       },
     ],
     Array [
-      "e127",
-      Object {
-        "locations": Array [
-          11751,
-        ],
-        "name": "e127",
-      },
-    ],
-    Array [
       "glyphicon-hand-left",
       Object {
         "locations": Array [
           11761,
         ],
         "name": "glyphicon-hand-left",
-      },
-    ],
-    Array [
-      "e128",
-      Object {
-        "locations": Array [
-          11803,
-        ],
-        "name": "e128",
       },
     ],
     Array [
@@ -8746,30 +7393,12 @@ Object {
       },
     ],
     Array [
-      "e129",
-      Object {
-        "locations": Array [
-          11853,
-        ],
-        "name": "e129",
-      },
-    ],
-    Array [
       "glyphicon-hand-down",
       Object {
         "locations": Array [
           11863,
         ],
         "name": "glyphicon-hand-down",
-      },
-    ],
-    Array [
-      "e130",
-      Object {
-        "locations": Array [
-          11905,
-        ],
-        "name": "e130",
       },
     ],
     Array [
@@ -8782,30 +7411,12 @@ Object {
       },
     ],
     Array [
-      "e131",
-      Object {
-        "locations": Array [
-          11966,
-        ],
-        "name": "e131",
-      },
-    ],
-    Array [
       "glyphicon-circle-arrow-left",
       Object {
         "locations": Array [
           11976,
         ],
         "name": "glyphicon-circle-arrow-left",
-      },
-    ],
-    Array [
-      "e132",
-      Object {
-        "locations": Array [
-          12026,
-        ],
-        "name": "e132",
       },
     ],
     Array [
@@ -8818,30 +7429,12 @@ Object {
       },
     ],
     Array [
-      "e133",
-      Object {
-        "locations": Array [
-          12084,
-        ],
-        "name": "e133",
-      },
-    ],
-    Array [
       "glyphicon-circle-arrow-down",
       Object {
         "locations": Array [
           12094,
         ],
         "name": "glyphicon-circle-arrow-down",
-      },
-    ],
-    Array [
-      "e134",
-      Object {
-        "locations": Array [
-          12144,
-        ],
-        "name": "e134",
       },
     ],
     Array [
@@ -8854,30 +7447,12 @@ Object {
       },
     ],
     Array [
-      "e135",
-      Object {
-        "locations": Array [
-          12192,
-        ],
-        "name": "e135",
-      },
-    ],
-    Array [
       "glyphicon-wrench",
       Object {
         "locations": Array [
           12202,
         ],
         "name": "glyphicon-wrench",
-      },
-    ],
-    Array [
-      "e136",
-      Object {
-        "locations": Array [
-          12241,
-        ],
-        "name": "e136",
       },
     ],
     Array [
@@ -8890,30 +7465,12 @@ Object {
       },
     ],
     Array [
-      "e137",
-      Object {
-        "locations": Array [
-          12289,
-        ],
-        "name": "e137",
-      },
-    ],
-    Array [
       "glyphicon-filter",
       Object {
         "locations": Array [
           12299,
         ],
         "name": "glyphicon-filter",
-      },
-    ],
-    Array [
-      "e138",
-      Object {
-        "locations": Array [
-          12338,
-        ],
-        "name": "e138",
       },
     ],
     Array [
@@ -8926,30 +7483,12 @@ Object {
       },
     ],
     Array [
-      "e139",
-      Object {
-        "locations": Array [
-          12390,
-        ],
-        "name": "e139",
-      },
-    ],
-    Array [
       "glyphicon-fullscreen",
       Object {
         "locations": Array [
           12400,
         ],
         "name": "glyphicon-fullscreen",
-      },
-    ],
-    Array [
-      "e140",
-      Object {
-        "locations": Array [
-          12443,
-        ],
-        "name": "e140",
       },
     ],
     Array [
@@ -8962,30 +7501,12 @@ Object {
       },
     ],
     Array [
-      "e141",
-      Object {
-        "locations": Array [
-          12495,
-        ],
-        "name": "e141",
-      },
-    ],
-    Array [
       "glyphicon-paperclip",
       Object {
         "locations": Array [
           12505,
         ],
         "name": "glyphicon-paperclip",
-      },
-    ],
-    Array [
-      "e142",
-      Object {
-        "locations": Array [
-          12547,
-        ],
-        "name": "e142",
       },
     ],
     Array [
@@ -8998,30 +7519,12 @@ Object {
       },
     ],
     Array [
-      "e143",
-      Object {
-        "locations": Array [
-          12601,
-        ],
-        "name": "e143",
-      },
-    ],
-    Array [
       "glyphicon-link",
       Object {
         "locations": Array [
           12611,
         ],
         "name": "glyphicon-link",
-      },
-    ],
-    Array [
-      "e144",
-      Object {
-        "locations": Array [
-          12648,
-        ],
-        "name": "e144",
       },
     ],
     Array [
@@ -9034,30 +7537,12 @@ Object {
       },
     ],
     Array [
-      "e145",
-      Object {
-        "locations": Array [
-          12696,
-        ],
-        "name": "e145",
-      },
-    ],
-    Array [
       "glyphicon-pushpin",
       Object {
         "locations": Array [
           12706,
         ],
         "name": "glyphicon-pushpin",
-      },
-    ],
-    Array [
-      "e146",
-      Object {
-        "locations": Array [
-          12746,
-        ],
-        "name": "e146",
       },
     ],
     Array [
@@ -9070,30 +7555,12 @@ Object {
       },
     ],
     Array [
-      "e148",
-      Object {
-        "locations": Array [
-          12792,
-        ],
-        "name": "e148",
-      },
-    ],
-    Array [
       "glyphicon-gbp",
       Object {
         "locations": Array [
           12802,
         ],
         "name": "glyphicon-gbp",
-      },
-    ],
-    Array [
-      "e149",
-      Object {
-        "locations": Array [
-          12838,
-        ],
-        "name": "e149",
       },
     ],
     Array [
@@ -9106,30 +7573,12 @@ Object {
       },
     ],
     Array [
-      "e150",
-      Object {
-        "locations": Array [
-          12885,
-        ],
-        "name": "e150",
-      },
-    ],
-    Array [
       "glyphicon-sort-by-alphabet",
       Object {
         "locations": Array [
           12895,
         ],
         "name": "glyphicon-sort-by-alphabet",
-      },
-    ],
-    Array [
-      "e151",
-      Object {
-        "locations": Array [
-          12944,
-        ],
-        "name": "e151",
       },
     ],
     Array [
@@ -9142,30 +7591,12 @@ Object {
       },
     ],
     Array [
-      "e152",
-      Object {
-        "locations": Array [
-          13007,
-        ],
-        "name": "e152",
-      },
-    ],
-    Array [
       "glyphicon-sort-by-order",
       Object {
         "locations": Array [
           13017,
         ],
         "name": "glyphicon-sort-by-order",
-      },
-    ],
-    Array [
-      "e153",
-      Object {
-        "locations": Array [
-          13063,
-        ],
-        "name": "e153",
       },
     ],
     Array [
@@ -9178,30 +7609,12 @@ Object {
       },
     ],
     Array [
-      "e154",
-      Object {
-        "locations": Array [
-          13123,
-        ],
-        "name": "e154",
-      },
-    ],
-    Array [
       "glyphicon-sort-by-attributes",
       Object {
         "locations": Array [
           13133,
         ],
         "name": "glyphicon-sort-by-attributes",
-      },
-    ],
-    Array [
-      "e155",
-      Object {
-        "locations": Array [
-          13184,
-        ],
-        "name": "e155",
       },
     ],
     Array [
@@ -9214,30 +7627,12 @@ Object {
       },
     ],
     Array [
-      "e156",
-      Object {
-        "locations": Array [
-          13249,
-        ],
-        "name": "e156",
-      },
-    ],
-    Array [
       "glyphicon-unchecked",
       Object {
         "locations": Array [
           13259,
         ],
         "name": "glyphicon-unchecked",
-      },
-    ],
-    Array [
-      "e157",
-      Object {
-        "locations": Array [
-          13301,
-        ],
-        "name": "e157",
       },
     ],
     Array [
@@ -9250,30 +7645,12 @@ Object {
       },
     ],
     Array [
-      "e158",
-      Object {
-        "locations": Array [
-          13350,
-        ],
-        "name": "e158",
-      },
-    ],
-    Array [
       "glyphicon-collapse-down",
       Object {
         "locations": Array [
           13360,
         ],
         "name": "glyphicon-collapse-down",
-      },
-    ],
-    Array [
-      "e159",
-      Object {
-        "locations": Array [
-          13406,
-        ],
-        "name": "e159",
       },
     ],
     Array [
@@ -9286,30 +7663,12 @@ Object {
       },
     ],
     Array [
-      "e160",
-      Object {
-        "locations": Array [
-          13460,
-        ],
-        "name": "e160",
-      },
-    ],
-    Array [
       "glyphicon-log-in",
       Object {
         "locations": Array [
           13470,
         ],
         "name": "glyphicon-log-in",
-      },
-    ],
-    Array [
-      "e161",
-      Object {
-        "locations": Array [
-          13509,
-        ],
-        "name": "e161",
       },
     ],
     Array [
@@ -9322,30 +7681,12 @@ Object {
       },
     ],
     Array [
-      "e162",
-      Object {
-        "locations": Array [
-          13557,
-        ],
-        "name": "e162",
-      },
-    ],
-    Array [
       "glyphicon-log-out",
       Object {
         "locations": Array [
           13567,
         ],
         "name": "glyphicon-log-out",
-      },
-    ],
-    Array [
-      "e163",
-      Object {
-        "locations": Array [
-          13607,
-        ],
-        "name": "e163",
       },
     ],
     Array [
@@ -9358,30 +7699,12 @@ Object {
       },
     ],
     Array [
-      "e164",
-      Object {
-        "locations": Array [
-          13660,
-        ],
-        "name": "e164",
-      },
-    ],
-    Array [
       "glyphicon-record",
       Object {
         "locations": Array [
           13670,
         ],
         "name": "glyphicon-record",
-      },
-    ],
-    Array [
-      "e165",
-      Object {
-        "locations": Array [
-          13709,
-        ],
-        "name": "e165",
       },
     ],
     Array [
@@ -9394,30 +7717,12 @@ Object {
       },
     ],
     Array [
-      "e166",
-      Object {
-        "locations": Array [
-          13756,
-        ],
-        "name": "e166",
-      },
-    ],
-    Array [
       "glyphicon-open",
       Object {
         "locations": Array [
           13766,
         ],
         "name": "glyphicon-open",
-      },
-    ],
-    Array [
-      "e167",
-      Object {
-        "locations": Array [
-          13803,
-        ],
-        "name": "e167",
       },
     ],
     Array [
@@ -9430,30 +7735,12 @@ Object {
       },
     ],
     Array [
-      "e168",
-      Object {
-        "locations": Array [
-          13851,
-        ],
-        "name": "e168",
-      },
-    ],
-    Array [
       "glyphicon-import",
       Object {
         "locations": Array [
           13861,
         ],
         "name": "glyphicon-import",
-      },
-    ],
-    Array [
-      "e169",
-      Object {
-        "locations": Array [
-          13900,
-        ],
-        "name": "e169",
       },
     ],
     Array [
@@ -9466,30 +7753,12 @@ Object {
       },
     ],
     Array [
-      "e170",
-      Object {
-        "locations": Array [
-          13949,
-        ],
-        "name": "e170",
-      },
-    ],
-    Array [
       "glyphicon-send",
       Object {
         "locations": Array [
           13959,
         ],
         "name": "glyphicon-send",
-      },
-    ],
-    Array [
-      "e171",
-      Object {
-        "locations": Array [
-          13996,
-        ],
-        "name": "e171",
       },
     ],
     Array [
@@ -9502,30 +7771,12 @@ Object {
       },
     ],
     Array [
-      "e172",
-      Object {
-        "locations": Array [
-          14050,
-        ],
-        "name": "e172",
-      },
-    ],
-    Array [
       "glyphicon-floppy-saved",
       Object {
         "locations": Array [
           14060,
         ],
         "name": "glyphicon-floppy-saved",
-      },
-    ],
-    Array [
-      "e173",
-      Object {
-        "locations": Array [
-          14105,
-        ],
-        "name": "e173",
       },
     ],
     Array [
@@ -9538,30 +7789,12 @@ Object {
       },
     ],
     Array [
-      "e174",
-      Object {
-        "locations": Array [
-          14161,
-        ],
-        "name": "e174",
-      },
-    ],
-    Array [
       "glyphicon-floppy-save",
       Object {
         "locations": Array [
           14171,
         ],
         "name": "glyphicon-floppy-save",
-      },
-    ],
-    Array [
-      "e175",
-      Object {
-        "locations": Array [
-          14215,
-        ],
-        "name": "e175",
       },
     ],
     Array [
@@ -9574,30 +7807,12 @@ Object {
       },
     ],
     Array [
-      "e176",
-      Object {
-        "locations": Array [
-          14269,
-        ],
-        "name": "e176",
-      },
-    ],
-    Array [
       "glyphicon-credit-card",
       Object {
         "locations": Array [
           14279,
         ],
         "name": "glyphicon-credit-card",
-      },
-    ],
-    Array [
-      "e177",
-      Object {
-        "locations": Array [
-          14323,
-        ],
-        "name": "e177",
       },
     ],
     Array [
@@ -9610,30 +7825,12 @@ Object {
       },
     ],
     Array [
-      "e178",
-      Object {
-        "locations": Array [
-          14374,
-        ],
-        "name": "e178",
-      },
-    ],
-    Array [
       "glyphicon-cutlery",
       Object {
         "locations": Array [
           14384,
         ],
         "name": "glyphicon-cutlery",
-      },
-    ],
-    Array [
-      "e179",
-      Object {
-        "locations": Array [
-          14424,
-        ],
-        "name": "e179",
       },
     ],
     Array [
@@ -9646,30 +7843,12 @@ Object {
       },
     ],
     Array [
-      "e180",
-      Object {
-        "locations": Array [
-          14473,
-        ],
-        "name": "e180",
-      },
-    ],
-    Array [
       "glyphicon-compressed",
       Object {
         "locations": Array [
           14483,
         ],
         "name": "glyphicon-compressed",
-      },
-    ],
-    Array [
-      "e181",
-      Object {
-        "locations": Array [
-          14526,
-        ],
-        "name": "e181",
       },
     ],
     Array [
@@ -9682,30 +7861,12 @@ Object {
       },
     ],
     Array [
-      "e182",
-      Object {
-        "locations": Array [
-          14577,
-        ],
-        "name": "e182",
-      },
-    ],
-    Array [
       "glyphicon-phone-alt",
       Object {
         "locations": Array [
           14587,
         ],
         "name": "glyphicon-phone-alt",
-      },
-    ],
-    Array [
-      "e183",
-      Object {
-        "locations": Array [
-          14629,
-        ],
-        "name": "e183",
       },
     ],
     Array [
@@ -9718,30 +7879,12 @@ Object {
       },
     ],
     Array [
-      "e184",
-      Object {
-        "locations": Array [
-          14677,
-        ],
-        "name": "e184",
-      },
-    ],
-    Array [
       "glyphicon-stats",
       Object {
         "locations": Array [
           14687,
         ],
         "name": "glyphicon-stats",
-      },
-    ],
-    Array [
-      "e185",
-      Object {
-        "locations": Array [
-          14725,
-        ],
-        "name": "e185",
       },
     ],
     Array [
@@ -9754,30 +7897,12 @@ Object {
       },
     ],
     Array [
-      "e186",
-      Object {
-        "locations": Array [
-          14776,
-        ],
-        "name": "e186",
-      },
-    ],
-    Array [
       "glyphicon-hd-video",
       Object {
         "locations": Array [
           14786,
         ],
         "name": "glyphicon-hd-video",
-      },
-    ],
-    Array [
-      "e187",
-      Object {
-        "locations": Array [
-          14827,
-        ],
-        "name": "e187",
       },
     ],
     Array [
@@ -9790,30 +7915,12 @@ Object {
       },
     ],
     Array [
-      "e188",
-      Object {
-        "locations": Array [
-          14879,
-        ],
-        "name": "e188",
-      },
-    ],
-    Array [
       "glyphicon-sound-stereo",
       Object {
         "locations": Array [
           14889,
         ],
         "name": "glyphicon-sound-stereo",
-      },
-    ],
-    Array [
-      "e189",
-      Object {
-        "locations": Array [
-          14934,
-        ],
-        "name": "e189",
       },
     ],
     Array [
@@ -9826,30 +7933,12 @@ Object {
       },
     ],
     Array [
-      "e190",
-      Object {
-        "locations": Array [
-          14988,
-        ],
-        "name": "e190",
-      },
-    ],
-    Array [
       "glyphicon-sound-5-1",
       Object {
         "locations": Array [
           14998,
         ],
         "name": "glyphicon-sound-5-1",
-      },
-    ],
-    Array [
-      "e191",
-      Object {
-        "locations": Array [
-          15040,
-        ],
-        "name": "e191",
       },
     ],
     Array [
@@ -9862,30 +7951,12 @@ Object {
       },
     ],
     Array [
-      "e192",
-      Object {
-        "locations": Array [
-          15092,
-        ],
-        "name": "e192",
-      },
-    ],
-    Array [
       "glyphicon-sound-7-1",
       Object {
         "locations": Array [
           15102,
         ],
         "name": "glyphicon-sound-7-1",
-      },
-    ],
-    Array [
-      "e193",
-      Object {
-        "locations": Array [
-          15144,
-        ],
-        "name": "e193",
       },
     ],
     Array [
@@ -9898,30 +7969,12 @@ Object {
       },
     ],
     Array [
-      "e194",
-      Object {
-        "locations": Array [
-          15201,
-        ],
-        "name": "e194",
-      },
-    ],
-    Array [
       "glyphicon-registration-mark",
       Object {
         "locations": Array [
           15211,
         ],
         "name": "glyphicon-registration-mark",
-      },
-    ],
-    Array [
-      "e195",
-      Object {
-        "locations": Array [
-          15261,
-        ],
-        "name": "e195",
       },
     ],
     Array [
@@ -9934,30 +7987,12 @@ Object {
       },
     ],
     Array [
-      "e197",
-      Object {
-        "locations": Array [
-          15318,
-        ],
-        "name": "e197",
-      },
-    ],
-    Array [
       "glyphicon-cloud-upload",
       Object {
         "locations": Array [
           15328,
         ],
         "name": "glyphicon-cloud-upload",
-      },
-    ],
-    Array [
-      "e198",
-      Object {
-        "locations": Array [
-          15373,
-        ],
-        "name": "e198",
       },
     ],
     Array [
@@ -9970,30 +8005,12 @@ Object {
       },
     ],
     Array [
-      "e199",
-      Object {
-        "locations": Array [
-          15428,
-        ],
-        "name": "e199",
-      },
-    ],
-    Array [
       "glyphicon-tree-deciduous",
       Object {
         "locations": Array [
           15438,
         ],
         "name": "glyphicon-tree-deciduous",
-      },
-    ],
-    Array [
-      "e200",
-      Object {
-        "locations": Array [
-          15485,
-        ],
-        "name": "e200",
       },
     ],
     Array [
@@ -10006,30 +8023,12 @@ Object {
       },
     ],
     Array [
-      "e201",
-      Object {
-        "locations": Array [
-          15530,
-        ],
-        "name": "e201",
-      },
-    ],
-    Array [
       "glyphicon-save-file",
       Object {
         "locations": Array [
           15540,
         ],
         "name": "glyphicon-save-file",
-      },
-    ],
-    Array [
-      "e202",
-      Object {
-        "locations": Array [
-          15582,
-        ],
-        "name": "e202",
       },
     ],
     Array [
@@ -10042,30 +8041,12 @@ Object {
       },
     ],
     Array [
-      "e203",
-      Object {
-        "locations": Array [
-          15634,
-        ],
-        "name": "e203",
-      },
-    ],
-    Array [
       "glyphicon-level-up",
       Object {
         "locations": Array [
           15644,
         ],
         "name": "glyphicon-level-up",
-      },
-    ],
-    Array [
-      "e204",
-      Object {
-        "locations": Array [
-          15685,
-        ],
-        "name": "e204",
       },
     ],
     Array [
@@ -10078,30 +8059,12 @@ Object {
       },
     ],
     Array [
-      "e205",
-      Object {
-        "locations": Array [
-          15732,
-        ],
-        "name": "e205",
-      },
-    ],
-    Array [
       "glyphicon-paste",
       Object {
         "locations": Array [
           15742,
         ],
         "name": "glyphicon-paste",
-      },
-    ],
-    Array [
-      "e206",
-      Object {
-        "locations": Array [
-          15780,
-        ],
-        "name": "e206",
       },
     ],
     Array [
@@ -10114,30 +8077,12 @@ Object {
       },
     ],
     Array [
-      "e209",
-      Object {
-        "locations": Array [
-          15828,
-        ],
-        "name": "e209",
-      },
-    ],
-    Array [
       "glyphicon-equalizer",
       Object {
         "locations": Array [
           15838,
         ],
         "name": "glyphicon-equalizer",
-      },
-    ],
-    Array [
-      "e210",
-      Object {
-        "locations": Array [
-          15880,
-        ],
-        "name": "e210",
       },
     ],
     Array [
@@ -10150,30 +8095,12 @@ Object {
       },
     ],
     Array [
-      "e211",
-      Object {
-        "locations": Array [
-          15927,
-        ],
-        "name": "e211",
-      },
-    ],
-    Array [
       "glyphicon-queen",
       Object {
         "locations": Array [
           15937,
         ],
         "name": "glyphicon-queen",
-      },
-    ],
-    Array [
-      "e212",
-      Object {
-        "locations": Array [
-          15975,
-        ],
-        "name": "e212",
       },
     ],
     Array [
@@ -10186,30 +8113,12 @@ Object {
       },
     ],
     Array [
-      "e213",
-      Object {
-        "locations": Array [
-          16022,
-        ],
-        "name": "e213",
-      },
-    ],
-    Array [
       "glyphicon-bishop",
       Object {
         "locations": Array [
           16032,
         ],
         "name": "glyphicon-bishop",
-      },
-    ],
-    Array [
-      "e214",
-      Object {
-        "locations": Array [
-          16071,
-        ],
-        "name": "e214",
       },
     ],
     Array [
@@ -10222,30 +8131,12 @@ Object {
       },
     ],
     Array [
-      "e215",
-      Object {
-        "locations": Array [
-          16120,
-        ],
-        "name": "e215",
-      },
-    ],
-    Array [
       "glyphicon-baby-formula",
       Object {
         "locations": Array [
           16130,
         ],
         "name": "glyphicon-baby-formula",
-      },
-    ],
-    Array [
-      "e216",
-      Object {
-        "locations": Array [
-          16175,
-        ],
-        "name": "e216",
       },
     ],
     Array [
@@ -10267,30 +8158,12 @@ Object {
       },
     ],
     Array [
-      "e218",
-      Object {
-        "locations": Array [
-          16275,
-        ],
-        "name": "e218",
-      },
-    ],
-    Array [
       "glyphicon-bed",
       Object {
         "locations": Array [
           16285,
         ],
         "name": "glyphicon-bed",
-      },
-    ],
-    Array [
-      "e219",
-      Object {
-        "locations": Array [
-          16321,
-        ],
-        "name": "e219",
       },
     ],
     Array [
@@ -10303,30 +8176,12 @@ Object {
       },
     ],
     Array [
-      "f8ff",
-      Object {
-        "locations": Array [
-          16369,
-        ],
-        "name": "f8ff",
-      },
-    ],
-    Array [
       "glyphicon-erase",
       Object {
         "locations": Array [
           16379,
         ],
         "name": "glyphicon-erase",
-      },
-    ],
-    Array [
-      "e221",
-      Object {
-        "locations": Array [
-          16417,
-        ],
-        "name": "e221",
       },
     ],
     Array [
@@ -10348,30 +8203,12 @@ Object {
       },
     ],
     Array [
-      "e223",
-      Object {
-        "locations": Array [
-          16516,
-        ],
-        "name": "e223",
-      },
-    ],
-    Array [
       "glyphicon-duplicate",
       Object {
         "locations": Array [
           16526,
         ],
         "name": "glyphicon-duplicate",
-      },
-    ],
-    Array [
-      "e224",
-      Object {
-        "locations": Array [
-          16568,
-        ],
-        "name": "e224",
       },
     ],
     Array [
@@ -10384,15 +8221,6 @@ Object {
       },
     ],
     Array [
-      "e225",
-      Object {
-        "locations": Array [
-          16621,
-        ],
-        "name": "e225",
-      },
-    ],
-    Array [
       "glyphicon-scissors",
       Object {
         "locations": Array [
@@ -10402,32 +8230,12 @@ Object {
       },
     ],
     Array [
-      "e226",
-      Object {
-        "locations": Array [
-          16672,
-        ],
-        "name": "e226",
-      },
-    ],
-    Array [
       "glyphicon-bitcoin",
       Object {
         "locations": Array [
           16682,
         ],
         "name": "glyphicon-bitcoin",
-      },
-    ],
-    Array [
-      "e227",
-      Object {
-        "locations": Array [
-          16722,
-          16768,
-          16814,
-        ],
-        "name": "e227",
       },
     ],
     Array [
@@ -10494,30 +8302,12 @@ Object {
       },
     ],
     Array [
-      "e230",
-      Object {
-        "locations": Array [
-          17048,
-        ],
-        "name": "e230",
-      },
-    ],
-    Array [
       "glyphicon-ice-lolly",
       Object {
         "locations": Array [
           17058,
         ],
         "name": "glyphicon-ice-lolly",
-      },
-    ],
-    Array [
-      "e231",
-      Object {
-        "locations": Array [
-          17100,
-        ],
-        "name": "e231",
       },
     ],
     Array [
@@ -10530,30 +8320,12 @@ Object {
       },
     ],
     Array [
-      "e232",
-      Object {
-        "locations": Array [
-          17159,
-        ],
-        "name": "e232",
-      },
-    ],
-    Array [
       "glyphicon-education",
       Object {
         "locations": Array [
           17169,
         ],
         "name": "glyphicon-education",
-      },
-    ],
-    Array [
-      "e233",
-      Object {
-        "locations": Array [
-          17211,
-        ],
-        "name": "e233",
       },
     ],
     Array [
@@ -10566,30 +8338,12 @@ Object {
       },
     ],
     Array [
-      "e234",
-      Object {
-        "locations": Array [
-          17271,
-        ],
-        "name": "e234",
-      },
-    ],
-    Array [
       "glyphicon-option-vertical",
       Object {
         "locations": Array [
           17281,
         ],
         "name": "glyphicon-option-vertical",
-      },
-    ],
-    Array [
-      "e235",
-      Object {
-        "locations": Array [
-          17329,
-        ],
-        "name": "e235",
       },
     ],
     Array [
@@ -10602,30 +8356,12 @@ Object {
       },
     ],
     Array [
-      "e236",
-      Object {
-        "locations": Array [
-          17386,
-        ],
-        "name": "e236",
-      },
-    ],
-    Array [
       "glyphicon-modal-window",
       Object {
         "locations": Array [
           17396,
         ],
         "name": "glyphicon-modal-window",
-      },
-    ],
-    Array [
-      "e237",
-      Object {
-        "locations": Array [
-          17441,
-        ],
-        "name": "e237",
       },
     ],
     Array [
@@ -10638,30 +8374,12 @@ Object {
       },
     ],
     Array [
-      "e238",
-      Object {
-        "locations": Array [
-          17487,
-        ],
-        "name": "e238",
-      },
-    ],
-    Array [
       "glyphicon-grain",
       Object {
         "locations": Array [
           17497,
         ],
         "name": "glyphicon-grain",
-      },
-    ],
-    Array [
-      "e239",
-      Object {
-        "locations": Array [
-          17535,
-        ],
-        "name": "e239",
       },
     ],
     Array [
@@ -10674,30 +8392,12 @@ Object {
       },
     ],
     Array [
-      "e240",
-      Object {
-        "locations": Array [
-          17588,
-        ],
-        "name": "e240",
-      },
-    ],
-    Array [
       "glyphicon-text-size",
       Object {
         "locations": Array [
           17598,
         ],
         "name": "glyphicon-text-size",
-      },
-    ],
-    Array [
-      "e241",
-      Object {
-        "locations": Array [
-          17640,
-        ],
-        "name": "e241",
       },
     ],
     Array [
@@ -10710,30 +8410,12 @@ Object {
       },
     ],
     Array [
-      "e242",
-      Object {
-        "locations": Array [
-          17693,
-        ],
-        "name": "e242",
-      },
-    ],
-    Array [
       "glyphicon-text-background",
       Object {
         "locations": Array [
           17703,
         ],
         "name": "glyphicon-text-background",
-      },
-    ],
-    Array [
-      "e243",
-      Object {
-        "locations": Array [
-          17751,
-        ],
-        "name": "e243",
       },
     ],
     Array [
@@ -10746,30 +8428,12 @@ Object {
       },
     ],
     Array [
-      "e244",
-      Object {
-        "locations": Array [
-          17810,
-        ],
-        "name": "e244",
-      },
-    ],
-    Array [
       "glyphicon-object-align-bottom",
       Object {
         "locations": Array [
           17820,
         ],
         "name": "glyphicon-object-align-bottom",
-      },
-    ],
-    Array [
-      "e245",
-      Object {
-        "locations": Array [
-          17872,
-        ],
-        "name": "e245",
       },
     ],
     Array [
@@ -10782,30 +8446,12 @@ Object {
       },
     ],
     Array [
-      "e246",
-      Object {
-        "locations": Array [
-          17938,
-        ],
-        "name": "e246",
-      },
-    ],
-    Array [
       "glyphicon-object-align-left",
       Object {
         "locations": Array [
           17948,
         ],
         "name": "glyphicon-object-align-left",
-      },
-    ],
-    Array [
-      "e247",
-      Object {
-        "locations": Array [
-          17998,
-        ],
-        "name": "e247",
       },
     ],
     Array [
@@ -10818,30 +8464,12 @@ Object {
       },
     ],
     Array [
-      "e248",
-      Object {
-        "locations": Array [
-          18062,
-        ],
-        "name": "e248",
-      },
-    ],
-    Array [
       "glyphicon-object-align-right",
       Object {
         "locations": Array [
           18072,
         ],
         "name": "glyphicon-object-align-right",
-      },
-    ],
-    Array [
-      "e249",
-      Object {
-        "locations": Array [
-          18123,
-        ],
-        "name": "e249",
       },
     ],
     Array [
@@ -10854,30 +8482,12 @@ Object {
       },
     ],
     Array [
-      "e250",
-      Object {
-        "locations": Array [
-          18180,
-        ],
-        "name": "e250",
-      },
-    ],
-    Array [
       "glyphicon-triangle-left",
       Object {
         "locations": Array [
           18190,
         ],
         "name": "glyphicon-triangle-left",
-      },
-    ],
-    Array [
-      "e251",
-      Object {
-        "locations": Array [
-          18236,
-        ],
-        "name": "e251",
       },
     ],
     Array [
@@ -10890,30 +8500,12 @@ Object {
       },
     ],
     Array [
-      "e252",
-      Object {
-        "locations": Array [
-          18294,
-        ],
-        "name": "e252",
-      },
-    ],
-    Array [
       "glyphicon-triangle-top",
       Object {
         "locations": Array [
           18304,
         ],
         "name": "glyphicon-triangle-top",
-      },
-    ],
-    Array [
-      "e253",
-      Object {
-        "locations": Array [
-          18349,
-        ],
-        "name": "e253",
       },
     ],
     Array [
@@ -10926,30 +8518,12 @@ Object {
       },
     ],
     Array [
-      "e254",
-      Object {
-        "locations": Array [
-          18399,
-        ],
-        "name": "e254",
-      },
-    ],
-    Array [
       "glyphicon-superscript",
       Object {
         "locations": Array [
           18409,
         ],
         "name": "glyphicon-superscript",
-      },
-    ],
-    Array [
-      "e255",
-      Object {
-        "locations": Array [
-          18453,
-        ],
-        "name": "e255",
       },
     ],
     Array [
@@ -10962,30 +8536,12 @@ Object {
       },
     ],
     Array [
-      "e256",
-      Object {
-        "locations": Array [
-          18505,
-        ],
-        "name": "e256",
-      },
-    ],
-    Array [
       "glyphicon-menu-left",
       Object {
         "locations": Array [
           18515,
         ],
         "name": "glyphicon-menu-left",
-      },
-    ],
-    Array [
-      "e257",
-      Object {
-        "locations": Array [
-          18557,
-        ],
-        "name": "e257",
       },
     ],
     Array [
@@ -10998,15 +8554,6 @@ Object {
       },
     ],
     Array [
-      "e258",
-      Object {
-        "locations": Array [
-          18610,
-        ],
-        "name": "e258",
-      },
-    ],
-    Array [
       "glyphicon-menu-down",
       Object {
         "locations": Array [
@@ -11016,30 +8563,12 @@ Object {
       },
     ],
     Array [
-      "e259",
-      Object {
-        "locations": Array [
-          18662,
-        ],
-        "name": "e259",
-      },
-    ],
-    Array [
       "glyphicon-menu-up",
       Object {
         "locations": Array [
           18672,
         ],
         "name": "glyphicon-menu-up",
-      },
-    ],
-    Array [
-      "e260",
-      Object {
-        "locations": Array [
-          18712,
-        ],
-        "name": "e260",
       },
     ],
     Array [
@@ -11183,25 +8712,11 @@ Object {
       "Helvetica",
       Object {
         "locations": Array [
-          19031,
           19048,
-          130586,
           130603,
-          132832,
           132849,
         ],
         "name": "Helvetica",
-      },
-    ],
-    Array [
-      "Neue",
-      Object {
-        "locations": Array [
-          19041,
-          130596,
-          132842,
-        ],
-        "name": "Neue",
       },
     ],
     Array [
@@ -13604,24 +11119,6 @@ Object {
           25602,
         ],
         "name": "Consolas",
-      },
-    ],
-    Array [
-      "Courier",
-      Object {
-        "locations": Array [
-          25613,
-        ],
-        "name": "Courier",
-      },
-    ],
-    Array [
-      "New",
-      Object {
-        "locations": Array [
-          25621,
-        ],
-        "name": "New",
       },
     ],
     Array [
@@ -16299,18 +13796,6 @@ Object {
       },
     ],
     Array [
-      "col-",
-      Object {
-        "locations": Array [
-          39161,
-          39249,
-          39274,
-          74848,
-        ],
-        "name": "col-",
-      },
-    ],
-    Array [
       "table-column",
       Object {
         "locations": Array [
@@ -16583,25 +14068,6 @@ Object {
           42972,
         ],
         "name": "-ms-autohiding-scrollbar",
-      },
-    ],
-    Array [
-      "file",
-      Object {
-        "locations": Array [
-          45238,
-          45387,
-        ],
-        "name": "file",
-      },
-    ],
-    Array [
-      "range",
-      Object {
-        "locations": Array [
-          45279,
-        ],
-        "name": "range",
       },
     ],
     Array [
@@ -16947,58 +14413,6 @@ Object {
       },
     ],
     Array [
-      "date",
-      Object {
-        "locations": Array [
-          47135,
-          47314,
-          47465,
-          47640,
-          47791,
-        ],
-        "name": "date",
-      },
-    ],
-    Array [
-      "time",
-      Object {
-        "locations": Array [
-          47170,
-          47345,
-          47503,
-          47671,
-          47829,
-        ],
-        "name": "time",
-      },
-    ],
-    Array [
-      "datetime-local",
-      Object {
-        "locations": Array [
-          47205,
-          47376,
-          47541,
-          47702,
-          47867,
-        ],
-        "name": "datetime-local",
-      },
-    ],
-    Array [
-      "month",
-      Object {
-        "locations": Array [
-          47250,
-          47417,
-          47589,
-          47743,
-          47915,
-        ],
-        "name": "month",
-      },
-    ],
-    Array [
       "input-sm",
       Object {
         "locations": Array [
@@ -17101,6 +14515,64 @@ Object {
           141917,
         ],
         "name": "form-group",
+      },
+    ],
+    Array [
+      "radio",
+      Object {
+        "locations": Array [
+          47994,
+          48099,
+          48237,
+          48444,
+          48453,
+          49194,
+          49262,
+          51673,
+          51776,
+          52519,
+          52622,
+          53359,
+          53454,
+          55068,
+          55218,
+          55305,
+          55520,
+          55700,
+          87847,
+          87997,
+          88084,
+        ],
+        "name": "radio",
+      },
+    ],
+    Array [
+      "checkbox",
+      Object {
+        "locations": Array [
+          48002,
+          48113,
+          48300,
+          48461,
+          48473,
+          49217,
+          49295,
+          51694,
+          51802,
+          52540,
+          52648,
+          53378,
+          53478,
+          55091,
+          55247,
+          55348,
+          55545,
+          55725,
+          87870,
+          88026,
+          88127,
+        ],
+        "name": "checkbox",
       },
     ],
     Array [
@@ -18880,18 +16352,6 @@ Object {
           74599,
         ],
         "name": "data-toggle",
-      },
-    ],
-    Array [
-      "buttons",
-      Object {
-        "locations": Array [
-          74440,
-          74492,
-          74557,
-          74612,
-        ],
-        "name": "buttons",
       },
     ],
     Array [
@@ -24595,8 +22055,6 @@ Object {
       Object {
         "locations": Array [
           1334,
-          4042,
-          4084,
         ],
         "name": "svg",
       },
@@ -24846,13 +22304,10 @@ Object {
           1639,
           1663,
           1697,
-          1721,
           1790,
           1812,
           1865,
           16113,
-          17190,
-          54997,
           90336,
           90413,
           90496,
@@ -25168,26 +22623,6 @@ Object {
           72789,
         ],
         "name": "type",
-      },
-    ],
-    Array [
-      "reset",
-      Object {
-        "locations": Array [
-          1742,
-          54967,
-        ],
-        "name": "reset",
-      },
-    ],
-    Array [
-      "submit",
-      Object {
-        "locations": Array [
-          1762,
-          54936,
-        ],
-        "name": "submit",
       },
     ],
     Array [
@@ -25531,90 +22966,6 @@ Object {
       },
     ],
     Array [
-      "checkbox",
-      Object {
-        "locations": Array [
-          1970,
-          36418,
-          36664,
-          38887,
-          38977,
-          39138,
-          39159,
-          39199,
-          39279,
-          39289,
-          39608,
-          39670,
-          39760,
-          39950,
-          40026,
-          42045,
-          42149,
-          42804,
-          42908,
-          43555,
-          43651,
-          44994,
-          45115,
-          45199,
-          45220,
-          45362,
-          45523,
-          61678,
-          61741,
-          64091,
-          72569,
-          72690,
-          72774,
-          72795,
-        ],
-        "name": "checkbox",
-      },
-    ],
-    Array [
-      "radio",
-      Object {
-        "locations": Array [
-          1993,
-          36398,
-          36638,
-          38880,
-          38964,
-          39077,
-          39095,
-          39129,
-          39265,
-          39272,
-          39578,
-          39641,
-          39721,
-          39928,
-          39994,
-          42025,
-          42124,
-          42784,
-          42883,
-          43537,
-          43628,
-          44974,
-          45089,
-          45159,
-          45177,
-          45338,
-          45499,
-          61569,
-          61629,
-          64052,
-          72549,
-          72664,
-          72734,
-          72752,
-        ],
-        "name": "radio",
-      },
-    ],
-    Array [
       "border-box",
       Object {
         "locations": Array [
@@ -25635,16 +22986,6 @@ Object {
       },
     ],
     Array [
-      "number",
-      Object {
-        "locations": Array [
-          2102,
-          2150,
-        ],
-        "name": "number",
-      },
-    ],
-    Array [
       "-webkit-inner-spin-button",
       Object {
         "locations": Array [
@@ -25660,19 +23001,6 @@ Object {
           2160,
         ],
         "name": "-webkit-outer-spin-button",
-      },
-    ],
-    Array [
-      "search",
-      Object {
-        "locations": Array [
-          2210,
-          2342,
-          2393,
-          36298,
-          38023,
-        ],
-        "name": "search",
       },
     ],
     Array [
@@ -27257,15 +24585,6 @@ Object {
       },
     ],
     Array [
-      "javascript",
-      Object {
-        "locations": Array [
-          3087,
-        ],
-        "name": "javascript",
-      },
-    ],
-    Array [
       "blockquote",
       Object {
         "locations": Array [
@@ -28060,26 +25379,6 @@ Object {
       },
     ],
     Array [
-      "Glyphicons",
-      Object {
-        "locations": Array [
-          3636,
-          4161,
-        ],
-        "name": "Glyphicons",
-      },
-    ],
-    Array [
-      "Halflings",
-      Object {
-        "locations": Array [
-          3647,
-          4172,
-        ],
-        "name": "Halflings",
-      },
-    ],
-    Array [
       "src",
       Object {
         "locations": Array [
@@ -28104,44 +25403,6 @@ Object {
       },
     ],
     Array [
-      "fonts",
-      Object {
-        "locations": Array [
-          3670,
-          3723,
-          3807,
-          3874,
-          3939,
-          4007,
-        ],
-        "name": "fonts",
-      },
-    ],
-    Array [
-      "glyphicons-halflings-regular",
-      Object {
-        "locations": Array [
-          3676,
-          3729,
-          3813,
-          3880,
-          3945,
-          4013,
-        ],
-        "name": "glyphicons-halflings-regular",
-      },
-    ],
-    Array [
-      "eot",
-      Object {
-        "locations": Array [
-          3705,
-          3758,
-        ],
-        "name": "eot",
-      },
-    ],
-    Array [
       "format",
       Object {
         "locations": Array [
@@ -28152,53 +25413,6 @@ Object {
           4076,
         ],
         "name": "format",
-      },
-    ],
-    Array [
-      "embedded-opentype",
-      Object {
-        "locations": Array [
-          3779,
-        ],
-        "name": "embedded-opentype",
-      },
-    ],
-    Array [
-      "woff2",
-      Object {
-        "locations": Array [
-          3842,
-          3858,
-        ],
-        "name": "woff2",
-      },
-    ],
-    Array [
-      "woff",
-      Object {
-        "locations": Array [
-          3909,
-          3924,
-        ],
-        "name": "woff",
-      },
-    ],
-    Array [
-      "ttf",
-      Object {
-        "locations": Array [
-          3974,
-        ],
-        "name": "ttf",
-      },
-    ],
-    Array [
-      "truetype",
-      Object {
-        "locations": Array [
-          3988,
-        ],
-        "name": "truetype",
       },
     ],
     Array [
@@ -28328,30 +25542,12 @@ Object {
       },
     ],
     Array [
-      "e001",
-      Object {
-        "locations": Array [
-          4644,
-        ],
-        "name": "e001",
-      },
-    ],
-    Array [
       "glyphicon-music",
       Object {
         "locations": Array [
           4651,
         ],
         "name": "glyphicon-music",
-      },
-    ],
-    Array [
-      "e002",
-      Object {
-        "locations": Array [
-          4684,
-        ],
-        "name": "e002",
       },
     ],
     Array [
@@ -28364,30 +25560,12 @@ Object {
       },
     ],
     Array [
-      "e003",
-      Object {
-        "locations": Array [
-          4725,
-        ],
-        "name": "e003",
-      },
-    ],
-    Array [
       "glyphicon-heart",
       Object {
         "locations": Array [
           4732,
         ],
         "name": "glyphicon-heart",
-      },
-    ],
-    Array [
-      "e005",
-      Object {
-        "locations": Array [
-          4765,
-        ],
-        "name": "e005",
       },
     ],
     Array [
@@ -28400,30 +25578,12 @@ Object {
       },
     ],
     Array [
-      "e006",
-      Object {
-        "locations": Array [
-          4804,
-        ],
-        "name": "e006",
-      },
-    ],
-    Array [
       "glyphicon-star-empty",
       Object {
         "locations": Array [
           4811,
         ],
         "name": "glyphicon-star-empty",
-      },
-    ],
-    Array [
-      "e007",
-      Object {
-        "locations": Array [
-          4849,
-        ],
-        "name": "e007",
       },
     ],
     Array [
@@ -28436,30 +25596,12 @@ Object {
       },
     ],
     Array [
-      "e008",
-      Object {
-        "locations": Array [
-          4888,
-        ],
-        "name": "e008",
-      },
-    ],
-    Array [
       "glyphicon-film",
       Object {
         "locations": Array [
           4895,
         ],
         "name": "glyphicon-film",
-      },
-    ],
-    Array [
-      "e009",
-      Object {
-        "locations": Array [
-          4927,
-        ],
-        "name": "e009",
       },
     ],
     Array [
@@ -28472,30 +25614,12 @@ Object {
       },
     ],
     Array [
-      "e010",
-      Object {
-        "locations": Array [
-          4970,
-        ],
-        "name": "e010",
-      },
-    ],
-    Array [
       "glyphicon-th",
       Object {
         "locations": Array [
           4977,
         ],
         "name": "glyphicon-th",
-      },
-    ],
-    Array [
-      "e011",
-      Object {
-        "locations": Array [
-          5007,
-        ],
-        "name": "e011",
       },
     ],
     Array [
@@ -28508,30 +25632,12 @@ Object {
       },
     ],
     Array [
-      "e012",
-      Object {
-        "locations": Array [
-          5049,
-        ],
-        "name": "e012",
-      },
-    ],
-    Array [
       "glyphicon-ok",
       Object {
         "locations": Array [
           5056,
         ],
         "name": "glyphicon-ok",
-      },
-    ],
-    Array [
-      "e013",
-      Object {
-        "locations": Array [
-          5086,
-        ],
-        "name": "e013",
       },
     ],
     Array [
@@ -28544,30 +25650,12 @@ Object {
       },
     ],
     Array [
-      "e014",
-      Object {
-        "locations": Array [
-          5127,
-        ],
-        "name": "e014",
-      },
-    ],
-    Array [
       "glyphicon-zoom-in",
       Object {
         "locations": Array [
           5134,
         ],
         "name": "glyphicon-zoom-in",
-      },
-    ],
-    Array [
-      "e015",
-      Object {
-        "locations": Array [
-          5169,
-        ],
-        "name": "e015",
       },
     ],
     Array [
@@ -28580,30 +25668,12 @@ Object {
       },
     ],
     Array [
-      "e016",
-      Object {
-        "locations": Array [
-          5212,
-        ],
-        "name": "e016",
-      },
-    ],
-    Array [
       "glyphicon-off",
       Object {
         "locations": Array [
           5219,
         ],
         "name": "glyphicon-off",
-      },
-    ],
-    Array [
-      "e017",
-      Object {
-        "locations": Array [
-          5250,
-        ],
-        "name": "e017",
       },
     ],
     Array [
@@ -28616,30 +25686,12 @@ Object {
       },
     ],
     Array [
-      "e018",
-      Object {
-        "locations": Array [
-          5291,
-        ],
-        "name": "e018",
-      },
-    ],
-    Array [
       "glyphicon-cog",
       Object {
         "locations": Array [
           5298,
         ],
         "name": "glyphicon-cog",
-      },
-    ],
-    Array [
-      "e019",
-      Object {
-        "locations": Array [
-          5329,
-        ],
-        "name": "e019",
       },
     ],
     Array [
@@ -28652,30 +25704,12 @@ Object {
       },
     ],
     Array [
-      "e020",
-      Object {
-        "locations": Array [
-          5369,
-        ],
-        "name": "e020",
-      },
-    ],
-    Array [
       "glyphicon-home",
       Object {
         "locations": Array [
           5376,
         ],
         "name": "glyphicon-home",
-      },
-    ],
-    Array [
-      "e021",
-      Object {
-        "locations": Array [
-          5408,
-        ],
-        "name": "e021",
       },
     ],
     Array [
@@ -28688,30 +25722,12 @@ Object {
       },
     ],
     Array [
-      "e022",
-      Object {
-        "locations": Array [
-          5447,
-        ],
-        "name": "e022",
-      },
-    ],
-    Array [
       "glyphicon-time",
       Object {
         "locations": Array [
           5454,
         ],
         "name": "glyphicon-time",
-      },
-    ],
-    Array [
-      "e023",
-      Object {
-        "locations": Array [
-          5486,
-        ],
-        "name": "e023",
       },
     ],
     Array [
@@ -28724,30 +25740,12 @@ Object {
       },
     ],
     Array [
-      "e024",
-      Object {
-        "locations": Array [
-          5525,
-        ],
-        "name": "e024",
-      },
-    ],
-    Array [
       "glyphicon-download-alt",
       Object {
         "locations": Array [
           5532,
         ],
         "name": "glyphicon-download-alt",
-      },
-    ],
-    Array [
-      "e025",
-      Object {
-        "locations": Array [
-          5572,
-        ],
-        "name": "e025",
       },
     ],
     Array [
@@ -28760,30 +25758,12 @@ Object {
       },
     ],
     Array [
-      "e026",
-      Object {
-        "locations": Array [
-          5615,
-        ],
-        "name": "e026",
-      },
-    ],
-    Array [
       "glyphicon-upload",
       Object {
         "locations": Array [
           5622,
         ],
         "name": "glyphicon-upload",
-      },
-    ],
-    Array [
-      "e027",
-      Object {
-        "locations": Array [
-          5656,
-        ],
-        "name": "e027",
       },
     ],
     Array [
@@ -28796,30 +25776,12 @@ Object {
       },
     ],
     Array [
-      "e028",
-      Object {
-        "locations": Array [
-          5696,
-        ],
-        "name": "e028",
-      },
-    ],
-    Array [
       "glyphicon-play-circle",
       Object {
         "locations": Array [
           5703,
         ],
         "name": "glyphicon-play-circle",
-      },
-    ],
-    Array [
-      "e029",
-      Object {
-        "locations": Array [
-          5742,
-        ],
-        "name": "e029",
       },
     ],
     Array [
@@ -28832,30 +25794,12 @@ Object {
       },
     ],
     Array [
-      "e030",
-      Object {
-        "locations": Array [
-          5783,
-        ],
-        "name": "e030",
-      },
-    ],
-    Array [
       "glyphicon-refresh",
       Object {
         "locations": Array [
           5790,
         ],
         "name": "glyphicon-refresh",
-      },
-    ],
-    Array [
-      "e031",
-      Object {
-        "locations": Array [
-          5825,
-        ],
-        "name": "e031",
       },
     ],
     Array [
@@ -28868,30 +25812,12 @@ Object {
       },
     ],
     Array [
-      "e032",
-      Object {
-        "locations": Array [
-          5868,
-        ],
-        "name": "e032",
-      },
-    ],
-    Array [
       "glyphicon-lock",
       Object {
         "locations": Array [
           5875,
         ],
         "name": "glyphicon-lock",
-      },
-    ],
-    Array [
-      "e033",
-      Object {
-        "locations": Array [
-          5907,
-        ],
-        "name": "e033",
       },
     ],
     Array [
@@ -28904,30 +25830,12 @@ Object {
       },
     ],
     Array [
-      "e034",
-      Object {
-        "locations": Array [
-          5946,
-        ],
-        "name": "e034",
-      },
-    ],
-    Array [
       "glyphicon-headphones",
       Object {
         "locations": Array [
           5953,
         ],
         "name": "glyphicon-headphones",
-      },
-    ],
-    Array [
-      "e035",
-      Object {
-        "locations": Array [
-          5991,
-        ],
-        "name": "e035",
       },
     ],
     Array [
@@ -28940,30 +25848,12 @@ Object {
       },
     ],
     Array [
-      "e036",
-      Object {
-        "locations": Array [
-          6036,
-        ],
-        "name": "e036",
-      },
-    ],
-    Array [
       "glyphicon-volume-down",
       Object {
         "locations": Array [
           6043,
         ],
         "name": "glyphicon-volume-down",
-      },
-    ],
-    Array [
-      "e037",
-      Object {
-        "locations": Array [
-          6082,
-        ],
-        "name": "e037",
       },
     ],
     Array [
@@ -28976,30 +25866,12 @@ Object {
       },
     ],
     Array [
-      "e038",
-      Object {
-        "locations": Array [
-          6126,
-        ],
-        "name": "e038",
-      },
-    ],
-    Array [
       "glyphicon-qrcode",
       Object {
         "locations": Array [
           6133,
         ],
         "name": "glyphicon-qrcode",
-      },
-    ],
-    Array [
-      "e039",
-      Object {
-        "locations": Array [
-          6167,
-        ],
-        "name": "e039",
       },
     ],
     Array [
@@ -29012,30 +25884,12 @@ Object {
       },
     ],
     Array [
-      "e040",
-      Object {
-        "locations": Array [
-          6209,
-        ],
-        "name": "e040",
-      },
-    ],
-    Array [
       "glyphicon-tag",
       Object {
         "locations": Array [
           6216,
         ],
         "name": "glyphicon-tag",
-      },
-    ],
-    Array [
-      "e041",
-      Object {
-        "locations": Array [
-          6247,
-        ],
-        "name": "e041",
       },
     ],
     Array [
@@ -29048,30 +25902,12 @@ Object {
       },
     ],
     Array [
-      "e042",
-      Object {
-        "locations": Array [
-          6286,
-        ],
-        "name": "e042",
-      },
-    ],
-    Array [
       "glyphicon-book",
       Object {
         "locations": Array [
           6293,
         ],
         "name": "glyphicon-book",
-      },
-    ],
-    Array [
-      "e043",
-      Object {
-        "locations": Array [
-          6325,
-        ],
-        "name": "e043",
       },
     ],
     Array [
@@ -29084,30 +25920,12 @@ Object {
       },
     ],
     Array [
-      "e044",
-      Object {
-        "locations": Array [
-          6368,
-        ],
-        "name": "e044",
-      },
-    ],
-    Array [
       "glyphicon-print",
       Object {
         "locations": Array [
           6375,
         ],
         "name": "glyphicon-print",
-      },
-    ],
-    Array [
-      "e045",
-      Object {
-        "locations": Array [
-          6408,
-        ],
-        "name": "e045",
       },
     ],
     Array [
@@ -29120,30 +25938,12 @@ Object {
       },
     ],
     Array [
-      "e046",
-      Object {
-        "locations": Array [
-          6449,
-        ],
-        "name": "e046",
-      },
-    ],
-    Array [
       "glyphicon-font",
       Object {
         "locations": Array [
           6456,
         ],
         "name": "glyphicon-font",
-      },
-    ],
-    Array [
-      "e047",
-      Object {
-        "locations": Array [
-          6488,
-        ],
-        "name": "e047",
       },
     ],
     Array [
@@ -29156,30 +25956,12 @@ Object {
       },
     ],
     Array [
-      "e048",
-      Object {
-        "locations": Array [
-          6527,
-        ],
-        "name": "e048",
-      },
-    ],
-    Array [
       "glyphicon-italic",
       Object {
         "locations": Array [
           6534,
         ],
         "name": "glyphicon-italic",
-      },
-    ],
-    Array [
-      "e049",
-      Object {
-        "locations": Array [
-          6568,
-        ],
-        "name": "e049",
       },
     ],
     Array [
@@ -29192,30 +25974,12 @@ Object {
       },
     ],
     Array [
-      "e050",
-      Object {
-        "locations": Array [
-          6614,
-        ],
-        "name": "e050",
-      },
-    ],
-    Array [
       "glyphicon-text-width",
       Object {
         "locations": Array [
           6621,
         ],
         "name": "glyphicon-text-width",
-      },
-    ],
-    Array [
-      "e051",
-      Object {
-        "locations": Array [
-          6659,
-        ],
-        "name": "e051",
       },
     ],
     Array [
@@ -29228,30 +25992,12 @@ Object {
       },
     ],
     Array [
-      "e052",
-      Object {
-        "locations": Array [
-          6704,
-        ],
-        "name": "e052",
-      },
-    ],
-    Array [
       "glyphicon-align-center",
       Object {
         "locations": Array [
           6711,
         ],
         "name": "glyphicon-align-center",
-      },
-    ],
-    Array [
-      "e053",
-      Object {
-        "locations": Array [
-          6751,
-        ],
-        "name": "e053",
       },
     ],
     Array [
@@ -29264,30 +26010,12 @@ Object {
       },
     ],
     Array [
-      "e054",
-      Object {
-        "locations": Array [
-          6797,
-        ],
-        "name": "e054",
-      },
-    ],
-    Array [
       "glyphicon-align-justify",
       Object {
         "locations": Array [
           6804,
         ],
         "name": "glyphicon-align-justify",
-      },
-    ],
-    Array [
-      "e055",
-      Object {
-        "locations": Array [
-          6845,
-        ],
-        "name": "e055",
       },
     ],
     Array [
@@ -29300,30 +26028,12 @@ Object {
       },
     ],
     Array [
-      "e056",
-      Object {
-        "locations": Array [
-          6884,
-        ],
-        "name": "e056",
-      },
-    ],
-    Array [
       "glyphicon-indent-left",
       Object {
         "locations": Array [
           6891,
         ],
         "name": "glyphicon-indent-left",
-      },
-    ],
-    Array [
-      "e057",
-      Object {
-        "locations": Array [
-          6930,
-        ],
-        "name": "e057",
       },
     ],
     Array [
@@ -29336,30 +26046,12 @@ Object {
       },
     ],
     Array [
-      "e058",
-      Object {
-        "locations": Array [
-          6977,
-        ],
-        "name": "e058",
-      },
-    ],
-    Array [
       "glyphicon-facetime-video",
       Object {
         "locations": Array [
           6984,
         ],
         "name": "glyphicon-facetime-video",
-      },
-    ],
-    Array [
-      "e059",
-      Object {
-        "locations": Array [
-          7026,
-        ],
-        "name": "e059",
       },
     ],
     Array [
@@ -29372,30 +26064,12 @@ Object {
       },
     ],
     Array [
-      "e060",
-      Object {
-        "locations": Array [
-          7068,
-        ],
-        "name": "e060",
-      },
-    ],
-    Array [
       "glyphicon-map-marker",
       Object {
         "locations": Array [
           7075,
         ],
         "name": "glyphicon-map-marker",
-      },
-    ],
-    Array [
-      "e062",
-      Object {
-        "locations": Array [
-          7113,
-        ],
-        "name": "e062",
       },
     ],
     Array [
@@ -29408,30 +26082,12 @@ Object {
       },
     ],
     Array [
-      "e063",
-      Object {
-        "locations": Array [
-          7154,
-        ],
-        "name": "e063",
-      },
-    ],
-    Array [
       "glyphicon-tint",
       Object {
         "locations": Array [
           7161,
         ],
         "name": "glyphicon-tint",
-      },
-    ],
-    Array [
-      "e064",
-      Object {
-        "locations": Array [
-          7193,
-        ],
-        "name": "e064",
       },
     ],
     Array [
@@ -29444,30 +26100,12 @@ Object {
       },
     ],
     Array [
-      "e065",
-      Object {
-        "locations": Array [
-          7232,
-        ],
-        "name": "e065",
-      },
-    ],
-    Array [
       "glyphicon-share",
       Object {
         "locations": Array [
           7239,
         ],
         "name": "glyphicon-share",
-      },
-    ],
-    Array [
-      "e066",
-      Object {
-        "locations": Array [
-          7272,
-        ],
-        "name": "e066",
       },
     ],
     Array [
@@ -29480,30 +26118,12 @@ Object {
       },
     ],
     Array [
-      "e067",
-      Object {
-        "locations": Array [
-          7312,
-        ],
-        "name": "e067",
-      },
-    ],
-    Array [
       "glyphicon-move",
       Object {
         "locations": Array [
           7319,
         ],
         "name": "glyphicon-move",
-      },
-    ],
-    Array [
-      "e068",
-      Object {
-        "locations": Array [
-          7351,
-        ],
-        "name": "e068",
       },
     ],
     Array [
@@ -29516,30 +26136,12 @@ Object {
       },
     ],
     Array [
-      "e069",
-      Object {
-        "locations": Array [
-          7399,
-        ],
-        "name": "e069",
-      },
-    ],
-    Array [
       "glyphicon-fast-backward",
       Object {
         "locations": Array [
           7406,
         ],
         "name": "glyphicon-fast-backward",
-      },
-    ],
-    Array [
-      "e070",
-      Object {
-        "locations": Array [
-          7447,
-        ],
-        "name": "e070",
       },
     ],
     Array [
@@ -29552,30 +26154,12 @@ Object {
       },
     ],
     Array [
-      "e071",
-      Object {
-        "locations": Array [
-          7490,
-        ],
-        "name": "e071",
-      },
-    ],
-    Array [
       "glyphicon-play",
       Object {
         "locations": Array [
           7497,
         ],
         "name": "glyphicon-play",
-      },
-    ],
-    Array [
-      "e072",
-      Object {
-        "locations": Array [
-          7529,
-        ],
-        "name": "e072",
       },
     ],
     Array [
@@ -29588,30 +26172,12 @@ Object {
       },
     ],
     Array [
-      "e073",
-      Object {
-        "locations": Array [
-          7569,
-        ],
-        "name": "e073",
-      },
-    ],
-    Array [
       "glyphicon-stop",
       Object {
         "locations": Array [
           7576,
         ],
         "name": "glyphicon-stop",
-      },
-    ],
-    Array [
-      "e074",
-      Object {
-        "locations": Array [
-          7608,
-        ],
-        "name": "e074",
       },
     ],
     Array [
@@ -29624,30 +26190,12 @@ Object {
       },
     ],
     Array [
-      "e075",
-      Object {
-        "locations": Array [
-          7650,
-        ],
-        "name": "e075",
-      },
-    ],
-    Array [
       "glyphicon-fast-forward",
       Object {
         "locations": Array [
           7657,
         ],
         "name": "glyphicon-fast-forward",
-      },
-    ],
-    Array [
-      "e076",
-      Object {
-        "locations": Array [
-          7697,
-        ],
-        "name": "e076",
       },
     ],
     Array [
@@ -29660,30 +26208,12 @@ Object {
       },
     ],
     Array [
-      "e077",
-      Object {
-        "locations": Array [
-          7744,
-        ],
-        "name": "e077",
-      },
-    ],
-    Array [
       "glyphicon-eject",
       Object {
         "locations": Array [
           7751,
         ],
         "name": "glyphicon-eject",
-      },
-    ],
-    Array [
-      "e078",
-      Object {
-        "locations": Array [
-          7784,
-        ],
-        "name": "e078",
       },
     ],
     Array [
@@ -29700,15 +26230,6 @@ Object {
       },
     ],
     Array [
-      "e079",
-      Object {
-        "locations": Array [
-          7831,
-        ],
-        "name": "e079",
-      },
-    ],
-    Array [
       "glyphicon-chevron-right",
       Object {
         "locations": Array [
@@ -29722,30 +26243,12 @@ Object {
       },
     ],
     Array [
-      "e080",
-      Object {
-        "locations": Array [
-          7879,
-        ],
-        "name": "e080",
-      },
-    ],
-    Array [
       "glyphicon-plus-sign",
       Object {
         "locations": Array [
           7886,
         ],
         "name": "glyphicon-plus-sign",
-      },
-    ],
-    Array [
-      "e081",
-      Object {
-        "locations": Array [
-          7923,
-        ],
-        "name": "e081",
       },
     ],
     Array [
@@ -29758,30 +26261,12 @@ Object {
       },
     ],
     Array [
-      "e082",
-      Object {
-        "locations": Array [
-          7968,
-        ],
-        "name": "e082",
-      },
-    ],
-    Array [
       "glyphicon-remove-sign",
       Object {
         "locations": Array [
           7975,
         ],
         "name": "glyphicon-remove-sign",
-      },
-    ],
-    Array [
-      "e083",
-      Object {
-        "locations": Array [
-          8014,
-        ],
-        "name": "e083",
       },
     ],
     Array [
@@ -29794,30 +26279,12 @@ Object {
       },
     ],
     Array [
-      "e084",
-      Object {
-        "locations": Array [
-          8056,
-        ],
-        "name": "e084",
-      },
-    ],
-    Array [
       "glyphicon-question-sign",
       Object {
         "locations": Array [
           8063,
         ],
         "name": "glyphicon-question-sign",
-      },
-    ],
-    Array [
-      "e085",
-      Object {
-        "locations": Array [
-          8104,
-        ],
-        "name": "e085",
       },
     ],
     Array [
@@ -29830,30 +26297,12 @@ Object {
       },
     ],
     Array [
-      "e086",
-      Object {
-        "locations": Array [
-          8148,
-        ],
-        "name": "e086",
-      },
-    ],
-    Array [
       "glyphicon-screenshot",
       Object {
         "locations": Array [
           8155,
         ],
         "name": "glyphicon-screenshot",
-      },
-    ],
-    Array [
-      "e087",
-      Object {
-        "locations": Array [
-          8193,
-        ],
-        "name": "e087",
       },
     ],
     Array [
@@ -29866,30 +26315,12 @@ Object {
       },
     ],
     Array [
-      "e088",
-      Object {
-        "locations": Array [
-          8241,
-        ],
-        "name": "e088",
-      },
-    ],
-    Array [
       "glyphicon-ok-circle",
       Object {
         "locations": Array [
           8248,
         ],
         "name": "glyphicon-ok-circle",
-      },
-    ],
-    Array [
-      "e089",
-      Object {
-        "locations": Array [
-          8285,
-        ],
-        "name": "e089",
       },
     ],
     Array [
@@ -29902,30 +26333,12 @@ Object {
       },
     ],
     Array [
-      "e090",
-      Object {
-        "locations": Array [
-          8330,
-        ],
-        "name": "e090",
-      },
-    ],
-    Array [
       "glyphicon-arrow-left",
       Object {
         "locations": Array [
           8337,
         ],
         "name": "glyphicon-arrow-left",
-      },
-    ],
-    Array [
-      "e091",
-      Object {
-        "locations": Array [
-          8375,
-        ],
-        "name": "e091",
       },
     ],
     Array [
@@ -29938,30 +26351,12 @@ Object {
       },
     ],
     Array [
-      "e092",
-      Object {
-        "locations": Array [
-          8421,
-        ],
-        "name": "e092",
-      },
-    ],
-    Array [
       "glyphicon-arrow-up",
       Object {
         "locations": Array [
           8428,
         ],
         "name": "glyphicon-arrow-up",
-      },
-    ],
-    Array [
-      "e093",
-      Object {
-        "locations": Array [
-          8464,
-        ],
-        "name": "e093",
       },
     ],
     Array [
@@ -29974,30 +26369,12 @@ Object {
       },
     ],
     Array [
-      "e094",
-      Object {
-        "locations": Array [
-          8509,
-        ],
-        "name": "e094",
-      },
-    ],
-    Array [
       "glyphicon-share-alt",
       Object {
         "locations": Array [
           8516,
         ],
         "name": "glyphicon-share-alt",
-      },
-    ],
-    Array [
-      "e095",
-      Object {
-        "locations": Array [
-          8553,
-        ],
-        "name": "e095",
       },
     ],
     Array [
@@ -30010,30 +26387,12 @@ Object {
       },
     ],
     Array [
-      "e096",
-      Object {
-        "locations": Array [
-          8599,
-        ],
-        "name": "e096",
-      },
-    ],
-    Array [
       "glyphicon-resize-small",
       Object {
         "locations": Array [
           8606,
         ],
         "name": "glyphicon-resize-small",
-      },
-    ],
-    Array [
-      "e097",
-      Object {
-        "locations": Array [
-          8646,
-        ],
-        "name": "e097",
       },
     ],
     Array [
@@ -30046,30 +26405,12 @@ Object {
       },
     ],
     Array [
-      "e101",
-      Object {
-        "locations": Array [
-          8697,
-        ],
-        "name": "e101",
-      },
-    ],
-    Array [
       "glyphicon-gift",
       Object {
         "locations": Array [
           8704,
         ],
         "name": "glyphicon-gift",
-      },
-    ],
-    Array [
-      "e102",
-      Object {
-        "locations": Array [
-          8736,
-        ],
-        "name": "e102",
       },
     ],
     Array [
@@ -30082,30 +26423,12 @@ Object {
       },
     ],
     Array [
-      "e103",
-      Object {
-        "locations": Array [
-          8775,
-        ],
-        "name": "e103",
-      },
-    ],
-    Array [
       "glyphicon-fire",
       Object {
         "locations": Array [
           8782,
         ],
         "name": "glyphicon-fire",
-      },
-    ],
-    Array [
-      "e104",
-      Object {
-        "locations": Array [
-          8814,
-        ],
-        "name": "e104",
       },
     ],
     Array [
@@ -30118,30 +26441,12 @@ Object {
       },
     ],
     Array [
-      "e105",
-      Object {
-        "locations": Array [
-          8857,
-        ],
-        "name": "e105",
-      },
-    ],
-    Array [
       "glyphicon-eye-close",
       Object {
         "locations": Array [
           8864,
         ],
         "name": "glyphicon-eye-close",
-      },
-    ],
-    Array [
-      "e106",
-      Object {
-        "locations": Array [
-          8901,
-        ],
-        "name": "e106",
       },
     ],
     Array [
@@ -30154,30 +26459,12 @@ Object {
       },
     ],
     Array [
-      "e107",
-      Object {
-        "locations": Array [
-          8948,
-        ],
-        "name": "e107",
-      },
-    ],
-    Array [
       "glyphicon-plane",
       Object {
         "locations": Array [
           8955,
         ],
         "name": "glyphicon-plane",
-      },
-    ],
-    Array [
-      "e108",
-      Object {
-        "locations": Array [
-          8988,
-        ],
-        "name": "e108",
       },
     ],
     Array [
@@ -30190,30 +26477,12 @@ Object {
       },
     ],
     Array [
-      "e109",
-      Object {
-        "locations": Array [
-          9031,
-        ],
-        "name": "e109",
-      },
-    ],
-    Array [
       "glyphicon-random",
       Object {
         "locations": Array [
           9038,
         ],
         "name": "glyphicon-random",
-      },
-    ],
-    Array [
-      "e110",
-      Object {
-        "locations": Array [
-          9072,
-        ],
-        "name": "e110",
       },
     ],
     Array [
@@ -30226,30 +26495,12 @@ Object {
       },
     ],
     Array [
-      "e111",
-      Object {
-        "locations": Array [
-          9114,
-        ],
-        "name": "e111",
-      },
-    ],
-    Array [
       "glyphicon-magnet",
       Object {
         "locations": Array [
           9121,
         ],
         "name": "glyphicon-magnet",
-      },
-    ],
-    Array [
-      "e112",
-      Object {
-        "locations": Array [
-          9155,
-        ],
-        "name": "e112",
       },
     ],
     Array [
@@ -30262,30 +26513,12 @@ Object {
       },
     ],
     Array [
-      "e113",
-      Object {
-        "locations": Array [
-          9200,
-        ],
-        "name": "e113",
-      },
-    ],
-    Array [
       "glyphicon-chevron-down",
       Object {
         "locations": Array [
           9207,
         ],
         "name": "glyphicon-chevron-down",
-      },
-    ],
-    Array [
-      "e114",
-      Object {
-        "locations": Array [
-          9247,
-        ],
-        "name": "e114",
       },
     ],
     Array [
@@ -30298,30 +26531,12 @@ Object {
       },
     ],
     Array [
-      "e115",
-      Object {
-        "locations": Array [
-          9289,
-        ],
-        "name": "e115",
-      },
-    ],
-    Array [
       "glyphicon-shopping-cart",
       Object {
         "locations": Array [
           9296,
         ],
         "name": "glyphicon-shopping-cart",
-      },
-    ],
-    Array [
-      "e116",
-      Object {
-        "locations": Array [
-          9337,
-        ],
-        "name": "e116",
       },
     ],
     Array [
@@ -30334,30 +26549,12 @@ Object {
       },
     ],
     Array [
-      "e117",
-      Object {
-        "locations": Array [
-          9384,
-        ],
-        "name": "e117",
-      },
-    ],
-    Array [
       "glyphicon-folder-open",
       Object {
         "locations": Array [
           9391,
         ],
         "name": "glyphicon-folder-open",
-      },
-    ],
-    Array [
-      "e118",
-      Object {
-        "locations": Array [
-          9430,
-        ],
-        "name": "e118",
       },
     ],
     Array [
@@ -30370,30 +26567,12 @@ Object {
       },
     ],
     Array [
-      "e119",
-      Object {
-        "locations": Array [
-          9480,
-        ],
-        "name": "e119",
-      },
-    ],
-    Array [
       "glyphicon-resize-horizontal",
       Object {
         "locations": Array [
           9487,
         ],
         "name": "glyphicon-resize-horizontal",
-      },
-    ],
-    Array [
-      "e120",
-      Object {
-        "locations": Array [
-          9532,
-        ],
-        "name": "e120",
       },
     ],
     Array [
@@ -30406,30 +26585,12 @@ Object {
       },
     ],
     Array [
-      "e121",
-      Object {
-        "locations": Array [
-          9570,
-        ],
-        "name": "e121",
-      },
-    ],
-    Array [
       "glyphicon-bullhorn",
       Object {
         "locations": Array [
           9577,
         ],
         "name": "glyphicon-bullhorn",
-      },
-    ],
-    Array [
-      "e122",
-      Object {
-        "locations": Array [
-          9613,
-        ],
-        "name": "e122",
       },
     ],
     Array [
@@ -30442,30 +26603,12 @@ Object {
       },
     ],
     Array [
-      "e123",
-      Object {
-        "locations": Array [
-          9652,
-        ],
-        "name": "e123",
-      },
-    ],
-    Array [
       "glyphicon-certificate",
       Object {
         "locations": Array [
           9659,
         ],
         "name": "glyphicon-certificate",
-      },
-    ],
-    Array [
-      "e124",
-      Object {
-        "locations": Array [
-          9698,
-        ],
-        "name": "e124",
       },
     ],
     Array [
@@ -30478,30 +26621,12 @@ Object {
       },
     ],
     Array [
-      "e125",
-      Object {
-        "locations": Array [
-          9742,
-        ],
-        "name": "e125",
-      },
-    ],
-    Array [
       "glyphicon-thumbs-down",
       Object {
         "locations": Array [
           9749,
         ],
         "name": "glyphicon-thumbs-down",
-      },
-    ],
-    Array [
-      "e126",
-      Object {
-        "locations": Array [
-          9788,
-        ],
-        "name": "e126",
       },
     ],
     Array [
@@ -30514,30 +26639,12 @@ Object {
       },
     ],
     Array [
-      "e127",
-      Object {
-        "locations": Array [
-          9833,
-        ],
-        "name": "e127",
-      },
-    ],
-    Array [
       "glyphicon-hand-left",
       Object {
         "locations": Array [
           9840,
         ],
         "name": "glyphicon-hand-left",
-      },
-    ],
-    Array [
-      "e128",
-      Object {
-        "locations": Array [
-          9877,
-        ],
-        "name": "e128",
       },
     ],
     Array [
@@ -30550,30 +26657,12 @@ Object {
       },
     ],
     Array [
-      "e129",
-      Object {
-        "locations": Array [
-          9919,
-        ],
-        "name": "e129",
-      },
-    ],
-    Array [
       "glyphicon-hand-down",
       Object {
         "locations": Array [
           9926,
         ],
         "name": "glyphicon-hand-down",
-      },
-    ],
-    Array [
-      "e130",
-      Object {
-        "locations": Array [
-          9963,
-        ],
-        "name": "e130",
       },
     ],
     Array [
@@ -30586,30 +26675,12 @@ Object {
       },
     ],
     Array [
-      "e131",
-      Object {
-        "locations": Array [
-          10016,
-        ],
-        "name": "e131",
-      },
-    ],
-    Array [
       "glyphicon-circle-arrow-left",
       Object {
         "locations": Array [
           10023,
         ],
         "name": "glyphicon-circle-arrow-left",
-      },
-    ],
-    Array [
-      "e132",
-      Object {
-        "locations": Array [
-          10068,
-        ],
-        "name": "e132",
       },
     ],
     Array [
@@ -30622,30 +26693,12 @@ Object {
       },
     ],
     Array [
-      "e133",
-      Object {
-        "locations": Array [
-          10118,
-        ],
-        "name": "e133",
-      },
-    ],
-    Array [
       "glyphicon-circle-arrow-down",
       Object {
         "locations": Array [
           10125,
         ],
         "name": "glyphicon-circle-arrow-down",
-      },
-    ],
-    Array [
-      "e134",
-      Object {
-        "locations": Array [
-          10170,
-        ],
-        "name": "e134",
       },
     ],
     Array [
@@ -30658,30 +26711,12 @@ Object {
       },
     ],
     Array [
-      "e135",
-      Object {
-        "locations": Array [
-          10210,
-        ],
-        "name": "e135",
-      },
-    ],
-    Array [
       "glyphicon-wrench",
       Object {
         "locations": Array [
           10217,
         ],
         "name": "glyphicon-wrench",
-      },
-    ],
-    Array [
-      "e136",
-      Object {
-        "locations": Array [
-          10251,
-        ],
-        "name": "e136",
       },
     ],
     Array [
@@ -30694,30 +26729,12 @@ Object {
       },
     ],
     Array [
-      "e137",
-      Object {
-        "locations": Array [
-          10291,
-        ],
-        "name": "e137",
-      },
-    ],
-    Array [
       "glyphicon-filter",
       Object {
         "locations": Array [
           10298,
         ],
         "name": "glyphicon-filter",
-      },
-    ],
-    Array [
-      "e138",
-      Object {
-        "locations": Array [
-          10332,
-        ],
-        "name": "e138",
       },
     ],
     Array [
@@ -30730,30 +26747,12 @@ Object {
       },
     ],
     Array [
-      "e139",
-      Object {
-        "locations": Array [
-          10376,
-        ],
-        "name": "e139",
-      },
-    ],
-    Array [
       "glyphicon-fullscreen",
       Object {
         "locations": Array [
           10383,
         ],
         "name": "glyphicon-fullscreen",
-      },
-    ],
-    Array [
-      "e140",
-      Object {
-        "locations": Array [
-          10421,
-        ],
-        "name": "e140",
       },
     ],
     Array [
@@ -30766,30 +26765,12 @@ Object {
       },
     ],
     Array [
-      "e141",
-      Object {
-        "locations": Array [
-          10465,
-        ],
-        "name": "e141",
-      },
-    ],
-    Array [
       "glyphicon-paperclip",
       Object {
         "locations": Array [
           10472,
         ],
         "name": "glyphicon-paperclip",
-      },
-    ],
-    Array [
-      "e142",
-      Object {
-        "locations": Array [
-          10509,
-        ],
-        "name": "e142",
       },
     ],
     Array [
@@ -30802,30 +26783,12 @@ Object {
       },
     ],
     Array [
-      "e143",
-      Object {
-        "locations": Array [
-          10555,
-        ],
-        "name": "e143",
-      },
-    ],
-    Array [
       "glyphicon-link",
       Object {
         "locations": Array [
           10562,
         ],
         "name": "glyphicon-link",
-      },
-    ],
-    Array [
-      "e144",
-      Object {
-        "locations": Array [
-          10594,
-        ],
-        "name": "e144",
       },
     ],
     Array [
@@ -30838,30 +26801,12 @@ Object {
       },
     ],
     Array [
-      "e145",
-      Object {
-        "locations": Array [
-          10634,
-        ],
-        "name": "e145",
-      },
-    ],
-    Array [
       "glyphicon-pushpin",
       Object {
         "locations": Array [
           10641,
         ],
         "name": "glyphicon-pushpin",
-      },
-    ],
-    Array [
-      "e146",
-      Object {
-        "locations": Array [
-          10676,
-        ],
-        "name": "e146",
       },
     ],
     Array [
@@ -30874,30 +26819,12 @@ Object {
       },
     ],
     Array [
-      "e148",
-      Object {
-        "locations": Array [
-          10714,
-        ],
-        "name": "e148",
-      },
-    ],
-    Array [
       "glyphicon-gbp",
       Object {
         "locations": Array [
           10721,
         ],
         "name": "glyphicon-gbp",
-      },
-    ],
-    Array [
-      "e149",
-      Object {
-        "locations": Array [
-          10752,
-        ],
-        "name": "e149",
       },
     ],
     Array [
@@ -30910,30 +26837,12 @@ Object {
       },
     ],
     Array [
-      "e150",
-      Object {
-        "locations": Array [
-          10791,
-        ],
-        "name": "e150",
-      },
-    ],
-    Array [
       "glyphicon-sort-by-alphabet",
       Object {
         "locations": Array [
           10798,
         ],
         "name": "glyphicon-sort-by-alphabet",
-      },
-    ],
-    Array [
-      "e151",
-      Object {
-        "locations": Array [
-          10842,
-        ],
-        "name": "e151",
       },
     ],
     Array [
@@ -30946,30 +26855,12 @@ Object {
       },
     ],
     Array [
-      "e152",
-      Object {
-        "locations": Array [
-          10897,
-        ],
-        "name": "e152",
-      },
-    ],
-    Array [
       "glyphicon-sort-by-order",
       Object {
         "locations": Array [
           10904,
         ],
         "name": "glyphicon-sort-by-order",
-      },
-    ],
-    Array [
-      "e153",
-      Object {
-        "locations": Array [
-          10945,
-        ],
-        "name": "e153",
       },
     ],
     Array [
@@ -30982,30 +26873,12 @@ Object {
       },
     ],
     Array [
-      "e154",
-      Object {
-        "locations": Array [
-          10997,
-        ],
-        "name": "e154",
-      },
-    ],
-    Array [
       "glyphicon-sort-by-attributes",
       Object {
         "locations": Array [
           11004,
         ],
         "name": "glyphicon-sort-by-attributes",
-      },
-    ],
-    Array [
-      "e155",
-      Object {
-        "locations": Array [
-          11050,
-        ],
-        "name": "e155",
       },
     ],
     Array [
@@ -31018,30 +26891,12 @@ Object {
       },
     ],
     Array [
-      "e156",
-      Object {
-        "locations": Array [
-          11107,
-        ],
-        "name": "e156",
-      },
-    ],
-    Array [
       "glyphicon-unchecked",
       Object {
         "locations": Array [
           11114,
         ],
         "name": "glyphicon-unchecked",
-      },
-    ],
-    Array [
-      "e157",
-      Object {
-        "locations": Array [
-          11151,
-        ],
-        "name": "e157",
       },
     ],
     Array [
@@ -31054,30 +26909,12 @@ Object {
       },
     ],
     Array [
-      "e158",
-      Object {
-        "locations": Array [
-          11192,
-        ],
-        "name": "e158",
-      },
-    ],
-    Array [
       "glyphicon-collapse-down",
       Object {
         "locations": Array [
           11199,
         ],
         "name": "glyphicon-collapse-down",
-      },
-    ],
-    Array [
-      "e159",
-      Object {
-        "locations": Array [
-          11240,
-        ],
-        "name": "e159",
       },
     ],
     Array [
@@ -31090,30 +26927,12 @@ Object {
       },
     ],
     Array [
-      "e160",
-      Object {
-        "locations": Array [
-          11286,
-        ],
-        "name": "e160",
-      },
-    ],
-    Array [
       "glyphicon-log-in",
       Object {
         "locations": Array [
           11293,
         ],
         "name": "glyphicon-log-in",
-      },
-    ],
-    Array [
-      "e161",
-      Object {
-        "locations": Array [
-          11327,
-        ],
-        "name": "e161",
       },
     ],
     Array [
@@ -31126,30 +26945,12 @@ Object {
       },
     ],
     Array [
-      "e162",
-      Object {
-        "locations": Array [
-          11367,
-        ],
-        "name": "e162",
-      },
-    ],
-    Array [
       "glyphicon-log-out",
       Object {
         "locations": Array [
           11374,
         ],
         "name": "glyphicon-log-out",
-      },
-    ],
-    Array [
-      "e163",
-      Object {
-        "locations": Array [
-          11409,
-        ],
-        "name": "e163",
       },
     ],
     Array [
@@ -31162,30 +26963,12 @@ Object {
       },
     ],
     Array [
-      "e164",
-      Object {
-        "locations": Array [
-          11454,
-        ],
-        "name": "e164",
-      },
-    ],
-    Array [
       "glyphicon-record",
       Object {
         "locations": Array [
           11461,
         ],
         "name": "glyphicon-record",
-      },
-    ],
-    Array [
-      "e165",
-      Object {
-        "locations": Array [
-          11495,
-        ],
-        "name": "e165",
       },
     ],
     Array [
@@ -31198,30 +26981,12 @@ Object {
       },
     ],
     Array [
-      "e166",
-      Object {
-        "locations": Array [
-          11534,
-        ],
-        "name": "e166",
-      },
-    ],
-    Array [
       "glyphicon-open",
       Object {
         "locations": Array [
           11541,
         ],
         "name": "glyphicon-open",
-      },
-    ],
-    Array [
-      "e167",
-      Object {
-        "locations": Array [
-          11573,
-        ],
-        "name": "e167",
       },
     ],
     Array [
@@ -31234,30 +26999,12 @@ Object {
       },
     ],
     Array [
-      "e168",
-      Object {
-        "locations": Array [
-          11613,
-        ],
-        "name": "e168",
-      },
-    ],
-    Array [
       "glyphicon-import",
       Object {
         "locations": Array [
           11620,
         ],
         "name": "glyphicon-import",
-      },
-    ],
-    Array [
-      "e169",
-      Object {
-        "locations": Array [
-          11654,
-        ],
-        "name": "e169",
       },
     ],
     Array [
@@ -31270,30 +27017,12 @@ Object {
       },
     ],
     Array [
-      "e170",
-      Object {
-        "locations": Array [
-          11695,
-        ],
-        "name": "e170",
-      },
-    ],
-    Array [
       "glyphicon-send",
       Object {
         "locations": Array [
           11702,
         ],
         "name": "glyphicon-send",
-      },
-    ],
-    Array [
-      "e171",
-      Object {
-        "locations": Array [
-          11734,
-        ],
-        "name": "e171",
       },
     ],
     Array [
@@ -31306,30 +27035,12 @@ Object {
       },
     ],
     Array [
-      "e172",
-      Object {
-        "locations": Array [
-          11780,
-        ],
-        "name": "e172",
-      },
-    ],
-    Array [
       "glyphicon-floppy-saved",
       Object {
         "locations": Array [
           11787,
         ],
         "name": "glyphicon-floppy-saved",
-      },
-    ],
-    Array [
-      "e173",
-      Object {
-        "locations": Array [
-          11827,
-        ],
-        "name": "e173",
       },
     ],
     Array [
@@ -31342,30 +27053,12 @@ Object {
       },
     ],
     Array [
-      "e174",
-      Object {
-        "locations": Array [
-          11875,
-        ],
-        "name": "e174",
-      },
-    ],
-    Array [
       "glyphicon-floppy-save",
       Object {
         "locations": Array [
           11882,
         ],
         "name": "glyphicon-floppy-save",
-      },
-    ],
-    Array [
-      "e175",
-      Object {
-        "locations": Array [
-          11921,
-        ],
-        "name": "e175",
       },
     ],
     Array [
@@ -31378,30 +27071,12 @@ Object {
       },
     ],
     Array [
-      "e176",
-      Object {
-        "locations": Array [
-          11967,
-        ],
-        "name": "e176",
-      },
-    ],
-    Array [
       "glyphicon-credit-card",
       Object {
         "locations": Array [
           11974,
         ],
         "name": "glyphicon-credit-card",
-      },
-    ],
-    Array [
-      "e177",
-      Object {
-        "locations": Array [
-          12013,
-        ],
-        "name": "e177",
       },
     ],
     Array [
@@ -31414,30 +27089,12 @@ Object {
       },
     ],
     Array [
-      "e178",
-      Object {
-        "locations": Array [
-          12056,
-        ],
-        "name": "e178",
-      },
-    ],
-    Array [
       "glyphicon-cutlery",
       Object {
         "locations": Array [
           12063,
         ],
         "name": "glyphicon-cutlery",
-      },
-    ],
-    Array [
-      "e179",
-      Object {
-        "locations": Array [
-          12098,
-        ],
-        "name": "e179",
       },
     ],
     Array [
@@ -31450,30 +27107,12 @@ Object {
       },
     ],
     Array [
-      "e180",
-      Object {
-        "locations": Array [
-          12139,
-        ],
-        "name": "e180",
-      },
-    ],
-    Array [
       "glyphicon-compressed",
       Object {
         "locations": Array [
           12146,
         ],
         "name": "glyphicon-compressed",
-      },
-    ],
-    Array [
-      "e181",
-      Object {
-        "locations": Array [
-          12184,
-        ],
-        "name": "e181",
       },
     ],
     Array [
@@ -31486,30 +27125,12 @@ Object {
       },
     ],
     Array [
-      "e182",
-      Object {
-        "locations": Array [
-          12227,
-        ],
-        "name": "e182",
-      },
-    ],
-    Array [
       "glyphicon-phone-alt",
       Object {
         "locations": Array [
           12234,
         ],
         "name": "glyphicon-phone-alt",
-      },
-    ],
-    Array [
-      "e183",
-      Object {
-        "locations": Array [
-          12271,
-        ],
-        "name": "e183",
       },
     ],
     Array [
@@ -31522,30 +27143,12 @@ Object {
       },
     ],
     Array [
-      "e184",
-      Object {
-        "locations": Array [
-          12311,
-        ],
-        "name": "e184",
-      },
-    ],
-    Array [
       "glyphicon-stats",
       Object {
         "locations": Array [
           12318,
         ],
         "name": "glyphicon-stats",
-      },
-    ],
-    Array [
-      "e185",
-      Object {
-        "locations": Array [
-          12351,
-        ],
-        "name": "e185",
       },
     ],
     Array [
@@ -31558,30 +27161,12 @@ Object {
       },
     ],
     Array [
-      "e186",
-      Object {
-        "locations": Array [
-          12394,
-        ],
-        "name": "e186",
-      },
-    ],
-    Array [
       "glyphicon-hd-video",
       Object {
         "locations": Array [
           12401,
         ],
         "name": "glyphicon-hd-video",
-      },
-    ],
-    Array [
-      "e187",
-      Object {
-        "locations": Array [
-          12437,
-        ],
-        "name": "e187",
       },
     ],
     Array [
@@ -31594,30 +27179,12 @@ Object {
       },
     ],
     Array [
-      "e188",
-      Object {
-        "locations": Array [
-          12481,
-        ],
-        "name": "e188",
-      },
-    ],
-    Array [
       "glyphicon-sound-stereo",
       Object {
         "locations": Array [
           12488,
         ],
         "name": "glyphicon-sound-stereo",
-      },
-    ],
-    Array [
-      "e189",
-      Object {
-        "locations": Array [
-          12528,
-        ],
-        "name": "e189",
       },
     ],
     Array [
@@ -31630,30 +27197,12 @@ Object {
       },
     ],
     Array [
-      "e190",
-      Object {
-        "locations": Array [
-          12574,
-        ],
-        "name": "e190",
-      },
-    ],
-    Array [
       "glyphicon-sound-5-1",
       Object {
         "locations": Array [
           12581,
         ],
         "name": "glyphicon-sound-5-1",
-      },
-    ],
-    Array [
-      "e191",
-      Object {
-        "locations": Array [
-          12618,
-        ],
-        "name": "e191",
       },
     ],
     Array [
@@ -31666,30 +27215,12 @@ Object {
       },
     ],
     Array [
-      "e192",
-      Object {
-        "locations": Array [
-          12662,
-        ],
-        "name": "e192",
-      },
-    ],
-    Array [
       "glyphicon-sound-7-1",
       Object {
         "locations": Array [
           12669,
         ],
         "name": "glyphicon-sound-7-1",
-      },
-    ],
-    Array [
-      "e193",
-      Object {
-        "locations": Array [
-          12706,
-        ],
-        "name": "e193",
       },
     ],
     Array [
@@ -31702,30 +27233,12 @@ Object {
       },
     ],
     Array [
-      "e194",
-      Object {
-        "locations": Array [
-          12755,
-        ],
-        "name": "e194",
-      },
-    ],
-    Array [
       "glyphicon-registration-mark",
       Object {
         "locations": Array [
           12762,
         ],
         "name": "glyphicon-registration-mark",
-      },
-    ],
-    Array [
-      "e195",
-      Object {
-        "locations": Array [
-          12807,
-        ],
-        "name": "e195",
       },
     ],
     Array [
@@ -31738,30 +27251,12 @@ Object {
       },
     ],
     Array [
-      "e197",
-      Object {
-        "locations": Array [
-          12856,
-        ],
-        "name": "e197",
-      },
-    ],
-    Array [
       "glyphicon-cloud-upload",
       Object {
         "locations": Array [
           12863,
         ],
         "name": "glyphicon-cloud-upload",
-      },
-    ],
-    Array [
-      "e198",
-      Object {
-        "locations": Array [
-          12903,
-        ],
-        "name": "e198",
       },
     ],
     Array [
@@ -31774,30 +27269,12 @@ Object {
       },
     ],
     Array [
-      "e199",
-      Object {
-        "locations": Array [
-          12950,
-        ],
-        "name": "e199",
-      },
-    ],
-    Array [
       "glyphicon-tree-deciduous",
       Object {
         "locations": Array [
           12957,
         ],
         "name": "glyphicon-tree-deciduous",
-      },
-    ],
-    Array [
-      "e200",
-      Object {
-        "locations": Array [
-          12999,
-        ],
-        "name": "e200",
       },
     ],
     Array [
@@ -31810,30 +27287,12 @@ Object {
       },
     ],
     Array [
-      "e201",
-      Object {
-        "locations": Array [
-          13036,
-        ],
-        "name": "e201",
-      },
-    ],
-    Array [
       "glyphicon-save-file",
       Object {
         "locations": Array [
           13043,
         ],
         "name": "glyphicon-save-file",
-      },
-    ],
-    Array [
-      "e202",
-      Object {
-        "locations": Array [
-          13080,
-        ],
-        "name": "e202",
       },
     ],
     Array [
@@ -31846,30 +27305,12 @@ Object {
       },
     ],
     Array [
-      "e203",
-      Object {
-        "locations": Array [
-          13124,
-        ],
-        "name": "e203",
-      },
-    ],
-    Array [
       "glyphicon-level-up",
       Object {
         "locations": Array [
           13131,
         ],
         "name": "glyphicon-level-up",
-      },
-    ],
-    Array [
-      "e204",
-      Object {
-        "locations": Array [
-          13167,
-        ],
-        "name": "e204",
       },
     ],
     Array [
@@ -31882,30 +27323,12 @@ Object {
       },
     ],
     Array [
-      "e205",
-      Object {
-        "locations": Array [
-          13206,
-        ],
-        "name": "e205",
-      },
-    ],
-    Array [
       "glyphicon-paste",
       Object {
         "locations": Array [
           13213,
         ],
         "name": "glyphicon-paste",
-      },
-    ],
-    Array [
-      "e206",
-      Object {
-        "locations": Array [
-          13246,
-        ],
-        "name": "e206",
       },
     ],
     Array [
@@ -31918,30 +27341,12 @@ Object {
       },
     ],
     Array [
-      "e209",
-      Object {
-        "locations": Array [
-          13286,
-        ],
-        "name": "e209",
-      },
-    ],
-    Array [
       "glyphicon-equalizer",
       Object {
         "locations": Array [
           13293,
         ],
         "name": "glyphicon-equalizer",
-      },
-    ],
-    Array [
-      "e210",
-      Object {
-        "locations": Array [
-          13330,
-        ],
-        "name": "e210",
       },
     ],
     Array [
@@ -31954,30 +27359,12 @@ Object {
       },
     ],
     Array [
-      "e211",
-      Object {
-        "locations": Array [
-          13369,
-        ],
-        "name": "e211",
-      },
-    ],
-    Array [
       "glyphicon-queen",
       Object {
         "locations": Array [
           13376,
         ],
         "name": "glyphicon-queen",
-      },
-    ],
-    Array [
-      "e212",
-      Object {
-        "locations": Array [
-          13409,
-        ],
-        "name": "e212",
       },
     ],
     Array [
@@ -31990,30 +27377,12 @@ Object {
       },
     ],
     Array [
-      "e213",
-      Object {
-        "locations": Array [
-          13448,
-        ],
-        "name": "e213",
-      },
-    ],
-    Array [
       "glyphicon-bishop",
       Object {
         "locations": Array [
           13455,
         ],
         "name": "glyphicon-bishop",
-      },
-    ],
-    Array [
-      "e214",
-      Object {
-        "locations": Array [
-          13489,
-        ],
-        "name": "e214",
       },
     ],
     Array [
@@ -32026,30 +27395,12 @@ Object {
       },
     ],
     Array [
-      "e215",
-      Object {
-        "locations": Array [
-          13530,
-        ],
-        "name": "e215",
-      },
-    ],
-    Array [
       "glyphicon-baby-formula",
       Object {
         "locations": Array [
           13537,
         ],
         "name": "glyphicon-baby-formula",
-      },
-    ],
-    Array [
-      "e216",
-      Object {
-        "locations": Array [
-          13577,
-        ],
-        "name": "e216",
       },
     ],
     Array [
@@ -32071,30 +27422,12 @@ Object {
       },
     ],
     Array [
-      "e218",
-      Object {
-        "locations": Array [
-          13661,
-        ],
-        "name": "e218",
-      },
-    ],
-    Array [
       "glyphicon-bed",
       Object {
         "locations": Array [
           13668,
         ],
         "name": "glyphicon-bed",
-      },
-    ],
-    Array [
-      "e219",
-      Object {
-        "locations": Array [
-          13699,
-        ],
-        "name": "e219",
       },
     ],
     Array [
@@ -32107,30 +27440,12 @@ Object {
       },
     ],
     Array [
-      "f8ff",
-      Object {
-        "locations": Array [
-          13739,
-        ],
-        "name": "f8ff",
-      },
-    ],
-    Array [
       "glyphicon-erase",
       Object {
         "locations": Array [
           13746,
         ],
         "name": "glyphicon-erase",
-      },
-    ],
-    Array [
-      "e221",
-      Object {
-        "locations": Array [
-          13779,
-        ],
-        "name": "e221",
       },
     ],
     Array [
@@ -32152,30 +27467,12 @@ Object {
       },
     ],
     Array [
-      "e223",
-      Object {
-        "locations": Array [
-          13862,
-        ],
-        "name": "e223",
-      },
-    ],
-    Array [
       "glyphicon-duplicate",
       Object {
         "locations": Array [
           13869,
         ],
         "name": "glyphicon-duplicate",
-      },
-    ],
-    Array [
-      "e224",
-      Object {
-        "locations": Array [
-          13906,
-        ],
-        "name": "e224",
       },
     ],
     Array [
@@ -32188,15 +27485,6 @@ Object {
       },
     ],
     Array [
-      "e225",
-      Object {
-        "locations": Array [
-          13951,
-        ],
-        "name": "e225",
-      },
-    ],
-    Array [
       "glyphicon-scissors",
       Object {
         "locations": Array [
@@ -32206,32 +27494,12 @@ Object {
       },
     ],
     Array [
-      "e226",
-      Object {
-        "locations": Array [
-          13994,
-        ],
-        "name": "e226",
-      },
-    ],
-    Array [
       "glyphicon-bitcoin",
       Object {
         "locations": Array [
           14001,
         ],
         "name": "glyphicon-bitcoin",
-      },
-    ],
-    Array [
-      "e227",
-      Object {
-        "locations": Array [
-          14036,
-          14074,
-          14112,
-        ],
-        "name": "e227",
       },
     ],
     Array [
@@ -32298,30 +27566,12 @@ Object {
       },
     ],
     Array [
-      "e230",
-      Object {
-        "locations": Array [
-          14306,
-        ],
-        "name": "e230",
-      },
-    ],
-    Array [
       "glyphicon-ice-lolly",
       Object {
         "locations": Array [
           14313,
         ],
         "name": "glyphicon-ice-lolly",
-      },
-    ],
-    Array [
-      "e231",
-      Object {
-        "locations": Array [
-          14350,
-        ],
-        "name": "e231",
       },
     ],
     Array [
@@ -32334,30 +27584,12 @@ Object {
       },
     ],
     Array [
-      "e232",
-      Object {
-        "locations": Array [
-          14401,
-        ],
-        "name": "e232",
-      },
-    ],
-    Array [
       "glyphicon-education",
       Object {
         "locations": Array [
           14408,
         ],
         "name": "glyphicon-education",
-      },
-    ],
-    Array [
-      "e233",
-      Object {
-        "locations": Array [
-          14445,
-        ],
-        "name": "e233",
       },
     ],
     Array [
@@ -32370,30 +27602,12 @@ Object {
       },
     ],
     Array [
-      "e234",
-      Object {
-        "locations": Array [
-          14497,
-        ],
-        "name": "e234",
-      },
-    ],
-    Array [
       "glyphicon-option-vertical",
       Object {
         "locations": Array [
           14504,
         ],
         "name": "glyphicon-option-vertical",
-      },
-    ],
-    Array [
-      "e235",
-      Object {
-        "locations": Array [
-          14547,
-        ],
-        "name": "e235",
       },
     ],
     Array [
@@ -32406,30 +27620,12 @@ Object {
       },
     ],
     Array [
-      "e236",
-      Object {
-        "locations": Array [
-          14596,
-        ],
-        "name": "e236",
-      },
-    ],
-    Array [
       "glyphicon-modal-window",
       Object {
         "locations": Array [
           14603,
         ],
         "name": "glyphicon-modal-window",
-      },
-    ],
-    Array [
-      "e237",
-      Object {
-        "locations": Array [
-          14643,
-        ],
-        "name": "e237",
       },
     ],
     Array [
@@ -32442,30 +27638,12 @@ Object {
       },
     ],
     Array [
-      "e238",
-      Object {
-        "locations": Array [
-          14681,
-        ],
-        "name": "e238",
-      },
-    ],
-    Array [
       "glyphicon-grain",
       Object {
         "locations": Array [
           14688,
         ],
         "name": "glyphicon-grain",
-      },
-    ],
-    Array [
-      "e239",
-      Object {
-        "locations": Array [
-          14721,
-        ],
-        "name": "e239",
       },
     ],
     Array [
@@ -32478,30 +27656,12 @@ Object {
       },
     ],
     Array [
-      "e240",
-      Object {
-        "locations": Array [
-          14766,
-        ],
-        "name": "e240",
-      },
-    ],
-    Array [
       "glyphicon-text-size",
       Object {
         "locations": Array [
           14773,
         ],
         "name": "glyphicon-text-size",
-      },
-    ],
-    Array [
-      "e241",
-      Object {
-        "locations": Array [
-          14810,
-        ],
-        "name": "e241",
       },
     ],
     Array [
@@ -32514,30 +27674,12 @@ Object {
       },
     ],
     Array [
-      "e242",
-      Object {
-        "locations": Array [
-          14855,
-        ],
-        "name": "e242",
-      },
-    ],
-    Array [
       "glyphicon-text-background",
       Object {
         "locations": Array [
           14862,
         ],
         "name": "glyphicon-text-background",
-      },
-    ],
-    Array [
-      "e243",
-      Object {
-        "locations": Array [
-          14905,
-        ],
-        "name": "e243",
       },
     ],
     Array [
@@ -32550,30 +27692,12 @@ Object {
       },
     ],
     Array [
-      "e244",
-      Object {
-        "locations": Array [
-          14956,
-        ],
-        "name": "e244",
-      },
-    ],
-    Array [
       "glyphicon-object-align-bottom",
       Object {
         "locations": Array [
           14963,
         ],
         "name": "glyphicon-object-align-bottom",
-      },
-    ],
-    Array [
-      "e245",
-      Object {
-        "locations": Array [
-          15010,
-        ],
-        "name": "e245",
       },
     ],
     Array [
@@ -32586,30 +27710,12 @@ Object {
       },
     ],
     Array [
-      "e246",
-      Object {
-        "locations": Array [
-          15068,
-        ],
-        "name": "e246",
-      },
-    ],
-    Array [
       "glyphicon-object-align-left",
       Object {
         "locations": Array [
           15075,
         ],
         "name": "glyphicon-object-align-left",
-      },
-    ],
-    Array [
-      "e247",
-      Object {
-        "locations": Array [
-          15120,
-        ],
-        "name": "e247",
       },
     ],
     Array [
@@ -32622,30 +27728,12 @@ Object {
       },
     ],
     Array [
-      "e248",
-      Object {
-        "locations": Array [
-          15176,
-        ],
-        "name": "e248",
-      },
-    ],
-    Array [
       "glyphicon-object-align-right",
       Object {
         "locations": Array [
           15183,
         ],
         "name": "glyphicon-object-align-right",
-      },
-    ],
-    Array [
-      "e249",
-      Object {
-        "locations": Array [
-          15229,
-        ],
-        "name": "e249",
       },
     ],
     Array [
@@ -32658,30 +27746,12 @@ Object {
       },
     ],
     Array [
-      "e250",
-      Object {
-        "locations": Array [
-          15278,
-        ],
-        "name": "e250",
-      },
-    ],
-    Array [
       "glyphicon-triangle-left",
       Object {
         "locations": Array [
           15285,
         ],
         "name": "glyphicon-triangle-left",
-      },
-    ],
-    Array [
-      "e251",
-      Object {
-        "locations": Array [
-          15326,
-        ],
-        "name": "e251",
       },
     ],
     Array [
@@ -32694,30 +27764,12 @@ Object {
       },
     ],
     Array [
-      "e252",
-      Object {
-        "locations": Array [
-          15376,
-        ],
-        "name": "e252",
-      },
-    ],
-    Array [
       "glyphicon-triangle-top",
       Object {
         "locations": Array [
           15383,
         ],
         "name": "glyphicon-triangle-top",
-      },
-    ],
-    Array [
-      "e253",
-      Object {
-        "locations": Array [
-          15423,
-        ],
-        "name": "e253",
       },
     ],
     Array [
@@ -32730,30 +27782,12 @@ Object {
       },
     ],
     Array [
-      "e254",
-      Object {
-        "locations": Array [
-          15465,
-        ],
-        "name": "e254",
-      },
-    ],
-    Array [
       "glyphicon-superscript",
       Object {
         "locations": Array [
           15472,
         ],
         "name": "glyphicon-superscript",
-      },
-    ],
-    Array [
-      "e255",
-      Object {
-        "locations": Array [
-          15511,
-        ],
-        "name": "e255",
       },
     ],
     Array [
@@ -32766,30 +27800,12 @@ Object {
       },
     ],
     Array [
-      "e256",
-      Object {
-        "locations": Array [
-          15555,
-        ],
-        "name": "e256",
-      },
-    ],
-    Array [
       "glyphicon-menu-left",
       Object {
         "locations": Array [
           15562,
         ],
         "name": "glyphicon-menu-left",
-      },
-    ],
-    Array [
-      "e257",
-      Object {
-        "locations": Array [
-          15599,
-        ],
-        "name": "e257",
       },
     ],
     Array [
@@ -32802,15 +27818,6 @@ Object {
       },
     ],
     Array [
-      "e258",
-      Object {
-        "locations": Array [
-          15644,
-        ],
-        "name": "e258",
-      },
-    ],
-    Array [
       "glyphicon-menu-down",
       Object {
         "locations": Array [
@@ -32820,30 +27827,12 @@ Object {
       },
     ],
     Array [
-      "e259",
-      Object {
-        "locations": Array [
-          15688,
-        ],
-        "name": "e259",
-      },
-    ],
-    Array [
       "glyphicon-menu-up",
       Object {
         "locations": Array [
           15695,
         ],
         "name": "glyphicon-menu-up",
-      },
-    ],
-    Array [
-      "e260",
-      Object {
-        "locations": Array [
-          15730,
-        ],
-        "name": "e260",
       },
     ],
     Array [
@@ -32987,25 +27976,11 @@ Object {
       "Helvetica",
       Object {
         "locations": Array [
-          15993,
           16009,
-          109003,
           109019,
-          110807,
           110823,
         ],
         "name": "Helvetica",
-      },
-    ],
-    Array [
-      "Neue",
-      Object {
-        "locations": Array [
-          16003,
-          109013,
-          110817,
-        ],
-        "name": "Neue",
       },
     ],
     Array [
@@ -35408,24 +30383,6 @@ Object {
           21375,
         ],
         "name": "Consolas",
-      },
-    ],
-    Array [
-      "Courier",
-      Object {
-        "locations": Array [
-          21385,
-        ],
-        "name": "Courier",
-      },
-    ],
-    Array [
-      "New",
-      Object {
-        "locations": Array [
-          21393,
-        ],
-        "name": "New",
       },
     ],
     Array [
@@ -38103,18 +33060,6 @@ Object {
       },
     ],
     Array [
-      "col-",
-      Object {
-        "locations": Array [
-          31605,
-          31677,
-          31701,
-          61903,
-        ],
-        "name": "col-",
-      },
-    ],
-    Array [
       "table-column",
       Object {
         "locations": Array [
@@ -38387,25 +33332,6 @@ Object {
           34676,
         ],
         "name": "-ms-autohiding-scrollbar",
-      },
-    ],
-    Array [
-      "file",
-      Object {
-        "locations": Array [
-          36493,
-          36613,
-        ],
-        "name": "file",
-      },
-    ],
-    Array [
-      "range",
-      Object {
-        "locations": Array [
-          36526,
-        ],
-        "name": "range",
       },
     ],
     Array [
@@ -38751,58 +33677,6 @@ Object {
       },
     ],
     Array [
-      "date",
-      Object {
-        "locations": Array [
-          38121,
-          38277,
-          38416,
-          38568,
-          38707,
-        ],
-        "name": "date",
-      },
-    ],
-    Array [
-      "time",
-      Object {
-        "locations": Array [
-          38153,
-          38305,
-          38451,
-          38596,
-          38742,
-        ],
-        "name": "time",
-      },
-    ],
-    Array [
-      "datetime-local",
-      Object {
-        "locations": Array [
-          38185,
-          38333,
-          38486,
-          38624,
-          38777,
-        ],
-        "name": "datetime-local",
-      },
-    ],
-    Array [
-      "month",
-      Object {
-        "locations": Array [
-          38227,
-          38371,
-          38531,
-          38662,
-          38822,
-        ],
-        "name": "month",
-      },
-    ],
-    Array [
       "input-sm",
       Object {
         "locations": Array [
@@ -38905,6 +33779,64 @@ Object {
           118431,
         ],
         "name": "form-group",
+      },
+    ],
+    Array [
+      "radio",
+      Object {
+        "locations": Array [
+          38880,
+          38964,
+          39077,
+          39265,
+          39272,
+          39928,
+          39994,
+          42025,
+          42124,
+          42784,
+          42883,
+          43537,
+          43628,
+          44974,
+          45089,
+          45159,
+          45338,
+          45499,
+          72549,
+          72664,
+          72734,
+        ],
+        "name": "radio",
+      },
+    ],
+    Array [
+      "checkbox",
+      Object {
+        "locations": Array [
+          38887,
+          38977,
+          39138,
+          39279,
+          39289,
+          39950,
+          40026,
+          42045,
+          42149,
+          42804,
+          42908,
+          43555,
+          43651,
+          44994,
+          45115,
+          45199,
+          45362,
+          45523,
+          72569,
+          72690,
+          72774,
+        ],
+        "name": "checkbox",
       },
     ],
     Array [
@@ -40684,18 +35616,6 @@ Object {
           61690,
         ],
         "name": "data-toggle",
-      },
-    ],
-    Array [
-      "buttons",
-      Object {
-        "locations": Array [
-          61542,
-          61591,
-          61651,
-          61703,
-        ],
-        "name": "buttons",
       },
     ],
     Array [
@@ -48995,6 +43915,162 @@ Object {
           47,
         ],
         "name": "rgb",
+      },
+    ],
+  ],
+  "imports": Array [],
+  "metablocks": Array [],
+}
+`;
+
+exports[`parse should parse strings.css 1`] = `
+Object {
+  "atImports": Array [],
+  "exports": Array [],
+  "identifiers": Array [
+    Array [
+      "body",
+      Object {
+        "locations": Array [
+          0,
+        ],
+        "name": "body",
+      },
+    ],
+    Array [
+      "background",
+      Object {
+        "locations": Array [
+          9,
+          69,
+          127,
+        ],
+        "name": "background",
+      },
+    ],
+    Array [
+      "url",
+      Object {
+        "locations": Array [
+          21,
+          81,
+          139,
+        ],
+        "name": "url",
+      },
+    ],
+    Array [
+      "breadcrumb",
+      Object {
+        "locations": Array [
+          189,
+        ],
+        "name": "breadcrumb",
+      },
+    ],
+    Array [
+      "li",
+      Object {
+        "locations": Array [
+          202,
+          207,
+        ],
+        "name": "li",
+      },
+    ],
+    Array [
+      "before",
+      Object {
+        "locations": Array [
+          210,
+        ],
+        "name": "before",
+      },
+    ],
+    Array [
+      "content",
+      Object {
+        "locations": Array [
+          221,
+          242,
+          262,
+          282,
+          297,
+          313,
+        ],
+        "name": "content",
+      },
+    ],
+    Array [
+      "filter",
+      Object {
+        "locations": Array [
+          339,
+        ],
+        "name": "filter",
+      },
+    ],
+    Array [
+      "progid",
+      Object {
+        "locations": Array [
+          347,
+        ],
+        "name": "progid",
+      },
+    ],
+    Array [
+      "DXImageTransform",
+      Object {
+        "locations": Array [
+          354,
+        ],
+        "name": "DXImageTransform",
+      },
+    ],
+    Array [
+      "Microsoft",
+      Object {
+        "locations": Array [
+          371,
+        ],
+        "name": "Microsoft",
+      },
+    ],
+    Array [
+      "gradient",
+      Object {
+        "locations": Array [
+          381,
+        ],
+        "name": "gradient",
+      },
+    ],
+    Array [
+      "startColorstr",
+      Object {
+        "locations": Array [
+          390,
+        ],
+        "name": "startColorstr",
+      },
+    ],
+    Array [
+      "endColorstr",
+      Object {
+        "locations": Array [
+          417,
+        ],
+        "name": "endColorstr",
+      },
+    ],
+    Array [
+      "GradientType",
+      Object {
+        "locations": Array [
+          442,
+        ],
+        "name": "GradientType",
       },
     ],
   ],

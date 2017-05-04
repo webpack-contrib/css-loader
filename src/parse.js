@@ -63,11 +63,13 @@ const parser = new Parser(Object.assign({
     'exportRuleStart',
     'importRuleStart',
     'atImportStart',
+    'string',
     'identifier',
     'innerLevelStart',
   ],
   innerLevel: [
     'comment',
+    'string',
     'identifier',
     'innerLevelStart',
     'innerLevelEnd',
