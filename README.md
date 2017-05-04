@@ -34,7 +34,7 @@ ICSS allows to describe imports and exports in CSS. The following syntax is allo
 @import url('other-module/style.css');
 ```
 
-Imports other CSS files.
+Imports other CSS files. Imports are hoisted in ICSS.
 
 #### Importing Symbols
 
@@ -55,6 +55,9 @@ The local alias can be used in the complete file and has the value of the export
 
 The imported module could be another ICSS file or any other module.
 
+The imported identifier must be a valid javascript identifier (dashes are not allowed).
+The local alias must be a valid css identifier (dashes are allowed).
+
 #### Exporting Symbols
 
 ``` css
@@ -73,6 +76,9 @@ export const otherExportedName = "5px 5px, red";
 
 Note that spacing is not significant.
 
+The exported identifier must be a valid javascript identifier (dashes are not allowed).
+`default` should not be used a export name.
+
 
 <h2 align="center">Examples</h2>
 
@@ -81,13 +87,13 @@ Note that spacing is not significant.
 It's often needed to thread `url()`s in the CSS file as imports to other assets.
 You want to add all referenced assets into the dependency graph.
 
-This can be achieved by a postcss plugin: postcss-plugin-url.
+This can be achieved by a postcss plugin: postcss-plugin-icss-url.
 
 To enable postcss plugins in your CSS pipeline, chain css-loader with postcss-loader.
 Example configuration with style-loader:
 
 ``` js
-const urlPlugin = require("postcss-plugin-url")
+const urlPlugin = require("postcss-plugin-icss-url")
 
 rules: [
   {
@@ -118,7 +124,7 @@ rules: [
 It's often needed to use a preprocessor for CSS. Example: SASS.
 
 ``` js
-const urlPlugin = require("postcss-plugin-url")
+const urlPlugin = require("postcss-plugin-icss-url")
 
 rules: [
   {
@@ -143,6 +149,67 @@ rules: [
     ]
   }
 ]
+```
+
+### Minimizing CSS
+
+For production builds it's useful to minimize the CSS. This can be done via postcss plugin:
+
+``` js
+const cssnano = require("cssnano")
+
+rules: [
+  {
+    test: /\.css$/,
+    rules: [
+      {
+        issuer: { not: /\.css$/ },
+        use: "style-loader"
+      },
+      {
+        use: [
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            plugins: [
+              cssnano({
+                // options
+              })
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+### Extract
+
+For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on. This can be achieved by using the [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) to extract the CSS when running in production mode.
+
+<h2 align="center">Options</h2>
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
+
+### `sourceMap`
+
+To include source maps set the `sourceMap` option.
+
+I. e. the extract-text-webpack-plugin or the style-loader can handle them.
+
+They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not). In addition to that relative paths are buggy and you need to use an absolute public path which include the server URL.
+
+**webpack.config.js**
+```js
+{
+  loader: 'css-loader',
+  options: {
+    sourceMap: true
+  }
+}
 ```
 
 <h2 align="center">Maintainers</h2>
@@ -193,6 +260,12 @@ rules: [
         src="https://github.com/joscha.png?v=3&s=150">
         </br>
         <a href="https://github.com/joscha">Joscha Feth</a>
+      </td>
+      <td align="center">
+        <img width="150" height="150"
+        src="https://github.com/sokra.png?v=3&s=150">
+        </br>
+        <a href="https://github.com/sokra">Tobias Koppers</a>
       </td>
     </tr>
   <tbody>
