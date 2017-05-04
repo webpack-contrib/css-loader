@@ -124,25 +124,19 @@ rules: [
 It's often needed to use a preprocessor for CSS. Example: SASS.
 
 ``` js
-const urlPlugin = require("postcss-plugin-icss-url")
+const urlPlugin = require("postcss-plugin-icss-url");
 
 rules: [
   {
-    test: /\.css$/,
+    test: /\.sass$/,
     rules: [
       {
-        issuer: { not: /\.css$/ },
+        issuer: { not: /\.sass$/ },
         use: "style-loader"
       },
       {
         use: [
           "css-loader",
-          {
-            loader: "postcss-loader",
-            plugins: [
-              urlPlugin({})
-            ]
-          },
           "sass-loader"
         ]
       }
@@ -156,7 +150,7 @@ rules: [
 For production builds it's useful to minimize the CSS. This can be done via postcss plugin:
 
 ``` js
-const cssnano = require("cssnano")
+const cssnano = require("cssnano");
 
 rules: [
   {
@@ -178,6 +172,43 @@ rules: [
             ]
           }
         ]
+      }
+    ]
+  }
+]
+```
+
+### Combining examples
+
+``` js
+const cssnano = require("cssnano");
+const urlPlugin = require("postcss-plugin-icss-url");
+
+rules: [
+  {
+    test: /\.(sass|css)$/,
+    rules: [
+      {
+        issuer: { not: /\.(sass|css)$/ },
+        use: "style-loader"
+      },
+      {
+        use: [
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            plugins: [
+              urlPlugin({}),
+              cssnano({
+                // options
+              })
+            ]
+          }
+        ]
+      },
+      {
+        test: /\.sass$/,
+        use: "sass-loader"
       }
     ]
   }
