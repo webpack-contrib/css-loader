@@ -29,7 +29,7 @@ and will resolve them.
 Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader)
 and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see [below](https://github.com/michael-ciniawsky/css-loader#assets)).
 
-**file.css**
+**file.js**
 ```js
 import css from 'file.css';
 ```
@@ -473,7 +473,7 @@ module.exports = {
         test: /\.css$/,
         use: env === 'production'
           ? ExtractTextPlugin.extract({
-              fallback: 'style-loader'
+              fallback: 'style-loader',
               use: [ 'css-loader' ]
           })
           : [ 'style-loader', 'css-loader' ]
