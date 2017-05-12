@@ -10,7 +10,7 @@ describe("source maps", function() {
 	testWithMap("falsy: undefined map doesn't cause an error", ".class { a: b c d; }", undefined, [
 		[1, ".class { a: b c d; }", ""]
 	]);
-	testWithMap("should don't generate sourceMap when `sourceMap: false` and map exist",
+	testWithMap("should don't generate sourceMap when `sourceMap: false` and map exists",
 		".class { a: b c d; }",
 		{
 			file: 'test.css',
@@ -28,7 +28,7 @@ describe("source maps", function() {
 			sourceMap: false
 		}
 	);
-	testWithMap("should don't generate sourceMap when `sourceMap: true` and map exist",
+	testWithMap("should don't generate sourceMap when `sourceMap: true` and map exists",
 		".class { a: b c d; }",
 		{
 			file: 'test.css',
@@ -54,6 +54,32 @@ describe("source maps", function() {
 			sourceMap: true
 		}
 	);
+    testWithMap("should don't generate sourceMap when `sourceMap: true` and map exists and string",
+        ".class { a: b c d; }",
+        JSON.stringify({
+            file: 'test.css',
+            mappings: 'AAAA,SAAS,SAAS,EAAE',
+            names: [],
+            sourceRoot: '',
+            sources: [ '/folder/test.css' ],
+            sourcesContent: [ '.class { a: b c d; }' ],
+            version: 3
+        }),
+        [
+            [1, ".class { a: b c d; }", "", {
+                file: 'test.css',
+                mappings: 'AAAA,SAAS,SAAS,EAAE',
+                names: [],
+                sourceRoot: '',
+                sources: [ '/folder/test.css' ],
+                sourcesContent: [ '.class { a: b c d; }' ],
+                version: 3
+            }]
+        ],
+        {
+            sourceMap: true
+        }
+    );
 	testMap("generate sourceMap (1 loader)", ".class { a: b c d; }", undefined, {
 		loaders: [{request: "/path/css-loader"}],
 		resource: "/folder/test.css",
