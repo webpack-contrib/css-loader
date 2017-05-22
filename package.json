@@ -1,48 +1,71 @@
 {
   "name": "css-loader",
   "version": "0.28.2",
-  "author": "Tobias Koppers @sokra",
   "description": "css loader module for webpack",
+  "main": "dist/cjs.js",
   "engines": {
-    "node": ">=0.12.0 || >=4.3.0 <5.0.0 || >=5.10"
+    "node": ">= 4.3 < 5.0.0 || >= 5.10"
   },
   "files": [
-    "index.js",
-    "locals.js",
-    "lib"
+    "dist"
   ],
   "dependencies": {
-    "babel-code-frame": "^6.11.0",
     "css-selector-tokenizer": "^0.7.0",
-    "cssnano": ">=2.6.1 <4",
     "loader-utils": "^1.0.2",
-    "lodash.camelcase": "^4.3.0",
-    "object-assign": "^4.0.1",
-    "postcss": "^5.0.6",
-    "postcss-modules-extract-imports": "^1.0.0",
-    "postcss-modules-local-by-default": "^1.0.1",
-    "postcss-modules-scope": "^1.0.0",
-    "postcss-modules-values": "^1.1.0",
+    "postcss": "^5.2.17",
     "postcss-value-parser": "^3.3.0",
-    "source-list-map": "^0.1.7"
+    "schema-utils": "^0.3.0"
   },
   "devDependencies": {
-    "codecov": "^1.0.1",
-    "eslint": "3.14.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "should": "^11.1.2",
-    "standard-version": "^4.0.0"
+    "babel-cli": "^6.24.1",
+    "babel-jest": "^19.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "codecov": "^2.0.1",
+    "cross-env": "^4.0.0",
+    "del-cli": "^0.2.1",
+    "eslint": "3.19.0",
+    "eslint-config-webpack": "^1.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "file-loader": "^0.11.1",
+    "fs-extra": "^3.0.0",
+    "jest": "^19.0.2",
+    "lint-staged": "^3.4.0",
+    "nodemon": "^1.11.0",
+    "nsp": "^2.6.3",
+    "pre-commit": "^1.2.2",
+    "standard-version": "^4.0.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.4.1",
+    "webpack-defaults": "^0.4.5"
   },
   "scripts": {
-    "test": "mocha",
-    "test:cover": "npm run cover -- --report lcovonly",
-    "lint": "eslint lib test",
-    "travis:test": "npm run cover",
-    "travis:lint": "npm run lint",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "release": "yarn run standard-version"
+    "start": "yarn run build -- -w",
+    "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js'",
+    "clean": "del-cli dist test/builds",
+    "lint": "eslint --cache src test",
+    "lint-staged": "lint-staged",
+    "prebuild": "yarn run clean",
+    "prepublish": "yarn run build",
+    "security": "nsp check",
+    "test": "yarn run build && node test/webpack.build.js && jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "travis:lint": "yarn run lint && yarn run security",
+    "travis:test": "yarn run test",
+    "travis:coverage": "yarn run test:coverage",
+    "release": "yarn run standard-version",
+    "webpack-defaults": "webpack-defaults"
   },
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "author": "Tobias Koppers (@sokra)",
   "repository": {
     "type": "git",
     "url": "git@github.com:webpack/css-loader.git"
