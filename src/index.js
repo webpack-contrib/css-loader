@@ -35,6 +35,7 @@ export default function loader (css, map, meta) {
   );
 
   validateOptions(schema, options, 'CSS Loader');
+
   // Loader Mode (Async)
   const cb = this.async();
   const file = this.resourcePath;
@@ -47,7 +48,6 @@ export default function loader (css, map, meta) {
     map = false;
   }
 
-  // CSS Plugins
   const plugins = [];
 
   // URL Plugin
@@ -55,6 +55,7 @@ export default function loader (css, map, meta) {
     plugins.push(urls());
   }
   
+
   // Import Plugin
   if (options.import) {
     plugins.push(imports());
