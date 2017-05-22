@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "boolean"
+    },
+    "import": {
+      "type": "boolean"
+    },
+    "sourceMap": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

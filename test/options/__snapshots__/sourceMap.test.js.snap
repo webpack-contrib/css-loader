@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Options sourceMap {Boolean} 1`] = `
+Object {
+  "file": "x",
+  "mappings": "AAEA;EACE,qCAAwC;CACzC;;AAED;EACE,YAAY;AACb",
+  "names": Array [],
+  "sources": Array [
+    "../../fixture.css",
+  ],
+  "sourcesContent": Array [
+    "@import './import/import.css';
+
+.url {
+  background-image: url('./urls/file.png')
+}
+
+.fixture {
+  width: 100%;
+}
+",
+  ],
+  "version": 3,
+}
+`;

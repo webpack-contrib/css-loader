@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Options import {Boolean} 1`] = `
+"// CSS Imports
+import CSS__IMPORT__0 from './import.css';
+
+
+// CSS Exports
+// CSS Modules Exports
+
+
+// CSS
+export default \`.fixture {
+  width: 100%;
+}
+\`"
+`;

@@ -1,0 +1,47 @@
+.url1 {
+  background: url("#");
+}
+
+.url2 {
+  background: url("#hash");
+}
+
+.url3 {
+  background: url({./module});
+}
+
+.url4 {
+  background: url('{./module module}');
+}
+
+.url5  {
+  background: url('{./module module}');
+}
+
+.url6 {
+  background: url("{./module module}");
+}
+
+.url7 {
+  background: url({./module}#?iefix);
+}
+
+.url8 {
+  background: url(//example.com/img.png);
+}
+
+.url9 {
+  background: url(http://example.com/img.jpg);
+}
+
+.url10 {
+  background: url(data:image/png;base64,AAA);
+}
+
+.url11 {
+  background: url(./assets/file.png);
+}
+
+.url12 {
+  background: green url(data:image/png;base64,AAA) url(http://example.com/img.jpg) url(//example.com/img.png) url(./assets/file.png);
+}

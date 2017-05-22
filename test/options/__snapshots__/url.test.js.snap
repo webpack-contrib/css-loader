@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Options url {Boolean} 1`] = `
+"// CSS Imports
+
+import CSS__URL__0 from './file.png';
+
+// CSS Exports
+// CSS Modules Exports
+
+
+// CSS
+export default \`.url {
+  background: url(\${CSS__URL__0}) 
+}
+\`"
+`;
