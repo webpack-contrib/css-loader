@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader Defaults 1`] = `
+"// CSS Imports
+import CSS__URL__0 from './urls/file.png';
+import CSS__IMPORT__0 from './import/import.css';
+
+
+// CSS
+export default \`.url {
+  background-image: url(\${CSS__URL__0})
+}
+
+.fixture {
+  width: 100%;
+}
+\`"
+`;

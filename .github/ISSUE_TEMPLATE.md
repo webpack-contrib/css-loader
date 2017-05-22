@@ -1,15 +1,7 @@
-<!-- Before creating an issue please make sure you are using the latest version of css-loader. -->
+<!--
+1. Check the version of package you are using. If it's not the newest version, update and try again (see changelog while updating!).
+2. If the issue is still there, write a minimal project showing the problem and expected output.
+3. Link to the project and mention Node version and OS in your report.
 
-**Do you want to request a *feature* or report a *bug*?**
-<!-- Please ask questions on StackOverflow or the webpack Gitter (https://gitter.im/webpack/webpack). Questions will be closed. -->
-
-**What is the current behavior?**
-
-**If the current behavior is a bug, please provide the steps to reproduce.**
-<!-- A great way to do this is to provide your configuration via a GitHub gist. -->
-
-**What is the expected behavior?**
-
-**If this is a feature request, what is motivation or use case for changing the behavior?**
-
-**Please mention other relevant information such as your webpack version, Node.js version and Operating System.**
+**IMPORTANT! You should use [Stack Overflow](https://stackoverflow.com/) for support related questions.**
+-->
