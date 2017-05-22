@@ -1,3 +1,5 @@
 yarn.lock -diff
 * text=auto
 bin/* eol=lf
+
+package-lock.json -diff

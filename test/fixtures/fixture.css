@@ -1,0 +1,9 @@
+@import './import/import.css';
+
+.url {
+  background-image: url('./urls/file.png')
+}
+
+.fixture {
+  width: 100%;
+}
