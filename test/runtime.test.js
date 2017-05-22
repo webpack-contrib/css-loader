@@ -60,9 +60,9 @@ describe('Runtime', () => {
 
     expect(m.toString()).toEqual(
       'body { b: 2; }' +
-        'body { c: 3; }' +
-        '@media print{body { d: 4; }}' +
-        '@media screen{body { a: 1; }}'
+      'body { c: 3; }' +
+      '@media print{body { d: 4; }}' +
+      '@media screen{body { a: 1; }}'
     );
   });
 

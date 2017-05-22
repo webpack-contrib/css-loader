@@ -103,6 +103,7 @@ To disable `url()` resolving by `css-loader` set the option to `false`
 
 #### `{Function}`
 
+
 **webpack.config.js**
 ```js
 {
