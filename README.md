@@ -98,10 +98,8 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**`url`**|`{Boolean}`|`true`| Enable/Disable `url()` handling|
 |**`alias`**|`{Object}`|`{}`|Create aliases to import certain modules more easily|
 |**`import`** |`{Boolean}`|`true`| Enable/Disable @import handling|
-|**`modules`**|`{Boolean}`|`false`|Enable/Disable CSS Modules|
 |**`minimize`**|`{Boolean\|Object}`|`false`|Enable/Disable minification|
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
-|**`camelCase`**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**`importLoaders`**|`{Number}`|`0`|Number of loaders applied before CSS loader|
 
 ### `root`
@@ -186,157 +184,7 @@ To disable `@import` resolving by `css-loader` set the option to `false`
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 ```
 
-> _⚠️ Use with caution, since this disables resolving for **all** `@import`s, including css modules `composes: xxx from 'path/to/file.css'` feature._
-
-### [`modules`](https://github.com/css-modules/css-modules)
-
-The query parameter `modules` enables the **CSS Modules** spec.
-
-This enables local scoped CSS by default. (You can switch it off with `:global(...)` or `:global` for selectors and/or rules.).
-
-#### `Scope`
-
-By default CSS exports all classnames into a global selector scope. Styles can be locally scoped to avoid globally scoping styles.
-
-The syntax `:local(.className)` can be used to declare `className` in the local scope. The local identifiers are exported by the module.
-
-With `:local` (without brackets) local mode can be switched on for this selector. `:global(.className)` can be used to declare an explicit global selector. With `:global` (without brackets) global mode can be switched on for this selector.
-
-The loader replaces local selectors with unique identifiers. The choosen unique identifiers are exported by the module.
-
-```css
-:local(.className) { background: red; }
-:local .className { color: green; }
-:local(.className .subClass) { color: green; }
-:local .className .subClass :global(.global-class-name) { color: blue; }
-```
-
-```css
-._23_aKvs-b8bW2Vg3fwHozO { background: red; }
-._23_aKvs-b8bW2Vg3fwHozO { color: green; }
-._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 { color: green; }
-._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 .global-class-name { color: blue; }
-```
-
-> :information_source: Identifiers are exported
-
-```js
-exports.locals = {
-  className: '_23_aKvs-b8bW2Vg3fwHozO',
-  subClass: '_13LGdX8RMStbBE9w-t0gZ1'
-}
-```
-
-CamelCase is recommended for local selectors. They are easier to use in the within the imported JS module.
-
-`url()` URLs in block scoped (`:local .abc`) rules behave like requests in modules.
-
-```
-file.png => ./file.png
-~module/file.png => module/file.png
-```
-
-You can use `:local(#someId)`, but this is not recommended. Use classes instead of ids.
-You can configure the generated ident with the `localIdentName` query parameter (default `[hash:base64]`).
-
- **webpack.config.js**
- ```js
-{
-  test: /\.css$/,
-  use: [
-    {
-      loader: 'css-loader',
-      options: {
-        modules: true,
-        localIdentName: '[path][name]__[local]--[hash:base64:5]'
-      }
-    }
-  ]
-}
-```
-
-You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema. This requires `webpack >= 2.2.1` (it supports functions in the `options` object).
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: {
-    modules: true,
-    localIdentName: '[path][name]__[local]--[hash:base64:5]',
-    getLocalIdent: (context, localIdentName, localName, options) => {
-      return 'whatever_random_class_name'
-    }
-  }
-}
-```
-
-> :information_source: For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` **in the prerendering bundle**. It doesn't embed CSS but only exports the identifier mappings.
-
-#### `Composing`
-
-When declaring a local classname you can compose a local class from another local classname.
-
-```css
-:local(.className) {
-  background: red;
-  color: yellow;
-}
-
-:local(.subClass) {
-  composes: className;
-  background: blue;
-}
-```
-
-This doesn't result in any change to the CSS itself but exports multiple classnames.
-
-```js
-exports.locals = {
-  className: '_23_aKvs-b8bW2Vg3fwHozO',
-  subClass: '_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO'
-}
-```
-
-``` css
-._23_aKvs-b8bW2Vg3fwHozO {
-  background: red;
-  color: yellow;
-}
-
-._13LGdX8RMStbBE9w-t0gZ1 {
-  background: blue;
-}
-```
-
-#### `Importing`
-
-To import a local classname from another module.
-
-```css
-:local(.continueButton) {
-  composes: button from 'library/button.css';
-  background: red;
-}
-```
-
-```css
-:local(.nameEdit) {
-  composes: edit highlight from './edit.css';
-  background: red;
-}
-```
-
-To import from multiple modules use multiple `composes:` rules.
-
-```css
-:local(.className) {
-  composes: edit hightlight from './edit.css';
-  composes: button from 'module/button.css';
-  composes: classFromThisModule;
-  background: red;
-}
-```
+> _⚠️ Use with caution, since this disables resolving for **all** `@import`s_
 
 ### `minimize`
 
@@ -370,37 +218,6 @@ They are not enabled by default because they expose a runtime overhead and incre
   loader: 'css-loader',
   options: {
     sourceMap: true
-  }
-}
-```
-
-### `camelCase`
-
-By default, the exported JSON keys mirror the class names. If you want to camelize class names (useful in JS), pass the query parameter `camelCase` to css-loader.
-
-|Name|Type|Description|
-|:--:|:--:|:----------|
-|**`true`**|`{Boolean}`|Class names will be camelized|
-|**`'dashes'`**|`{String}`|Only dashes in class names will be camelized|
-|**`'only'`** |`{String}`|Introduced in `0.27.1`. Class names will be camelized, the original class name will be removed from the locals|
-|**`'dashesOnly'`**|`{String}`|Introduced in `0.27.1`. Dashes in class names will be camelized, the original class name will be removed from the locals|
-
-**file.css**
-```css
-.class-name {}
-```
-
-**file.js**
-```js
-import { className } from 'file.css';
-```
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: {
-    camelCase: true
   }
 }
 ```

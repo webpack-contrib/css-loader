@@ -1,0 +1,14 @@
+.a {
+  background: url("#");
+  background: url("#hash");
+  background: url({./module});
+  background: url('{./module module}');
+  background: url("{./module module}");
+  background: url({./module});
+  background: url({./module}#?iefix);
+  background: url(//example.com/img.png);
+  background: url(http://example.com/img.jpg);
+  background: url(data:image/png;base64,AAA);
+  background: url(./assets/file.png);
+  background: green url(data:image/png;base64,AAA) url(http://example.com/img.jpg) url(//example.com/img.png) url(./assets/file.png)
+}

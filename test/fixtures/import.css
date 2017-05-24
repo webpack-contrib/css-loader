@@ -1,0 +1,7 @@
+@import './index.css';
+@IMPORT './index.css';
+
+@import url('./index.css');
+@IMPORT url('./index.css');
+
+.i { color: green; }
