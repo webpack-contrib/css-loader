@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.28.3"></a>
+## [0.28.3](https://github.com/webpack/css-loader/compare/v0.28.2...v0.28.3) (2017-05-25)
+
+
+### Bug Fixes
+
+* correct plugin order for CSS Modules ([#534](https://github.com/webpack/css-loader/issues/534)) ([b90f492](https://github.com/webpack/css-loader/commit/b90f492))
+
+
+
 <a name="0.28.2"></a>
 ## [0.28.2](https://github.com/webpack/css-loader/compare/v0.28.1...v0.28.2) (2017-05-22)
 
