@@ -217,4 +217,9 @@ describe("local", function() {
 	], {
 		test: "_--test"
 	}, "?localIdentName=--[local]");
+	testLocal("saves underscore prefix in exported class names", ":export { _test: _test }", [
+		[1, "", ""]
+	], {
+		_test: '_test'
+	}, "?localIdentName=[local]");
 });
