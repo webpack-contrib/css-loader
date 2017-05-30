@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.28.4"></a>
+## [0.28.4](https://github.com/webpack/css-loader/compare/v0.28.3...v0.28.4) (2017-05-30)
+
+
+### Bug Fixes
+
+* preserve leading underscore in class names ([#543](https://github.com/webpack/css-loader/issues/543)) ([f6673c8](https://github.com/webpack/css-loader/commit/f6673c8))
+
+
+
 <a name="0.28.3"></a>
 ## [0.28.3](https://github.com/webpack/css-loader/compare/v0.28.2...v0.28.3) (2017-05-25)
 
