@@ -61,6 +61,9 @@ function runLoader(loader, input, map, addOptions, callback) {
 	loader.call(opt, input, map);
 }
 
+exports.getEvaluated = getEvaluated;
+exports.runLoader = runLoader;
+
 exports.test = function test(name, input, result, query, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, undefined, !query || typeof query === "string" ? {
