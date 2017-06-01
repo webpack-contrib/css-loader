@@ -108,7 +108,7 @@ It's useful when you, for instance, need to post process the CSS as a string.
 
 For URLs that start with a `/`, the default behavior is to not translate them.
 
-`url(/image.png) => url(/image.png)`
+`url(/image.png)` => `require('/image.png')`
 
 If a `root` query parameter is set, however, it will be prepended to the URL
 and then translated.
