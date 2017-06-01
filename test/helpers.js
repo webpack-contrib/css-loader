@@ -38,6 +38,7 @@ function assertRaw(output, result) {
 
 function runLoader(loader, input, map, addOptions, callback) {
 	var opt = {
+		addDependency: function(url) {},
 		options: {
 			context: ""
 		},
