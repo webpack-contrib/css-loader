@@ -103,6 +103,7 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**`camelCase`**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**`importLoaders`**|`{Number}`|`0`|Number of loaders applied before CSS loader|
+|**`matchImportLoadersByOrigin`**|`{Boolean}`|`false`|Match import loaders by origin through webpack.config|
 
 ### `root`
 
@@ -428,6 +429,48 @@ The query parameter `importLoaders` allows to configure how many loaders before 
 ```
 
 This may change in the future, when the module system (i. e. webpack) supports loader matching by origin.
+
+### `matchImportLoadersByOrigin`
+
+The query parameter `matchImportLoadersByOrigin` allows to match and use import loaders, defined in webpack.config, for `@import`ed and composed resources.
+
+**webpack.config.js**
+```js
+{
+  test: /\.css$/,
+  use: [
+    'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        matchImportLoadersByOrigin: true // false => use same loaders as for current file (default); true => match import loaders through webpack.config
+      }
+    },
+    'postcss-loader'
+  ]
+}, {
+  test: /\.sass$/,
+  use: [
+    'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        matchImportLoadersByOrigin: true // false => use same loaders as for current file (default); true => match import loaders through webpack.config
+      }
+    },
+    'postcss-loader',
+    'sass-loader'
+  ]
+}
+```
+
+Composing with matchImportLoadersByOrigin set to true. Since imports are resolved through webpack, it is also possible to import from different file types.
+
+```css
+  .class-name {
+    composes: another-class-name from "./some-other-classes.sass"
+  }
+```
 
 <h2 align="center">Examples</h2>
 
