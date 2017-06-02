@@ -103,6 +103,7 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**`camelCase`**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**`importLoaders`**|`{Number}`|`0`|Number of loaders applied before CSS loader|
+|**`externals`**|`{Object}`|`{}`|Import from globally available external object|
 
 ### `root`
 
@@ -428,6 +429,30 @@ The query parameter `importLoaders` allows to configure how many loaders before 
 ```
 
 This may change in the future, when the module system (i. e. webpack) supports loader matching by origin.
+
+### `externals`
+
+Much like Webpack's core [externals](https://webpack.js.org/configuration/externals/) feature:
+
+> The externals configuration option provides a way of excluding dependencies from the output bundles. Instead, the created bundle relies on that dependency to be present in the consumer's environment.
+
+**webpack.config.js**
+```js
+{
+  test: /\.css$/,
+  use: [
+    'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        externals: {
+          'my-package': 'MyPackage'
+        }
+      }
+    }
+  ]
+}
+```
 
 <h2 align="center">Examples</h2>
 
