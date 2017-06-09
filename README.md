@@ -103,6 +103,7 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**`camelCase`**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**`importLoaders`**|`{Number}`|`0`|Number of loaders applied before CSS loader|
+|**`localIdentName`**|`{String}`|`[hash:base64]`|Configure the generated ident|
 
 ### `root`
 
