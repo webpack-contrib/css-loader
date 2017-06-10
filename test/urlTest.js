@@ -1,7 +1,5 @@
 /*globals describe */
-
 var test = require("./helpers").test;
-
 describe("url", function() {
 	test("background img", ".class { background: green url( \"img.png\" ) xyz }", [
 		[1, ".class { background: green url({./img.png}) xyz }", ""]
@@ -103,7 +101,6 @@ describe("url", function() {
 	test("external schema-less url", ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", [
 		[1, ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", ""]
 	]);
-
 	test("background img with url", ".class { background: green url( \"img.png\" ) xyz }", [
 		[1, ".class { background: green url( \"img.png\" ) xyz }", ""]
 	], "?-url");

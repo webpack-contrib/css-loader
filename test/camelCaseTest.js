@@ -1,8 +1,6 @@
 /*globals describe */
-
 var test = require("./helpers").test;
 var testRaw = require("./helpers").testRaw;
-
 describe("camelCase", function() {
 	var css = ".btn-info_is-disabled { color: blue; }";
 	var mixedCss = ".btn-info_is-disabled { color: blue; } .simple { color: red; }";
@@ -35,7 +33,6 @@ describe("camelCase", function() {
 	test("withoutOnly", mixedCss, exports.withoutOnly, "?modules&camelCase=only");
 	// Remove this option in v1.0.0 and make the removal of the original classname the default behaviour. See #440.
 	test("dashesOnly", mixedCss, exports.dashesOnly, "?modules&camelCase=dashesOnly");
-
 	testRaw("withoutRaw", '.a {}', 'exports.locals = {\n\t"a": "_1buUQJccBRS2-2i27LCoDf"\n};', "?modules&camelCase");
 	testRaw("dashesRaw", '.a {}', 'exports.locals = {\n\t"a": "_1buUQJccBRS2-2i27LCoDf"\n};', "?modules&camelCase=dashes");
 });

@@ -1,10 +1,8 @@
 /*globals it */
-
 require("should");
 var cssLoader = require("../index.js");
 var cssLoaderLocals = require("../locals.js");
 var vm = require("vm");
-
 function getEvaluated(output, modules) {
 	try {
 		var fn = vm.runInThisContext("(function(module, exports, require) {" + output + "})", "testcase.js");
@@ -26,16 +24,13 @@ function getEvaluated(output, modules) {
 	delete m.exports.i;
 	return m.exports;
 }
-
 function assetEvaluated(output, result, modules) {
 	var exports = getEvaluated(output, modules);
 	exports.should.be.eql(result);
 }
-
 function assertRaw(output, result) {
 	output.should.containEql(result);
 }
-
 function runLoader(loader, input, map, addOptions, callback) {
 	var opt = {
 		options: {
@@ -60,7 +55,6 @@ function runLoader(loader, input, map, addOptions, callback) {
 	});
 	loader.call(opt, input, map);
 }
-
 exports.test = function test(name, input, result, query, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, undefined, !query || typeof query === "string" ? {
@@ -72,7 +66,6 @@ exports.test = function test(name, input, result, query, modules) {
 		});
 	});
 };
-
 exports.testRaw = function testRaw(name, input, result, query, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, undefined, !query || typeof query === "string" ? {
@@ -84,7 +77,6 @@ exports.testRaw = function testRaw(name, input, result, query, modules) {
 		});
 	});
 }
-
 exports.testError = function test(name, input, onError) {
 	it(name, function(done) {
     runLoader(cssLoader, input, undefined, {}, function(err, output) { // eslint-disable-line no-unused-vars
@@ -101,7 +93,6 @@ exports.testError = function test(name, input, onError) {
 		});
 	});
 };
-
 exports.testWithMap = function test(name, input, map, result, query, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, map, {
@@ -113,7 +104,6 @@ exports.testWithMap = function test(name, input, map, result, query, modules) {
 		});
 	});
 };
-
 exports.testMap = function test(name, input, map, addOptions, result, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, map, addOptions, function(err, output) {
@@ -123,7 +113,6 @@ exports.testMap = function test(name, input, map, addOptions, result, modules) {
 		});
 	});
 };
-
 exports.testLocals = function testLocals(name, input, result, query, modules) {
 	it(name, function(done) {
 		runLoader(cssLoaderLocals, input, undefined, {
@@ -135,7 +124,6 @@ exports.testLocals = function testLocals(name, input, result, query, modules) {
 		});
 	});
 };
-
 exports.testSingleItem = function testSingleItem(name, input, result, query, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, undefined, {
@@ -153,7 +141,6 @@ exports.testSingleItem = function testSingleItem(name, input, result, query, mod
 		});
 	});
 };
-
 exports.testMinimize = function testMinimize(name, input, result, query, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, undefined, {

@@ -1,10 +1,8 @@
 /*globals describe */
-
 var assert = require('assert');
 var test = require("./helpers").test;
 var testError = require("./helpers").testError;
 var testMinimize = require("./helpers").testMinimize;
-
 describe("simple", function() {
 	test("empty", "", [
 		[1, "", ""]

@@ -1,13 +1,10 @@
 /*globals describe */
-
 var testLocals = require("./helpers").testLocals;
 var test = require("./helpers").test;
-
 function testLocal(name, input, result, localsResult, query, modules) {
 	result.locals = localsResult;
 	test(name, input, result, query, modules);
 }
-
 describe("values", function() {
 	testLocals("should export values",
 		"@value def: red; @value ghi: 1px solid black",
