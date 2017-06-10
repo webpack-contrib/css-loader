@@ -1,18 +1,14 @@
 /*globals describe */
-
 var test = require("./helpers").test;
 var testMinimize = require("./helpers").testMinimize;
-
 function testLocal(name, input, result, localsResult, query, modules) {
 	result.locals = localsResult;
 	test(name, input, result, query, modules);
 }
-
 function testLocalMinimize(name, input, result, localsResult, query, modules) {
 	result.locals = localsResult;
 	testMinimize(name, input, result, query, modules);
 }
-
 describe("local", function() {
 	testLocal("locals-format", ":local(.test) { background: red; }", [
 		[1, ".test-2_pBx { background: red; }", ""]
@@ -62,7 +58,6 @@ describe("local", function() {
 		c3: "_c3",
 		c4: "_c4"
 	}, "?localIdentName=_[local]");
-
 	testLocal("composes class simple", ":local(.c1) { a: 1; }\n:local(.c2) { composes: c1; b: 1; }", [
 		[1, "._c1 { a: 1; }\n._c2 { b: 1; }", ""]
 	], {

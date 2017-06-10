@@ -1,7 +1,5 @@
 /*globals describe */
-
 var test = require("./helpers").test;
-
 describe("alias", function() {
 	var css = ".className { background: url(./path/to/file.png); }";
 	var exports = {
@@ -18,11 +16,9 @@ describe("alias", function() {
 			[1, ".className { background: url({./path/to/file.png}); }", ""]
 		]
 	};
-
 	function aliasOptions(alias) {
 		return { query: { alias: alias }}
 	}
-
 	test("without", css, exports.without);
 	test("onlyModule", css, exports.onlyModule, aliasOptions({ "./path/to": "module" }));
 	test("exactMatch", css, exports.exactMatch, aliasOptions({ "./path/to/file.png$": "module/file.png" }));

@@ -1,8 +1,6 @@
 /*globals describe */
-
 var testWithMap = require("./helpers").testWithMap;
 var testMap = require("./helpers").testMap;
-
 describe("source maps", function() {
 	testWithMap("falsy: null map doesn't cause an error", ".class { a: b c d; }", null, [
 		[1, ".class { a: b c d; }", ""]

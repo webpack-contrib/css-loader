@@ -1,7 +1,5 @@
 /*globals describe */
-
 var testLocals = require("./helpers").testLocals;
-
 describe("locals", function() {
 	testLocals("should return only locals",
 		".abc :local(.def) { color: red; } :local .ghi .jkl { color: blue; }",

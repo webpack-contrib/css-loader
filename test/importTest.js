@@ -1,7 +1,5 @@
 /*globals describe */
-
 var test = require("./helpers").test;
-
 describe("import", function() {
 	test("import", "@import url(test.css);\n.class { a: b c d; }", [
 		[2, ".test{a: b}", ""],

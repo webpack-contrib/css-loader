@@ -1,26 +1,20 @@
 /*eslint-env mocha*/
-
 var base = require("../lib/css-base");
-
 describe("css-base", function() {
 	before(function() {
 		global.btoa = function btoa(str) {
 			var buffer = null;
-
 			if (str instanceof Buffer) {
 				buffer = str;
 			} else {
 				buffer = new Buffer(str.toString(), 'binary');
 			}
-
 			return buffer.toString('base64');
 		}
 	})
-
 	after(function () {
 		global.btoa = null;
 	})
-
 	it("should toString a single module", function() {
 		var m = base();
 		m.push([1, "body { a: 1; }", ""]);
