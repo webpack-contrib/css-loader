@@ -419,7 +419,7 @@ The query parameter `importLoaders` allows to configure how many loaders before 
     {
       loader: 'css-loader',
       options: {
-        importLoaders: 1 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+        importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
       }
     },
     'postcss-loader',
