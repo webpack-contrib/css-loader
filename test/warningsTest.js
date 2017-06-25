@@ -13,16 +13,18 @@ describe("warnings", function() {
 
   beforeEach(function() {
     mockedConsole = {
-      warn: function() {}
+      warn: function() {
+        return undefined;
+      }
     }
 
-    warnings.minimizeInProduction._console = mockedConsole;
+    warnings.minimizeInProduction.console = mockedConsole;
 
     warningSpy = should.spy.on(mockedConsole, 'warn');
   });
 
   afterEach(function() {
-    warnings.minimizeInProduction._console = originalConsole;
+    warnings.minimizeInProduction.console = originalConsole;
   });
 
   it("minimize warning is displayed on production when minimized is false", function() {
