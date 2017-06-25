@@ -33,6 +33,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "should": "^11.1.2",
+    "should-spies": "^1.1.0",
     "standard-version": "^4.0.0"
   },
   "scripts": {
