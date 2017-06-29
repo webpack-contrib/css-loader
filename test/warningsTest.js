@@ -7,7 +7,6 @@ var warnings = require("../lib/warnings");
 
 
 describe("warnings", function() {
-  var originalConsole = console;
   var warningSpy;
   var mockedLoader;
 
