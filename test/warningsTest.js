@@ -9,22 +9,20 @@ var warnings = require("../lib/warnings");
 describe("warnings", function() {
   var originalConsole = console;
   var warningSpy;
-  var mockedConsole;
+  var mockedLoader;
 
   beforeEach(function() {
-    mockedConsole = {
-      warn: function() {
+    mockedLoader = {
+      emitWarning: function() {
         return undefined;
       }
     }
 
-    warnings.minimizeInProduction.console = mockedConsole;
-
-    warningSpy = should.spy.on(mockedConsole, 'warn');
+    warningSpy = should.spy.on(mockedLoader, 'emitWarning');
   });
 
   afterEach(function() {
-    warnings.minimizeInProduction.console = originalConsole;
+    warningSpy = null;
   });
 
   it("minimize warning is displayed on production when minimized is false", function() {
@@ -35,7 +33,7 @@ describe("warnings", function() {
       }
     };
 
-    warnings.minimizeInProduction(false, mockedProcess);
+    warnings.minimizeInProduction(false, mockedProcess, mockedLoader);
 
     warningSpy.should.be.called();
   });
@@ -48,7 +46,7 @@ describe("warnings", function() {
       }
     };
 
-    warnings.minimizeInProduction(true, mockedProcess);
+    warnings.minimizeInProduction(true, mockedProcess, mockedLoader);
 
     warningSpy.should.not.be.called();
   });
@@ -61,7 +59,7 @@ describe("warnings", function() {
       }
     };
 
-    warnings.minimizeInProduction({}, mockedProcess);
+    warnings.minimizeInProduction({}, mockedProcess, mockedLoader);
 
     warningSpy.should.not.be.called();
   });
