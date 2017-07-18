@@ -18,7 +18,7 @@
 <h2 align="center">Install</h2>
 
 ```bash
-npm install --save-dev css-loader
+npm install --save-dev css-loader style-loader
 ```
 
 <h2 align="center">Usage</h2>
