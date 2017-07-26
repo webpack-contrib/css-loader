@@ -18,7 +18,10 @@ describe("simple", function() {
 	test("simple2", ".class { a: b c d; }\n.two {}", [
 		[1, ".class { a: b c d; }\n.two {}", ""]
 	]);
-	test("escape characters (uppercase)", ".class { content: \"\\F10C\" }", [
+	test("escaped selector", ".u-m\\+ { a: b c d; }", [
+		[1, ".u-m\\+ { a: b c d; }", ""]
+	]);
+	test("escaped characters (uppercase)", ".class { content: \"\\F10C\" }", [
 		[1, ".class { content: \"\\F10C\" }", ""]
 	]);
 	// Need uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108
