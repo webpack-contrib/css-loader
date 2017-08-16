@@ -66,4 +66,7 @@ describe("import", function() {
 	test("import disabled", "@import url(test.css);\n.class { a: b c d; }", [
 		[1, "@import url(test.css);\n.class { a: b c d; }", ""]
 	], "?-import");
+	test("@import-normalize left untouched", "@import-normalize;", [
+		[1, "@import-normalize;", ""]
+	]);
 });
