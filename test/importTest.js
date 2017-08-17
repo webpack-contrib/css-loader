@@ -1,6 +1,10 @@
 /*globals describe */
 
-var test = require("./helpers").test;
+var assert = require('assert');
+
+var helpers = require("./helpers");
+var test = helpers.test;
+var testError = helpers.testError;
 
 describe("import", function() {
 	test("import", "@import url(test.css);\n.class { a: b c d; }", [
@@ -66,4 +70,16 @@ describe("import", function() {
 	test("import disabled", "@import url(test.css);\n.class { a: b c d; }", [
 		[1, "@import url(test.css);\n.class { a: b c d; }", ""]
 	], "?-import");
-});
+	test("@import-normalize left untouched", "@import-normalize;", [
+		[1, "@import-normalize;", ""]
+	]);
+	testError("@import without url", "@import;", function(err) {
+		assert.equal(err.message, [
+			'Unexpected format  (1:1)',
+			'',
+			'> 1 | @import;',
+			'    | ^',
+			'',
+		].join('\n'))
+	})
+})
