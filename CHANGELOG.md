@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.28.5"></a>
+## [0.28.5](https://github.com/webpack/css-loader/compare/v0.28.4...v0.28.5) (2017-08-17)
+
+
+### Bug Fixes
+
+* match mutliple dashes (`options.camelCase`) ([#556](https://github.com/webpack/css-loader/issues/556)) ([1fee601](https://github.com/webpack/css-loader/commit/1fee601))
+* stricter `[@import](https://github.com/import)` tolerance ([#593](https://github.com/webpack/css-loader/issues/593)) ([2e4ec09](https://github.com/webpack/css-loader/commit/2e4ec09))
+
+
+
 <a name="0.28.4"></a>
 ## [0.28.4](https://github.com/webpack/css-loader/compare/v0.28.3...v0.28.4) (2017-05-30)
 
