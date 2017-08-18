@@ -141,7 +141,7 @@ url(~module/image.png) => require('module/image.png')
 
 Rewrite your urls with alias, this is useful when it's hard to change url paths of your input files, for example, when you're using some css / sass files in another package (bootstrap, ratchet, font-awesome, etc.).
 
-`css-loader`'s `alias` follows the same syntax as webpack's `resolve.alias`, you can see the details at the [resolve docs] (https://webpack.js.org/configuration/resolve/#resolve-alias)
+`css-loader`'s `alias` follows the same syntax as webpack's `resolve.alias`, you can see the details at the [resolve docs](https://webpack.js.org/configuration/resolve/#resolve-alias)
 
 **file.scss**
 ```css
