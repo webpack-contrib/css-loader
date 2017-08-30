@@ -73,13 +73,13 @@ exports.test = function test(name, input, result, query, modules) {
 	});
 };
 
-exports.testRaw = function testRaw(name, input, result, query, modules) {
+exports.testRaw = function testRaw(name, input, result, query) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, undefined, !query || typeof query === "string" ? {
 			query: query
 		} : query, function(err, output) {
 			if(err) return done(err);
-			assertRaw(output, result, modules);
+			assertRaw(output, result);
 			done();
 		});
 	});
