@@ -49,4 +49,11 @@ describe("locals", function() {
 			}
 		}
 	);
+	testLocals("should not fail on processing a url",
+		":local(.abc) { background: url(http://example.com/image.jpg); }",
+		{
+			abc: "_abc"
+		},
+		"?localIdentName=_[local]"
+	);
 });
