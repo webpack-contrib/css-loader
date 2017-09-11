@@ -94,17 +94,16 @@ It's useful when you, for instance, need to post process the CSS as a string.
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
-|**[`root`](https://github.com/webpack-contrib/css-loader#root)**|`{String}`|`/`|Path to resolve URLs, URLs starting with `/` will not be translated|
-|**[`url`](https://github.com/webpack-contrib/css-loader#url)**|`{Boolean}`|`true`| Enable/Disable `url()` handling|
-|**[`alias`](https://github.com/webpack-contrib/css-loader#alias)**|`{Object}`|`{}`|Create aliases to import certain modules more easily|
-|**[`import`](https://github.com/webpack-contrib/css-loader#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
-|**[`modules`](https://github.com/webpack-contrib/css-loader#modules)**|`{Boolean}`|`false`|Enable/Disable CSS Modules|
-|**[`minimize`](https://github.com/webpack-contrib/css-loader#minimize)**|`{Boolean\|Object}`|`false`|Enable/Disable minification|
-|**[`sourceMap`](https://github.com/webpack-contrib/css-loader#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
-|**[`camelCase`](https://github.com/webpack-contrib/css-loader#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
-|**[`importLoaders`](https://github.com/webpack-contrib/css-loader#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
+|**[`root`](#root)**|`{String}`|`/`|Path to resolve URLs, URLs starting with `/` will not be translated|
+|**[`url`](#url)**|`{Boolean}`|`true`| Enable/Disable `url()` handling|
+|**[`alias`](#alias)**|`{Object}`|`{}`|Create aliases to import certain modules more easily|
+|**[`import`](#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
+|**[`modules`](#modules)**|`{Boolean}`|`false`|Enable/Disable CSS Modules|
+|**[`minimize`](#minimize)**|`{Boolean\|Object}`|`false`|Enable/Disable minification|
+|**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
+|**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
+|**[`importLoaders`](#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
 |**`localIdentName`**|`{String}`|`[hash:base64]`|Configure the generated ident|
-
 
 ### `root`
 
