@@ -104,6 +104,7 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**`camelCase`**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**`importLoaders`**|`{Number}`|`0`|Number of loaders applied before CSS loader|
 |**`localIdentName`**|`{String}`|`[hash:base64]`|Configure the generated ident|
+|**`increaseSpecificity`**|`{Object}`|`{}`|Enable/Disable and configure the postcss-increase-specificity plugin|
 
 ### `root`
 
@@ -429,6 +430,31 @@ The query parameter `importLoaders` allows to configure how many loaders before 
 ```
 
 This may change in the future, when the module system (i. e. webpack) supports loader matching by origin.
+
+### `increaseSpecificity`
+
+The query parameter `increaseSpecificity` allows to enable and configure postcss-increase-specificity plugin. See [postcss-increase-specificity's documentation](https://github.com/MadLittleMods/postcss-increase-specificity/blob/master/README.md) for more information on the available options.
+
+**webpack.config.js**
+```js
+{
+  test: /\.s?css$/,
+  use: [
+    'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        increaseSpecificity: {
+          stackableRoot: '.my-root', // string - Selector that is repeated to make up the piece that is added to increase specificity
+          repeat: 1, // number - The number of times we prepend options.stackableRoot in front of your selector
+        },
+      }
+    },
+    'postcss-loader',
+    'sass-loader'
+  ]
+}
+```
 
 <h2 align="center">Examples</h2>
 
