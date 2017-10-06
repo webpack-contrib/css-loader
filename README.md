@@ -356,6 +356,16 @@ You can also disable or enforce minification with the `minimize` query parameter
   }
 }
 ```
+or like
+```js
+{
+   test: /\.css$/,
+   use: [
+     'to-string-loader',
+     'css-loader?minimize'
+   ]
+}
+```
 
 ### `sourceMap`
 
