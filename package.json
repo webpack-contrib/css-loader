@@ -3,67 +3,73 @@
   "version": "1.0.0",
   "author": "Tobias Koppers @sokra",
   "description": "css loader module for webpack",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "runtime"
+  ],
   "scripts": {
     "webpack-defaults": "webpack-defaults",
-    "start": "yarn run build -- -w",
-    "prebuild": "yarn run clean",
+    "start": "npm run build -- -w",
+    "appveyor:test": "npm run test",
     "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js'",
     "clean": "del-cli dist",
     "lint": "eslint --cache src test",
     "lint-staged": "lint-staged",
-    "prepublish": "yarn run build",
-    "release": "yarn run standard-version",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build",
+    "release": "standard-version",
     "security": "nsp check",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --collectCoverageFrom=\"src/**\" --coverage",
-    "travis:lint": "yarn run lint && yarn run security",
-    "travis:test": "yarn run test",
-    "travis:coverage": "yarn run test:coverage"
+    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "travis:lint": "npm run lint && npm run security",
+    "travis:test": "npm run test -- --runInBand",
+    "travis:coverage": "npm run test:coverage -- --runInBand"
   },
-  "engines": {
-    "node": ">= 4.3 < 5.0.0 || >= 5.10"
+  "dependencies": {
+    "fastparse": "^1.1.1",
+    "loader-utils": "^1.1.0",
+    "webpack-sources": "^0.2.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:webpack/css-loader.git"
-  },
-  "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-jest": "^19.0.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-env": "^1.4.0",
-    "cross-env": "^4.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.1",
     "cssnano": "^3.10.0",
-    "del-cli": "^0.2.1",
-    "eslint": "^3.19.0",
-    "eslint-config-webpack": "^1.2.1",
-    "eslint-plugin-import": "^2.2.0",
-    "jest": "^19.0.2",
-    "lint-staged": "^3.4.1",
-    "nsp": "^2.6.3",
+    "del-cli": "^1.1.0",
+    "eslint": "^4.10.0",
+    "eslint-config-webpack": "^1.2.5",
+    "eslint-plugin-import": "^2.8.0",
+    "jest": "^21.2.1",
+    "lint-staged": "^4.3.0",
+    "nsp": "^2.8.1",
     "postcss-loader": "^1.3.3",
     "pre-commit": "^1.2.2",
-    "standard-version": "^4.0.0",
+    "standard-version": "^4.2.0",
     "webpack": "^2.4.1",
-    "webpack-defaults": "^0.4.6"
+    "webpack-defaults": "^1.6.0"
   },
-  "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "engines": {
+    "node": ">= 4.8 < 5.0.0 || >= 5.10"
+  },
+  "peerDependencies": {
+    "webpack": "^2.0.0 || ^3.0.0"
+  },
+  "homepage": "http://github.com/webpack-contrib/css-loader",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/webpack-contrib/css-loader.git"
+  },
   "pre-commit": "lint-staged",
   "lint-staged": {
     "*.js": [
       "eslint --fix",
       "git add"
     ]
-  },
-  "dependencies": {
-    "fastparse": "^1.1.1",
-    "loader-utils": "^1.1.0",
-    "webpack-sources": "^0.2.3"
   }
 }
