@@ -19,7 +19,7 @@ describe("url", function() {
 		[1, ".class { background: green url(\"{./img img.png}\") xyz }", ""]
 	]);
 	test("background 2 img contain space in name", ".class { background: green url( 'img img.png' ) xyz }", [
-		[1, ".class { background: green url('{./img img.png}') xyz }", ""]
+		[1, ".class { background: green url(\"{./img img.png}\") xyz }", ""]
 	]);
 	test("background img absolute", ".class { background: green url(/img.png) xyz }", [
 		[1, ".class { background: green url(/img.png) xyz }", ""]
