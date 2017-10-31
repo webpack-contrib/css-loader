@@ -103,6 +103,25 @@ describe("url", function() {
 	test("external schema-less url", ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", [
 		[1, ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", ""]
 	]);
+	
+	test("module wrapped in spaces", ".class { background: green url(module) xyz }", [
+		[1, ".class { background: green url(module-wrapped) xyz }", ""]
+	], "", { './module': "\"module-wrapped\"" });
+	test("module with space", ".class { background: green url(module) xyz }", [
+		[1, ".class { background: green url(\"module with space\") xyz }", ""]
+	], "", { './module': "module with space" });
+	test("module with quote", ".class { background: green url(module) xyz }", [
+		[1, ".class { background: green url(\"module\\\"with\\\"quote\") xyz }", ""]
+	], "", { './module': "module\"with\"quote" });
+	test("module with quote wrapped", ".class { background: green url(module) xyz }", [
+		[1, ".class { background: green url(\"module\\\"with\\\"quote\\\"wrapped\") xyz }", ""]
+	], "", { './module': "\"module\"with\"quote\"wrapped\"" });
+	test("module with parens", ".class { background: green url(module) xyz }", [
+		[1, ".class { background: green url(\"module(with-parens)\") xyz }", ""]
+	], "", { './module': 'module(with-parens)' });
+	test("module with newline", ".class { background: green url(module) xyz }", [
+		[1, ".class { background: green url(\"module\\nwith\\nnewline\") xyz }", ""]
+	], "", { './module': "module\nwith\nnewline" });
 
 	test("background img with url", ".class { background: green url( \"img.png\" ) xyz }", [
 		[1, ".class { background: green url( \"img.png\" ) xyz }", ""]
