@@ -122,6 +122,9 @@ describe("url", function() {
 	test("module with newline", ".class { background: green url(module) xyz }", [
 		[1, ".class { background: green url(\"module\\nwith\\nnewline\") xyz }", ""]
 	], "", { './module': "module\nwith\nnewline" });
+	test("module from url-loader", ".class { background: green url(module) xyz }", [
+		[1, ".class { background: green url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA) xyz }", ""]
+	], "", { './module': "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA" });
 
 	test("background img with url", ".class { background: green url( \"img.png\" ) xyz }", [
 		[1, ".class { background: green url( \"img.png\" ) xyz }", ""]
