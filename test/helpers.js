@@ -12,8 +12,8 @@ function getEvaluated(output, modules) {
 		fn(m, m.exports, function(module) {
 			if(module.indexOf("css-base") >= 0)
 				return require("../lib/css-base");
-			if(module.indexOf("escape-url") >= 0)
-				return require("../lib/escape-url");
+			if(module.indexOf("url/escape") >= 0)
+				return require("../lib/url/escape");
 			if(module.indexOf("-!/path/css-loader!") === 0)
 				module = module.substr(19);
 			if(modules && modules[module])
