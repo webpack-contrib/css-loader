@@ -189,4 +189,12 @@ describe("url", function() {
 	test("external schema-less url", ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", [
 		[1, ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", ""]
 	], "?-url");
+	test("filter ie AlphaImageLoader ",
+		".highlight { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"http://example.com/image.jpg\", sizingMethod='scale'); }", [
+		[1, ".highlight { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"http://example.com/image.jpg\", sizingMethod='scale'); }", ""]
+	], "?-url");
+	test("filter ie AlphaImageLoader relativePath",
+		".highlight { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"./image.png\", sizingMethod='scale'); }", [
+		[1, ".highlight { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"./image.png\", sizingMethod='scale'); }", ""]
+	], "?-url");
 });
