@@ -3,14 +3,20 @@
   "version": "0.28.7",
   "author": "Tobias Koppers @sokra",
   "description": "css loader module for webpack",
-  "engines": {
-    "node": ">=0.12.0 || >=4.3.0 <5.0.0 || >=5.10"
-  },
   "files": [
     "index.js",
     "locals.js",
     "lib"
   ],
+  "scripts": {
+    "test": "mocha",
+    "test:cover": "npm run cover -- --report lcovonly",
+    "lint": "eslint lib test",
+    "travis:test": "npm run cover",
+    "travis:lint": "npm run lint",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
+    "release": "yarn run standard-version"
+  },
   "dependencies": {
     "babel-code-frame": "^6.11.0",
     "css-selector-tokenizer": "^0.7.0",
@@ -35,14 +41,11 @@
     "should": "^11.1.2",
     "standard-version": "^4.0.0"
   },
-  "scripts": {
-    "test": "mocha",
-    "test:cover": "npm run cover -- --report lcovonly",
-    "lint": "eslint lib test",
-    "travis:test": "npm run cover",
-    "travis:lint": "npm run lint",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "release": "yarn run standard-version"
+  "peerDependencies": {
+    "webpack": "^3.0.0 || ^4.0.0-alpha.0 || ^4.0.0"
+  },
+  "engines": {
+    "node": ">= 6 || >= 8"
   },
   "repository": {
     "type": "git",
