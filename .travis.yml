@@ -8,14 +8,11 @@ jobs:
   fast_finish: true
   allow_failures:
     - env: WEBPACK_VERSION=canary
+    - node_js: 9
   include:
     - &test-latest
       stage: Webpack latest
       node_js: 6
-      env: WEBPACK_VERSION=latest JOB_PART=test
-      script: npm run travis:$JOB_PART
-    - <<: *test-latest
-      node_js: 4.8
       env: WEBPACK_VERSION=latest JOB_PART=test
       script: npm run travis:$JOB_PART
     - <<: *test-latest
@@ -30,6 +27,10 @@ jobs:
     - stage: Webpack canary
       node_js: 8
       env: WEBPACK_VERSION=4.0.0-alpha.0 JOB_PART=test
+      script: npm run travis:$JOB_PART
+    - stage: NodeJS Next
+      node_js: 9
+      env: WEBPACK_VERSION=latest JOB_PART=test
       script: npm run travis:$JOB_PART
 before_install:
   - 'if [[ `npm -v` != 5* ]]; then npm i -g npm@^5.0.0; fi'
