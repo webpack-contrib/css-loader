@@ -46,7 +46,7 @@
     "webpack": "^3.0.0 || ^4.0.0-alpha.0 || ^4.0.0"
   },
   "engines": {
-    "node": ">= 6 || >= 8"
+    "node": ">= 6.9.0 || >= 8.9.0"
   },
   "repository": {
     "type": "git",
