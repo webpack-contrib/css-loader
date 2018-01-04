@@ -16,7 +16,9 @@ describe("module minimize", function() {
         module: true,
         sourceMap: true,
         minimize: {
-          discardComments: false
+          preset: ['default', {
+            discardComments: false
+          }]
         },
         localIdentName: '_[local]_'
       }));
