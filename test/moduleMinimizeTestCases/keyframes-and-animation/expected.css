@@ -1,3 +1,3 @@
-@keyframes _bounce_{0%{transform:translateY(-100%);opacity:0}5%{transform:translateY(-50%);opacity:1}}@keyframes _bounce2_{0%{transform:translateY(-100%);opacity:0}50%{transform:translateY(-50%);opacity:1}}
+@keyframes _bounce_{0%{opacity:0;transform:translateY(-100%)}5%{opacity:1;transform:translateY(-50%)}}@keyframes _bounce2_{0%{opacity:0;transform:translateY(-100%)}50%{opacity:1;transform:translateY(-50%)}}
 
-/* comment */._bounce_{animation-name:_bounce_;animation:_bounce2_ 1s ease;z-index:1442}
+/* comment */._bounce_{animation:_bounce2_ 1s ease;animation-name:_bounce_;z-index:1442}
