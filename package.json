@@ -14,8 +14,8 @@
   "dependencies": {
     "babel-code-frame": "^6.11.0",
     "css-selector-tokenizer": "^0.7.0",
-    "icss-utils": "^2.1.0",
     "cssnano": "^4.0.0-rc.2",
+    "icss-utils": "^3.0.0",
     "loader-utils": "^1.0.2",
     "lodash.camelcase": "^4.3.0",
     "object-assign": "^4.0.1",
@@ -28,11 +28,11 @@
     "source-list-map": "^2.0.0"
   },
   "devDependencies": {
-    "codecov": "^1.0.1",
-    "eslint": "3.14.0",
+    "codecov": "^3.0.0",
+    "eslint": "^4.14.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "should": "^11.1.2",
+    "mocha": "^4.1.0",
+    "should": "^13.2.0",
     "standard-version": "^4.0.0"
   },
   "scripts": {
