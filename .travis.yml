@@ -25,8 +25,8 @@ before_install:
   - nvm --version
   - node --version
 before_script:
-  - 'if [ "$WEBPACK_VERSION" ]; then yarn add webpack@^$WEBPACK_VERSION; fi'
+  - 'if [ "$WEBPACK_VERSION" ]; then npm i webpack@^$WEBPACK_VERSION; fi'
 script:
-  - yarn run travis:$JOB_PART
+  - npm run travis:$JOB_PART
 after_success:
   - bash <(curl -s https://codecov.io/bash)
