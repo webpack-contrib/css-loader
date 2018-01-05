@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.28.8"></a>
+## [0.28.8](https://github.com/webpack-contrib/css-loader/compare/v0.28.7...v0.28.8) (2018-01-05)
+
+
+### Bug Fixes
+
+* **loader:** correctly check if source map is `undefined` ([#641](https://github.com/webpack-contrib/css-loader/issues/641)) ([0dccfa9](https://github.com/webpack-contrib/css-loader/commit/0dccfa9))
+* proper URL escaping and wrapping (`url()`) ([#627](https://github.com/webpack-contrib/css-loader/issues/627)) ([8897d44](https://github.com/webpack-contrib/css-loader/commit/8897d44))
+
+
+
 <a name="0.28.7"></a>
 ## [0.28.7](https://github.com/webpack/css-loader/compare/v0.28.6...v0.28.7) (2017-08-30)
 
