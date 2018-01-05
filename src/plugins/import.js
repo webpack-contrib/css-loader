@@ -1,8 +1,8 @@
 /* eslint-disable */
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-// ICSS {String}
-// import { createICSSRules } from "icss-utils";
+
+const plugin = 'postcss-icss-import';
 
 const getArg = nodes =>
   (nodes.length !== 0 && nodes[0].type === 'string'
@@ -38,19 +38,39 @@ const parseImport = (params) => {
   };
 };
 
-const isExternalUrl = url => /^\w+:\/\//.test(url) || url.startsWith('//');
+const URL = /^\w+:\/\//;
 
-const walkImports = (css, callback) => {
+const filter = (url, options) => {
+  if (URL.test(url)) {
+    return true;
+  } 
+  
+  if (url.startsWith('//')) {
+    return true;
+  }
+
+  if (options.import instanceof RegExp) {
+    return options.import.test(url);
+  }
+
+  if (typeof options.import === 'function') {
+    return options.import(url);
+  }
+
+  return false;
+}
+
+const walkImports = (css, cb) => {
   css.each((node) => {
     if (node.type === 'atrule' && node.name.toLowerCase() === 'import') {
-      callback(node);
+      cb(node);
     }
   });
 };
 
-const plugin = 'postcss-icss-import';
+export default postcss.plugin(plugin, (options) => (css, result) => {
+  let idx = 0;
 
-export default postcss.plugin(plugin, () => (css, result) => {
   walkImports(css, (atrule) => {
     if (atrule.nodes) {
       return result.warn(
@@ -62,7 +82,7 @@ export default postcss.plugin(plugin, () => (css, result) => {
     const parsed = parseImport(atrule.params);
 
     if (parsed === null) {
-      return result.warn(`Unable to find uri in '${atrule.toString()}'`, {
+      return result.warn(`Unable to find URI in '${atrule.toString()}'`, {
         node: atrule,
       });
     }
@@ -70,7 +90,7 @@ export default postcss.plugin(plugin, () => (css, result) => {
     let idx = 0;
     const url = parsed.url;
 
-    if (!isExternalUrl(url)) {
+    if (!filter(url, options)) {
       atrule.remove();
 
       result.messages.push({

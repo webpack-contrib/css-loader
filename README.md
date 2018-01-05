@@ -146,6 +146,32 @@ To disable `@import` resolving by `css-loader` set the option to `false`
 }
 ```
 
+#### `{RegExp}`
+
+**webpack.config.js**
+```js
+{
+  loader: 'css-loader',
+  options: {
+    import: /filter/
+  }
+}
+```
+
+#### `{Function}`
+
+**webpack.config.js**
+```js
+{
+  loader: 'css-loader',
+  options: {
+    import (url) {
+      return /filter/.test(url)
+    }
+  }
+}
+```
+
 ### `minimize`
 
 #### `{Boolean}`

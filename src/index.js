@@ -53,7 +53,7 @@ export default function loader(css, map, meta) {
 
   // Import Plugin
   if (options.import) {
-    plugins.push(imports());
+    plugins.push(imports(options));
   }
 
   // Minifier

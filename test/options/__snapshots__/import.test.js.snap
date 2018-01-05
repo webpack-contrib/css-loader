@@ -11,3 +11,31 @@ export default \`.fixture {
 }
 \`"
 `;
+
+exports[`Options import {Function} 1`] = `
+"// CSS Imports
+import CSS__IMPORT__0 from './import.css';
+
+
+// CSS
+export default \`@import './filter/import.css';
+
+.css {
+  width: 100%;
+}
+\`"
+`;
+
+exports[`Options import {RegExp} 1`] = `
+"// CSS Imports
+import CSS__IMPORT__0 from './import.css';
+
+
+// CSS
+export default \`@import './filter/import.css';
+
+.css {
+  width: 100%;
+}
+\`"
+`;
