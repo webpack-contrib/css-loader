@@ -11,3 +11,29 @@ export default \`.url {
 }
 \`"
 `;
+
+exports[`Options url {Function} 1`] = `
+"// CSS Imports
+import CSS__URL__0 from './file.png';
+
+
+// CSS
+export default \`.url {
+  background: url(\${CSS__URL__0});
+  background: url('./filter/file.png');
+}
+\`"
+`;
+
+exports[`Options url {RegExp} 1`] = `
+"// CSS Imports
+import CSS__URL__0 from './file.png';
+
+
+// CSS
+export default \`.url {
+  background: url(\${CSS__URL__0});
+  background: url('./filter/file.png');
+}
+\`"
+`;

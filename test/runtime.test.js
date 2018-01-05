@@ -58,25 +58,32 @@ describe('Runtime', () => {
 
     m.push(m1);
 
-    expect(m.toString()).toEqual('body { b: 2; }' +
-      'body { c: 3; }' +
-      '@media print{body { d: 4; }}' +
-      '@media screen{body { a: 1; }}');
+    expect(m.toString()).toEqual(
+      'body { b: 2; }' +
+        'body { c: 3; }' +
+        '@media print{body { d: 4; }}' +
+        '@media screen{body { a: 1; }}'
+    );
   });
 
   test('should toString with source mapping', () => {
     const m = runtime(true);
 
-    m.push([1, 'body { a: 1; }', '', {
-      file: 'test.scss',
-      sources: [
-        './path/to/test.scss',
-      ],
-      mappings: 'AAAA;',
-      sourceRoot: 'webpack://',
-    }]);
+    m.push([
+      1,
+      'body { a: 1; }',
+      '',
+      {
+        file: 'test.scss',
+        sources: ['./path/to/test.scss'],
+        mappings: 'AAAA;',
+        sourceRoot: 'webpack://',
+      },
+    ]);
 
-    expect(m.toString()).toEqual('body { a: 1; }\n/*# sourceURL=webpack://./path/to/test.scss */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsiLCJzb3VyY2VSb290Ijoid2VicGFjazovLyJ9 */');
+    expect(m.toString()).toEqual(
+      'body { a: 1; }\n/*# sourceURL=webpack://./path/to/test.scss */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsiLCJzb3VyY2VSb290Ijoid2VicGFjazovLyJ9 */'
+    );
   });
 
   test('should toString without source mapping if btoa not avalibale', () => {
@@ -84,14 +91,17 @@ describe('Runtime', () => {
 
     const m = runtime(true);
 
-    m.push([1, 'body { a: 1; }', '', {
-      file: 'test.scss',
-      sources: [
-        './path/to/test.scss',
-      ],
-      mappings: 'AAAA;',
-      sourceRoot: 'webpack://',
-    }]);
+    m.push([
+      1,
+      'body { a: 1; }',
+      '',
+      {
+        file: 'test.scss',
+        sources: ['./path/to/test.scss'],
+        mappings: 'AAAA;',
+        sourceRoot: 'webpack://',
+      },
+    ]);
 
     expect(m.toString()).toEqual('body { a: 1; }');
   });

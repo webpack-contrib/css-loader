@@ -2,7 +2,12 @@
   "type": "object",
   "properties": {
     "url": {
-      "type": "boolean"
+      "anyOf": [
+        { "type": "string" },
+        { "type": "boolean" },
+        { "instanceof": "RegExp" },
+        { "instanceof": "Function" }
+      ]
     },
     "import": {
       "type": "boolean"
