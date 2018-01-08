@@ -1,7 +1,7 @@
 /* eslint-disable
-  prefer-destructuring,
   no-param-reassign,
   no-underscore-dangle,
+  prefer-destructuring,
 */
 import path from 'path';
 import webpack from '../helpers/compiler';

@@ -13,7 +13,6 @@ import postcss from 'postcss';
 // replace with postcss-icss-{url, import}
 import urls from './plugins/url';
 import imports from './plugins/import';
-import minifier from 'cssnano';
 
 // import runtime from './runtime';
 import SyntaxError from './Error';
@@ -22,19 +21,18 @@ import SyntaxError from './Error';
 const DEFAULTS = {
   url: true,
   import: true,
-  minimize: false,
   sourceMap: false,
 };
 
 export default function loader(css, map, meta) {
+  // Loader Mode (Async)
+  const cb = this.async();
+  const file = this.resourcePath;
+
   // Loader Options
   const options = Object.assign({}, DEFAULTS, getOptions(this));
 
   validateOptions(schema, options, 'CSS Loader');
-
-  // Loader Mode (Async)
-  const cb = this.async();
-  const file = this.resourcePath;
 
   if (options.sourceMap) {
     if (map && typeof map !== 'string') {
@@ -53,12 +51,7 @@ export default function loader(css, map, meta) {
 
   // Import Plugin
   if (options.import) {
-    plugins.push(imports());
-  }
-
-  // Minifier
-  if (options.minimize) {
-    plugins.push(minifier());
+    plugins.push(imports(options));
   }
 
   if (meta) {
@@ -91,7 +84,7 @@ export default function loader(css, map, meta) {
       }
 
       // CSS Imports
-      const imports = messages
+      let imports = messages
         .filter((msg) => (msg.type === 'import' ? msg : false))
         .reduce((imports, msg) => {
           try {
@@ -108,7 +101,7 @@ export default function loader(css, map, meta) {
         }, '');
 
       // CSS Exports
-      const exports = messages
+      let exports = messages
         .filter((msg) => (msg.type === 'export' ? msg : false))
         .reduce((exports, msg) => {
           try {
@@ -124,15 +117,13 @@ export default function loader(css, map, meta) {
           return exports;
         }, '');
 
+      imports = imports ? `// CSS Imports\n${imports}\n` : false;
+      exports = exports ? `// CSS Exports\n${exports}\n` : false;
+      css = `// CSS\nexport default \`${css}\``;
+
       // TODO(michael-ciniawsky)
       // triage if and add CSS runtime back
-      const result = [
-        imports ? `// CSS Imports\n${imports}\n` : false,
-        exports ? `// CSS Exports\n${exports}\n` : false,
-        `// CSS\nexport default \`${css}\``,
-      ]
-        .filter(Boolean)
-        .join('\n');
+      const result = [imports, exports, css].filter(Boolean).join('\n');
 
       cb(null, result, map ? map.toJSON() : null);
 

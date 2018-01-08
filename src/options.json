@@ -10,7 +10,12 @@
       ]
     },
     "import": {
-      "type": "boolean"
+      "anyOf": [
+        { "type": "string" },
+        { "type": "boolean" },
+        { "instanceof": "RegExp" },
+        { "instanceof": "Function" }
+      ]
     },
     "minimize": {
       "type": "boolean"

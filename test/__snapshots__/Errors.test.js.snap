@@ -13,7 +13,7 @@ exports[`Errors Loader Error 1`] = `
 `;
 
 exports[`Errors Validation Error 1`] = `
-"CSS Loader Invalid Options
+"Module build failed: ValidationError: CSS Loader Invalid Options
 
 options.sourceMap should be boolean
 "

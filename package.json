@@ -32,7 +32,6 @@
     "defaults": "webpack-defaults"
   },
   "dependencies": {
-    "cssnano": "^4.0.0-rc.2",
     "loader-utils": "^1.1.0",
     "postcss": "^6.0.15",
     "postcss-value-parser": "^3.3.0",
