@@ -1,10 +1,8 @@
 /* eslint-disable */
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-// ICSS {String}
-// import { createICSSRules } from "icss-utils";
 
-const walkUrls = (parsed, callback) => {
+const walkUrls = (parsed, cb) => {
   parsed.walk((node) => {
     if (node.type === 'function' && node.value === 'url') {
       const content = node.nodes.length !== 0 && node.nodes[0].type === 'string'
@@ -12,7 +10,7 @@ const walkUrls = (parsed, callback) => {
         : valueParser.stringify(node.nodes);
 
       if (content.trim().length !== 0) {
-        callback(node, content);
+        cb(node, content);
       }
 
       // do not traverse inside url
@@ -22,30 +20,32 @@ const walkUrls = (parsed, callback) => {
 };
 
 const mapUrls = (parsed, map) => {
-  walkUrls(parsed, (node, content) => {
-    node.nodes = [{ type: 'word', value: map(content) }];
+  walkUrls(parsed, (node, url) => {
+    node.nodes = [{ type: 'word', value: map(url) }];
   });
 };
 
-const filterUrls = (parsed, filter) => {
+const filterUrls = (parsed, filter, options) => {
   const result = [];
 
-  walkUrls(parsed, (node, content) => {
-    if (filter(content)) {
-      result.push(content);
+  walkUrls(parsed, (node, url) => {
+    if (filter(url, options)) {
+      return false
     }
+    
+    return result.push(url);
   });
 
   return result;
 };
 
-const walkDeclsWithUrl = (css, filter) => {
+const walkDeclsWithUrl = (css, filter, options) => {
   const result = [];
 
   css.walkDecls((decl) => {
     if (decl.value.includes('url(')) {
       const parsed = valueParser(decl.value);
-      const values = filterUrls(parsed, filter);
+      const values = filterUrls(parsed, filter, options);
 
       if (values.length) {
         result.push({
@@ -60,10 +60,39 @@ const walkDeclsWithUrl = (css, filter) => {
   return result;
 };
 
-const filterValues = value => !/^\w+:\/\//.test(value) &&
-    !value.startsWith('//') &&
-    !value.startsWith('#') &&
-    !value.startsWith('data:');
+const URL = /^\w+:\/\//;
+
+const filter = (url, options) => {
+  if (URL.test(url)) {
+    return true;
+  }
+
+  if (url.startsWith('//')) {
+    return true;
+  }
+
+  if (url.startsWith('//')) {
+    return true;
+  }
+
+  if (url.startsWith('#')) {
+    return true;
+  }
+  
+  if (url.startsWith('data:')) {
+    return true;
+  }
+
+  if (options.url instanceof RegExp) {
+    return options.url.test(url);
+  }
+
+  if (typeof options.url === 'function') {
+    return options.url(url);
+  }
+
+  return false;
+}
 
 const flatten = arr => arr.reduce((acc, d) => [...acc, ...d], []);
 
@@ -72,24 +101,23 @@ const uniq = arr => arr.reduce(
   [],
 );
 
-module.exports = postcss.plugin('postcss-icss-url', () => (css, result) => {
-  const traversed = walkDeclsWithUrl(css, filterValues);
+module.exports = postcss.plugin('postcss-icss-url', (options) => (css, result) => {
+  const traversed = walkDeclsWithUrl(css, filter, options);
   const paths = uniq(flatten(traversed.map(item => item.values)));
 
-  // ICSS imports {String}
   const aliases = {};
 
   paths.forEach((url, idx) => {
-    // ICSS Placeholder
+    // CSS Content Placeholder
     const alias = '${' + `CSS__URL__${idx}` + '}';
-
+    
     aliases[url] = alias;
 
     result.messages.push({
       type: 'import',
       plugin: 'postcss-icss-url',
       import: `import CSS__URL__${idx} from '${url}';\n`
-    })
+    });
   });
 
   traversed.forEach((item) => {
@@ -98,3 +126,4 @@ module.exports = postcss.plugin('postcss-icss-url', () => (css, result) => {
     item.decl.value = item.parsed.toString();
   });
 });
+

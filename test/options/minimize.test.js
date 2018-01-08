@@ -10,7 +10,7 @@ describe('Options', () => {
         loader: {
           test: /\.css$/,
           options: {
-            minimize: true
+            minimize: true,
           },
         },
       };

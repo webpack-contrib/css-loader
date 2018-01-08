@@ -1,5 +1,6 @@
 /* eslint-disable
   prefer-destructuring,
+  no-param-reassign,
   no-underscore-dangle,
 */
 import path from 'path';
@@ -21,14 +22,13 @@ describe('Options', () => {
       const { map } = stats.compilation.modules[1]._source.sourceAndMap();
 
       // Strip host specific paths for CI
-      map.sources = map.sources
-        .map((src) => {
-          src = src.split('!');
+      map.sources = map.sources.map((src) => {
+        src = src.split('!');
 
-          src[1] = path.relative(__dirname, src[1]);
+        src[1] = path.relative(__dirname, src[1]);
 
-          return src.join('!');
-        });
+        return src.join('!');
+      });
 
       expect(map).toMatchSnapshot();
     });

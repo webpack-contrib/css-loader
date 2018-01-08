@@ -74,6 +74,7 @@ export default `
   }
 `
 ```
+
 #### `{Boolean}`
 
 To disable `url()` resolving by `css-loader` set the option to `false`
@@ -84,6 +85,32 @@ To disable `url()` resolving by `css-loader` set the option to `false`
   loader: 'css-loader',
   options: {
     url: false
+  }
+}
+```
+
+#### `{RegExp}`
+
+**webpack.config.js**
+```js
+{
+  loader: 'css-loader',
+  options: {
+    url: /filter/
+  }
+}
+```
+
+#### `{Function}`
+
+**webpack.config.js**
+```js
+{
+  loader: 'css-loader',
+  options: {
+    url (url) {
+      return /filter/.test(url)
+    }
   }
 }
 ```

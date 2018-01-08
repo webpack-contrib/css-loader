@@ -1,0 +1,4 @@
+.url {
+  background: url('./file.png');
+  background: url('./filter/file.png');
+}
