@@ -125,6 +125,12 @@ describe("url", function() {
 	test("module from url-loader", ".class { background: green url(module) xyz }", [
 		[1, ".class { background: green url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA) xyz }", ""]
 	], "", { './module': "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA" });
+	test("module from null-loader (empty object from webpack)", ".class { background: green url(module) xyz }", [
+		[1, ".class { background: green url([object Object]) xyz }", ""]
+	], "", { './module': {} });
+	test("module is null", ".class { background: green url(module) xyz }", [
+		[1, ".class { background: green url(null) xyz }", ""]
+	], "", { './module': null });
 
 	test("background img with url", ".class { background: green url( \"img.png\" ) xyz }", [
 		[1, ".class { background: green url( \"img.png\" ) xyz }", ""]
