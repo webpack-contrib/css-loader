@@ -4,6 +4,8 @@ import/order,
 no-shadow,
 no-param-reassign
 */
+import path from 'path'
+
 import schema from './options.json';
 import { getOptions } from 'loader-utils';
 import validateOptions from 'schema-utils';
@@ -28,11 +30,6 @@ export default function loader(css, map, meta) {
   // Loader Mode (Async)
   const cb = this.async();
   const file = this.resourcePath;
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> feat(plugins/import): add `@import` filter support (`options.import`) (#656)
   // Loader Options
   const options = Object.assign({}, DEFAULTS, getOptions(this));
 
@@ -70,19 +67,20 @@ export default function loader(css, map, meta) {
   map = options.sourceMap
     ? {
         prev: map || false,
-        inline: false,
-        annotation: false,
+        inline: this._module.extracted ? false : true,
+        annotation: this._module.extracted ? false : true,
         sourcesContent: true,
       }
     : false;
 
   return postcss(plugins)
     .process(css, {
-      from: `/css-loader!${file}`,
+      // `/css-loader!${file}`
+      from: file,
       map,
-      to: file,
+      to: this.rootContext
     })
-    .then(({ root, css, map, messages }) => {
+    .then(({ css, map, messages }) => {
       if (meta && meta.messages) {
         messages = messages.concat(meta.messages);
       }
@@ -120,31 +118,27 @@ export default function loader(css, map, meta) {
 
           return exports;
         }, '');
-      
-      imports = imports ? `// CSS Imports\n${imports}\n` : false
-      exports = exports ? `// CSS Exports\n${exports}\n` : false
-      css = `// CSS\nexport default \`${css}\``
 
       imports = imports ? `// CSS Imports\n${imports}\n` : false;
       exports = exports ? `// CSS Exports\n${exports}\n` : false;
       css = `// CSS\nexport default \`${css}\``;
 
+      // Mark module as CSS Module
+      this._module.css = true
+
       // TODO(michael-ciniawsky)
       // triage if and add CSS runtime back
-<<<<<<< HEAD
-      const result = [imports, exports, css].filter(Boolean).join('\n');
-
-=======
       const result = [
-        imports,
+        !this._module.extracted ? imports : false,
         exports,
-        css
-      ]
-        .filter(Boolean)
-        .join('\n');
-      
->>>>>>> feat(plugins/import): add `@import` filter support (`options.import`) (#656)
-      cb(null, result, map ? map.toJSON() : null);
+        !this._module.extracted ? css : false
+      ].filter(Boolean).join('\n');
+
+      cb(
+        null,
+        result.length >= 1 ? result : '/* CSS Extracted */',
+        map ? map.toJSON() : null
+      );
 
       return null;
     })
