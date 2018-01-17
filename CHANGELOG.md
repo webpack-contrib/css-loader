@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.28.9"></a>
+## [0.28.9](https://github.com/webpack-contrib/css-loader/compare/v0.28.8...v0.28.9) (2018-01-17)
+
+
+### Bug Fixes
+
+* ignore invalid URLs (`url()`) ([#663](https://github.com/webpack-contrib/css-loader/issues/663)) ([d1d8221](https://github.com/webpack-contrib/css-loader/commit/d1d8221))
+
+
+
 <a name="0.28.8"></a>
 ## [0.28.8](https://github.com/webpack-contrib/css-loader/compare/v0.28.7...v0.28.8) (2018-01-05)
 
