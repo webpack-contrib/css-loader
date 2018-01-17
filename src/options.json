@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "boolean" },
+        { "instanceof": "RegExp" },
+        { "instanceof": "Function" }
+      ]
+    },
+    "import": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "boolean" },
+        { "instanceof": "RegExp" },
+        { "instanceof": "Function" }
+      ]
+    },
+    "minimize": {
+      "type": "boolean"
+    },
+    "sourceMap": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

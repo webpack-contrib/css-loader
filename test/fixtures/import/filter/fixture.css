@@ -1,0 +1,6 @@
+@import './import.css';
+@import './filter/import.css';
+
+.css {
+  width: 100%;
+}
