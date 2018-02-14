@@ -493,21 +493,16 @@ module.exports = {
 
 ### Server-side rendering
 
-Suppose that you want to create a webpack build of your [isomorphic](https://www.lullabot.com/articles/what-is-an-isomorphic-application)/[universal](http://www.acuriousanimal.com/2016/08/10/universal-applications.html) web application that pre-renders pages on the server side. Your app is written in something like ECMA6 and SASS and requires transpilation, and also has CSS dependencies, such as `bootstrap.min.css`, installed from `node_modules`.
+To create a webpack build of [isomorphic](https://www.lullabot.com/articles/what-is-an-isomorphic-application)/[universal](http://www.acuriousanimal.com/2016/08/10/universal-applications.html) web application that pre-renders pages on the server side you might need to bundle CSS dependencies, such as `bootstrap.min.css`, installed from `node_modules`.
 
-There are several caveats in setting up webpack and css-loader for server-side environment:
+There are several caveats in loading CSS in server-side environment:
 
-1) As of February, 2018, `style-loader` [is not isomorphic](https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/503), it doesn't work in server-side node.js because it refers to `window` global when trying to inline your `css` into the javascript bundle. So, when building you webpack bundle on server side, you HAVE to use [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) to extract styles into a separate file (and [you shouldn't even fallback to ExtractTextPlugin](https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/503) as it was suggested in previous section). `css-loader` should pass the extracted css straight to `ExtractTextPlugin`.
-2) You have to set [target: node](https://webpack.js.org/concepts/targets/#usage) for webpack to keep standard node.js modules outside of the bundle. 
-3) You have to use (webpack-node-externals)[https://github.com/liady/webpack-node-externals] to keep your javascript dependencies from `node_modules` outside of the webpack bundle. Webpack bundle will just `require()` them straight from `node_modules` folder.
-4) However, with default `webpack-node-externals` setup, css that resides in `node_modules` will also get excluded from the bundle and webpack bundle will just try to `require()` them as if they were a javascript, resulting in `SyntaxError`. Thus, you have to [whitelist any non-javascript dependencies](https://github.com/liady/webpack-node-externals#how-can-i-bundle-required-assets-ie-css-files-from-node_modules) (including css) that you are importing from `node_modules`.
+1) `style-loader` [can't be used in server-side node.js](https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/503), because it refers to `window` global when trying to inline your `css` into the javascript bundle. You need to use [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) with `css-loader` to extract styles into a separate file.
+2) [target: node](https://webpack.js.org/concepts/targets/#usage) setting and [webpack-node-externals](https://github.com/liady/webpack-node-externals) package should be used to keep standard node.js modules and javascript dependencies from `node_modules` outside of the bundle.
+3) with default `webpack-node-externals` setup, CSS that resides in `node_modules` will also be excluded from the bundle. Imports of CSS files in sources will be replaced with `require('bootstrap.min.css')` statements in the bundle as if they were javascript, which results in `SyntaxError` in runtime. Thus non-javascript dependencies in `node_modules` need to be [whitelisted from externals](https://github.com/liady/webpack-node-externals#how-can-i-bundle-required-assets-ie-css-files-from-node_modules).
 
-Here is an example of webpack configuration for server-side rendering:
-
+**webpack.config.js**
 ```js
-const path = require('path');
-
-const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 
@@ -518,30 +513,13 @@ module.exports = {
       /\.(?!(?:jsx?|json)$).{1,5}$/i,
     ],
   })],
-  entry: path.resolve(__dirname, 'src', 'server', 'app.jsx'),
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
-    filename: 'server.js'
-  },
-  resolve: {
-    modules: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')]
-  },
   plugins: [
-    new ExtractTextPlugin('server.css') // extract css and sass files into server.css bundle
+    new ExtractTextPlugin('server.css') // extract css files into server.css bundle
   ],
+  ...
   module: {
     rules: [
       ...
-      {
-        test: /\.(scss|sass)$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            { loader: 'css-loader', options: {sourceMap: true} },
-            { loader: 'sass-loader', options: {sourceMap: true} }
-          ]
-        })
-      },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
