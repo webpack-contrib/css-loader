@@ -184,6 +184,12 @@ describe("url", function() {
 	test("font face with url", "@font-face { src: url(regular.woff) format('woff'), url(~truetype/regular.ttf) format('truetype') }", [
 		[1, "@font-face { src: url(regular.woff) format('woff'), url(~truetype/regular.ttf) format('truetype') }", ""]
 	], "?-url");
+	test("font face with url", "@font-face { src: url(Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix) format('embedded-opentype'), url(~opentype/Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix) format('embedded-opentype') }", [
+		[1, "@font-face { src: url(Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix) format('embedded-opentype'), url(~opentype/Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix) format('embedded-opentype') }", ""]
+	], "?-url");
+	test("font face with url", "@font-face { src: url('Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix') format('embedded-opentype'), url(\"Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix\") format('embedded-opentype') }", [
+		[1, "@font-face { src: url('Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix') format('embedded-opentype'), url(\"Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix\") format('embedded-opentype') }", ""]
+	], "?-url");
 	test("media query with url", "@media (min-width: 500px) { body { background: url(image.png); } }", [
 		[1, "@media (min-width: 500px) { body { background: url(image.png); } }", ""]
 	], "?-url");
