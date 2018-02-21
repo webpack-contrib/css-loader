@@ -63,15 +63,16 @@ function runLoader(loader, input, map, addOptions, callback) {
 	loader.call(opt, input, map);
 }
 
-exports.test = function test(name, input, result, query, modules) {
+exports.test = function test(name, input, result, query, modules, addOptions) {
 	it(name, function(done) {
-		runLoader(cssLoader, input, undefined, !query || typeof query === "string" ? {
-			query: query
-		} : query, function(err, output) {
-			if(err) return done(err);
-			assetEvaluated(output, result, modules);
-			done();
-		});
+		runLoader(cssLoader, input, undefined,
+			Object.assign(addOptions || {}, !query || typeof query === "string" ? { query: query } : query),
+			function(err, output) {
+				if (err) return done(err);
+				assetEvaluated(output, result, modules);
+				done();
+			}
+		)
 	});
 };
 
