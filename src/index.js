@@ -4,6 +4,8 @@ import/order,
 no-shadow,
 no-param-reassign
 */
+import path from 'path'
+
 import schema from './options.json';
 import { getOptions } from 'loader-utils';
 import validateOptions from 'schema-utils';
@@ -28,7 +30,6 @@ export default function loader(css, map, meta) {
   // Loader Mode (Async)
   const cb = this.async();
   const file = this.resourcePath;
-
   // Loader Options
   const options = Object.assign({}, DEFAULTS, getOptions(this));
 
@@ -66,17 +67,18 @@ export default function loader(css, map, meta) {
   map = options.sourceMap
     ? {
         prev: map || false,
-        inline: false,
-        annotation: false,
+        inline: this._module.extracted ? false : true,
+        annotation: this._module.extracted ? false : true,
         sourcesContent: true,
       }
     : false;
 
   return postcss(plugins)
     .process(css, {
-      from: `/css-loader!${file}`,
+      // `/css-loader!${file}`
+      from: file,
       map,
-      to: file,
+      to: this.rootContext
     })
     .then(({ css, map, messages }) => {
       if (meta && meta.messages) {
@@ -121,11 +123,22 @@ export default function loader(css, map, meta) {
       exports = exports ? `// CSS Exports\n${exports}\n` : false;
       css = `// CSS\nexport default \`${css}\``;
 
+      // Mark module as CSS Module
+      this._module.css = true
+
       // TODO(michael-ciniawsky)
       // triage if and add CSS runtime back
-      const result = [imports, exports, css].filter(Boolean).join('\n');
+      const result = [
+        !this._module.extracted ? imports : false,
+        exports,
+        !this._module.extracted ? css : false
+      ].filter(Boolean).join('\n');
 
-      cb(null, result, map ? map.toJSON() : null);
+      cb(
+        null,
+        result.length >= 1 ? result : '/* CSS Extracted */',
+        map ? map.toJSON() : null
+      );
 
       return null;
     })
