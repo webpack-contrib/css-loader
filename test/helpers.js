@@ -4,6 +4,7 @@ require("should");
 var cssLoader = require("../index.js");
 var cssLoaderLocals = require("../locals.js");
 var vm = require("vm");
+var sinon = require("sinon");
 
 function getEvaluated(output, modules) {
 	try {
@@ -168,3 +169,20 @@ exports.testMinimize = function testMinimize(name, input, result, query, modules
 		});
 	});
 };
+
+exports.testResultHook = function testResultHook(name, loader) {
+	it(name, function(done) {
+		var source = "div { color: red; }";
+		var resultHook = sinon.spy();
+		runLoader(loader, source, undefined, {
+			query: { resultHook: resultHook }
+		}, function(err) {
+			if(err) return done(err);
+			resultHook.called.should.be.eql(true);
+			var hookArgs = resultHook.args[0];
+			hookArgs[0].request.should.be.eql("css-loader!test.css");
+			hookArgs[1].source.should.be.eql(source);
+			done();
+		});
+	});
+}
