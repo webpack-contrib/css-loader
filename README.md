@@ -104,6 +104,7 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**[`importLoaders`](#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
 |**`localIdentName`**|`{String}`|`[hash:base64]`|Configure the generated ident|
+|**[`resultHook`](#resulthook)**|`{Function}`|`undefined`|CSS process result callback|
 
 ### `root`
 
@@ -429,6 +430,28 @@ The query parameter `importLoaders` allows to configure how many loaders before 
 ```
 
 This may change in the future, when the module system (i. e. webpack) supports loader matching by origin.
+
+### `resultHook`
+
+The query parameter `resultHook` allows passing callback that will be called when the loader gets the result for a file.
+
+**webpack.config.js**
+```js
+{
+  test: /\.css$/,
+  use: [
+    'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        resultHook: function(loaderContext, result) { /* Process the result */ }
+      }
+    },
+    'postcss-loader',
+    'sass-loader'
+  ]
+}
+```
 
 <h2 align="center">Examples</h2>
 
