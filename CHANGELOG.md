@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.28.11"></a>
+## [0.28.11](https://github.com/webpack-contrib/css-loader/compare/v0.28.10...v0.28.11) (2018-03-16)
+
+
+### Bug Fixes
+
+* **lib/processCss:** don't check `mode` for `url` handling (`options.modules`) ([#698](https://github.com/webpack-contrib/css-loader/issues/698)) ([c788450](https://github.com/webpack-contrib/css-loader/commit/c788450))
+
+
+
 <a name="0.28.10"></a>
 ## [0.28.10](https://github.com/webpack-contrib/css-loader/compare/v0.28.9...v0.28.10) (2018-02-22)
 
