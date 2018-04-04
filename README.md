@@ -219,7 +219,7 @@ The loader replaces local selectors with unique identifiers. The choosen unique 
 ._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 .global-class-name { color: blue; }
 ```
 
-> :information_source: Identifiers are exported
+> ℹ️ Identifiers are exported
 
 ```js
 exports.locals = {
