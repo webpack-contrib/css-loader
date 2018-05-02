@@ -38,9 +38,9 @@ describe("simple", function() {
 	test("charset directive", "@charset \"UTF-8\";\n .class { a: b c d; }", [
 		[1, "@charset \"UTF-8\";\n .class { a: b c d; }", ""]
 	]);
-	test("custom variables", ":root {--foo: 1px;\n--bar: 2px;}", [
-		[1, ":root {--foo: 1px;\n--bar: 2px;}", ""]
-	]);
+  test("custom variables", ":root {--foo: 1px;\n--bar: 2px;}", [
+    [1, ":root {--foo: 1px;\n--bar: 2px;}", ""]
+  ]);
 	testError("error formatting", ".some {\n invalid css;\n}", function(err) {
 		assert.equal(err.message, [
 			'Unknown word (2:2)',
