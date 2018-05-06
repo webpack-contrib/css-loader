@@ -32,6 +32,9 @@ describe("simple", function() {
 	/*test("escape characters (two)", ".class { content: \"\\F10C \\F10D\" }", [
 		[1, ".class { content: \"\\F10C \\F10D\" }", ""]
 	]);*/
+	test("non-ascii characters", "body { font-family: '😸'; }", [
+		[1, "body { font-family: '😸'; }", ""]
+	]);
 	testMinimize("minimized simple", ".class { a: b c d; }", [
 		[1, ".class{a:b c d}", ""]
 	]);
