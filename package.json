@@ -1,6 +1,6 @@
 {
   "name": "css-loader",
-  "version": "0.28.11",
+  "version": "0.28.12",
   "author": "Tobias Koppers @sokra",
   "license": "MIT",
   "description": "css loader module for webpack",
@@ -15,7 +15,7 @@
   "dependencies": {
     "babel-code-frame": "^6.26.0",
     "css-selector-tokenizer": "^0.7.0",
-    "cssnano": "^3.10.0",
+    "cssnano-patched": "^3.10.1",
     "icss-utils": "^2.1.0",
     "loader-utils": "^1.0.2",
     "lodash.camelcase": "^4.3.0",
