@@ -482,9 +482,7 @@ module.exports = {
     ]
   },
   plugins: env === 'production'
-    ? [
-        new MiniCSSExtractPlugin({ filename: '[name].css' })
-      ]
+    ? [ new MiniCSSExtractPlugin({ filename: '[name].css' }) ]
     : []
 }
 ```
