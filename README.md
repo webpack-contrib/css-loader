@@ -464,6 +464,8 @@ module.exports = {
 
 For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on. This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode.
 
+> :warning: For `webpack < 4.0.0` extracting can be achieved by using the [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin).
+
 **webpack.config.js**
 ```js
 const env = process.env.NODE_ENV
