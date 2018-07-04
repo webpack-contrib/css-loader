@@ -100,7 +100,6 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**[`import`](#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
 |**[`modules`](#modules)**|`{Boolean}`|`false`|Enable/Disable CSS Modules|
 |**[`localIdentName`](#localidentname)**|`{String}`|`[hash:base64]`|Configure the generated ident|
-|**[`minimize`](#minimize)**|`{Boolean\|Object}`|`false`|Enable/Disable minification|
 |**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**[`importLoaders`](#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
@@ -341,24 +340,6 @@ You can also specify the absolute path to your custom `getLocalIdent` function t
 ```
 
 > ℹ️ For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` **in the prerendering bundle**. It doesn't embed CSS but only exports the identifier mappings.
-
-### `minimize`
-
-By default the css-loader minimizes the css if specified by the module system.
-
-In some cases the minification is destructive to the css, so you can provide your own options to the cssnano-based minifier if needed. See [cssnano's documentation](http://cssnano.co/guides/) for more information on the available options.
-
-You can also disable or enforce minification with the `minimize` query parameter.
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: {
-    minimize: true || {/* CSSNano Options */}
-  }
-}
-```
 
 ### `sourceMap`
 
