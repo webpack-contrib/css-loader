@@ -1,4 +1,3 @@
-sudo: false
 language: node_js
 branches:
   only:
@@ -7,25 +6,14 @@ matrix:
   fast_finish: true
   include:
     - os: linux
-      node_js: "7"
-      env: WEBPACK_VERSION="2.2.0" JOB_PART=lint
+      node_js: "10"
+    - os: linux
+      node_js: "8"
     - os: linux
       node_js: "6"
-      env: WEBPACK_VERSION="2.2.0" JOB_PART=test
-    - os: linux
-      node_js: "4.3"
-      env: WEBPACK_VERSION="2.2.0" JOB_PART=test
-    - os: linux
-      node_js: "7"
-      env: WEBPACK_VERSION="2.2.0" JOB_PART=test
-    - os: linux
-      node_js: "4.3"
-      env: WEBPACK_VERSION="1.14.0" JOB_PART=test
 before_install:
   - nvm --version
   - node --version
-before_script:
-  - 'if [ "$WEBPACK_VERSION" ]; then npm i webpack@^$WEBPACK_VERSION; fi'
 script:
   - npm run travis:$JOB_PART
 after_success:
