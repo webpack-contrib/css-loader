@@ -31,13 +31,13 @@ describe("local", function() {
 		c7: "_c7"
 	}, "?localIdentName=_[local]");
 	testLocal("comment in local", ":local(.c1/*.c2*/.c3) { background: red; }", [
-		[1, "._c1._c3 { background: red; }", ""]
+		[1, "._c1/*.c2*/._c3 { background: red; }", ""]
 	], {
 		c1: "_c1",
 		c3: "_c3"
 	}, "?localIdentName=_[local]");
 	testLocal("comment in local", ":local(.c1/*.c2*/.c3) { background: red; }", [
-		[1, "._c1._c3 { background: red; }", ""]
+		[1, "._c1/*.c2*/._c3 { background: red; }", ""]
 	], {
 		c1: "_c1",
 		c3: "_c3"
