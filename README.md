@@ -96,7 +96,6 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |:--:|:--:|:-----:|:----------|
 |**[`root`](#root)**|`{String}`|`/`|Path to resolve URLs, URLs starting with `/` will not be translated|
 |**[`url`](#url)**|`{Boolean}`|`true`| Enable/Disable `url()` handling|
-|**[`alias`](#alias)**|`{Object}`|`{}`|Create aliases to import certain modules more easily|
 |**[`import`](#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
 |**[`modules`](#modules)**|`{Boolean}`|`false`|Enable/Disable CSS Modules|
 |**[`localIdentName`](#localidentname)**|`{String}`|`[hash:base64]`|Configure the generated ident|
@@ -135,48 +134,6 @@ To be compatible with existing css files (if not in CSS Module mode).
 url(image.png) => require('./image.png')
 url(~module/image.png) => require('module/image.png')
 ```
-
-### `alias`
-
-Rewrite your urls with alias, this is useful when it's hard to change url paths of your input files, for example, when you're using some css / sass files in another package (bootstrap, ratchet, font-awesome, etc.).
-
-`css-loader`'s `alias` follows the same syntax as webpack's `resolve.alias`, you can see the details at the [resolve docs](https://webpack.js.org/configuration/resolve/#resolve-alias)
-
-**file.scss**
-```css
-@charset "UTF-8";
-@import "bootstrap";
-```
-
-**webpack.config.js**
-```js
-{
-  test: /\.scss$/,
-  use: [
-    {
-      loader: "style-loader"
-    },
-    {
-      loader: "css-loader",
-      options: {
-        alias: {
-          "../fonts/bootstrap": "bootstrap-sass/assets/fonts/bootstrap"
-        }
-      }
-    },
-    {
-      loader: "sass-loader",
-      options: {
-        includePaths: [
-          path.resolve("./node_modules/bootstrap-sass/assets/stylesheets")
-        ]
-      }
-    }
-  ]
-}
-```
-
-Check out this [working bootstrap example](https://github.com/bbtfr/webpack2-bootstrap-sass-sample).
 
 ### `import`
 
