@@ -94,7 +94,6 @@ It's useful when you, for instance, need to post process the CSS as a string.
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
-|**[`root`](#root)**|`{String}`|`/`|Path to resolve URLs, URLs starting with `/` will not be translated|
 |**[`url`](#url)**|`{Boolean}`|`true`| Enable/Disable `url()` handling|
 |**[`import`](#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
 |**[`modules`](#modules)**|`{Boolean}`|`false`|Enable/Disable CSS Modules|
@@ -102,27 +101,6 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**[`importLoaders`](#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
-
-### `root`
-
-For URLs that start with a `/`, the default behavior is to not translate them.
-
-`url(/image.png) => url(/image.png)`
-
-If a `root` query parameter is set, however, it will be prepended to the URL
-and then translated.
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: { root: '.' }
-}
-```
-
-`url(/image.png)` => `require('./image.png')`
-
-Using 'Root-relative' urls is not recommended. You should only use it for legacy CSS files.
 
 ### `url`
 
@@ -400,37 +378,8 @@ module.exports = {
 
 ### Extract
 
-For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on. This can be achieved by using the [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) to extract the CSS when running in production mode.
-
-**webpack.config.js**
-```js
-const env = process.env.NODE_ENV
-
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: env === 'production'
-          ? ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: [ 'css-loader' ]
-          })
-          : [ 'style-loader', 'css-loader' ]
-      },
-    ]
-  },
-  plugins: env === 'production'
-    ? [
-        new ExtractTextPlugin({
-          filename: '[name].css'
-        })
-      ]
-    : []
-}
-```
+For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on. 
+This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode.
 
 <h2 align="center">Maintainers</h2>
 
