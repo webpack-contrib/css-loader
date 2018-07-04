@@ -5,7 +5,7 @@
   "license": "MIT",
   "description": "css loader module for webpack",
   "engines": {
-    "node": ">=0.12.0 || >= 4.3.0 < 5.0.0 || >=5.10"
+    "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
   },
   "files": [
     "lib",
