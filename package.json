@@ -34,6 +34,9 @@
     "should": "^11.1.2",
     "standard-version": "^4.0.0"
   },
+  "peerDependencies": {
+    "webpack": "^4.0.0"
+  },
   "scripts": {
     "lint": "eslint lib test",
     "test": "mocha",
