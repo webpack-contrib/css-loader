@@ -99,11 +99,11 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**[`alias`](#alias)**|`{Object}`|`{}`|Create aliases to import certain modules more easily|
 |**[`import`](#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
 |**[`modules`](#modules)**|`{Boolean}`|`false`|Enable/Disable CSS Modules|
+|**[`localIdentName`](#localidentname)**|`{String}`|`[hash:base64]`|Configure the generated ident|
 |**[`minimize`](#minimize)**|`{Boolean\|Object}`|`false`|Enable/Disable minification|
 |**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**[`importLoaders`](#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
-|**`localIdentName`**|`{String}`|`[hash:base64]`|Configure the generated ident|
 
 ### `root`
 
@@ -219,7 +219,7 @@ The loader replaces local selectors with unique identifiers. The choosen unique 
 ._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 .global-class-name { color: blue; }
 ```
 
-> :information_source: Identifiers are exported
+> ℹ️ Identifiers are exported
 
 ```js
 exports.locals = {
@@ -238,41 +238,6 @@ file.png => ./file.png
 ```
 
 You can use `:local(#someId)`, but this is not recommended. Use classes instead of ids.
-You can configure the generated ident with the `localIdentName` query parameter (default `[hash:base64]`).
-
- **webpack.config.js**
- ```js
-{
-  test: /\.css$/,
-  use: [
-    {
-      loader: 'css-loader',
-      options: {
-        modules: true,
-        localIdentName: '[path][name]__[local]--[hash:base64:5]'
-      }
-    }
-  ]
-}
-```
-
-You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema. This requires `webpack >= 2.2.1` (it supports functions in the `options` object).
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: {
-    modules: true,
-    localIdentName: '[path][name]__[local]--[hash:base64:5]',
-    getLocalIdent: (context, localIdentName, localName, options) => {
-      return 'whatever_random_class_name'
-    }
-  }
-}
-```
-
-> :information_source: For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` **in the prerendering bundle**. It doesn't embed CSS but only exports the identifier mappings.
 
 #### `Composing`
 
@@ -338,6 +303,44 @@ To import from multiple modules use multiple `composes:` rules.
   background: red;
 }
 ```
+
+### `localIdentName`
+
+You can configure the generated ident with the `localIdentName` query parameter. See [loader-utils's documentation](https://github.com/webpack/loader-utils#interpolatename) for more information on options.
+
+ **webpack.config.js**
+```js
+{
+  test: /\.css$/,
+  use: [
+    {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        localIdentName: '[path][name]__[local]--[hash:base64:5]'
+      }
+    }
+  ]
+}
+```
+
+You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema. This requires `webpack >= 2.2.1` (it supports functions in the `options` object).
+
+**webpack.config.js**
+```js
+{
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    localIdentName: '[path][name]__[local]--[hash:base64:5]',
+    getLocalIdent: (context, localIdentName, localName, options) => {
+      return 'whatever_random_class_name'
+    }
+  }
+}
+```
+
+> ℹ️ For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` **in the prerendering bundle**. It doesn't embed CSS but only exports the identifier mappings.
 
 ### `minimize`
 
