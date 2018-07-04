@@ -10,7 +10,7 @@ var testCases = fs.readdirSync(testCasesPath);
 describe("module minimize", function() {
 	testCases.forEach(function(name) {
 		var source = fs.readFileSync(path.join(testCasesPath, name, "source.css"), "utf-8");
-		var expected = fs.readFileSync(path.join(testCasesPath, name, "expected.css"), "utf-8");
+		var expected = fs.readFileSync(path.join(testCasesPath, name, "expected.css"), "utf-8").trim();
 
 		test(name, source, expected, '?' + JSON.stringify({
         module: true,
