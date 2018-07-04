@@ -1,16 +1,10 @@
 /*globals describe */
 
 var test = require("./helpers").test;
-var testMinimize = require("./helpers").testMinimize;
 
 function testLocal(name, input, result, localsResult, query, modules) {
 	result.locals = localsResult;
 	test(name, input, result, query, modules);
-}
-
-function testLocalMinimize(name, input, result, localsResult, query, modules) {
-	result.locals = localsResult;
-	testMinimize(name, input, result, query, modules);
 }
 
 describe("local", function() {
@@ -28,13 +22,6 @@ describe("local", function() {
 		someId: "_3vpqN0v_IxlO3TzQjbpB33",
 		subClass: "_1s1VsToXFz17cPAltMg7jz"
 	});
-	testLocalMinimize("minimized plus local", ":local(.localClass) { background: red; }\n:local .otherClass { background: red; }\n:local(.empty) { }", [
-		[1, "._localClass,._otherClass{background:red}", ""]
-	], {
-		localClass: "_localClass",
-		otherClass: "_otherClass",
-		empty: "_empty"
-	}, "?localIdentName=_[local]");
 	testLocal("mode switching", ".c1 :local .c2 .c3 :global .c4 :local .c5, .c6 :local .c7 { background: red; }\n.c8 { background: red; }", [
 		[1, ".c1 ._c2 ._c3 .c4 ._c5, .c6 ._c7 { background: red; }\n.c8 { background: red; }", ""]
 	], {

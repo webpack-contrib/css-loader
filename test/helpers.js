@@ -155,16 +155,3 @@ exports.testSingleItem = function testSingleItem(name, input, result, query, mod
 		});
 	});
 };
-
-exports.testMinimize = function testMinimize(name, input, result, query, modules) {
-	it(name, function(done) {
-		runLoader(cssLoader, input, undefined, {
-			minimize: true,
-			query: query
-		}, function(err, output) {
-			if(err) return done(err);
-			assetEvaluated(output, result, modules);
-			done();
-		});
-	});
-};
