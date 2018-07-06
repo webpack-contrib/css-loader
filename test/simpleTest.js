@@ -3,13 +3,9 @@
 var assert = require('assert');
 var test = require("./helpers").test;
 var testError = require("./helpers").testError;
-var testMinimize = require("./helpers").testMinimize;
 
 describe("simple", function() {
 	test("empty", "", [
-		[1, "", ""]
-	]);
-	testMinimize("empty minimized", "", [
 		[1, "", ""]
 	]);
 	test("simple", ".class { a: b c d; }", [
@@ -32,9 +28,6 @@ describe("simple", function() {
 	/*test("escape characters (two)", ".class { content: \"\\F10C \\F10D\" }", [
 		[1, ".class { content: \"\\F10C \\F10D\" }", ""]
 	]);*/
-	testMinimize("minimized simple", ".class { a: b c d; }", [
-		[1, ".class{a:b c d}", ""]
-	]);
 	test("charset directive", "@charset \"UTF-8\";\n .class { a: b c d; }", [
 		[1, "@charset \"UTF-8\";\n .class { a: b c d; }", ""]
 	]);

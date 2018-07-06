@@ -12,6 +12,6 @@ describe("module", function() {
 		var source = fs.readFileSync(path.join(testCasesPath, name, "source.css"), "utf-8");
 		var expected = fs.readFileSync(path.join(testCasesPath, name, "expected.css"), "utf-8");
 
-		test(name, source, expected, "?module&sourceMap&localIdentName=_[local]_");
+		test(name, source, expected, "?modules&sourceMap&localIdentName=_[local]_");
 	});
 });
