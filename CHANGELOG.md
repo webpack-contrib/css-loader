@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/webpack-contrib/css-loader/compare/v0.28.11...v1.0.0) (2018-07-06)
+
+### BREAKING CHANGES
+
+* remove `minimize` option, use [`postcss-loader`](https://github.com/postcss/postcss-loader) with [`cssnano`](https://github.com/cssnano/cssnano) or use [`optimize-cssnano-plugin`](https://github.com/intervolga/optimize-cssnano-plugin) plugin
+* remove `module` option, use `modules` option instead
+* remove `camelcase` option, use `camelCase` option instead
+* remove `root` option, use [`postcss-loader`](https://github.com/postcss/postcss-loader) with [`postcss-url`](https://github.com/postcss/postcss-url) plugin
+* remove `alias` option, use [`resolve.alias`](https://webpack.js.org/configuration/resolve/) feature or use [`postcss-loader`](https://github.com/postcss/postcss-loader) with [`postcss-url`](https://github.com/postcss/postcss-url) plugin
+* update `postcss` to `6` version
+* minimum require `nodejs` version is `6.9`
+* minimum require `webpack` version is `4`
+
+
 <a name="0.28.11"></a>
 ## [0.28.11](https://github.com/webpack-contrib/css-loader/compare/v0.28.10...v0.28.11) (2018-03-16)
 
