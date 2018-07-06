@@ -24,18 +24,6 @@ describe("url", function() {
 	test("background img absolute", ".class { background: green url(/img.png) xyz }", [
 		[1, ".class { background: green url(/img.png) xyz }", ""]
 	]);
-	test("background img absolute with root", ".class { background: green url(/img.png) xyz }", [
-		[1, ".class { background: green url({./img.png}) xyz }", ""]
-	], "?root=.");
-	test("background img absolute with root", ".class { background: green url(/img.png) xyz }", [
-		[1, ".class { background: green url({./img.png}) xyz }", ""]
-	], "?root=./");
-	test("root with absolute url", ".class { background: green url(/img.png) xyz }", [
-		[1, ".class { background: green url(http://some.cdn.com/img.png) xyz }", ""]
-	], "?root=http://some.cdn.com");
-	test("root with absolute url with trailing slash", ".class { background: green url(/img.png) xyz }", [
-		[1, ".class { background: green url(http://some.cdn.com/img.png) xyz }", ""]
-	], "?root=http://some.cdn.com/");
 	test("background img external",
 		".class { background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz }", [
 		[1, ".class { background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz }", ""]

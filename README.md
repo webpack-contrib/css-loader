@@ -94,37 +94,13 @@ It's useful when you, for instance, need to post process the CSS as a string.
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
-|**[`root`](#root)**|`{String}`|`/`|Path to resolve URLs, URLs starting with `/` will not be translated|
 |**[`url`](#url)**|`{Boolean}`|`true`| Enable/Disable `url()` handling|
-|**[`alias`](#alias)**|`{Object}`|`{}`|Create aliases to import certain modules more easily|
 |**[`import`](#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
 |**[`modules`](#modules)**|`{Boolean}`|`false`|Enable/Disable CSS Modules|
 |**[`localIdentName`](#localidentname)**|`{String}`|`[hash:base64]`|Configure the generated ident|
-|**[`minimize`](#minimize)**|`{Boolean\|Object}`|`false`|Enable/Disable minification|
 |**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**[`importLoaders`](#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
-
-### `root`
-
-For URLs that start with a `/`, the default behavior is to not translate them.
-
-`url(/image.png) => url(/image.png)`
-
-If a `root` query parameter is set, however, it will be prepended to the URL
-and then translated.
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: { root: '.' }
-}
-```
-
-`url(/image.png)` => `require('./image.png')`
-
-Using 'Root-relative' urls is not recommended. You should only use it for legacy CSS files.
 
 ### `url`
 
@@ -136,48 +112,6 @@ To be compatible with existing css files (if not in CSS Module mode).
 url(image.png) => require('./image.png')
 url(~module/image.png) => require('module/image.png')
 ```
-
-### `alias`
-
-Rewrite your urls with alias, this is useful when it's hard to change url paths of your input files, for example, when you're using some css / sass files in another package (bootstrap, ratchet, font-awesome, etc.).
-
-`css-loader`'s `alias` follows the same syntax as webpack's `resolve.alias`, you can see the details at the [resolve docs](https://webpack.js.org/configuration/resolve/#resolve-alias)
-
-**file.scss**
-```css
-@charset "UTF-8";
-@import "bootstrap";
-```
-
-**webpack.config.js**
-```js
-{
-  test: /\.scss$/,
-  use: [
-    {
-      loader: "style-loader"
-    },
-    {
-      loader: "css-loader",
-      options: {
-        alias: {
-          "../fonts/bootstrap": "bootstrap-sass/assets/fonts/bootstrap"
-        }
-      }
-    },
-    {
-      loader: "sass-loader",
-      options: {
-        includePaths: [
-          path.resolve("./node_modules/bootstrap-sass/assets/stylesheets")
-        ]
-      }
-    }
-  ]
-}
-```
-
-Check out this [working bootstrap example](https://github.com/bbtfr/webpack2-bootstrap-sass-sample).
 
 ### `import`
 
@@ -342,24 +276,6 @@ You can also specify the absolute path to your custom `getLocalIdent` function t
 
 > ℹ️ For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` **in the prerendering bundle**. It doesn't embed CSS but only exports the identifier mappings.
 
-### `minimize`
-
-By default the css-loader minimizes the css if specified by the module system.
-
-In some cases the minification is destructive to the css, so you can provide your own options to the cssnano-based minifier if needed. See [cssnano's documentation](http://cssnano.co/guides/) for more information on the available options.
-
-You can also disable or enforce minification with the `minimize` query parameter.
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: {
-    minimize: true || {/* CSSNano Options */}
-  }
-}
-```
-
 ### `sourceMap`
 
 To include source maps set the `sourceMap` option.
@@ -462,37 +378,8 @@ module.exports = {
 
 ### Extract
 
-For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on. This can be achieved by using the [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) to extract the CSS when running in production mode.
-
-**webpack.config.js**
-```js
-const env = process.env.NODE_ENV
-
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: env === 'production'
-          ? ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: [ 'css-loader' ]
-          })
-          : [ 'style-loader', 'css-loader' ]
-      },
-    ]
-  },
-  plugins: env === 'production'
-    ? [
-        new ExtractTextPlugin({
-          filename: '[name].css'
-        })
-      ]
-    : []
-}
-```
+For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on. 
+This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode.
 
 <h2 align="center">Maintainers</h2>
 
