@@ -2,7 +2,6 @@
 
 require("should");
 var cssLoader = require("../index.js");
-var cssLoaderLocals = require("../locals.js");
 var vm = require("vm");
 
 function getEvaluated(output, modules) {
@@ -119,18 +118,6 @@ exports.testWithMap = function test(name, input, map, result, query, modules) {
 exports.testMap = function test(name, input, map, addOptions, result, modules) {
 	it(name, function(done) {
 		runLoader(cssLoader, input, map, addOptions, function(err, output) {
-			if(err) return done(err);
-			assetEvaluated(output, result, modules);
-			done();
-		});
-	});
-};
-
-exports.testLocals = function testLocals(name, input, result, query, modules) {
-	it(name, function(done) {
-		runLoader(cssLoaderLocals, input, undefined, {
-			query: query
-		}, function(err, output) {
 			if(err) return done(err);
 			assetEvaluated(output, result, modules);
 			done();
