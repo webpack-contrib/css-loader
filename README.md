@@ -97,7 +97,6 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**[`url`](#url)**|`{Boolean}`|`true`| Enable/Disable `url()` handling|
 |**[`import`](#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
 |**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
-|**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export in CamelCase|
 |**[`importLoaders`](#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
 
 ### `url`
@@ -135,37 +134,6 @@ They are not enabled by default because they expose a runtime overhead and incre
   loader: 'css-loader',
   options: {
     sourceMap: true
-  }
-}
-```
-
-### `camelCase`
-
-By default, the exported JSON keys mirror the class names. If you want to camelize class names (useful in JS), pass the query parameter `camelCase` to css-loader.
-
-|Name|Type|Description|
-|:--:|:--:|:----------|
-|**`true`**|`{Boolean}`|Class names will be camelized|
-|**`'dashes'`**|`{String}`|Only dashes in class names will be camelized|
-|**`'only'`** |`{String}`|Introduced in `0.27.1`. Class names will be camelized, the original class name will be removed from the locals|
-|**`'dashesOnly'`**|`{String}`|Introduced in `0.27.1`. Dashes in class names will be camelized, the original class name will be removed from the locals|
-
-**file.css**
-```css
-.class-name {}
-```
-
-**file.js**
-```js
-import { className } from 'file.css';
-```
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: {
-    camelCase: true
   }
 }
 ```
