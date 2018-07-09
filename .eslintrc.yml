@@ -38,7 +38,7 @@ rules:
     - error
     - never
   consistent-return: 'off'
-  consistent-this: error
+  consistent-this: 'off'
   curly: 'off'
   default-case: 'off'
   dot-location: 'off'
