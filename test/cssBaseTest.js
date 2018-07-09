@@ -1,8 +1,8 @@
 /*eslint-env mocha*/
 
-var base = require("../lib/css-base");
+var runtime = require("../lib/runtime");
 
-describe("css-base", function() {
+describe("runtime", function() {
 	before(function() {
 		global.btoa = function btoa(str) {
 			var buffer = null;
@@ -22,23 +22,23 @@ describe("css-base", function() {
 	})
 
 	it("should toString a single module", function() {
-		var m = base();
+		var m = runtime();
 		m.push([1, "body { a: 1; }", ""]);
 		m.toString().should.be.eql("body { a: 1; }");
 	});
 	it("should toString multiple modules", function() {
-		var m = base();
+		var m = runtime();
 		m.push([2, "body { b: 2; }", ""]);
 		m.push([1, "body { a: 1; }", ""]);
 		m.toString().should.be.eql("body { b: 2; }body { a: 1; }");
 	});
 	it("should toString with media query", function() {
-		var m = base();
+		var m = runtime();
 		m.push([1, "body { a: 1; }", "screen"]);
 		m.toString().should.be.eql("@media screen{body { a: 1; }}");
 	});
 	it("should import modules", function() {
-		var m = base();
+		var m = runtime();
 		var m1 = [1, "body { a: 1; }", "screen"];
 		var m2 = [2, "body { b: 2; }", ""];
 		var m3 = [3, "body { c: 3; }", ""];
@@ -53,7 +53,7 @@ describe("css-base", function() {
 			"@media screen{body { a: 1; }}");
 	});
 	it("should toString with source mapping", function() {
-		var m = base(true);
+		var m = runtime(true);
 		m.push([1, "body { a: 1; }", "", {
 			file: "test.scss",
 			sources: [
@@ -66,7 +66,7 @@ describe("css-base", function() {
 	});
 	it("should toString without source mapping if btoa not avalibale", function() {
 		global.btoa = null;
-		var m = base(true);
+		var m = runtime(true);
 		m.push([1, "body { a: 1; }", "", {
 			file: "test.scss",
 			sources: [

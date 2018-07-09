@@ -41,7 +41,7 @@ rules:
   consistent-this: error
   curly: 'off'
   default-case: 'off'
-  dot-location: error
+  dot-location: 'off'
   dot-notation:
     - error
     - allowKeywords: true

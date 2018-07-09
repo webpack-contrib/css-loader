@@ -9,8 +9,8 @@ function getEvaluated(output, modules) {
 		var fn = vm.runInThisContext("(function(module, exports, require) {" + output + "})", "testcase.js");
 		var m = { exports: {}, id: 1 };
 		fn(m, m.exports, function(module) {
-			if(module.indexOf("css-base") >= 0)
-				return require("../lib/css-base");
+			if(module.indexOf("runtime") >= 0)
+				return require("../lib/runtime");
 			if(module.indexOf("url/escape") >= 0)
 				return require("../lib/url/escape");
 			if(module.indexOf("-!/path/css-loader!") === 0)
