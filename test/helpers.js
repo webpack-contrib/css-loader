@@ -56,6 +56,9 @@ function runLoader(loader, input, map, addOptions, callback) {
     request: "css-loader!test.css",
     emitError: function(message) {
       throw new Error(message);
+    },
+    addDependency: function (dep) {
+      // Nothing
     }
   };
   Object.keys(addOptions).forEach(function(key) {
