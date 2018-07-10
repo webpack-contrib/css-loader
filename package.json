@@ -13,10 +13,7 @@
   ],
   "dependencies": {
     "babel-code-frame": "^6.26.0",
-    "css-selector-tokenizer": "^0.7.0",
-    "icss-utils": "^2.1.0",
     "loader-utils": "^1.0.2",
-    "lodash.camelcase": "^4.3.0",
     "postcss": "^6.0.23",
     "postcss-value-parser": "^3.3.0"
   },
