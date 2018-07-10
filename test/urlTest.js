@@ -91,6 +91,15 @@ describe("url", function() {
 	test("external schema-less url", ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", [
 		[1, ".class { background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz }", ""]
 	]);
+  test("font face with url", "@font-face { src: url('My-Font.woff2') format('woff2') }", [
+    [1, "@font-face { src: url({./My-Font.woff2}) format('woff2') }", ""]
+  ], "");
+  test("font face with url and query and fragment identifier", "@font-face { src: url('webfont.eot?#iefix') format('embedded-opentype') }", [
+    [1, "@font-face { src: url({./webfont.eot}?#iefix) format('embedded-opentype') }", ""]
+  ], "");
+  test("font face with url and fragment identifier", "@font-face { src: url('webfont.svg#svgFontName') format('svg') }", [
+    [1, "@font-face { src: url({./webfont.svg}#svgFontName) format('svg') }", ""]
+  ], "");
 	
 	test("module wrapped in spaces", ".class { background: green url(module) xyz }", [
 		[1, ".class { background: green url(module-wrapped) xyz }", ""]
