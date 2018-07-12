@@ -13,6 +13,21 @@ describe("simple", function() {
   test("escaped selector", ".u-m\\+ { a: b c d; }", [
     [1, ".u-m\\+ { a: b c d; }", ""]
   ]);
+  test("escaped selector (2)", ".grid.\\-top { a: b c d; }", [
+    [1, ".grid.\\-top { a: b c d; }", ""]
+  ]);
+  test("escaped selector (3)", ".u-m\\00002b { a: b c d; }", [
+    [1, ".u-m\\00002b { a: b c d; }", ""]
+  ]);
+  test("escaped characters", '.class { content: \'"\\\\f10c"\'; }', [
+    [1, '.class { content: \'"\\\\f10c"\'; }', ""]
+  ]);
+  test("escaped characters (2)", '.class { font-family: \'微软雅黑\'; }', [
+    [1, '.class { font-family: \'微软雅黑\'; }', ""]
+  ]);
+  test("escaped characters (3)", '.class { content: \'\\e901\'; }', [
+    [1, '.class { content: \'\\e901\'; }', ""]
+  ]);
   test("escaped characters (uppercase)", '.class { content: "\\F10C" }', [
     [1, '.class { content: "\\F10C" }', ""]
   ]);
