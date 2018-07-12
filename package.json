@@ -1,16 +1,46 @@
 {
   "name": "css-loader",
   "version": "1.0.0",
-  "author": "Tobias Koppers @sokra",
+  "description": "A loader for webpack which transforms CSS files into JS module",
   "license": "MIT",
-  "description": "css loader module for webpack",
+  "repository": "https://github.com/webpack-contrib/css-loader",
+  "author": "Tobias Koppers @sokra",
+  "homepage": "https://github.com/webpack-contrib/css-loader",
+  "bugs": "https://github.com/webpack-contrib/css-loader/issues",
+  "bin": "",
+  "main": "dist/cjs.js",
   "engines": {
     "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
   },
+  "scripts": {
+    "start": "npm run build -- -w",
+    "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js' --copy-files",
+    "clean": "del-cli dist",
+    "commitlint": "commitlint",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "lint": "eslint --cache src test",
+    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+    "lint-staged": "lint-staged",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build",
+    "release": "standard-version",
+    "release:ci": "conventional-github-releaser -p angular",
+    "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+    "security": "nsp check",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "ci:lint": "npm run lint && npm run security",
+    "ci:test": "npm run test -- --runInBand",
+    "ci:coverage": "npm run test:coverage -- --runInBand",
+    "defaults": "webpack-defaults"
+  },
   "files": [
-    "lib",
-    "index.js"
+    "dist"
   ],
+  "peerDependencies": {
+    "webpack": "^4.0.0"
+  },
   "dependencies": {
     "babel-code-frame": "^6.26.0",
     "loader-utils": "^1.0.2",
@@ -19,26 +49,52 @@
     "@webpack-contrib/schema-utils": "^1.0.0-beta.0"
   },
   "devDependencies": {
-    "codecov": "^1.0.1",
-    "eslint": "3.14.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "should": "^11.1.2",
-    "standard-version": "^4.0.0"
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.4.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "conventional-github-releaser": "^3.1.2",
+    "cross-env": "^5.2.0",
+    "del": "^3.0.0",
+    "del-cli": "^1.1.0",
+    "eslint": "^4.13.1",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "url-loader": "^1.0.1",
+    "husky": "^0.14.3",
+    "jest": "^23.4.0",
+    "jest-serializer-path": "^0.1.15",
+    "lint-staged": "^7.2.0",
+    "memory-fs": "^0.4.1",
+    "nsp": "^3.2.1",
+    "postcss-loader": "^2.1.6",
+    "postcss-preset-env": "^5.2.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.13.7",
+    "standard-version": "^4.0.0",
+    "webpack": "^4.16.0",
+    "webpack-defaults": "^2.3.0"
   },
-  "peerDependencies": {
-    "webpack": "^4.0.0"
+  "keywords": [
+    "webpack"
+  ],
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
-  "scripts": {
-    "lint": "eslint lib test",
-    "test": "mocha",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "test:cover": "npm run cover -- --report lcovonly",
-    "travis:test": "npm run cover",
-    "travis:lint": "npm run lint",
-    "release": "standard-version"
-  },
-  "homepage": "https://github.com/webpack-contrib/css-loader",
-  "repository": "https://github.com/webpack-contrib/css-loader.git",
-  "bugs": "https://github.com/webpack-contrib/css-loader/issues"
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "snapshotSerializers": [
+      "jest-serializer-path"
+    ]
+  }
 }

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SyntaxError basic 1`] = `"Syntax Error"`;
+
+exports[`SyntaxError basic 2`] = `"Syntax Error: message"`;
+
+exports[`SyntaxError basic 3`] = `"Syntax Error: message"`;
+
+exports[`SyntaxError basic 4`] = `"Syntax Error: message"`;
+
+exports[`SyntaxError basic 5`] = `"Syntax Error: reason"`;
+
+exports[`SyntaxError basic 6`] = `"Syntax Error: message (1:1)"`;
+
+exports[`SyntaxError basic 7`] = `
+"Syntax Error: message (1:1)
+
+> 1 | .class { invalid }
+    | ^
+"
+`;

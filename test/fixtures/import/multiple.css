@@ -1,0 +1,6 @@
+@import url('test.css');
+@import url('test-other.css');
+
+.class {
+  a: c;
+}

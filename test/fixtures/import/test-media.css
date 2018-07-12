@@ -1,0 +1,5 @@
+@import url('test-other.css') (min-width: 100px);
+
+.test {
+  c: d;
+}

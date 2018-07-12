@@ -1,0 +1,584 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`import false: errors 1`] = `Array []`;
+
+exports[`import false: import 1`] = `
+Array [
+  Array [
+    1,
+    "@import url(test.css);
+
+.class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import false: warnings 1`] = `Array []`;
+
+exports[`import true at rule import in uppercase: errors 1`] = `Array []`;
+
+exports[`import true at rule import in uppercase: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true at rule import in uppercase: warnings 1`] = `Array []`;
+
+exports[`import true duplicate with same import: errors 1`] = `Array []`;
+
+exports[`import true duplicate with same import: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true duplicate with same import: warnings 1`] = `Array []`;
+
+exports[`import true duplicate: errors 1`] = `Array []`;
+
+exports[`import true duplicate: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true duplicate: warnings 1`] = `Array []`;
+
+exports[`import true empty string: errors 1`] = `Array []`;
+
+exports[`import true empty string: import 1`] = `
+Array [
+  Array [
+    1,
+    "@import \\"\\";
+
+.class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true empty string: warnings 1`] = `Array []`;
+
+exports[`import true empty url with double quotes: errors 1`] = `Array []`;
+
+exports[`import true empty url with double quotes: import 1`] = `
+Array [
+  Array [
+    1,
+    "@import url(\\"\\");
+
+.class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true empty url with double quotes: warnings 1`] = `Array []`;
+
+exports[`import true empty url with single quotes: errors 1`] = `Array []`;
+
+exports[`import true empty url with single quotes: import 1`] = `
+Array [
+  Array [
+    1,
+    "@import url('');
+
+.class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true empty url with single quotes: warnings 1`] = `Array []`;
+
+exports[`import true empty url: errors 1`] = `Array []`;
+
+exports[`import true empty url: import 1`] = `
+Array [
+  Array [
+    1,
+    "@import url();
+
+.class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true empty url: warnings 1`] = `Array []`;
+
+exports[`import true external: errors 1`] = `Array []`;
+
+exports[`import true external: import 1`] = `
+Array [
+  Array [
+    1,
+    "@import url(http://example.com/style.css);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(//example.com/style.css);",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true external: warnings 1`] = `Array []`;
+
+exports[`import true from modules: errors 1`] = `Array []`;
+
+exports[`import true from modules: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: b
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true from modules: warnings 1`] = `Array []`;
+
+exports[`import true invalid: errors 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from <PROJECT_ROOT>/src/index.js):
+Syntax Error: Unexpected format  (1:1)
+
+> 1 | @import;
+    | ^
+  2 | 
+  3 | .class {
+  4 |   a: b c d;
+],
+]
+`;
+
+exports[`import true invalid: warnings 1`] = `Array []`;
+
+exports[`import true media nested: errors 1`] = `Array []`;
+
+exports[`import true media nested: import 1`] = `
+Array [
+  Array [
+    3,
+    ".test{
+  a: b;
+}
+",
+    "((min-width: 100px)) and (screen and print)",
+  ],
+  Array [
+    2,
+    ".test {
+  c: d;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true media nested: warnings 1`] = `Array []`;
+
+exports[`import true media without space between url and media query: errors 1`] = `Array []`;
+
+exports[`import true media without space between url and media query: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true media without space between url and media query: warnings 1`] = `Array []`;
+
+exports[`import true media: errors 1`] = `Array []`;
+
+exports[`import true media: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true media: warnings 1`] = `Array []`;
+
+exports[`import true multiple with media (2): errors 1`] = `Array []`;
+
+exports[`import true multiple with media (2): import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    3,
+    ".test{
+  a: b;
+}
+",
+    "(min-width: 100px)",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true multiple with media (2): warnings 1`] = `Array []`;
+
+exports[`import true multiple with media: errors 1`] = `Array []`;
+
+exports[`import true multiple with media: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    3,
+    ".test{
+  a: b;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true multiple with media: warnings 1`] = `Array []`;
+
+exports[`import true multiple: errors 1`] = `Array []`;
+
+exports[`import true multiple: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    3,
+    ".test{
+  a: b;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: c;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true multiple: warnings 1`] = `Array []`;
+
+exports[`import true not standard at rule contains import word: errors 1`] = `Array []`;
+
+exports[`import true not standard at rule contains import word: import 1`] = `
+Array [
+  Array [
+    1,
+    "@import-normalize;
+
+.class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true not standard at rule contains import word: warnings 1`] = `Array []`;
+
+exports[`import true string contains spaces: errors 1`] = `Array []`;
+
+exports[`import true string contains spaces: import 1`] = `
+Array [
+  Array [
+    1,
+    "@import \\"   \\";
+
+.class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true string contains spaces: warnings 1`] = `Array []`;
+
+exports[`import true string: errors 1`] = `Array []`;
+
+exports[`import true string: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true string: warnings 1`] = `Array []`;
+
+exports[`import true url function in uppercase: errors 1`] = `Array []`;
+
+exports[`import true url function in uppercase: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true url function in uppercase: warnings 1`] = `Array []`;
+
+exports[`import true url with double quotes: errors 1`] = `Array []`;
+
+exports[`import true url with double quotes: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true url with double quotes: warnings 1`] = `Array []`;
+
+exports[`import true url with single quotes: errors 1`] = `Array []`;
+
+exports[`import true url with single quotes: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true url with single quotes: warnings 1`] = `Array []`;
+
+exports[`import true url: errors 1`] = `Array []`;
+
+exports[`import true url: import 1`] = `
+Array [
+  Array [
+    2,
+    ".test{
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import true url: warnings 1`] = `Array []`;
