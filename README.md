@@ -294,21 +294,6 @@ They are not enabled by default because they expose a runtime overhead and incre
 }
 ```
 
-#### Opting out of legacy source maps behavior
-
-To receive source maps as URLs relative to `loader.resourcePath`, set the `legacySourceMaps` option to `false`.
-
-
-```javascript
-{
-  loader: 'css-loader',
-  options: {
-    legacySourceMaps: false,
-    sourceMap: true
-  }
-}
-```
-
 ### `camelCase`
 
 By default, the exported JSON keys mirror the class names. If you want to camelize class names (useful in JS), pass the query parameter `camelCase` to css-loader.
