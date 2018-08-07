@@ -85,12 +85,12 @@ export default postcss.plugin(
           if (!alreadyImported[url]) {
             result.messages.push({
               pluginName,
-              type: 'modify-code',
-              modifyCode: (loaderContext, contentObj) => {
+              type: 'modify-module',
+              modifyModule: (moduleObj) => {
                 // eslint-disable-next-line no-param-reassign
-                contentObj.runtime = `${contentObj.runtime}${runtimeCode}\n`;
+                moduleObj.runtime = `${moduleObj.runtime}${runtimeCode}\n`;
 
-                return contentObj;
+                return moduleObj;
               },
             });
 
@@ -155,35 +155,35 @@ export default postcss.plugin(
 
               result.messages.push({
                 pluginName,
-                type: 'modify-code',
-                modifyCode: (loaderContext, contentObj) => {
+                type: 'modify-module',
+                modifyModule: (moduleObj, loaderContext) => {
                   if (!hasURLEscapeRuntimeCode) {
                     // eslint-disable-next-line no-param-reassign
-                    contentObj.imports = `var runtimeEscape = require(${stringifyRequest(
+                    moduleObj.imports = `var runtimeEscape = require(${stringifyRequest(
                       loaderContext,
                       runtimeEscapeFile
-                    )});\n${contentObj.imports}`;
+                    )});\n${moduleObj.imports}`;
 
                     hasURLEscapeRuntimeCode = true;
                   }
 
                   // eslint-disable-next-line no-param-reassign
-                  contentObj.imports = `${
-                    contentObj.imports
+                  moduleObj.imports = `${
+                    moduleObj.imports
                   }var ${placeholder} = require(${stringifyRequest(
                     loaderContext,
                     requestedURL
                   )});\n`;
 
                   // eslint-disable-next-line no-param-reassign
-                  contentObj.module = contentObj.module.replace(
+                  moduleObj.module = moduleObj.module.replace(
                     placeholder,
                     `" + runtimeEscape(${placeholder}) + "${
                       splittedURL[1] ? splittedURL[1] : ''
                     }${splittedURL[2] ? `#${splittedURL[2]}` : ''}`
                   );
 
-                  return contentObj;
+                  return moduleObj;
                 },
               });
 

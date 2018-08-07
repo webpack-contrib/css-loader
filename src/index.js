@@ -123,7 +123,7 @@ export default function loader(content, map, meta) {
         newMap = JSON.stringify(newMap);
       }
 
-      let newContentObj = {
+      let moduleObj = {
         imports: '',
         runtime: `module.exports = exports = require(${stringifyRequest(
           this,
@@ -138,18 +138,18 @@ export default function loader(content, map, meta) {
       if (result.messages && result.messages.length > 0) {
         result.messages
           .filter(
-            (message) => (message.type === 'modify-code' ? message : false)
+            (message) => (message.type === 'modify-module' ? message : false)
           )
           .forEach((message) => {
             try {
-              newContentObj = message.modifyCode(this, newContentObj);
+              moduleObj = message.modifyModule(moduleObj, this);
             } catch (err) {
               this.emitError(err);
             }
           });
       }
 
-      const { imports, runtime, module, exports } = newContentObj;
+      const { imports, runtime, module, exports } = moduleObj;
 
       cb(
         null,
