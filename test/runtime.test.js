@@ -8,7 +8,7 @@ describe('runtime', () => {
 
     m.push([1, 'body { a: 1; }', '']);
 
-    expect(m.toString()).toBe('body { a: 1; }');
+    expect(m.toString()).toMatchSnapshot();
   });
   it('toString with multiple modules', () => {
     const m = runtime();
@@ -16,14 +16,14 @@ describe('runtime', () => {
     m.push([2, 'body { b: 2; }', '']);
     m.push([1, 'body { a: 1; }', '']);
 
-    expect(m.toString()).toBe('body { b: 2; }body { a: 1; }');
+    expect(m.toString()).toMatchSnapshot();
   });
   it('toString with media query', () => {
     const m = runtime();
 
     m.push([1, 'body { a: 1; }', 'screen']);
 
-    expect(m.toString()).toBe('@media screen{body { a: 1; }}');
+    expect(m.toString()).toMatchSnapshot();
   });
   it('should import modules', () => {
     const m = runtime();
@@ -39,9 +39,7 @@ describe('runtime', () => {
     m.i([m1], 'print');
     m.push(m1);
 
-    expect(m.toString()).toBe(
-      'body { b: 2; }body { c: 3; }@media print{body { d: 4; }}.a { color: red; }@media (screen) and (print){body { a: 1; }}@media (screen) and (print){body { a: 1; }}'
-    );
+    expect(m.toString()).toMatchSnapshot();
   });
   it('toString with source mapping', () => {
     const m = runtime(true);
@@ -58,9 +56,7 @@ describe('runtime', () => {
       },
     ]);
 
-    expect(m.toString()).toBe(
-      'body { a: 1; }\n/*# sourceURL=webpack://./path/to/test.scss */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsiLCJzb3VyY2VSb290Ijoid2VicGFjazovLyJ9 */'
-    );
+    expect(m.toString()).toMatchSnapshot();
   });
   it('toString without source mapping if btoa not avalibale', () => {
     global.btoa = null;
@@ -79,6 +75,6 @@ describe('runtime', () => {
       },
     ]);
 
-    expect(m.toString()).toBe('body { a: 1; }');
+    expect(m.toString()).toMatchSnapshot();
   });
 });

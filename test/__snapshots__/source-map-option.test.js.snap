@@ -51,7 +51,7 @@ Array [
       "names": Array [],
       "sourceRoot": "",
       "sources": Array [
-        "<PROJECT_ROOT>/test/fixtures/source-map/basic.css",
+        "/home/evilebottnawi/IdeaProjects/css-loader/test/fixtures/source-map/basic.css",
       ],
       "sourcesContent": Array [
         ".class {
@@ -85,7 +85,7 @@ Array [
       "sourceRoot": "",
       "sources": Array [
         "/folder/test.css",
-        "<PROJECT_ROOT>/test/fixtures/source-map/basic.css",
+        "/home/evilebottnawi/IdeaProjects/css-loader/test/fixtures/source-map/basic.css",
       ],
       "sourcesContent": Array [
         ".class { a: b c d; }",
@@ -120,7 +120,7 @@ Array [
       "sourceRoot": "",
       "sources": Array [
         "/folder/test.css",
-        "<PROJECT_ROOT>/test/fixtures/source-map/basic.css",
+        "/home/evilebottnawi/IdeaProjects/css-loader/test/fixtures/source-map/basic.css",
       ],
       "sourcesContent": Array [
         ".class { a: b c d; }",

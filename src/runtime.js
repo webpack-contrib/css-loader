@@ -19,8 +19,8 @@ module.exports = function(useSourceMap) {
 
   // import a list of modules into the list
   list.i = function(modules, mediaQuery) {
-    if (typeof modules === "string") {
-      modules = [[null, modules, ""]];
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
     }
 
     const isImported = {};
@@ -28,7 +28,7 @@ module.exports = function(useSourceMap) {
     for (let i = 0; i < this.length; i++) {
       const id = this[i][0];
 
-      if (typeof id === "number") {
+      if (typeof id === 'number') {
         isImported[id] = true;
       }
     }
@@ -40,11 +40,11 @@ module.exports = function(useSourceMap) {
       // this implementation is not 100% perfect for weird media query combinations
       // when a module is imported multiple times with different media queries.
       // I hope this will never occur (Hey this way we have smaller bundles)
-      if (typeof item[0] !== "number" || !isImported[item[0]]) {
+      if (typeof item[0] !== 'number' || !isImported[item[0]]) {
         if (mediaQuery && !item[2]) {
           item[2] = mediaQuery;
         } else if (mediaQuery) {
-          item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
         }
 
         list.push(item);
@@ -56,26 +56,26 @@ module.exports = function(useSourceMap) {
 };
 
 function cssWithMappingToString(item, useSourceMap) {
-  const content = item[1] || "";
+  const content = item[1] || '';
   const sourceMap = item[3];
 
   if (!sourceMap) {
     return content;
   }
 
-  if (useSourceMap && typeof btoa === "function") {
+  if (useSourceMap && typeof btoa === 'function') {
     const sourceMapping = toComment(sourceMap);
     const sourceURLs = sourceMap.sources.map(function(source) {
-      return "/*# sourceURL=" + sourceMap.sourceRoot + source + " */";
+      return '/*# sourceURL=' + sourceMap.sourceRoot + source + ' */';
     });
 
     return [content]
       .concat(sourceURLs)
       .concat([sourceMapping])
-      .join("\n");
+      .join('\n');
   }
 
-  return [content].join("\n");
+  return [content].join('\n');
 }
 
 // Adapted from convert-source-map (MIT)
@@ -83,7 +83,7 @@ function toComment(sourceMap) {
   // eslint-disable-next-line no-undef
   const base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
   const data =
-    "sourceMappingURL=data:application/json;charset=utf-8;base64," + base64;
+    'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
-  return "/*# " + data + " */";
+  return '/*# ' + data + ' */';
 }

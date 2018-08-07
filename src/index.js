@@ -162,10 +162,6 @@ export default function loader(content, map, meta) {
       );
     })
     .catch((err) => {
-      if (err.file) {
-        this.addDependency(err.file);
-      }
-
       cb(err.name === 'CssSyntaxError' ? new SyntaxError(err) : err);
     });
 }

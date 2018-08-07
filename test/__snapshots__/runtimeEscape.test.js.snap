@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runtimeEscape escape 1`] = `true`;
+
+exports[`runtimeEscape escape 2`] = `"image.png"`;
+
+exports[`runtimeEscape escape 3`] = `"image.png"`;
+
+exports[`runtimeEscape escape 4`] = `"image.png"`;
+
+exports[`runtimeEscape escape 5`] = `"\\"image other.png\\""`;
+
+exports[`runtimeEscape escape 6`] = `"\\"image other.png\\""`;
+
+exports[`runtimeEscape escape 7`] = `"\\"image other.png\\""`;
+
+exports[`runtimeEscape escape 8`] = `"\\"image\\\\\\"other.png\\""`;
+
+exports[`runtimeEscape escape 9`] = `"\\"image\\\\nother.png\\""`;
