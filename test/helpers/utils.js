@@ -1,7 +1,9 @@
+import stripAnsi from 'strip-ansi';
+
 function normalizeErrors(errors) {
   return errors.map((error) => {
     // eslint-disable-next-line no-param-reassign
-    error.message = error.message
+    error.message = stripAnsi(error.message)
       .replace(/\(from .*?\)/, '(from `replaced original path`)')
       .replace(/at(.*?)\(.*?\)/g, 'at$1(`replaced original path`)');
 
