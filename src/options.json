@@ -14,5 +14,11 @@
       "type": "number"
     }
   },
+  "errorMessages": {
+    "url": "should be {Boolean} (https://github.com/webpack-contrib/css-loader#url)",
+    "import": "should be {Boolean} (https://github.com/webpack-contrib/css-loader#import)",
+    "sourceMap": "should be {Boolean} (https://github.com/webpack-contrib/css-loader#sourcemap)",
+    "importLoaders": "should be {Number} (https://github.com/webpack-contrib/css-loader#importloaders)"
+  },
   "additionalProperties": false
 }
