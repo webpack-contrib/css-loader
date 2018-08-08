@@ -86,7 +86,7 @@ export default postcss.plugin(
             result.messages.push({
               pluginName,
               type: 'modify-module',
-              modifyModule: (moduleObj) => {
+              modifyModule(moduleObj) {
                 // eslint-disable-next-line no-param-reassign
                 moduleObj.runtime = `${moduleObj.runtime}${runtimeCode}\n`;
 
@@ -145,7 +145,7 @@ export default postcss.plugin(
               const [normalizedURL] = splittedURL;
 
               const requestedURL = urlToRequest(normalizedURL);
-              const placeholder = `___CSS_LOADER_IMPORT_URL_PLACEHOLDER___${index}___`;
+              const placeholder = `CSS___IMPORT_URL___${index}`;
 
               urlNode.value = placeholder;
               // Strip quotes, they will be re-added if the module needs them
@@ -156,7 +156,7 @@ export default postcss.plugin(
               result.messages.push({
                 pluginName,
                 type: 'modify-module',
-                modifyModule: (moduleObj, loaderContext) => {
+                modifyModule(moduleObj, loaderContext) {
                   if (!hasURLEscapeRuntimeCode) {
                     // eslint-disable-next-line no-param-reassign
                     moduleObj.imports = `var runtimeEscape = require(${stringifyRequest(
