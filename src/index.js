@@ -14,6 +14,7 @@ import postcss from 'postcss';
 
 import schema from './options.json';
 import plugin from './plugin';
+import Warning from './Warning';
 import SyntaxError from './SyntaxError';
 
 let runtimeFile = require.resolve('./runtime');
@@ -94,7 +95,9 @@ export default function loader(content, map, meta) {
   postcss(plugins)
     .process(contentOrAst, postcssOptions)
     .then((result) => {
-      result.warnings().forEach((msg) => this.emitWarning(msg.toString()));
+      result
+        .warnings()
+        .forEach((warning) => this.emitWarning(new Warning(warning)));
 
       if (meta && meta.messages) {
         // eslint-disable-next-line no-param-reassign

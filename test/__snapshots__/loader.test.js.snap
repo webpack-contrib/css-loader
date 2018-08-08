@@ -176,9 +176,9 @@ module.exports = function escape(url) {
 
 exports[`loader basic: warnings 1`] = `Array []`;
 
-exports[`loader empty: errors 1`] = `Array []`;
+exports[`loader empty options: errors 1`] = `Array []`;
 
-exports[`loader empty: module 1`] = `
+exports[`loader empty options: module 1`] = `
 Array [
   Array [
     1,
@@ -188,7 +188,7 @@ Array [
 ]
 `;
 
-exports[`loader empty: warnings 1`] = `Array []`;
+exports[`loader empty options: warnings 1`] = `Array []`;
 
 exports[`loader error when no loader for url assets: errors 1`] = `
 Array [
@@ -199,22 +199,6 @@ You may need an appropriate loader to handle this file type.
 `;
 
 exports[`loader error when no loader for url assets: warnings 1`] = `Array []`;
-
-exports[`loader error when source code is invalid: errors 1`] = `
-Array [
-  [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
-Syntax Error: Unknown word (2:3)
-
-  1 | .some {
-> 2 |   invalid css;
-    |   ^
-  3 | }
-  4 | 
-],
-]
-`;
-
-exports[`loader error when source code is invalid: warnings 1`] = `Array []`;
 
 exports[`loader using together with "postcss-loader" (reuse ast): errors 1`] = `Array []`;
 

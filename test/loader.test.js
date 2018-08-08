@@ -18,18 +18,11 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('empty', async () => {
+  test('empty options', async () => {
     const stats = await webpack('empty.js');
     const [, module] = stats.toJson().modules;
 
     expect(evaluated(module.source)).toMatchSnapshot('module');
-
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
-  });
-
-  test('error when source code is invalid', async () => {
-    const stats = await webpack('broken.js');
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');

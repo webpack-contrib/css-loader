@@ -1,5 +1,7 @@
 import SyntaxError from '../src/SyntaxError';
 
+import webpack from './helpers/compiler';
+
 describe('SyntaxError', () => {
   test('basic', () => {
     expect(new SyntaxError(new Error()).toString()).toMatchSnapshot();
@@ -35,5 +37,12 @@ describe('SyntaxError', () => {
     expect(
       new SyntaxError(errorWithLineAndColumnAndSource).toString()
     ).toMatchSnapshot();
+  });
+
+  test('integration', async () => {
+    const stats = await webpack('broken.js');
+
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 });

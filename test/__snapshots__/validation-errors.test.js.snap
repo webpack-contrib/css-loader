@@ -16,7 +16,7 @@ ValidationError: CSS Loader Invalid Options
 options.import should be boolean
 
     at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
+    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
 ]
 `;
 
@@ -38,7 +38,7 @@ ValidationError: CSS Loader Invalid Options
 options.importLoaders should be number
 
     at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
+    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
 ]
 `;
 
@@ -60,7 +60,7 @@ ValidationError: CSS Loader Invalid Options
 options.sourceMap should be boolean
 
     at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
+    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
 ]
 `;
 
@@ -74,7 +74,7 @@ ValidationError: CSS Loader Invalid Options
 options should NOT have additional properties
 
     at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
+    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
 ]
 `;
 
@@ -96,7 +96,7 @@ ValidationError: CSS Loader Invalid Options
 options.url should be boolean
 
     at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
+    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
 ]
 `;
 

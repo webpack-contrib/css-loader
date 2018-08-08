@@ -1,24 +1,24 @@
 import formatCodeFrame from 'babel-code-frame';
 
 export default class SyntaxError extends Error {
-  constructor(err) {
-    super(err);
+  constructor(error) {
+    super(error);
 
-    this.name = 'Syntax Error';
-    this.message = err.reason ? err.reason : err.message;
+    const { reason, message, line, column, source } = error;
 
-    if (err.line && err.column) {
-      this.message += ` (${err.line}:${err.column})`;
+    this.name = 'SyntaxError';
+    this.message = reason || message;
 
-      if (err.source) {
-        this.message += `\n\n${formatCodeFrame(
-          err.source,
-          err.line,
-          err.column
-        )}\n`;
+    if (line && column) {
+      this.message += ` (${line}:${column})`;
+
+      if (source) {
+        this.message += `\n\n${formatCodeFrame(source, line, column)}\n`;
       }
     }
 
-    Error.captureStackTrace(this, this.constructor);
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
 }
