@@ -56,8 +56,7 @@ export default function loader(content, map, meta) {
     }
   }
 
-  // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-  let prevMap = sourceMap && map ? map : null;
+  let prevMap = map;
 
   // Some loader emit source map as `{String}`
   if (sourceMap && typeof map === 'string') {
