@@ -42,8 +42,8 @@
     "webpack": "^4.0.0"
   },
   "dependencies": {
-    "loader-utils": "^1.0.2",
-    "postcss": "^7.0.2",
+    "loader-utils": "^1.0.0",
+    "postcss": "^7.0.0",
     "postcss-value-parser": "^3.3.0",
     "schema-utils": "^1.0.0"
   },

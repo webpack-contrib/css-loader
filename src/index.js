@@ -71,26 +71,24 @@ export default function loader(content, map, meta) {
     prevMap.sourceRoot = '';
   }
 
-  const postcssOptions = {
-    // We need a prefix to avoid path rewriting of PostCSS
-    from: `/css-loader!${getRemainingRequest(this)
-      .split('!')
-      .pop()}`,
-    to: getCurrentRequest(this)
-      .split('!')
-      .pop(),
-    map: sourceMap
-      ? {
-          prev: prevMap,
-          sourcesContent: true,
-          inline: false,
-          annotation: false,
-        }
-      : null,
-  };
-
   postcss(plugins)
-    .process(contentOrAst, postcssOptions)
+    .process(contentOrAst, {
+      // We need a prefix to avoid path rewriting of PostCSS
+      from: `/css-loader!${getRemainingRequest(this)
+        .split('!')
+        .pop()}`,
+      to: getCurrentRequest(this)
+        .split('!')
+        .pop(),
+      map: sourceMap
+        ? {
+            prev: prevMap,
+            sourcesContent: true,
+            inline: false,
+            annotation: false,
+          }
+        : null,
+    })
     .then((result) => {
       result
         .warnings()
