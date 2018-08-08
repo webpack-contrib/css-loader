@@ -45,14 +45,13 @@ export default function loader(content, map, meta) {
     }),
   ];
 
-  let contentOrAst = content;
-
   // Reuse CSS AST (PostCSS AST e.g 'postcss-loader') to avoid reparsing
   if (meta) {
     const { ast } = meta;
 
     if (ast && ast.type === 'postcss') {
-      contentOrAst = ast.root;
+      // eslint-disable-next-line no-param-reassign
+      content = ast.root;
     }
   }
 
@@ -71,7 +70,7 @@ export default function loader(content, map, meta) {
   }
 
   postcss(plugins)
-    .process(contentOrAst, {
+    .process(content, {
       // We need a prefix to avoid path rewriting of PostCSS
       from: `/css-loader!${getRemainingRequest(this)
         .split('!')
