@@ -1,37 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SyntaxError basic 1`] = `"SyntaxError"`;
-
-exports[`SyntaxError basic 2`] = `"SyntaxError: message"`;
-
-exports[`SyntaxError basic 3`] = `"SyntaxError: message"`;
-
-exports[`SyntaxError basic 4`] = `"SyntaxError: message"`;
-
-exports[`SyntaxError basic 5`] = `"SyntaxError: reason"`;
-
-exports[`SyntaxError basic 6`] = `"SyntaxError: message (1:1)"`;
-
-exports[`SyntaxError basic 7`] = `
-"SyntaxError: message (1:1)
-
-> 1 | .class { invalid }
-    | ^
-"
-`;
-
-exports[`SyntaxError integration: errors 1`] = `
+exports[`SyntaxError basic: errors 1`] = `
 Array [
   [ModuleBuildError: Module build failed (from \`replaced original path\`):
-SyntaxError: Unknown word (2:3)
+Unknown word (2:3)
 
-  1 | .some {
-> 2 |   invalid css;
-    |   ^
-  3 | }
-  4 | 
+ [90m 1 | [39m[33m.some[39m [33m{[39m
+[31m[1m>[22m[39m[90m 2 | [39m  invalid css[33m;[39m
+ [90m   | [39m  [31m[1m^[22m[39m
+ [90m 3 | [39m[33m}[39m
+ [90m 4 | [39m
 ],
 ]
 `;
 
-exports[`SyntaxError integration: warnings 1`] = `Array []`;
+exports[`SyntaxError basic: warnings 1`] = `Array []`;

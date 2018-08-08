@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-// CSS (Loader) Runtime
+// CSS Loader (Runtime)
 module.exports = function(useSourceMap) {
   const list = [];
 
