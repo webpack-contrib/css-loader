@@ -19,7 +19,10 @@ A loader for webpack which transforms CSS files into JS module.
 The `css-loader` interprets `@import` and `url()` like `import/require()` and will resolve them.
 
 Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader)
-and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see [below](https://github.com/webpack-contrib/css-loader#assets)).
+and the [url-loader](https://github.com/webpack/url-loader) which you should specify 
+in your config (see [below](https://github.com/webpack-contrib/css-loader#assets)).
+
+> ⚠️ **CSS Module users should continue using `v1.0.0` in the meantime**
 
 ## Requirements
 
@@ -256,9 +259,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          // fallback to style-loader in development
+          process.env.NODE_ENV !== 'production' 
+            ? 'style-loader' 
+            : MiniCssExtractPlugin.loader,
           'css-loader',
         ],
       },
