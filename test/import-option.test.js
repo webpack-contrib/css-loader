@@ -1,5 +1,6 @@
 import webpack from './helpers/compiler';
 import evaluated from './helpers/evaluated';
+import { normalizeErrors } from './helpers/utils';
 
 describe('import', () => {
   describe('true', () => {
@@ -252,8 +253,12 @@ describe('import', () => {
     test('invalid', async () => {
       const stats = await webpack('import/invalid.css');
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+        'warnings'
+      );
+      expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot(
+        'errors'
+      );
     });
   });
 

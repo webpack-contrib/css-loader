@@ -17,8 +17,6 @@ export default class SyntaxError extends Error {
       }
     }
 
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, this.constructor);
-    }
+    Error.captureStackTrace(this, this.constructor);
   }
 }

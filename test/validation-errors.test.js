@@ -1,5 +1,7 @@
 import webpack from './helpers/compiler';
 
+import { normalizeErrors } from './helpers/utils';
+
 describe('Validation Errors', () => {
   test('unknown option', async () => {
     const config = {
@@ -11,8 +13,10 @@ describe('Validation Errors', () => {
     };
     const stats = await webpack('basic.js', config);
 
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
   test('url - true (boolean)', async () => {
@@ -53,8 +57,10 @@ describe('Validation Errors', () => {
     };
     const stats = await webpack('basic.js', config);
 
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
   test('import - true (boolean)', async () => {
@@ -95,8 +101,10 @@ describe('Validation Errors', () => {
     };
     const stats = await webpack('basic.js', config);
 
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
   test('sourceMap - true (boolean)', async () => {
@@ -137,8 +145,10 @@ describe('Validation Errors', () => {
     };
     const stats = await webpack('basic.js', config);
 
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
   test('importLoaders - 0 (number)', async () => {
@@ -179,7 +189,9 @@ describe('Validation Errors', () => {
     };
     const stats = await webpack('basic.js', config);
 
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 });

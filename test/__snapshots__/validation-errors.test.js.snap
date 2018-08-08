@@ -10,13 +10,13 @@ exports[`Validation Errors import - true (boolean): warnings 1`] = `Array []`;
 
 exports[`Validation Errors import - true (string): errors 1`] = `
 Array [
-  [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
+  [ModuleBuildError: Module build failed (from \`replaced original path\`):
 ValidationError: CSS Loader Invalid Options
 
 options.import should be boolean
 
-    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
+    at validateOptions (\`replaced original path\`)
+    at Object.loader (\`replaced original path\`)],
 ]
 `;
 
@@ -32,13 +32,13 @@ exports[`Validation Errors importLoaders - 1 (number): warnings 1`] = `Array []`
 
 exports[`Validation Errors importLoaders - 1 (string): errors 1`] = `
 Array [
-  [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
+  [ModuleBuildError: Module build failed (from \`replaced original path\`):
 ValidationError: CSS Loader Invalid Options
 
 options.importLoaders should be number
 
-    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
+    at validateOptions (\`replaced original path\`)
+    at Object.loader (\`replaced original path\`)],
 ]
 `;
 
@@ -54,13 +54,13 @@ exports[`Validation Errors sourceMap - true (boolean): warnings 1`] = `Array []`
 
 exports[`Validation Errors sourceMap - true (string): errors 1`] = `
 Array [
-  [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
+  [ModuleBuildError: Module build failed (from \`replaced original path\`):
 ValidationError: CSS Loader Invalid Options
 
 options.sourceMap should be boolean
 
-    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
+    at validateOptions (\`replaced original path\`)
+    at Object.loader (\`replaced original path\`)],
 ]
 `;
 
@@ -68,13 +68,13 @@ exports[`Validation Errors sourceMap - true (string): warnings 1`] = `Array []`;
 
 exports[`Validation Errors unknown option: errors 1`] = `
 Array [
-  [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
+  [ModuleBuildError: Module build failed (from \`replaced original path\`):
 ValidationError: CSS Loader Invalid Options
 
 options should NOT have additional properties
 
-    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
+    at validateOptions (\`replaced original path\`)
+    at Object.loader (\`replaced original path\`)],
 ]
 `;
 
@@ -90,13 +90,13 @@ exports[`Validation Errors url - true (boolean): warnings 1`] = `Array []`;
 
 exports[`Validation Errors url - true (string): errors 1`] = `
 Array [
-  [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
+  [ModuleBuildError: Module build failed (from \`replaced original path\`):
 ValidationError: CSS Loader Invalid Options
 
 options.url should be boolean
 
-    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
-    at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:30:3)],
+    at validateOptions (\`replaced original path\`)
+    at Object.loader (\`replaced original path\`)],
 ]
 `;
 

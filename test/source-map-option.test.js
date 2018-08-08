@@ -2,6 +2,7 @@ import path from 'path';
 
 import webpack from './helpers/compiler';
 import evaluated from './helpers/evaluated';
+import { normalizeModule } from './helpers/utils';
 
 describe('sourceMap', () => {
   const generateRulesWithSourceMap = (enableSourceMap, sourceMap) => {
@@ -40,9 +41,9 @@ describe('sourceMap', () => {
       const stats = await webpack('source-map/basic.css', config);
       const { modules } = stats.toJson();
 
-      expect(evaluated(modules[modules.length - 1].source)).toMatchSnapshot(
-        'module'
-      );
+      expect(
+        normalizeModule(evaluated(modules[modules.length - 1].source))
+      ).toMatchSnapshot('module');
 
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -61,9 +62,9 @@ describe('sourceMap', () => {
       const stats = await webpack('source-map/basic.css', config);
       const { modules } = stats.toJson();
 
-      expect(evaluated(modules[modules.length - 1].source)).toMatchSnapshot(
-        'module'
-      );
+      expect(
+        normalizeModule(evaluated(modules[modules.length - 1].source))
+      ).toMatchSnapshot('module');
 
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -85,9 +86,9 @@ describe('sourceMap', () => {
       const stats = await webpack('source-map/basic.css', config);
       const { modules } = stats.toJson();
 
-      expect(evaluated(modules[modules.length - 1].source)).toMatchSnapshot(
-        'module'
-      );
+      expect(
+        normalizeModule(evaluated(modules[modules.length - 1].source))
+      ).toMatchSnapshot('module');
 
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');

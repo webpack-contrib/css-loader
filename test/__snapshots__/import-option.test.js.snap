@@ -224,8 +224,8 @@ exports[`import true from modules: warnings 1`] = `Array []`;
 
 exports[`import true invalid: errors 1`] = `
 Array [
-  [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
-SyntaxError: Unexpected format  (1:1)
+  [ModuleBuildError: Module build failed (from \`replaced original path\`):
+SyntaxError: Unexpected format  (\`replaced original path\`)
 
 > 1 | @import;
     | ^
