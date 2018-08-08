@@ -36,23 +36,14 @@ export default function loader(content, map, meta) {
     options
   );
 
-  let prevMap = map;
-
-  if (sourceMap && prevMap) {
-    if (typeof prevMap === 'string') {
-      prevMap = JSON.parse(prevMap);
-    }
-
-    if (prevMap.sources) {
-      prevMap.sources = prevMap.sources.map((source) =>
-        source.replace(/\\/g, '/')
-      );
-      prevMap.sourceRoot = '';
-    }
-  } else {
-    // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-    prevMap = null;
-  }
+  const plugins = [
+    plugin({
+      loaderContext: this,
+      url,
+      import: importOpt,
+      importLoaders,
+    }),
+  ];
 
   let contentOrAst = content;
 
@@ -65,14 +56,20 @@ export default function loader(content, map, meta) {
     }
   }
 
-  const plugins = [
-    plugin({
-      loaderContext: this,
-      url,
-      import: importOpt,
-      importLoaders,
-    }),
-  ];
+  // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
+  let prevMap = sourceMap && map ? map : null;
+
+  // Some loader emit source map as `{String}`
+  if (sourceMap && typeof map === 'string') {
+    prevMap = JSON.parse(map);
+  }
+
+  if (sourceMap && prevMap) {
+    prevMap.sources = prevMap.sources.map((source) =>
+      source.replace(/\\/g, '/')
+    );
+    prevMap.sourceRoot = '';
+  }
 
   const postcssOptions = {
     // We need a prefix to avoid path rewriting of PostCSS
@@ -108,17 +105,13 @@ export default function loader(content, map, meta) {
 
       if (sourceMap && newMap) {
         newMap = newMap.toJSON();
-
-        if (newMap.sources) {
-          newMap.sources = newMap.sources.map((source) =>
-            source
-              .split('!')
-              .pop()
-              .replace(/\\/g, '/')
-          );
-          newMap.sourceRoot = '';
-        }
-
+        newMap.sources = newMap.sources.map((source) =>
+          source
+            .split('!')
+            .pop()
+            .replace(/\\/g, '/')
+        );
+        newMap.sourceRoot = '';
         newMap.file = newMap.file
           .split('!')
           .pop()
@@ -140,12 +133,10 @@ export default function loader(content, map, meta) {
 
       if (result.messages && result.messages.length > 0) {
         result.messages
-          .filter(
-            (message) => (message.type === 'modify-module' ? message : false)
-          )
+          .filter((message) => (message.type === 'module' ? message : false))
           .forEach((message) => {
             try {
-              moduleObj = message.modifyModule(moduleObj, this);
+              moduleObj = message.modify(moduleObj, this);
             } catch (err) {
               this.emitError(err);
             }

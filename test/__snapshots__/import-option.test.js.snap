@@ -225,7 +225,9 @@ exports[`import true from modules: warnings 1`] = `Array []`;
 exports[`import true invalid: errors 1`] = `
 Array [
   [ModuleBuildError: Module build failed (from \`replaced original path\`):
-Unexpected format  (\`replaced original path\`)
+SyntaxError
+
+(1:1) Unexpected format 
 
 [31m[1m>[22m[39m[90m 1 | [39m[36m@import[39m[33m;[39m
  [90m   | [39m[31m[1m^[22m[39m

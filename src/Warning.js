@@ -2,10 +2,20 @@ export default class Warning extends Error {
   constructor(warning) {
     super(warning);
 
-    this.name = 'Warning';
-    this.message = warning.toString();
+    const { text, line, column } = warning;
 
-    // We don't need stack https://github.com/postcss/postcss/blob/ebaa53640657fb028803d624395ea76a8df11cbe/docs/guidelines/runner.md#31-dont-show-js-stack-for-csssyntaxerror
+    this.name = 'Warning';
+    // Based on https://github.com/postcss/postcss/blob/master/lib/warning.es6#L74
+    // We don't need `plugin` properties.
+    this.message = `${this.name}\n\n`;
+
+    if (typeof line !== 'undefined') {
+      this.message += `(${line}:${column}) `;
+    }
+
+    this.message += `${text}`;
+
+    // We don't need stack https://github.com/postcss/postcss/blob/master/docs/guidelines/runner.md#31-dont-show-js-stack-for-csssyntaxerror
     this.stack = false;
   }
 }

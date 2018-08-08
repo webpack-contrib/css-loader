@@ -4,7 +4,7 @@
 module.exports = function(useSourceMap) {
   const list = [];
 
-  // return the list of modules as css string
+  // Return the list of modules as css string
   list.toString = function toString() {
     return this.map(function(item) {
       const content = cssWithMappingToString(item, useSourceMap);
@@ -17,7 +17,7 @@ module.exports = function(useSourceMap) {
     }).join('');
   };
 
-  // import a list of modules into the list
+  // Import a list of modules into the list
   list.i = function(modules, mediaQuery) {
     if (typeof modules === 'string') {
       modules = [[null, modules, '']];
@@ -36,10 +36,10 @@ module.exports = function(useSourceMap) {
     for (let i = 0; i < modules.length; i++) {
       const item = modules[i];
 
-      // skip already imported module
-      // this implementation is not 100% perfect for weird media query combinations
+      // Skip already imported module.
+      // This implementation is not 100% perfect for weird media query combinations
       // when a module is imported multiple times with different media queries.
-      // I hope this will never occur (Hey this way we have smaller bundles)
+      // I hope this will never occur (Hey this way we have smaller bundles).
       if (typeof item[0] !== 'number' || !isImported[item[0]]) {
         if (mediaQuery && !item[2]) {
           item[2] = mediaQuery;

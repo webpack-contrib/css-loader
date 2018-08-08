@@ -85,8 +85,8 @@ export default postcss.plugin(
           if (!alreadyImported[url]) {
             result.messages.push({
               pluginName,
-              type: 'modify-module',
-              modifyModule(moduleObj) {
+              type: 'module',
+              modify(moduleObj) {
                 // eslint-disable-next-line no-param-reassign
                 moduleObj.runtime = `${moduleObj.runtime}${runtimeCode}\n`;
 
@@ -155,8 +155,8 @@ export default postcss.plugin(
 
               result.messages.push({
                 pluginName,
-                type: 'modify-module',
-                modifyModule(moduleObj, loaderContext) {
+                type: 'module',
+                modify(moduleObj, loaderContext) {
                   if (!hasURLEscapeRuntimeCode) {
                     // eslint-disable-next-line no-param-reassign
                     moduleObj.imports = `var runtimeEscape = require(${stringifyRequest(

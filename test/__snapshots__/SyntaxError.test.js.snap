@@ -3,7 +3,9 @@
 exports[`SyntaxError basic: errors 1`] = `
 Array [
   [ModuleBuildError: Module build failed (from \`replaced original path\`):
-Unknown word (2:3)
+SyntaxError
+
+(2:3) Unknown word
 
  [90m 1 | [39m[33m.some[39m [33m{[39m
 [31m[1m>[22m[39m[90m 2 | [39m  invalid css[33m;[39m

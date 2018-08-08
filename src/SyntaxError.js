@@ -5,11 +5,16 @@ export default class SyntaxError extends Error {
     const { reason, line, column } = error;
 
     this.name = 'SyntaxError';
-    this.message = reason;
 
-    if (line && column) {
-      this.message += ` (${line}:${column})`;
+    // Based on https://github.com/postcss/postcss/blob/master/lib/css-syntax-error.es6#L132
+    // We don't need `plugin` and `file` properties.
+    this.message = `${this.name}\n\n`;
+
+    if (typeof line !== 'undefined') {
+      this.message += `(${line}:${column}) `;
     }
+
+    this.message += `${reason}`;
 
     const code = error.showSourceCode();
 
@@ -17,7 +22,7 @@ export default class SyntaxError extends Error {
       this.message += `\n\n${code}\n`;
     }
 
-    // We don't need stack https://github.com/postcss/postcss/blob/ebaa53640657fb028803d624395ea76a8df11cbe/docs/guidelines/runner.md#31-dont-show-js-stack-for-csssyntaxerror
+    // We don't need stack https://github.com/postcss/postcss/blob/master/docs/guidelines/runner.md#31-dont-show-js-stack-for-csssyntaxerror
     this.stack = false;
   }
 }
