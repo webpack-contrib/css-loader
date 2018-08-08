@@ -46,7 +46,7 @@
     "loader-utils": "^1.0.2",
     "postcss": "^7.0.2",
     "postcss-value-parser": "^3.3.0",
-    "@webpack-contrib/schema-utils": "^1.0.0-beta.0"
+    "schema-utils": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",

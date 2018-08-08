@@ -11,16 +11,11 @@ exports[`Validation Errors import - true (boolean): warnings 1`] = `Array []`;
 exports[`Validation Errors import - true (string): errors 1`] = `
 Array [
   [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
-CSS Loader
+ValidationError: CSS Loader Invalid Options
 
-  [4mOptions Validation Error[24m
+options.import should be boolean
 
-  [2moptions[22m.import  [34mshould be boolean[39m
-
-
-  [2moptions[22m.import  [34mshould be boolean[39m
-    at validate (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:87:15)
-    at validator (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:118:10)
+    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
     at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
 ]
 `;
@@ -38,16 +33,11 @@ exports[`Validation Errors importLoaders - 1 (number): warnings 1`] = `Array []`
 exports[`Validation Errors importLoaders - 1 (string): errors 1`] = `
 Array [
   [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
-CSS Loader
+ValidationError: CSS Loader Invalid Options
 
-  [4mOptions Validation Error[24m
+options.importLoaders should be number
 
-  [2moptions[22m.importLoaders  [34mshould be number[39m
-
-
-  [2moptions[22m.importLoaders  [34mshould be number[39m
-    at validate (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:87:15)
-    at validator (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:118:10)
+    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
     at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
 ]
 `;
@@ -65,16 +55,11 @@ exports[`Validation Errors sourceMap - true (boolean): warnings 1`] = `Array []`
 exports[`Validation Errors sourceMap - true (string): errors 1`] = `
 Array [
   [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
-CSS Loader
+ValidationError: CSS Loader Invalid Options
 
-  [4mOptions Validation Error[24m
+options.sourceMap should be boolean
 
-  [2moptions[22m.sourceMap  [34mshould be boolean[39m
-
-
-  [2moptions[22m.sourceMap  [34mshould be boolean[39m
-    at validate (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:87:15)
-    at validator (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:118:10)
+    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
     at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
 ]
 `;
@@ -84,16 +69,11 @@ exports[`Validation Errors sourceMap - true (string): warnings 1`] = `Array []`;
 exports[`Validation Errors unknown option: errors 1`] = `
 Array [
   [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
-CSS Loader
+ValidationError: CSS Loader Invalid Options
 
-  [4mOptions Validation Error[24m
+options should NOT have additional properties
 
-  [2moptions[22m['unknow']  [34mis an invalid additional property[39m
-
-
-  [2moptions[22m['unknow']  [34mis an invalid additional property[39m
-    at validate (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:87:15)
-    at validator (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:118:10)
+    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
     at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
 ]
 `;
@@ -111,16 +91,11 @@ exports[`Validation Errors url - true (boolean): warnings 1`] = `Array []`;
 exports[`Validation Errors url - true (string): errors 1`] = `
 Array [
   [ModuleBuildError: Module build failed (from /home/evilebottnawi/IdeaProjects/css-loader/src/index.js):
-CSS Loader
+ValidationError: CSS Loader Invalid Options
 
-  [4mOptions Validation Error[24m
+options.url should be boolean
 
-  [2moptions[22m.url  [34mshould be boolean[39m
-
-
-  [2moptions[22m.url  [34mshould be boolean[39m
-    at validate (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:87:15)
-    at validator (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/@webpack-contrib/schema-utils/dist/validate-options.js:118:10)
+    at validateOptions (/home/evilebottnawi/IdeaProjects/css-loader/node_modules/schema-utils/src/validateOptions.js:32:11)
     at Object.loader (/home/evilebottnawi/IdeaProjects/css-loader/src/index.js:29:3)],
 ]
 `;

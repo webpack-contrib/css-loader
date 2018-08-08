@@ -3,7 +3,7 @@
   Author Tobias Koppers @sokra
 */
 
-import validate from '@webpack-contrib/schema-utils';
+import validate from 'schema-utils';
 import {
   getOptions,
   getRemainingRequest,
@@ -26,7 +26,7 @@ try {
 export default function loader(content, map, meta) {
   const options = getOptions(this) || {};
 
-  validate({ name: 'CSS Loader', schema, target: options });
+  validate(schema, options, 'CSS Loader');
 
   const cb = this.async();
   const { url, import: importOpt, sourceMap, importLoaders } = Object.assign(
