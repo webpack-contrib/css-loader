@@ -11,6 +11,7 @@ import {
   stringifyRequest,
 } from 'loader-utils';
 import postcss from 'postcss';
+import postcssPkg from 'postcss/package.json';
 
 import schema from './options.json';
 import plugin from './plugin';
@@ -49,7 +50,7 @@ export default function loader(content, map, meta) {
   if (meta) {
     const { ast } = meta;
 
-    if (ast && ast.type === 'postcss') {
+    if (ast && ast.type === 'postcss' && ast.version === postcssPkg.version) {
       // eslint-disable-next-line no-param-reassign
       content = ast.root;
     }
