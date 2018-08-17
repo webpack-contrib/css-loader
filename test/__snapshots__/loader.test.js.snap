@@ -1,5 +1,196 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`loader basic (css endpoint): errors 1`] = `Array []`;
+
+exports[`loader basic (css endpoint): module 1`] = `
+Array [
+  Array [
+    1,
+    "@charset \\"UTF-8\\";
+
+.class {
+  color: red;
+  background: url({./url/img.png});
+}
+
+.u-m\\\\+ {
+  a: b c d;
+}
+
+.grid.\\\\-top {
+  a: b c d;
+}
+
+.u-m\\\\00002b {
+  a: b c d;
+}
+
+.class {
+  content: '\\"\\\\\\\\f10c\\"';
+}
+
+.class {
+  font-family: '微软雅黑';
+}
+
+.class {
+  content: '\\\\e901';
+}
+
+.class {
+  content: \\"\\\\F10C\\"
+}
+
+.class {
+  content: \\"\\\\f10C\\"
+}
+
+.class {
+  content: \\"\\\\F10C \\\\F10D\\"
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader basic (css endpoint): runtime 1`] = `
+"'use strict';
+
+/* eslint-disable */
+
+// CSS Loader (Runtime)
+module.exports = function (useSourceMap) {
+  const list = [];
+
+  // Return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function (item) {
+      const content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return '@media ' + item[2] + '{' + content + '}';
+      }
+
+      return content;
+    }).join('');
+  };
+
+  // Import a list of modules into the list
+  list.i = function (modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
+    }
+
+    const isImported = {};
+
+    for (let i = 0; i < this.length; i++) {
+      const id = this[i][0];
+
+      if (typeof id === 'number') {
+        isImported[id] = true;
+      }
+    }
+
+    for (let i = 0; i < modules.length; i++) {
+      const item = modules[i];
+
+      // Skip already imported module.
+      // This implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles).
+      if (typeof item[0] !== 'number' || !isImported[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+        }
+
+        list.push(item);
+      }
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  const content = item[1] || '';
+  const sourceMap = item[3];
+
+  if (!sourceMap) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    const sourceMapping = toComment(sourceMap);
+    const sourceURLs = sourceMap.sources.map(function (source) {
+      return '/*# sourceURL=' + sourceMap.sourceRoot + source + ' */';
+    });
+
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\\\\n');
+  }
+
+  return [content].join('\\\\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  const base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  const data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+  return '/*# ' + data + ' */';
+}"
+`;
+
+exports[`loader basic (css endpoint): runtimeEscape 1`] = `
+"'use strict';
+
+/* eslint-disable */
+
+module.exports = function escape(url) {
+  if (typeof url !== 'string') {
+    return url;
+  }
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['\\"].*['\\"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+    return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
+  }
+
+  return url;
+};"
+`;
+
+exports[`loader basic (css endpoint): warnings 1`] = `Array []`;
+
 exports[`loader basic: errors 1`] = `Array []`;
 
 exports[`loader basic: module 1`] = `

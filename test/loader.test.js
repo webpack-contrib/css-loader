@@ -18,8 +18,20 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
+  test('basic (css endpoint)', async () => {
+    const stats = await webpack('basic.css');
+    const [runtime, runtimeEscape, module] = stats.toJson().modules;
+
+    expect(runtime.source).toMatchSnapshot('runtime');
+    expect(runtimeEscape.source).toMatchSnapshot('runtimeEscape');
+    expect(evaluated(module.source)).toMatchSnapshot('module');
+
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
   test('empty options', async () => {
-    const stats = await webpack('empty.js');
+    const stats = await webpack('empty.css');
     const [, module] = stats.toJson().modules;
 
     expect(evaluated(module.source)).toMatchSnapshot('module');
@@ -39,7 +51,7 @@ describe('loader', () => {
         },
       ],
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -78,7 +90,4 @@ describe('loader', () => {
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
-
-  // Todo message api test
-  // Todo test warnings
 });

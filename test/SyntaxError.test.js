@@ -3,7 +3,7 @@ import { normalizeErrors } from './helpers/utils';
 
 describe('SyntaxError', () => {
   test('basic', async () => {
-    const stats = await webpack('broken.js');
+    const stats = await webpack('broken.css');
 
     expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
       'warnings'
