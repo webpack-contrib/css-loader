@@ -172,6 +172,9 @@ describe("url", function() {
 	test("font face with url", "@font-face { src: url(regular.woff) format('woff'), url(~truetype/regular.ttf) format('truetype') }", [
 		[1, "@font-face { src: url(regular.woff) format('woff'), url(~truetype/regular.ttf) format('truetype') }", ""]
 	], "?-url");
+	test("font face with url", '@font-face { src: url("bold regular.woff?#iefix") format("woff") }', [
+		[1, '@font-face { src: url("{./bold regular.woff}?#iefix") format("woff") }', ""]
+	], "", { './module': "data:font/ttf;base64,AAEAAAATAQAABAAwR1BPU+Df" });
 	test("font face with url", "@font-face { src: url(Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix) format('embedded-opentype'), url(~opentype/Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix) format('embedded-opentype') }", [
 		[1, "@font-face { src: url(Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix) format('embedded-opentype'), url(~opentype/Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix) format('embedded-opentype') }", ""]
 	], "?-url");
