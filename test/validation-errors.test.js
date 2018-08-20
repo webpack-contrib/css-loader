@@ -11,7 +11,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
       'warnings'
@@ -27,7 +27,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -41,7 +41,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -55,7 +55,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
       'warnings'
@@ -71,7 +71,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -85,7 +85,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -99,7 +99,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
       'warnings'
@@ -115,7 +115,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -129,7 +129,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -143,7 +143,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
       'warnings'
@@ -159,7 +159,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -173,7 +173,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -187,7 +187,7 @@ describe('Validation Errors', () => {
         },
       },
     };
-    const stats = await webpack('basic.js', config);
+    const stats = await webpack('basic.css', config);
 
     expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
       'warnings'

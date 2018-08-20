@@ -1,6 +1,0 @@
-@import url(http://example.com/style.css);
-@import url("//example.com/style.css");
-
-.class {
-  a: b c d;
-}

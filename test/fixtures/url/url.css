@@ -2,6 +2,10 @@
   background: url("img.png");
 }
 
+.class-hash {
+  background: url("img.png#hash");
+}
+
 .class {
   background: url(
     "img.png"
@@ -167,4 +171,12 @@
 
 .class {
   background: url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png);
+}
+
+.foo {
+  color: red;
+}
+
+.imported-css {
+  background: url(./url-imported.css);
 }

@@ -1,4 +1,5 @@
 import stripAnsi from 'strip-ansi';
+import postcss from 'postcss';
 
 function normalizeErrors(errors) {
   return errors.map((error) => {
@@ -22,4 +23,13 @@ function normalizeModule(module) {
   });
 }
 
-module.exports = { normalizeErrors, normalizeModule };
+function runPostcss(input, plugins) {
+  return (
+    postcss(plugins)
+      // eslint-disable-next-line no-undefined
+      .process(input, { from: undefined })
+      .then((result) => result)
+  );
+}
+
+module.exports = { normalizeErrors, normalizeModule, runPostcss };

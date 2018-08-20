@@ -1,0 +1,56 @@
+:import('test.css'){
+}
+
+:import('test-media.css' screen and print){
+}
+
+:import('http://example.com/style.css'){
+}
+
+:import('http://example.com/other-style.css' screen and print){
+}
+
+:import("other-test.css"){
+}
+
+:import() {
+}
+
+:import('duplicate.css'){
+}
+
+:import('duplicate.css'){
+  foo: bar;
+}
+
+:import('duplicate.css'){
+  bar: foo;
+}
+
+:import('duplicate.css'){
+  color: green;
+}
+
+:import("other-test.css"){
+  key: value;
+  other-key: other-value;
+}
+
+.foo {
+  color: red;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+:export() {
+  foo: bar
+}
+
+:export {
+  foo: bar;
+  bar: foo;
+}

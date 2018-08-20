@@ -1,108 +1,108 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-import { isUrlRequest, urlToRequest, stringifyRequest } from 'loader-utils';
+import { isUrlRequest } from 'loader-utils';
 
-const pluginName = 'postcss-css-loader-url';
-const runtimeEscape = require.resolve('../runtime/escape');
+import utils from './utils';
+
+const pluginName = 'postcss-css-loader-icss-url';
+
+const walkUrls = (parsed, callback) => {
+  parsed.walk((node) => {
+    if (node.type !== 'function' || node.value.toLowerCase() !== 'url') {
+      return;
+    }
+
+    const content =
+      node.nodes.length !== 0 && node.nodes[0].type === 'string'
+        ? node.nodes[0].value
+        : valueParser.stringify(node.nodes);
+
+    if (content.trim().replace(/\\[\r\n]/g, '').length !== 0) {
+      callback(node, content);
+    }
+
+    // Do not traverse inside url
+    // eslint-disable-next-line consistent-return
+    return false;
+  });
+};
+
+const filterUrls = (parsed, filter) => {
+  const result = [];
+
+  walkUrls(parsed, (node, content) => {
+    if (!filter(content)) {
+      return;
+    }
+
+    result.push(content);
+  });
+
+  return result;
+};
+
+const walkDeclsWithUrl = (css, filter) => {
+  const result = [];
+
+  css.walkDecls((decl) => {
+    if (!/url\(/i.test(decl.value)) {
+      return;
+    }
+
+    const parsed = valueParser(decl.value);
+    const values = filterUrls(parsed, filter);
+
+    if (values.length === 0) {
+      return;
+    }
+
+    result.push({
+      decl,
+      parsed,
+      values,
+    });
+  });
+
+  return result;
+};
+
+const flatten = (array) => array.reduce((acc, d) => [...acc, ...d], []);
+
+const uniq = (array) =>
+  array.reduce((acc, d) => (acc.indexOf(d) === -1 ? [...acc, d] : acc), []);
+
+const mapUrls = (parsed, map) => {
+  walkUrls(parsed, (node, content) => {
+    // eslint-disable-next-line no-param-reassign
+    node.nodes = [{ type: 'word', value: map(content) }];
+  });
+};
 
 export default postcss.plugin(
   pluginName,
   () =>
-    function process(css, result) {
-      let index = 0;
+    function process(css) {
+      const traversed = walkDeclsWithUrl(css, (value) => isUrlRequest(value));
+      const paths = uniq(flatten(traversed.map((item) => item.values)));
+      const imports = {};
+      const aliases = {};
 
-      css.walkDecls((decl) => {
-        if (!/url\(/i.test(decl.value)) {
-          return decl;
-        }
+      paths.forEach((path, index) => {
+        const alias = `__url__${index}__`;
 
-        const parsedValue = valueParser(decl.value);
+        imports[`'${path}'`] = {
+          [alias]: 'default',
+        };
+        aliases[path] = alias;
+      });
+
+      traversed.forEach((item) => {
+        mapUrls(item.parsed, (value) => aliases[value]);
 
         // eslint-disable-next-line no-param-reassign
-        decl.value = parsedValue
-          .walk((node) => {
-            if (
-              node.type !== 'function' ||
-              node.value.toLowerCase() !== 'url' ||
-              node.nodes.length === 0
-            ) {
-              return;
-            }
-
-            const [urlNode] = node.nodes;
-            const url = urlNode.value.trim().replace(/\\[\r\n]/g, '');
-
-            // Skip empty URLs
-            // Empty URL function equals request to current stylesheet where it is declared
-            if (url.length === 0) {
-              return;
-            }
-
-            if (!isUrlRequest(url)) {
-              return;
-            }
-
-            // Remove spaces before and after
-            // eslint-disable-next-line no-param-reassign
-            node.before = '';
-            // eslint-disable-next-line no-param-reassign
-            node.after = '';
-
-            const splittedURL = url.split(/(\?)?#/);
-            const [normalizedURL] = splittedURL;
-
-            const requestedURL = urlToRequest(normalizedURL);
-            const placeholder = `CSS___IMPORT_URL___${index}`;
-
-            urlNode.value = placeholder;
-            // Strip quotes, they will be re-added if the module needs them
-            urlNode.quote = '';
-
-            let hasURLEscapeRuntimeCode = false;
-
-            result.messages.push({
-              pluginName,
-              type: 'module',
-              modify(moduleObj, loaderContext) {
-                if (!hasURLEscapeRuntimeCode) {
-                  // eslint-disable-next-line no-param-reassign
-                  moduleObj.imports = `var runtimeEscape = require(${stringifyRequest(
-                    loaderContext,
-                    runtimeEscape
-                  )});\n${moduleObj.imports}`;
-
-                  hasURLEscapeRuntimeCode = true;
-                }
-
-                // eslint-disable-next-line no-param-reassign
-                moduleObj.imports = `${
-                  moduleObj.imports
-                }var ${placeholder} = require(${stringifyRequest(
-                  loaderContext,
-                  requestedURL
-                )});\n`;
-
-                // eslint-disable-next-line no-param-reassign
-                moduleObj.module = moduleObj.module.replace(
-                  placeholder,
-                  `" + runtimeEscape(${placeholder}) + "${
-                    splittedURL[1] ? splittedURL[1] : ''
-                  }${splittedURL[2] ? `#${splittedURL[2]}` : ''}`
-                );
-
-                return moduleObj;
-              },
-            });
-
-            index += 1;
-
-            // Stop walk inside `url` function
-            // eslint-disable-next-line consistent-return
-            return false;
-          })
-          .toString();
-
-        return decl;
+        item.decl.value = item.parsed.toString();
       });
+
+      css.prepend(utils.createICSSImports(imports));
     }
 );

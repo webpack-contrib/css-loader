@@ -5,11 +5,12 @@ describe('url', () => {
   test('true', async () => {
     const stats = await webpack('url/url.css');
     const { modules } = stats.toJson();
+    const [, , , , , , , , , , , , , module] = modules;
 
-    expect(evaluated(modules[modules.length - 1].source)).toMatchSnapshot(
-      'module'
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
     );
-
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
@@ -24,11 +25,12 @@ describe('url', () => {
     };
     const stats = await webpack('url/url.css', config);
     const { modules } = stats.toJson();
+    const [, module] = modules;
 
-    expect(evaluated(modules[modules.length - 1].source)).toMatchSnapshot(
-      'module'
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
     );
-
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });

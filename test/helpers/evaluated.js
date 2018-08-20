@@ -6,7 +6,7 @@ function evaluated(output, modules, moduleId = 1) {
 
   try {
     const fn = vm.runInThisContext(
-      `(function(module, exports, require) {${output}})`,
+      `(function(module, exports, require) {var __webpack_public_path__ = '/webpack/public/path/';${output}})`,
       'testcase.js'
     );
 
@@ -28,30 +28,21 @@ function evaluated(output, modules, moduleId = 1) {
 
       if (modules) {
         const importedModule = modules.find((el) => {
-          // Maybe we should do better
-          // Need pass webpack config and create resolver, but not critical for tests right now
           const modulePath = el.identifier.split('!').pop();
-          const resolvedModulePath = path.resolve(
-            __dirname,
-            '../fixtures/css-modules',
-            module
-          );
-          const resolvedModulePath2 = path.resolve(
-            __dirname,
-            '../fixtures/import',
-            module
-          );
-          const resolvedModulePathNodeModules = path.resolve(
-            __dirname,
-            '../fixtures/import/node_modules',
-            module
+          const importedPaths = [
+            '',
+            'icss',
+            'import',
+            'import/node_modules',
+            'messages-api',
+            'source-map',
+            'url',
+            'url/node_modules',
+          ].map((importedPath) =>
+            path.resolve(__dirname, `../fixtures/${importedPath}`, module)
           );
 
-          return (
-            modulePath === resolvedModulePath ||
-            modulePath === resolvedModulePath2 ||
-            modulePath === resolvedModulePathNodeModules
-          );
+          return importedPaths.includes(modulePath);
         });
 
         if (importedModule) {

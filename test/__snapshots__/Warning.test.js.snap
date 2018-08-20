@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Warning basic: errors 1`] = `Array []`;
+
+exports[`Warning basic: warnings 1`] = `
+Array [
+  [ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(1:1) Unable to find uri in '@import '],
+]
+`;

@@ -1,0 +1,130 @@
+@import 'import.css';
+@import 'other-import.css';
+@import url('landscape.css') screen and (orientation:landscape);
+@import url("https://webpack.js.org/style.css");
+@import url("https://webpack.js.org/other.css") screen and (orientation:landscape);
+
+@value primary, secondary from './colors.css';
+@value primary as first, secondary as second from './colors.css';
+@value landscape, variable from './media-variables.css';
+@value localPrimary: #2FF;
+@value localSecondary #3FF;
+@value border-style solid;
+@value small (max-width: 599px);
+@value not-used #fff;
+@value background-url url('./img.png');
+
+.panel-one {
+  background: primary;
+}
+
+.panel-two {
+  background: secondary;
+}
+
+.panel-three {
+  background: localPrimary;
+}
+
+.panel-four {
+  background: localSecondary;
+}
+
+.class {
+  background: url("img.png");
+}
+
+.class-other {
+  background: url("img space.png");
+}
+
+.class-other-other {
+  background: url("img.png?foo=1&bar=2#hash");
+}
+
+.class-other-other {
+  background: url("img.png#hash");
+}
+
+.class-other-other-other {
+  background: url("img.png?#iefix");
+}
+
+.absolute-url {
+  background: url("https://webpack.js.org/img.png");
+}
+
+.foo {
+  padding: 10px;
+}
+
+.foo .bar {
+  margin: 10px;
+}
+
+:local .foo :global .bar {
+  display: block;
+}
+
+.foo :local .bar {
+  color: #fff;
+}
+
+:local(.foo) .bar {
+  color: #000;
+}
+
+.foo:local(.bar) {
+  border: 10px;
+}
+
+.buttonStyle {
+  background: #fff;
+}
+
+.buttonStyle:hover {
+  box-shadow: 0 0 4px -2px;
+}
+
+.cellStyle {
+  margin: 10px;
+}
+
+.addButton {
+  composes: buttonStyle cellStyle;
+  color: green;
+}
+
+.addButton-external {
+  composes: button cell from './composition.css';
+  font-size: 20px;
+}
+
+@keyframes keyframe {
+  from { width: 10px; }
+  to { width: 100px; }
+}
+
+.border {
+  border: 1px border-style black;
+}
+
+@media small {
+  .foo {
+    color: red
+  }
+}
+
+@media landscape {
+  .bar {
+    display: flex;
+  }
+}
+
+.foo-class {
+  property: variable;
+}
+
+.background{
+  background: background-url;
+}

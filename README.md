@@ -22,8 +22,6 @@ Good loaders for requiring your assets are the [file-loader](https://github.com/
 and the [url-loader](https://github.com/webpack/url-loader) which you should specify 
 in your config (see [below](https://github.com/webpack-contrib/css-loader#assets)).
 
-> ⚠️ **CSS Module users should continue using `v1.0.0` in the meantime**
-
 ## Requirements
 
 This module requires a minimum of Node v6.9.0 and Webpack v4.0.0.
@@ -269,6 +267,116 @@ module.exports = {
     ],
   },
 };
+```
+
+### PostCSS
+
+To begin, you'll need to install `postcss-loader`:
+
+```console
+$ npm install postcss-loader --save-dev
+```
+
+Visit [postcss-loader](https://github.com/postcss/postcss-loader) readme for more information.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
+          },
+        ],
+      },
+    ],
+  },
+};
+```
+
+### CSS Modules
+
+To begin, you'll need to install `postcss-loader`, `postcss-icss-values`, `postcss-icss-selectors`, `postcss-icss-composes` and `postcss-icss-keyframes`:
+
+```console
+$ npm install postcss-loader postcss-icss-values postcss-icss-selectors postcss-icss-composes postcss-icss-keyframes --save-dev
+```
+
+New `postcss` plugins for css modules use the [ICSS](https://github.com/css-modules/icss) specification.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.modules.css$/,
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: (loader) => [
+                require('postcss-icss-values')(),
+                require('postcss-icss-selectors')({
+                  mode: 'global', // Can be `local`
+                  generateScopedName: require('generic-names')({
+                    hashPrefix: '',
+                    context: loader.rootContext,
+                  })
+                }),
+                require('postcss-icss-composes')(),
+                require('postcss-icss-keyframes')({
+                  generateScopedName: require('generic-names')({
+                    hashPrefix: '',
+                    context: loader.rootContext,
+                  })
+                }),
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+```
+
+### Custom Export
+
+Due to the [ICSS](https://github.com/css-modules/icss) specification, you can export any values from your styles.
+
+Just add `:export {}` with exported values. You can use `postcss-loader` with own `postcss` plugin to automate these actions. [Writing a PostCSS Plugin](Writing a PostCSS Plugin).
+
+Example:
+
+**style.css**
+
+```css
+:export {
+  color: black;
+}
+```
+
+**file.js**
+
+```js
+import styles from 'style.css'
+
+console.log(styles.color); // Output `black`
 ```
 
 ## Contributing

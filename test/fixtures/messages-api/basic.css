@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+@import 'imported.css';
+
+.class {
+  color: red;
+  background: url("./img.png");
+}
+
+.other-class {
+  color: blue;
+}

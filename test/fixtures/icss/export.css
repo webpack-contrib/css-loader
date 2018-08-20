@@ -1,0 +1,12 @@
+:export {
+  color: black;
+  number: 1;
+  string: 'string';
+  colorHex: #fff;
+  dash-dash: 1px;
+  multiple: 1px solid black;
+  valueWithDash: line-through;
+  content:"i said don\"t Touch me";
+  quotes: "'" "'";
+  btn-info_is-disabled: value;
+}
