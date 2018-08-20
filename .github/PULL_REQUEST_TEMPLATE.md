@@ -1,18 +1,35 @@
-<!-- Thanks for submitting a pull request! Please provide enough information so that others can review your pull request. -->
+<!--
+  HOLY CRAP a Pull Request. We ❤️ those!
 
-**What kind of change does this PR introduce?**
-<!-- E.g. a bugfix, feature, refactoring, build related change, etc… -->
+  If you remove or skip this template, you'll make the 🐼 sad and the mighty god
+  of Github will appear and pile-drive the close button from a great height
+  while making animal noises.
 
-**Did you add tests for your changes?**
+  Please place an x (no spaces!) in all [ ] that apply
+-->
 
-**If relevant, did you update the README?**
+This PR contains a:
 
-**Summary**
+- [ ] **bugfix**
+- [ ] new **feature**
+- [ ] **code refactor**
+- [ ] **test update** <!-- if bug or feature is checked, this should be too -->
+- [ ] **typo fix**
+- [ ] **metadata update**
 
-<!-- Explain the **motivation** for making this change. What existing problem does the pull request solve? -->
-<!-- Try to link to an open issue for more information. -->
+### Motivation / Use-Case
 
-**Does this PR introduce a breaking change?**
-<!-- If this PR introduces a breaking change, please describe the impact and a migration path for existing applications. -->
+<!--
+  Please explain the motivation or use-case for your change.
+  What existing problem does the PR solve?
+  If this PR addresses an issue, please link to the issue.
+-->
 
-**Other information**
+### Breaking Changes
+
+<!--
+  If this PR introduces a breaking change, please describe the impact and a
+  migration path for existing applications.
+-->
+
+### Additional Info

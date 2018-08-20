@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SyntaxError basic: errors 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from \`replaced original path\`):
+SyntaxError
+
+(2:3) Unknown word
+
+  1 | .some {
+> 2 |   invalid css;
+    |   ^
+  3 | }
+  4 | 
+],
+]
+`;
+
+exports[`SyntaxError basic: warnings 1`] = `Array []`;

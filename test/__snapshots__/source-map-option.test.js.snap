@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sourceMap false basic: errors 1`] = `Array []`;
+
+exports[`sourceMap false basic: module 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`sourceMap false basic: warnings 1`] = `Array []`;
+
+exports[`sourceMap false map from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap false map from other loader: module 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`sourceMap false map from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap true basic: errors 1`] = `Array []`;
+
+exports[`sourceMap true basic: module 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;EACE,WAAW;CACZ",
+      "names": Array [],
+      "sourceRoot": "",
+      "sources": Array [
+        "/replaced/original/path/",
+      ],
+      "sourcesContent": Array [
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`sourceMap true basic: warnings 1`] = `Array []`;
+
+exports[`sourceMap true map from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap true map from other loader: module 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;ECCE,WAAW;CACZ",
+      "names": Array [],
+      "sourceRoot": "",
+      "sources": Array [
+        "/replaced/original/path/",
+        "/replaced/original/path/",
+      ],
+      "sourcesContent": Array [
+        ".class { a: b c d; }",
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`sourceMap true map from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap true map is string: errors 1`] = `Array []`;
+
+exports[`sourceMap true map is string: module 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;ECCE,WAAW;CACZ",
+      "names": Array [],
+      "sourceRoot": "",
+      "sources": Array [
+        "/replaced/original/path/",
+        "/replaced/original/path/",
+      ],
+      "sourcesContent": Array [
+        ".class { a: b c d; }",
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`sourceMap true map is string: warnings 1`] = `Array []`;

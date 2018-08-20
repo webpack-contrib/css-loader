@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.class {
+  color: red;
+  background: url("./url/img.png");
+}
+
+.u-m\+ {
+  a: b c d;
+}
+
+.grid.\-top {
+  a: b c d;
+}
+
+.u-m\00002b {
+  a: b c d;
+}
+
+.class {
+  content: '"\\f10c"';
+}
+
+.class {
+  font-family: '微软雅黑';
+}
+
+.class {
+  content: '\e901';
+}
+
+.class {
+  content: "\F10C"
+}
+
+.class {
+  content: "\f10C"
+}
+
+.class {
+  content: "\F10C \F10D"
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}

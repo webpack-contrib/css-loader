@@ -1,0 +1,486 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loader basic (css endpoint): errors 1`] = `Array []`;
+
+exports[`loader basic (css endpoint): module 1`] = `
+Array [
+  Array [
+    1,
+    "@charset \\"UTF-8\\";
+
+.class {
+  color: red;
+  background: url({./url/img.png});
+}
+
+.u-m\\\\+ {
+  a: b c d;
+}
+
+.grid.\\\\-top {
+  a: b c d;
+}
+
+.u-m\\\\00002b {
+  a: b c d;
+}
+
+.class {
+  content: '\\"\\\\\\\\f10c\\"';
+}
+
+.class {
+  font-family: '微软雅黑';
+}
+
+.class {
+  content: '\\\\e901';
+}
+
+.class {
+  content: \\"\\\\F10C\\"
+}
+
+.class {
+  content: \\"\\\\f10C\\"
+}
+
+.class {
+  content: \\"\\\\F10C \\\\F10D\\"
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader basic (css endpoint): runtime 1`] = `
+"/* eslint-disable */
+
+// CSS Loader (Runtime)
+module.exports = function(useSourceMap) {
+  var list = [];
+
+  // Return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function(item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return '@media ' + item[2] + '{' + content + '}';
+      }
+
+      return content;
+    }).join('');
+  };
+
+  // Import a list of modules into the list
+  list.i = function(modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
+    }
+
+    const isImported = {};
+
+    for (var i = 0; i < this.length; i++) {
+      const id = this[i][0];
+
+      if (typeof id === 'number') {
+        isImported[id] = true;
+      }
+    }
+
+    for (var i = 0; i < modules.length; i++) {
+      const item = modules[i];
+
+      // Skip already imported module.
+      // This implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles).
+      if (typeof item[0] !== 'number' || !isImported[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+        }
+
+        list.push(item);
+      }
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || '';
+  var sourceMap = item[3];
+
+  if (!sourceMap) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(sourceMap);
+    var sourceURLs = sourceMap.sources.map(function(source) {
+      return '/*# sourceURL=' + sourceMap.sourceRoot + source + ' */';
+    });
+
+    return [content]
+      .concat(sourceURLs)
+      .concat([sourceMapping])
+      .join('\\\\n');
+  }
+
+  return [content].join('\\\\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data =
+    'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+  return '/*# ' + data + ' */';
+}
+"
+`;
+
+exports[`loader basic (css endpoint): runtimeEscape 1`] = `
+"/* eslint-disable */
+
+module.exports = function escape(url) {
+  if (typeof url !== 'string') {
+    return url;
+  }
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['\\"].*['\\"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+    return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
+  }
+
+  return url;
+};
+"
+`;
+
+exports[`loader basic (css endpoint): warnings 1`] = `Array []`;
+
+exports[`loader basic: errors 1`] = `Array []`;
+
+exports[`loader basic: module 1`] = `
+Array [
+  Array [
+    1,
+    "@charset \\"UTF-8\\";
+
+.class {
+  color: red;
+  background: url({./url/img.png});
+}
+
+.u-m\\\\+ {
+  a: b c d;
+}
+
+.grid.\\\\-top {
+  a: b c d;
+}
+
+.u-m\\\\00002b {
+  a: b c d;
+}
+
+.class {
+  content: '\\"\\\\\\\\f10c\\"';
+}
+
+.class {
+  font-family: '微软雅黑';
+}
+
+.class {
+  content: '\\\\e901';
+}
+
+.class {
+  content: \\"\\\\F10C\\"
+}
+
+.class {
+  content: \\"\\\\f10C\\"
+}
+
+.class {
+  content: \\"\\\\F10C \\\\F10D\\"
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader basic: runtime 1`] = `
+"/* eslint-disable */
+
+// CSS Loader (Runtime)
+module.exports = function(useSourceMap) {
+  var list = [];
+
+  // Return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function(item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return '@media ' + item[2] + '{' + content + '}';
+      }
+
+      return content;
+    }).join('');
+  };
+
+  // Import a list of modules into the list
+  list.i = function(modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
+    }
+
+    const isImported = {};
+
+    for (var i = 0; i < this.length; i++) {
+      const id = this[i][0];
+
+      if (typeof id === 'number') {
+        isImported[id] = true;
+      }
+    }
+
+    for (var i = 0; i < modules.length; i++) {
+      const item = modules[i];
+
+      // Skip already imported module.
+      // This implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles).
+      if (typeof item[0] !== 'number' || !isImported[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+        }
+
+        list.push(item);
+      }
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || '';
+  var sourceMap = item[3];
+
+  if (!sourceMap) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(sourceMap);
+    var sourceURLs = sourceMap.sources.map(function(source) {
+      return '/*# sourceURL=' + sourceMap.sourceRoot + source + ' */';
+    });
+
+    return [content]
+      .concat(sourceURLs)
+      .concat([sourceMapping])
+      .join('\\\\n');
+  }
+
+  return [content].join('\\\\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data =
+    'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+  return '/*# ' + data + ' */';
+}
+"
+`;
+
+exports[`loader basic: runtimeEscape 1`] = `
+"/* eslint-disable */
+
+module.exports = function escape(url) {
+  if (typeof url !== 'string') {
+    return url;
+  }
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['\\"].*['\\"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+    return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
+  }
+
+  return url;
+};
+"
+`;
+
+exports[`loader basic: warnings 1`] = `Array []`;
+
+exports[`loader empty options: errors 1`] = `Array []`;
+
+exports[`loader empty options: module 1`] = `
+Array [
+  Array [
+    1,
+    "",
+    "",
+  ],
+]
+`;
+
+exports[`loader empty options: warnings 1`] = `Array []`;
+
+exports[`loader error when no loader for url assets: errors 1`] = `
+Array [
+  [ModuleParseError: Module parse failed: Unexpected character '�' (1:0)
+You may need an appropriate loader to handle this file type.
+(Source code omitted for this binary file)],
+]
+`;
+
+exports[`loader error when no loader for url assets: warnings 1`] = `Array []`;
+
+exports[`loader using together with "postcss-loader" (reuse ast): errors 1`] = `Array []`;
+
+exports[`loader using together with "postcss-loader" (reuse ast): module 1`] = `
+Array [
+  Array [
+    1,
+    ":root {
+  --fontSize: 1rem;
+  --mainColor: rgba(18, 52, 86, 0.47059);
+  --secondaryColor: rgba(102, 51, 153, 0.9);
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+
+@media (max-width: 50rem) {
+  body {
+    color: rgba(18, 52, 86, 0.47059);
+    color: var(--mainColor);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+    font-size: 1rem;
+    font-size: var(--fontSize);
+    line-height: calc(1rem * 1.5);
+    line-height: calc(var(--fontSize) * 1.5);
+    word-wrap: break-word;
+    padding-left: calc(1rem / 2 + 1px);
+    padding-right: calc(1rem / 2 + 1px);
+    padding-left: calc(var(--fontSize) / 2 + 1px);
+    padding-right: calc(var(--fontSize) / 2 + 1px);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+main.hero, .hero.main {
+  background-image: url/img.png;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+
+main.hero, .hero.main {
+  background-image: url/img2x.png;
+}
+}
+
+main.hero, .hero.main {
+  background-image: -webkit-image-set(url({./url/img.png}) 1x, url({./url/img2x.png}) 2x);
+  background-image: image-set(\\"url/img.png\\" 1x, \\"url/img2x.png\\" 2x);
+}
+
+a {
+  color: #639
+}
+
+a:hover {
+   color: rgba(134, 51, 217, 0.75);
+   color: rgba(134, 51, 217, 0.75);
+ }
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader using together with "postcss-loader" (reuse ast): warnings 1`] = `Array []`;
