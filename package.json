@@ -13,7 +13,7 @@
     "locals.js"
   ],
   "dependencies": {
-    "babel-code-frame": "^6.26.0",
+    "@babel/code-frame": "^7.0.0",
     "css-selector-tokenizer": "^0.7.0",
     "icss-utils": "^2.1.0",
     "loader-utils": "^1.0.2",
