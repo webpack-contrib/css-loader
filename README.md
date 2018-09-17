@@ -258,6 +258,8 @@ You can configure the generated ident with the `localIdentName` query parameter.
 }
 ```
 
+> ℹ️ Enabling this feature, you might run into hash collision problem. So if you have two separate modules built with webpack that have a file with the same relative path within the module, with the same classname in it, they will receive the same hash. In order to avoid that add `context: __dirname` to the css-loader's `options`
+
 You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema. This requires `webpack >= 2.2.1` (it supports functions in the `options` object).
 
 **webpack.config.js**
