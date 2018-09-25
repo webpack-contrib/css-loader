@@ -45,7 +45,8 @@
     "loader-utils": "^1.0.0",
     "postcss": "^7.0.0",
     "postcss-value-parser": "^3.3.0",
-    "schema-utils": "^1.0.0"
+    "schema-utils": "^1.0.0",
+    "icss-utils": "css-modules/icss-utils#chore-release-4"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
@@ -75,7 +76,7 @@
     "postcss-icss-selectors": "^2.0.3",
     "postcss-icss-values": "^2.0.1",
     "postcss-loader": "^3.0.0",
-    "postcss-preset-env": "^5.2.1",
+    "postcss-preset-env": "^6.0.6",
     "pre-commit": "^1.2.2",
     "prettier": "^1.13.7",
     "standard-version": "^4.0.0",
