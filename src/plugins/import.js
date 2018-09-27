@@ -1,7 +1,22 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
+import { stringifyRequest, isUrlRequest, urlToRequest } from 'loader-utils';
 
-import utils from './utils';
+function normalizeUrl(url) {
+  return url.split(/(\?)?#/);
+}
+
+function getImportPrefix(loaderContext, importLoaders) {
+  const loadersRequest = loaderContext.loaders
+    .slice(
+      loaderContext.loaderIndex,
+      loaderContext.loaderIndex + 1 + importLoaders
+    )
+    .map((x) => x.request)
+    .join('!');
+
+  return `-!${loadersRequest}!`;
+}
 
 const pluginName = 'postcss-css-loader-import';
 
@@ -43,8 +58,9 @@ const parseImport = (params) => {
 
 export default postcss.plugin(
   pluginName,
-  () =>
+  (options) =>
     function process(css, result) {
+      const { importLoaders } = options;
       const imports = {};
 
       css.walkAtRules(/^import$/i, (atrule) => {
@@ -74,14 +90,45 @@ export default postcss.plugin(
         atrule.remove();
 
         imports[
-          `'${parsed.url}'${
-            parsed.media.length === 0
-              ? ''
-              : ` ${parsed.media.trim().toLowerCase()}`
+          `"${parsed.url}"${
+            parsed.media ? ` "${parsed.media.toLowerCase()}"` : ''
           }`
-        ] = {};
+        ] = parsed;
       });
 
-      css.prepend(utils.createICSSImports(imports));
+      Object.keys(imports).forEach((token) => {
+        const importee = imports[token];
+
+        result.messages.push({
+          pluginName,
+          type: 'module',
+          modify(moduleObj, loaderContext) {
+            const { url, media } = importee;
+
+            if (isUrlRequest(url)) {
+              // Remove `#` from `require`
+              const [normalizedUrl] = normalizeUrl(url);
+
+              // Requestable url in `@import` at-rule (`@import './style.css`)
+              moduleObj.imports.push(
+                `exports.i(require(${stringifyRequest(
+                  loaderContext,
+                  getImportPrefix(loaderContext, importLoaders) +
+                    urlToRequest(normalizedUrl)
+                )}), ${JSON.stringify(media)});`
+              );
+            } else {
+              // Absolute url in `@import` at-rule (`@import 'https://example.com/style.css`)
+              moduleObj.imports.push(
+                `exports.push([module.id, ${JSON.stringify(
+                  `@import url(${url});`
+                )}, ${JSON.stringify(media)}]);`
+              );
+            }
+
+            return moduleObj;
+          },
+        });
+      });
     }
 );
