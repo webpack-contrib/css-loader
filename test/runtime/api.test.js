@@ -43,6 +43,8 @@ describe('runtime', () => {
     expect(m.toString()).toMatchSnapshot();
   });
   it('toString with source mapping', () => {
+    global.btoa = (str) => new Buffer(str, 'binary').toString('base64');
+
     const m = api(true);
 
     m.push([
