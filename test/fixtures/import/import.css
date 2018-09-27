@@ -14,6 +14,7 @@
 @import url('');
 @import url("");
 @import url(test.css) screen and print;
+@import url(test.css) SCREEN AND PRINT;
 @import url(test.css)screen and print;
 @import url(test-media.css) screen and print;
 @import url(test-other.css) (min-width: 100px);

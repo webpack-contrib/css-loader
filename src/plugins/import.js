@@ -75,7 +75,9 @@ export default postcss.plugin(
 
         imports[
           `'${parsed.url}'${
-            parsed.media.length === 0 ? '' : ` ${parsed.media.trim()}`
+            parsed.media.length === 0
+              ? ''
+              : ` ${parsed.media.trim().toLowerCase()}`
           }`
         ] = {};
       });
