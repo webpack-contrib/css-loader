@@ -114,7 +114,7 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('ICSS (next generation of css modules)', async () => {
+  test.skip('ICSS (next generation of css modules)', async () => {
     const config = {
       rules: [
         {
@@ -192,56 +192,16 @@ describe('loader', () => {
                     'postcss-message-api',
                     () => (root, result) => {
                       result.messages.push(
-                        // Empty `import` message
+                        // Exports
                         {
-                          type: 'import',
+                          type: 'css-loader',
                           plugin: 'postcss-message-api',
-                        },
-                        // Empty `export` message
-                        {
-                          type: 'export',
-                          plugin: 'postcss-message-api',
-                        },
-                        {
-                          type: 'import',
-                          plugin: 'postcss-message-api',
-                          tokens: {
-                            'imported-message.css': {
-                              '{media}': '',
-                            },
-                          },
-                        },
-                        // Duplicate
-                        {
-                          type: 'import',
-                          plugin: 'postcss-message-api',
-                          tokens: {
-                            'imported-message.css': {
-                              '{media}': '',
-                            },
-                          },
-                        },
-                        {
-                          type: 'import',
-                          plugin: 'postcss-message-api',
-                          tokens: {
-                            'other-imported-message.css': {
-                              '{media}': 'print',
-                            },
-                          },
-                        },
-                        {
-                          type: 'export',
-                          plugin: 'postcss-message-api',
-                          tokens: {
-                            foo: 'bar',
-                          },
-                        },
-                        {
-                          type: 'export',
-                          plugin: 'postcss-message-api',
-                          tokens: {
-                            bar: 'foo',
+                          modify: (moduleObj) => {
+                            moduleObj.exports.push(
+                              `exports.locals = { foo: "bar" };`
+                            );
+
+                            return moduleObj;
                           },
                         }
                       );
@@ -262,23 +222,10 @@ describe('loader', () => {
     };
     const stats = await webpack('messages-api/basic.css', config);
     const { modules } = stats.toJson();
-    const [, , , , , module] = modules;
+    const [, , , module] = modules;
 
     // We don't need evaluated module here, because modules doesn't exists in graph
     expect(module.source).toMatchSnapshot('module');
-
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
-  });
-
-  test('custom export', async () => {
-    const stats = await webpack('icss/export.css');
-    const [, module] = stats.toJson().modules;
-    const evaluatedModule = evaluated(module.source);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('export');
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');

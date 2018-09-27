@@ -117,7 +117,7 @@ export default postcss.plugin(
       Object.keys(urls).forEach((url) => {
         result.messages.push({
           pluginName,
-          type: 'module',
+          type: 'css-loader',
           modify(moduleObj, loaderContext) {
             if (!hasURLEscapeRuntime) {
               moduleObj.imports.push(
@@ -139,6 +139,7 @@ export default postcss.plugin(
                 urlToRequest(normalizedUrl)
               )}));`
             );
+            // eslint-disable-next-line no-param-reassign
             moduleObj.module = moduleObj.module.replace(
               new RegExp(placeholder, 'g'),
               `" + ${placeholder} + "`

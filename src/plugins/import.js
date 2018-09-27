@@ -58,7 +58,7 @@ const parseImport = (params) => {
 
 export default postcss.plugin(
   pluginName,
-  (options) =>
+  (options = {}) =>
     function process(css, result) {
       const { importLoaders } = options;
       const imports = {};
@@ -101,7 +101,7 @@ export default postcss.plugin(
 
         result.messages.push({
           pluginName,
-          type: 'module',
+          type: 'css-loader',
           modify(moduleObj, loaderContext) {
             const { url, media } = importee;
 

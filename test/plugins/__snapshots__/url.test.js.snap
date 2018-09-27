@@ -1,128 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`URL postcss plugin basic: css 1`] = `
-":import('img.png') {
-  __url__0__: default;
-}
-
-:import('img.png#hash') {
-  __url__1__: default;
-}
-
-:import('~package/img.png') {
-  __url__2__: default;
-}
-
-:import('other-img.png') {
-  __url__3__: default;
-}
-
-:import('img img.png') {
-  __url__4__: default;
-}
-
-:import('font.woff') {
-  __url__5__: default;
-}
-
-:import('font.woff2') {
-  __url__6__: default;
-}
-
-:import('font.eot') {
-  __url__7__: default;
-}
-
-:import('~package/font.ttf') {
-  __url__8__: default;
-}
-
-:import('font.eot?#iefix') {
-  __url__9__: default;
-}
-
-:import('font.svg#svgFontName') {
-  __url__10__: default;
-}
-
-:import('img2x.png') {
-  __url__11__: default;
-}
-
-:import('./url-imported.css') {
-  __url__12__: default;
-}
-
-.class {
-  background: url(__url__0__);
+".class {
+  background: url(___CSS_LOADER_URL___0___);
 }
 
 .class-hash {
-  background: url(__url__1__);
+  background: url(___CSS_LOADER_URL___0___#hash);
 }
 
 .class {
   background: url(
-    __url__0__
+    ___CSS_LOADER_URL___0___
   );
 }
 
 .class {
-  background: green url(__url__0__);
+  background: green url(___CSS_LOADER_URL___0___);
 }
 
 .class {
-  background: url(__url__0__) xyz;
+  background: url(___CSS_LOADER_URL___0___) xyz;
 }
 
 .class {
-  background: green url(__url__0__) xyz;
+  background: green url(___CSS_LOADER_URL___0___) xyz;
 }
 
 .class {
-  background: url( __url__0__ );
+  background: url( ___CSS_LOADER_URL___0___ );
 }
 
 .class {
-  background: url(__url__0__);
+  background: url(___CSS_LOADER_URL___0___);
 }
 
 .class {
-  background: url(__url__0__);
+  background: url(___CSS_LOADER_URL___0___);
 }
 
 .class {
   background: url(
-    __url__0__
+    ___CSS_LOADER_URL___0___
   );
 }
 
 .class {
-  background: url( __url__0__ );
+  background: url( ___CSS_LOADER_URL___0___ );
 }
 
 .class {
-  background: url(__url__2__) url(__url__3__);
+  background: url(___CSS_LOADER_URL___1___) url(___CSS_LOADER_URL___2___);
 }
 
 .class {
-  background: green url(__url__2__) url(__url__3__);
+  background: green url(___CSS_LOADER_URL___1___) url(___CSS_LOADER_URL___2___);
 }
 
 .class {
-  background: url(__url__2__) url(__url__3__) xyz;
+  background: url(___CSS_LOADER_URL___1___) url(___CSS_LOADER_URL___2___) xyz;
 }
 
 .class {
-  background: green url( __url__2__ ) url(__url__3__) xyz;
+  background: green url( ___CSS_LOADER_URL___1___ ) url(___CSS_LOADER_URL___2___) xyz;
 }
 
 .class {
-  background: url( __url__4__ );
+  background: url( ___CSS_LOADER_URL___3___ );
 }
 
 .class {
-  background: url( __url__4__ );
+  background: url( ___CSS_LOADER_URL___3___ );
 }
 
 .class {
@@ -166,23 +114,23 @@ exports[`URL postcss plugin basic: css 1`] = `
 }
 
 @font-face {
-  src: url(__url__5__) format('woff'),
-    url(__url__6__) format('woff2')
-    url(__url__7__) format('eot'),
-    url(__url__8__) format('truetype');
+  src: url(___CSS_LOADER_URL___4___) format('woff'),
+    url(___CSS_LOADER_URL___5___) format('woff2')
+    url(___CSS_LOADER_URL___6___) format('eot'),
+    url(___CSS_LOADER_URL___7___) format('truetype');
 }
 
 @font-face {
-  src: url(__url__9__) format('embedded-opentype');
+  src: url(___CSS_LOADER_URL___6___?#iefix) format('embedded-opentype');
 }
 
 @font-face {
-  src: url(__url__10__) format('svg')
+  src: url(___CSS_LOADER_URL___8___#svgFontName) format('svg')
 }
 
 @media (min-width: 500px) {
   .class {
-    background: url(__url__0__);
+    background: url(___CSS_LOADER_URL___0___);
   }
 }
 
@@ -195,11 +143,11 @@ exports[`URL postcss plugin basic: css 1`] = `
 }
 
 @keyframes anim {
-  background: url(__url__0__);
+  background: url(___CSS_LOADER_URL___0___);
 }
 
 .class {
-  background: -webkit-image-set(url(__url__0__) 1x, url(__url__11__) 2x);
+  background: -webkit-image-set(url(___CSS_LOADER_URL___0___) 1x, url(___CSS_LOADER_URL___9___) 2x);
 }
 
 .class {
@@ -233,7 +181,11 @@ exports[`URL postcss plugin basic: css 1`] = `
 }
 
 .imported-css {
-  background: url(__url__12__);
+  background: url(___CSS_LOADER_URL___10___);
+}
+
+.class {
+  background: url(___CSS_LOADER_URL___11___);
 }
 "
 `;

@@ -1,27 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`import postcss plugin basic: css 1`] = `
-":import('test.css'){
-}
-:import('test.css' screen and print){
-}
-:import('test-media.css' screen and print){
-}
-:import('test-other.css' (min-width: 100px)){
-}
-:import('http://example.com/style.css'){
-}
-:import('http://example.com/other-style.css' screen and print){
-}
-:import('//example.com/style.css'){
-}
-:import('~package/test.css'){
-}
-:import('query.css?foo=1&bar=1'){
-}
-:import('other-query.css?foo=1&bar=1#hash'){
-}
-@import url();
+"@import url();
 @import url('');
 @import url(\\"\\");
 @import '';

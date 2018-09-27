@@ -130,7 +130,9 @@ export default function loader(content, map, meta) {
 
       if (result.messages && result.messages.length > 0) {
         result.messages
-          .filter((message) => (message.type === 'module' ? message : false))
+          .filter(
+            (message) => (message.type === 'css-loader' ? message : false)
+          )
           .forEach((message) => {
             try {
               moduleObj = message.modify(moduleObj, this);
