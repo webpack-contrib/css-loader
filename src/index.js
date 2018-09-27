@@ -16,7 +16,6 @@ import postcssPkg from 'postcss/package.json';
 import schema from './options.json';
 import urlPlugin from './plugins/url';
 import importPlugin from './plugins/import';
-import icssPlugin from './plugins/icss';
 import Warning from './Warning';
 import SyntaxError from './SyntaxError';
 
@@ -46,8 +45,6 @@ export default function loader(content, map, meta) {
   if (importOpt) {
     plugins.push(importPlugin({ importLoaders }));
   }
-
-  plugins.push(icssPlugin());
 
   // Reuse CSS AST (PostCSS AST e.g 'postcss-loader') to avoid reparsing
   if (meta) {

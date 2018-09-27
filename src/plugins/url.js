@@ -2,8 +2,6 @@ import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 import { isUrlRequest } from 'loader-utils';
 
-import utils from './utils';
-
 const pluginName = 'postcss-css-loader-icss-url';
 
 const walkUrls = (parsed, callback) => {
@@ -90,7 +88,7 @@ export default postcss.plugin(
       paths.forEach((path, index) => {
         const alias = `__url__${index}__`;
 
-        imports[`'${path}'`] = {
+        imports[`"${path}"`] = {
           [alias]: 'default',
         };
         aliases[path] = alias;
@@ -102,7 +100,5 @@ export default postcss.plugin(
         // eslint-disable-next-line no-param-reassign
         item.decl.value = item.parsed.toString();
       });
-
-      css.prepend(utils.createICSSImports(imports));
     }
 );
