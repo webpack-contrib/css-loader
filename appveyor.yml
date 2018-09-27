@@ -4,6 +4,9 @@ branches:
     - next
 init:
   - git config --global core.autocrlf input
+cache:
+  - node_modules
+  - '%APPDATA%\npm-cache'
 environment:
   matrix:
     - nodejs_version: '10'
@@ -24,7 +27,7 @@ matrix:
 install:
   - ps: Install-Product node $env:nodejs_version x64
   - npm i -g npm@latest
-  - npm install
+  - npm ci
   - npm i -g @webpack-contrib/tag-versions
 before_test:
   - cmd: npm install webpack@%webpack_version%
