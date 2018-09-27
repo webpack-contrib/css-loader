@@ -180,3 +180,7 @@
 .imported-css {
   background: url(./url-imported.css);
 }
+
+.class {
+  background: url("img.png?foo");
+}

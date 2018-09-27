@@ -1,8 +1,12 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-import { isUrlRequest } from 'loader-utils';
+import { isUrlRequest, stringifyRequest, urlToRequest } from 'loader-utils';
 
 const pluginName = 'postcss-css-loader-icss-url';
+
+function normalizeUrl(url) {
+  return url.split(/(\?)?#/);
+}
 
 const walkUrls = (parsed, callback) => {
   parsed.walk((node) => {
@@ -10,13 +14,13 @@ const walkUrls = (parsed, callback) => {
       return;
     }
 
-    const content =
+    const url =
       node.nodes.length !== 0 && node.nodes[0].type === 'string'
         ? node.nodes[0].value
         : valueParser.stringify(node.nodes);
 
-    if (content.trim().replace(/\\[\r\n]/g, '').length !== 0) {
-      callback(node, content);
+    if (url.trim().replace(/\\[\r\n]/g, '').length !== 0) {
+      callback(node, url);
     }
 
     // Do not traverse inside url
@@ -57,7 +61,8 @@ const walkDeclsWithUrl = (css, filter) => {
     result.push({
       decl,
       parsed,
-      values,
+      // Remove `#hash` and `?#hash` to avoid duplicate require for assets with `#hash` and `?#hash`
+      values: values.map((value) => normalizeUrl(value)[0]),
     });
   });
 
@@ -79,26 +84,69 @@ const mapUrls = (parsed, map) => {
 export default postcss.plugin(
   pluginName,
   () =>
-    function process(css) {
+    function process(css, result) {
       const traversed = walkDeclsWithUrl(css, (value) => isUrlRequest(value));
       const paths = uniq(flatten(traversed.map((item) => item.values)));
-      const imports = {};
-      const aliases = {};
+
+      if (paths.length === 0) {
+        return;
+      }
+
+      const urls = {};
 
       paths.forEach((path, index) => {
-        const alias = `__url__${index}__`;
-
-        imports[`"${path}"`] = {
-          [alias]: 'default',
-        };
-        aliases[path] = alias;
+        urls[path] = `___CSS_LOADER_URL___${index}___`;
       });
 
       traversed.forEach((item) => {
-        mapUrls(item.parsed, (value) => aliases[value]);
+        mapUrls(item.parsed, (url) => {
+          const [normalizedUrl, singleQuery, hashValue] = normalizeUrl(url);
+
+          // Return `#hash` and `?#hash` in css
+          return `${urls[normalizedUrl]}${singleQuery || ''}${
+            hashValue ? `#${hashValue}` : ''
+          }`;
+        });
 
         // eslint-disable-next-line no-param-reassign
         item.decl.value = item.parsed.toString();
+      });
+
+      let hasURLEscapeRuntime = false;
+
+      Object.keys(urls).forEach((url) => {
+        result.messages.push({
+          pluginName,
+          type: 'module',
+          modify(moduleObj, loaderContext) {
+            if (!hasURLEscapeRuntime) {
+              moduleObj.imports.push(
+                `var escape = require(${stringifyRequest(
+                  loaderContext,
+                  require.resolve('../runtime/escape')
+                )});`
+              );
+
+              hasURLEscapeRuntime = true;
+            }
+
+            const placeholder = urls[url];
+            const [normalizedUrl] = normalizeUrl(url);
+
+            moduleObj.imports.push(
+              `var ${placeholder} = escape(require(${stringifyRequest(
+                loaderContext,
+                urlToRequest(normalizedUrl)
+              )}));`
+            );
+            moduleObj.module = moduleObj.module.replace(
+              new RegExp(placeholder, 'g'),
+              `" + ${placeholder} + "`
+            );
+
+            return moduleObj;
+          },
+        });
       });
     }
 );

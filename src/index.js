@@ -146,8 +146,8 @@ export default function loader(content, map, meta) {
         null,
         [
           runtime ? `// CSS runtime\n${runtime}` : '',
-          imports.length > 0 ? `\n// CSS imports\n${imports.join('\n')}` : '',
-          module ? `\n// CSS module\n${module}` : '',
+          imports.length > 0 ? `// CSS imports\n${imports.join('\n')}` : '',
+          module ? `// CSS module\n${module}` : '',
           exports.length > 0 ? `// CSS exports\n${exports.join('\n')}` : '',
         ].join('\n')
       );
