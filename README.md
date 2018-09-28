@@ -119,6 +119,7 @@ To disable `@import` resolving by `css-loader` set the option to `false`
 
 ```css
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import '~module/styles.css';
 ```
 
 > _⚠️ Use with caution, since this disables resolving for **all** `@import`s, including css modules `composes: xxx from 'path/to/file.css'` feature._
