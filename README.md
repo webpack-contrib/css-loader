@@ -50,7 +50,7 @@ module.exports = {
 
 ### `toString`
 
-You can also use the css-loader results directly as string, such as in Angular's component style.
+You can also use the css-loader results directly as a string, such as in Angular's component style.
 
 **webpack.config.js**
 ```js
@@ -137,7 +137,7 @@ The syntax `:local(.className)` can be used to declare `className` in the local 
 
 With `:local` (without brackets) local mode can be switched on for this selector. `:global(.className)` can be used to declare an explicit global selector. With `:global` (without brackets) global mode can be switched on for this selector.
 
-The loader replaces local selectors with unique identifiers. The choosen unique identifiers are exported by the module.
+The loader replaces local selectors with unique identifiers. The chosen unique identifiers are exported by the module.
 
 ```css
 :local(.className) { background: red; }
@@ -162,7 +162,7 @@ exports.locals = {
 }
 ```
 
-CamelCase is recommended for local selectors. They are easier to use in the within the imported JS module.
+CamelCase is recommended for local selectors. They are easier to use within the imported JS module.
 
 `url()` URLs in block scoped (`:local .abc`) rules behave like requests in modules.
 
@@ -280,9 +280,9 @@ You can also specify the absolute path to your custom `getLocalIdent` function t
 
 To include source maps set the `sourceMap` option.
 
-I. e. the extract-text-webpack-plugin can handle them.
+I.e. the extract-text-webpack-plugin can handle them.
 
-They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not). In addition to that relative paths are buggy and you need to use an absolute public path which include the server URL.
+They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not). In addition to that relative paths are buggy and you need to use an absolute public path which includes the server URL.
 
 **webpack.config.js**
 ```js
@@ -327,7 +327,7 @@ import { className } from 'file.css';
 
 ### `importLoaders`
 
-The query parameter `importLoaders` allows to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
+The query parameter `importLoaders` allows you to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
 
 **webpack.config.js**
 ```js
@@ -347,7 +347,7 @@ The query parameter `importLoaders` allows to configure how many loaders before 
 }
 ```
 
-This may change in the future, when the module system (i. e. webpack) supports loader matching by origin.
+This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
 
 <h2 align="center">Examples</h2>
 
@@ -378,7 +378,7 @@ module.exports = {
 
 ### Extract
 
-For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on. 
+For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
 This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode.
 
 <h2 align="center">Maintainers</h2>
