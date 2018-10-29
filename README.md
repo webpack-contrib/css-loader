@@ -61,7 +61,7 @@ And run `webpack` via your preferred method.
 
 ### `toString`
 
-You can also use the css-loader results directly as string, such as in Angular's component style.
+You can also use the css-loader results directly as a string, such as in Angular's component style.
 
 **webpack.config.js**
 
@@ -182,7 +182,7 @@ In addition to that relative paths are buggy and you need to use an absolute pub
 Type: `Number`
 Default: `0`
 
-Option `importLoaders` allows to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
+Option `importLoaders` allows you to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
 
 **webpack.config.js**
 
@@ -203,7 +203,7 @@ Option `importLoaders` allows to configure how many loaders before `css-loader` 
 }
 ```
 
-This may change in the future, when the module system (i. e. webpack) supports loader matching by origin.
+This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
 
 ## Examples
 
