@@ -634,33 +634,37 @@ Array [
   Array [
     1,
     "body {
-  color: white; }
+  color: white;
+}
 
 body {
   font: 100% Helvetica, sans-serif;
-  color: #333; }
+  color: #333;
+}
 
 nav ul {
   margin: 0;
   padding: 0;
-  list-style: none; }
-
+  list-style: none;
+}
 nav li {
-  display: inline-block; }
-
+  display: inline-block;
+}
 nav a {
   display: block;
   padding: 6px 12px;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .box {
   -webkit-transform: rotate(30deg);
   -ms-transform: rotate(30deg);
-  transform: rotate(30deg); }
+  transform: rotate(30deg);
+}
 
 .background {
-  background: url(/webpack/public/path/5b1f36bc41ab31f5b801d48ba1d65781.png); }
-",
+  background: url(/webpack/public/path/5b1f36bc41ab31f5b801d48ba1d65781.png);
+}",
     "",
   ],
 ]
@@ -676,7 +680,7 @@ var ___CSS_LOADER_URL___0___ = escape(require(\\"./img.png\\"));
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!./style.css\\"), \\"\\");
 
 // CSS module
-exports.push([module.id, \\"body {\\\\n  color: white; }\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333; }\\\\n\\\\nnav ul {\\\\n  margin: 0;\\\\n  padding: 0;\\\\n  list-style: none; }\\\\n\\\\nnav li {\\\\n  display: inline-block; }\\\\n\\\\nnav a {\\\\n  display: block;\\\\n  padding: 6px 12px;\\\\n  text-decoration: none; }\\\\n\\\\n.box {\\\\n  -webkit-transform: rotate(30deg);\\\\n  -ms-transform: rotate(30deg);\\\\n  transform: rotate(30deg); }\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\"); }\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"body {\\\\n  color: white;\\\\n}\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\\\n\\\\nnav ul {\\\\n  margin: 0;\\\\n  padding: 0;\\\\n  list-style: none;\\\\n}\\\\nnav li {\\\\n  display: inline-block;\\\\n}\\\\nnav a {\\\\n  display: block;\\\\n  padding: 6px 12px;\\\\n  text-decoration: none;\\\\n}\\\\n\\\\n.box {\\\\n  -webkit-transform: rotate(30deg);\\\\n  -ms-transform: rotate(30deg);\\\\n  transform: rotate(30deg);\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\", \\"\\"]);
 
 "
 `;

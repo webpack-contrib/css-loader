@@ -1,5 +1,7 @@
-import stripAnsi from 'strip-ansi';
+import path from 'path';
+
 import postcss from 'postcss';
+import stripAnsi from 'strip-ansi';
 
 function normalizeErrors(errors) {
   return errors.map((error) => {
@@ -32,4 +34,33 @@ function runPostcss(input, plugins) {
   );
 }
 
-module.exports = { normalizeErrors, normalizeModule, runPostcss };
+function generateRulesWithSourceMap(enableSourceMap, sourceMap) {
+  return {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, '../../src'),
+            options: {
+              sourceMap: enableSourceMap,
+            },
+          },
+          {
+            loader: path.resolve(__dirname, '../fixtures/source-map-loader.js'),
+            options: {
+              sourceMap,
+            },
+          },
+        ],
+      },
+    ],
+  };
+}
+
+export {
+  normalizeErrors,
+  normalizeModule,
+  runPostcss,
+  generateRulesWithSourceMap,
+};

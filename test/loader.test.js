@@ -13,13 +13,13 @@ describe('loader', () => {
     const stats = await webpack('basic.js');
     const { modules } = stats.toJson();
     const [, runtime, escape, module] = modules;
-    const evaluatedModule = evaluated(module.source, modules);
 
     expect(runtime.source).toMatchSnapshot('runtime');
     expect(escape.source).toMatchSnapshot('escape');
     expect(module.source).toMatchSnapshot('module');
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
@@ -28,26 +28,27 @@ describe('loader', () => {
     const stats = await webpack('basic.css');
     const { modules } = stats.toJson();
     const [, runtime, escape, module] = modules;
-    const evaluatedModule = evaluated(module.source, modules);
 
     expect(runtime.source).toMatchSnapshot('runtime');
     expect(escape.source).toMatchSnapshot('escape');
     expect(module.source).toMatchSnapshot('module');
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
   it('empty options', async () => {
-    const stats = await webpack('empty.css');
+    const testId = './empty.css';
+    const stats = await webpack(testId);
     const { modules } = stats.toJson();
-    const [, module] = modules;
-    const evaluatedModule = evaluated(module.source, modules);
+    const module = modules.find((m) => m.id === testId);
 
     expect(module.source).toMatchSnapshot('module');
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
@@ -95,14 +96,15 @@ describe('loader', () => {
         },
       ],
     };
+    const testId = './postcss-present-env.css';
     const stats = await webpack('postcss-present-env.css', config);
     const { modules } = stats.toJson();
-    const [, , module] = modules;
-    const evaluatedModule = evaluated(module.source, modules);
+    const module = modules.find((m) => m.id === testId);
 
     expect(module.source).toMatchSnapshot('module');
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
@@ -119,6 +121,10 @@ describe('loader', () => {
             },
             {
               loader: 'sass-loader',
+              options: {
+                // eslint-disable-next-line global-require
+                implementation: require('sass'),
+              },
             },
           ],
         },
@@ -130,14 +136,15 @@ describe('loader', () => {
         },
       ],
     };
+    const testId = './sass-loader/basic.scss';
     const stats = await webpack('sass-loader/basic.scss', config);
     const { modules } = stats.toJson();
-    const [, , , module] = modules;
-    const evaluatedModule = evaluated(module.source, modules);
+    const module = modules.find((m) => m.id === testId);
 
     expect(module.source).toMatchSnapshot('module');
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
@@ -245,15 +252,15 @@ describe('loader', () => {
         },
       ],
     };
+    const testId = './messages-api/basic.css';
     const stats = await webpack('messages-api/basic.css', config);
     const { modules } = stats.toJson();
-    const [, , , module] = modules;
-    const evaluatedModule = evaluated(module.source, modules);
+    const module = modules.find((m) => m.id === testId);
 
-    // We don't need evaluated module here, because modules doesn't exists in graph
     expect(module.source).toMatchSnapshot('module');
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
     expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
       'warnings'
     );

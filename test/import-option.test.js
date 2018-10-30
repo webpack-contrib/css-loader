@@ -12,9 +12,10 @@ describe('import', () => {
         },
       },
     };
-    const stats = await webpack('import/import.css', config);
+    const testId = './import/import.css';
+    const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
-    const [, , , , , , , module] = modules;
+    const module = modules.find((m) => m.id === testId);
 
     expect(module.source).toMatchSnapshot('module');
     expect(evaluated(module.source, modules)).toMatchSnapshot(
@@ -34,9 +35,10 @@ describe('import', () => {
         },
       },
     };
-    const stats = await webpack('import/import.css', config);
+    const testId = './import/import.css';
+    const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
-    const [, module] = modules;
+    const module = modules.find((m) => m.id === testId);
 
     expect(module.source).toMatchSnapshot('module');
     expect(evaluated(module.source, modules)).toMatchSnapshot(

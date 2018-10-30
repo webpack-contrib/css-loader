@@ -70,7 +70,7 @@
     "jest": "^23.4.0",
     "lint-staged": "^7.2.0",
     "memory-fs": "^0.4.1",
-    "node-sass": "^4.9.4",
+    "sass": "^1.14.3",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.0.6",
     "pre-commit": "^1.2.2",
@@ -85,7 +85,9 @@
   ],
   "jest": {
     "testEnvironment": "node",
-    "coveragePathIgnorePatterns": ["/test/"]
+    "coveragePathIgnorePatterns": [
+      "/test/"
+    ]
   },
   "pre-commit": "lint-staged",
   "lint-staged": {

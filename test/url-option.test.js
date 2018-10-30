@@ -3,9 +3,10 @@ import evaluated from './helpers/evaluated';
 
 describe('url', () => {
   it('true', async () => {
-    const stats = await webpack('url/url.css');
+    const testId = './url/url.css';
+    const stats = await webpack(testId);
     const { modules } = stats.toJson();
-    const [, , , , , , , , , , , , , , , , module] = modules;
+    const module = modules.find((m) => m.id === testId);
 
     expect(module.source).toMatchSnapshot('module');
     expect(evaluated(module.source, modules)).toMatchSnapshot(
@@ -23,9 +24,10 @@ describe('url', () => {
         },
       },
     };
+    const testId = './url/url.css';
     const stats = await webpack('url/url.css', config);
     const { modules } = stats.toJson();
-    const [, , module] = modules;
+    const module = modules.find((m) => m.id === testId);
 
     expect(module.source).toMatchSnapshot('module');
     expect(evaluated(module.source, modules)).toMatchSnapshot(

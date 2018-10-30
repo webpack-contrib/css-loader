@@ -1,34 +1,8 @@
-import path from 'path';
-
 import webpack from './helpers/compiler';
 import evaluated from './helpers/evaluated';
-import { normalizeModule } from './helpers/utils';
+import { normalizeModule, generateRulesWithSourceMap } from './helpers/utils';
 
 describe('sourceMap', () => {
-  const generateRulesWithSourceMap = (enableSourceMap, sourceMap) => {
-    return {
-      rules: [
-        {
-          test: /\.css$/,
-          use: [
-            {
-              loader: path.resolve(__dirname, '../src'),
-              options: {
-                sourceMap: enableSourceMap,
-              },
-            },
-            {
-              loader: path.resolve(__dirname, 'fixtures/source-map-loader.js'),
-              options: {
-                sourceMap,
-              },
-            },
-          ],
-        },
-      ],
-    };
-  };
-
   describe('true', () => {
     it('basic', async () => {
       const config = {
@@ -38,13 +12,14 @@ describe('sourceMap', () => {
           },
         },
       };
-      const stats = await webpack('source-map/basic.css', config);
+      const testId = './source-map/basic.css';
+      const stats = await webpack(testId, config);
       const { modules } = stats.toJson();
+      const module = modules.find((m) => m.id === testId);
 
-      expect(
-        normalizeModule(evaluated(modules[modules.length - 1].source))
-      ).toMatchSnapshot('module');
-
+      expect(normalizeModule(evaluated(module.source))).toMatchSnapshot(
+        'module (evaluated)'
+      );
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
@@ -59,13 +34,14 @@ describe('sourceMap', () => {
         sourcesContent: ['.class { a: b c d; }'],
         version: 3,
       });
-      const stats = await webpack('source-map/basic.css', config);
+      const testId = './source-map/basic.css';
+      const stats = await webpack(testId, config);
       const { modules } = stats.toJson();
+      const module = modules.find((m) => m.id === testId);
 
-      expect(
-        normalizeModule(evaluated(modules[modules.length - 1].source))
-      ).toMatchSnapshot('module');
-
+      expect(normalizeModule(evaluated(module.source))).toMatchSnapshot(
+        'module (evaluated)'
+      );
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
@@ -83,13 +59,14 @@ describe('sourceMap', () => {
           version: 3,
         })
       );
-      const stats = await webpack('source-map/basic.css', config);
+      const testId = './source-map/basic.css';
+      const stats = await webpack(testId, config);
       const { modules } = stats.toJson();
+      const module = modules.find((m) => m.id === testId);
 
       expect(
-        normalizeModule(evaluated(modules[modules.length - 1].source))
-      ).toMatchSnapshot('module');
-
+        normalizeModule(evaluated(module.source, modules))
+      ).toMatchSnapshot('module (evaluated)');
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
@@ -104,13 +81,14 @@ describe('sourceMap', () => {
           },
         },
       };
-      const stats = await webpack('source-map/basic.css', config);
+      const testId = './source-map/basic.css';
+      const stats = await webpack(testId, config);
       const { modules } = stats.toJson();
+      const module = modules.find((m) => m.id === testId);
 
-      expect(evaluated(modules[modules.length - 1].source)).toMatchSnapshot(
-        'module'
+      expect(evaluated(module.source, modules)).toMatchSnapshot(
+        'module (evaluated)'
       );
-
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
@@ -125,13 +103,14 @@ describe('sourceMap', () => {
         sourcesContent: ['.class { a: b c d; }'],
         version: 3,
       });
-      const stats = await webpack('source-map/basic.css', config);
+      const testId = './source-map/basic.css';
+      const stats = await webpack(testId, config);
       const { modules } = stats.toJson();
+      const module = modules.find((m) => m.id === testId);
 
-      expect(evaluated(modules[modules.length - 1].source)).toMatchSnapshot(
-        'module'
+      expect(evaluated(module.source, modules)).toMatchSnapshot(
+        'module (evaluated)'
       );
-
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });

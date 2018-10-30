@@ -2,7 +2,7 @@
 
 exports[`sourceMap false basic: errors 1`] = `Array []`;
 
-exports[`sourceMap false basic: module 1`] = `
+exports[`sourceMap false basic: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -19,7 +19,7 @@ exports[`sourceMap false basic: warnings 1`] = `Array []`;
 
 exports[`sourceMap false map from other loader: errors 1`] = `Array []`;
 
-exports[`sourceMap false map from other loader: module 1`] = `
+exports[`sourceMap false map from other loader: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -36,7 +36,7 @@ exports[`sourceMap false map from other loader: warnings 1`] = `Array []`;
 
 exports[`sourceMap true basic: errors 1`] = `Array []`;
 
-exports[`sourceMap true basic: module 1`] = `
+exports[`sourceMap true basic: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -69,7 +69,7 @@ exports[`sourceMap true basic: warnings 1`] = `Array []`;
 
 exports[`sourceMap true map from other loader: errors 1`] = `Array []`;
 
-exports[`sourceMap true map from other loader: module 1`] = `
+exports[`sourceMap true map from other loader: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -104,7 +104,7 @@ exports[`sourceMap true map from other loader: warnings 1`] = `Array []`;
 
 exports[`sourceMap true map is string: errors 1`] = `Array []`;
 
-exports[`sourceMap true map is string: module 1`] = `
+exports[`sourceMap true map is string: module (evaluated) 1`] = `
 Array [
   Array [
     1,
