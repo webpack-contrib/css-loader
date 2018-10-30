@@ -84,7 +84,8 @@
     "webpack"
   ],
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": ["/test/"]
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
