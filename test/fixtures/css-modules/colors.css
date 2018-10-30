@@ -1,0 +1,11 @@
+/* colors.css */
+@value primary: #BF4040;
+@value secondary: #1F4F7F;
+
+.text-primary {
+  color: primary;
+}
+
+.text-secondary {
+  color: secondary;
+}

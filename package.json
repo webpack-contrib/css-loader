@@ -45,8 +45,7 @@
     "loader-utils": "^1.0.0",
     "postcss": "^7.0.0",
     "postcss-value-parser": "^3.3.0",
-    "schema-utils": "^1.0.0",
-    "icss-utils": "css-modules/icss-utils#chore-release-4"
+    "schema-utils": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
@@ -71,10 +70,7 @@
     "jest": "^23.4.0",
     "lint-staged": "^7.2.0",
     "memory-fs": "^0.4.1",
-    "postcss-icss-composes": "^2.0.3",
-    "postcss-icss-keyframes": "^0.2.1",
-    "postcss-icss-selectors": "^2.0.3",
-    "postcss-icss-values": "^2.0.1",
+    "postcss-modules": "^1.4.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.0.6",
     "pre-commit": "^1.2.2",

@@ -2,11 +2,6 @@ import path from 'path';
 
 import postcss from 'postcss';
 import postcssPresetEnv from 'postcss-preset-env';
-import postcssIcssValues from 'postcss-icss-values';
-import postcssIcssSelectors from 'postcss-icss-selectors';
-import postcssIcssComposes from 'postcss-icss-composes';
-import postcssIcssKeyframes from 'postcss-icss-keyframes';
-import genericNames from 'generic-names';
 
 import webpack from './helpers/compiler';
 import evaluated from './helpers/evaluated';
@@ -114,7 +109,7 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test.skip('ICSS (next generation of css modules)', async () => {
+  test('ICSS (next generation of css modules)', async () => {
     const config = {
       rules: [
         {
@@ -129,21 +124,11 @@ describe('loader', () => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: (loader) => [
-                  postcssIcssValues(),
-                  postcssIcssSelectors({
-                    mode: 'global',
-                    generateScopedName: genericNames('[hash:base64]', {
-                      hashPrefix: '',
-                      context: loader.rootContext,
-                    }),
-                  }),
-                  postcssIcssComposes(),
-                  postcssIcssKeyframes({
-                    generateScopedName: genericNames('[hash:base64]', {
-                      hashPrefix: '',
-                      context: loader.rootContext,
-                    }),
+                plugins: () => [
+                  require('postcss-modules')({
+                    // Can be 'global' or 'local',
+                    scopeBehaviour: 'local',
+                    getJSON() {},
                   }),
                 ],
               },
@@ -158,9 +143,9 @@ describe('loader', () => {
         },
       ],
     };
-    const stats = await webpack('icss/basic.css', config);
+    const stats = await webpack('css-modules/basic.css', config);
     const { modules } = stats.toJson();
-    const [, , , , , , , , module] = modules;
+    const [, module] = modules;
 
     const evaluatedModule = evaluated(module.source, modules);
 

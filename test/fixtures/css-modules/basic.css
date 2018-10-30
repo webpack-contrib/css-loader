@@ -1,0 +1,47 @@
+/* my-component.css */
+
+/* alias paths for other values or composition */
+@value colors: "./colors.css";
+
+/* import multiple from a single file */
+@value primary, secondary from colors;
+
+/* make local aliases to imported values */
+@value small as bp-small, large as bp-large from "./breakpoints.css";
+
+:local(.class) {
+  composes: button from "./button.css";
+  box-shadow: 0 0 10px secondary;
+}
+
+.foo {
+  color: red;
+}
+
+.foo .bar {
+  color: yellow;
+}
+
+:global .foo .bar {
+  color: aqua;
+}
+
+.foo :global .bar {
+  color: green;
+}
+
+:global(.foo) .bar {
+  color: yellowgreen;
+}
+
+.foo:global(.bar) {
+  color: paleturquoise;
+}
+
+.foo :global(.bar) .baz {
+  color: coral;
+}
+
+.foo:global(.bar) .baz {
+  color: lime;
+}

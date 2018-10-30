@@ -303,13 +303,11 @@ module.exports = {
 
 ### CSS Modules
 
-To begin, you'll need to install `postcss-loader`, `postcss-icss-values`, `postcss-icss-selectors`, `postcss-icss-composes` and `postcss-icss-keyframes`:
+To begin, you'll need to install `postcss-loader` and `postcss-modules`:
 
 ```console
-$ npm install postcss-loader postcss-icss-values postcss-icss-selectors postcss-icss-composes postcss-icss-keyframes --save-dev
+$ npm install postcss-loader postcss-moduless --save-dev
 ```
-
-New `postcss` plugins for css modules use the [ICSS](https://github.com/css-modules/icss) specification.
 
 **webpack.config.js**
 
@@ -329,21 +327,12 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: (loader) => [
-                require('postcss-icss-values')(),
-                require('postcss-icss-selectors')({
-                  mode: 'global', // Can be `local`
-                  generateScopedName: require('generic-names')({
-                    hashPrefix: '',
-                    context: loader.rootContext,
-                  })
-                }),
-                require('postcss-icss-composes')(),
-                require('postcss-icss-keyframes')({
-                  generateScopedName: require('generic-names')({
-                    hashPrefix: '',
-                    context: loader.rootContext,
-                  })
+              plugins: () => [
+                // List of options https://github.com/css-modules/postcss-modules#usage
+                require('postcss-modules')({
+                  // Can be 'global' or 'local',
+                  scopeBehaviour: 'local',
+                  getJSON() {},
                 }),
               ],
             },
