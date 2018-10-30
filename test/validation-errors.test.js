@@ -3,7 +3,7 @@ import webpack from './helpers/compiler';
 import { normalizeErrors } from './helpers/utils';
 
 describe('Validation Errors', () => {
-  test('unknown option', async () => {
+  it('unknown option', async () => {
     const config = {
       loader: {
         options: {
@@ -19,7 +19,7 @@ describe('Validation Errors', () => {
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
-  test('url - true (boolean)', async () => {
+  it('url - true (boolean)', async () => {
     const config = {
       loader: {
         options: {
@@ -33,7 +33,7 @@ describe('Validation Errors', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('url - false (boolean)', async () => {
+  it('url - false (boolean)', async () => {
     const config = {
       loader: {
         options: {
@@ -47,7 +47,7 @@ describe('Validation Errors', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('url - true (string)', async () => {
+  it('url - true (string)', async () => {
     const config = {
       loader: {
         options: {
@@ -63,7 +63,7 @@ describe('Validation Errors', () => {
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
-  test('import - true (boolean)', async () => {
+  it('import - true (boolean)', async () => {
     const config = {
       loader: {
         options: {
@@ -77,7 +77,7 @@ describe('Validation Errors', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('import - false (boolean)', async () => {
+  it('import - false (boolean)', async () => {
     const config = {
       loader: {
         options: {
@@ -91,7 +91,7 @@ describe('Validation Errors', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('import - true (string)', async () => {
+  it('import - true (string)', async () => {
     const config = {
       loader: {
         options: {
@@ -107,7 +107,7 @@ describe('Validation Errors', () => {
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
-  test('sourceMap - true (boolean)', async () => {
+  it('sourceMap - true (boolean)', async () => {
     const config = {
       loader: {
         options: {
@@ -121,7 +121,7 @@ describe('Validation Errors', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('sourceMap - false (boolean)', async () => {
+  it('sourceMap - false (boolean)', async () => {
     const config = {
       loader: {
         options: {
@@ -135,7 +135,7 @@ describe('Validation Errors', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('sourceMap - true (string)', async () => {
+  it('sourceMap - true (string)', async () => {
     const config = {
       loader: {
         options: {
@@ -151,7 +151,7 @@ describe('Validation Errors', () => {
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
-  test('importLoaders - 0 (number)', async () => {
+  it('importLoaders - 0 (number)', async () => {
     const config = {
       loader: {
         options: {
@@ -165,7 +165,7 @@ describe('Validation Errors', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('importLoaders - 1 (number)', async () => {
+  it('importLoaders - 1 (number)', async () => {
     const config = {
       loader: {
         options: {
@@ -179,7 +179,7 @@ describe('Validation Errors', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('importLoaders - 1 (string)', async () => {
+  it('importLoaders - 1 (string)', async () => {
     const config = {
       loader: {
         options: {

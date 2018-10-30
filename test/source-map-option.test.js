@@ -30,7 +30,7 @@ describe('sourceMap', () => {
   };
 
   describe('true', () => {
-    test('basic', async () => {
+    it('basic', async () => {
       const config = {
         loader: {
           options: {
@@ -49,7 +49,7 @@ describe('sourceMap', () => {
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
 
-    test('map from other loader', async () => {
+    it('map from other loader', async () => {
       const config = generateRulesWithSourceMap(true, {
         file: 'test.css',
         mappings: 'AAAA,SAAS,SAAS,EAAE',
@@ -70,7 +70,7 @@ describe('sourceMap', () => {
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
 
-    test('map is string', async () => {
+    it('map is string', async () => {
       const config = generateRulesWithSourceMap(
         true,
         JSON.stringify({
@@ -96,7 +96,7 @@ describe('sourceMap', () => {
   });
 
   describe('false', () => {
-    test('basic', async () => {
+    it('basic', async () => {
       const config = {
         loader: {
           options: {
@@ -115,7 +115,7 @@ describe('sourceMap', () => {
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
 
-    test('map from other loader', async () => {
+    it('map from other loader', async () => {
       const config = generateRulesWithSourceMap(false, {
         file: 'test.css',
         mappings: 'AAAA,SAAS,SAAS,EAAE',

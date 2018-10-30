@@ -4,7 +4,7 @@ import evaluated from './helpers/evaluated';
 import { normalizeErrors } from './helpers/utils';
 
 describe('import', () => {
-  test('true', async () => {
+  it('true', async () => {
     const config = {
       loader: {
         options: {
@@ -26,7 +26,7 @@ describe('import', () => {
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
-  test('false', async () => {
+  it('false', async () => {
     const config = {
       loader: {
         options: {

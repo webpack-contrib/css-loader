@@ -9,7 +9,7 @@ import evaluated from './helpers/evaluated';
 import { normalizeErrors } from './helpers/utils';
 
 describe('loader', () => {
-  test('basic', async () => {
+  it('basic', async () => {
     const stats = await webpack('basic.js');
     const { modules } = stats.toJson();
     const [, runtime, escape, module] = modules;
@@ -24,7 +24,7 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('basic (css endpoint)', async () => {
+  it('basic (css endpoint)', async () => {
     const stats = await webpack('basic.css');
     const { modules } = stats.toJson();
     const [, runtime, escape, module] = modules;
@@ -39,7 +39,7 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('empty options', async () => {
+  it('empty options', async () => {
     const stats = await webpack('empty.css');
     const { modules } = stats.toJson();
     const [, module] = modules;
@@ -52,7 +52,7 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('error when no loader for url assets', async () => {
+  it('error when no loader for url assets', async () => {
     const config = {
       rules: [
         {
@@ -69,7 +69,7 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('using together with "postcss-loader" (reuse ast)', async () => {
+  it('using together with "postcss-loader" (reuse ast)', async () => {
     const config = {
       rules: [
         {
@@ -107,7 +107,7 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('using together with "sass-loader"', async () => {
+  it('using together with "sass-loader"', async () => {
     const config = {
       rules: [
         {
@@ -142,7 +142,7 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('message api', async () => {
+  it('message api', async () => {
     const postcssMessageApiPlugin = postcss.plugin(
       'postcss-message-api',
       () => (root, result) => {

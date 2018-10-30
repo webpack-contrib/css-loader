@@ -2,7 +2,7 @@ import webpack from './helpers/compiler';
 import evaluated from './helpers/evaluated';
 
 describe('url', () => {
-  test('true', async () => {
+  it('true', async () => {
     const stats = await webpack('url/url.css');
     const { modules } = stats.toJson();
     const [, , , , , , , , , , , , , , , , module] = modules;
@@ -15,7 +15,7 @@ describe('url', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('false', async () => {
+  it('false', async () => {
     const config = {
       loader: {
         options: {
