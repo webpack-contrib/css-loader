@@ -1,81 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`loader ICSS (next generation of css modules): errors 1`] = `Array []`;
-
-exports[`loader ICSS (next generation of css modules): export (evaluated) 1`] = `undefined`;
-
-exports[`loader ICSS (next generation of css modules): module (evaluated) 1`] = `
-Array [
-  Array [
-    1,
-    "._button_lj5dw_1 {
-  dispaly: block;
-}/* colors.css */._text-primary_1g01d_5 {
-  color: #BF4040;
-}._text-secondary_1g01d_9 {
-  color: #1F4F7F;
-}
-
-/* my-component.css */
-
-/* alias paths for other values or composition */
-
-/* import multiple from a single file */
-
-/* make local aliases to imported values */
-
-._class_1szx8_12 {
-  box-shadow: 0 0 10px #1F4F7F;
-}
-
-._foo_1szx8_17 {
-  color: red;
-}
-
-._foo_1szx8_17 ._bar_1szx8_21 {
-  color: yellow;
-}
-
-.foo .bar {
-  color: aqua;
-}
-
-._foo_1szx8_17 .bar {
-  color: green;
-}
-
-.foo ._bar_1szx8_21 {
-  color: yellowgreen;
-}
-
-._foo_1szx8_17.bar {
-  color: paleturquoise;
-}
-
-._foo_1szx8_17 .bar ._baz_1szx8_41 {
-  color: coral;
-}
-
-._foo_1szx8_17.bar ._baz_1szx8_41 {
-  color: lime;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`loader ICSS (next generation of css modules): module 1`] = `
-"// CSS runtime
-module.exports = exports = require(\\"../../../src/runtime/api.js\\")(false);
-
-// CSS module
-exports.push([module.id, \\"._button_lj5dw_1 {\\\\n  dispaly: block;\\\\n}/* colors.css */._text-primary_1g01d_5 {\\\\n  color: #BF4040;\\\\n}._text-secondary_1g01d_9 {\\\\n  color: #1F4F7F;\\\\n}\\\\n\\\\n/* my-component.css */\\\\n\\\\n/* alias paths for other values or composition */\\\\n\\\\n/* import multiple from a single file */\\\\n\\\\n/* make local aliases to imported values */\\\\n\\\\n._class_1szx8_12 {\\\\n  box-shadow: 0 0 10px #1F4F7F;\\\\n}\\\\n\\\\n._foo_1szx8_17 {\\\\n  color: red;\\\\n}\\\\n\\\\n._foo_1szx8_17 ._bar_1szx8_21 {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.foo .bar {\\\\n  color: aqua;\\\\n}\\\\n\\\\n._foo_1szx8_17 .bar {\\\\n  color: green;\\\\n}\\\\n\\\\n.foo ._bar_1szx8_21 {\\\\n  color: yellowgreen;\\\\n}\\\\n\\\\n._foo_1szx8_17.bar {\\\\n  color: paleturquoise;\\\\n}\\\\n\\\\n._foo_1szx8_17 .bar ._baz_1szx8_41 {\\\\n  color: coral;\\\\n}\\\\n\\\\n._foo_1szx8_17.bar ._baz_1szx8_41 {\\\\n  color: lime;\\\\n}\\\\n\\", \\"\\"]);
-"
-`;
-
-exports[`loader ICSS (next generation of css modules): warnings 1`] = `Array []`;
-
 exports[`loader basic (css endpoint): errors 1`] = `Array []`;
 
 exports[`loader basic (css endpoint): escape 1`] = `
@@ -649,3 +573,66 @@ exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: r
 `;
 
 exports[`loader using together with "postcss-loader" (reuse ast): warnings 1`] = `Array []`;
+
+exports[`loader using together with "sass-loader": errors 1`] = `Array []`;
+
+exports[`loader using together with "sass-loader": export (evaluated) 1`] = `undefined`;
+
+exports[`loader using together with "sass-loader": module (evaluated) 1`] = `
+Array [
+  Array [
+    3,
+    ".other-class {
+  color: blue;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "body {
+  color: white; }
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333; }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+nav li {
+  display: inline-block; }
+
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none; }
+
+.box {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg); }
+
+.background {
+  background: url(/webpack/public/path/5b1f36bc41ab31f5b801d48ba1d65781.png); }
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader using together with "sass-loader": module 1`] = `
+"// CSS runtime
+module.exports = exports = require(\\"../../../src/runtime/api.js\\")(false);
+// CSS imports
+var escape = require(\\"../../../src/runtime/escape.js\\");
+var ___CSS_LOADER_URL___0___ = escape(require(\\"./img.png\\"));
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./style.css\\"), \\"\\");
+// CSS module
+exports.push([module.id, \\"body {\\\\n  color: white; }\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333; }\\\\n\\\\nnav ul {\\\\n  margin: 0;\\\\n  padding: 0;\\\\n  list-style: none; }\\\\n\\\\nnav li {\\\\n  display: inline-block; }\\\\n\\\\nnav a {\\\\n  display: block;\\\\n  padding: 6px 12px;\\\\n  text-decoration: none; }\\\\n\\\\n.box {\\\\n  -webkit-transform: rotate(30deg);\\\\n  -ms-transform: rotate(30deg);\\\\n  transform: rotate(30deg); }\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\"); }\\\\n\\", \\"\\"]);
+"
+`;
+
+exports[`loader using together with "sass-loader": warnings 1`] = `Array []`;

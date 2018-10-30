@@ -31,13 +31,13 @@ function evaluated(output, modules, moduleId = 1) {
           const modulePath = el.identifier.split('!').pop();
           const importedPaths = [
             '',
-            'icss',
             'import',
             'import/node_modules',
             'messages-api',
             'source-map',
             'url',
             'url/node_modules',
+            'sass-loader',
           ].map((importedPath) =>
             path.resolve(__dirname, `../fixtures/${importedPath}`, module)
           );

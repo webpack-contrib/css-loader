@@ -109,29 +109,18 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  test('ICSS (next generation of css modules)', async () => {
+  test('using together with "sass-loader"', async () => {
     const config = {
       rules: [
         {
-          test: /\.css$/,
+          test: /\.s[ca]ss$/i,
           use: [
             {
               loader: path.resolve(__dirname, '../src'),
-              options: {
-                importLoaders: 1,
-              },
+              options: {},
             },
             {
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [
-                  require('postcss-modules')({
-                    // Can be 'global' or 'local',
-                    scopeBehaviour: 'local',
-                    getJSON() {},
-                  }),
-                ],
-              },
+              loader: 'sass-loader',
             },
           ],
         },
@@ -143,10 +132,9 @@ describe('loader', () => {
         },
       ],
     };
-    const stats = await webpack('css-modules/basic.css', config);
+    const stats = await webpack('sass-loader/basic.scss', config);
     const { modules } = stats.toJson();
-    const [, module] = modules;
-
+    const [, , , module] = modules;
     const evaluatedModule = evaluated(module.source, modules);
 
     expect(module.source).toMatchSnapshot('module');
