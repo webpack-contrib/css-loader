@@ -1,3 +1,5 @@
+@import "./imported.css";
+
 .class {
   background: url("img.png");
 }

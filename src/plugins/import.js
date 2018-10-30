@@ -101,8 +101,8 @@ export default postcss.plugin(
 
         result.messages.push({
           pluginName,
-          type: 'css-loader',
-          modify(moduleObj, loaderContext) {
+          type: 'import',
+          import(accumulator, currentValue, index, array, loaderContext) {
             const { url, media } = importee;
 
             if (isUrlRequest(url)) {
@@ -110,23 +110,17 @@ export default postcss.plugin(
               const [normalizedUrl] = normalizeUrl(url);
 
               // Requestable url in `@import` at-rule (`@import './style.css`)
-              moduleObj.imports.push(
-                `exports.i(require(${stringifyRequest(
-                  loaderContext,
-                  getImportPrefix(loaderContext, importLoaders) +
-                    urlToRequest(normalizedUrl)
-                )}), ${JSON.stringify(media)});`
-              );
-            } else {
-              // Absolute url in `@import` at-rule (`@import 'https://example.com/style.css`)
-              moduleObj.imports.push(
-                `exports.push([module.id, ${JSON.stringify(
-                  `@import url(${url});`
-                )}, ${JSON.stringify(media)}]);`
-              );
+              return `${accumulator}exports.i(require(${stringifyRequest(
+                loaderContext,
+                getImportPrefix(loaderContext, importLoaders) +
+                  urlToRequest(normalizedUrl)
+              )}), ${JSON.stringify(media)});\n`;
             }
 
-            return moduleObj;
+            // Absolute url in `@import` at-rule (`@import 'https://example.com/style.css`)
+            return `${accumulator}exports.push([module.id, ${JSON.stringify(
+              `@import url(${url});`
+            )}, ${JSON.stringify(media)}]);\n`;
           },
         });
       });

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`URL postcss plugin basic: css 1`] = `
-".class {
+"@import \\"./imported.css\\";
+
+.class {
   background: url(___CSS_LOADER_URL___0___);
 }
 

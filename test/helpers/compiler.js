@@ -72,9 +72,9 @@ export default function(fixture, config = {}, options = {}) {
   }
 
   return new Promise((resolve, reject) =>
-    compiler.run((err, stats) => {
-      if (err) {
-        return reject(err);
+    compiler.run((error, stats) => {
+      if (error) {
+        return reject(error);
       }
 
       return resolve(stats);

@@ -6,6 +6,8 @@ import postcssPresetEnv from 'postcss-preset-env';
 import webpack from './helpers/compiler';
 import evaluated from './helpers/evaluated';
 
+import { normalizeErrors } from './helpers/utils';
+
 describe('loader', () => {
   test('basic', async () => {
     const stats = await webpack('basic.js');
@@ -17,7 +19,6 @@ describe('loader', () => {
     expect(escape.source).toMatchSnapshot('escape');
     expect(module.source).toMatchSnapshot('module');
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('export (evaluated)');
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -33,7 +34,6 @@ describe('loader', () => {
     expect(escape.source).toMatchSnapshot('escape');
     expect(module.source).toMatchSnapshot('module');
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('export (evaluated)');
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -47,7 +47,6 @@ describe('loader', () => {
 
     expect(module.source).toMatchSnapshot('module');
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('export (evaluated)');
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -103,7 +102,6 @@ describe('loader', () => {
 
     expect(module.source).toMatchSnapshot('module');
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('export (evaluated)');
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
@@ -139,13 +137,82 @@ describe('loader', () => {
 
     expect(module.source).toMatchSnapshot('module');
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('export (evaluated)');
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
   test('message api', async () => {
+    const postcssMessageApiPlugin = postcss.plugin(
+      'postcss-message-api',
+      () => (root, result) => {
+        result.messages.push(
+          // Custom message
+          {
+            type: 'unknown',
+            plugin: 'postcss-plugin-name',
+            unknown() {
+              return 'unknown';
+            },
+          },
+          // Import
+          {
+            type: 'import',
+            plugin: 'postcss-plugin-name',
+            import(accumulator) {
+              return [
+                accumulator,
+                'var otherImage = require("./other-img.png");',
+              ].join('\n');
+            },
+          },
+          // Invalid
+          {
+            type: 'import',
+            plugin: 'postcss-plugin-name',
+            fn() {
+              return 'invalid';
+            },
+          },
+          // Error
+          {
+            type: 'import',
+            plugin: 'postcss-plugin-name',
+            import() {
+              throw new Error('Error');
+            },
+          },
+          // Module
+          {
+            type: 'module',
+            plugin: 'postcss-plugin-name',
+            module(accumulator) {
+              return accumulator
+                .replace(
+                  new RegExp('___REPLACED_PROPERTY___', 'g'),
+                  `background`
+                )
+                .replace(new RegExp('___REPLACED_FUNCTION___', 'g'), `url`)
+                .replace(
+                  new RegExp('___REPLACED_FUNCTION_ARGUMENT___', 'g'),
+                  `" + otherImage + "`
+                );
+            },
+          },
+          // Export
+          {
+            type: 'export',
+            plugin: 'postcss-plugin-name',
+            export(accumulator) {
+              return [
+                accumulator,
+                `exports.locals = { foo: "bar", bar: "foo" };\n`,
+              ].join('');
+            },
+          }
+        );
+      }
+    );
     const config = {
       rules: [
         {
@@ -160,27 +227,7 @@ describe('loader', () => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: () => [
-                  postcss.plugin(
-                    'postcss-message-api',
-                    () => (root, result) => {
-                      result.messages.push(
-                        // Exports
-                        {
-                          type: 'css-loader',
-                          plugin: 'postcss-message-api',
-                          modify: (moduleObj) => {
-                            moduleObj.exports.push(
-                              `exports.locals = { foo: "bar" };`
-                            );
-
-                            return moduleObj;
-                          },
-                        }
-                      );
-                    }
-                  )(),
-                ],
+                plugins: () => [postcssMessageApiPlugin()],
               },
             },
           ],
@@ -196,11 +243,15 @@ describe('loader', () => {
     const stats = await webpack('messages-api/basic.css', config);
     const { modules } = stats.toJson();
     const [, , , module] = modules;
+    const evaluatedModule = evaluated(module.source, modules);
 
     // We don't need evaluated module here, because modules doesn't exists in graph
     expect(module.source).toMatchSnapshot('module');
+    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
 
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 });

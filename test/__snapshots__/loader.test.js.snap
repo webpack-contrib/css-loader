@@ -26,8 +26,6 @@ module.exports = function escape(url) {
 "
 `;
 
-exports[`loader basic (css endpoint): export (evaluated) 1`] = `undefined`;
-
 exports[`loader basic (css endpoint): module (evaluated) 1`] = `
 Array [
   Array [
@@ -115,12 +113,15 @@ Array [
 exports[`loader basic (css endpoint): module 1`] = `
 "// CSS runtime
 module.exports = exports = require(\\"../../src/runtime/api.js\\")(false);
+
 // CSS imports
 var escape = require(\\"../../src/runtime/escape.js\\");
 var ___CSS_LOADER_URL___0___ = escape(require(\\"./url/img.png\\"));
 exports.i(require(\\"-!../../src/index.js??ref--4!./imported.css\\"), \\"\\");
+
 // CSS module
 exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.u-m\\\\\\\\+ {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.grid.\\\\\\\\-top {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.class {\\\\n  content: '\\\\\\"\\\\\\\\\\\\\\\\f10c\\\\\\"';\\\\n}\\\\n\\\\n.class {\\\\n  font-family: '微软雅黑';\\\\n}\\\\n\\\\n.class {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\F10C\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\f10C\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\F10C \\\\\\\\F10D\\\\\\"\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\", \\"\\"]);
+
 "
 `;
 
@@ -244,8 +245,6 @@ module.exports = function escape(url) {
 "
 `;
 
-exports[`loader basic: export (evaluated) 1`] = `undefined`;
-
 exports[`loader basic: module (evaluated) 1`] = `
 Array [
   Array [
@@ -333,12 +332,15 @@ Array [
 exports[`loader basic: module 1`] = `
 "// CSS runtime
 module.exports = exports = require(\\"../../src/runtime/api.js\\")(false);
+
 // CSS imports
 var escape = require(\\"../../src/runtime/escape.js\\");
 var ___CSS_LOADER_URL___0___ = escape(require(\\"./url/img.png\\"));
 exports.i(require(\\"-!../../src/index.js??ref--4!./imported.css\\"), \\"\\");
+
 // CSS module
 exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.u-m\\\\\\\\+ {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.grid.\\\\\\\\-top {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.class {\\\\n  content: '\\\\\\"\\\\\\\\\\\\\\\\f10c\\\\\\"';\\\\n}\\\\n\\\\n.class {\\\\n  font-family: '微软雅黑';\\\\n}\\\\n\\\\n.class {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\F10C\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\f10C\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\F10C \\\\\\\\F10D\\\\\\"\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\", \\"\\"]);
+
 "
 `;
 
@@ -438,8 +440,6 @@ exports[`loader basic: warnings 1`] = `Array []`;
 
 exports[`loader empty options: errors 1`] = `Array []`;
 
-exports[`loader empty options: export (evaluated) 1`] = `undefined`;
-
 exports[`loader empty options: module (evaluated) 1`] = `
 Array [
   Array [
@@ -456,6 +456,7 @@ module.exports = exports = require(\\"../../src/runtime/api.js\\")(false);
 
 // CSS module
 exports.push([module.id, \\"\\", \\"\\"]);
+
 "
 `;
 
@@ -471,26 +472,69 @@ You may need an appropriate loader to handle this file type.
 
 exports[`loader error when no loader for url assets: warnings 1`] = `Array []`;
 
-exports[`loader message api: errors 1`] = `Array []`;
+exports[`loader message api: errors 1`] = `
+Array [
+  [ModuleError: Module Error (from \`replaced original path\`):
+Error],
+  [ModuleError: Module Error (from \`replaced original path\`):
+Error],
+]
+`;
+
+exports[`loader message api: module (evaluated) 1`] = `
+Array [
+  Array [
+    3,
+    ".foo {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "@charset \\"UTF-8\\";
+
+.class {
+  color: red;
+  background: url(/webpack/public/path/5b1f36bc41ab31f5b801d48ba1d65781.png);
+}
+
+.other-class {
+  color: blue;
+}
+
+.other-other-class {
+  background: url(\\"/webpack/public/path/5b1f36bc41ab31f5b801d48ba1d65781.png\\");
+}
+",
+    "",
+  ],
+]
+`;
 
 exports[`loader message api: module 1`] = `
 "// CSS runtime
 module.exports = exports = require(\\"../../../src/runtime/api.js\\")(false);
+
 // CSS imports
 var escape = require(\\"../../../src/runtime/escape.js\\");
 var ___CSS_LOADER_URL___0___ = escape(require(\\"./img.png\\"));
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!../../../node_modules/postcss-loader/src/index.js??ref--4-1!./imported.css\\"), \\"\\");
+
+var otherImage = require(\\"./other-img.png\\");
 // CSS module
-exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.other-class {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.other-class {\\\\n  color: blue;\\\\n}\\\\n\\\\n.other-other-class {\\\\n  background: url(\\\\\\"\\" + otherImage + \\"\\\\\\");\\\\n}\\\\n\\", \\"\\"]);
+
 // CSS exports
-exports.locals = { foo: \\"bar\\" };"
+exports.locals = { foo: \\"bar\\", bar: \\"foo\\" };
+
+"
 `;
 
 exports[`loader message api: warnings 1`] = `Array []`;
 
 exports[`loader using together with "postcss-loader" (reuse ast): errors 1`] = `Array []`;
-
-exports[`loader using together with "postcss-loader" (reuse ast): export (evaluated) 1`] = `undefined`;
 
 exports[`loader using together with "postcss-loader" (reuse ast): module (evaluated) 1`] = `
 Array [
@@ -563,20 +607,21 @@ a:hover {
 exports[`loader using together with "postcss-loader" (reuse ast): module 1`] = `
 "// CSS runtime
 module.exports = exports = require(\\"../../src/runtime/api.js\\")(false);
+
 // CSS imports
 var escape = require(\\"../../src/runtime/escape.js\\");
 var ___CSS_LOADER_URL___0___ = escape(require(\\"./url/img.png\\"));
 var ___CSS_LOADER_URL___1___ = escape(require(\\"./url/img2x.png\\"));
+
 // CSS module
 exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: url/img.png;\\\\n}\\\\n\\\\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: url/img2x.png;\\\\n}\\\\n}\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL___0___ + \\") 1x, url(\\" + ___CSS_LOADER_URL___1___ + \\") 2x);\\\\n  background-image: image-set(\\\\\\"url/img.png\\\\\\" 1x, \\\\\\"url/img2x.png\\\\\\" 2x);\\\\n}\\\\n\\\\na {\\\\n  color: #639\\\\n}\\\\n\\\\na:hover {\\\\n   color: color-mod(rgba(102, 51, 153, 0.9) b(15%) a(75%));\\\\n   color: color-mod(var(--secondaryColor) b(15%) a(75%));\\\\n }\\\\n\\", \\"\\"]);
+
 "
 `;
 
 exports[`loader using together with "postcss-loader" (reuse ast): warnings 1`] = `Array []`;
 
 exports[`loader using together with "sass-loader": errors 1`] = `Array []`;
-
-exports[`loader using together with "sass-loader": export (evaluated) 1`] = `undefined`;
 
 exports[`loader using together with "sass-loader": module (evaluated) 1`] = `
 Array [
@@ -626,12 +671,15 @@ nav a {
 exports[`loader using together with "sass-loader": module 1`] = `
 "// CSS runtime
 module.exports = exports = require(\\"../../../src/runtime/api.js\\")(false);
+
 // CSS imports
 var escape = require(\\"../../../src/runtime/escape.js\\");
 var ___CSS_LOADER_URL___0___ = escape(require(\\"./img.png\\"));
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!./style.css\\"), \\"\\");
+
 // CSS module
 exports.push([module.id, \\"body {\\\\n  color: white; }\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333; }\\\\n\\\\nnav ul {\\\\n  margin: 0;\\\\n  padding: 0;\\\\n  list-style: none; }\\\\n\\\\nnav li {\\\\n  display: inline-block; }\\\\n\\\\nnav a {\\\\n  display: block;\\\\n  padding: 6px 12px;\\\\n  text-decoration: none; }\\\\n\\\\n.box {\\\\n  -webkit-transform: rotate(30deg);\\\\n  -ms-transform: rotate(30deg);\\\\n  transform: rotate(30deg); }\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\"); }\\\\n\\", \\"\\"]);
+
 "
 `;
 

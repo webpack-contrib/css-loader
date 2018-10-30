@@ -18,6 +18,7 @@ import urlPlugin from './plugins/url';
 import importPlugin from './plugins/import';
 import Warning from './Warning';
 import SyntaxError from './SyntaxError';
+import { messageReducer } from './utils';
 
 export default function loader(content, map, meta) {
   const options = getOptions(this) || {};
@@ -116,45 +117,32 @@ export default function loader(content, map, meta) {
         newMap = JSON.stringify(newMap);
       }
 
-      let moduleObj = {
-        runtime: `module.exports = exports = require(${stringifyRequest(
-          this,
-          require.resolve('./runtime/api')
-        )})(${!!sourceMap});`,
-        imports: [],
-        module: `exports.push([module.id, ${JSON.stringify(result.css)}, ""${
+      const runtimeCode = `module.exports = exports = require(${stringifyRequest(
+        this,
+        require.resolve('./runtime/api')
+      )})(${!!sourceMap});\n`;
+      const importCode = messageReducer(result.messages, 'import', '', this);
+      const moduleCode = messageReducer(
+        result.messages,
+        'module',
+        `exports.push([module.id, ${JSON.stringify(result.css)}, ""${
           newMap ? `,${newMap}` : ''
-        }]);`,
-        exports: [],
-      };
-
-      if (result.messages && result.messages.length > 0) {
-        result.messages
-          .filter(
-            (message) => (message.type === 'css-loader' ? message : false)
-          )
-          .forEach((message) => {
-            try {
-              moduleObj = message.modify(moduleObj, this);
-            } catch (err) {
-              this.emitError(err);
-            }
-          });
-      }
-
-      const { runtime, imports, module, exports } = moduleObj;
+        }]);\n`,
+        this
+      );
+      const exportCode = messageReducer(result.messages, 'export', '', this);
 
       return cb(
         null,
         [
-          runtime ? `// CSS runtime\n${runtime}` : '',
-          imports.length > 0 ? `// CSS imports\n${imports.join('\n')}` : '',
-          module ? `// CSS module\n${module}` : '',
-          exports.length > 0 ? `// CSS exports\n${exports.join('\n')}` : '',
-        ].join('\n')
+          `// CSS runtime\n${runtimeCode}\n`,
+          importCode ? `// CSS imports\n${importCode}\n` : '',
+          moduleCode ? `// CSS module\n${moduleCode}\n` : '',
+          exportCode ? `// CSS exports\n${exportCode}\n` : '',
+        ].join('')
       );
     })
-    .catch((err) => {
-      cb(err.name === 'CssSyntaxError' ? new SyntaxError(err) : err);
+    .catch((error) => {
+      cb(error.name === 'CssSyntaxError' ? new SyntaxError(error) : error);
     });
 }

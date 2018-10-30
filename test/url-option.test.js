@@ -5,7 +5,7 @@ describe('url', () => {
   test('true', async () => {
     const stats = await webpack('url/url.css');
     const { modules } = stats.toJson();
-    const [, , , , , , , , , , , , , , module] = modules;
+    const [, , , , , , , , , , , , , , , , module] = modules;
 
     expect(module.source).toMatchSnapshot('module');
     expect(evaluated(module.source, modules)).toMatchSnapshot(
@@ -25,7 +25,7 @@ describe('url', () => {
     };
     const stats = await webpack('url/url.css', config);
     const { modules } = stats.toJson();
-    const [, module] = modules;
+    const [, , module] = modules;
 
     expect(module.source).toMatchSnapshot('module');
     expect(evaluated(module.source, modules)).toMatchSnapshot(

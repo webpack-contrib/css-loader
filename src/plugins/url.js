@@ -112,40 +112,43 @@ export default postcss.plugin(
         item.decl.value = item.parsed.toString();
       });
 
-      let hasURLEscapeRuntime = false;
+      let URLEscapeRuntime = false;
 
       Object.keys(urls).forEach((url) => {
         result.messages.push({
           pluginName,
-          type: 'css-loader',
-          modify(moduleObj, loaderContext) {
-            if (!hasURLEscapeRuntime) {
-              moduleObj.imports.push(
-                `var escape = require(${stringifyRequest(
-                  loaderContext,
-                  require.resolve('../runtime/escape')
-                )});`
-              );
-
-              hasURLEscapeRuntime = true;
-            }
-
+          type: 'import',
+          import(accumulator, currentValue, index, array, loaderContext) {
             const placeholder = urls[url];
             const [normalizedUrl] = normalizeUrl(url);
+            let URLEscapeRuntimeCode = '';
 
-            moduleObj.imports.push(
-              `var ${placeholder} = escape(require(${stringifyRequest(
+            if (!URLEscapeRuntime) {
+              URLEscapeRuntimeCode = `var escape = require(${stringifyRequest(
                 loaderContext,
-                urlToRequest(normalizedUrl)
-              )}));`
-            );
-            // eslint-disable-next-line no-param-reassign
-            moduleObj.module = moduleObj.module.replace(
+                require.resolve('../runtime/escape')
+              )});\n`;
+
+              URLEscapeRuntime = true;
+            }
+
+            return `${URLEscapeRuntimeCode}${accumulator}var ${placeholder} = escape(require(${stringifyRequest(
+              loaderContext,
+              urlToRequest(normalizedUrl)
+            )}));\n`;
+          },
+        });
+
+        result.messages.push({
+          pluginName,
+          type: 'module',
+          module(accumulator) {
+            const placeholder = urls[url];
+
+            return accumulator.replace(
               new RegExp(placeholder, 'g'),
               `" + ${placeholder} + "`
             );
-
-            return moduleObj;
           },
         });
       });

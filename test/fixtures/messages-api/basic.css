@@ -10,3 +10,7 @@
 .other-class {
   color: blue;
 }
+
+.other-other-class {
+  ___REPLACED_PROPERTY___: ___REPLACED_FUNCTION___("___REPLACED_FUNCTION_ARGUMENT___");
+}
