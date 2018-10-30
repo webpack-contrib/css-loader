@@ -476,8 +476,6 @@ exports[`loader message api: errors 1`] = `
 Array [
   [ModuleError: Module Error (from \`replaced original path\`):
 Error],
-  [ModuleError: Module Error (from \`replaced original path\`):
-Error],
 ]
 `;
 

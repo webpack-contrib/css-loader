@@ -2,7 +2,7 @@ import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 import { isUrlRequest, stringifyRequest, urlToRequest } from 'loader-utils';
 
-const pluginName = 'postcss-css-loader-icss-url';
+const pluginName = 'postcss-css-loader-url';
 
 function normalizeUrl(url) {
   return url.split(/(\?)?#/);

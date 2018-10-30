@@ -146,6 +146,11 @@ describe('loader', () => {
     const postcssMessageApiPlugin = postcss.plugin(
       'postcss-message-api',
       () => (root, result) => {
+        // Pass messages only for `basic.css`
+        if (!/basic\.css/.test(result.opts.from)) {
+          return;
+        }
+
         result.messages.push(
           // Custom message
           {
