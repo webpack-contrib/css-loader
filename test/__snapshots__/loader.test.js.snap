@@ -532,6 +532,86 @@ exports.locals = { foo: \\"bar\\", bar: \\"foo\\" };
 
 exports[`loader message api: warnings 1`] = `Array []`;
 
+exports[`loader using together with "MiniCssExtractPlugin": errors 1`] = `Array []`;
+
+exports[`loader using together with "MiniCssExtractPlugin": extracted 1`] = `
+".foo {
+  color: red;
+}
+
+@charset \\"UTF-8\\";
+
+.class {
+  color: red;
+  background: url(5b1f36bc41ab31f5b801d48ba1d65781.png);
+}
+
+.class-duplicate-url {
+  background: url(5b1f36bc41ab31f5b801d48ba1d65781.png);
+}
+
+.u-m\\\\+ {
+  a: b c d;
+}
+
+.grid.\\\\-top {
+  a: b c d;
+}
+
+.u-m\\\\00002b {
+  a: b c d;
+}
+
+.class {
+  content: '\\"\\\\\\\\f10c\\"';
+}
+
+.class {
+  font-family: '微软雅黑';
+}
+
+.class {
+  content: '\\\\e901';
+}
+
+.class {
+  content: \\"\\\\F10C\\"
+}
+
+.class {
+  content: \\"\\\\f10C\\"
+}
+
+.class {
+  content: \\"\\\\F10C \\\\F10D\\"
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+
+/*# sourceMappingURL=main.css.map*/"
+`;
+
+exports[`loader using together with "MiniCssExtractPlugin": warnings 1`] = `Array []`;
+
 exports[`loader using together with "postcss-loader" (reuse ast): errors 1`] = `Array []`;
 
 exports[`loader using together with "postcss-loader" (reuse ast): module (evaluated) 1`] = `

@@ -2,6 +2,7 @@ import path from 'path';
 
 import postcss from 'postcss';
 import postcssPresetEnv from 'postcss-preset-env';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import webpack from './helpers/compiler';
 import evaluated from './helpers/evaluated';
@@ -265,5 +266,46 @@ describe('loader', () => {
       'warnings'
     );
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+  });
+
+  it('using together with "MiniCssExtractPlugin"', async () => {
+    const config = {
+      rules: [
+        {
+          test: /\.css$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            {
+              loader: path.resolve(__dirname, '../src'),
+              options: {
+                importLoaders: 1,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+          use: {
+            loader: 'file-loader',
+          },
+        },
+      ],
+      plugins: [
+        new MiniCssExtractPlugin({
+          // Options similar to the same options in webpackOptions.output
+          // both options are optional
+          filename: '[name].css',
+          chunkFilename: '[id].css',
+        }),
+      ],
+    };
+    const stats = await webpack('basic.js', config);
+    const extracted = stats.compilation.assets['main.css'];
+
+    expect(extracted.source()).toMatchSnapshot('extracted');
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 });
