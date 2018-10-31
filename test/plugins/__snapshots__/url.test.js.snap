@@ -8,7 +8,7 @@ exports[`URL postcss plugin basic: css 1`] = `
 }
 
 .class-hash {
-  background: url(___CSS_LOADER_URL___0___#hash);
+  background: url(___CSS_LOADER_URL___1___);
 }
 
 .class {
@@ -52,27 +52,27 @@ exports[`URL postcss plugin basic: css 1`] = `
 }
 
 .class {
-  background: url(___CSS_LOADER_URL___1___) url(___CSS_LOADER_URL___2___);
+  background: url(___CSS_LOADER_URL___2___) url(___CSS_LOADER_URL___3___);
 }
 
 .class {
-  background: green url(___CSS_LOADER_URL___1___) url(___CSS_LOADER_URL___2___);
+  background: green url(___CSS_LOADER_URL___2___) url(___CSS_LOADER_URL___3___);
 }
 
 .class {
-  background: url(___CSS_LOADER_URL___1___) url(___CSS_LOADER_URL___2___) xyz;
+  background: url(___CSS_LOADER_URL___2___) url(___CSS_LOADER_URL___3___) xyz;
 }
 
 .class {
-  background: green url( ___CSS_LOADER_URL___1___ ) url(___CSS_LOADER_URL___2___) xyz;
+  background: green url( ___CSS_LOADER_URL___2___ ) url(___CSS_LOADER_URL___3___) xyz;
 }
 
 .class {
-  background: url( ___CSS_LOADER_URL___3___ );
+  background: url( ___CSS_LOADER_URL___4___ );
 }
 
 .class {
-  background: url( ___CSS_LOADER_URL___3___ );
+  background: url( ___CSS_LOADER_URL___4___ );
 }
 
 .class {
@@ -116,18 +116,18 @@ exports[`URL postcss plugin basic: css 1`] = `
 }
 
 @font-face {
-  src: url(___CSS_LOADER_URL___4___) format('woff'),
-    url(___CSS_LOADER_URL___5___) format('woff2')
-    url(___CSS_LOADER_URL___6___) format('eot'),
-    url(___CSS_LOADER_URL___7___) format('truetype');
+  src: url(___CSS_LOADER_URL___5___) format('woff'),
+    url(___CSS_LOADER_URL___6___) format('woff2')
+    url(___CSS_LOADER_URL___7___) format('eot'),
+    url(___CSS_LOADER_URL___8___) format('truetype');
 }
 
 @font-face {
-  src: url(___CSS_LOADER_URL___6___?#iefix) format('embedded-opentype');
+  src: url(___CSS_LOADER_URL___9___) format('embedded-opentype');
 }
 
 @font-face {
-  src: url(___CSS_LOADER_URL___8___#svgFontName) format('svg')
+  src: url(___CSS_LOADER_URL___10___) format('svg')
 }
 
 @media (min-width: 500px) {
@@ -149,7 +149,7 @@ exports[`URL postcss plugin basic: css 1`] = `
 }
 
 .class {
-  background: -webkit-image-set(url(___CSS_LOADER_URL___0___) 1x, url(___CSS_LOADER_URL___9___) 2x);
+  background: -webkit-image-set(url(___CSS_LOADER_URL___0___) 1x, url(___CSS_LOADER_URL___11___) 2x);
 }
 
 .class {
@@ -183,11 +183,45 @@ exports[`URL postcss plugin basic: css 1`] = `
 }
 
 .imported-css {
-  background: url(___CSS_LOADER_URL___10___);
+  background: url(___CSS_LOADER_URL___12___);
 }
 
 .class {
-  background: url(___CSS_LOADER_URL___11___);
+  background: url(___CSS_LOADER_URL___13___);
+}
+
+.other-class {
+  background: url(___CSS_LOADER_URL___14___);
+}
+
+.other-class-duplicate {
+  background: url(___CSS_LOADER_URL___14___);
+}
+
+.other-class-hash {
+  background: url(___CSS_LOADER_URL___15___);
+}
+
+.other-class-hash-duplicate {
+  background: url(___CSS_LOADER_URL___15___);
+}
+
+.other-class {
+  background: url(___CSS_LOADER_URL___16___);
+}
+
+.single-query-character {
+  background: url(___CSS_LOADER_URL___17___);
+}
+
+@font-face {
+  font-family: 'bar';
+  src: url(___CSS_LOADER_URL___18___) format(\\"embedded-opentype\\");
+}
+
+@font-face {
+  font-family: 'baz';
+  src: url(___CSS_LOADER_URL___19___) format(\\"embedded-opentype\\");
 }
 "
 `;

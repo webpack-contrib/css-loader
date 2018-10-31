@@ -4,10 +4,6 @@ import { isUrlRequest, stringifyRequest, urlToRequest } from 'loader-utils';
 
 const pluginName = 'postcss-css-loader-url';
 
-function normalizeUrl(url) {
-  return url.split(/(\?)?#/);
-}
-
 const walkUrls = (parsed, callback) => {
   parsed.walk((node) => {
     if (node.type !== 'function' || node.value.toLowerCase() !== 'url') {
@@ -61,8 +57,7 @@ const walkDeclsWithUrl = (css, filter) => {
     result.push({
       decl,
       parsed,
-      // Remove `#hash` and `?#hash` to avoid duplicate require for assets with `#hash` and `?#hash`
-      values: values.map((value) => normalizeUrl(value)[0]),
+      values: values.map((value) => value),
     });
   });
 
@@ -99,15 +94,7 @@ export default postcss.plugin(
       });
 
       traversed.forEach((item) => {
-        mapUrls(item.parsed, (url) => {
-          const [normalizedUrl, singleQuery, hashValue] = normalizeUrl(url);
-
-          // Return `#hash` and `?#hash` in css
-          return `${urls[normalizedUrl]}${singleQuery || ''}${
-            hashValue ? `#${hashValue}` : ''
-          }`;
-        });
-
+        mapUrls(item.parsed, (value) => urls[value]);
         // eslint-disable-next-line no-param-reassign
         item.decl.value = item.parsed.toString();
       });
@@ -120,7 +107,8 @@ export default postcss.plugin(
           type: 'import',
           import(accumulator, currentValue, index, array, loaderContext) {
             const placeholder = urls[url];
-            const [normalizedUrl] = normalizeUrl(url);
+            // Remove `#hash` and `?#hash` from `require`
+            const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
             let URLEscapeRuntimeCode = '';
 
             if (!URLEscapeRuntime) {
@@ -132,10 +120,17 @@ export default postcss.plugin(
               URLEscapeRuntime = true;
             }
 
+            const hash =
+              singleQuery || hashValue
+                ? `"${singleQuery ? '?' : ''}${
+                    hashValue ? `#${hashValue}` : ''
+                  }"`
+                : '';
+
             return `${URLEscapeRuntimeCode}${accumulator}var ${placeholder} = escape(require(${stringifyRequest(
               loaderContext,
               urlToRequest(normalizedUrl)
-            )}));\n`;
+            )})${hash ? ` + ${hash}` : ''});\n`;
           },
         });
 

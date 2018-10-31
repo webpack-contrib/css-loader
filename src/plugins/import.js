@@ -2,10 +2,6 @@ import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 import { stringifyRequest, isUrlRequest, urlToRequest } from 'loader-utils';
 
-function normalizeUrl(url) {
-  return url.split(/(\?)?#/);
-}
-
 function getImportPrefix(loaderContext, importLoaders) {
   const loadersRequest = loaderContext.loaders
     .slice(
@@ -106,8 +102,8 @@ export default postcss.plugin(
             const { url, media } = importee;
 
             if (isUrlRequest(url)) {
-              // Remove `#` from `require`
-              const [normalizedUrl] = normalizeUrl(url);
+              // Remove `#hash` and `?#hash` from `require`
+              const [normalizedUrl] = url.split(/(\?)?#/);
 
               // Requestable url in `@import` at-rule (`@import './style.css`)
               return `${accumulator}exports.i(require(${stringifyRequest(

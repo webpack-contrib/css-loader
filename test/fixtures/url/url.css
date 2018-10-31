@@ -186,3 +186,37 @@
 .class {
   background: url("img.png?foo");
 }
+
+.other-class {
+  background: url("img.png?foo=bar");
+}
+
+.other-class-duplicate {
+  background: url("img.png?foo=bar");
+}
+
+.other-class-hash {
+  background: url("img.png?foo=bar#hash");
+}
+
+.other-class-hash-duplicate {
+  background: url("img.png?foo=bar#hash");
+}
+
+.other-class {
+  background: url("img.png?#hash");
+}
+
+.single-query-character {
+  background: url("img.png?");
+}
+
+@font-face {
+  font-family: 'bar';
+  src: url("font with spaces.eot?#iefix") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: 'baz';
+  src: url("font with spaces.eot") format("embedded-opentype");
+}
