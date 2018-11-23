@@ -4,6 +4,7 @@
 [![tests][tests]][tests-url]
 [![coverage][cover]][cover-url]
 [![chat][chat]][chat-url]
+[![size][size]][size-url]
 
 <div align="center">
   <img width="180" height="180" vspace="20"
@@ -450,11 +451,14 @@ This can be achieved by using the [mini-css-extract-plugin](https://github.com/w
 [deps]: https://david-dm.org/webpack-contrib/css-loader.svg
 [deps-url]: https://david-dm.org/webpack-contrib/css-loader
 
-[tests]: http://img.shields.io/travis/webpack-contrib/css-loader.svg
-[tests-url]: https://travis-ci.org/webpack-contrib/css-loader
+[tests]: https://img.shields.io/circleci/project/github/webpack-contrib/css-loader.svg
+[tests-url]: https://circleci.com/gh/webpack-contrib/css-loader
 
 [cover]: https://codecov.io/gh/webpack-contrib/css-loader/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/css-loader
 
 [chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack
+
+[size]: https://packagephobia.now.sh/badge?p=css-loader
+[size-url]: https://packagephobia.now.sh/result?p=css-loader

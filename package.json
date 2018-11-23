@@ -27,26 +27,40 @@
     "source-list-map": "^2.0.0"
   },
   "devDependencies": {
-    "codecov": "^1.0.1",
-    "eslint": "3.14.0",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "codecov": "^3.1.0",
+    "eslint": "^5.9.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "should": "^11.1.2",
-    "standard-version": "^4.0.0"
+    "mocha": "^5.2.0",
+    "should": "^13.2.3",
+    "standard-version": "^4.0.0",
+    "nyc": "^13.1.0"
   },
   "peerDependencies": {
     "webpack": "^4.0.0"
   },
   "scripts": {
     "lint": "eslint lib test",
-    "test": "mocha",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "test:cover": "npm run cover -- --report lcovonly",
     "travis:test": "npm run cover",
     "travis:lint": "npm run lint",
-    "release": "standard-version"
+    "release": "standard-version",
+    "security": "npm audit",
+    "test": "mocha",
+    "test:coverage": "nyc mocha",
+    "ci:lint": "npm run lint && npm run security",
+    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+    "ci:test": "npm run test",
+    "ci:coverage": "npm run test:coverage"
   },
   "homepage": "https://github.com/webpack-contrib/css-loader",
   "repository": "https://github.com/webpack-contrib/css-loader.git",
-  "bugs": "https://github.com/webpack-contrib/css-loader/issues"
+  "bugs": "https://github.com/webpack-contrib/css-loader/issues",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
 }
