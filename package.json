@@ -27,11 +27,11 @@
     "source-list-map": "^2.0.0"
   },
   "devDependencies": {
-    "codecov": "^1.0.1",
-    "eslint": "3.14.0",
+    "codecov": "^3.1.0",
+    "eslint": "^5.9.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "should": "^11.1.2",
+    "mocha": "^5.2.0",
+    "should": "^13.2.3",
     "standard-version": "^4.0.0"
   },
   "peerDependencies": {
