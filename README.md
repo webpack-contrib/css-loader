@@ -115,6 +115,12 @@ url(~module/image.png) => require('module/image.png')
 
 ### `import`
 
+To import styles from a node module path, prefix it with a `~`:
+
+```css
+@import '~module/styles.css';
+```
+
 To disable `@import` resolving by `css-loader` set the option to `false`
 
 ```css
