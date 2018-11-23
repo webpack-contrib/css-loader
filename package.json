@@ -29,8 +29,14 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
+    "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "codecov": "^3.1.0",
     "eslint": "^5.9.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.2",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "should": "^13.2.3",
@@ -58,6 +64,17 @@
   "homepage": "https://github.com/webpack-contrib/css-loader",
   "repository": "https://github.com/webpack-contrib/css-loader.git",
   "bugs": "https://github.com/webpack-contrib/css-loader/issues",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
