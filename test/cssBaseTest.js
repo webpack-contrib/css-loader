@@ -52,6 +52,21 @@ describe("css-base", function() {
 			"@media print{body { d: 4; }}" +
 			"@media screen{body { a: 1; }}");
 	});
+	it("should import named modules", function() {
+		var m = base();
+		var m1 = ["./module1", "body { a: 1; }", "screen"];
+		var m2 = ["./module2", "body { b: 2; }", ""];
+		var m3 = ["./module3", "body { c: 3; }", ""];
+		var m4 = ["./module4", "body { d: 4; }", ""];
+		m.i([m2, m3], "");
+		m.i([m2], "");
+		m.i([m2, m4], "print");
+		m.push(m1);
+		m.toString().should.be.eql("body { b: 2; }" +
+			"body { c: 3; }" +
+			"@media print{body { d: 4; }}" +
+			"@media screen{body { a: 1; }}");
+	});
 	it("should toString with source mapping", function() {
 		var m = base(true);
 		m.push([1, "body { a: 1; }", "", {
