@@ -1,0 +1,419 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loader should compile with \`css\` entry point: api 1`] = `
+"/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+  var list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function(item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+      if (item[2]) {
+        return '@media ' + item[2] + '{' + content + '}';
+      } else {
+        return content;
+      }
+    }).join('');
+  };
+
+  // import a list of modules into the list
+  list.i = function(modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
+    }
+    var alreadyImportedModules = {};
+    for (var i = 0; i < this.length; i++) {
+      var id = this[i][0];
+      if (id != null) {
+        alreadyImportedModules[id] = true;
+      }
+    }
+    for (i = 0; i < modules.length; i++) {
+      var item = modules[i];
+      // skip already imported module
+      // this implementation is not 100% perfect for weird media query combinations
+      //  when a module is imported multiple times with different media queries.
+      //  I hope this will never occur (Hey this way we have smaller bundles)
+      if (item[0] == null || !alreadyImportedModules[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+        }
+        list.push(item);
+      }
+    }
+  };
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || '';
+  var cssMapping = item[3];
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function(source) {
+      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
+    });
+
+    return [content]
+      .concat(sourceURLs)
+      .concat([sourceMapping])
+      .join('\\\\n');
+  }
+
+  return [content].join('\\\\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data =
+    'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+  return '/*# ' + data + ' */';
+}
+"
+`;
+
+exports[`loader should compile with \`css\` entry point: errors 1`] = `Array []`;
+
+exports[`loader should compile with \`css\` entry point: escape 1`] = `
+"module.exports = function escape(url) {
+  if (typeof url !== 'string') {
+    return url;
+  }
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['\\"].*['\\"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+    return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
+  }
+
+  return url;
+};
+"
+`;
+
+exports[`loader should compile with \`css\` entry point: module (evaluated) 1`] = `
+Array [
+  Array [
+    null,
+    "nothing",
+    "",
+  ],
+  Array [
+    1,
+    "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(nothing);
+}
+
+.class-duplicate-url {
+  background: url(nothing);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+/*
+Need uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108
+
+.class {
+  content: \\\\\\"\\\\\\\\f10C\\\\\\"
+}
+
+.class {
+  content: \\\\\\"\\\\\\\\F10C \\\\\\\\F10D\\\\\\"
+}
+*/
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader should compile with \`css\` entry point: module 1`] = `
+"var escape = require(\\"../../lib/runtime/escape.js\\");
+exports = module.exports = require(\\"../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../index.js??ref--4!./imported.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n/*\\\\nNeed uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\f10C\\\\\\\\\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\F10C \\\\\\\\\\\\\\\\F10D\\\\\\\\\\\\\\"\\\\n}\\\\n*/\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`loader should compile with \`css\` entry point: warnings 1`] = `Array []`;
+
+exports[`loader should compile with \`js\` entry point: api 1`] = `
+"/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+  var list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function(item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+      if (item[2]) {
+        return '@media ' + item[2] + '{' + content + '}';
+      } else {
+        return content;
+      }
+    }).join('');
+  };
+
+  // import a list of modules into the list
+  list.i = function(modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
+    }
+    var alreadyImportedModules = {};
+    for (var i = 0; i < this.length; i++) {
+      var id = this[i][0];
+      if (id != null) {
+        alreadyImportedModules[id] = true;
+      }
+    }
+    for (i = 0; i < modules.length; i++) {
+      var item = modules[i];
+      // skip already imported module
+      // this implementation is not 100% perfect for weird media query combinations
+      //  when a module is imported multiple times with different media queries.
+      //  I hope this will never occur (Hey this way we have smaller bundles)
+      if (item[0] == null || !alreadyImportedModules[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+        }
+        list.push(item);
+      }
+    }
+  };
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || '';
+  var cssMapping = item[3];
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function(source) {
+      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
+    });
+
+    return [content]
+      .concat(sourceURLs)
+      .concat([sourceMapping])
+      .join('\\\\n');
+  }
+
+  return [content].join('\\\\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data =
+    'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+  return '/*# ' + data + ' */';
+}
+"
+`;
+
+exports[`loader should compile with \`js\` entry point: errors 1`] = `Array []`;
+
+exports[`loader should compile with \`js\` entry point: escape 1`] = `
+"module.exports = function escape(url) {
+  if (typeof url !== 'string') {
+    return url;
+  }
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['\\"].*['\\"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+    return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
+  }
+
+  return url;
+};
+"
+`;
+
+exports[`loader should compile with \`js\` entry point: module (evaluated) 1`] = `
+Array [
+  Array [
+    null,
+    "nothing",
+    "",
+  ],
+  Array [
+    1,
+    "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(nothing);
+}
+
+.class-duplicate-url {
+  background: url(nothing);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+/*
+Need uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108
+
+.class {
+  content: \\\\\\"\\\\\\\\f10C\\\\\\"
+}
+
+.class {
+  content: \\\\\\"\\\\\\\\F10C \\\\\\\\F10D\\\\\\"
+}
+*/
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader should compile with \`js\` entry point: module 1`] = `
+"var escape = require(\\"../../lib/runtime/escape.js\\");
+exports = module.exports = require(\\"../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../index.js??ref--4!./imported.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n/*\\\\nNeed uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\f10C\\\\\\\\\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\F10C \\\\\\\\\\\\\\\\F10D\\\\\\\\\\\\\\"\\\\n}\\\\n*/\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`loader should compile with \`js\` entry point: warnings 1`] = `Array []`;
+
+exports[`loader should compile with empty css entry point: errors 1`] = `Array []`;
+
+exports[`loader should compile with empty css entry point: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "",
+    "",
+  ],
+]
+`;
+
+exports[`loader should compile with empty css entry point: module 1`] = `
+"exports = module.exports = require(\\"../../lib/runtime/api.js\\")(false);
+// imports
+
+
+// module
+exports.push([module.id, \\"\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`loader should compile with empty css entry point: warnings 1`] = `Array []`;
+
+exports[`loader should throw error on invalid css syntax: errors 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from \`replaced original path\`):
+CssSyntaxError
+
+(2:3) Unknown word
+
+  1 | .some {
+> 2 |   invalid css;
+    |   ^
+  3 | }
+  4 | 
+],
+]
+`;
+
+exports[`loader should throw error on invalid css syntax: warnings 1`] = `Array []`;
+
+exports[`loader should throws error when no loader for assets: errors 1`] = `
+Array [
+  [ModuleParseError: Module parse failed: Unexpected character '�' (1:0)
+You may need an appropriate loader to handle this file type.
+(Source code omitted for this binary file)],
+]
+`;
+
+exports[`loader should throws error when no loader for assets: warnings 1`] = `Array []`;
