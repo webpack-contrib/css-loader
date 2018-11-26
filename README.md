@@ -58,7 +58,7 @@ You can also use the css-loader results directly as a string, such as in Angular
 {
    test: /\.css$/,
    use: [
-     'to-string-loader',
+     'raw-loader',
      'css-loader'
    ]
 }
