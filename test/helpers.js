@@ -1,6 +1,3 @@
-/* globals it */
-
-require('should');
 const vm = require('vm');
 
 const cssLoader = require('../index.js');
@@ -43,11 +40,11 @@ function getEvaluated(output, modules) {
 
 function assetEvaluated(output, result, modules) {
   const exports = getEvaluated(output, modules);
-  exports.should.be.eql(result);
+  expect(exports).toEqual(result);
 }
 
 function assertRaw(output, result) {
-  output.should.containEql(result);
+  expect(output).toContain(result);
 }
 
 function runLoader(loader, input, map, addOptions, callback) {
@@ -208,12 +205,12 @@ exports.testSingleItem = function testSingleItem(
           return done(err);
         }
         const exports = getEvaluated(output, modules);
-        Array.isArray(exports).should.be.eql(true);
-        exports.length.should.be.eql(1);
-        (exports[0].length >= 3).should.be.eql(true);
-        exports[0][0].should.be.eql(1);
-        exports[0][2].should.be.eql('');
-        exports[0][1].should.be.eql(result);
+        expect(Array.isArray(exports)).toBe(true);
+        expect(exports).toHaveLength(1);
+        expect(exports[0].length >= 3).toBe(true);
+        expect(exports[0][0]).toBe(1);
+        expect(exports[0][2]).toBe('');
+        expect(exports[0][1]).toBe(result);
         return done();
       }
     );

@@ -1,5 +1,3 @@
-/* globals describe */
-
 const { testWithMap, testMap } = require('./helpers');
 
 describe('source maps', () => {

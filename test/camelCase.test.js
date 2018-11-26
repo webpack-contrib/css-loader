@@ -1,5 +1,3 @@
-/* globals describe */
-
 const { test, testRaw } = require('./helpers');
 
 describe('camelCase', () => {

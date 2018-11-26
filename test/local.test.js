@@ -1,5 +1,3 @@
-/* globals describe */
-
 const { test } = require('./helpers');
 
 function testLocal(name, input, result, localsResult, query, modules) {

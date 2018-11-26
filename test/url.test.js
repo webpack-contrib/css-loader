@@ -1,5 +1,3 @@
-/* globals describe */
-
 const { test } = require('./helpers');
 
 describe('url', () => {
