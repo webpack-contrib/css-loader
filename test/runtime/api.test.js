@@ -1,6 +1,6 @@
-const api = require('../lib/runtime/api');
+const api = require('../../lib/runtime/api');
 
-describe('css-base', () => {
+describe('api', () => {
   beforeAll(() => {
     global.btoa = function btoa(str) {
       let buffer = null;
@@ -22,18 +22,18 @@ describe('css-base', () => {
   it('should toString a single module', () => {
     const m = api();
     m.push([1, 'body { a: 1; }', '']);
-    expect(m.toString()).toBe('body { a: 1; }');
+    expect(m.toString()).toMatchSnapshot();
   });
   it('should toString multiple modules', () => {
     const m = api();
     m.push([2, 'body { b: 2; }', '']);
     m.push([1, 'body { a: 1; }', '']);
-    expect(m.toString()).toBe('body { b: 2; }body { a: 1; }');
+    expect(m.toString()).toMatchSnapshot();
   });
   it('should toString with media query', () => {
     const m = api();
     m.push([1, 'body { a: 1; }', 'screen']);
-    expect(m.toString()).toBe('@media screen{body { a: 1; }}');
+    expect(m.toString()).toMatchSnapshot();
   });
   it('should import modules', () => {
     const m = api();
@@ -45,12 +45,7 @@ describe('css-base', () => {
     m.i([m2], '');
     m.i([m2, m4], 'print');
     m.push(m1);
-    expect(m.toString()).toBe(
-      'body { b: 2; }' +
-        'body { c: 3; }' +
-        '@media print{body { d: 4; }}' +
-        '@media screen{body { a: 1; }}'
-    );
+    expect(m.toString()).toMatchSnapshot();
   });
   it('should import named modules', () => {
     const m = api();
@@ -62,12 +57,7 @@ describe('css-base', () => {
     m.i([m2], '');
     m.i([m2, m4], 'print');
     m.push(m1);
-    expect(m.toString()).toBe(
-      'body { b: 2; }' +
-        'body { c: 3; }' +
-        '@media print{body { d: 4; }}' +
-        '@media screen{body { a: 1; }}'
-    );
+    expect(m.toString()).toMatchSnapshot();
   });
   it('should toString with source mapping', () => {
     const m = api(true);
@@ -82,9 +72,7 @@ describe('css-base', () => {
         sourceRoot: 'webpack://',
       },
     ]);
-    expect(m.toString()).toBe(
-      'body { a: 1; }\n/*# sourceURL=webpack://./path/to/test.scss */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsiLCJzb3VyY2VSb290Ijoid2VicGFjazovLyJ9 */'
-    );
+    expect(m.toString()).toMatchSnapshot();
   });
   it('should toString without source mapping if btoa not avalibale', () => {
     global.btoa = null;
@@ -100,6 +88,6 @@ describe('css-base', () => {
         sourceRoot: 'webpack://',
       },
     ]);
-    expect(m.toString()).toBe('body { a: 1; }');
+    expect(m.toString()).toMatchSnapshot();
   });
 });

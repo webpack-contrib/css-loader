@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+@import 'imported.css';
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url("./url/img.png");
+}
+
+.class-duplicate-url {
+  background: url("./url/img.png");
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\+ { a: b c d; }
+
+.class { content: "\F10C" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+/*
+Need uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108
+
+.class {
+  content: \"\\f10C\"
+}
+
+.class {
+  content: \"\\F10C \\F10D\"
+}
+*/

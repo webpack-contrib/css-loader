@@ -1,16 +1,22 @@
 const vm = require('vm');
+const path = require('path');
+
+const del = require('del');
+const webpack = require('webpack');
+const MemoryFS = require('memory-fs');
+const stripAnsi = require('strip-ansi');
 
 const cssLoader = require('../index.js');
 const cssLoaderLocals = require('../locals.js');
 
-function getEvaluated(output, modules) {
+function evaluated(output, modules, moduleId = 1) {
   let m;
   try {
     const fn = vm.runInThisContext(
-      `(function(module, exports, require) {${output}})`,
+      `(function(module, exports, require) {var __webpack_public_path__ = '/webpack/public/path/';${output}})`,
       'testcase.js'
     );
-    m = { exports: {}, id: 1 };
+    m = { exports: {}, id: moduleId };
     fn(m, m.exports, (module) => {
       if (module.indexOf('runtime/api') >= 0) {
         // eslint-disable-next-line global-require
@@ -20,11 +26,33 @@ function getEvaluated(output, modules) {
         // eslint-disable-next-line global-require
         return require('../lib/runtime/escape');
       }
-      if (module.indexOf('-!/path/css-loader!') === 0) {
+      if (/^-!.*?!.*$/.test(module)) {
         // eslint-disable-next-line no-param-reassign
-        module = module.substr(19);
+        module = module.replace(/-!(.*)?!/, '');
       }
-      if (modules && module in modules) {
+      if (modules && Array.isArray(modules)) {
+        const importedModule = modules.find((el) => {
+          const modulePath = el.identifier.split('!').pop();
+          const importedPaths = [
+            'import',
+            'import/node_modules',
+            'url',
+            'url/node_modules',
+          ].map((importedPath) =>
+            path.resolve(__dirname, `./fixtures/${importedPath}`, module)
+          );
+          return importedPaths.includes(modulePath);
+        });
+
+        if (importedModule) {
+          // eslint-disable-next-line no-param-reassign
+          moduleId += 1;
+          return evaluated(importedModule.source, modules, moduleId);
+        }
+
+        return 'nothing';
+      } else if (modules && module in modules) {
+        // Compatibility with old tests
         return modules[module];
       }
       return `{${module}}`;
@@ -39,7 +67,7 @@ function getEvaluated(output, modules) {
 }
 
 function assetEvaluated(output, result, modules) {
-  const exports = getEvaluated(output, modules);
+  const exports = evaluated(output, modules);
   expect(exports).toEqual(result);
 }
 
@@ -71,6 +99,8 @@ function runLoader(loader, input, map, addOptions, callback) {
   });
   loader.call(opt, input, map);
 }
+
+exports.runLoader = runLoader;
 
 exports.test = function test(name, input, result, query, modules) {
   it(name, (done) => {
@@ -113,23 +143,6 @@ exports.testRaw = function testRaw(name, input, result, query) {
         return done();
       }
     );
-  });
-};
-
-exports.testError = function test(name, input, onError) {
-  it(name, (done) => {
-    runLoader(cssLoader, input, null, {}, (err) => {
-      // eslint-disable-line no-unused-vars
-      if (!err) {
-        return done(new Error('Expected error to be thrown'));
-      }
-      try {
-        onError(err);
-      } catch (error) {
-        return done(error);
-      }
-      return done();
-    });
   });
 };
 
@@ -204,7 +217,7 @@ exports.testSingleItem = function testSingleItem(
         if (err) {
           return done(err);
         }
-        const exports = getEvaluated(output, modules);
+        const exports = evaluated(output, modules);
         expect(Array.isArray(exports)).toBe(true);
         expect(exports).toHaveLength(1);
         expect(exports[0].length >= 3).toBe(true);
@@ -216,3 +229,92 @@ exports.testSingleItem = function testSingleItem(
     );
   });
 };
+
+const moduleConfig = (config) => {
+  return {
+    rules: config.rules
+      ? config.rules
+      : [
+          {
+            test: (config.loader && config.loader.test) || /\.css$/,
+            use: {
+              loader: path.resolve(__dirname, '../index.js'),
+              options: (config.loader && config.loader.options) || {},
+            },
+          },
+          {
+            test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+            use: {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+              },
+            },
+          },
+        ],
+  };
+};
+const pluginsConfig = (config) => [].concat(config.plugins || []);
+const outputConfig = (config) => {
+  return {
+    path: path.resolve(
+      __dirname,
+      `../outputs/${config.output ? config.output : ''}`
+    ),
+    filename: '[name].bundle.js',
+  };
+};
+
+exports.webpack = function compile(fixture, config = {}, options = {}) {
+  // webpack Config
+  // eslint-disable-next-line no-param-reassign
+  config = {
+    mode: 'development',
+    devtool: config.devtool || 'sourcemap',
+    context: path.resolve(__dirname, 'fixtures'),
+    entry: path.resolve(__dirname, 'fixtures', fixture),
+    output: outputConfig(config),
+    module: moduleConfig(config),
+    plugins: pluginsConfig(config),
+    optimization: {
+      runtimeChunk: true,
+    },
+  };
+  // Compiler Options
+  // eslint-disable-next-line no-param-reassign
+  options = Object.assign({ output: false }, options);
+
+  if (options.output) {
+    del.sync(config.output.path);
+  }
+
+  const compiler = webpack(config);
+
+  if (!options.output) {
+    compiler.outputFileSystem = new MemoryFS();
+  }
+
+  return new Promise((resolve, reject) =>
+    compiler.run((error, stats) => {
+      if (error) {
+        return reject(error);
+      }
+      return resolve(stats);
+    })
+  );
+};
+
+exports.evaluated = evaluated;
+
+function normalizeErrors(errors) {
+  return errors.map((error) => {
+    // eslint-disable-next-line no-param-reassign
+    error.message = stripAnsi(error.message)
+      .replace(/\(from .*?\)/, '(from `replaced original path`)')
+      .replace(/at(.*?)\(.*?\)/g, 'at$1(`replaced original path`)');
+
+    return error;
+  });
+}
+
+exports.normalizeErrors = normalizeErrors;

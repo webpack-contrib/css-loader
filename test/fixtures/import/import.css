@@ -1,0 +1,50 @@
+@import url(test.css);
+@import url('test.css');
+@import url("test.css");
+@IMPORT url(test.css);
+@import URL(test.css);
+@import url(test.css );
+@import url( test.css);
+@import url( test.css );
+@import url(
+  test.css
+);
+@import url();
+@import url('');
+@import url("");
+@import "test.css";
+@import 'test.css';
+@import '';
+@import "";
+@import "   ";
+@import "
+";
+@import url();
+@import url('');
+@import url("");
+@import url(test.css) screen and print;
+@import url(test.css) SCREEN AND PRINT;
+@import url(test.css)screen and print;
+@import url(test-media.css) screen and print;
+@import url(test-other.css) (min-width: 100px);
+@import url(http://example.com/style.css);
+@import url(http://example.com/style.css#hash);
+@import url(http://example.com/style.css?#hash);
+@import url(http://example.com/style.css?foo=bar#hash);
+@import url(http://example.com/other-style.css) screen and print;
+@import url("//example.com/style.css");
+@import url(~package/test.css);
+@import ;
+@import foo-bar;
+@import-normalize;
+@import url('http://') :root {}
+@import url('query.css?foo=1&bar=1');
+@import url('other-query.css?foo=1&bar=1#hash');
+
+.class {
+  a: b c d;
+}
+
+.foo {
+  @import 'path.css';
+}
