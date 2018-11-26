@@ -2,6 +2,8 @@
 
 const assert = require('assert');
 
+const stripAnsi = require('strip-ansi');
+
 const { test, testError } = require('./helpers');
 
 describe('import', () => {
@@ -126,12 +128,18 @@ describe('import', () => {
   test('@import-normalize left untouched', '@import-normalize;', [
     [1, '@import-normalize;', ''],
   ]);
-  testError('@import without url', '@import;', (err) => {
+  testError('@import without url', '@import;', (error) => {
     assert.equal(
-      err.message,
-      ['Unexpected format  (1:1)', '', '> 1 | @import;', '    | ^', ''].join(
-        '\n'
-      )
+      stripAnsi(error.message),
+      [
+        'CssSyntaxError',
+        '',
+        '(1:1) Unexpected format ',
+        '',
+        '> 1 | @import;',
+        '    | ^',
+        '',
+      ].join('\n')
     );
   });
 });
