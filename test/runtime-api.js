@@ -1,6 +1,6 @@
-/* eslint-env mocha*/
+/* eslint-env mocha */
 
-const base = require('../lib/css-base');
+const api = require('../lib/runtime/api');
 
 describe('css-base', () => {
   before(() => {
@@ -22,23 +22,23 @@ describe('css-base', () => {
   });
 
   it('should toString a single module', () => {
-    const m = base();
+    const m = api();
     m.push([1, 'body { a: 1; }', '']);
     m.toString().should.be.eql('body { a: 1; }');
   });
   it('should toString multiple modules', () => {
-    const m = base();
+    const m = api();
     m.push([2, 'body { b: 2; }', '']);
     m.push([1, 'body { a: 1; }', '']);
     m.toString().should.be.eql('body { b: 2; }body { a: 1; }');
   });
   it('should toString with media query', () => {
-    const m = base();
+    const m = api();
     m.push([1, 'body { a: 1; }', 'screen']);
     m.toString().should.be.eql('@media screen{body { a: 1; }}');
   });
   it('should import modules', () => {
-    const m = base();
+    const m = api();
     const m1 = [1, 'body { a: 1; }', 'screen'];
     const m2 = [2, 'body { b: 2; }', ''];
     const m3 = [3, 'body { c: 3; }', ''];
@@ -55,7 +55,7 @@ describe('css-base', () => {
     );
   });
   it('should import named modules', () => {
-    const m = base();
+    const m = api();
     const m1 = ['./module1', 'body { a: 1; }', 'screen'];
     const m2 = ['./module2', 'body { b: 2; }', ''];
     const m3 = ['./module3', 'body { c: 3; }', ''];
@@ -72,7 +72,7 @@ describe('css-base', () => {
     );
   });
   it('should toString with source mapping', () => {
-    const m = base(true);
+    const m = api(true);
     m.push([
       1,
       'body { a: 1; }',
@@ -90,7 +90,7 @@ describe('css-base', () => {
   });
   it('should toString without source mapping if btoa not avalibale', () => {
     global.btoa = null;
-    const m = base(true);
+    const m = api(true);
     m.push([
       1,
       'body { a: 1; }',
