@@ -15,13 +15,13 @@ function getEvaluated(output, modules) {
     );
     m = { exports: {}, id: 1 };
     fn(m, m.exports, (module) => {
-      if (module.indexOf('css-base') >= 0) {
+      if (module.indexOf('runtime/api') >= 0) {
         // eslint-disable-next-line global-require
-        return require('../lib/css-base');
+        return require('../lib/runtime/api');
       }
-      if (module.indexOf('url/escape') >= 0) {
+      if (module.indexOf('runtime/escape') >= 0) {
         // eslint-disable-next-line global-require
-        return require('../lib/url/escape');
+        return require('../lib/runtime/escape');
       }
       if (module.indexOf('-!/path/css-loader!') === 0) {
         // eslint-disable-next-line no-param-reassign
