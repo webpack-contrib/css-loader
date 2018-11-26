@@ -2,6 +2,8 @@
 
 const assert = require('assert');
 
+const stripAnsi = require('strip-ansi');
+
 const { test, testError } = require('./helpers');
 
 describe('simple', () => {
@@ -30,11 +32,13 @@ describe('simple', () => {
   test('custom variables', ':root {--foo: 1px;\n--bar: 2px;}', [
     [1, ':root {--foo: 1px;\n--bar: 2px;}', ''],
   ]);
-  testError('error formatting', '.some {\n invalid css;\n}', (err) => {
+  testError('error formatting', '.some {\n invalid css;\n}', (error) => {
     assert.equal(
-      err.message,
+      stripAnsi(error.message),
       [
-        'Unknown word (2:2)',
+        'CssSyntaxError',
+        '',
+        '(2:2) Unknown word',
         '',
         '  1 | .some {',
         '> 2 |  invalid css;',

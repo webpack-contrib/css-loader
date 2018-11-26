@@ -13,7 +13,6 @@
     "locals.js"
   ],
   "dependencies": {
-    "babel-code-frame": "^6.26.0",
     "css-selector-tokenizer": "^0.7.0",
     "icss-utils": "^4.0.0",
     "loader-utils": "^1.0.2",
@@ -41,7 +40,8 @@
     "mocha": "^5.2.0",
     "should": "^13.2.3",
     "standard-version": "^4.0.0",
-    "nyc": "^13.1.0"
+    "nyc": "^13.1.0",
+    "strip-ansi": "^5.0.0"
   },
   "peerDependencies": {
     "webpack": "^4.0.0"
