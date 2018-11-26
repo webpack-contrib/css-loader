@@ -99,11 +99,11 @@ describe('url', () => {
   );
   test(
     'font face',
-    "@font-face { src: url(regular.woff) format('woff'), url(~truetype/regular.ttf) format('truetype') }",
+    "@font-face { src: url(regular.woff) format('woff'), url(~truetype/regular.ttf) format('truetype'), url('Mark Simonson - Proxima Nova Alt Regular-webfont.eot?#iefix') format('embedded-opentype'), url('webfont.svg#svgFontName') format('svg'), url('webfont.woff2?foo=bar') format('woff2'); }",
     [
       [
         1,
-        "@font-face { src: url({./regular.woff}) format('woff'), url({truetype/regular.ttf}) format('truetype') }",
+        "@font-face { src: url({./regular.woff}) format('woff'), url({truetype/regular.ttf}) format('truetype'), url(\"{./Mark Simonson - Proxima Nova Alt Regular-webfont.eot}?#iefix\") format('embedded-opentype'), url({./webfont.svg}#svgFontName) format('svg'), url({./webfont.woff2?foo=bar}) format('woff2'); }",
         '',
       ],
     ]
