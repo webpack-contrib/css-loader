@@ -1,15 +1,16 @@
-<!-- Before creating an issue please make sure you are using the latest version of css-loader. -->
+<!--
+  👉🏽 Need support, advice, or help? Don't open an issue!
+  Head to StackOverflow or https://gitter.im/webpack/webpack.
 
-**Do you want to request a *feature* or report a *bug*?**
-<!-- Please ask questions on StackOverflow or the webpack Gitter (https://gitter.im/webpack/webpack). Questions will be closed. -->
+  Hey there!
 
-**What is the current behavior?**
+  You arrived at this template because you felt none of the other options
+  matched the kind of issue you'd like to report. Please use this opportunity to
+  tell us about your particular type of issue so we can try to accomodate
+  similar issues in the future.
 
-**If the current behavior is a bug, please provide the steps to reproduce.**
-<!-- A great way to do this is to provide your configuration via a GitHub gist. -->
-
-**What is the expected behavior?**
-
-**If this is a feature request, what is motivation or use case for changing the behavior?**
-
-**Please mention other relevant information such as your webpack version, Node.js version and Operating System.**
+  PLEASE do note, if you're using this to report an issue already covered by the
+  existing template types, your issue may be closed as invalid. Our issue
+  templates contain fields that help us help you, and without that important
+  info, we might as well be ice-skating uphill, carrying a wooly mammoth.
+-->
