@@ -1,5 +1,3 @@
-/* globals describe */
-
 const { testLocals } = require('./helpers');
 
 describe('locals', () => {

@@ -1,5 +1,3 @@
-/* globals describe */
-
 const assert = require('assert');
 
 const stripAnsi = require('strip-ansi');
