@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getLocalIdent option should work (\`modules: false\`): errors 1`] = `Array []`;
+
+exports[`getLocalIdent option should work (\`modules: false\`): locals 1`] = `
+Object {
+  "def": "foo",
+  "ghi": "foo",
+  "jkl": "foo",
+}
+`;
+
+exports[`getLocalIdent option should work (\`modules: false\`): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".abc .foo {
+  color: red;
+}
+
+.foo .foo {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`getLocalIdent option should work (\`modules: false\`): warnings 1`] = `Array []`;
+
+exports[`getLocalIdent option should work (\`modules: true\`): errors 1`] = `Array []`;
+
+exports[`getLocalIdent option should work (\`modules: true\`): locals 1`] = `
+Object {
+  "abc": "foo",
+  "def": "foo",
+  "ghi": "foo",
+  "jkl": "foo",
+}
+`;
+
+exports[`getLocalIdent option should work (\`modules: true\`): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".foo .foo {
+  color: red;
+}
+
+.foo .foo {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`getLocalIdent option should work (\`modules: true\`): warnings 1`] = `Array []`;
