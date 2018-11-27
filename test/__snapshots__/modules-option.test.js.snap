@@ -1,0 +1,1581 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modules option case class-names (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case class-names (option is false): locals 1`] = `undefined`;
+
+exports[`modules option case class-names (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class-1, .class-10 .bar-1 {
+	color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case class-names (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case class-names (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case class-names (option is true): locals 1`] = `
+Object {
+  "bar-1": "_bar-1",
+  "class-1": "_class-1",
+  "class-10": "_class-10",
+}
+`;
+
+exports[`modules option case class-names (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._class-1, ._class-10 ._bar-1 {
+	color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case class-names (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case comment-in-local (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case comment-in-local (option is false): locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c3": "_c3",
+}
+`;
+
+exports[`modules option case comment-in-local (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1/*.c2*/._c3 { background: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case comment-in-local (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case comment-in-local (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case comment-in-local (option is true): locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c3": "_c3",
+}
+`;
+
+exports[`modules option case comment-in-local (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1/*.c2*/._c3 { background: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case comment-in-local (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case comments (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case comments (option is false): locals 1`] = `undefined`;
+
+exports[`modules option case comments (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "/*
+ * a ' above
+ */
+
+.bg {
+  background-image: url(/webpack/public/path/img.png);
+}
+
+/*
+ * a ' below
+ */
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case comments (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case comments (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case comments (option is true): locals 1`] = `
+Object {
+  "bg": "_bg",
+}
+`;
+
+exports[`modules option case comments (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "/*
+ * a ' above
+ */
+
+._bg {
+  background-image: url(/webpack/public/path/img.png);
+}
+
+/*
+ * a ' below
+ */
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case comments (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case composes (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case composes (option is false): locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c2": "_c2 _c1",
+}
+`;
+
+exports[`modules option case composes (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1 { a: 1; }
+._c2 { b: 1; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case composes (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case composes (option is true): locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c2": "_c2 _c1",
+}
+`;
+
+exports[`modules option case composes (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1 { a: 1; }
+._c2 { b: 1; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case composes-1 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case composes-1 (option is false): locals 1`] = `
+Object {
+  "c1": "_c1 _c2",
+  "c3": "_c3 _c1 _c2",
+  "c5": "_c5 _c2 _c4",
+}
+`;
+
+exports[`modules option case composes-1 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._c2 {
+  color: red;
+}
+
+._c4 {
+  color: blue;
+}
+
+.test{
+  c: d
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._c1 { b: 1; }
+._c3 { b: 3; }
+._c5 { b: 5; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes-1 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case composes-1 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case composes-1 (option is true): locals 1`] = `
+Object {
+  "c1": "_c1 _c2",
+  "c3": "_c3 _c1 _c2",
+  "c5": "_c5 _c2 _c4",
+}
+`;
+
+exports[`modules option case composes-1 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._c2 {
+  color: red;
+}
+
+._c4 {
+  color: blue;
+}
+
+._test{
+  c: d
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._c1 { b: 1; }
+._c3 { b: 3; }
+._c5 { b: 5; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes-1 (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case composes-2 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case composes-2 (option is false): locals 1`] = `
+Object {
+  "c1": "_c1 _c-2",
+  "c3": "_c3 _c1 _c-2",
+  "c5": "_c5 _c-2 _c4",
+}
+`;
+
+exports[`modules option case composes-2 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._c-2 {
+  color: red;
+}
+
+._c4 {
+  color: blue;
+}
+
+.test{
+  c: d
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._c1 { b: 1; }
+._c3 { b: 3; }
+._c5 { b: 5; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes-2 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case composes-2 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case composes-2 (option is true): locals 1`] = `
+Object {
+  "c1": "_c1 _c-2",
+  "c3": "_c3 _c1 _c-2",
+  "c5": "_c5 _c-2 _c4",
+}
+`;
+
+exports[`modules option case composes-2 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._c-2 {
+  color: red;
+}
+
+._c4 {
+  color: blue;
+}
+
+._test{
+  c: d
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._c1 { b: 1; }
+._c3 { b: 3; }
+._c5 { b: 5; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes-2 (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case composes-multiple (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case composes-multiple (option is false): locals 1`] = `
+Object {
+  "abc": "_abc _def1 _def2",
+}
+`;
+
+exports[`modules option case composes-multiple (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._def1 {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    3,
+    "._def2 {
+  color: blue;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._abc {
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes-multiple (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case composes-multiple (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case composes-multiple (option is true): locals 1`] = `
+Object {
+  "abc": "_abc _def1 _def2",
+}
+`;
+
+exports[`modules option case composes-multiple (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._def1 {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    3,
+    "._def2 {
+  color: blue;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._abc {
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes-multiple (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case composes-with-importing (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case composes-with-importing (option is false): locals 1`] = `
+Object {
+  "abc": "_abc _def",
+}
+`;
+
+exports[`modules option case composes-with-importing (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._def {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._abc {
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes-with-importing (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case composes-with-importing (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case composes-with-importing (option is true): locals 1`] = `
+Object {
+  "abc": "_abc _def",
+}
+`;
+
+exports[`modules option case composes-with-importing (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._def {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._abc {
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case composes-with-importing (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case keyframes-and-animation (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case keyframes-and-animation (option is false): locals 1`] = `undefined`;
+
+exports[`modules option case keyframes-and-animation (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a {
+	color: green;
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes bounce2 {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+.bounce {
+	animation-name: bounce;
+	animation: bounce2 1s ease;
+}
+
+.bounce2 {
+	color: green;
+	animation: bounce 1s ease;
+	animation-name: bounce2;
+}
+
+.bounce3 {
+	animation: bounce 1s ease, bounce2
+}
+
+.bounce4 {
+	animation: bounce 1s ease, bounce2;
+}
+
+.b {
+	color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case keyframes-and-animation (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case keyframes-and-animation (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case keyframes-and-animation (option is true): locals 1`] = `
+Object {
+  "a": "_a",
+  "b": "_b",
+  "bounce": "_bounce",
+  "bounce2": "_bounce2",
+  "bounce3": "_bounce3",
+  "bounce4": "_bounce4",
+}
+`;
+
+exports[`modules option case keyframes-and-animation (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+	color: green;
+}
+
+@keyframes _bounce {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes _bounce2 {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+._bounce {
+	animation-name: _bounce;
+	animation: _bounce2 1s ease;
+}
+
+._bounce2 {
+	color: green;
+	animation: _bounce 1s ease;
+	animation-name: _bounce2;
+}
+
+._bounce3 {
+	animation: _bounce 1s ease, _bounce2
+}
+
+._bounce4 {
+	animation: _bounce 1s ease, _bounce2;
+}
+
+._b {
+	color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case keyframes-and-animation (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case leak-scope (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case leak-scope (option is false): locals 1`] = `undefined`;
+
+exports[`modules option case leak-scope (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a {
+	color: green;
+	animation: a;
+}
+
+@keyframes b {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+.b {
+	animation: b;
+}
+
+@keyframes c {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+.c {
+	animation: c1;
+	animation: c2, c3, c4;
+}
+
+@keyframes d {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+.d1 {
+	animation: d1;
+	animation: d2, d3, d4;
+}
+
+.d2 {
+	animation: d2;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case leak-scope (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case leak-scope (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case leak-scope (option is true): locals 1`] = `
+Object {
+  "a": "_a",
+  "b": "_b",
+  "c": "_c",
+  "c1": "_c1",
+  "c2": "_c2",
+  "c3": "_c3",
+  "c4": "_c4",
+  "d2": "_d2",
+}
+`;
+
+exports[`modules option case leak-scope (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+	color: green;
+	animation: _a;
+}
+
+@keyframes _b {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+._b {
+	animation: _b;
+}
+
+@keyframes c {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+._c {
+	animation: _c1;
+	animation: _c2, _c3, _c4;
+}
+
+@keyframes d {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+.d1 {
+	animation: d1;
+	animation: d2, d3, d4;
+}
+
+.d2 {
+	animation: _d2;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case leak-scope (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case local (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case local (option is false): locals 1`] = `
+Object {
+  "def": "_def",
+  "ghi": "_ghi",
+  "jkl": "_jkl",
+}
+`;
+
+exports[`modules option case local (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".abc ._def {
+  color: red;
+}
+
+._ghi ._jkl {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case local (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case local (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case local (option is true): locals 1`] = `
+Object {
+  "abc": "_abc",
+  "def": "_def",
+  "ghi": "_ghi",
+  "jkl": "_jkl",
+}
+`;
+
+exports[`modules option case local (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._abc ._def {
+  color: red;
+}
+
+._ghi ._jkl {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case local (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case local-2 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case local-2 (option is false): locals 1`] = `
+Object {
+  "className": "_className",
+  "someId": "_someId",
+  "subClass": "_subClass",
+}
+`;
+
+exports[`modules option case local-2 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._className { background: red; }
+#_someId { background: green; }
+._className ._subClass { color: green; }
+#_someId ._subClass { color: blue; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case local-2 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case local-2 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case local-2 (option is true): locals 1`] = `
+Object {
+  "className": "_className",
+  "someId": "_someId",
+  "subClass": "_subClass",
+}
+`;
+
+exports[`modules option case local-2 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._className { background: red; }
+#_someId { background: green; }
+._className ._subClass { color: green; }
+#_someId ._subClass { color: blue; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case local-2 (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case local-and-composes (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case local-and-composes (option is false): locals 1`] = `
+Object {
+  "abc": "_abc",
+  "def": "_def _abc",
+}
+`;
+
+exports[`modules option case local-and-composes (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._abc {
+  color: red;
+}
+._def {
+  background: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case local-and-composes (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case local-and-composes (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case local-and-composes (option is true): locals 1`] = `
+Object {
+  "abc": "_abc",
+  "def": "_def _abc",
+}
+`;
+
+exports[`modules option case local-and-composes (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._abc {
+  color: red;
+}
+._def {
+  background: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case local-and-composes (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case local-with-string (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case local-with-string (option is false): locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c3": "_c3",
+  "c4": "_c4",
+}
+`;
+
+exports[`modules option case local-with-string (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1[data-attr=\\".c2)]'\\"]:not(._c3):not(._c4) {
+  background: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case local-with-string (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case local-with-string (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case local-with-string (option is true): locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c3": "_c3",
+  "c4": "_c4",
+}
+`;
+
+exports[`modules option case local-with-string (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1[data-attr=\\".c2)]'\\"]:not(._c3):not(._c4) {
+  background: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case local-with-string (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case mode-switching (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case mode-switching (option is false): locals 1`] = `
+Object {
+  "c2": "_c2",
+  "c3": "_c3",
+  "c5": "_c5",
+  "c7": "_c7",
+}
+`;
+
+exports[`modules option case mode-switching (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".c1 ._c2 ._c3 .c4 ._c5, .c6 ._c7 { background: red; }
+.c8 { background: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case mode-switching (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case mode-switching (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case mode-switching (option is true): locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c2": "_c2",
+  "c3": "_c3",
+  "c5": "_c5",
+  "c6": "_c6",
+  "c7": "_c7",
+  "c8": "_c8",
+}
+`;
+
+exports[`modules option case mode-switching (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1 ._c2 ._c3 .c4 ._c5, ._c6 ._c7 { background: red; }
+._c8 { background: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case mode-switching (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case simple (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case simple (option is false): locals 1`] = `undefined`;
+
+exports[`modules option case simple (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a .b, .c .d, #id {
+	color: green;
+	font-size: 1.5pt;
+}
+a[href=\\"#b.c\\"].x.y {
+	color: green;
+	font-size: 1.5pt;
+}
+@keyframes z {
+  2.5% {color: green;}
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case simple (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case simple (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case simple (option is true): locals 1`] = `
+Object {
+  "a": "_a",
+  "b": "_b",
+  "c": "_c",
+  "d": "_d",
+  "id": "_id",
+  "x": "_x",
+  "y": "_y",
+  "z": "_z",
+}
+`;
+
+exports[`modules option case simple (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a ._b, ._c ._d, #_id {
+	color: green;
+	font-size: 1.5pt;
+}
+a[href=\\"#b.c\\"]._x._y {
+	color: green;
+	font-size: 1.5pt;
+}
+@keyframes _z {
+  2.5% {color: green;}
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case simple (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case urls (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case urls (option is false): locals 1`] = `undefined`;
+
+exports[`modules option case urls (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a {
+	background: url(/webpack/public/path/img.png);
+	background: url(/webpack/public/path/img.png);
+	background: url(\\"/webpack/public/path/img img.png\\");
+	background: url(\\"/webpack/public/path/img img.png\\");
+	background: url(/webpack/public/path/img.png);
+	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(\\"#hash\\");
+	background: url(\\"#\\");
+	background: url(data:image/png;base64,AAA);
+	background: url(http://example.com/image.jpg);
+	background: url(//example.com/image.png);
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) xyz;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case urls (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case urls (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case urls (option is true): locals 1`] = `
+Object {
+  "a": "_a",
+}
+`;
+
+exports[`modules option case urls (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+	background: url(/webpack/public/path/img.png);
+	background: url(/webpack/public/path/img.png);
+	background: url(\\"/webpack/public/path/img img.png\\");
+	background: url(\\"/webpack/public/path/img img.png\\");
+	background: url(/webpack/public/path/img.png);
+	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(\\"#hash\\");
+	background: url(\\"#\\");
+	background: url(data:image/png;base64,AAA);
+	background: url(http://example.com/image.jpg);
+	background: url(//example.com/image.png);
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) xyz;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case urls (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case values (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case values (option is false): locals 1`] = `
+Object {
+  "aaa": "red",
+  "bbb": "green",
+  "ccc": "red",
+}
+`;
+
+exports[`modules option case values (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a {
+	background: red;
+	background: green;
+	background: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case values (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case values (option is true): locals 1`] = `
+Object {
+  "a": "_a",
+  "aaa": "red",
+  "bbb": "green",
+  "ccc": "red",
+}
+`;
+
+exports[`modules option case values (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+	background: red;
+	background: green;
+	background: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case values-1 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case values-1 (option is false): locals 1`] = `
+Object {
+  "def": "red",
+  "ghi": "1px solid black",
+}
+`;
+
+exports[`modules option case values-1 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-1 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case values-1 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case values-1 (option is true): locals 1`] = `
+Object {
+  "def": "red",
+  "ghi": "1px solid black",
+}
+`;
+
+exports[`modules option case values-1 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-1 (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case values-2 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case values-2 (option is false): locals 1`] = `
+Object {
+  "def": "red",
+}
+`;
+
+exports[`modules option case values-2 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".ghi { color: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-2 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case values-2 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case values-2 (option is true): locals 1`] = `
+Object {
+  "def": "red",
+  "ghi": "_ghi",
+}
+`;
+
+exports[`modules option case values-2 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._ghi { color: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-2 (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case values-3 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case values-3 (option is false): locals 1`] = `
+Object {
+  "def": "red",
+}
+`;
+
+exports[`modules option case values-3 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    ".ghi { color: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-3 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case values-3 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case values-3 (option is true): locals 1`] = `
+Object {
+  "def": "red",
+  "ghi": "_ghi",
+}
+`;
+
+exports[`modules option case values-3 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { color: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-3 (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case values-4 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case values-4 (option is false): locals 1`] = `
+Object {
+  "aaa": "red",
+  "bbb": "green",
+}
+`;
+
+exports[`modules option case values-4 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    3,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    ".ghi { background: red, green, def; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-4 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case values-4 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case values-4 (option is true): locals 1`] = `
+Object {
+  "aaa": "red",
+  "bbb": "green",
+  "ghi": "_ghi",
+}
+`;
+
+exports[`modules option case values-4 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    3,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { background: red, green, def; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-4 (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case values-5 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case values-5 (option is false): locals 1`] = `
+Object {
+  "color": "red",
+  "shadow": "0 0 red,0 0 red",
+}
+`;
+
+exports[`modules option case values-5 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    ".ghi { box-shadow: 0 0 red,0 0 red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-5 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case values-5 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case values-5 (option is true): locals 1`] = `
+Object {
+  "color": "red",
+  "ghi": "_ghi",
+  "shadow": "0 0 red,0 0 red",
+}
+`;
+
+exports[`modules option case values-5 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { box-shadow: 0 0 red,0 0 red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-5 (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case values-6 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case values-6 (option is false): locals 1`] = `
+Object {
+  "color": "red",
+  "shadow": "0 0 red ,0 0 red",
+}
+`;
+
+exports[`modules option case values-6 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    ".ghi { box-shadow: 0 0 red ,0 0 red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-6 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case values-6 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case values-6 (option is true): locals 1`] = `
+Object {
+  "color": "red",
+  "ghi": "_ghi",
+  "shadow": "0 0 red ,0 0 red",
+}
+`;
+
+exports[`modules option case values-6 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { box-shadow: 0 0 red ,0 0 red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-6 (option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case values-7 (option is false): errors 1`] = `Array []`;
+
+exports[`modules option case values-7 (option is false): locals 1`] = `
+Object {
+  "color": "red",
+  "shadow": "0 0 red, 0 0 red",
+}
+`;
+
+exports[`modules option case values-7 (option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    ".ghi { box-shadow: 0 0 red, 0 0 red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-7 (option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case values-7 (option is true): errors 1`] = `Array []`;
+
+exports[`modules option case values-7 (option is true): locals 1`] = `
+Object {
+  "color": "red",
+  "ghi": "_ghi",
+  "shadow": "0 0 red, 0 0 red",
+}
+`;
+
+exports[`modules option case values-7 (option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { box-shadow: 0 0 red, 0 0 red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case values-7 (option is true): warnings 1`] = `Array []`;
