@@ -38,6 +38,17 @@ function evaluated(output, modules, moduleId = 1) {
             'import/node_modules',
             'url',
             'url/node_modules',
+            'modules/tests-cases/urls',
+            'modules/tests-cases/comments',
+            'modules/tests-cases/values-3',
+            'modules/tests-cases/values-4',
+            'modules/tests-cases/values-5',
+            'modules/tests-cases/values-6',
+            'modules/tests-cases/values-7',
+            'modules/tests-cases/composes-1',
+            'modules/tests-cases/composes-2',
+            'modules/tests-cases/composes-multiple',
+            'modules/tests-cases/composes-with-importing',
           ].map((importedPath) =>
             path.resolve(__dirname, `./fixtures/${importedPath}`, module)
           );
