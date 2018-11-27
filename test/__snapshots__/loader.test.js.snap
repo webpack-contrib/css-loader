@@ -390,6 +390,32 @@ exports.push([module.id, \\"\\", \\"\\"]);
 
 exports[`loader should compile with empty css entry point: warnings 1`] = `Array []`;
 
+exports[`loader should compile with empty options: errors 1`] = `Array []`;
+
+exports[`loader should compile with empty options: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "",
+    "",
+  ],
+]
+`;
+
+exports[`loader should compile with empty options: module 1`] = `
+"exports = module.exports = require(\\"../../lib/runtime/api.js\\")(false);
+// imports
+
+
+// module
+exports.push([module.id, \\"\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`loader should compile with empty options: warnings 1`] = `Array []`;
+
 exports[`loader should throw error on invalid css syntax: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
