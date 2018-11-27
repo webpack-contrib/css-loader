@@ -6,9 +6,6 @@ const webpack = require('webpack');
 const MemoryFS = require('memory-fs');
 const stripAnsi = require('strip-ansi');
 
-const cssLoader = require('../index.js');
-const cssLoaderLocals = require('../locals.js');
-
 function evaluated(output, modules, moduleId = 1) {
   let m;
   try {
@@ -78,138 +75,6 @@ function evaluated(output, modules, moduleId = 1) {
   return m.exports;
 }
 
-function assetEvaluated(output, result, modules) {
-  const exports = evaluated(output, modules);
-  expect(exports).toEqual(result);
-}
-
-function assertRaw(output, result) {
-  expect(output).toContain(result);
-}
-
-function runLoader(loader, input, map, addOptions, callback) {
-  const opt = {
-    options: {
-      context: '',
-    },
-    callback,
-    async() {
-      return callback;
-    },
-    loaders: [{ request: '/path/css-loader' }],
-    loaderIndex: 0,
-    context: '',
-    resource: 'test.css',
-    resourcePath: 'test.css',
-    request: 'css-loader!test.css',
-    emitError(message) {
-      throw new Error(message);
-    },
-  };
-  Object.keys(addOptions).forEach((key) => {
-    opt[key] = addOptions[key];
-  });
-  loader.call(opt, input, map);
-}
-
-exports.runLoader = runLoader;
-
-exports.test = function test(name, input, result, query, modules) {
-  it(name, (done) => {
-    runLoader(
-      cssLoader,
-      input,
-      null,
-      !query || typeof query === 'string'
-        ? {
-            query,
-          }
-        : query,
-      (err, output) => {
-        if (err) {
-          return done(err);
-        }
-        assetEvaluated(output, result, modules);
-        return done();
-      }
-    );
-  });
-};
-
-exports.testRaw = function testRaw(name, input, result, query) {
-  it(name, (done) => {
-    runLoader(
-      cssLoader,
-      input,
-      null,
-      !query || typeof query === 'string'
-        ? {
-            query,
-          }
-        : query,
-      (err, output) => {
-        if (err) {
-          return done(err);
-        }
-        assertRaw(output, result);
-        return done();
-      }
-    );
-  });
-};
-
-exports.testLocals = function testLocals(name, input, result, query, modules) {
-  it(name, (done) => {
-    runLoader(
-      cssLoaderLocals,
-      input,
-      null,
-      {
-        query,
-      },
-      (err, output) => {
-        if (err) {
-          return done(err);
-        }
-        assetEvaluated(output, result, modules);
-        return done();
-      }
-    );
-  });
-};
-
-exports.testSingleItem = function testSingleItem(
-  name,
-  input,
-  result,
-  query,
-  modules
-) {
-  it(name, (done) => {
-    runLoader(
-      cssLoader,
-      input,
-      null,
-      {
-        query,
-      },
-      (err, output) => {
-        if (err) {
-          return done(err);
-        }
-        const exports = evaluated(output, modules);
-        expect(Array.isArray(exports)).toBe(true);
-        expect(exports).toHaveLength(1);
-        expect(exports[0].length >= 3).toBe(true);
-        expect(exports[0][0]).toBe(1);
-        expect(exports[0][2]).toBe('');
-        expect(exports[0][1]).toBe(result);
-        return done();
-      }
-    );
-  });
-};
-
 const moduleConfig = (config) => {
   return {
     rules: config.rules
@@ -219,7 +84,9 @@ const moduleConfig = (config) => {
             test: (config.loader && config.loader.test) || /\.css$/,
             use: [
               {
-                loader: path.resolve(__dirname, '../index.js'),
+                loader: config.localsLoader
+                  ? path.resolve(__dirname, '../locals.js')
+                  : path.resolve(__dirname, '../index.js'),
                 options: (config.loader && config.loader.options) || {},
               },
             ].concat(
@@ -261,7 +128,7 @@ const outputConfig = (config) => {
   };
 };
 
-exports.webpack = function compile(fixture, config = {}, options = {}) {
+function compile(fixture, config = {}, options = {}) {
   // webpack Config
   // eslint-disable-next-line no-param-reassign
   config = {
@@ -299,9 +166,7 @@ exports.webpack = function compile(fixture, config = {}, options = {}) {
       return resolve(stats);
     })
   );
-};
-
-exports.evaluated = evaluated;
+}
 
 function normalizeErrors(errors) {
   return errors.map((error) => {
@@ -312,8 +177,6 @@ function normalizeErrors(errors) {
       .replace(/at(.*?)\(.*?\)/g, 'at$1(`replaced original path`)');
   });
 }
-
-exports.normalizeErrors = normalizeErrors;
 
 function normalizeSourceMap(module) {
   return module.map((m) => {
@@ -326,4 +189,9 @@ function normalizeSourceMap(module) {
   });
 }
 
-exports.normalizeSourceMap = normalizeSourceMap;
+module.exports = {
+  webpack: compile,
+  evaluated,
+  normalizeErrors,
+  normalizeSourceMap,
+};
