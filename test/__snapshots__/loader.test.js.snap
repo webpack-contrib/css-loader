@@ -392,7 +392,7 @@ exports[`loader should compile with empty css entry point: warnings 1`] = `Array
 
 exports[`loader should throw error on invalid css syntax: errors 1`] = `
 Array [
-  [ModuleBuildError: Module build failed (from \`replaced original path\`):
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
 CssSyntaxError
 
 (2:3) Unknown word
@@ -402,7 +402,7 @@ CssSyntaxError
     |   ^
   3 | }
   4 | 
-],
+",
 ]
 `;
 

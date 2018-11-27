@@ -308,12 +308,11 @@ exports.evaluated = evaluated;
 
 function normalizeErrors(errors) {
   return errors.map((error) => {
-    // eslint-disable-next-line no-param-reassign
-    error.message = stripAnsi(error.message)
+    const message = error.toString();
+
+    return stripAnsi(message)
       .replace(/\(from .*?\)/, '(from `replaced original path`)')
       .replace(/at(.*?)\(.*?\)/g, 'at$1(`replaced original path`)');
-
-    return error;
   });
 }
 

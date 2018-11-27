@@ -240,4 +240,64 @@ exports.push([module.id, \\"@import URL(test.css);\\\\n@import url();\\\\n@impor
 "
 `;
 
-exports[`import option true: warnings 1`] = `Array []`;
+exports[`import option true: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(12:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(13:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(14:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(17:1) Unable to find uri in '@import '''",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(18:1) Unable to find uri in '@import \\"\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(19:1) Unable to find uri in '@import \\"   \\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(20:1) Unable to find uri in '@import \\"
+\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(22:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(23:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(24:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(37:1) Unable to find uri in '@import '",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(38:1) Unable to find uri in '@import foo-bar'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(40:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(5:1) Unable to find uri in '@import URL(test.css)'",
+]
+`;
