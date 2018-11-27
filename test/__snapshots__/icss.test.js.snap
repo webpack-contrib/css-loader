@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ICSS case duplicate-export: errors 1`] = `Array []`;
+
+exports[`ICSS case duplicate-export: locals 1`] = `
+Object {
+  "_test": "_right_value",
+}
+`;
+
+exports[`ICSS case duplicate-export: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case duplicate-export: warnings 1`] = `Array []`;
+
+exports[`ICSS case duplicate-export-in-multiple-export: errors 1`] = `Array []`;
+
+exports[`ICSS case duplicate-export-in-multiple-export: locals 1`] = `
+Object {
+  "_test": "_right_value",
+}
+`;
+
+exports[`ICSS case duplicate-export-in-multiple-export: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case duplicate-export-in-multiple-export: warnings 1`] = `Array []`;
+
+exports[`ICSS case empty-export: errors 1`] = `Array []`;
+
+exports[`ICSS case empty-export: locals 1`] = `undefined`;
+
+exports[`ICSS case empty-export: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case empty-export: warnings 1`] = `Array []`;
+
+exports[`ICSS case empty-import: errors 1`] = `Array []`;
+
+exports[`ICSS case empty-import: locals 1`] = `undefined`;
+
+exports[`ICSS case empty-import: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case empty-import: warnings 1`] = `Array []`;
+
+exports[`ICSS case export: errors 1`] = `Array []`;
+
+exports[`ICSS case export: locals 1`] = `
+Object {
+  "_test": "_test",
+}
+`;
+
+exports[`ICSS case export: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case export: warnings 1`] = `Array []`;
+
+exports[`ICSS case import: errors 1`] = `Array []`;
+
+exports[`ICSS case import: locals 1`] = `
+Object {
+  "primary-color": "red",
+}
+`;
+
+exports[`ICSS case import: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    ".className {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case import: warnings 1`] = `Array []`;
+
+exports[`ICSS case multiple-export: errors 1`] = `Array []`;
+
+exports[`ICSS case multiple-export: locals 1`] = `
+Object {
+  "_foo": "_bar",
+  "_test": "_test",
+}
+`;
+
+exports[`ICSS case multiple-export: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case multiple-export: warnings 1`] = `Array []`;
+
+exports[`ICSS case multiple-keys-values-in-export: errors 1`] = `Array []`;
+
+exports[`ICSS case multiple-keys-values-in-export: locals 1`] = `
+Object {
+  "_test": "_test",
+  "_test1": "1",
+  "_test2": "'string'",
+  "_test3": "1px 2px 3px",
+  "_test4": "1px 2px 3px, 1px 2px 3px",
+}
+`;
+
+exports[`ICSS case multiple-keys-values-in-export: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case multiple-keys-values-in-export: warnings 1`] = `Array []`;
