@@ -217,21 +217,21 @@ Array [
 exports[`import option true: module 1`] = `
 "exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
 // imports
-exports.i(require(\\"-!../../../index.js??ref--4!./test.css\\"), \\"\\");
-exports.i(require(\\"-!../../../index.js??ref--4!./test.css\\"), \\"screen and print\\");
-exports.i(require(\\"-!../../../index.js??ref--4!./test.css\\"), \\"SCREEN AND PRINT\\");
-exports.i(require(\\"-!../../../index.js??ref--4!./test.css\\"), \\"screen and print\\");
-exports.i(require(\\"-!../../../index.js??ref--4!./test-media.css\\"), \\"screen and print\\");
-exports.i(require(\\"-!../../../index.js??ref--4!./test-other.css\\"), \\"(min-width: 100px)\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"SCREEN AND PRINT\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-media.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
 exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\"]);
 exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\", \\"\\"]);
 exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\", \\"\\"]);
 exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\", \\"\\"]);
 exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and print\\"]);
 exports.push([module.id, \\"@import url(//example.com/style.css);\\", \\"\\"]);
-exports.i(require(\\"-!../../../index.js??ref--4!package/test.css\\"), \\"\\");
-exports.i(require(\\"-!../../../index.js??ref--4!./query.css?foo=1&bar=1\\"), \\"\\");
-exports.i(require(\\"-!../../../index.js??ref--4!./other-query.css?foo=1&bar=1#hash\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./query.css?foo=1&bar=1\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"\\");
 
 // module
 exports.push([module.id, \\"@import URL(test.css);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\", \\"\\"]);

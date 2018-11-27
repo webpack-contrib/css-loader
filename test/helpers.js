@@ -146,38 +146,6 @@ exports.testRaw = function testRaw(name, input, result, query) {
   });
 };
 
-exports.testWithMap = function test(name, input, map, result, query, modules) {
-  it(name, (done) => {
-    runLoader(
-      cssLoader,
-      input,
-      map,
-      {
-        query,
-      },
-      (err, output) => {
-        if (err) {
-          return done(err);
-        }
-        assetEvaluated(output, result, modules);
-        return done();
-      }
-    );
-  });
-};
-
-exports.testMap = function test(name, input, map, addOptions, result, modules) {
-  it(name, (done) => {
-    runLoader(cssLoader, input, map, addOptions, (err, output) => {
-      if (err) {
-        return done(err);
-      }
-      assetEvaluated(output, result, modules);
-      return done();
-    });
-  });
-};
-
 exports.testLocals = function testLocals(name, input, result, query, modules) {
   it(name, (done) => {
     runLoader(
@@ -237,10 +205,26 @@ const moduleConfig = (config) => {
       : [
           {
             test: (config.loader && config.loader.test) || /\.css$/,
-            use: {
-              loader: path.resolve(__dirname, '../index.js'),
-              options: (config.loader && config.loader.options) || {},
-            },
+            use: [
+              {
+                loader: path.resolve(__dirname, '../index.js'),
+                options: (config.loader && config.loader.options) || {},
+              },
+            ].concat(
+              config.sourceMap
+                ? [
+                    {
+                      loader: path.resolve(
+                        __dirname,
+                        './fixtures/source-map-loader.js'
+                      ),
+                      options: {
+                        sourceMap: config.sourceMap,
+                      },
+                    },
+                  ]
+                : []
+            ),
           },
           {
             test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -280,6 +264,7 @@ exports.webpack = function compile(fixture, config = {}, options = {}) {
       runtimeChunk: true,
     },
   };
+
   // Compiler Options
   // eslint-disable-next-line no-param-reassign
   options = Object.assign({ output: false }, options);
@@ -317,3 +302,16 @@ function normalizeErrors(errors) {
 }
 
 exports.normalizeErrors = normalizeErrors;
+
+function normalizeSourceMap(module) {
+  return module.map((m) => {
+    if (m[3]) {
+      // eslint-disable-next-line no-param-reassign
+      m[3].sources = m[3].sources.map(() => '/replaced/original/path/');
+    }
+
+    return m;
+  });
+}
+
+exports.normalizeSourceMap = normalizeSourceMap;

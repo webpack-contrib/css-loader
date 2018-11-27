@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sourceMap option false should not generate source map when source map is \`null\` from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap option false should not generate source map when source map is \`null\` from other loader: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`sourceMap option false should not generate source map when source map is \`null\` from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap option false should not generate source map when source map is \`undefined\` from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap option false should not generate source map when source map is \`undefined\` from other loader: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`sourceMap option false should not generate source map when source map is \`undefined\` from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap option false should not generate source map when source map is valid and it is string from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap option false should not generate source map when source map is valid and it is string from other loader: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`sourceMap option false should not generate source map when source map is valid and it is string from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap option false should not generate source map: errors 1`] = `Array []`;
+
+exports[`sourceMap option false should not generate source map: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`sourceMap option false should not generate source map: warnings 1`] = `Array []`;
+
+exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map when source map is \`null\` from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map when source map is \`null\` from other loader: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;EACE,WAAW;CACZ",
+      "names": Array [],
+      "sourceRoot": "",
+      "sources": Array [
+        "/replaced/original/path/",
+      ],
+      "sourcesContent": Array [
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`sourceMap option true should generate source map when source map is \`null\` from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map when source map is \`undefined\` from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map when source map is \`undefined\` from other loader: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;EACE,WAAW;CACZ",
+      "names": Array [],
+      "sourceRoot": "",
+      "sources": Array [
+        "/replaced/original/path/",
+      ],
+      "sourcesContent": Array [
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`sourceMap option true should generate source map when source map is \`undefined\` from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map when source map is valid and it is string from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map when source map is valid and it is string from other loader: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;ECCE,WAAW;CACZ",
+      "names": Array [],
+      "sourceRoot": "",
+      "sources": Array [
+        "/replaced/original/path/",
+        "/replaced/original/path/",
+      ],
+      "sourcesContent": Array [
+        ".class { a: b c d; }",
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`sourceMap option true should generate source map when source map is valid and it is string from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map when source map is valid from other loader: errors 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map when source map is valid from other loader: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;ECCE,WAAW;CACZ",
+      "names": Array [],
+      "sourceRoot": "",
+      "sources": Array [
+        "/replaced/original/path/",
+        "/replaced/original/path/",
+      ],
+      "sourcesContent": Array [
+        ".class { a: b c d; }",
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`sourceMap option true should generate source map when source map is valid from other loader: warnings 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map: errors 1`] = `Array []`;
+
+exports[`sourceMap option true should generate source map: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;EACE,WAAW;CACZ",
+      "names": Array [],
+      "sourceRoot": "",
+      "sources": Array [
+        "/replaced/original/path/",
+      ],
+      "sourcesContent": Array [
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`sourceMap option true should generate source map: warnings 1`] = `Array []`;
