@@ -1,4 +1,4 @@
-const { webpack, evaluated } = require('./helpers');
+const { webpack, evaluated, normalizeErrors } = require('./helpers');
 
 describe('import option', () => {
   it('true', async () => {
@@ -11,8 +11,10 @@ describe('import option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
   it('false', async () => {
