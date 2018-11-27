@@ -171,7 +171,7 @@ exports[`loader should compile with \`css\` entry point: module 1`] = `
 "var escape = require(\\"../../lib/runtime/escape.js\\");
 exports = module.exports = require(\\"../../lib/runtime/api.js\\")(false);
 // imports
-exports.i(require(\\"-!../../index.js??ref--4!./imported.css\\"), \\"\\");
+exports.i(require(\\"-!../../index.js??ref--4-0!./imported.css\\"), \\"\\");
 
 // module
 exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n/*\\\\nNeed uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\f10C\\\\\\\\\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\F10C \\\\\\\\\\\\\\\\F10D\\\\\\\\\\\\\\"\\\\n}\\\\n*/\\\\n\\", \\"\\"]);
@@ -353,7 +353,7 @@ exports[`loader should compile with \`js\` entry point: module 1`] = `
 "var escape = require(\\"../../lib/runtime/escape.js\\");
 exports = module.exports = require(\\"../../lib/runtime/api.js\\")(false);
 // imports
-exports.i(require(\\"-!../../index.js??ref--4!./imported.css\\"), \\"\\");
+exports.i(require(\\"-!../../index.js??ref--4-0!./imported.css\\"), \\"\\");
 
 // module
 exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n/*\\\\nNeed uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\f10C\\\\\\\\\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\F10C \\\\\\\\\\\\\\\\F10D\\\\\\\\\\\\\\"\\\\n}\\\\n*/\\\\n\\", \\"\\"]);
