@@ -21,8 +21,6 @@ describe('modules option', () => {
         const module = modules.find((m) => m.id === testId);
         const evaluatedModule = evaluated(module.source, modules);
 
-        // console.log(module)
-
         expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
         expect(evaluatedModule.locals).toMatchSnapshot('locals');
         expect(stats.compilation.warnings).toMatchSnapshot('warnings');
