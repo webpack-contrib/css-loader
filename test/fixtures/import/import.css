@@ -25,12 +25,15 @@
 @import url(test.css) screen and print;
 @import url(test.css) SCREEN AND PRINT;
 @import url(test.css)screen and print;
+@import url(test.css)  screen and print;
 @import url(test-media.css) screen and print;
 @import url(test-other.css) (min-width: 100px);
+@import url(http://example.com/style.css);
 @import url(http://example.com/style.css);
 @import url(http://example.com/style.css#hash);
 @import url(http://example.com/style.css?#hash);
 @import url(http://example.com/style.css?foo=bar#hash);
+@import url(http://example.com/other-style.css) screen and print;
 @import url(http://example.com/other-style.css) screen and print;
 @import url("//example.com/style.css");
 @import url(~package/test.css);
@@ -40,6 +43,10 @@
 @import url('http://') :root {}
 @import url('query.css?foo=1&bar=1');
 @import url('other-query.css?foo=1&bar=1#hash');
+@import url('other-query.css?foo=1&bar=1#hash') screen and print;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto');
 
 .class {
   a: b c d;
