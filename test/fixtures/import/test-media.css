@@ -1,5 +1,5 @@
-@import url('test-other.css') (min-width: 100px);
+@import url('test-nested-media.css') (min-width: 100px);
 
 .test {
-  c: d;
+  c: c;
 }

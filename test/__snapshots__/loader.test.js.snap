@@ -37,8 +37,8 @@ module.exports = function(useSourceMap) {
       var item = modules[i];
       // skip already imported module
       // this implementation is not 100% perfect for weird media query combinations
-      //  when a module is imported multiple times with different media queries.
-      //  I hope this will never occur (Hey this way we have smaller bundles)
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles)
       if (item[0] == null || !alreadyImportedModules[item[0]]) {
         if (mediaQuery && !item[2]) {
           item[2] = mediaQuery;
@@ -219,8 +219,8 @@ module.exports = function(useSourceMap) {
       var item = modules[i];
       // skip already imported module
       // this implementation is not 100% perfect for weird media query combinations
-      //  when a module is imported multiple times with different media queries.
-      //  I hope this will never occur (Hey this way we have smaller bundles)
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles)
       if (item[0] == null || !alreadyImportedModules[item[0]]) {
         if (mediaQuery && !item[2]) {
           item[2] = mediaQuery;
