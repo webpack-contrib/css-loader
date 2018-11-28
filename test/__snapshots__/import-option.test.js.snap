@@ -184,8 +184,7 @@ Array [
   ],
   Array [
     1,
-    "@import URL(test.css);
-@import url();
+    "@import url();
 @import url('');
 @import url(\\"\\");
 @import '';
@@ -234,7 +233,7 @@ exports.i(require(\\"-!../../../index.js??ref--4-0!./query.css?foo=1&bar=1\\"), 
 exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"\\");
 
 // module
-exports.push([module.id, \\"@import URL(test.css);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\", \\"\\"]);
 
 // exports
 "
@@ -295,9 +294,5 @@ Warning
 Warning
 
 (40:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
-  "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
-
-(5:1) Unable to find uri in '@import URL(test.css)'",
 ]
 `;
