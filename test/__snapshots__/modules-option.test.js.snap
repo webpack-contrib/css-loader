@@ -690,6 +690,78 @@ Object {
 
 exports[`modules option case name \`composes-with-importing\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
 
+exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+Object {
+  "blue": "red",
+}
+`;
+
+exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a {
+  border: 1px solid red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+Object {
+  "a": "_a",
+  "blue": "red",
+}
+`;
+
+exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+  border: 1px solid red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+
+exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Object {
+  "blue": "red",
+}
+`;
+
+exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+
+exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Object {
+  "a": "_a",
+  "blue": "red",
+}
+`;
+
+exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
 exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
 
 exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
@@ -1322,6 +1394,82 @@ Object {
 
 exports[`modules option case name \`local-with-string\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
 
+exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+Object {
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@media (max-width: 599px) {
+  .header {
+    box-shadow: 0 0 4px #1F4F7F;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+Object {
+  "header": "_header",
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@media (max-width: 599px) {
+  ._header {
+    box-shadow: 0 0 4px #1F4F7F;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+
+exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Object {
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+
+exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Object {
+  "header": "_header",
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
 exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
 
 exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
@@ -1520,7 +1668,7 @@ Array [
 	background: url(data:image/png;base64,AAA);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) xyz;
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img img.png\\") xyz;
 }
 ",
     "",
@@ -1554,7 +1702,7 @@ Array [
 	background: url(data:image/png;base64,AAA);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) xyz;
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img img.png\\") xyz;
 }
 ",
     "",
