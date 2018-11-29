@@ -1,0 +1,7 @@
+@import url(test-other.css) (min-width: 100px);
+
+@value def from './values.css';
+
+.ghi {
+  color: def;
+}
