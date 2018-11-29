@@ -1470,6 +1470,94 @@ Object {
 
 exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
 
+exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+Object {
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "@media (max-width: 599px) {
+  .header {
+    box-shadow: 0 0 4px #1F4F7F;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+Object {
+  "header": "_header",
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "@media (max-width: 599px) {
+  ._header {
+    box-shadow: 0 0 4px #1F4F7F;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+
+exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Object {
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+
+exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Object {
+  "header": "_header",
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
 exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
 
 exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
@@ -2381,3 +2469,209 @@ Object {
 `;
 
 exports[`modules option case name \`values-7\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+Object {
+  "shadow-color": "rgba(0, 0, 0, 0.5)",
+}
+`;
+
+exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".shadow {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5),
+    10px 0px 5px rgba(0, 0, 0, 0.5);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+Object {
+  "shadow": "_shadow",
+  "shadow-color": "rgba(0, 0, 0, 0.5)",
+}
+`;
+
+exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._shadow {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5),
+    10px 0px 5px rgba(0, 0, 0, 0.5);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+
+exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Object {
+  "shadow-color": "rgba(0, 0, 0, 0.5)",
+}
+`;
+
+exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+
+exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Object {
+  "shadow": "_shadow",
+  "shadow-color": "rgba(0, 0, 0, 0.5)",
+}
+`;
+
+exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+Object {
+  "def": "red",
+}
+`;
+
+exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".foo1 {
+  prop: func(red);
+}
+
+.foo2 {
+  prop: func(10px red);
+}
+
+.foo3 {
+  prop: func(red 10px);
+}
+
+.foo4 {
+  prop: func(10px red 10px);
+}
+
+.foo5 {
+  prop: func(10px, red);
+}
+
+.foo6 {
+  prop: func(red, 10px);
+}
+
+.foo7 {
+  prop: func(10px, red, 10px);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+Object {
+  "def": "red",
+  "foo1": "_foo1",
+  "foo2": "_foo2",
+  "foo3": "_foo3",
+  "foo4": "_foo4",
+  "foo5": "_foo5",
+  "foo6": "_foo6",
+  "foo7": "_foo7",
+}
+`;
+
+exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._foo1 {
+  prop: func(red);
+}
+
+._foo2 {
+  prop: func(10px red);
+}
+
+._foo3 {
+  prop: func(red 10px);
+}
+
+._foo4 {
+  prop: func(10px red 10px);
+}
+
+._foo5 {
+  prop: func(10px, red);
+}
+
+._foo6 {
+  prop: func(red, 10px);
+}
+
+._foo7 {
+  prop: func(10px, red, 10px);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+
+exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+
+exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+Object {
+  "def": "red",
+}
+`;
+
+exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+
+exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+
+exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+
+exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+Object {
+  "def": "red",
+  "foo1": "_foo1",
+  "foo2": "_foo2",
+  "foo3": "_foo3",
+  "foo4": "_foo4",
+  "foo5": "_foo5",
+  "foo6": "_foo6",
+  "foo7": "_foo7",
+}
+`;
+
+exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
