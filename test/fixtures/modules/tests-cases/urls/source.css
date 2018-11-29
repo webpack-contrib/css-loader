@@ -10,5 +10,5 @@
 	background: url(data:image/png;base64,AAA);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(./img.png) xyz;
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(./img.png) url('./img img.png') xyz;
 }
