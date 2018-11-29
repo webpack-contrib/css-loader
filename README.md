@@ -116,19 +116,15 @@ url(~module/image.png) => require('module/image.png')
 
 ### `import`
 
+To disable `@import` resolving by `css-loader` set the option to `false`.
+
+Absolute urls are not resolving.
+
 To import styles from a node module path, prefix it with a `~`:
 
 ```css
 @import '~module/styles.css';
 ```
-
-To disable `@import` resolving by `css-loader` set the option to `false`
-
-```css
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-```
-
-> _⚠️ Use with caution, since this disables resolving for **all** `@import`s, including css modules `composes: xxx from 'path/to/file.css'` feature._
 
 ### [`modules`](https://github.com/css-modules/css-modules)
 
