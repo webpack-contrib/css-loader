@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`modules option case name \`class-names\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`class-names\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`class-names\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -17,11 +17,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`class-names\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`class-names\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`class-names\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "bar-1": "_bar-1",
   "class-1": "_class-1",
@@ -29,7 +29,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`class-names\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -42,21 +42,21 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`class-names\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`class-names\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`class-names\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`class-names\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `Object {}`;
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
 
-exports[`modules option case name \`class-names\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`class-names\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`class-names\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`class-names\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "bar-1": "_bar-1",
   "class-1": "_class-1",
@@ -64,18 +64,18 @@ Object {
 }
 `;
 
-exports[`modules option case name \`class-names\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
 }
 `;
 
-exports[`modules option case name \`comment-in-local\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -86,18 +86,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`comment-in-local\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
 }
 `;
 
-exports[`modules option case name \`comment-in-local\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -108,39 +108,39 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`comment-in-local\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
 }
 `;
 
-exports[`modules option case name \`comment-in-local\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`comment-in-local\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
 }
 `;
 
-exports[`modules option case name \`comment-in-local\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`comments\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`comments\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`comments\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -161,17 +161,17 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`comments\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`comments\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`comments\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "bg": "_bg",
 }
 `;
 
-exports[`modules option case name \`comments\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -192,38 +192,38 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`comments\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`comments\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`comments\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`comments\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `Object {}`;
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
 
-exports[`modules option case name \`comments\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`comments\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`comments\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`comments\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "bg": "_bg",
 }
 `;
 
-exports[`modules option case name \`comments\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c2": "_c2 _c1",
 }
 `;
 
-exports[`modules option case name \`composes\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -235,18 +235,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c2": "_c2 _c1",
 }
 `;
 
-exports[`modules option case name \`composes\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -258,37 +258,37 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c2": "_c2 _c1",
 }
 `;
 
-exports[`modules option case name \`composes\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c2": "_c2 _c1",
 }
 `;
 
-exports[`modules option case name \`composes\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-1\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-1\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "c1": "_c1 _c2",
   "c3": "_c3 _c1 _c2",
@@ -296,7 +296,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`composes-1\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -325,11 +325,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes-1\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-1\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-1\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "c1": "_c1 _c2",
   "c3": "_c3 _c1 _c2",
@@ -337,7 +337,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`composes-1\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -366,13 +366,13 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes-1\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-1\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-1\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes-1\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1 _c2",
   "c3": "_c3 _c1 _c2",
@@ -380,13 +380,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`composes-1\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-1\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-1\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes-1\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1 _c2",
   "c3": "_c3 _c1 _c2",
@@ -394,11 +394,11 @@ Object {
 }
 `;
 
-exports[`modules option case name \`composes-1\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-2\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-2\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "c1": "_c1 _c-2",
   "c3": "_c3 _c1 _c-2",
@@ -406,7 +406,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`composes-2\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -435,11 +435,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes-2\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-2\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-2\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "c1": "_c1 _c-2",
   "c3": "_c3 _c1 _c-2",
@@ -447,7 +447,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`composes-2\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -476,13 +476,13 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes-2\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1 _c-2",
   "c3": "_c3 _c1 _c-2",
@@ -490,13 +490,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`composes-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1 _c-2",
   "c3": "_c3 _c1 _c-2",
@@ -504,17 +504,17 @@ Object {
 }
 `;
 
-exports[`modules option case name \`composes-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "abc": "_abc _def1 _def2",
 }
 `;
 
-exports[`modules option case name \`composes-multiple\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -542,17 +542,17 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes-multiple\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "abc": "_abc _def1 _def2",
 }
 `;
 
-exports[`modules option case name \`composes-multiple\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -580,41 +580,41 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes-multiple\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc _def1 _def2",
 }
 `;
 
-exports[`modules option case name \`composes-multiple\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes-multiple\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc _def1 _def2",
 }
 `;
 
-exports[`modules option case name \`composes-multiple\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "abc": "_abc _def",
 }
 `;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -634,17 +634,17 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "abc": "_abc _def",
 }
 `;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -664,41 +664,41 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc _def",
 }
 `;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc _def",
 }
 `;
 
-exports[`modules option case name \`composes-with-importing\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "blue": "red",
 }
 `;
 
-exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -711,18 +711,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "a": "_a",
   "blue": "red",
 }
 `;
 
-exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -735,38 +735,38 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`declaration-value\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "blue": "red",
 }
 `;
 
-exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "a": "_a",
   "blue": "red",
 }
 `;
 
-exports[`modules option case name \`declaration-value\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -824,11 +824,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "a": "_a",
   "b": "_b",
@@ -839,7 +839,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -897,21 +897,21 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `Object {}`;
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "a": "_a",
   "b": "_b",
@@ -922,13 +922,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`keyframes-and-animation\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`leak-scope\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`leak-scope\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`leak-scope\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -975,11 +975,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`leak-scope\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`leak-scope\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`leak-scope\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "a": "_a",
   "b": "_b",
@@ -992,7 +992,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`leak-scope\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1039,21 +1039,21 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`leak-scope\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`leak-scope\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`leak-scope\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`leak-scope\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `Object {}`;
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
 
-exports[`modules option case name \`leak-scope\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`leak-scope\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`leak-scope\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`leak-scope\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "a": "_a",
   "b": "_b",
@@ -1066,11 +1066,11 @@ Object {
 }
 `;
 
-exports[`modules option case name \`leak-scope\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "def": "_def",
   "ghi": "_ghi",
@@ -1078,7 +1078,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1095,11 +1095,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`local\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "abc": "_abc",
   "def": "_def",
@@ -1108,7 +1108,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1125,13 +1125,13 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`local\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`local\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "def": "_def",
   "ghi": "_ghi",
@@ -1139,13 +1139,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`local\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc",
   "def": "_def",
@@ -1154,11 +1154,11 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-2\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-2\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "className": "_className",
   "someId": "_someId",
@@ -1166,7 +1166,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local-2\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1180,11 +1180,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`local-2\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-2\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-2\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "className": "_className",
   "someId": "_someId",
@@ -1192,7 +1192,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local-2\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1206,13 +1206,13 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`local-2\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`local-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "className": "_className",
   "someId": "_someId",
@@ -1220,13 +1220,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`local-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "className": "_className",
   "someId": "_someId",
@@ -1234,18 +1234,18 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "abc": "_abc",
   "def": "_def _abc",
 }
 `;
 
-exports[`modules option case name \`local-and-composes\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1261,18 +1261,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`local-and-composes\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "abc": "_abc",
   "def": "_def _abc",
 }
 `;
 
-exports[`modules option case name \`local-and-composes\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1288,37 +1288,37 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`local-and-composes\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc",
   "def": "_def _abc",
 }
 `;
 
-exports[`modules option case name \`local-and-composes\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`local-and-composes\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc",
   "def": "_def _abc",
 }
 `;
 
-exports[`modules option case name \`local-and-composes\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-with-string\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-with-string\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
@@ -1326,7 +1326,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local-with-string\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1339,11 +1339,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`local-with-string\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-with-string\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-with-string\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
@@ -1351,7 +1351,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local-with-string\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1364,13 +1364,13 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`local-with-string\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-with-string\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-with-string\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`local-with-string\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
@@ -1378,13 +1378,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local-with-string\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`local-with-string\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`local-with-string\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`local-with-string\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
@@ -1392,17 +1392,17 @@ Object {
 }
 `;
 
-exports[`modules option case name \`local-with-string\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1417,18 +1417,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "header": "_header",
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1443,42 +1443,42 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`media\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "header": "_header",
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules option case name \`media\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -1499,18 +1499,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "header": "_header",
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -1531,36 +1531,36 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`media-2\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "header": "_header",
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules option case name \`media-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "c2": "_c2",
   "c3": "_c3",
@@ -1569,7 +1569,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1581,11 +1581,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c2": "_c2",
@@ -1597,7 +1597,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1609,13 +1609,13 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`mode-switching\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`mode-switching\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`mode-switching\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`mode-switching\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "c2": "_c2",
   "c3": "_c3",
@@ -1624,13 +1624,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`mode-switching\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`mode-switching\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`mode-switching\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`mode-switching\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c2": "_c2",
@@ -1642,13 +1642,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`mode-switching\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`simple\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`simple\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`simple\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1669,11 +1669,11 @@ a[href=\\"#b.c\\"].x.y {
 ]
 `;
 
-exports[`modules option case name \`simple\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`simple\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`simple\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "a": "_a",
   "b": "_b",
@@ -1686,7 +1686,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`simple\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1707,21 +1707,21 @@ a[href=\\"#b.c\\"]._x._y {
 ]
 `;
 
-exports[`modules option case name \`simple\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`simple\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`simple\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`simple\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `Object {}`;
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
 
-exports[`modules option case name \`simple\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`simple\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`simple\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`simple\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "a": "_a",
   "b": "_b",
@@ -1734,13 +1734,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`simple\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`urls\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`urls\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`urls\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1764,17 +1764,17 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`urls\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`urls\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`urls\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "a": "_a",
 }
 `;
 
-exports[`modules option case name \`urls\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1798,31 +1798,31 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`urls\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`urls\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`urls\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`urls\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `Object {}`;
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
 
-exports[`modules option case name \`urls\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`urls\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`urls\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`urls\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "a": "_a",
 }
 `;
 
-exports[`modules option case name \`urls\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
@@ -1830,7 +1830,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1845,11 +1845,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "a": "_a",
   "aaa": "red",
@@ -1858,7 +1858,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1873,13 +1873,13 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
@@ -1887,13 +1887,13 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "a": "_a",
   "aaa": "red",
@@ -1902,18 +1902,18 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-1\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-1\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "def": "red",
   "ghi": "1px solid black",
 }
 `;
 
-exports[`modules option case name \`values-1\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1924,18 +1924,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-1\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-1\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-1\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "def": "red",
   "ghi": "1px solid black",
 }
 `;
 
-exports[`modules option case name \`values-1\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1946,43 +1946,43 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-1\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-1\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-1\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-1\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
   "ghi": "1px solid black",
 }
 `;
 
-exports[`modules option case name \`values-1\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-1\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-1\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-1\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
   "ghi": "1px solid black",
 }
 `;
 
-exports[`modules option case name \`values-1\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-2\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-2\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules option case name \`values-2\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1993,18 +1993,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-2\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-2\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-2\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "def": "red",
   "ghi": "_ghi",
 }
 `;
 
-exports[`modules option case name \`values-2\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -2015,42 +2015,42 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-2\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules option case name \`values-2\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
   "ghi": "_ghi",
 }
 `;
 
-exports[`modules option case name \`values-2\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-3\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-3\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules option case name \`values-3\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2067,18 +2067,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-3\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-3\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-3\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "def": "red",
   "ghi": "_ghi",
 }
 `;
 
-exports[`modules option case name \`values-3\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2095,43 +2095,43 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-3\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-3\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-3\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-3\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules option case name \`values-3\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-3\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-3\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-3\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
   "ghi": "_ghi",
 }
 `;
 
-exports[`modules option case name \`values-3\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-4\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-4\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
 }
 `;
 
-exports[`modules option case name \`values-4\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2154,11 +2154,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-4\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-4\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-4\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
@@ -2166,7 +2166,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-4\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2189,26 +2189,26 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-4\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-4\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-4\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-4\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
 }
 `;
 
-exports[`modules option case name \`values-4\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-4\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-4\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-4\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
@@ -2216,18 +2216,18 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-4\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-5\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-5\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red,0 0 red",
 }
 `;
 
-exports[`modules option case name \`values-5\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2244,11 +2244,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-5\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-5\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-5\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "color": "red",
   "ghi": "_ghi",
@@ -2256,7 +2256,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-5\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2273,26 +2273,26 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-5\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-5\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-5\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-5\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red,0 0 red",
 }
 `;
 
-exports[`modules option case name \`values-5\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-5\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-5\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-5\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "color": "red",
   "ghi": "_ghi",
@@ -2300,18 +2300,18 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-5\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-6\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-6\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red ,0 0 red",
 }
 `;
 
-exports[`modules option case name \`values-6\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2328,11 +2328,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-6\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-6\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-6\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "color": "red",
   "ghi": "_ghi",
@@ -2340,7 +2340,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-6\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2357,26 +2357,26 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-6\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-6\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-6\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-6\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red ,0 0 red",
 }
 `;
 
-exports[`modules option case name \`values-6\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-6\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-6\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-6\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "color": "red",
   "ghi": "_ghi",
@@ -2384,18 +2384,18 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-6\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-7\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-7\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red, 0 0 red",
 }
 `;
 
-exports[`modules option case name \`values-7\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2412,11 +2412,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-7\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-7\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-7\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "color": "red",
   "ghi": "_ghi",
@@ -2424,7 +2424,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-7\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2441,26 +2441,26 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-7\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-7\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-7\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-7\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red, 0 0 red",
 }
 `;
 
-exports[`modules option case name \`values-7\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-7\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-7\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-7\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "color": "red",
   "ghi": "_ghi",
@@ -2468,17 +2468,17 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-7\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "shadow-color": "rgba(0, 0, 0, 0.5)",
 }
 `;
 
-exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -2492,18 +2492,18 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "shadow": "_shadow",
   "shadow-color": "rgba(0, 0, 0, 0.5)",
 }
 `;
 
-exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -2517,42 +2517,42 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-8\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "shadow-color": "rgba(0, 0, 0, 0.5)",
 }
 `;
 
-exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "shadow": "_shadow",
   "shadow-color": "rgba(0, 0, 0, 0.5)",
 }
 `;
 
-exports[`modules option case name \`values-8\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is false): locals 1`] = `
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -2589,11 +2589,11 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is true): locals 1`] = `
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
 Object {
   "def": "red",
   "foo1": "_foo1",
@@ -2606,7 +2606,7 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -2643,25 +2643,25 @@ Array [
 ]
 `;
 
-exports[`modules option case name \`values-9\`: (use \`loader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is false): errors 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is false): locals 1`] = `undefined`;
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is false): module (evaluated) 1`] = `
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is false): warnings 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
-exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is true): errors 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
-exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is true): locals 1`] = `undefined`;
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
 
-exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is true): module (evaluated) 1`] = `
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
   "foo1": "_foo1",
@@ -2674,4 +2674,4 @@ Object {
 }
 `;
 
-exports[`modules option case name \`values-9\`: (use \`localsLoader.js\`) (\`modules\` option is true): warnings 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
