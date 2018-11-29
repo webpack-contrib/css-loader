@@ -85,9 +85,7 @@ const moduleConfig = (config) => {
             test: (config.loader && config.loader.test) || /\.css$/,
             use: [
               {
-                loader: config.localsLoader
-                  ? path.resolve(__dirname, '../locals.js')
-                  : path.resolve(__dirname, '../index.js'),
+                loader: path.resolve(__dirname, '../index.js'),
                 options: (config.loader && config.loader.options) || {},
               },
             ].concat(

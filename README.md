@@ -102,6 +102,7 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
 |**[`importLoaders`](#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
+|**[`exportOnlyLocals`](#exportonlylocals)**|`{Boolean}`|`false`|Export only locals|
 
 ### `url`
 
@@ -277,8 +278,6 @@ You can also specify the absolute path to your custom `getLocalIdent` function t
 }
 ```
 
-> ℹ️ For prerendering with extract-text-webpack-plugin you should use `css-loader/locals` instead of `style-loader!css-loader` **in the prerendering bundle**. It doesn't embed CSS but only exports the identifier mappings.
-
 ### `sourceMap`
 
 To include source maps set the `sourceMap` option.
@@ -351,6 +350,22 @@ The query parameter `importLoaders` allows you to configure how many loaders bef
 ```
 
 This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
+
+### `exportOnlyLocals`
+
+Export only locals (**useful** when you use **css modules**).
+For pre-rendering with `mini-css-extract-plugin` you should use this option instead of `style-loader!css-loader` **in the pre-rendering bundle**. 
+It doesn't embed CSS but only exports the identifier mappings.
+
+**webpack.config.js**
+```js
+{
+  loader: 'css-loader',
+  options: {
+    exportOnlyLocals: true
+  }
+}
+```
 
 <h2 align="center">Examples</h2>
 

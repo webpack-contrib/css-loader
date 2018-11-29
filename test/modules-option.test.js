@@ -6,18 +6,21 @@ const { webpack, evaluated } = require('./helpers');
 const testCasesPath = path.join(__dirname, 'fixtures/modules/tests-cases');
 const testCases = fs.readdirSync(testCasesPath);
 
-describe('modules option', () => {
-  [false, true].forEach((isLocalsLoader) => {
+describe('modules', () => {
+  [false, true].forEach((exportOnlyLocalsValue) => {
     [false, true].forEach((modulesValue) => {
       testCases.forEach((name) => {
-        it(`case name \`${name}\`: (use \`${
-          isLocalsLoader ? 'localsLoader.js' : 'loader.js'
-        }\`) (\`modules\` option is ${modulesValue})`, async () => {
+        it(`case \`${name}\`: (export \`${
+          exportOnlyLocalsValue ? 'only locals' : 'all'
+        }\`) (\`modules\` value is \`${modulesValue})\``, async () => {
           const config = {
             loader: {
-              options: { modules: modulesValue, localIdentName: '_[local]' },
+              options: {
+                modules: modulesValue,
+                exportOnlyLocals: exportOnlyLocalsValue,
+                localIdentName: '_[local]',
+              },
             },
-            localsLoader: isLocalsLoader,
           };
           const testId = `./modules/tests-cases/${name}/source.css`;
           const stats = await webpack(testId, config);
