@@ -31,6 +31,7 @@ function evaluated(output, modules, moduleId = 1) {
         const importedModule = modules.find((el) => {
           const modulePath = el.identifier.split('!').pop();
           const importedPaths = [
+            'postcss-present-env',
             'icss/tests-cases/import',
             'import',
             'import/node_modules',
@@ -88,21 +89,32 @@ const moduleConfig = (config) => {
                 loader: path.resolve(__dirname, '../index.js'),
                 options: (config.loader && config.loader.options) || {},
               },
-            ].concat(
-              config.sourceMap
-                ? [
-                    {
-                      loader: path.resolve(
-                        __dirname,
-                        './fixtures/source-map-loader.js'
-                      ),
-                      options: {
-                        sourceMap: config.sourceMap,
+            ]
+              .concat(
+                config.sourceMap
+                  ? [
+                      {
+                        loader: path.resolve(
+                          __dirname,
+                          './fixtures/source-map-loader.js'
+                        ),
+                        options: {
+                          sourceMap: config.sourceMap,
+                        },
                       },
-                    },
-                  ]
-                : []
-            ),
+                    ]
+                  : []
+              )
+              .concat(
+                config.postcssLoader
+                  ? [
+                      {
+                        loader: 'postcss-loader',
+                        options: config.postcssLoaderOptions,
+                      },
+                    ]
+                  : []
+              ),
           },
           {
             test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,

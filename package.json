@@ -43,6 +43,8 @@
     "jest": "^23.6.0",
     "lint-staged": "^8.1.0",
     "memory-fs": "^0.4.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.4.0",
     "prettier": "^1.15.2",
     "standard-version": "^4.0.0",
     "strip-ansi": "^5.0.0",
