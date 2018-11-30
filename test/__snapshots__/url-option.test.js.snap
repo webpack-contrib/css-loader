@@ -421,4 +421,28 @@ exports.push([module.id, \\".class {\\\\n  background: url(\\" + escape(require(
 "
 `;
 
-exports[`url option true: warnings 1`] = `Array []`;
+exports[`url option true: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(120:3) Unable to find uri in 'background: green url() xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(124:3) Unable to find uri in 'background: green url('') xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(128:3) Unable to find uri in 'background: green url(\\"\\") xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(132:3) Unable to find uri in 'background: green url('') xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(136:3) Unable to find uri in 'background: green url(
+  ) xyz'",
+]
+`;
