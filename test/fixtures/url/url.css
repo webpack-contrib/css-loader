@@ -168,3 +168,12 @@ b {
 .class {
   background-image: url('img.png') url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 26' fill='%23007aff'><rect width='4' height='4'/><rect x='8' y='1' width='34' height='2'/><rect y='11' width='4' height='4'/><rect x='8' y='12' width='34' height='2'/><rect y='22' width='4' height='4'/><rect x='8' y='23' width='34' height='2'/></svg>") url('img.png');
 }
+
+.class {
+  background: ___CSS_LOADER_URL___;
+  background: ___CSS_LOADER_URL___INDEX___;
+  background: ___CSS_LOADER_URL___99999___;
+  background: ___CSS_LOADER_IMPORT___;
+  background: ___CSS_LOADER_IMPORT___INDEX___;
+  background: ___CSS_LOADER_IMPORT___99999___;
+}
