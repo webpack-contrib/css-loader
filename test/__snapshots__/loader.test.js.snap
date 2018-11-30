@@ -443,3 +443,87 @@ You may need an appropriate loader to handle this file type.
 `;
 
 exports[`loader should throws error when no loader for assets: warnings 1`] = `Array []`;
+
+exports[`loader using together with "postcss-loader": errors 1`] = `Array []`;
+
+exports[`loader using together with "postcss-loader": module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":root {
+  --fontSize: 1rem;
+  --mainColor: rgba(18,52,86,0.47059);
+  --secondaryColor: rgba(102, 51, 153, 0.9);
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+
+@media (max-width: 50rem) {
+  body {
+    color: rgba(18,52,86,0.47059);
+    color: var(--mainColor);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    font-size: 1rem;
+    font-size: var(--fontSize);
+    line-height: calc(1rem * 1.5);
+    line-height: calc(var(--fontSize) * 1.5);
+    word-wrap: break-word;
+    padding-left: calc(1rem / 2 + 1px);
+    padding-right: calc(1rem / 2 + 1px);
+    padding-left: calc(var(--fontSize) / 2 + 1px);
+    padding-right: calc(var(--fontSize) / 2 + 1px);
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+main.hero, .hero.main {
+  background-image: img1x.png;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+
+main.hero, .hero.main {
+  background-image: img2x.png;
+}
+}
+
+main.hero, .hero.main {
+  background-image: -webkit-image-set(url(/webpack/public/path/img1x.png) 1x, url(/webpack/public/path/img2x.png) 2x);
+  background-image: image-set(\\"img1x.png\\" 1x, \\"img2x.png\\" 2x);
+}
+
+a {
+  color: rgba(0, 0, 255, 0.9)
+}
+
+a:hover {
+    color: #639;
+  }
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader using together with "postcss-loader": module 1`] = `
+"var escape = require(\\"../../../lib/runtime/escape.js\\");
+exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+
+
+// module
+exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: img1x.png;\\\\n}\\\\n\\\\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: img2x.png;\\\\n}\\\\n}\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: -webkit-image-set(url(\\" + escape(require(\\"./img1x.png\\")) + \\") 1x, url(\\" + escape(require(\\"./img2x.png\\")) + \\") 2x);\\\\n  background-image: image-set(\\\\\\"img1x.png\\\\\\" 1x, \\\\\\"img2x.png\\\\\\" 2x);\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n    color: #639;\\\\n  }\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`loader using together with "postcss-loader": warnings 1`] = `Array []`;

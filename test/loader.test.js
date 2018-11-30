@@ -1,5 +1,7 @@
 const path = require('path');
 
+const postcssPresetEnv = require('postcss-preset-env');
+
 const { webpack, evaluated, normalizeErrors } = require('./helpers');
 
 describe('loader', () => {
@@ -86,5 +88,25 @@ describe('loader', () => {
       'warnings'
     );
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+  });
+
+  it('using together with "postcss-loader"', async () => {
+    const config = {
+      postcssLoader: true,
+      postcssLoaderOptions: {
+        plugins: () => [postcssPresetEnv({ stage: 0 })],
+      },
+    };
+    const testId = './postcss-present-env/source.css';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 });
