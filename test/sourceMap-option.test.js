@@ -15,26 +15,6 @@ describe('sourceMap option', () => {
       const { modules } = stats.toJson();
       const module = modules.find((m) => m.id === testId);
 
-      /**
-       * Get the actual source map from the OriginalSource object.
-       * @see {@link https://github.com/webpack/webpack-sources}
-       * @todo check that the source map exists
-       * @todo check that the source map has valid and expected property values.
-       */
-      const compilationModules = stats.compilation.modules;
-      const compilationModule = compilationModules.find((m) => m.id === testId);
-      const moduleOriginalSource = compilationModule._source; // eslint-disable-line no-underscore-dangle
-      const moduleSourceMap = moduleOriginalSource.map();
-
-      /**
-       * @todo remove `console.log` statments
-       */
-      /* eslint-disable no-console */
-      console.log('==========================================================');
-      console.log(moduleSourceMap);
-      console.log('==========================================================');
-      /* eslint-enable no-console */
-
       expect(normalizeSourceMap(evaluated(module.source))).toMatchSnapshot(
         'module (evaluated)'
       );
