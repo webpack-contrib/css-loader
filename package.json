@@ -46,6 +46,8 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.4.0",
     "prettier": "^1.15.2",
+    "sass": "^1.15.1",
+    "sass-loader": "^7.1.0",
     "standard-version": "^4.0.0",
     "strip-ansi": "^5.0.0",
     "webpack": "^4.26.1"

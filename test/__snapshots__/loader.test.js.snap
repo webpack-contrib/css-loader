@@ -527,3 +527,32 @@ exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: r
 `;
 
 exports[`loader using together with "postcss-loader": warnings 1`] = `Array []`;
+
+exports[`loader using together with "sass-loader": errors 1`] = `Array []`;
+
+exports[`loader using together with "sass-loader": module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}",
+    "",
+  ],
+]
+`;
+
+exports[`loader using together with "sass-loader": module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+
+
+// module
+exports.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`loader using together with "sass-loader": warnings 1`] = `Array []`;

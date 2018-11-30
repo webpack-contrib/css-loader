@@ -114,6 +114,16 @@ const moduleConfig = (config) => {
                       },
                     ]
                   : []
+              )
+              .concat(
+                config.sassLoader
+                  ? [
+                      {
+                        loader: 'sass-loader',
+                        options: config.sassLoaderOptions || {},
+                      },
+                    ]
+                  : []
               ),
           },
           {
