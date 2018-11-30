@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`api should import modules 1`] = `"body { b: 2; }body { c: 3; }@media print{body { d: 4; }}@media screen{body { a: 1; }}"`;
+
+exports[`api should import named modules 1`] = `"body { b: 2; }body { c: 3; }@media print{body { d: 4; }}@media screen{body { a: 1; }}"`;
+
+exports[`api should toString a single module 1`] = `"body { a: 1; }"`;
+
+exports[`api should toString multiple modules 1`] = `"body { b: 2; }body { a: 1; }"`;
+
+exports[`api should toString with media query 1`] = `"@media screen{body { a: 1; }}"`;
+
+exports[`api should toString with source mapping 1`] = `
+"body { a: 1; }
+/*# sourceURL=webpack://./path/to/test.scss */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsiLCJzb3VyY2VSb290Ijoid2VicGFjazovLyJ9 */"
+`;
+
+exports[`api should toString without source mapping if btoa not avalibale 1`] = `"body { a: 1; }"`;

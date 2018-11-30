@@ -1,6 +1,6 @@
 {
   "name": "css-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Tobias Koppers @sokra",
   "license": "MIT",
   "description": "css loader module for webpack",
@@ -13,40 +13,93 @@
     "locals.js"
   ],
   "dependencies": {
-    "babel-code-frame": "^6.26.0",
     "css-selector-tokenizer": "^0.7.0",
-    "icss-utils": "^2.1.0",
+    "icss-utils": "^4.0.0",
     "loader-utils": "^1.0.2",
-    "lodash.camelcase": "^4.3.0",
-    "postcss": "^6.0.23",
-    "postcss-modules-extract-imports": "^1.2.0",
-    "postcss-modules-local-by-default": "^1.2.0",
-    "postcss-modules-scope": "^1.1.0",
-    "postcss-modules-values": "^1.3.0",
+    "lodash": "^4.17.11",
+    "postcss": "^7.0.6",
+    "postcss-modules-extract-imports": "^2.0.0",
+    "postcss-modules-local-by-default": "^2.0.1",
+    "postcss-modules-scope": "^2.0.0",
+    "postcss-modules-values": "^2.0.0",
     "postcss-value-parser": "^3.3.0",
     "source-list-map": "^2.0.0"
   },
   "devDependencies": {
-    "codecov": "^1.0.1",
-    "eslint": "3.14.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "should": "^11.1.2",
-    "standard-version": "^4.0.0"
+    "@babel/cli": "^7.1.5",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "del": "^3.0.0",
+    "eslint": "^5.9.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "file-loader": "^2.0.0",
+    "husky": "^1.2.0",
+    "jest": "^23.6.0",
+    "lint-staged": "^8.1.0",
+    "memory-fs": "^0.4.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.4.0",
+    "prettier": "^1.15.2",
+    "sass": "^1.15.1",
+    "sass-loader": "^7.1.0",
+    "standard-version": "^4.0.0",
+    "strip-ansi": "^5.0.0",
+    "webpack": "^4.26.1"
   },
   "peerDependencies": {
     "webpack": "^4.0.0"
   },
   "scripts": {
     "lint": "eslint lib test",
-    "test": "mocha",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "test:cover": "npm run cover -- --report lcovonly",
     "travis:test": "npm run cover",
     "travis:lint": "npm run lint",
-    "release": "standard-version"
+    "release": "standard-version",
+    "security": "npm audit",
+    "test": "jest",
+    "test:coverage": "jest --collectCoverageFrom='lib/**/*.js' --coverage",
+    "ci:lint": "npm run lint && npm run security",
+    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+    "ci:test": "npm run test -- --runInBand",
+    "ci:coverage": "npm run test:coverage -- --runInBand"
   },
   "homepage": "https://github.com/webpack-contrib/css-loader",
   "repository": "https://github.com/webpack-contrib/css-loader.git",
-  "bugs": "https://github.com/webpack-contrib/css-loader/issues"
+  "bugs": "https://github.com/webpack-contrib/css-loader/issues",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "6.9.0"
+          },
+          "useBuiltIns": "usage"
+        }
+      ]
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
 }

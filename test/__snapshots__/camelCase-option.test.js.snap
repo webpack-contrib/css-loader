@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`camelCase option dashes: errors 1`] = `Array []`;
+
+exports[`camelCase option dashes: locals 1`] = `
+Object {
+  "btn--info_is-disabled_1": "jDvNwV-WRSMB9n2z9QrzR",
+  "btn-info_is-disabled": "_1XTfjK5gKYeSzbdZhEXRpF",
+  "btnInfo_isDisabled": "_1XTfjK5gKYeSzbdZhEXRpF",
+  "btnInfo_isDisabled_1": "jDvNwV-WRSMB9n2z9QrzR",
+  "foo": "bar",
+  "my-btn-info_is-disabled": "value",
+  "myBtnInfo_isDisabled": "value",
+  "simple": "_1penVf9PMtov2qLxmtsMjq",
+}
+`;
+
+exports[`camelCase option dashes: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._1XTfjK5gKYeSzbdZhEXRpF {
+  color: blue;
+}
+
+.jDvNwV-WRSMB9n2z9QrzR {
+  color: blue;
+}
+
+._1penVf9PMtov2qLxmtsMjq {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`camelCase option dashes: warnings 1`] = `Array []`;
+
+exports[`camelCase option dashesOnly: errors 1`] = `Array []`;
+
+exports[`camelCase option dashesOnly: locals 1`] = `
+Object {
+  "btnInfo_isDisabled": "_1XTfjK5gKYeSzbdZhEXRpF",
+  "btnInfo_isDisabled_1": "jDvNwV-WRSMB9n2z9QrzR",
+  "foo": "bar",
+  "myBtnInfo_isDisabled": "value",
+  "simple": "_1penVf9PMtov2qLxmtsMjq",
+}
+`;
+
+exports[`camelCase option dashesOnly: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._1XTfjK5gKYeSzbdZhEXRpF {
+  color: blue;
+}
+
+.jDvNwV-WRSMB9n2z9QrzR {
+  color: blue;
+}
+
+._1penVf9PMtov2qLxmtsMjq {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`camelCase option dashesOnly: warnings 1`] = `Array []`;
+
+exports[`camelCase option not specified: errors 1`] = `Array []`;
+
+exports[`camelCase option not specified: locals 1`] = `
+Object {
+  "btn--info_is-disabled_1": "jDvNwV-WRSMB9n2z9QrzR",
+  "btn-info_is-disabled": "_1XTfjK5gKYeSzbdZhEXRpF",
+  "foo": "bar",
+  "my-btn-info_is-disabled": "value",
+  "simple": "_1penVf9PMtov2qLxmtsMjq",
+}
+`;
+
+exports[`camelCase option not specified: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._1XTfjK5gKYeSzbdZhEXRpF {
+  color: blue;
+}
+
+.jDvNwV-WRSMB9n2z9QrzR {
+  color: blue;
+}
+
+._1penVf9PMtov2qLxmtsMjq {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`camelCase option not specified: warnings 1`] = `Array []`;
+
+exports[`camelCase option only: errors 1`] = `Array []`;
+
+exports[`camelCase option only: locals 1`] = `
+Object {
+  "btnInfoIsDisabled": "_1XTfjK5gKYeSzbdZhEXRpF",
+  "btnInfoIsDisabled1": "jDvNwV-WRSMB9n2z9QrzR",
+  "foo": "bar",
+  "myBtnInfoIsDisabled": "value",
+  "simple": "_1penVf9PMtov2qLxmtsMjq",
+}
+`;
+
+exports[`camelCase option only: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._1XTfjK5gKYeSzbdZhEXRpF {
+  color: blue;
+}
+
+.jDvNwV-WRSMB9n2z9QrzR {
+  color: blue;
+}
+
+._1penVf9PMtov2qLxmtsMjq {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`camelCase option only: warnings 1`] = `Array []`;
+
+exports[`camelCase option true: errors 1`] = `Array []`;
+
+exports[`camelCase option true: locals 1`] = `
+Object {
+  "btn--info_is-disabled_1": "jDvNwV-WRSMB9n2z9QrzR",
+  "btn-info_is-disabled": "_1XTfjK5gKYeSzbdZhEXRpF",
+  "btnInfoIsDisabled": "_1XTfjK5gKYeSzbdZhEXRpF",
+  "btnInfoIsDisabled1": "jDvNwV-WRSMB9n2z9QrzR",
+  "foo": "bar",
+  "my-btn-info_is-disabled": "value",
+  "myBtnInfoIsDisabled": "value",
+  "simple": "_1penVf9PMtov2qLxmtsMjq",
+}
+`;
+
+exports[`camelCase option true: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._1XTfjK5gKYeSzbdZhEXRpF {
+  color: blue;
+}
+
+.jDvNwV-WRSMB9n2z9QrzR {
+  color: blue;
+}
+
+._1penVf9PMtov2qLxmtsMjq {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`camelCase option true: warnings 1`] = `Array []`;

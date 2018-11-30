@@ -2,8 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/webpack-contrib/css-loader/compare/v1.0.0...v1.0.1) (2018-10-29)
+
+
+### Bug Fixes
+
+* **loader:** trim unquoted import urls ([#783](https://github.com/webpack-contrib/css-loader/issues/783)) ([21fcddf](https://github.com/webpack-contrib/css-loader/commit/21fcddf))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/webpack-contrib/css-loader/compare/v0.28.11...v1.0.0) (2018-07-06)
+
 
 ### BREAKING CHANGES
 
@@ -15,6 +26,7 @@ All notable changes to this project will be documented in this file. See [standa
 * update `postcss` to `6` version
 * minimum require `nodejs` version is `6.9`
 * minimum require `webpack` version is `4`
+
 
 
 <a name="0.28.11"></a>

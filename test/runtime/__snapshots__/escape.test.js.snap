@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`escape should escape url 1`] = `true`;
+
+exports[`escape should escape url 2`] = `"image.png"`;
+
+exports[`escape should escape url 3`] = `"image.png"`;
+
+exports[`escape should escape url 4`] = `"image.png"`;
+
+exports[`escape should escape url 5`] = `"\\"image other.png\\""`;
+
+exports[`escape should escape url 6`] = `"\\"image other.png\\""`;
+
+exports[`escape should escape url 7`] = `"\\"image other.png\\""`;
+
+exports[`escape should escape url 8`] = `"\\"image\\\\\\"other.png\\""`;
+
+exports[`escape should escape url 9`] = `"\\"image\\\\nother.png\\""`;
