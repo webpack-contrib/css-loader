@@ -100,7 +100,6 @@ Array [
       "file": "basic.css",
       "mappings": "AAAA;EACE,WAAW;CACZ",
       "names": Array [],
-      "sourceRoot": "",
       "sources": Array [
         "/replaced/original/path/",
       ],
@@ -133,7 +132,6 @@ Array [
       "file": "basic.css",
       "mappings": "AAAA;EACE,WAAW;CACZ",
       "names": Array [],
-      "sourceRoot": "",
       "sources": Array [
         "/replaced/original/path/",
       ],
@@ -166,7 +164,6 @@ Array [
       "file": "basic.css",
       "mappings": "AAAA;ECCE,WAAW;CACZ",
       "names": Array [],
-      "sourceRoot": "",
       "sources": Array [
         "/replaced/original/path/",
         "/replaced/original/path/",
@@ -201,7 +198,6 @@ Array [
       "file": "basic.css",
       "mappings": "AAAA;ECCE,WAAW;CACZ",
       "names": Array [],
-      "sourceRoot": "",
       "sources": Array [
         "/replaced/original/path/",
         "/replaced/original/path/",
@@ -236,7 +232,6 @@ Array [
       "file": "basic.css",
       "mappings": "AAAA;EACE,WAAW;CACZ",
       "names": Array [],
-      "sourceRoot": "",
       "sources": Array [
         "/replaced/original/path/",
       ],
