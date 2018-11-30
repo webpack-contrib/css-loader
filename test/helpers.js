@@ -154,7 +154,9 @@ function compile(fixture, config = {}, options = {}) {
   // eslint-disable-next-line no-param-reassign
   config = {
     mode: 'development',
-    devtool: config.devtool || 'source-map',
+
+    // Account for valid `false` values for devtool
+    devtool: config.devtool != null ? config.devtool : 'source-map',
     context: path.resolve(__dirname, 'fixtures'),
     entry: path.resolve(__dirname, 'fixtures', fixture),
     output: outputConfig(config),
