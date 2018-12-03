@@ -1,8 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`import option false and modules false: errors 1`] = `Array []`;
+exports[`import option false and modules \`false\`: errors 1`] = `Array []`;
 
-exports[`import option false and modules false: module (evaluated) 1`] = `
+exports[`import option false and modules \`false\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@import url(test-other.css) (min-width: 100px);
+
+@value def from './values.css';
+@value other from './values.css';
+@value other from './values.css';
+@value something from './something.css';
+@value foo: blue;
+@value bar: block;
+
+.ghi {
+  color: def;
+}
+
+.class {
+  color: foo;
+}
+
+.other {
+  display: bar;
+}
+
+.other-other {
+  width: something;
+}
+
+.green {
+  color: other;
+}
+
+.foo {
+  prop: def;
+  duplicate: other;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import option false and modules \`false\`: module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+
+
+// module
+exports.push([module.id, \\"@import url(test-other.css) (min-width: 100px);\\\\n\\\\n@value def from './values.css';\\\\n@value other from './values.css';\\\\n@value other from './values.css';\\\\n@value something from './something.css';\\\\n@value foo: blue;\\\\n@value bar: block;\\\\n\\\\n.ghi {\\\\n  color: def;\\\\n}\\\\n\\\\n.class {\\\\n  color: foo;\\\\n}\\\\n\\\\n.other {\\\\n  display: bar;\\\\n}\\\\n\\\\n.other-other {\\\\n  width: something;\\\\n}\\\\n\\\\n.green {\\\\n  color: other;\\\\n}\\\\n\\\\n.foo {\\\\n  prop: def;\\\\n  duplicate: other;\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`import option false and modules \`false\`: warnings 1`] = `Array []`;
+
+exports[`import option false and modules \`global\`: errors 1`] = `Array []`;
+
+exports[`import option false and modules \`global\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -50,7 +109,7 @@ Array [
 ]
 `;
 
-exports[`import option false and modules false: module 1`] = `
+exports[`import option false and modules \`global\`: module 1`] = `
 "exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
 // imports
 exports.i(require(\\"-!../../../index.js??ref--4-0!./values.css\\"), \\"\\");
@@ -69,11 +128,11 @@ exports.locals = {
 };"
 `;
 
-exports[`import option false and modules false: warnings 1`] = `Array []`;
+exports[`import option false and modules \`global\`: warnings 1`] = `Array []`;
 
-exports[`import option false and modules true: errors 1`] = `Array []`;
+exports[`import option false and modules \`local\`: errors 1`] = `Array []`;
 
-exports[`import option false and modules true: module (evaluated) 1`] = `
+exports[`import option false and modules \`local\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -121,7 +180,7 @@ Array [
 ]
 `;
 
-exports[`import option false and modules true: module 1`] = `
+exports[`import option false and modules \`local\`: module 1`] = `
 "exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
 // imports
 exports.i(require(\\"-!../../../index.js??ref--4-0!./values.css\\"), \\"\\");
@@ -144,7 +203,82 @@ exports.locals = {
 };"
 `;
 
-exports[`import option false and modules true: warnings 1`] = `Array []`;
+exports[`import option false and modules \`local\`: warnings 1`] = `Array []`;
+
+exports[`import option false and modules \`true\`: errors 1`] = `Array []`;
+
+exports[`import option false and modules \`true\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    3,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(test-other.css) (min-width: 100px);
+
+._3r49KZIIAltPknAjdNVZ-7 {
+  color: red;
+}
+
+._4o0o5eKzoeDOSI0_cR8mr {
+  color: blue;
+}
+
+._2wLXKM9pRjt1oRYvf0Wo3Q {
+  display: block;
+}
+
+._1RBgqC8j3f4iU6k-ocmIG7 {
+  width: 2112moon;
+}
+
+._1lCIckG6C8tRZjGNDsAPWr {
+  color: green;
+}
+
+._1YL4f0i_603GTMRC_pnsP5 {
+  prop: red;
+  duplicate: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import option false and modules \`true\`: module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!./values.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./something.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"@import url(test-other.css) (min-width: 100px);\\\\n\\\\n._3r49KZIIAltPknAjdNVZ-7 {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n}\\\\n\\\\n._4o0o5eKzoeDOSI0_cR8mr {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2wLXKM9pRjt1oRYvf0Wo3Q {\\\\n  display: block;\\\\n}\\\\n\\\\n._1RBgqC8j3f4iU6k-ocmIG7 {\\\\n  width: \\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\";\\\\n}\\\\n\\\\n._1lCIckG6C8tRZjGNDsAPWr {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n._1YL4f0i_603GTMRC_pnsP5 {\\\\n  prop: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+exports.locals = {
+	\\"def\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\"\\",
+	\\"other\\": \\"_2wLXKM9pRjt1oRYvf0Wo3Q\\",
+	\\"something\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\"\\",
+	\\"foo\\": \\"_1YL4f0i_603GTMRC_pnsP5\\",
+	\\"bar\\": \\"block\\",
+	\\"ghi\\": \\"_3r49KZIIAltPknAjdNVZ-7\\",
+	\\"class\\": \\"_4o0o5eKzoeDOSI0_cR8mr\\",
+	\\"other-other\\": \\"_1RBgqC8j3f4iU6k-ocmIG7\\",
+	\\"green\\": \\"_1lCIckG6C8tRZjGNDsAPWr\\"
+};"
+`;
+
+exports[`import option false and modules \`true\`: warnings 1`] = `Array []`;
 
 exports[`import option false: errors 1`] = `Array []`;
 

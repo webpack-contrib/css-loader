@@ -30,7 +30,7 @@ describe('getLocalIdent option', () => {
     const config = {
       loader: {
         options: {
-          modules: false,
+          modules: 'global',
           getLocalIdent() {
             return 'foo';
           },

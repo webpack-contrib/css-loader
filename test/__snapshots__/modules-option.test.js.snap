@@ -19,6 +19,50 @@ Array [
 
 exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".class-1, .class-10 .bar-1 {
+	color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "bar-1": "_bar-1",
+  "class-1": "_class-1",
+  "class-10": "_class-10",
+}
+`;
+
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._class-1, ._class-10 ._bar-1 {
+	color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
@@ -52,6 +96,28 @@ exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` val
 
 exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "bar-1": "_bar-1",
+  "class-1": "_class-1",
+  "class-10": "_class-10",
+}
+`;
+
+exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
@@ -68,14 +134,31 @@ exports[`modules case \`class-names\`: (export \`only locals\`) (\`modules\` val
 
 exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":local(.c1/*.c2*/.c3) { background: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
 }
 `;
 
-exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -86,7 +169,29 @@ Array [
 ]
 `;
 
-exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c3": "_c3",
+}
+`;
+
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1/*.c2*/._c3 { background: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`comment-in-local\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -114,14 +219,35 @@ exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\
 
 exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
 }
 `;
 
-exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "c1": "_c1",
+  "c3": "_c3",
+}
+`;
+
+exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`comment-in-local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -163,6 +289,64 @@ Array [
 
 exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "/*
+ * a ' above
+ */
+
+.bg {
+  background-image: url(/webpack/public/path/img.png);
+}
+
+/*
+ * a ' below
+ */
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "bg": "_bg",
+}
+`;
+
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "/*
+ * a ' above
+ */
+
+._bg {
+  background-image: url(/webpack/public/path/img.png);
+}
+
+/*
+ * a ' below
+ */
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`comments\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
@@ -202,6 +386,26 @@ exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "bg": "_bg",
+}
+`;
+
+exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
@@ -216,14 +420,32 @@ exports[`modules case \`comments\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":local(.c1) { a: 1; }
+:local(.c2) { composes: c1; b: 1; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c2": "_c2 _c1",
 }
 `;
 
-exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -235,7 +457,30 @@ Array [
 ]
 `;
 
-exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c2": "_c2 _c1",
+}
+`;
+
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1 { a: 1; }
+._c2 { b: 1; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -264,14 +509,35 @@ exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c2": "_c2 _c1",
 }
 `;
 
-exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "c1": "_c1",
+  "c2": "_c2 _c1",
+}
+`;
+
+exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -288,7 +554,26 @@ exports[`modules case \`composes\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":local(.c1) { composes: c2 from \\"./file.css\\"; b: 1; }
+:local(.c3) { composes: c1; b: 3; }
+:local(.c5) { composes: c2 c4 from \\"./file.css\\"; b: 5; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "c1": "_c1 _c2",
   "c3": "_c3 _c1 _c2",
@@ -296,7 +581,7 @@ Object {
 }
 `;
 
-exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -325,7 +610,48 @@ Array [
 ]
 `;
 
-exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "c1": "_c1 _c2",
+  "c3": "_c3 _c1 _c2",
+  "c5": "_c5 _c2 _c4",
+}
+`;
+
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._c2 {
+  color: red;
+}
+
+._c4 {
+  color: blue;
+}
+
+._test{
+  c: d
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._c1 { b: 1; }
+._c3 { b: 3; }
+._c5 { b: 5; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes-1\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -372,7 +698,15 @@ exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` valu
 
 exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1 _c2",
   "c3": "_c3 _c1 _c2",
@@ -380,7 +714,21 @@ Object {
 }
 `;
 
-exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "c1": "_c1 _c2",
+  "c3": "_c3 _c1 _c2",
+  "c5": "_c5 _c2 _c4",
+}
+`;
+
+exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -398,7 +746,26 @@ exports[`modules case \`composes-1\`: (export \`only locals\`) (\`modules\` valu
 
 exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":local(.c1) { composes: c-2 from \\"./file.css\\"; b: 1; }
+:local(.c3) { composes: c1; b: 3; }
+:local(.c5) { composes: c-2 c4 from \\"./file.css\\"; b: 5; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "c1": "_c1 _c-2",
   "c3": "_c3 _c1 _c-2",
@@ -406,7 +773,7 @@ Object {
 }
 `;
 
-exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -435,7 +802,48 @@ Array [
 ]
 `;
 
-exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "c1": "_c1 _c-2",
+  "c3": "_c3 _c1 _c-2",
+  "c5": "_c5 _c-2 _c4",
+}
+`;
+
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._c-2 {
+  color: red;
+}
+
+._c4 {
+  color: blue;
+}
+
+._test{
+  c: d
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._c1 { b: 1; }
+._c3 { b: 3; }
+._c5 { b: 5; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes-2\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -482,7 +890,15 @@ exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` valu
 
 exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1 _c-2",
   "c3": "_c3 _c1 _c-2",
@@ -490,7 +906,21 @@ Object {
 }
 `;
 
-exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "c1": "_c1 _c-2",
+  "c3": "_c3 _c1 _c-2",
+  "c5": "_c5 _c-2 _c4",
+}
+`;
+
+exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -508,13 +938,33 @@ exports[`modules case \`composes-2\`: (export \`only locals\`) (\`modules\` valu
 
 exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":local(.abc) {
+  composes: def1 from \\"./file1.css\\";
+  composes: def2 from \\"./file2.css\\";
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "abc": "_abc _def1 _def2",
 }
 `;
 
-exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -542,7 +992,45 @@ Array [
 ]
 `;
 
-exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "abc": "_abc _def1 _def2",
+}
+`;
+
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._def1 {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    3,
+    "._def2 {
+  color: blue;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._abc {
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes-multiple\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -586,13 +1074,33 @@ exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules
 
 exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc _def1 _def2",
 }
 `;
 
-exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "abc": "_abc _def1 _def2",
+}
+`;
+
+exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -608,13 +1116,32 @@ exports[`modules case \`composes-multiple\`: (export \`only locals\`) (\`modules
 
 exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":local(.abc) {
+  composes: def from \\"./file.css\\";
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "abc": "_abc _def",
 }
 `;
 
-exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -634,7 +1161,37 @@ Array [
 ]
 `;
 
-exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "abc": "_abc _def",
+}
+`;
+
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._def {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._abc {
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes-with-importing\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -670,13 +1227,33 @@ exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`m
 
 exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc _def",
 }
 `;
 
-exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "abc": "_abc _def",
+}
+`;
+
+exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -692,13 +1269,34 @@ exports[`modules case \`composes-with-importing\`: (export \`only locals\`) (\`m
 
 exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value blue: red;
+
+.a {
+  border: 1px solid blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "blue": "red",
 }
 `;
 
-exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -711,7 +1309,31 @@ Array [
 ]
 `;
 
-exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "a": "_a",
+  "blue": "red",
+}
+`;
+
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+  border: 1px solid red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`declaration-value\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -741,13 +1363,34 @@ exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules
 
 exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "blue": "red",
 }
 `;
 
-exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "a": "_a",
+  "blue": "red",
+}
+`;
+
+exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -825,6 +1468,143 @@ Array [
 `;
 
 exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a {
+	color: green;
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes bounce2 {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+.bounce {
+	animation-name: bounce;
+	animation: bounce2 1s ease;
+}
+
+.bounce2 {
+	color: green;
+	animation: bounce 1s ease;
+	animation-name: bounce2;
+}
+
+.bounce3 {
+	animation: bounce 1s ease, bounce2
+}
+
+.bounce4 {
+	animation: bounce 1s ease, bounce2;
+}
+
+.b {
+	color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "a": "_a",
+  "b": "_b",
+  "bounce": "_bounce",
+  "bounce2": "_bounce2",
+  "bounce3": "_bounce3",
+  "bounce4": "_bounce4",
+}
+`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+	color: green;
+}
+
+@keyframes _bounce {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes _bounce2 {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+._bounce {
+	animation-name: _bounce;
+	animation: _bounce2 1s ease;
+}
+
+._bounce2 {
+	color: green;
+	animation: _bounce 1s ease;
+	animation-name: _bounce2;
+}
+
+._bounce3 {
+	animation: _bounce 1s ease, _bounce2
+}
+
+._bounce4 {
+	animation: _bounce 1s ease, _bounce2;
+}
+
+._b {
+	color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -907,6 +1687,31 @@ exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`m
 
 exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "a": "_a",
+  "b": "_b",
+  "bounce": "_bounce",
+  "bounce2": "_bounce2",
+  "bounce3": "_bounce3",
+  "bounce4": "_bounce4",
+}
+`;
+
+exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`keyframes-and-animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
@@ -929,6 +1734,59 @@ exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`f
 exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
 exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a {
+	color: green;
+	animation: a;
+}
+
+@keyframes b {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+.b {
+	animation: b;
+}
+
+@keyframes :global(c) {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+.c {
+	animation: c1;
+	animation: c2, c3, c4;
+}
+
+@keyframes :global(d) {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+:global .d1 {
+	animation: d1;
+	animation: d2, d3, d4;
+}
+
+:global(.d2) {
+	animation: d2;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -975,7 +1833,71 @@ Array [
 ]
 `;
 
-exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "a": "_a",
+  "b": "_b",
+  "c": "_c",
+  "c1": "_c1",
+  "c2": "_c2",
+  "c3": "_c3",
+  "c4": "_c4",
+  "d2": "_d2",
+}
+`;
+
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+	color: green;
+	animation: _a;
+}
+
+@keyframes _b {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+._b {
+	animation: _b;
+}
+
+@keyframes c {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+._c {
+	animation: _c1;
+	animation: _c2, _c3, _c4;
+}
+
+@keyframes d {
+	0% { left: 10px; }
+	100% { left: 20px; }
+}
+
+.d1 {
+	animation: d1;
+	animation: d2, d3, d4;
+}
+
+.d2 {
+	animation: _d2;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`leak-scope\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1049,6 +1971,33 @@ exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` valu
 
 exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "a": "_a",
+  "b": "_b",
+  "c": "_c",
+  "c1": "_c1",
+  "c2": "_c2",
+  "c3": "_c3",
+  "c4": "_c4",
+  "d2": "_d2",
+}
+`;
+
+exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
@@ -1070,7 +2019,30 @@ exports[`modules case \`leak-scope\`: (export \`only locals\`) (\`modules\` valu
 
 exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".abc :local(.def) {
+  color: red;
+}
+
+:local .ghi .jkl {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "def": "_def",
   "ghi": "_ghi",
@@ -1078,7 +2050,7 @@ Object {
 }
 `;
 
-exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1095,7 +2067,37 @@ Array [
 ]
 `;
 
-exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "abc": "_abc",
+  "def": "_def",
+  "ghi": "_ghi",
+  "jkl": "_jkl",
+}
+`;
+
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._abc ._def {
+  color: red;
+}
+
+._ghi ._jkl {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`local\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1131,7 +2133,15 @@ exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is 
 
 exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "def": "_def",
   "ghi": "_ghi",
@@ -1139,7 +2149,22 @@ Object {
 }
 `;
 
-exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "abc": "_abc",
+  "def": "_def",
+  "ghi": "_ghi",
+  "jkl": "_jkl",
+}
+`;
+
+exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1158,7 +2183,27 @@ exports[`modules case \`local\`: (export \`only locals\`) (\`modules\` value is 
 
 exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":local(.className) { background: red; }
+:local(#someId) { background: green; }
+:local(.className .subClass) { color: green; }
+:local(#someId .subClass) { color: blue; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "className": "_className",
   "someId": "_someId",
@@ -1166,7 +2211,7 @@ Object {
 }
 `;
 
-exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1180,7 +2225,33 @@ Array [
 ]
 `;
 
-exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "className": "_className",
+  "someId": "_someId",
+  "subClass": "_subClass",
+}
+`;
+
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._className { background: red; }
+#_someId { background: green; }
+._className ._subClass { color: green; }
+#_someId ._subClass { color: blue; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`local-2\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1212,7 +2283,15 @@ exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value i
 
 exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "className": "_className",
   "someId": "_someId",
@@ -1220,7 +2299,21 @@ Object {
 }
 `;
 
-exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "className": "_className",
+  "someId": "_someId",
+  "subClass": "_subClass",
+}
+`;
+
+exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1238,14 +2331,37 @@ exports[`modules case \`local-2\`: (export \`only locals\`) (\`modules\` value i
 
 exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":local(.abc) {
+  color: red;
+}
+:local(.def) {
+  composes: abc;
+  background: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "abc": "_abc",
   "def": "_def _abc",
 }
 `;
 
-exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1261,7 +2377,34 @@ Array [
 ]
 `;
 
-exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "abc": "_abc",
+  "def": "_def _abc",
+}
+`;
+
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._abc {
+  color: red;
+}
+._def {
+  background: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`local-and-composes\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1294,14 +2437,35 @@ exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`module
 
 exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "abc": "_abc",
   "def": "_def _abc",
 }
 `;
 
-exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "abc": "_abc",
+  "def": "_def _abc",
+}
+`;
+
+exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1318,7 +2482,26 @@ exports[`modules case \`local-and-composes\`: (export \`only locals\`) (\`module
 
 exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ":local(.c1[data-attr=\\".c2)]'\\"]:not(.c3):not(.c4)) {
+  background: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
@@ -1326,7 +2509,7 @@ Object {
 }
 `;
 
-exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1339,7 +2522,32 @@ Array [
 ]
 `;
 
-exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c3": "_c3",
+  "c4": "_c4",
+}
+`;
+
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1[data-attr=\\".c2)]'\\"]:not(._c3):not(._c4) {
+  background: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`local-with-string\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1370,7 +2578,15 @@ exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules
 
 exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "c1": "_c1",
   "c3": "_c3",
@@ -1378,7 +2594,21 @@ Object {
 }
 `;
 
-exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "c1": "_c1",
+  "c3": "_c3",
+  "c4": "_c4",
+}
+`;
+
+exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1396,13 +2626,36 @@ exports[`modules case \`local-with-string\`: (export \`only locals\`) (\`modules
 
 exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value small: (max-width: 599px);
+
+@media small {
+  .header {
+    box-shadow: 0 0 4px #1F4F7F;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1417,7 +2670,33 @@ Array [
 ]
 `;
 
-exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "header": "_header",
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@media (max-width: 599px) {
+  ._header {
+    box-shadow: 0 0 4px #1F4F7F;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`media\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1449,13 +2728,34 @@ exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is 
 
 exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "header": "_header",
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1472,13 +2772,35 @@ exports[`modules case \`media\`: (export \`only locals\`) (\`modules\` value is 
 
 exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value small from './file.css';
+@media small {
+  .header {
+    box-shadow: 0 0 4px #1F4F7F;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -1499,7 +2821,39 @@ Array [
 ]
 `;
 
-exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "header": "_header",
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "@media (max-width: 599px) {
+  ._header {
+    box-shadow: 0 0 4px #1F4F7F;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`media-2\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1537,13 +2891,34 @@ exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value i
 
 exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "small": "(max-width: 599px)",
 }
 `;
 
-exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "header": "_header",
+  "small": "(max-width: 599px)",
+}
+`;
+
+exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1560,7 +2935,25 @@ exports[`modules case \`media-2\`: (export \`only locals\`) (\`modules\` value i
 
 exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".c1 :local .c2 .c3 :global .c4 :local .c5, .c6 :local .c7 { background: red; }
+.c8 { background: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "c2": "_c2",
   "c3": "_c3",
@@ -1569,7 +2962,7 @@ Object {
 }
 `;
 
-exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1581,7 +2974,35 @@ Array [
 ]
 `;
 
-exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "c1": "_c1",
+  "c2": "_c2",
+  "c3": "_c3",
+  "c5": "_c5",
+  "c6": "_c6",
+  "c7": "_c7",
+  "c8": "_c8",
+}
+`;
+
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._c1 ._c2 ._c3 .c4 ._c5, ._c6 ._c7 { background: red; }
+._c8 { background: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`mode-switching\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1615,7 +3036,15 @@ exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` 
 
 exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "c2": "_c2",
   "c3": "_c3",
@@ -1624,7 +3053,25 @@ Object {
 }
 `;
 
-exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "c1": "_c1",
+  "c2": "_c2",
+  "c3": "_c3",
+  "c5": "_c5",
+  "c6": "_c6",
+  "c7": "_c7",
+  "c8": "_c8",
+}
+`;
+
+exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`mode-switching\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1671,6 +3118,71 @@ a[href=\\"#b.c\\"].x.y {
 
 exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a .b, .c .d, #id {
+	color: green;
+	font-size: 1.5pt;
+}
+a[href=\\"#b.c\\"].x.y {
+	color: green;
+	font-size: 1.5pt;
+}
+@keyframes z {
+  2.5% {color: green;}
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "a": "_a",
+  "b": "_b",
+  "c": "_c",
+  "d": "_d",
+  "id": "_id",
+  "x": "_x",
+  "y": "_y",
+  "z": "_z",
+}
+`;
+
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a ._b, ._c ._d, #_id {
+	color: green;
+	font-size: 1.5pt;
+}
+a[href=\\"#b.c\\"]._x._y {
+	color: green;
+	font-size: 1.5pt;
+}
+@keyframes _z {
+  2.5% {color: green;}
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`simple\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
@@ -1716,6 +3228,33 @@ exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is
 exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
 
 exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "a": "_a",
+  "b": "_b",
+  "c": "_c",
+  "d": "_d",
+  "id": "_id",
+  "x": "_x",
+  "y": "_y",
+  "z": "_z",
+}
+`;
+
+exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`simple\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1766,6 +3305,70 @@ Array [
 
 exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".a {
+	background: url(/webpack/public/path/img.png);
+	background: url(/webpack/public/path/img.png);
+	background: url(\\"/webpack/public/path/img img.png\\");
+	background: url(\\"/webpack/public/path/img img.png\\");
+	background: url(/webpack/public/path/img.png);
+	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(\\"#hash\\");
+	background: url(\\"#\\");
+	background: url(data:image/png;base64,AAA);
+	background: url(http://example.com/image.jpg);
+	background: url(//example.com/image.png);
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img img.png\\") xyz;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "a": "_a",
+}
+`;
+
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+	background: url(/webpack/public/path/img.png);
+	background: url(/webpack/public/path/img.png);
+	background: url(\\"/webpack/public/path/img img.png\\");
+	background: url(\\"/webpack/public/path/img img.png\\");
+	background: url(/webpack/public/path/img.png);
+	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(\\"#hash\\");
+	background: url(\\"#\\");
+	background: url(data:image/png;base64,AAA);
+	background: url(http://example.com/image.jpg);
+	background: url(//example.com/image.png);
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img img.png\\") xyz;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`urls\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
@@ -1808,6 +3411,26 @@ exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \
 
 exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "a": "_a",
+}
+`;
+
+exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
@@ -1822,7 +3445,32 @@ exports[`modules case \`urls\`: (export \`only locals\`) (\`modules\` value is \
 
 exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value aaa: red;
+@value bbb: green;
+@value ccc: aaa;
+
+.a {
+	background: aaa;
+	background: bbb;
+	background: ccc;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
@@ -1830,7 +3478,7 @@ Object {
 }
 `;
 
-exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1845,7 +3493,35 @@ Array [
 ]
 `;
 
-exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "a": "_a",
+  "aaa": "red",
+  "bbb": "green",
+  "ccc": "red",
+}
+`;
+
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._a {
+	background: red;
+	background: green;
+	background: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1879,7 +3555,15 @@ exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is
 
 exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
@@ -1887,7 +3571,22 @@ Object {
 }
 `;
 
-exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "a": "_a",
+  "aaa": "red",
+  "bbb": "green",
+  "ccc": "red",
+}
+`;
+
+exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1906,14 +3605,32 @@ exports[`modules case \`values\`: (export \`only locals\`) (\`modules\` value is
 
 exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value def: red;
+@value ghi: 1px solid black;
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "def": "red",
   "ghi": "1px solid black",
 }
 `;
 
-exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1924,7 +3641,29 @@ Array [
 ]
 `;
 
-exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "def": "red",
+  "ghi": "1px solid black",
+}
+`;
+
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-1\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1952,14 +3691,35 @@ exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
   "ghi": "1px solid black",
 }
 `;
 
-exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "def": "red",
+  "ghi": "1px solid black",
+}
+`;
+
+exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -1976,13 +3736,31 @@ exports[`modules case \`values-1\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value def: red;
+.ghi { color: def; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -1993,7 +3771,29 @@ Array [
 ]
 `;
 
-exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "def": "red",
+  "ghi": "_ghi",
+}
+`;
+
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._ghi { color: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-2\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2021,13 +3821,34 @@ exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "def": "red",
+  "ghi": "_ghi",
+}
+`;
+
+exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2044,13 +3865,31 @@ exports[`modules case \`values-2\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value def from './file.css';
+.ghi { color: def; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2067,7 +3906,35 @@ Array [
 ]
 `;
 
-exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "def": "red",
+  "ghi": "_ghi",
+}
+`;
+
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { color: red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-3\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2101,13 +3968,34 @@ exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "def": "red",
+  "ghi": "_ghi",
+}
+`;
+
+exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2124,14 +4012,33 @@ exports[`modules case \`values-3\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value def as aaa from './file1.css';
+@value def as bbb from './file2.css';
+.ghi { background: aaa, bbb, def; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
 }
 `;
 
-exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2154,7 +4061,42 @@ Array [
 ]
 `;
 
-exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "aaa": "red",
+  "bbb": "green",
+  "ghi": "_ghi",
+}
+`;
+
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    3,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { background: red, green, def; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-4\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2195,14 +4137,36 @@ exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "aaa": "red",
   "bbb": "green",
 }
 `;
 
-exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "aaa": "red",
+  "bbb": "green",
+  "ghi": "_ghi",
+}
+`;
+
+exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2220,14 +4184,33 @@ exports[`modules case \`values-4\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value color from './file1.css';
+@value shadow: 0 0 color,0 0 color;
+.ghi { box-shadow: shadow; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red,0 0 red",
 }
 `;
 
-exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2244,7 +4227,36 @@ Array [
 ]
 `;
 
-exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "color": "red",
+  "ghi": "_ghi",
+  "shadow": "0 0 red,0 0 red",
+}
+`;
+
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { box-shadow: 0 0 red,0 0 red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-5\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2279,14 +4291,36 @@ exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red,0 0 red",
 }
 `;
 
-exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "color": "red",
+  "ghi": "_ghi",
+  "shadow": "0 0 red,0 0 red",
+}
+`;
+
+exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2304,14 +4338,33 @@ exports[`modules case \`values-5\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value color from './file1.css';
+@value shadow: 0 0 color ,0 0 color;
+.ghi { box-shadow: shadow; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red ,0 0 red",
 }
 `;
 
-exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2328,7 +4381,36 @@ Array [
 ]
 `;
 
-exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "color": "red",
+  "ghi": "_ghi",
+  "shadow": "0 0 red ,0 0 red",
+}
+`;
+
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { box-shadow: 0 0 red ,0 0 red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-6\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2363,14 +4445,36 @@ exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red ,0 0 red",
 }
 `;
 
-exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "color": "red",
+  "ghi": "_ghi",
+  "shadow": "0 0 red ,0 0 red",
+}
+`;
+
+exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2388,14 +4492,33 @@ exports[`modules case \`values-6\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value color from './file1.css';
+@value shadow: 0 0 color, 0 0 color;
+.ghi { box-shadow: shadow; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red, 0 0 red",
 }
 `;
 
-exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     2,
@@ -2412,7 +4535,36 @@ Array [
 ]
 `;
 
-exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "color": "red",
+  "ghi": "_ghi",
+  "shadow": "0 0 red, 0 0 red",
+}
+`;
+
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    "._ghi { box-shadow: 0 0 red, 0 0 red; }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-7\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2447,14 +4599,36 @@ exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "color": "red",
   "shadow": "0 0 red, 0 0 red",
 }
 `;
 
-exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "color": "red",
+  "ghi": "_ghi",
+  "shadow": "0 0 red, 0 0 red",
+}
+`;
+
+exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2472,13 +4646,35 @@ exports[`modules case \`values-7\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value shadow-color: rgba(0, 0, 0, 0.5);
+
+.shadow {
+  box-shadow: 0 10px 10px shadow-color,
+    10px 0px 5px shadow-color;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "shadow-color": "rgba(0, 0, 0, 0.5)",
 }
 `;
 
-exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -2492,7 +4688,32 @@ Array [
 ]
 `;
 
-exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "shadow": "_shadow",
+  "shadow-color": "rgba(0, 0, 0, 0.5)",
+}
+`;
+
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._shadow {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5),
+    10px 0px 5px rgba(0, 0, 0, 0.5);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-8\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2523,13 +4744,34 @@ exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "shadow-color": "rgba(0, 0, 0, 0.5)",
 }
 `;
 
-exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "shadow": "_shadow",
+  "shadow-color": "rgba(0, 0, 0, 0.5)",
+}
+`;
+
+exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2546,13 +4788,58 @@ exports[`modules case \`values-8\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
-exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value def: red;
+
+.foo1 {
+  prop: func(def);
+}
+
+.foo2 {
+  prop: func(10px def);
+}
+
+.foo3 {
+  prop: func(def 10px);
+}
+
+.foo4 {
+  prop: func(10px def 10px);
+}
+
+.foo5 {
+  prop: func(10px, def);
+}
+
+.foo6 {
+  prop: func(def, 10px);
+}
+
+.foo7 {
+  prop: func(10px, def, 10px);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -2589,7 +4876,61 @@ Array [
 ]
 `;
 
-exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "def": "red",
+  "foo1": "_foo1",
+  "foo2": "_foo2",
+  "foo3": "_foo3",
+  "foo4": "_foo4",
+  "foo5": "_foo5",
+  "foo6": "_foo6",
+  "foo7": "_foo7",
+}
+`;
+
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._foo1 {
+  prop: func(red);
+}
+
+._foo2 {
+  prop: func(10px red);
+}
+
+._foo3 {
+  prop: func(red 10px);
+}
+
+._foo4 {
+  prop: func(10px red 10px);
+}
+
+._foo5 {
+  prop: func(10px, red);
+}
+
+._foo6 {
+  prop: func(red, 10px);
+}
+
+._foo7 {
+  prop: func(10px, red, 10px);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-9\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 
@@ -2649,13 +4990,40 @@ exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value 
 
 exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
 
-exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
 Object {
   "def": "red",
 }
 `;
 
-exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "def": "red",
+  "foo1": "_foo1",
+  "foo2": "_foo2",
+  "foo3": "_foo3",
+  "foo4": "_foo4",
+  "foo5": "_foo5",
+  "foo6": "_foo6",
+  "foo7": "_foo7",
+}
+`;
+
+exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
 
 exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
 

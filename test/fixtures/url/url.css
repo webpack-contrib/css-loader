@@ -1,49 +1,49 @@
 @import "./imported.css";
 
 .class {
-  background: url('img.png');
+  background: url('./img.png');
 }
 
 .class {
-  background: url("img.png");
+  background: url("./img.png");
 }
 
 .class {
-  background: url(img.png);
+  background: url(./img.png);
 }
 
 .class {
-  background: url("img.png#hash");
+  background: url("./img.png#hash");
 }
 
 .class {
   background: url(
-    "img.png"
+    "./img.png"
   );
 }
 
 .class {
-  background: green url( 'img.png' ) xyz;
+  background: green url( './img.png' ) xyz;
 }
 
 .class {
-  background: green url( "img.png" ) xyz;
+  background: green url( "./img.png" ) xyz;
 }
 
 .class {
-  background: green url( img.png ) xyz;
+  background: green url( ./img.png ) xyz;
 }
 
 .class {
-  background: green url(~package/img.png) url(other-img.png) xyz;
+  background: green /* url(~package/img.png) */ url(./other-img.png) xyz;
 }
 
 .class {
-  background: green url( "img img.png" ) xyz;
+  background: green url( "./img img.png" ) xyz;
 }
 
 .class {
-  background: green url( 'img img.png' ) xyz;
+  background: green url( './img img.png' ) xyz;
 }
 
 .class {
@@ -79,20 +79,20 @@
 }
 
 @font-face {
-  src: url(font.woff) format('woff'),
-    url('font.woff2') format('woff2'),
-    url("font.eot") format('eot'),
-    url(~package/font.ttf) format('truetype'),
-    url("font with spaces.eot") format("embedded-opentype"),
-    url('font.svg#svgFontName') format('svg'),
-    url('font.woff2?foo=bar') format('woff2'),
-    url("font.eot?#iefix") format('embedded-opentype'),
-    url("font with spaces.eot?#iefix") format('embedded-opentype');
+  src: url(./font.woff) format('woff'),
+    url('./font.woff2') format('woff2'),
+    url("./font.eot") format('eot'),
+    /*url(~package/font.ttf) format('truetype'), */
+    url("./font with spaces.eot") format("embedded-opentype"),
+    url('./font.svg#svgFontName') format('svg'),
+    url('./font.woff2?foo=bar') format('woff2'),
+    url("./font.eot?#iefix") format('embedded-opentype'),
+    url("./font with spaces.eot?#iefix") format('embedded-opentype');
 }
 
 @media (min-width: 500px) {
   body {
-    background: url("img.png");
+    background: url("./img.png");
   }
 }
 
@@ -105,15 +105,15 @@ b {
 }
 
 @keyframes anim {
-  background: green url('img.png') xyz;
+  background: green url('./img.png') xyz;
 }
 
 .a {
-  background-image: -webkit-image-set(url('img1x.png') 1x, url('img2x.png') 2x)
+  background-image: -webkit-image-set(url('./img1x.png') 1x, url('./img2x.png') 2x)
 }
 
 .a {
-  background-image: image-set(url('img1x.png') 1x, url('img2x.png') 2x)
+  background-image: image-set(url('./img1x.png') 1x, url('./img2x.png') 2x)
 }
 
 .class {
@@ -146,27 +146,27 @@ b {
 }
 
 .class {
-  background: url("img.png?foo");
+  background: url("./img.png?foo");
 }
 
 .class {
-  background: url("img.png?foo=bar");
+  background: url("./img.png?foo=bar");
 }
 
 .class {
-  background: url("img.png?foo=bar#hash");
+  background: url("./img.png?foo=bar#hash");
 }
 
 .class {
-  background: url("img.png?foo=bar#hash");
+  background: url("./img.png?foo=bar#hash");
 }
 
 .class {
-  background: url("img.png?");
+  background: url("./img.png?");
 }
 
 .class {
-  background-image: url('img.png') url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 26' fill='%23007aff'><rect width='4' height='4'/><rect x='8' y='1' width='34' height='2'/><rect y='11' width='4' height='4'/><rect x='8' y='12' width='34' height='2'/><rect y='22' width='4' height='4'/><rect x='8' y='23' width='34' height='2'/></svg>") url('img.png');
+  background-image: url('./img.png') url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 26' fill='%23007aff'><rect width='4' height='4'/><rect x='8' y='1' width='34' height='2'/><rect y='11' width='4' height='4'/><rect x='8' y='12' width='34' height='2'/><rect y='22' width='4' height='4'/><rect x='8' y='23' width='34' height='2'/></svg>") url('./img.png');
 }
 
 .class {
