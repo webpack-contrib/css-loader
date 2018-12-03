@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importLoaders option 0 (\`postcss-loader\` before): errors 1`] = `Array []`;
+
+exports[`importLoaders option 0 (\`postcss-loader\` before): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".bar {
+  color: blue;
+  color: rgb(0 0 100% / 90%);
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".foo {
+  color: red;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`importLoaders option 0 (\`postcss-loader\` before): module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!./imported.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`importLoaders option 0 (\`postcss-loader\` before): warnings 1`] = `Array []`;
+
+exports[`importLoaders option 1 (\`postcss-loader\` before): errors 1`] = `Array []`;
+
+exports[`importLoaders option 1 (\`postcss-loader\` before): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".bar {
+  color: blue;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".foo {
+  color: red;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`importLoaders option 1 (\`postcss-loader\` before): module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!../../../node_modules/postcss-loader/src/index.js??ref--4-1!./imported.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`importLoaders option 1 (\`postcss-loader\` before): warnings 1`] = `Array []`;
+
+exports[`importLoaders option 1 (no loaders before): errors 1`] = `Array []`;
+
+exports[`importLoaders option 1 (no loaders before): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".bar {
+  color: blue;
+  color: rgb(0 0 100% / 90%);
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".foo {
+  color: red;
+  color: rgb(0 0 100% / 90%);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`importLoaders option 1 (no loaders before): module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!./imported.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgb(0 0 100% / 90%);\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`importLoaders option 1 (no loaders before): warnings 1`] = `Array []`;
+
+exports[`importLoaders option 2 (\`postcss-loader\` before): errors 1`] = `Array []`;
+
+exports[`importLoaders option 2 (\`postcss-loader\` before): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".bar {
+  color: blue;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".foo {
+  color: red;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`importLoaders option 2 (\`postcss-loader\` before): module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!../../../node_modules/postcss-loader/src/index.js??ref--4-1!./imported.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`importLoaders option 2 (\`postcss-loader\` before): warnings 1`] = `Array []`;
+
+exports[`importLoaders option not specify (no loader before): errors 1`] = `Array []`;
+
+exports[`importLoaders option not specify (no loader before): module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".bar {
+  color: blue;
+  color: rgb(0 0 100% / 90%);
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".foo {
+  color: red;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`importLoaders option not specify (no loader before): module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!./imported.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`importLoaders option not specify (no loader before): warnings 1`] = `Array []`;

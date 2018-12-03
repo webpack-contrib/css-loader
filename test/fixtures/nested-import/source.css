@@ -1,0 +1,6 @@
+@import './imported.css';
+
+.foo {
+  color: red;
+  color: rgb(0 0 100% / 90%);
+}
