@@ -444,9 +444,9 @@ You may need an appropriate loader to handle this file type.
 
 exports[`loader should throws error when no loader for assets: warnings 1`] = `Array []`;
 
-exports[`loader using together with "postcss-loader": errors 1`] = `Array []`;
+exports[`loader using together with "postcss-loader" and reuse \`ast\`: errors 1`] = `Array []`;
 
-exports[`loader using together with "postcss-loader": module (evaluated) 1`] = `
+exports[`loader using together with "postcss-loader" and reuse \`ast\`: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -513,7 +513,7 @@ a:hover {
 ]
 `;
 
-exports[`loader using together with "postcss-loader": module 1`] = `
+exports[`loader using together with "postcss-loader" and reuse \`ast\`: module 1`] = `
 "var escape = require(\\"../../../lib/runtime/escape.js\\");
 exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
 // imports
@@ -526,7 +526,7 @@ exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: r
 "
 `;
 
-exports[`loader using together with "postcss-loader": warnings 1`] = `Array []`;
+exports[`loader using together with "postcss-loader" and reuse \`ast\`: warnings 1`] = `Array []`;
 
 exports[`loader using together with "sass-loader": errors 1`] = `Array []`;
 

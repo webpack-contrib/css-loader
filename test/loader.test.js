@@ -90,7 +90,8 @@ describe('loader', () => {
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
-  it('using together with "postcss-loader"', async () => {
+  it('using together with "postcss-loader" and reuse `ast`', async () => {
+    // It is hard to test `postcss` on reuse `ast`, please look on coverage before merging
     const config = {
       postcssLoader: true,
       postcssLoaderOptions: {
