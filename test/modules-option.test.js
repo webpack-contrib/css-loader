@@ -8,7 +8,7 @@ const testCases = fs.readdirSync(testCasesPath);
 
 describe('modules', () => {
   [false, true].forEach((exportOnlyLocalsValue) => {
-    [false, true].forEach((modulesValue) => {
+    [true, 'local', 'global', false].forEach((modulesValue) => {
       testCases.forEach((name) => {
         it(`case \`${name}\`: (export \`${
           exportOnlyLocalsValue ? 'only locals' : 'all'

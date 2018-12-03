@@ -27,7 +27,7 @@ html {
 }
 
 .hero:matches(main, .main) {
-  background-image: image-set("img1x.png" 1x, "img2x.png" 2x);
+  background-image: image-set(url("./img1x.png") 1x, url("./img2x.png") 2x);
 }
 
 a {

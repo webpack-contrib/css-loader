@@ -97,7 +97,7 @@ It's useful when you, for instance, need to post process the CSS as a string.
 |:--:|:--:|:-----:|:----------|
 |**[`url`](#url)**|`{Boolean}`|`true`| Enable/Disable `url()` handling|
 |**[`import`](#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
-|**[`modules`](#modules)**|`{Boolean}`|`false`|Enable/Disable CSS Modules|
+|**[`modules`](#modules)**|`{Boolean\|String}`|`false`|Enable/Disable CSS Modules and setup mode|
 |**[`localIdentName`](#localidentname)**|`{String}`|`[hash:base64]`|Configure the generated ident|
 |**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
@@ -129,17 +129,33 @@ To import styles from a node module path, prefix it with a `~`:
 
 ### [`modules`](https://github.com/css-modules/css-modules)
 
-The query parameter `modules` enables the **CSS Modules** spec.
+The `modules` option enables/disables the **CSS Modules** spec and setup basic behaviour.
 
-This enables local scoped CSS by default. (You can switch it off with `:global(...)` or `:global` for selectors and/or rules.).
+|Name|Type|Description|
+|:--:|:--:|:----------|
+|**`true`**|`{Boolean}`|Enables local scoped CSS by default (use **local** mode by default)|
+|**`false`**|`{Boolean}`|Disable the **CSS Modules** spec, all **CSS Modules** features (like `@value`, `:local`, `:global` and `composes`) will not work|
+|**`'local'`** |`{String}`|Enables local scoped CSS by default (same as `true` value)|
+|**`'global'`**|`{String}`|Enables global scoped CSS by default|
 
-#### `Scope`
+Using `false` value increase performance because we avoid parsing **CSS Modules** features, it will be useful for developers who use vanilla css or use other technologies.
 
-By default CSS exports all classnames into a global selector scope. Styles can be locally scoped to avoid globally scoping styles.
+You can read about **modes** below
+
+##### `Scope`
+ 
+Using `local` value requires you to specify `:global` classes.
+Using `global` value requires you to specify `:local` classes.
+
+You can find more information [here](https://github.com/css-modules/css-modules).
+ 
+Styles can be locally scoped to avoid globally scoping styles.
 
 The syntax `:local(.className)` can be used to declare `className` in the local scope. The local identifiers are exported by the module.
 
-With `:local` (without brackets) local mode can be switched on for this selector. `:global(.className)` can be used to declare an explicit global selector. With `:global` (without brackets) global mode can be switched on for this selector.
+With `:local` (without brackets) local mode can be switched on for this selector. 
+The `:global(.className)` nocation can be used to declare an explicit global selector. 
+With `:global` (without brackets) global mode can be switched on for this selector.
 
 The loader replaces local selectors with unique identifiers. The chosen unique identifiers are exported by the module.
 
@@ -177,7 +193,7 @@ file.png => ./file.png
 
 You can use `:local(#someId)`, but this is not recommended. Use classes instead of ids.
 
-#### `Composing`
+##### `Composing`
 
 When declaring a local classname you can compose a local class from another local classname.
 
@@ -213,7 +229,7 @@ exports.locals = {
 }
 ```
 
-#### `Importing`
+##### `Importing`
 
 To import a local classname from another module.
 
@@ -282,7 +298,7 @@ You can also specify the absolute path to your custom `getLocalIdent` function t
 
 To include source maps set the `sourceMap` option.
 
-I.e. the extract-text-webpack-plugin can handle them.
+I.e. the `mini-css-extract-plugin` can handle them.
 
 They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not). In addition to that relative paths are buggy and you need to use an absolute public path which includes the server URL.
 

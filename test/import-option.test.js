@@ -32,8 +32,8 @@ describe('import option', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  [true, false].forEach((modulesValue) => {
-    it(`false and modules ${modulesValue}`, async () => {
+  [true, 'local', 'global', false].forEach((modulesValue) => {
+    it(`false and modules \`${modulesValue}\``, async () => {
       const config = {
         loader: { options: { import: false, modules: modulesValue } },
       };

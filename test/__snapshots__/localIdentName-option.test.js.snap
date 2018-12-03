@@ -2,46 +2,37 @@
 
 exports[`localIdentName option basic: errors 1`] = `Array []`;
 
-exports[`localIdentName option basic: locals 1`] = `
-Object {
-  "-a0-34a___f": "_2nJ5XVdGAwkzTI324zw6Pg",
-  "_test": "_23te_4QsMe8I6hzxjH0MUx",
-  "className": "_1E8Hx67EIx_tltp58vyNJ0",
-  "someId": "_3w7JetWWlr8Zm4sxZ-ANzU",
-  "subClass": "_3lo0JvMLLK_gjw1mbsomb3",
-  "test": "NW9YAb4ijHq-3lCxF5vFu",
-}
-`;
+exports[`localIdentName option basic: locals 1`] = `undefined`;
 
 exports[`localIdentName option basic: module (evaluated) 1`] = `
 Array [
   Array [
     1,
-    ".NW9YAb4ijHq-3lCxF5vFu {
+    ":local(.test) {
   background: red;
 }
 
-._23te_4QsMe8I6hzxjH0MUx {
+:local(._test) {
   background: blue;
 }
 
-._1E8Hx67EIx_tltp58vyNJ0 {
+:local(.className) {
   background: red;
 }
 
-#_3w7JetWWlr8Zm4sxZ-ANzU {
+:local(#someId) {
   background: green;
 }
 
-._1E8Hx67EIx_tltp58vyNJ0 ._3lo0JvMLLK_gjw1mbsomb3 {
+:local(.className .subClass) {
   color: green;
 }
 
-#_3w7JetWWlr8Zm4sxZ-ANzU ._3lo0JvMLLK_gjw1mbsomb3 {
+:local(#someId .subClass) {
   color: blue;
 }
 
-._2nJ5XVdGAwkzTI324zw6Pg {
+:local(.-a0-34a___f) {
   color: red;
 }
 ",
@@ -54,46 +45,37 @@ exports[`localIdentName option basic: warnings 1`] = `Array []`;
 
 exports[`localIdentName option should have hash: errors 1`] = `Array []`;
 
-exports[`localIdentName option should have hash: locals 1`] = `
-Object {
-  "-a0-34a___f": "localIdentName---a0-34a___f--3RHUZ",
-  "_test": "localIdentName--_test--3Q--B",
-  "className": "localIdentName--className--3wBIH",
-  "someId": "localIdentName--someId--mxosG",
-  "subClass": "localIdentName--subClass--3jIM-",
-  "test": "localIdentName--test--1Os7J",
-}
-`;
+exports[`localIdentName option should have hash: locals 1`] = `undefined`;
 
 exports[`localIdentName option should have hash: module (evaluated) 1`] = `
 Array [
   Array [
     1,
-    ".localIdentName--test--1Os7J {
+    ":local(.test) {
   background: red;
 }
 
-.localIdentName--_test--3Q--B {
+:local(._test) {
   background: blue;
 }
 
-.localIdentName--className--3wBIH {
+:local(.className) {
   background: red;
 }
 
-#localIdentName--someId--mxosG {
+:local(#someId) {
   background: green;
 }
 
-.localIdentName--className--3wBIH .localIdentName--subClass--3jIM- {
+:local(.className .subClass) {
   color: green;
 }
 
-#localIdentName--someId--mxosG .localIdentName--subClass--3jIM- {
+:local(#someId .subClass) {
   color: blue;
 }
 
-.localIdentName---a0-34a___f--3RHUZ {
+:local(.-a0-34a___f) {
   color: red;
 }
 ",
@@ -106,46 +88,37 @@ exports[`localIdentName option should have hash: warnings 1`] = `Array []`;
 
 exports[`localIdentName option should have path naming with context: errors 1`] = `Array []`;
 
-exports[`localIdentName option should have path naming with context: locals 1`] = `
-Object {
-  "-a0-34a___f": "fixtures-modules--localIdentName---a0-34a___f",
-  "_test": "fixtures-modules--localIdentName--_test",
-  "className": "fixtures-modules--localIdentName--className",
-  "someId": "fixtures-modules--localIdentName--someId",
-  "subClass": "fixtures-modules--localIdentName--subClass",
-  "test": "fixtures-modules--localIdentName--test",
-}
-`;
+exports[`localIdentName option should have path naming with context: locals 1`] = `undefined`;
 
 exports[`localIdentName option should have path naming with context: module (evaluated) 1`] = `
 Array [
   Array [
     1,
-    ".fixtures-modules--localIdentName--test {
+    ":local(.test) {
   background: red;
 }
 
-.fixtures-modules--localIdentName--_test {
+:local(._test) {
   background: blue;
 }
 
-.fixtures-modules--localIdentName--className {
+:local(.className) {
   background: red;
 }
 
-#fixtures-modules--localIdentName--someId {
+:local(#someId) {
   background: green;
 }
 
-.fixtures-modules--localIdentName--className .fixtures-modules--localIdentName--subClass {
+:local(.className .subClass) {
   color: green;
 }
 
-#fixtures-modules--localIdentName--someId .fixtures-modules--localIdentName--subClass {
+:local(#someId .subClass) {
   color: blue;
 }
 
-.fixtures-modules--localIdentName---a0-34a___f {
+:local(.-a0-34a___f) {
   color: red;
 }
 ",
@@ -158,46 +131,37 @@ exports[`localIdentName option should have path naming with context: warnings 1`
 
 exports[`localIdentName option should prefixes leading hyphen + digit with underscore: errors 1`] = `Array []`;
 
-exports[`localIdentName option should prefixes leading hyphen + digit with underscore: locals 1`] = `
-Object {
-  "-a0-34a___f": "_-1-a0-34a___f",
-  "_test": "_-1_test",
-  "className": "_-1className",
-  "someId": "_-1someId",
-  "subClass": "_-1subClass",
-  "test": "_-1test",
-}
-`;
+exports[`localIdentName option should prefixes leading hyphen + digit with underscore: locals 1`] = `undefined`;
 
 exports[`localIdentName option should prefixes leading hyphen + digit with underscore: module (evaluated) 1`] = `
 Array [
   Array [
     1,
-    "._-1test {
+    ":local(.test) {
   background: red;
 }
 
-._-1_test {
+:local(._test) {
   background: blue;
 }
 
-._-1className {
+:local(.className) {
   background: red;
 }
 
-#_-1someId {
+:local(#someId) {
   background: green;
 }
 
-._-1className ._-1subClass {
+:local(.className .subClass) {
   color: green;
 }
 
-#_-1someId ._-1subClass {
+:local(#someId .subClass) {
   color: blue;
 }
 
-._-1-a0-34a___f {
+:local(.-a0-34a___f) {
   color: red;
 }
 ",
@@ -210,46 +174,37 @@ exports[`localIdentName option should prefixes leading hyphen + digit with under
 
 exports[`localIdentName option should prefixes two leading hyphens with underscore: errors 1`] = `Array []`;
 
-exports[`localIdentName option should prefixes two leading hyphens with underscore: locals 1`] = `
-Object {
-  "-a0-34a___f": "_---a0-34a___f",
-  "_test": "_--_test",
-  "className": "_--className",
-  "someId": "_--someId",
-  "subClass": "_--subClass",
-  "test": "_--test",
-}
-`;
+exports[`localIdentName option should prefixes two leading hyphens with underscore: locals 1`] = `undefined`;
 
 exports[`localIdentName option should prefixes two leading hyphens with underscore: module (evaluated) 1`] = `
 Array [
   Array [
     1,
-    "._--test {
+    ":local(.test) {
   background: red;
 }
 
-._--_test {
+:local(._test) {
   background: blue;
 }
 
-._--className {
+:local(.className) {
   background: red;
 }
 
-#_--someId {
+:local(#someId) {
   background: green;
 }
 
-._--className ._--subClass {
+:local(.className .subClass) {
   color: green;
 }
 
-#_--someId ._--subClass {
+:local(#someId .subClass) {
   color: blue;
 }
 
-._---a0-34a___f {
+:local(.-a0-34a___f) {
   color: red;
 }
 ",
@@ -262,46 +217,37 @@ exports[`localIdentName option should prefixes two leading hyphens with undersco
 
 exports[`localIdentName option should saves underscore prefix in exported class names: errors 1`] = `Array []`;
 
-exports[`localIdentName option should saves underscore prefix in exported class names: locals 1`] = `
-Object {
-  "-a0-34a___f": "-a0-34a___f",
-  "_test": "_test",
-  "className": "className",
-  "someId": "someId",
-  "subClass": "subClass",
-  "test": "test",
-}
-`;
+exports[`localIdentName option should saves underscore prefix in exported class names: locals 1`] = `undefined`;
 
 exports[`localIdentName option should saves underscore prefix in exported class names: module (evaluated) 1`] = `
 Array [
   Array [
     1,
-    ".test {
+    ":local(.test) {
   background: red;
 }
 
-._test {
+:local(._test) {
   background: blue;
 }
 
-.className {
+:local(.className) {
   background: red;
 }
 
-#someId {
+:local(#someId) {
   background: green;
 }
 
-.className .subClass {
+:local(.className .subClass) {
   color: green;
 }
 
-#someId .subClass {
+:local(#someId .subClass) {
   color: blue;
 }
 
-.-a0-34a___f {
+:local(.-a0-34a___f) {
   color: red;
 }
 ",
@@ -314,46 +260,37 @@ exports[`localIdentName option should saves underscore prefix in exported class 
 
 exports[`localIdentName option should use hash prefix: errors 1`] = `Array []`;
 
-exports[`localIdentName option should use hash prefix: locals 1`] = `
-Object {
-  "-a0-34a___f": "-a0-34a___f--e99d667fe0ceff9363b011302ac3f508",
-  "_test": "_test--d745495d407559ef605c9072243801fd",
-  "className": "className--eab624d1bc6b9c6b6a4278d1030dd690",
-  "someId": "someId--a0ce220cc9bbb1ee0e85cc0d1f0c6aa9",
-  "subClass": "subClass--2c82998be8a2b2e94ad7be56c9e685cd",
-  "test": "test--307c32aa793aaec9aecded85a9fdd448",
-}
-`;
+exports[`localIdentName option should use hash prefix: locals 1`] = `undefined`;
 
 exports[`localIdentName option should use hash prefix: module (evaluated) 1`] = `
 Array [
   Array [
     1,
-    ".test--307c32aa793aaec9aecded85a9fdd448 {
+    ":local(.test) {
   background: red;
 }
 
-._test--d745495d407559ef605c9072243801fd {
+:local(._test) {
   background: blue;
 }
 
-.className--eab624d1bc6b9c6b6a4278d1030dd690 {
+:local(.className) {
   background: red;
 }
 
-#someId--a0ce220cc9bbb1ee0e85cc0d1f0c6aa9 {
+:local(#someId) {
   background: green;
 }
 
-.className--eab624d1bc6b9c6b6a4278d1030dd690 .subClass--2c82998be8a2b2e94ad7be56c9e685cd {
+:local(.className .subClass) {
   color: green;
 }
 
-#someId--a0ce220cc9bbb1ee0e85cc0d1f0c6aa9 .subClass--2c82998be8a2b2e94ad7be56c9e685cd {
+:local(#someId .subClass) {
   color: blue;
 }
 
-.-a0-34a___f--e99d667fe0ceff9363b011302ac3f508 {
+:local(.-a0-34a___f) {
   color: red;
 }
 ",
