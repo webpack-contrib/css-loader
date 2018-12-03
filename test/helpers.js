@@ -33,6 +33,7 @@ function evaluated(output, modules, moduleId = 1) {
           const importedPaths = [
             'postcss-present-env',
             'icss/tests-cases/import',
+            'icss/tests-cases/import-reserved-keywords',
             'import',
             'import/node_modules',
             'url',

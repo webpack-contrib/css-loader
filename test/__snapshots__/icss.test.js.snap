@@ -97,6 +97,28 @@ Array [
 
 exports[`ICSS case export: warnings 1`] = `Array []`;
 
+exports[`ICSS case export-reserved-keywords: errors 1`] = `Array []`;
+
+exports[`ICSS case export-reserved-keywords: locals 1`] = `
+Object {
+  "constructor": "constructor",
+  "toString": "toString",
+}
+`;
+
+exports[`ICSS case export-reserved-keywords: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case export-reserved-keywords: warnings 1`] = `Array []`;
+
 exports[`ICSS case import: errors 1`] = `Array []`;
 
 exports[`ICSS case import: locals 1`] = `
@@ -125,6 +147,37 @@ Array [
 `;
 
 exports[`ICSS case import: warnings 1`] = `Array []`;
+
+exports[`ICSS case import-reserved-keywords: errors 1`] = `Array []`;
+
+exports[`ICSS case import-reserved-keywords: locals 1`] = `
+Object {
+  "primary-color": "red",
+  "secondary-color": "block",
+}
+`;
+
+exports[`ICSS case import-reserved-keywords: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    1,
+    ".className {
+  color: red;
+  display: block;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS case import-reserved-keywords: warnings 1`] = `Array []`;
 
 exports[`ICSS case multiple-export: errors 1`] = `Array []`;
 
