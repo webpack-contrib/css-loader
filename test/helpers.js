@@ -31,6 +31,7 @@ function evaluated(output, modules, moduleId = 1) {
         const importedModule = modules.find((el) => {
           const modulePath = el.identifier.split('!').pop();
           const importedPaths = [
+            'nested-import',
             'postcss-present-env',
             'icss/tests-cases/import',
             'icss/tests-cases/import-reserved-keywords',
