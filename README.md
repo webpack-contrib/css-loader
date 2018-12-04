@@ -55,12 +55,18 @@ You can also use the css-loader results directly as a string, such as in Angular
 
 **webpack.config.js**
 ```js
-{
-   test: /\.css$/,
-   use: [
-     'to-string-loader',
-     'css-loader'
-   ]
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'to-string-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  }
 }
 ```
 
@@ -106,13 +112,20 @@ It's useful when you, for instance, need to post process the CSS as a string.
 
 ### `url`
 
-To disable `url()` resolving by `css-loader` set the option to `false`.
+Enable/disable `url()` resolving. Absolute `urls` are not resolving by default.
 
-To be compatible with existing css files (if not in CSS Module mode).
+Examples resolutions:
 
 ```
 url(image.png) => require('./image.png')
+url(./image.png) => require('./image.png')
+```
+
+To import styles from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
+
+```
 url(~module/image.png) => require('module/image.png')
+url(~aliasDirectory/image.png) => require('otherDirectory/image.png')
 ```
 
 ### `import`
@@ -183,13 +196,6 @@ exports.locals = {
 ```
 
 CamelCase is recommended for local selectors. They are easier to use within the imported JS module.
-
-`url()` URLs in block scoped (`:local .abc`) rules behave like requests in modules.
-
-```
-file.png => ./file.png
-~module/file.png => module/file.png
-```
 
 You can use `:local(#someId)`, but this is not recommended. Use classes instead of ids.
 

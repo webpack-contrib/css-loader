@@ -52,8 +52,13 @@ function evaluated(output, modules, moduleId = 1) {
             'modules/tests-cases/composes-with-importing',
             'modules/tests-cases/media-2',
           ].map((importedPath) =>
-            path.resolve(__dirname, `./fixtures/${importedPath}`, module)
+            path.resolve(
+              __dirname,
+              `./fixtures/${importedPath}`,
+              module.replace('aliasesImg/', '')
+            )
           );
+
           return importedPaths.includes(modulePath);
         });
 
@@ -164,6 +169,11 @@ function compile(fixture, config = {}, options = {}) {
     plugins: pluginsConfig(config),
     optimization: {
       runtimeChunk: true,
+    },
+    resolve: {
+      alias: {
+        aliasesImg: path.resolve(__dirname, 'fixtures/url'),
+      },
     },
   };
 
