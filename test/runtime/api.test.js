@@ -1,4 +1,4 @@
-const api = require('../../lib/runtime/api');
+const api = require('../../src/runtime/api');
 
 describe('api', () => {
   beforeAll(() => {

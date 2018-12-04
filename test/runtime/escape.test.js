@@ -1,4 +1,4 @@
-const escape = require('../../lib/runtime/escape');
+const escape = require('../../src/runtime/escape');
 
 describe('escape', () => {
   it('should escape url', () => {

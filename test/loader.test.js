@@ -70,7 +70,7 @@ describe('loader', () => {
         {
           test: /\.css$/,
           use: {
-            loader: path.resolve(__dirname, '../index'),
+            loader: path.resolve(__dirname, '../src/index'),
           },
         },
       ],
@@ -78,7 +78,7 @@ describe('loader', () => {
     const stats = await webpack('basic.css', config);
 
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
   it('should throw error on invalid css syntax', async () => {

@@ -17,11 +17,11 @@ function evaluated(output, modules, moduleId = 1) {
     fn(m, m.exports, (module) => {
       if (module.indexOf('runtime/api') >= 0) {
         // eslint-disable-next-line global-require
-        return require('../lib/runtime/api');
+        return require('../src/runtime/api');
       }
       if (module.indexOf('runtime/escape') >= 0) {
         // eslint-disable-next-line global-require
-        return require('../lib/runtime/escape');
+        return require('../src/runtime/escape');
       }
       if (/^-!.*?!.*$/.test(module)) {
         // eslint-disable-next-line no-param-reassign
@@ -98,7 +98,7 @@ const moduleConfig = (config) => {
             test: (config.loader && config.loader.test) || /\.css$/,
             use: [
               {
-                loader: path.resolve(__dirname, '../index.js'),
+                loader: path.resolve(__dirname, '../src/index.js'),
                 options: (config.loader && config.loader.options) || {},
               },
             ]

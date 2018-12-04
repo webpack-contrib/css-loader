@@ -2,10 +2,10 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-const path = require('path');
+import path from 'path';
 
-const camelCase = require('lodash/camelCase');
-const loaderUtils = require('loader-utils');
+import camelCase from 'lodash/camelCase';
+import loaderUtils from 'loader-utils';
 
 const placholderRegExps = {
   importItemG: /___CSS_LOADER_IMPORT___([0-9]+)___/g,
@@ -112,9 +112,4 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
     .replace(/^((-?[0-9])|--)/, '_$1');
 }
 
-module.exports = {
-  compileExports,
-  getImportPrefix,
-  getLocalIdent,
-  placholderRegExps,
-};
+export { compileExports, getImportPrefix, getLocalIdent, placholderRegExps };

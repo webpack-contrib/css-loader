@@ -1,4 +1,4 @@
-const loader = require('../index');
+const loader = require('../src/cjs');
 
 it('validation', () => {
   const validate = (options) =>

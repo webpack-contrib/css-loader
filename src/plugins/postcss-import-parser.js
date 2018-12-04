@@ -1,5 +1,5 @@
-const postcss = require('postcss');
-const valueParser = require('postcss-value-parser');
+import postcss from 'postcss';
+import valueParser from 'postcss-value-parser';
 
 const pluginName = 'postcss-import-parser';
 
@@ -94,7 +94,7 @@ function uniq(array) {
   );
 }
 
-module.exports = postcss.plugin(
+export default postcss.plugin(
   pluginName,
   (options = {}) =>
     function process(css, result) {

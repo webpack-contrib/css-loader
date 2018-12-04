@@ -1,19 +1,43 @@
 {
   "name": "css-loader",
   "version": "1.0.1",
-  "author": "Tobias Koppers @sokra",
-  "license": "MIT",
   "description": "css loader module for webpack",
+  "license": "MIT",
+  "repository": "webpack-contrib/css-loader",
+  "author": "Tobias Koppers @sokra",
+  "homepage": "https://github.com/webpack-contrib/css-loader",
+  "bugs": "https://github.com/webpack-contrib/css-loader/issues",
+  "main": "dist/cjs.js",
   "engines": {
     "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
   },
+  "scripts": {
+    "start": "npm run build -- -w",
+    "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js' --copy-files",
+    "clean": "del-cli dist",
+    "lint": "eslint --cache src test",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build",
+    "release": "standard-version",
+    "security": "npm audit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "ci:lint": "npm run lint && npm run security",
+    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+    "ci:test": "npm run test -- --runInBand",
+    "ci:coverage": "npm run test:coverage -- --runInBand",
+    "defaults": "webpack-defaults"
+  },
   "files": [
-    "lib",
-    "index.js",
-    "locals.js"
+    "dist/",
+    "lib/",
+    "index.js"
   ],
+  "peerDependencies": {
+    "webpack": "^4.0.0"
+  },
   "dependencies": {
-    "schema-utils": "^1.0.0",
     "icss-utils": "^4.0.0",
     "loader-utils": "^1.0.2",
     "lodash": "^4.17.11",
@@ -22,18 +46,22 @@
     "postcss-modules-local-by-default": "^2.0.1",
     "postcss-modules-scope": "^2.0.0",
     "postcss-modules-values": "^2.0.0",
-    "postcss-value-parser": "^3.3.0"
+    "postcss-value-parser": "^3.3.0",
+    "schema-utils": "^1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
-    "@babel/polyfill": "^7.0.0",
     "@babel/core": "^7.1.6",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "cross-env": "^5.2.0",
     "del": "^3.0.0",
+    "del-cli": "^1.1.0",
     "eslint": "^5.9.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
@@ -49,29 +77,16 @@
     "sass-loader": "^7.1.0",
     "standard-version": "^4.0.0",
     "strip-ansi": "^5.0.0",
-    "webpack": "^4.26.1"
+    "webpack": "^4.26.1",
+    "webpack-defaults": "^2.3.0"
   },
-  "peerDependencies": {
-    "webpack": "^4.0.0"
-  },
-  "scripts": {
-    "lint": "eslint lib test",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "test:cover": "npm run cover -- --report lcovonly",
-    "travis:test": "npm run cover",
-    "travis:lint": "npm run lint",
-    "release": "standard-version",
-    "security": "npm audit",
-    "test": "jest",
-    "test:coverage": "jest --collectCoverageFrom='lib/**/*.js' --coverage",
-    "ci:lint": "npm run lint && npm run security",
-    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
-    "ci:test": "npm run test -- --runInBand",
-    "ci:coverage": "npm run test:coverage -- --runInBand"
-  },
-  "homepage": "https://github.com/webpack-contrib/css-loader",
-  "repository": "https://github.com/webpack-contrib/css-loader.git",
-  "bugs": "https://github.com/webpack-contrib/css-loader/issues",
+  "keywords": [
+    "webpack",
+    "css",
+    "loader",
+    "url",
+    "import"
+  ],
   "babel": {
     "presets": [
       [
@@ -85,16 +100,16 @@
       ]
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
       "git add"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "commitlint": {
     "extends": [

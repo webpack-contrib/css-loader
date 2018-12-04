@@ -2,34 +2,34 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-const validateOptions = require('schema-utils');
-const postcss = require('postcss');
-const postcssPkg = require('postcss/package.json');
-const localByDefault = require('postcss-modules-local-by-default');
-const extractImports = require('postcss-modules-extract-imports');
-const modulesScope = require('postcss-modules-scope');
-const modulesValues = require('postcss-modules-values');
-const {
+import validateOptions from 'schema-utils';
+import postcss from 'postcss';
+import postcssPkg from 'postcss/package.json';
+import localByDefault from 'postcss-modules-local-by-default';
+import extractImports from 'postcss-modules-extract-imports';
+import modulesScope from 'postcss-modules-scope';
+import modulesValues from 'postcss-modules-values';
+import {
   getOptions,
   isUrlRequest,
   urlToRequest,
   getRemainingRequest,
   getCurrentRequest,
   stringifyRequest,
-} = require('loader-utils');
+} from 'loader-utils';
 
-const schema = require('./options.json');
-const { importParser, icssParser, urlParser } = require('./plugins');
-const {
+import schema from './options.json';
+import { importParser, icssParser, urlParser } from './plugins';
+import {
   getLocalIdent,
   getImportPrefix,
   compileExports,
   placholderRegExps,
-} = require('./utils');
-const Warning = require('./Warning');
-const CssSyntaxError = require('./CssSyntaxError');
+} from './utils';
+import Warning from './Warning';
+import CssSyntaxError from './CssSyntaxError';
 
-module.exports = function loader(content, map, meta) {
+export default function loader(content, map, meta) {
   const options = getOptions(this) || {};
 
   validateOptions(schema, options, 'CSS Loader');
@@ -301,4 +301,4 @@ module.exports = function loader(content, map, meta) {
         error.name === 'CssSyntaxError' ? new CssSyntaxError(error) : error
       );
     });
-};
+}
