@@ -53,4 +53,37 @@ describe('modules', () => {
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
+
+  it(`issue #286`, async () => {
+    const config = {
+      loader: {
+        test: /source\.css$/,
+        options: {
+          importLoaders: false,
+          modules: true,
+          localIdentName: 'b--[local]',
+        },
+      },
+      additionalLoader: {
+        test: /dep\.css$/,
+        loader: path.resolve(__dirname, '../src/index.js'),
+        options: {
+          importLoaders: false,
+          modules: true,
+          localIdentName: 'a--[local]',
+        },
+      },
+    };
+    const testId = './modules/issue-286/source.css';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
 });

@@ -55,7 +55,14 @@
       ]
     },
     "importLoaders": {
-      "type": "number"
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        }
+      ]
     },
     "exportOnlyLocals": {
       "type": "boolean"

@@ -97,7 +97,9 @@ options.camelCase should match some schema in anyOf
 exports[`validation 13`] = `
 "CSS Loader Invalid Options
 
+options.importLoaders should be boolean
 options.importLoaders should be number
+options.importLoaders should match some schema in anyOf
 "
 `;
 
