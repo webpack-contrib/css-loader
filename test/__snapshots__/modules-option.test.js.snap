@@ -5195,3 +5195,38 @@ exports.locals = {
 `;
 
 exports[`modules composes should supports resolving: warnings 1`] = `Array []`;
+
+exports[`modules issue #286: errors 1`] = `Array []`;
+
+exports[`modules issue #286: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".a--red { color: red }
+",
+    "",
+  ],
+  Array [
+    1,
+    ".b--main { }
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules issue #286: module 1`] = `
+"exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"./dep.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\".b--main { }\\\\n\\", \\"\\"]);
+
+// exports
+exports.locals = {
+	\\"main\\": \\"b--main \\" + require(\\"./dep.css\\").locals[\\"red\\"] + \\"\\"
+};"
+`;
+
+exports[`modules issue #286: warnings 1`] = `Array []`;

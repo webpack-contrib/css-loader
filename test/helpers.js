@@ -40,6 +40,7 @@ function evaluated(output, modules, moduleId = 1) {
             'url',
             'url/node_modules',
             'modules/',
+            'modules/issue-286',
             'modules/node_modules',
             'modules/tests-cases/urls',
             'modules/tests-cases/comments',
@@ -74,9 +75,6 @@ function evaluated(output, modules, moduleId = 1) {
         }
 
         return 'nothing';
-      } else if (modules && module in modules) {
-        // Compatibility with old tests
-        return modules[module];
       }
       return `{${module}}`;
     });
@@ -138,6 +136,7 @@ const moduleConfig = (config) => {
                   : []
               ),
           },
+          config.additionalLoader ? config.additionalLoader : {},
           {
             test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
             use: {

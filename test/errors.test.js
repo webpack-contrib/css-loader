@@ -73,6 +73,7 @@ it('validation', () => {
     validate({ camelCase: 'unknown' })
   ).toThrowErrorMatchingSnapshot();
 
+  expect(() => validate({ importLoaders: false })).not.toThrow();
   expect(() => validate({ importLoaders: 0 })).not.toThrow();
   expect(() => validate({ importLoaders: 1 })).not.toThrow();
   expect(() => validate({ importLoaders: 2 })).not.toThrow();
