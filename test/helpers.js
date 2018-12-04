@@ -39,6 +39,8 @@ function evaluated(output, modules, moduleId = 1) {
             'import/node_modules',
             'url',
             'url/node_modules',
+            'modules/',
+            'modules/node_modules',
             'modules/tests-cases/urls',
             'modules/tests-cases/comments',
             'modules/tests-cases/values-3',
@@ -55,7 +57,10 @@ function evaluated(output, modules, moduleId = 1) {
             path.resolve(
               __dirname,
               `./fixtures/${importedPath}`,
-              module.replace('aliasesImg/', '').replace('aliasesImport/', '')
+              module
+                .replace('aliasesImg/', '')
+                .replace('aliasesImport/', '')
+                .replace('aliasesComposes/', '')
             )
           );
 
@@ -174,6 +179,7 @@ function compile(fixture, config = {}, options = {}) {
       alias: {
         aliasesImg: path.resolve(__dirname, 'fixtures/url'),
         aliasesImport: path.resolve(__dirname, 'fixtures/import'),
+        aliasesComposes: path.resolve(__dirname, 'fixtures/modules'),
       },
     },
   };

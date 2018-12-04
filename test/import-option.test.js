@@ -33,11 +33,11 @@ describe('import option', () => {
   });
 
   [true, 'local', 'global', false].forEach((modulesValue) => {
-    it(`false and modules \`${modulesValue}\``, async () => {
+    it(`true and modules \`${modulesValue}\``, async () => {
       const config = {
-        loader: { options: { import: false, modules: modulesValue } },
+        loader: { options: { import: true, modules: modulesValue } },
       };
-      const testId = './import/css-modules.css';
+      const testId = './import/import.css';
       const stats = await webpack(testId, config);
       const { modules } = stats.toJson();
       const module = modules.find((m) => m.id === testId);
