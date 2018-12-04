@@ -1,11 +1,3 @@
-[![npm][npm]][npm-url]
-[![node][node]][node-url]
-[![deps][deps]][deps-url]
-[![tests][tests]][tests-url]
-[![coverage][cover]][cover-url]
-[![chat][chat]][chat-url]
-[![size][size]][size-url]
-
 <div align="center">
   <img width="180" height="180" vspace="20"
     src="https://cdn.worldvectorlogo.com/logos/css-3.svg">
@@ -16,58 +8,74 @@
   <h1>CSS Loader</h1>
 </div>
 
-<h2 align="center">Install</h2>
+[![npm][npm]][npm-url]
+[![node][node]][node-url]
+[![deps][deps]][deps-url]
+[![tests][tests]][tests-url]
+[![coverage][cover]][cover-url]
+[![chat][chat]][chat-url]
+[![size][size]][size-url]
 
-```bash
+# css-loader
+
+The `css-loader` interprets `@import` and `url()` like `import/require()` and will resolve them.
+
+## Requirements
+
+This module requires a minimum of Node v6.9.0 and Webpack v4.0.0.
+
+## Getting Started
+
+To begin, you'll need to install `css-loader`:
+
+```console
 npm install --save-dev css-loader
 ```
 
-<h2 align="center">Usage</h2>
-
-The `css-loader` interprets `@import` and `url()` like `import/require()`
-and will resolve them.
-
-Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader)
-and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see [below](https://github.com/webpack-contrib/css-loader#assets)).
+Then add the plugin to your `webpack` config. For example:
 
 **file.js**
+
 ```js
 import css from 'file.css';
 ```
 
 **webpack.config.js**
+
 ```js
 module.exports = {
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
-      }
-    ]
-  }
-}
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+};
 ```
+
+Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader) and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see [below](https://github.com/webpack-contrib/css-loader#assets)).
+
+And run `webpack` via your preferred method.
 
 ### `toString`
 
 You can also use the css-loader results directly as a string, such as in Angular's component style.
 
 **webpack.config.js**
+
 ```js
 module.exports = {
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'to-string-loader',
-          'css-loader'
-        ]
-      }
-    ]
-  }
-}
+        use: ['to-string-loader', 'css-loader'],
+      },
+    ],
+  },
+};
 ```
 
 or
@@ -86,33 +94,61 @@ might want to check out the [extract-loader](https://github.com/peerigon/extract
 It's useful when you, for instance, need to post process the CSS as a string.
 
 **webpack.config.js**
+
 ```js
-{
-   test: /\.css$/,
-   use: [
-     'handlebars-loader', // handlebars loader expects raw resource string
-     'extract-loader',
-     'css-loader'
-   ]
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'handlebars-loader', // handlebars loader expects raw resource string
+          'extract-loader',
+          'css-loader',
+        ],
+      },
+    ],
+  },
+};
 ```
 
-<h2 align="center">Options</h2>
+## Options
 
-|Name|Type|Default|Description|
-|:--:|:--:|:-----:|:----------|
-|**[`url`](#url)**|`{Boolean}`|`true`| Enable/Disable `url()` handling|
-|**[`import`](#import)** |`{Boolean}`|`true`| Enable/Disable @import handling|
-|**[`modules`](#modules)**|`{Boolean\|String}`|`false`|Enable/Disable CSS Modules and setup mode|
-|**[`localIdentName`](#localidentname)**|`{String}`|`[hash:base64]`|Configure the generated ident|
-|**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
-|**[`camelCase`](#camelcase)**|`{Boolean\|String}`|`false`|Export Classnames in CamelCase|
-|**[`importLoaders`](#importloaders)**|`{Number}`|`0`|Number of loaders applied before CSS loader|
-|**[`exportOnlyLocals`](#exportonlylocals)**|`{Boolean}`|`false`|Export only locals|
+|                    Name                     |        Type         |     Default     | Description                                 |
+| :-----------------------------------------: | :-----------------: | :-------------: | :------------------------------------------ |
+|              **[`url`](#url)**              |     `{Boolean}`     |     `true`      | Enable/Disable `url()` handling             |
+|           **[`import`](#import)**           |     `{Boolean}`     |     `true`      | Enable/Disable @import handling             |
+|          **[`modules`](#modules)**          | `{Boolean\|String}` |     `false`     | Enable/Disable CSS Modules and setup mode   |
+|   **[`localIdentName`](#localidentname)**   |     `{String}`      | `[hash:base64]` | Configure the generated ident               |
+|        **[`sourceMap`](#sourcemap)**        |     `{Boolean}`     |     `false`     | Enable/Disable Sourcemaps                   |
+|        **[`camelCase`](#camelcase)**        | `{Boolean\|String}` |     `false`     | Export Classnames in CamelCase              |
+|    **[`importLoaders`](#importloaders)**    |     `{Number}`      |       `0`       | Number of loaders applied before CSS loader |
+| **[`exportOnlyLocals`](#exportonlylocals)** |     `{Boolean}`     |     `false`     | Export only locals                          |
 
 ### `url`
 
+Type: `Boolean`
+Default: `true`
+
 Enable/disable `url()` resolving. Absolute `urls` are not resolving by default.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          url: true,
+        },
+      },
+    ],
+  },
+};
+```
 
 Examples resolutions:
 
@@ -130,7 +166,28 @@ url(~aliasDirectory/image.png) => require('otherDirectory/image.png')
 
 ### `import`
 
+Type: `Boolean`
+Default: `true`
+
 Enable/disable `@import` resolving. Absolute urls are not resolving.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          import: true,
+        },
+      },
+    ],
+  },
+};
+```
 
 Examples resolutions:
 
@@ -152,48 +209,85 @@ To import styles from a `node_modules` path (include `resolve.modules`) and for 
 
 ### [`modules`](https://github.com/css-modules/css-modules)
 
+Type: `Boolean|String`
+Default: `false`
+
 The `modules` option enables/disables the **CSS Modules** spec and setup basic behaviour.
 
-|Name|Type|Description|
-|:--:|:--:|:----------|
-|**`true`**|`{Boolean}`|Enables local scoped CSS by default (use **local** mode by default)|
-|**`false`**|`{Boolean}`|Disable the **CSS Modules** spec, all **CSS Modules** features (like `@value`, `:local`, `:global` and `composes`) will not work|
-|**`'local'`** |`{String}`|Enables local scoped CSS by default (same as `true` value)|
-|**`'global'`**|`{String}`|Enables global scoped CSS by default|
+|      Name      |    Type     | Description                                                                                                                      |
+| :------------: | :---------: | :------------------------------------------------------------------------------------------------------------------------------- |
+|   **`true`**   | `{Boolean}` | Enables local scoped CSS by default (use **local** mode by default)                                                              |
+|  **`false`**   | `{Boolean}` | Disable the **CSS Modules** spec, all **CSS Modules** features (like `@value`, `:local`, `:global` and `composes`) will not work |
+| **`'local'`**  | `{String}`  | Enables local scoped CSS by default (same as `true` value)                                                                       |
+| **`'global'`** | `{String}`  | Enables global scoped CSS by default                                                                                             |
 
 Using `false` value increase performance because we avoid parsing **CSS Modules** features, it will be useful for developers who use vanilla css or use other technologies.
 
-You can read about **modes** below
+You can read about **modes** below.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          modules: true,
+        },
+      },
+    ],
+  },
+};
+```
 
 ##### `Scope`
- 
+
 Using `local` value requires you to specify `:global` classes.
 Using `global` value requires you to specify `:local` classes.
 
 You can find more information [here](https://github.com/css-modules/css-modules).
- 
+
 Styles can be locally scoped to avoid globally scoping styles.
 
 The syntax `:local(.className)` can be used to declare `className` in the local scope. The local identifiers are exported by the module.
 
-With `:local` (without brackets) local mode can be switched on for this selector. 
-The `:global(.className)` nocation can be used to declare an explicit global selector. 
+With `:local` (without brackets) local mode can be switched on for this selector.
+The `:global(.className)` nocation can be used to declare an explicit global selector.
 With `:global` (without brackets) global mode can be switched on for this selector.
 
 The loader replaces local selectors with unique identifiers. The chosen unique identifiers are exported by the module.
 
 ```css
-:local(.className) { background: red; }
-:local .className { color: green; }
-:local(.className .subClass) { color: green; }
-:local .className .subClass :global(.global-class-name) { color: blue; }
+:local(.className) {
+  background: red;
+}
+:local .className {
+  color: green;
+}
+:local(.className .subClass) {
+  color: green;
+}
+:local .className .subClass :global(.global-class-name) {
+  color: blue;
+}
 ```
 
 ```css
-._23_aKvs-b8bW2Vg3fwHozO { background: red; }
-._23_aKvs-b8bW2Vg3fwHozO { color: green; }
-._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 { color: green; }
-._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 .global-class-name { color: blue; }
+._23_aKvs-b8bW2Vg3fwHozO {
+  background: red;
+}
+._23_aKvs-b8bW2Vg3fwHozO {
+  color: green;
+}
+._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 {
+  color: green;
+}
+._23_aKvs-b8bW2Vg3fwHozO ._13LGdX8RMStbBE9w-t0gZ1 .global-class-name {
+  color: blue;
+}
 ```
 
 > ℹ️ Identifiers are exported
@@ -201,8 +295,8 @@ The loader replaces local selectors with unique identifiers. The chosen unique i
 ```js
 exports.locals = {
   className: '_23_aKvs-b8bW2Vg3fwHozO',
-  subClass: '_13LGdX8RMStbBE9w-t0gZ1'
-}
+  subClass: '_13LGdX8RMStbBE9w-t0gZ1',
+};
 ```
 
 CamelCase is recommended for local selectors. They are easier to use within the imported JS module.
@@ -230,11 +324,11 @@ This doesn't result in any change to the CSS itself but exports multiple classna
 ```js
 exports.locals = {
   className: '_23_aKvs-b8bW2Vg3fwHozO',
-  subClass: '_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO'
-}
+  subClass: '_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO',
+};
 ```
 
-``` css
+```css
 ._23_aKvs-b8bW2Vg3fwHozO {
   background: red;
   color: yellow;
@@ -276,41 +370,61 @@ To import from multiple modules use multiple `composes:` rules.
 
 ### `localIdentName`
 
-You can configure the generated ident with the `localIdentName` query parameter. See [loader-utils's documentation](https://github.com/webpack/loader-utils#interpolatename) for more information on options.
+Type: `String`
+Default: `[hash:base64]`
 
- **webpack.config.js**
-```js
-{
-  test: /\.css$/,
-  use: [
-    {
-      loader: 'css-loader',
-      options: {
-        modules: true,
-        localIdentName: '[path][name]__[local]--[hash:base64:5]'
-      }
-    }
-  ]
-}
-```
-
-You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema. This requires `webpack >= 2.2.1` (it supports functions in the `options` object).
+You can configure the generated ident with the `localIdentName` query parameter.
+See [loader-utils's documentation](https://github.com/webpack/loader-utils#interpolatename) for more information on options.
 
 **webpack.config.js**
+
 ```js
-{
-  loader: 'css-loader',
-  options: {
-    modules: true,
-    localIdentName: '[path][name]__[local]--[hash:base64:5]',
-    getLocalIdent: (context, localIdentName, localName, options) => {
-      return 'whatever_random_class_name'
-    }
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          localIdentName: '[path][name]__[local]--[hash:base64:5]',
+        },
+      },
+    ],
+  },
+};
+```
+
+You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          context: path.resolve(__dirname, 'context'), // Allow to redefine basic loader context for `local-ident-name`
+          hashPrefix: 'hash', // Allow to add custom hash to generate more unique classes
+          localIdentName: '[path][name]__[local]--[hash:base64:5]',
+          getLocalIdent: (context, localIdentName, localName, options) => {
+            return 'whatever_random_class_name';
+          },
+        },
+      },
+    ],
+  },
+};
 ```
 
 ### `sourceMap`
+
+Type: `Boolean`
+Default: `true`
 
 To include source maps set the `sourceMap` option.
 
@@ -319,111 +433,156 @@ I.e. the `mini-css-extract-plugin` can handle them.
 They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not). In addition to that relative paths are buggy and you need to use an absolute public path which includes the server URL.
 
 **webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: {
-    sourceMap: true
-  }
-}
-```
 
-### `camelCase`
-
-By default, the exported JSON keys mirror the class names. If you want to camelize class names (useful in JS), pass the query parameter `camelCase` to css-loader.
-
-|Name|Type|Description|
-|:--:|:--:|:----------|
-|**`true`**|`{Boolean}`|Class names will be camelized|
-|**`'dashes'`**|`{String}`|Only dashes in class names will be camelized|
-|**`'only'`** |`{String}`|Introduced in `0.27.1`. Class names will be camelized, the original class name will be removed from the locals|
-|**`'dashesOnly'`**|`{String}`|Introduced in `0.27.1`. Dashes in class names will be camelized, the original class name will be removed from the locals|
-
-**file.css**
-```css
-.class-name {}
-```
-
-**file.js**
-```js
-import { className } from 'file.css';
-```
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: {
-    camelCase: true
-  }
-}
-```
-
-### `importLoaders`
-
-The query parameter `importLoaders` allows you to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
-
-**webpack.config.js**
-```js
-{
-  test: /\.css$/,
-  use: [
-    'style-loader',
-    {
-      loader: 'css-loader',
-      options: {
-        importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
-      }
-    },
-    'postcss-loader',
-    'sass-loader'
-  ]
-}
-```
-
-This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
-
-### `exportOnlyLocals`
-
-Export only locals (**useful** when you use **css modules**).
-For pre-rendering with `mini-css-extract-plugin` you should use this option instead of `style-loader!css-loader` **in the pre-rendering bundle**. 
-It doesn't embed CSS but only exports the identifier mappings.
-
-**webpack.config.js**
-```js
-{
-  loader: 'css-loader',
-  options: {
-    exportOnlyLocals: true
-  }
-}
-```
-
-<h2 align="center">Examples</h2>
-
-### Assets
-
-The following `webpack.config.js` can load CSS files, embed small PNG/JPG/GIF/SVG images as well as fonts as [Data URLs](https://tools.ietf.org/html/rfc2397) and copy larger files to the output directory.
-
-**webpack.config.js**
 ```js
 module.exports = {
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        loader: 'css-loader',
+        options: {
+          sourceMap: true,
+        },
+      },
+    ],
+  },
+};
+```
+
+### `camelCase`
+
+Type: `Boolean|String`
+Default: `false`
+
+By default, the exported JSON keys mirror the class names. If you want to camelize class names (useful in JS), pass the query parameter `camelCase` to css-loader.
+
+|        Name        |    Type     | Description                                                                                                              |
+| :----------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------- |
+|    **`false`**     | `{Boolean}` | Class names will be camelized, the original class name will not to be removed from the locals                            |
+|     **`true`**     | `{Boolean}` | Class names will be camelized                                                                                            |
+|   **`'dashes'`**   | `{String}`  | Only dashes in class names will be camelized                                                                             |
+|    **`'only'`**    | `{String}`  | Introduced in `0.27.1`. Class names will be camelized, the original class name will be removed from the locals           |
+| **`'dashesOnly'`** | `{String}`  | Introduced in `0.27.1`. Dashes in class names will be camelized, the original class name will be removed from the locals |
+
+**file.css**
+
+```css
+.class-name {
+}
+```
+
+**file.js**
+
+```js
+import { className } from 'file.css';
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          camelCase: true,
+        },
+      },
+    ],
+  },
+};
+```
+
+### `importLoaders`
+
+Type: `Number`
+Default: `0`
+
+The option `importLoaders` allows you to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2, // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+            },
+          },
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+    ],
+  },
+};
+```
+
+This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
+
+### `exportOnlyLocals`
+
+Type: `Boolean`
+Default: `false`
+
+Export only locals (**useful** when you use **css modules**).
+For pre-rendering with `mini-css-extract-plugin` you should use this option instead of `style-loader!css-loader` **in the pre-rendering bundle**.
+It doesn't embed CSS but only exports the identifier mappings.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          exportOnlyLocals: true,
+        },
+      },
+    ],
+  },
+};
+```
+
+## Examples
+
+### Assets
+
+The following `webpack.config.js` can load CSS files, embed small PNG/JPG/GIF/SVG images as well as fonts as [Data URLs](https://tools.ietf.org/html/rfc2397) and copy larger files to the output directory.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         loader: 'url-loader',
         options: {
-          limit: 10000
-        }
-      }
-    ]
-  }
-}
+          limit: 10000,
+        },
+      },
+    ],
+  },
+};
 ```
 
 ### Extract
@@ -431,77 +590,17 @@ module.exports = {
 For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
 This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode.
 
-<h2 align="center">Maintainers</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <img width="150" height="150"
-        src="https://github.com/bebraw.png?v=3&s=150">
-        </br>
-        <a href="https://github.com/bebraw">Juho Vepsäläinen</a>
-      </td>
-      <td align="center">
-        <img width="150" height="150"
-        src="https://github.com/d3viant0ne.png?v=3&s=150">
-        </br>
-        <a href="https://github.com/d3viant0ne">Joshua Wiens</a>
-      </td>
-      <td align="center">
-        <img width="150" height="150"
-        src="https://github.com/SpaceK33z.png?v=3&s=150">
-        </br>
-        <a href="https://github.com/SpaceK33z">Kees Kluskens</a>
-      </td>
-      <td align="center">
-        <img width="150" height="150"
-        src="https://github.com/TheLarkInn.png?v=3&s=150">
-        </br>
-        <a href="https://github.com/TheLarkInn">Sean Larkin</a>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img width="150" height="150"
-        src="https://github.com/michael-ciniawsky.png?v=3&s=150">
-        </br>
-        <a href="https://github.com/michael-ciniawsky">Michael Ciniawsky</a>
-      </td>
-      <td align="center">
-        <img width="150" height="150"
-        src="https://github.com/evilebottnawi.png?v=3&s=150">
-        </br>
-        <a href="https://github.com/evilebottnawi">Evilebot Tnawi</a>
-      </td>
-      <td align="center">
-        <img width="150" height="150"
-        src="https://github.com/joscha.png?v=3&s=150">
-        </br>
-        <a href="https://github.com/joscha">Joscha Feth</a>
-      </td>
-    </tr>
-  <tbody>
-</table>
-
-
 [npm]: https://img.shields.io/npm/v/css-loader.svg
 [npm-url]: https://npmjs.com/package/css-loader
-
 [node]: https://img.shields.io/node/v/css-loader.svg
 [node-url]: https://nodejs.org
-
 [deps]: https://david-dm.org/webpack-contrib/css-loader.svg
 [deps-url]: https://david-dm.org/webpack-contrib/css-loader
-
 [tests]: https://img.shields.io/circleci/project/github/webpack-contrib/css-loader.svg
 [tests-url]: https://circleci.com/gh/webpack-contrib/css-loader
-
 [cover]: https://codecov.io/gh/webpack-contrib/css-loader/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/css-loader
-
 [chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack
-
 [size]: https://packagephobia.now.sh/badge?p=css-loader
 [size-url]: https://packagephobia.now.sh/result?p=css-loader
