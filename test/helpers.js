@@ -55,7 +55,7 @@ function evaluated(output, modules, moduleId = 1) {
             path.resolve(
               __dirname,
               `./fixtures/${importedPath}`,
-              module.replace('aliasesImg/', '')
+              module.replace('aliasesImg/', '').replace('aliasesImport/', '')
             )
           );
 
@@ -173,6 +173,7 @@ function compile(fixture, config = {}, options = {}) {
     resolve: {
       alias: {
         aliasesImg: path.resolve(__dirname, 'fixtures/url'),
+        aliasesImport: path.resolve(__dirname, 'fixtures/import'),
       },
     },
   };
