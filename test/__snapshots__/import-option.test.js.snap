@@ -1,285 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`import option false and modules \`false\`: errors 1`] = `Array []`;
-
-exports[`import option false and modules \`false\`: module (evaluated) 1`] = `
-Array [
-  Array [
-    1,
-    "@import url(test-other.css) (min-width: 100px);
-
-@value def from './values.css';
-@value other from './values.css';
-@value other from './values.css';
-@value something from './something.css';
-@value foo: blue;
-@value bar: block;
-
-.ghi {
-  color: def;
-}
-
-.class {
-  color: foo;
-}
-
-.other {
-  display: bar;
-}
-
-.other-other {
-  width: something;
-}
-
-.green {
-  color: other;
-}
-
-.foo {
-  prop: def;
-  duplicate: other;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`import option false and modules \`false\`: module 1`] = `
-"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
-// imports
-
-
-// module
-exports.push([module.id, \\"@import url(test-other.css) (min-width: 100px);\\\\n\\\\n@value def from './values.css';\\\\n@value other from './values.css';\\\\n@value other from './values.css';\\\\n@value something from './something.css';\\\\n@value foo: blue;\\\\n@value bar: block;\\\\n\\\\n.ghi {\\\\n  color: def;\\\\n}\\\\n\\\\n.class {\\\\n  color: foo;\\\\n}\\\\n\\\\n.other {\\\\n  display: bar;\\\\n}\\\\n\\\\n.other-other {\\\\n  width: something;\\\\n}\\\\n\\\\n.green {\\\\n  color: other;\\\\n}\\\\n\\\\n.foo {\\\\n  prop: def;\\\\n  duplicate: other;\\\\n}\\\\n\\", \\"\\"]);
-
-// exports
-"
-`;
-
-exports[`import option false and modules \`false\`: warnings 1`] = `Array []`;
-
-exports[`import option false and modules \`global\`: errors 1`] = `Array []`;
-
-exports[`import option false and modules \`global\`: module (evaluated) 1`] = `
-Array [
-  Array [
-    2,
-    "
-",
-    "",
-  ],
-  Array [
-    3,
-    "
-",
-    "",
-  ],
-  Array [
-    1,
-    "@import url(test-other.css) (min-width: 100px);
-
-.ghi {
-  color: red;
-}
-
-.class {
-  color: blue;
-}
-
-.other {
-  display: block;
-}
-
-.other-other {
-  width: 2112moon;
-}
-
-.green {
-  color: green;
-}
-
-.foo {
-  prop: red;
-  duplicate: green;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`import option false and modules \`global\`: module 1`] = `
-"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
-// imports
-exports.i(require(\\"-!../../../index.js??ref--4-0!./values.css\\"), \\"\\");
-exports.i(require(\\"-!../../../index.js??ref--4-0!./something.css\\"), \\"\\");
-
-// module
-exports.push([module.id, \\"@import url(test-other.css) (min-width: 100px);\\\\n\\\\n.ghi {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n}\\\\n\\\\n.class {\\\\n  color: blue;\\\\n}\\\\n\\\\n.other {\\\\n  display: block;\\\\n}\\\\n\\\\n.other-other {\\\\n  width: \\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\";\\\\n}\\\\n\\\\n.green {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n.foo {\\\\n  prop: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
-
-// exports
-exports.locals = {
-	\\"def\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\"\\",
-	\\"other\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\"\\",
-	\\"something\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\"\\",
-	\\"foo\\": \\"blue\\",
-	\\"bar\\": \\"block\\"
-};"
-`;
-
-exports[`import option false and modules \`global\`: warnings 1`] = `Array []`;
-
-exports[`import option false and modules \`local\`: errors 1`] = `Array []`;
-
-exports[`import option false and modules \`local\`: module (evaluated) 1`] = `
-Array [
-  Array [
-    2,
-    "
-",
-    "",
-  ],
-  Array [
-    3,
-    "
-",
-    "",
-  ],
-  Array [
-    1,
-    "@import url(test-other.css) (min-width: 100px);
-
-._3r49KZIIAltPknAjdNVZ-7 {
-  color: red;
-}
-
-._4o0o5eKzoeDOSI0_cR8mr {
-  color: blue;
-}
-
-._2wLXKM9pRjt1oRYvf0Wo3Q {
-  display: block;
-}
-
-._1RBgqC8j3f4iU6k-ocmIG7 {
-  width: 2112moon;
-}
-
-._1lCIckG6C8tRZjGNDsAPWr {
-  color: green;
-}
-
-._1YL4f0i_603GTMRC_pnsP5 {
-  prop: red;
-  duplicate: green;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`import option false and modules \`local\`: module 1`] = `
-"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
-// imports
-exports.i(require(\\"-!../../../index.js??ref--4-0!./values.css\\"), \\"\\");
-exports.i(require(\\"-!../../../index.js??ref--4-0!./something.css\\"), \\"\\");
-
-// module
-exports.push([module.id, \\"@import url(test-other.css) (min-width: 100px);\\\\n\\\\n._3r49KZIIAltPknAjdNVZ-7 {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n}\\\\n\\\\n._4o0o5eKzoeDOSI0_cR8mr {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2wLXKM9pRjt1oRYvf0Wo3Q {\\\\n  display: block;\\\\n}\\\\n\\\\n._1RBgqC8j3f4iU6k-ocmIG7 {\\\\n  width: \\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\";\\\\n}\\\\n\\\\n._1lCIckG6C8tRZjGNDsAPWr {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n._1YL4f0i_603GTMRC_pnsP5 {\\\\n  prop: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
-
-// exports
-exports.locals = {
-	\\"def\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\"\\",
-	\\"other\\": \\"_2wLXKM9pRjt1oRYvf0Wo3Q\\",
-	\\"something\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\"\\",
-	\\"foo\\": \\"_1YL4f0i_603GTMRC_pnsP5\\",
-	\\"bar\\": \\"block\\",
-	\\"ghi\\": \\"_3r49KZIIAltPknAjdNVZ-7\\",
-	\\"class\\": \\"_4o0o5eKzoeDOSI0_cR8mr\\",
-	\\"other-other\\": \\"_1RBgqC8j3f4iU6k-ocmIG7\\",
-	\\"green\\": \\"_1lCIckG6C8tRZjGNDsAPWr\\"
-};"
-`;
-
-exports[`import option false and modules \`local\`: warnings 1`] = `Array []`;
-
-exports[`import option false and modules \`true\`: errors 1`] = `Array []`;
-
-exports[`import option false and modules \`true\`: module (evaluated) 1`] = `
-Array [
-  Array [
-    2,
-    "
-",
-    "",
-  ],
-  Array [
-    3,
-    "
-",
-    "",
-  ],
-  Array [
-    1,
-    "@import url(test-other.css) (min-width: 100px);
-
-._3r49KZIIAltPknAjdNVZ-7 {
-  color: red;
-}
-
-._4o0o5eKzoeDOSI0_cR8mr {
-  color: blue;
-}
-
-._2wLXKM9pRjt1oRYvf0Wo3Q {
-  display: block;
-}
-
-._1RBgqC8j3f4iU6k-ocmIG7 {
-  width: 2112moon;
-}
-
-._1lCIckG6C8tRZjGNDsAPWr {
-  color: green;
-}
-
-._1YL4f0i_603GTMRC_pnsP5 {
-  prop: red;
-  duplicate: green;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`import option false and modules \`true\`: module 1`] = `
-"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
-// imports
-exports.i(require(\\"-!../../../index.js??ref--4-0!./values.css\\"), \\"\\");
-exports.i(require(\\"-!../../../index.js??ref--4-0!./something.css\\"), \\"\\");
-
-// module
-exports.push([module.id, \\"@import url(test-other.css) (min-width: 100px);\\\\n\\\\n._3r49KZIIAltPknAjdNVZ-7 {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n}\\\\n\\\\n._4o0o5eKzoeDOSI0_cR8mr {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2wLXKM9pRjt1oRYvf0Wo3Q {\\\\n  display: block;\\\\n}\\\\n\\\\n._1RBgqC8j3f4iU6k-ocmIG7 {\\\\n  width: \\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\";\\\\n}\\\\n\\\\n._1lCIckG6C8tRZjGNDsAPWr {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n._1YL4f0i_603GTMRC_pnsP5 {\\\\n  prop: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
-
-// exports
-exports.locals = {
-	\\"def\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\"\\",
-	\\"other\\": \\"_2wLXKM9pRjt1oRYvf0Wo3Q\\",
-	\\"something\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\"\\",
-	\\"foo\\": \\"_1YL4f0i_603GTMRC_pnsP5\\",
-	\\"bar\\": \\"block\\",
-	\\"ghi\\": \\"_3r49KZIIAltPknAjdNVZ-7\\",
-	\\"class\\": \\"_4o0o5eKzoeDOSI0_cR8mr\\",
-	\\"other-other\\": \\"_1RBgqC8j3f4iU6k-ocmIG7\\",
-	\\"green\\": \\"_1lCIckG6C8tRZjGNDsAPWr\\"
-};"
-`;
-
-exports[`import option false and modules \`true\`: warnings 1`] = `Array []`;
-
 exports[`import option false: errors 1`] = `Array []`;
 
 exports[`import option false: module (evaluated) 1`] = `
@@ -367,6 +87,1076 @@ exports.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\
 `;
 
 exports[`import option false: warnings 1`] = `Array []`;
+
+exports[`import option true and modules \`false\`: errors 1`] = `Array []`;
+
+exports[`import option true and modules \`false\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".test {
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    3,
+    ".test {
+  a: a;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    5,
+    "a {
+  b: b;
+}
+",
+    "((min-width: 100px)) and (screen and print)",
+  ],
+  Array [
+    4,
+    ".test {
+  c: c;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?foo=bar#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/other-style.css);",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(//example.com/style.css);",
+    "",
+  ],
+  Array [
+    6,
+    ".test {
+  d: d
+}
+",
+    "",
+  ],
+  Array [
+    7,
+    ".query {
+  e: e;
+}
+",
+    "",
+  ],
+  Array [
+    8,
+    ".other-query {
+  f: f;
+}
+",
+    "",
+  ],
+  Array [
+    9,
+    ".other-query {
+  f: f;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Roboto);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
+    "",
+  ],
+  Array [
+    10,
+    ".relative {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    11,
+    ".top-relative {
+  color: black;
+}
+",
+    "",
+  ],
+  Array [
+    12,
+    ".tilde {
+  color: yellow;
+}
+",
+    "",
+  ],
+  Array [
+    13,
+    ".alias {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "@import url();
+@import url('');
+@import url(\\"\\");
+@import '';
+@import \\"\\";
+@import \\"   \\";
+@import \\"
+\\";
+@import url();
+@import url('');
+@import url(\\"\\");
+@import ;
+@import foo-bar;
+@import-normalize;
+@import url('http://') :root {}
+
+.class {
+  a: b c d;
+}
+
+.foo {
+  @import 'path.css';
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import option true and modules \`false\`: module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-media.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and print\\"]);
+exports.push([module.id, \\"@import url(//example.com/style.css);\\", \\"\\"]);
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./query.css?foo=1&bar=1\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"screen and print\\");
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\", \\"\\"]);
+exports.i(require(\\"-!../../../index.js??ref--4-0!./relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!../import/top-relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/tilde.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!aliasesImport/alias.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`import option true and modules \`false\`: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(12:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(13:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(14:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(17:1) Unable to find uri in '@import '''",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(18:1) Unable to find uri in '@import \\"\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(19:1) Unable to find uri in '@import \\"   \\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(20:1) Unable to find uri in '@import \\"
+\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(22:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(23:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(24:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(40:1) Unable to find uri in '@import '",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(41:1) Unable to find uri in '@import foo-bar'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(43:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+]
+`;
+
+exports[`import option true and modules \`global\`: errors 1`] = `Array []`;
+
+exports[`import option true and modules \`global\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".test {
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    3,
+    ".test {
+  a: a;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    5,
+    "a {
+  b: b;
+}
+",
+    "((min-width: 100px)) and (screen and print)",
+  ],
+  Array [
+    4,
+    ".test {
+  c: c;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?foo=bar#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/other-style.css);",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(//example.com/style.css);",
+    "",
+  ],
+  Array [
+    6,
+    ".test {
+  d: d
+}
+",
+    "",
+  ],
+  Array [
+    7,
+    ".query {
+  e: e;
+}
+",
+    "",
+  ],
+  Array [
+    8,
+    ".other-query {
+  f: f;
+}
+",
+    "",
+  ],
+  Array [
+    9,
+    ".other-query {
+  f: f;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Roboto);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
+    "",
+  ],
+  Array [
+    10,
+    ".relative {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    11,
+    ".top-relative {
+  color: black;
+}
+",
+    "",
+  ],
+  Array [
+    12,
+    ".tilde {
+  color: yellow;
+}
+",
+    "",
+  ],
+  Array [
+    13,
+    ".alias {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "@import url();
+@import url('');
+@import url(\\"\\");
+@import '';
+@import \\"\\";
+@import \\"   \\";
+@import \\"
+\\";
+@import url();
+@import url('');
+@import url(\\"\\");
+@import ;
+@import foo-bar;
+@import-normalize;
+@import url('http://') :root {}
+
+.class {
+  a: b c d;
+}
+
+.foo {
+  @import 'path.css';
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import option true and modules \`global\`: module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-media.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and print\\"]);
+exports.push([module.id, \\"@import url(//example.com/style.css);\\", \\"\\"]);
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./query.css?foo=1&bar=1\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"screen and print\\");
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\", \\"\\"]);
+exports.i(require(\\"-!../../../index.js??ref--4-0!./relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!../import/top-relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/tilde.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!aliasesImport/alias.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`import option true and modules \`global\`: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(12:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(13:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(14:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(17:1) Unable to find uri in '@import '''",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(18:1) Unable to find uri in '@import \\"\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(19:1) Unable to find uri in '@import \\"   \\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(20:1) Unable to find uri in '@import \\"
+\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(22:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(23:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(24:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(40:1) Unable to find uri in '@import '",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(41:1) Unable to find uri in '@import foo-bar'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(43:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+]
+`;
+
+exports[`import option true and modules \`local\`: errors 1`] = `Array []`;
+
+exports[`import option true and modules \`local\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._3fDHa2l1HOcl9VXVfSKtB7 {
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    3,
+    "._3fDHa2l1HOcl9VXVfSKtB7 {
+  a: a;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    5,
+    "a {
+  b: b;
+}
+",
+    "((min-width: 100px)) and (screen and print)",
+  ],
+  Array [
+    4,
+    ".f63QYE3dlpdhZuYg8R4pd {
+  c: c;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?foo=bar#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/other-style.css);",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(//example.com/style.css);",
+    "",
+  ],
+  Array [
+    6,
+    "._1lN7KGFmbEaXH8rJdLC9cT {
+  d: d
+}
+",
+    "",
+  ],
+  Array [
+    7,
+    "._2FiPFdRUJ6bc--oLN32vUX {
+  e: e;
+}
+",
+    "",
+  ],
+  Array [
+    8,
+    "._2nQ7ONr22lmMu683ljj0MN {
+  f: f;
+}
+",
+    "",
+  ],
+  Array [
+    9,
+    "._2nQ7ONr22lmMu683ljj0MN {
+  f: f;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Roboto);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
+    "",
+  ],
+  Array [
+    10,
+    "._37G_Iu-0wcPjXN9ZhzZjlT {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    11,
+    "._4a-iWS8tumU5J8-oW8LlR {
+  color: black;
+}
+",
+    "",
+  ],
+  Array [
+    12,
+    "._2VXavzz3TUKPrbI3S1tkrW {
+  color: yellow;
+}
+",
+    "",
+  ],
+  Array [
+    13,
+    "._2E2zpPgFs4vJaVymauWk3p {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "@import url();
+@import url('');
+@import url(\\"\\");
+@import '';
+@import \\"\\";
+@import \\"   \\";
+@import \\"
+\\";
+@import url();
+@import url('');
+@import url(\\"\\");
+@import ;
+@import foo-bar;
+@import-normalize;
+@import url('http://') :root {}
+
+.hnxX78DgkaA2kCp_BPbLd {
+  a: b c d;
+}
+
+._1Lug_45kZL-M7XuNeM4SCw {
+  @import 'path.css';
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import option true and modules \`local\`: module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-media.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and print\\"]);
+exports.push([module.id, \\"@import url(//example.com/style.css);\\", \\"\\"]);
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./query.css?foo=1&bar=1\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"screen and print\\");
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\", \\"\\"]);
+exports.i(require(\\"-!../../../index.js??ref--4-0!./relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!../import/top-relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/tilde.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!aliasesImport/alias.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.hnxX78DgkaA2kCp_BPbLd {\\\\n  a: b c d;\\\\n}\\\\n\\\\n._1Lug_45kZL-M7XuNeM4SCw {\\\\n  @import 'path.css';\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+exports.locals = {
+	\\"class\\": \\"hnxX78DgkaA2kCp_BPbLd\\",
+	\\"foo\\": \\"_1Lug_45kZL-M7XuNeM4SCw\\"
+};"
+`;
+
+exports[`import option true and modules \`local\`: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(12:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(13:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(14:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(17:1) Unable to find uri in '@import '''",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(18:1) Unable to find uri in '@import \\"\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(19:1) Unable to find uri in '@import \\"   \\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(20:1) Unable to find uri in '@import \\"
+\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(22:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(23:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(24:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(40:1) Unable to find uri in '@import '",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(41:1) Unable to find uri in '@import foo-bar'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(43:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+]
+`;
+
+exports[`import option true and modules \`true\`: errors 1`] = `Array []`;
+
+exports[`import option true and modules \`true\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._3fDHa2l1HOcl9VXVfSKtB7 {
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    3,
+    "._3fDHa2l1HOcl9VXVfSKtB7 {
+  a: a;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    5,
+    "a {
+  b: b;
+}
+",
+    "((min-width: 100px)) and (screen and print)",
+  ],
+  Array [
+    4,
+    ".f63QYE3dlpdhZuYg8R4pd {
+  c: c;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?foo=bar#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/other-style.css);",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(//example.com/style.css);",
+    "",
+  ],
+  Array [
+    6,
+    "._1lN7KGFmbEaXH8rJdLC9cT {
+  d: d
+}
+",
+    "",
+  ],
+  Array [
+    7,
+    "._2FiPFdRUJ6bc--oLN32vUX {
+  e: e;
+}
+",
+    "",
+  ],
+  Array [
+    8,
+    "._2nQ7ONr22lmMu683ljj0MN {
+  f: f;
+}
+",
+    "",
+  ],
+  Array [
+    9,
+    "._2nQ7ONr22lmMu683ljj0MN {
+  f: f;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Roboto);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
+    "",
+  ],
+  Array [
+    10,
+    "._37G_Iu-0wcPjXN9ZhzZjlT {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    11,
+    "._4a-iWS8tumU5J8-oW8LlR {
+  color: black;
+}
+",
+    "",
+  ],
+  Array [
+    12,
+    "._2VXavzz3TUKPrbI3S1tkrW {
+  color: yellow;
+}
+",
+    "",
+  ],
+  Array [
+    13,
+    "._2E2zpPgFs4vJaVymauWk3p {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "@import url();
+@import url('');
+@import url(\\"\\");
+@import '';
+@import \\"\\";
+@import \\"   \\";
+@import \\"
+\\";
+@import url();
+@import url('');
+@import url(\\"\\");
+@import ;
+@import foo-bar;
+@import-normalize;
+@import url('http://') :root {}
+
+.hnxX78DgkaA2kCp_BPbLd {
+  a: b c d;
+}
+
+._1Lug_45kZL-M7XuNeM4SCw {
+  @import 'path.css';
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import option true and modules \`true\`: module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-media.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and print\\"]);
+exports.push([module.id, \\"@import url(//example.com/style.css);\\", \\"\\"]);
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/test.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./query.css?foo=1&bar=1\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"screen and print\\");
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\", \\"\\"]);
+exports.i(require(\\"-!../../../index.js??ref--4-0!./relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!../import/top-relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/tilde.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!aliasesImport/alias.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.hnxX78DgkaA2kCp_BPbLd {\\\\n  a: b c d;\\\\n}\\\\n\\\\n._1Lug_45kZL-M7XuNeM4SCw {\\\\n  @import 'path.css';\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+exports.locals = {
+	\\"class\\": \\"hnxX78DgkaA2kCp_BPbLd\\",
+	\\"foo\\": \\"_1Lug_45kZL-M7XuNeM4SCw\\"
+};"
+`;
+
+exports[`import option true and modules \`true\`: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(12:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(13:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(14:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(17:1) Unable to find uri in '@import '''",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(18:1) Unable to find uri in '@import \\"\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(19:1) Unable to find uri in '@import \\"   \\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(20:1) Unable to find uri in '@import \\"
+\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(22:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(23:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(24:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(40:1) Unable to find uri in '@import '",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(41:1) Unable to find uri in '@import foo-bar'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(43:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+]
+`;
 
 exports[`import option true: errors 1`] = `Array []`;
 

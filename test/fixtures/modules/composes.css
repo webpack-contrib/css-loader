@@ -1,0 +1,58 @@
+@import url(test-other.css) (min-width: 100px);
+
+@value def from './values.css';
+@value other from './values.css';
+@value other from './values.css';
+@value something from './something.css';
+@value foo: blue;
+@value bar: block;
+
+.ghi {
+  color: def;
+}
+
+.class {
+  color: foo;
+}
+
+.other {
+  display: bar;
+}
+
+.other-other {
+  width: something;
+}
+
+.green {
+  color: other;
+}
+
+.foo {
+  prop: def;
+  duplicate: other;
+}
+
+.simple {
+  color: red;
+  composes: imported-simple from 'imported-simple.css';
+}
+
+.relative {
+  color: yellow;
+  composes: imported-relative from './relative.css';
+}
+
+.top-relative {
+  color: gray;
+  composes: imported-relative from '../modules/top-relative.css';
+}
+
+.module {
+  color: gray;
+  composes: imported-module from '~package/style.css';
+}
+
+.alias {
+  color: gainsboro;
+  composes: imported-alias from '~aliasesComposes/alias.css';
+}

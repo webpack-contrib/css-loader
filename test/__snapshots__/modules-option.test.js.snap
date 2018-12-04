@@ -5043,3 +5043,155 @@ Object {
 `;
 
 exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
+exports[`modules composes should supports resolving: errors 1`] = `Array []`;
+
+exports[`modules composes should supports resolving: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._2Nehoi0wFTN-8p0fEfvUYd {
+  d: d;
+}
+",
+    "(min-width: 100px)",
+  ],
+  Array [
+    3,
+    "
+",
+    "",
+  ],
+  Array [
+    4,
+    "
+",
+    "",
+  ],
+  Array [
+    5,
+    "._22ETk3ZhhvjVe-4dAULcsF {
+  display: block;
+}
+",
+    "",
+  ],
+  Array [
+    6,
+    ".dSGVakTZ8YY-XNW64tg9F {
+  display: inline;
+}
+",
+    "",
+  ],
+  Array [
+    7,
+    "._1SUuyapRQ82dAPS8r7zmpY {
+  display: flex;
+}
+",
+    "",
+  ],
+  Array [
+    8,
+    "._2n5szs-7uGKzfFTp9NTK64 {
+  display: inline-block;
+}
+",
+    "",
+  ],
+  Array [
+    9,
+    "._37nzOIvIANGnEtP1lWjZDN {
+  display: table;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._14uFt0lIVKKAlKTTT29IIQ {
+  color: red;
+}
+
+._3XDgIzfUIQkaUInpEdo7fN {
+  color: blue;
+}
+
+._1wABXM_RabWHj--wsPrhvM {
+  display: block;
+}
+
+._1DFEYnAfn9LZyk4fErI86e {
+  width: 2112moon;
+}
+
+.Ywv5coVC2RU-pIFhN9O4w {
+  color: green;
+}
+
+._1tAbIwITRWAdZZE6wKNk9O {
+  prop: red;
+  duplicate: green;
+}
+
+.Q3SQ3BwtBwUFLlg6adzOI {
+  color: red;
+}
+
+._1n5XhXj4SFnYrwziC3un0d {
+  color: yellow;
+}
+
+._3dnFnGkAVAiMA6etF-naHc {
+  color: gray;
+}
+
+._1xUePnlnafMQ1cExy3PUWT {
+  color: gray;
+}
+
+._26Jdfenl9Xn8HXwb2jipvt {
+  color: gainsboro;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules composes should supports resolving: module 1`] = `
+"exports = module.exports = require(\\"../../../lib/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./values.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./something.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./imported-simple.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!./relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!../modules/top-relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!package/style.css\\"), \\"\\");
+exports.i(require(\\"-!../../../index.js??ref--4-0!aliasesComposes/alias.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n._1wABXM_RabWHj--wsPrhvM {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n._1tAbIwITRWAdZZE6wKNk9O {\\\\n  prop: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+exports.locals = {
+	\\"def\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\"\\",
+	\\"other\\": \\"_1wABXM_RabWHj--wsPrhvM\\",
+	\\"something\\": \\"\\" + require(\\"-!../../../index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\"\\",
+	\\"foo\\": \\"_1tAbIwITRWAdZZE6wKNk9O\\",
+	\\"bar\\": \\"block\\",
+	\\"ghi\\": \\"_14uFt0lIVKKAlKTTT29IIQ\\",
+	\\"class\\": \\"_3XDgIzfUIQkaUInpEdo7fN\\",
+	\\"other-other\\": \\"_1DFEYnAfn9LZyk4fErI86e\\",
+	\\"green\\": \\"Ywv5coVC2RU-pIFhN9O4w\\",
+	\\"simple\\": \\"Q3SQ3BwtBwUFLlg6adzOI \\" + require(\\"-!../../../index.js??ref--4-0!./imported-simple.css\\").locals[\\"imported-simple\\"] + \\"\\",
+	\\"relative\\": \\"_1n5XhXj4SFnYrwziC3un0d \\" + require(\\"-!../../../index.js??ref--4-0!./relative.css\\").locals[\\"imported-relative\\"] + \\"\\",
+	\\"top-relative\\": \\"_3dnFnGkAVAiMA6etF-naHc \\" + require(\\"-!../../../index.js??ref--4-0!../modules/top-relative.css\\").locals[\\"imported-relative\\"] + \\"\\",
+	\\"module\\": \\"_1xUePnlnafMQ1cExy3PUWT \\" + require(\\"-!../../../index.js??ref--4-0!package/style.css\\").locals[\\"imported-module\\"] + \\"\\",
+	\\"alias\\": \\"_26Jdfenl9Xn8HXwb2jipvt \\" + require(\\"-!../../../index.js??ref--4-0!aliasesComposes/alias.css\\").locals[\\"imported-alias\\"] + \\"\\"
+};"
+`;
+
+exports[`modules composes should supports resolving: warnings 1`] = `Array []`;
