@@ -35,7 +35,7 @@
 }
 
 .class {
-  background: green /* url(~package/img.png) */ url(./other-img.png) xyz;
+  background: green url(~package/img.png) url(./other-img.png) xyz;
 }
 
 .class {
@@ -82,7 +82,7 @@
   src: url(./font.woff) format('woff'),
     url('./font.woff2') format('woff2'),
     url("./font.eot") format('eot'),
-    /*url(~package/font.ttf) format('truetype'), */
+    url(~package/font.ttf) format('truetype'),
     url("./font with spaces.eot") format("embedded-opentype"),
     url('./font.svg#svgFontName') format('svg'),
     url('./font.woff2?foo=bar') format('woff2'),
@@ -176,4 +176,24 @@ b {
   background: ___CSS_LOADER_IMPORT___;
   background: ___CSS_LOADER_IMPORT___INDEX___;
   background: ___CSS_LOADER_IMPORT___99999___;
+}
+
+.pure-url {
+  background: url('img-simple.png');
+}
+
+.not-resolved {
+  background: url('/img-simple.png');
+}
+
+.above-below {
+  background: url('../url/img-simple.png');
+}
+
+.tilde {
+  background: url('~package/img.png');
+}
+
+.aliases {
+  background: url('~aliasesImg/img.png') ;
 }
