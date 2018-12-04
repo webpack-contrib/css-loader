@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validation 1`] = `
+"CSS Loader Invalid Options
+
+options.url should be boolean
+"
+`;
+
+exports[`validation 2`] = `
+"CSS Loader Invalid Options
+
+options.import should be boolean
+"
+`;
+
+exports[`validation 3`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be equal to one of the allowed values
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validation 4`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be equal to one of the allowed values
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validation 5`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be equal to one of the allowed values
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validation 6`] = `
+"CSS Loader Invalid Options
+
+options.localIdentName should be string
+"
+`;
+
+exports[`validation 7`] = `
+"CSS Loader Invalid Options
+
+options.localIdentRegExp should be string
+options.localIdentRegExp should pass \\"instanceof\\" keyword validation
+options.localIdentRegExp should match some schema in anyOf
+"
+`;
+
+exports[`validation 8`] = `
+"CSS Loader Invalid Options
+
+options.context should be string
+"
+`;
+
+exports[`validation 9`] = `
+"CSS Loader Invalid Options
+
+options.hashPrefix should be string
+"
+`;
+
+exports[`validation 10`] = `
+"CSS Loader Invalid Options
+
+options.getLocalIdent should pass \\"instanceof\\" keyword validation
+"
+`;
+
+exports[`validation 11`] = `
+"CSS Loader Invalid Options
+
+options.sourceMap should be boolean
+"
+`;
+
+exports[`validation 12`] = `
+"CSS Loader Invalid Options
+
+options.camelCase should be boolean
+options.camelCase should be equal to one of the allowed values
+options.camelCase should match some schema in anyOf
+"
+`;
+
+exports[`validation 13`] = `
+"CSS Loader Invalid Options
+
+options.importLoaders should be number
+"
+`;
+
+exports[`validation 14`] = `
+"CSS Loader Invalid Options
+
+options.exportOnlyLocals should be boolean
+"
+`;

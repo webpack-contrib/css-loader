@@ -1,0 +1,65 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "url": {
+      "type": "boolean"
+    },
+    "import": {
+      "type": "boolean"
+    },
+    "modules": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string",
+          "enum": ["local", "global"]
+        }
+      ]
+    },
+    "localIdentName": {
+      "type": "string"
+    },
+    "localIdentRegExp": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "instanceof": "RegExp"
+        }
+      ]
+    },
+    "context": {
+      "type": "string"
+    },
+    "hashPrefix": {
+      "type": "string"
+    },
+    "getLocalIdent": {
+      "instanceof": "Function"
+    },
+    "sourceMap": {
+      "type": "boolean"
+    },
+    "camelCase": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string",
+          "enum": ["dashes", "only", "dashesOnly"]
+        }
+      ]
+    },
+    "importLoaders": {
+      "type": "number"
+    },
+    "exportOnlyLocals": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}
