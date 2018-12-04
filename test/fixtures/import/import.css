@@ -55,3 +55,8 @@
 .foo {
   @import 'path.css';
 }
+
+@import url('./relative.css');
+@import url('../import/top-relative.css');
+@import url(~package/tilde.css);
+@import url(~aliasesImport/alias.css);

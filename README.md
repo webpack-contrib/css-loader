@@ -121,7 +121,7 @@ url(image.png) => require('./image.png')
 url(./image.png) => require('./image.png')
 ```
 
-To import styles from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
+To import assets from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
 
 ```
 url(~module/image.png) => require('module/image.png')
@@ -130,14 +130,24 @@ url(~aliasDirectory/image.png) => require('otherDirectory/image.png')
 
 ### `import`
 
-To disable `@import` resolving by `css-loader` set the option to `false`.
+Enable/disable `@import` resolving. Absolute urls are not resolving.
 
-Absolute urls are not resolving.
+Examples resolutions:
 
-To import styles from a node module path, prefix it with a `~`:
+```
+@import 'style.css' => require('./style.css')
+@import url(style.css) => require('./style.css')
+@import url('style.css') => require('./style.css')
+@import './style.css' => require('./style.css')
+@import url(./style.css) => require('./style.css')
+@import url('./style.css') => require('./style.css')
+```
 
-```css
-@import '~module/styles.css';
+To import styles from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
+
+```
+@import url(~module/style.css) => require('module/style.css')
+@import url(~aliasDirectory/style.css) => require('otherDirectory/style.css')
 ```
 
 ### [`modules`](https://github.com/css-modules/css-modules)
