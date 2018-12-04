@@ -1,4 +1,4 @@
-module.exports = class Warning extends Error {
+export default class Warning extends Error {
   constructor(warning) {
     super(warning);
     const { text, line, column } = warning;
@@ -17,4 +17,4 @@ module.exports = class Warning extends Error {
     // We don't need stack https://github.com/postcss/postcss/blob/master/docs/guidelines/runner.md#31-dont-show-js-stack-for-csssyntaxerror
     this.stack = false;
   }
-};
+}
