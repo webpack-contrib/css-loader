@@ -30,6 +30,7 @@ function evaluated(output, modules, moduleId = 1) {
       if (modules && Array.isArray(modules)) {
         const importedModule = modules.find((el) => {
           const modulePath = el.identifier.split('!').pop();
+          // We need refactor this logic
           const importedPaths = [
             'nested-import',
             'postcss-present-env',
@@ -43,6 +44,7 @@ function evaluated(output, modules, moduleId = 1) {
             'modules/issue-286',
             'modules/node_modules',
             'modules/tests-cases/urls',
+            'modules/tests-cases/issue-589',
             'modules/tests-cases/comments',
             'modules/tests-cases/values-3',
             'modules/tests-cases/values-4',
@@ -62,6 +64,7 @@ function evaluated(output, modules, moduleId = 1) {
                 .replace('aliasesImg/', '')
                 .replace('aliasesImport/', '')
                 .replace('aliasesComposes/', '')
+                .replace(/!!(.*)?!/, '')
             )
           );
 
