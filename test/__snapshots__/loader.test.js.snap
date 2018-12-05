@@ -1,5 +1,366 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): api 1`] = `
+"/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+  var list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function(item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+      if (item[2]) {
+        return '@media ' + item[2] + '{' + content + '}';
+      } else {
+        return content;
+      }
+    }).join('');
+  };
+
+  // import a list of modules into the list
+  list.i = function(modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
+    }
+    var alreadyImportedModules = {};
+    for (var i = 0; i < this.length; i++) {
+      var id = this[i][0];
+      if (id != null) {
+        alreadyImportedModules[id] = true;
+      }
+    }
+    for (i = 0; i < modules.length; i++) {
+      var item = modules[i];
+      // skip already imported module
+      // this implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles)
+      if (item[0] == null || !alreadyImportedModules[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+        }
+        list.push(item);
+      }
+    }
+  };
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || '';
+  var cssMapping = item[3];
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function(source) {
+      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
+    });
+
+    return [content]
+      .concat(sourceURLs)
+      .concat([sourceMapping])
+      .join('\\\\n');
+  }
+
+  return [content].join('\\\\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data =
+    'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+  return '/*# ' + data + ' */';
+}
+"
+`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): errors 1`] = `Array []`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): escape 1`] = `
+"module.exports = function escape(url) {
+  if (typeof url !== 'string') {
+    return url;
+  }
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['\\"].*['\\"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+    return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
+  }
+
+  return url;
+};
+"
+`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): module (evaluated) 1`] = `
+Array [
+  Array [
+    null,
+    "nothing",
+    "",
+  ],
+  Array [
+    1,
+    "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(nothing);
+}
+
+.class-duplicate-url {
+  background: url(nothing);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): module 1`] = `
+"var escape = require(\\"../../src/runtime/escape.js\\");
+exports = module.exports = require(\\"../../src/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../src/index.js??ref--4-0!./imported.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+"
+`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): warnings 1`] = `Array []`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): api 1`] = `
+"/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+  var list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function(item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+      if (item[2]) {
+        return '@media ' + item[2] + '{' + content + '}';
+      } else {
+        return content;
+      }
+    }).join('');
+  };
+
+  // import a list of modules into the list
+  list.i = function(modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
+    }
+    var alreadyImportedModules = {};
+    for (var i = 0; i < this.length; i++) {
+      var id = this[i][0];
+      if (id != null) {
+        alreadyImportedModules[id] = true;
+      }
+    }
+    for (i = 0; i < modules.length; i++) {
+      var item = modules[i];
+      // skip already imported module
+      // this implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles)
+      if (item[0] == null || !alreadyImportedModules[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+        }
+        list.push(item);
+      }
+    }
+  };
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || '';
+  var cssMapping = item[3];
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function(source) {
+      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
+    });
+
+    return [content]
+      .concat(sourceURLs)
+      .concat([sourceMapping])
+      .join('\\\\n');
+  }
+
+  return [content].join('\\\\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data =
+    'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+  return '/*# ' + data + ' */';
+}
+"
+`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): errors 1`] = `Array []`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): escape 1`] = `
+"module.exports = function escape(url) {
+  if (typeof url !== 'string') {
+    return url;
+  }
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['\\"].*['\\"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+    return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
+  }
+
+  return url;
+};
+"
+`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): module (evaluated) 1`] = `
+Array [
+  Array [
+    null,
+    "nothing",
+    "",
+  ],
+  Array [
+    1,
+    "@charset \\"UTF-8\\";
+
+/* Comment */
+
+._1PSZ4tK4URrenXyNSoawrx {
+  color: red;
+  background: url(nothing);
+}
+
+._3YYoEr128Gk7ZgfRycu4tr {
+  background: url(nothing);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+._1PSZ4tK4URrenXyNSoawrx { a: b c d; }
+
+._1LWD9ZV4XMmN23IPiMONS3 {}
+
+._3i3CD1fyX8bvzRt1H0IV-f { a: b c d; }
+
+._1PSZ4tK4URrenXyNSoawrx { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+._1PSZ4tK4URrenXyNSoawrx {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): module 1`] = `
+"var escape = require(\\"../../src/runtime/escape.js\\");
+exports = module.exports = require(\\"../../src/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../src/index.js??ref--4-0!./imported.css\\"), \\"\\");
+
+// module
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n._3YYoEr128Gk7ZgfRycu4tr {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx { a: b c d; }\\\\n\\\\n._1LWD9ZV4XMmN23IPiMONS3 {}\\\\n\\\\n._3i3CD1fyX8bvzRt1H0IV-f { a: b c d; }\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\", \\"\\"]);
+
+// exports
+exports.locals = {
+	\\"class\\": \\"_1PSZ4tK4URrenXyNSoawrx\\",
+	\\"class-duplicate-url\\": \\"_3YYoEr128Gk7ZgfRycu4tr\\",
+	\\"two\\": \\"_1LWD9ZV4XMmN23IPiMONS3\\",
+	\\"u-m+\\": \\"_3i3CD1fyX8bvzRt1H0IV-f\\"
+};"
+`;
+
+exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): warnings 1`] = `Array []`;
+
 exports[`loader should compile with \`css\` entry point: api 1`] = `
 "/*
   MIT License http://www.opensource.org/licenses/mit-license.php
@@ -150,17 +511,13 @@ Array [
   }
 }
 
-/*
-Need uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108
-
 .class {
-  content: \\\\\\"\\\\\\\\f10C\\\\\\"
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
 }
-
-.class {
-  content: \\\\\\"\\\\\\\\F10C \\\\\\\\F10D\\\\\\"
-}
-*/
 ",
     "",
   ],
@@ -174,7 +531,7 @@ exports = module.exports = require(\\"../../src/runtime/api.js\\")(false);
 exports.i(require(\\"-!../../src/index.js??ref--4-0!./imported.css\\"), \\"\\");
 
 // module
-exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n/*\\\\nNeed uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\f10C\\\\\\\\\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\F10C \\\\\\\\\\\\\\\\F10D\\\\\\\\\\\\\\"\\\\n}\\\\n*/\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\", \\"\\"]);
 
 // exports
 "
@@ -332,17 +689,13 @@ Array [
   }
 }
 
-/*
-Need uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108
-
 .class {
-  content: \\\\\\"\\\\\\\\f10C\\\\\\"
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
 }
-
-.class {
-  content: \\\\\\"\\\\\\\\F10C \\\\\\\\F10D\\\\\\"
-}
-*/
 ",
     "",
   ],
@@ -356,7 +709,7 @@ exports = module.exports = require(\\"../../src/runtime/api.js\\")(false);
 exports.i(require(\\"-!../../src/index.js??ref--4-0!./imported.css\\"), \\"\\");
 
 // module
-exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n/*\\\\nNeed uncomment after resolve https://github.com/css-modules/postcss-modules-local-by-default/issues/108\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\f10C\\\\\\\\\\\\\\"\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\\\\\\\\\"\\\\\\\\\\\\\\\\F10C \\\\\\\\\\\\\\\\F10D\\\\\\\\\\\\\\"\\\\n}\\\\n*/\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + escape(require(\\"./url/img.png\\")) + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\", \\"\\"]);
 
 // exports
 "

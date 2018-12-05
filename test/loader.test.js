@@ -35,6 +35,38 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
+  it('should compile with `css` entry point (with `modules` and scope `local`)', async () => {
+    const config = { loader: { options: { modules: 'local' } } };
+    const stats = await webpack('basic.css', config);
+    const { modules } = stats.toJson();
+    const [, runtime, escape, module] = modules;
+
+    expect(runtime.source).toMatchSnapshot('api');
+    expect(escape.source).toMatchSnapshot('escape');
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
+  it('should compile with `css` entry point (with `modules` and scope `global`)', async () => {
+    const config = { loader: { options: { modules: 'global' } } };
+    const stats = await webpack('basic.css', config);
+    const { modules } = stats.toJson();
+    const [, runtime, escape, module] = modules;
+
+    expect(runtime.source).toMatchSnapshot('api');
+    expect(escape.source).toMatchSnapshot('escape');
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
   it('should compile with empty css entry point', async () => {
     const testId = './empty.css';
     const stats = await webpack(testId);
