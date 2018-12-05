@@ -5342,3 +5342,39 @@ exports.locals = {
 `;
 
 exports[`modules issue #286: warnings 1`] = `Array []`;
+
+exports[`modules issue #636: errors 1`] = `Array []`;
+
+exports[`modules issue #636: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".prefix-foo {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    1,
+    ".prefix-bar {
+}",
+    "",
+  ],
+]
+`;
+
+exports[`modules issue #636: module 1`] = `
+"exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
+// imports
+exports.i(require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/lib/loader.js??ref--4-1!./foo.scss\\"), \\"\\");
+
+// module
+exports.push([module.id, \\".prefix-bar {\\\\n}\\", \\"\\"]);
+
+// exports
+exports.locals = {
+	\\"bar\\": \\"prefix-bar \\" + require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/lib/loader.js??ref--4-1!./foo.scss\\").locals[\\"foo\\"] + \\"\\"
+};"
+`;
+
+exports[`modules issue #636: warnings 1`] = `Array []`;
