@@ -1,0 +1,4 @@
+body:before {
+  content: '';
+  background: url('~!!file-loader!./img.png');
+}

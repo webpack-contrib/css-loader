@@ -1405,6 +1405,118 @@ Object {
 
 exports[`modules case \`declaration-value\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "body:before {
+  content: '';
+  background: url(/webpack/public/path/5b1f36bc41ab31f5b801d48ba1d65781.png);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "body:before {
+  content: '';
+  background: url(/webpack/public/path/5b1f36bc41ab31f5b801d48ba1d65781.png);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "body:before {
+  content: '';
+  background: url(/webpack/public/path/5b1f36bc41ab31f5b801d48ba1d65781.png);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "body:before {
+  content: '';
+  background: url(/webpack/public/path/5b1f36bc41ab31f5b801d48ba1d65781.png);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`issue-589\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`issue-589\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`keyframes-and-animation\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
