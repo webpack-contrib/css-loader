@@ -157,6 +157,69 @@ Array [
   content: \\"\\\\2193\\\\2193\\\\2193\\";
   content: \\"\\\\2193 \\\\2193 \\\\2193\\";
 }
+
+.-top {}
+.-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.-middle {
+  align-items: center;
+}
+.grid.-bottom {
+  align-items: flex-end;
+}
+
+.u-m00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  \\\\--sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
 ",
     "",
   ],
@@ -171,7 +234,7 @@ var urlEscape = require(\\"../../src/runtime/url-escape.js\\");
 var ___CSS_LOADER_URL___0___ = urlEscape(require(\\"./url/img.png\\"));
 
 // Module
-exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  \\\\\\\\--sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\", \\"\\"]);
 
 "
 `;
@@ -335,6 +398,69 @@ Array [
   content: \\"\\\\2193\\\\2193\\\\2193\\";
   content: \\"\\\\2193 \\\\2193 \\\\2193\\";
 }
+
+._1fWEySWrY44TvDnJ8JNxnE {}
+._1fWEySWrY44TvDnJ8JNxnE {}
+
+#Zmuw5k7Gg4hpgd6CVBEkq {}
+
+.nz2GDQ2B9PRi6GmzRwbUM {
+  display: flex;
+  flex-wrap: wrap;
+}
+.nz2GDQ2B9PRi6GmzRwbUM._1fWEySWrY44TvDnJ8JNxnE {
+  align-items: flex-start;
+}
+.nz2GDQ2B9PRi6GmzRwbUM._1fWEySWrY44TvDnJ8JNxnE {
+  align-items: flex-start;
+}
+.nz2GDQ2B9PRi6GmzRwbUM._12Sbi_HmVVsUl9TM-zo3h- {
+  align-items: center;
+}
+.nz2GDQ2B9PRi6GmzRwbUM.gpFhy6a0Dyg4XrktE4jA3 {
+  align-items: flex-end;
+}
+
+.YDvxHwoU5TyTmW1oTkKgw {}
+
+.YDvxHwoU5TyTmW1oTkKgw {}
+
+#_3i3CD1fyX8bvzRt1H0IV-f {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+._3txeRUnk43pQ_ialOcI-1F {
+  content: '\\\\e901';
+}
+
+._3txeRUnk43pQ_ialOcI-1F {
+  content: '\\\\E901';
+}
+
+._3Zu4uw_Urs6mU3AHN6h0NV {}
+
+._2CroCHBxlB1qbFlcySSx5w \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.tm428Wy5sezAzoTJG2PnX a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#_2E85FJStrx25rDG2lYWifC {} /* matches the element with id=\\"#fake-id\\" */
+#_2pyPm3oWgKQ-rjECcnFYrX {} /* matches the element with id=\\"-a-b-c-\\" */
+#_2pmolVDQD2g7wt3ejy2doK {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  \\\\--sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
 ",
     "",
   ],
@@ -349,14 +475,27 @@ var urlEscape = require(\\"../../src/runtime/url-escape.js\\");
 var ___CSS_LOADER_URL___0___ = urlEscape(require(\\"./url/img.png\\"));
 
 // Module
-exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n._3YYoEr128Gk7ZgfRycu4tr {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx { a: b c d; }\\\\n\\\\n._1LWD9ZV4XMmN23IPiMONS3 {}\\\\n\\\\n._3i3CD1fyX8bvzRt1H0IV-f { a: b c d; }\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n._3YYoEr128Gk7ZgfRycu4tr {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx { a: b c d; }\\\\n\\\\n._1LWD9ZV4XMmN23IPiMONS3 {}\\\\n\\\\n._3i3CD1fyX8bvzRt1H0IV-f { a: b c d; }\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n._1PSZ4tK4URrenXyNSoawrx {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n._1fWEySWrY44TvDnJ8JNxnE {}\\\\n._1fWEySWrY44TvDnJ8JNxnE {}\\\\n\\\\n#Zmuw5k7Gg4hpgd6CVBEkq {}\\\\n\\\\n.nz2GDQ2B9PRi6GmzRwbUM {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.nz2GDQ2B9PRi6GmzRwbUM._1fWEySWrY44TvDnJ8JNxnE {\\\\n  align-items: flex-start;\\\\n}\\\\n.nz2GDQ2B9PRi6GmzRwbUM._1fWEySWrY44TvDnJ8JNxnE {\\\\n  align-items: flex-start;\\\\n}\\\\n.nz2GDQ2B9PRi6GmzRwbUM._12Sbi_HmVVsUl9TM-zo3h- {\\\\n  align-items: center;\\\\n}\\\\n.nz2GDQ2B9PRi6GmzRwbUM.gpFhy6a0Dyg4XrktE4jA3 {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.YDvxHwoU5TyTmW1oTkKgw {}\\\\n\\\\n.YDvxHwoU5TyTmW1oTkKgw {}\\\\n\\\\n#_3i3CD1fyX8bvzRt1H0IV-f {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n._3txeRUnk43pQ_ialOcI-1F {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n._3txeRUnk43pQ_ialOcI-1F {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n._3Zu4uw_Urs6mU3AHN6h0NV {}\\\\n\\\\n._2CroCHBxlB1qbFlcySSx5w \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.tm428Wy5sezAzoTJG2PnX a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#_2E85FJStrx25rDG2lYWifC {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#_2pyPm3oWgKQ-rjECcnFYrX {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#_2pmolVDQD2g7wt3ejy2doK {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  \\\\\\\\--sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\", \\"\\"]);
 
 // Exports
 exports.locals = {
+	\\"31\\": \\"tm428Wy5sezAzoTJG2PnX\\",
 	\\"class\\": \\"_1PSZ4tK4URrenXyNSoawrx\\",
 	\\"class-duplicate-url\\": \\"_3YYoEr128Gk7ZgfRycu4tr\\",
 	\\"two\\": \\"_1LWD9ZV4XMmN23IPiMONS3\\",
-	\\"u-m+\\": \\"_3i3CD1fyX8bvzRt1H0IV-f\\"
+	\\"u-m+\\": \\"_3i3CD1fyX8bvzRt1H0IV-f\\",
+	\\"-top\\": \\"_1fWEySWrY44TvDnJ8JNxnE\\",
+	\\"#test\\": \\"Zmuw5k7Gg4hpgd6CVBEkq\\",
+	\\"grid\\": \\"nz2GDQ2B9PRi6GmzRwbUM\\",
+	\\"-middle\\": \\"_12Sbi_HmVVsUl9TM-zo3h-\\",
+	\\"-bottom\\": \\"gpFhy6a0Dyg4XrktE4jA3\\",
+	\\"u-m00002b\\": \\"YDvxHwoU5TyTmW1oTkKgw\\",
+	\\"myStyle\\": \\"_3txeRUnk43pQ_ialOcI-1F\\",
+	\\"♫\\": \\"_3Zu4uw_Urs6mU3AHN6h0NV\\",
+	\\"3A\\": \\"_2CroCHBxlB1qbFlcySSx5w\\",
+	\\"#fake-id\\": \\"_2E85FJStrx25rDG2lYWifC\\",
+	\\"-a-b-c-\\": \\"_2pyPm3oWgKQ-rjECcnFYrX\\",
+	\\"©\\": \\"_2pmolVDQD2g7wt3ejy2doK\\"
 };"
 `;
 
@@ -519,6 +658,69 @@ Array [
   content: \\"\\\\2193\\\\2193\\\\2193\\";
   content: \\"\\\\2193 \\\\2193 \\\\2193\\";
 }
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
 ",
     "",
   ],
@@ -533,7 +735,7 @@ var urlEscape = require(\\"../../src/runtime/url-escape.js\\");
 var ___CSS_LOADER_URL___0___ = urlEscape(require(\\"./url/img.png\\"));
 
 // Module
-exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\", \\"\\"]);
 
 "
 `;
@@ -697,6 +899,69 @@ Array [
   content: \\"\\\\2193\\\\2193\\\\2193\\";
   content: \\"\\\\2193 \\\\2193 \\\\2193\\";
 }
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
 ",
     "",
   ],
@@ -711,7 +976,7 @@ var urlEscape = require(\\"../../src/runtime/url-escape.js\\");
 var ___CSS_LOADER_URL___0___ = urlEscape(require(\\"./url/img.png\\"));
 
 // Module
-exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\", \\"\\"]);
 
 "
 `;
