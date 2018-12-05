@@ -37,7 +37,7 @@ describe('modules', () => {
     });
   });
 
-  it(`composes should supports resolving`, async () => {
+  it('composes should supports resolving', async () => {
     const config = {
       loader: { options: { import: true, modules: true } },
     };
@@ -54,7 +54,7 @@ describe('modules', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  it(`issue #286`, async () => {
+  it('issue #286', async () => {
     const config = {
       loader: {
         test: /source\.css$/,
@@ -75,6 +75,37 @@ describe('modules', () => {
       },
     };
     const testId = './modules/issue-286/source.css';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
+  it('issue #636', async () => {
+    const config = {
+      loader: {
+        test: /\.s[ca]ss$/i,
+        options: {
+          modules: true,
+          importLoaders: 1,
+          localIdentName: '[local]',
+          getLocalIdent: (context, localIdentName, localName) =>
+            `prefix-${localName}`,
+        },
+      },
+      sassLoader: true,
+      sassLoaderOptions: {
+        // eslint-disable-next-line global-require
+        implementation: require('sass'),
+      },
+    };
+    const testId = './modules/issue-636/source.scss';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);

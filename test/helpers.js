@@ -42,6 +42,7 @@ function evaluated(output, modules, moduleId = 1) {
             'url/node_modules',
             'modules/',
             'modules/issue-286',
+            'modules/issue-636',
             'modules/node_modules',
             'modules/tests-cases/urls',
             'modules/tests-cases/issue-589',
