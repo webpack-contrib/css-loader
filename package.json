@@ -43,7 +43,7 @@
     "lodash": "^4.17.11",
     "postcss": "^7.0.6",
     "postcss-modules-extract-imports": "^2.0.0",
-    "postcss-modules-local-by-default": "^2.0.1",
+    "postcss-modules-local-by-default": "^2.0.2",
     "postcss-modules-scope": "^2.0.0",
     "postcss-modules-values": "^2.0.0",
     "postcss-value-parser": "^3.3.0",
