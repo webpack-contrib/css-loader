@@ -3,50 +3,29 @@ import valueParser from 'postcss-value-parser';
 
 const pluginName = 'postcss-url-parser';
 
+function getArg(nodes) {
+  return nodes.length !== 0 && nodes[0].type === 'string'
+    ? nodes[0].value
+    : valueParser.stringify(nodes);
+}
+
 function walkUrls(parsed, callback) {
   parsed.walk((node) => {
     if (node.type !== 'function' || node.value.toLowerCase() !== 'url') {
       return;
     }
 
-    const url =
-      node.nodes.length !== 0 && node.nodes[0].type === 'string'
-        ? node.nodes[0].value
-        : valueParser.stringify(node.nodes);
-
     /* eslint-disable */
     node.before = '';
     node.after = '';
     /* eslint-enable */
 
-    callback(node, url);
+    callback(node, getArg(node.nodes));
 
     // Do not traverse inside url
     // eslint-disable-next-line consistent-return
     return false;
   });
-}
-
-function filterUrls(parsed, result, decl, filter) {
-  const urls = [];
-
-  walkUrls(parsed, (node, url) => {
-    if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
-      result.warn(`Unable to find uri in '${decl.toString()}'`, {
-        node: decl,
-      });
-
-      return;
-    }
-
-    if (filter && !filter(url)) {
-      return;
-    }
-
-    urls.push(url);
-  });
-
-  return urls;
 }
 
 function walkDeclsWithUrl(css, result, filter) {
@@ -58,13 +37,29 @@ function walkDeclsWithUrl(css, result, filter) {
     }
 
     const parsed = valueParser(decl.value);
-    const values = filterUrls(parsed, result, decl, filter);
+    const urls = [];
 
-    if (values.length === 0) {
+    walkUrls(parsed, (node, url) => {
+      if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
+        result.warn(`Unable to find uri in '${decl.toString()}'`, {
+          node: decl,
+        });
+
+        return;
+      }
+
+      if (filter && !filter(url)) {
+        return;
+      }
+
+      urls.push(url);
+    });
+
+    if (urls.length === 0) {
       return;
     }
 
-    items.push({ decl, parsed, values });
+    items.push({ decl, parsed, urls });
   });
 
   return items;
@@ -72,19 +67,6 @@ function walkDeclsWithUrl(css, result, filter) {
 
 function flatten(array) {
   return array.reduce((acc, d) => [...acc, ...d], []);
-}
-
-function mapUrls(parsed, map) {
-  walkUrls(parsed, (node, content) => {
-    const placeholder = map(content);
-
-    if (!placeholder) {
-      return;
-    }
-
-    // eslint-disable-next-line no-param-reassign
-    node.nodes = [{ type: 'word', value: map(content) }];
-  });
 }
 
 function uniq(array) {
@@ -99,7 +81,7 @@ export default postcss.plugin(
   (options = {}) =>
     function process(css, result) {
       const traversed = walkDeclsWithUrl(css, result, options.filter);
-      const paths = uniq(flatten(traversed.map((item) => item.values)));
+      const paths = uniq(flatten(traversed.map((item) => item.urls)));
 
       if (paths.length === 0) {
         return;
@@ -120,7 +102,16 @@ export default postcss.plugin(
       });
 
       traversed.forEach((item) => {
-        mapUrls(item.parsed, (value) => urls[value]);
+        walkUrls(item.parsed, (node, url) => {
+          const value = urls[url];
+
+          if (!value) {
+            return;
+          }
+
+          // eslint-disable-next-line no-param-reassign
+          node.nodes = [{ type: 'word', value }];
+        });
 
         // eslint-disable-next-line no-param-reassign
         item.decl.value = item.parsed.toString();
