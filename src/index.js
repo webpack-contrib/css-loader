@@ -17,14 +17,15 @@ import {
   getCurrentRequest,
   stringifyRequest,
 } from 'loader-utils';
+import camelCase from 'lodash/camelCase';
 
 import schema from './options.json';
 import { importParser, icssParser, urlParser } from './plugins';
 import {
   getLocalIdent,
   getImportPrefix,
-  compileExports,
   placholderRegExps,
+  dashesCamelCase,
 } from './utils';
 import Warning from './Warning';
 import CssSyntaxError from './CssSyntaxError';
@@ -137,10 +138,9 @@ export default function loader(content, map, meta) {
         .forEach((warning) => this.emitWarning(new Warning(warning)));
 
       const messages = result.messages || [];
-      const { camelCase, exportOnlyLocals, importLoaders } = options;
 
       // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
-      const importUrlPrefix = getImportPrefix(this, importLoaders);
+      const importUrlPrefix = getImportPrefix(this, options.importLoaders);
 
       // Prepare replacer to change from `___CSS_LOADER_IMPORT___INDEX___` to `require('./file.css').locals`
       const importItemReplacer = (placeholder) => {
@@ -162,7 +162,7 @@ export default function loader(content, map, meta) {
         const { item } = message;
         const importUrl = importUrlPrefix + urlToRequest(item.url);
 
-        if (exportOnlyLocals) {
+        if (options.exportOnlyLocals) {
           return `" + require(${stringifyRequest(
             this,
             importUrl
@@ -175,18 +175,65 @@ export default function loader(content, map, meta) {
         )}).locals[${JSON.stringify(item.export)}] + "`;
       };
 
-      let exportCode = compileExports(messages, camelCase, (valueAsString) =>
-        valueAsString.replace(placholderRegExps.importItemG, importItemReplacer)
-      );
+      const exports = messages
+        .filter((message) => message.type === 'export')
+        .reduce((accumulator, message) => {
+          const { key, value } = message.item;
 
-      if (exportOnlyLocals) {
+          let valueAsString = JSON.stringify(value);
+
+          valueAsString = valueAsString.replace(
+            placholderRegExps.importItemG,
+            importItemReplacer
+          );
+
+          function addEntry(k) {
+            accumulator.push(`\t${JSON.stringify(k)}: ${valueAsString}`);
+          }
+
+          let targetKey;
+
+          switch (options.camelCase) {
+            case true:
+              addEntry(key);
+              targetKey = camelCase(key);
+
+              if (targetKey !== key) {
+                addEntry(targetKey);
+              }
+              break;
+            case 'dashes':
+              addEntry(key);
+              targetKey = dashesCamelCase(key);
+
+              if (targetKey !== key) {
+                addEntry(targetKey);
+              }
+              break;
+            case 'only':
+              addEntry(camelCase(key));
+              break;
+            case 'dashesOnly':
+              addEntry(dashesCamelCase(key));
+              break;
+            default:
+              addEntry(key);
+              break;
+          }
+
+          return accumulator;
+        }, []);
+
+      if (options.exportOnlyLocals) {
         return callback(
           null,
-          exportCode ? `module.exports = ${exportCode};` : exportCode
+          exports.length > 0
+            ? `module.exports = {\n${exports.join(',\n')}\n};`
+            : ''
         );
       }
 
-      const importCode = messages
+      const imports = messages
         .filter((message) => message.type === 'import')
         .map((message) => {
           const { url } = message.item;
@@ -204,55 +251,51 @@ export default function loader(content, map, meta) {
             this,
             importUrl
           )}), ${JSON.stringify(media)});`;
-        }, this)
-        .join('\n');
+        }, this);
 
       let cssAsString = JSON.stringify(result.css).replace(
         placholderRegExps.importItemG,
         importItemReplacer
       );
 
-      // helper for ensuring valid CSS strings from requires
-      let urlEscapeHelperCode = '';
+      // Helper for ensuring valid CSS strings from requires
+      let hasUrlEscapeHelper = false;
 
       messages
         .filter((message) => message.type === 'url')
         .forEach((message) => {
-          if (!urlEscapeHelperCode) {
-            urlEscapeHelperCode = `var escape = require(${stringifyRequest(
-              this,
-              require.resolve('./runtime/escape.js')
-            )});\n`;
+          if (!hasUrlEscapeHelper) {
+            imports.push(
+              `var urlEscape = require(${stringifyRequest(
+                this,
+                require.resolve('./runtime/url-escape.js')
+              )});`
+            );
+
+            hasUrlEscapeHelper = true;
           }
 
           const { item } = message;
           const { url, placeholder } = item;
+          // Remove `#hash` and `?#hash` from `require`
+          const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
+          const hash =
+            singleQuery || hashValue
+              ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
+              : '';
+
+          imports.push(
+            `var ${placeholder} = urlEscape(require(${stringifyRequest(
+              this,
+              urlToRequest(normalizedUrl)
+            )})${hash ? ` + ${hash}` : ''});`
+          );
 
           cssAsString = cssAsString.replace(
             new RegExp(placeholder, 'g'),
-            () => {
-              // Remove `#hash` and `?#hash` from `require`
-              const [normalizedUrl, singleQuery, hashValue] = url.split(
-                /(\?)?#/
-              );
-              const hash =
-                singleQuery || hashValue
-                  ? `"${singleQuery ? '?' : ''}${
-                      hashValue ? `#${hashValue}` : ''
-                    }"`
-                  : '';
-
-              return `" + escape(require(${stringifyRequest(
-                this,
-                urlToRequest(normalizedUrl)
-              )})${hash ? ` + ${hash}` : ''}) + "`;
-            }
+            () => `" + ${placeholder} + "`
           );
         });
-
-      if (exportCode) {
-        exportCode = `exports.locals = ${exportCode};`;
-      }
 
       let newMap = result.map;
 
@@ -282,18 +325,21 @@ export default function loader(content, map, meta) {
       const runtimeCode = `exports = module.exports = require(${stringifyRequest(
         this,
         require.resolve('./runtime/api')
-      )})(${!!sourceMap});`;
-      const moduleCode = `exports.push([module.id, ${cssAsString}, ""${
+      )})(${!!sourceMap});\n`;
+      const importCode =
+        imports.length > 0 ? `// Imports\n${imports.join('\n')}\n\n` : '';
+      const moduleCode = `// Module\nexports.push([module.id, ${cssAsString}, ""${
         newMap ? `,${newMap}` : ''
-      }]);`;
+      }]);\n\n`;
+      const exportsCode =
+        exports.length > 0
+          ? `// Exports\nexports.locals = {\n${exports.join(',\n')}\n};`
+          : '';
 
       // Embed runtime
       return callback(
         null,
-        `${urlEscapeHelperCode}${runtimeCode}\n` +
-          `// imports\n${importCode}\n\n` +
-          `// module\n${moduleCode}\n\n` +
-          `// exports\n${exportCode}`
+        runtimeCode + importCode + moduleCode + exportsCode
       );
     })
     .catch((error) => {

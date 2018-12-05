@@ -4,7 +4,6 @@
 */
 import path from 'path';
 
-import camelCase from 'lodash/camelCase';
 import loaderUtils from 'loader-utils';
 
 const placholderRegExps = {
@@ -35,56 +34,6 @@ function dashesCamelCase(str) {
   );
 }
 
-function compileExports(messages, camelCaseKeys, valueHandler) {
-  const exports = messages
-    .filter((message) => message.type === 'export')
-    .reduce((accumulator, message) => {
-      const { key, value } = message.item;
-
-      let valueAsString = JSON.stringify(value);
-
-      valueAsString = valueHandler(valueAsString);
-
-      function addEntry(k) {
-        accumulator.push(`\t${JSON.stringify(k)}: ${valueAsString}`);
-      }
-
-      let targetKey;
-
-      switch (camelCaseKeys) {
-        case true:
-          addEntry(key);
-          targetKey = camelCase(key);
-
-          if (targetKey !== key) {
-            addEntry(targetKey);
-          }
-          break;
-        case 'dashes':
-          addEntry(key);
-          targetKey = dashesCamelCase(key);
-
-          if (targetKey !== key) {
-            addEntry(targetKey);
-          }
-          break;
-        case 'only':
-          addEntry(camelCase(key));
-          break;
-        case 'dashesOnly':
-          addEntry(dashesCamelCase(key));
-          break;
-        default:
-          addEntry(key);
-          break;
-      }
-
-      return accumulator;
-    }, []);
-
-  return exports.length > 0 ? `{\n${exports.join(',\n')}\n}` : '';
-}
-
 function getLocalIdent(loaderContext, localIdentName, localName, options) {
   if (!options.context) {
     // eslint-disable-next-line no-param-reassign
@@ -112,4 +61,4 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
     .replace(/^((-?[0-9])|--)/, '_$1');
 }
 
-export { compileExports, getImportPrefix, getLocalIdent, placholderRegExps };
+export { getImportPrefix, getLocalIdent, placholderRegExps, dashesCamelCase };

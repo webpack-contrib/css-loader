@@ -60,3 +60,8 @@
 @import url('../import/top-relative.css');
 @import url(~package/tilde.css);
 @import url(~aliasesImport/alias.css);
+@import url('./url.css');
+
+.background {
+  background: url('./img.png');
+}
