@@ -61,4 +61,24 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
     .replace(/^((-?[0-9])|--)/, '_$1');
 }
 
-export { getImportPrefix, getLocalIdent, placholderRegExps, dashesCamelCase };
+function getFilter(filter, resourcePath, defaultFilter = null) {
+  return (content) => {
+    if (defaultFilter && !defaultFilter(content)) {
+      return false;
+    }
+
+    if (typeof filter === 'function') {
+      return !filter(content, resourcePath);
+    }
+
+    return true;
+  };
+}
+
+export {
+  getImportPrefix,
+  getLocalIdent,
+  placholderRegExps,
+  dashesCamelCase,
+  getFilter,
+};

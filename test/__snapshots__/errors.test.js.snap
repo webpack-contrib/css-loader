@@ -4,6 +4,8 @@ exports[`validation 1`] = `
 "CSS Loader Invalid Options
 
 options.url should be boolean
+options.url should pass \\"instanceof\\" keyword validation
+options.url should match some schema in anyOf
 "
 `;
 

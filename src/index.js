@@ -26,6 +26,7 @@ import {
   getImportPrefix,
   placholderRegExps,
   dashesCamelCase,
+  getFilter,
 } from './utils';
 import Warning from './Warning';
 import CssSyntaxError from './CssSyntaxError';
@@ -66,9 +67,6 @@ export default function loader(content, map, meta) {
     }
   }
 
-  const resolveImport = options.import !== false;
-  const resolveUrl = options.url !== false;
-
   const plugins = [];
 
   if (options.modules) {
@@ -100,14 +98,16 @@ export default function loader(content, map, meta) {
     );
   }
 
-  if (resolveImport) {
+  if (options.import !== false) {
     plugins.push(importParser());
   }
 
-  if (resolveUrl) {
+  if (options.url !== false) {
     plugins.push(
       urlParser({
-        filter: (value) => isUrlRequest(value),
+        filter: getFilter(options.url, this.resourcePath, (value) =>
+          isUrlRequest(value)
+        ),
       })
     );
   }
