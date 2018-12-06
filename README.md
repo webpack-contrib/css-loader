@@ -114,23 +114,41 @@ module.exports = {
 
 ## Options
 
-|                    Name                     |        Type         |     Default     | Description                                 |
-| :-----------------------------------------: | :-----------------: | :-------------: | :------------------------------------------ |
-|              **[`url`](#url)**              |     `{Boolean}`     |     `true`      | Enable/Disable `url()` handling             |
-|           **[`import`](#import)**           |     `{Boolean}`     |     `true`      | Enable/Disable @import handling             |
-|          **[`modules`](#modules)**          | `{Boolean\|String}` |     `false`     | Enable/Disable CSS Modules and setup mode   |
-|   **[`localIdentName`](#localidentname)**   |     `{String}`      | `[hash:base64]` | Configure the generated ident               |
-|        **[`sourceMap`](#sourcemap)**        |     `{Boolean}`     |     `false`     | Enable/Disable Sourcemaps                   |
-|        **[`camelCase`](#camelcase)**        | `{Boolean\|String}` |     `false`     | Export Classnames in CamelCase              |
-|    **[`importLoaders`](#importloaders)**    |     `{Number}`      |       `0`       | Number of loaders applied before CSS loader |
-| **[`exportOnlyLocals`](#exportonlylocals)** |     `{Boolean}`     |     `false`     | Export only locals                          |
+|                    Name                     |         Type          |     Default     | Description                                 |
+| :-----------------------------------------: | :-------------------: | :-------------: | :------------------------------------------ |
+|              **[`url`](#url)**              | `{Boolean\|Function}` |     `true`      | Enable/Disable `url()` handling             |
+|           **[`import`](#import)**           |      `{Boolean}`      |     `true`      | Enable/Disable @import handling             |
+|          **[`modules`](#modules)**          |  `{Boolean\|String}`  |     `false`     | Enable/Disable CSS Modules and setup mode   |
+|   **[`localIdentName`](#localidentname)**   |      `{String}`       | `[hash:base64]` | Configure the generated ident               |
+|        **[`sourceMap`](#sourcemap)**        |      `{Boolean}`      |     `false`     | Enable/Disable Sourcemaps                   |
+|        **[`camelCase`](#camelcase)**        |  `{Boolean\|String}`  |     `false`     | Export Classnames in CamelCase              |
+|    **[`importLoaders`](#importloaders)**    |      `{Number}`       |       `0`       | Number of loaders applied before CSS loader |
+| **[`exportOnlyLocals`](#exportonlylocals)** |      `{Boolean}`      |     `false`     | Export only locals                          |
 
 ### `url`
 
-Type: `Boolean`
+Type: `Boolean|Function`
 Default: `true`
 
-Enable/disable `url()` resolving. Absolute `urls` are not resolving by default.
+Control `url()` resolving. Absolute `urls` are not resolving by default.
+
+Examples resolutions:
+
+```
+url(image.png) => require('./image.png')
+url(./image.png) => require('./image.png')
+```
+
+To import assets from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
+
+```
+url(~module/image.png) => require('module/image.png')
+url(~aliasDirectory/image.png) => require('otherDirectory/image.png')
+```
+
+#### `Boolean`
+
+Enable/disable `url()` resolving.
 
 **webpack.config.js**
 
@@ -150,18 +168,27 @@ module.exports = {
 };
 ```
 
-Examples resolutions:
+#### `Function`
 
-```
-url(image.png) => require('./image.png')
-url(./image.png) => require('./image.png')
-```
+Allow to filter `url()`. All filtered `url()` will not be resolved.
 
-To import assets from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
-
-```
-url(~module/image.png) => require('module/image.png')
-url(~aliasDirectory/image.png) => require('otherDirectory/image.png')
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          url: (url, resourcePath) => {
+            // `url()` with `img.png` stay untouched
+            return url.includes('img.png');
+          },
+        },
+      },
+    ],
+  },
+};
 ```
 
 ### `import`

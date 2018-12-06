@@ -2,7 +2,14 @@
   "additionalProperties": false,
   "properties": {
     "url": {
-      "type": "boolean"
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
     },
     "import": {
       "type": "boolean"

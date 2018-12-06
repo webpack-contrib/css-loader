@@ -22,6 +22,7 @@ it('validation', () => {
 
   expect(() => validate({ url: true })).not.toThrow();
   expect(() => validate({ url: false })).not.toThrow();
+  expect(() => validate({ url: () => {} })).not.toThrow();
   expect(() => validate({ url: 'true' })).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ import: true })).not.toThrow();

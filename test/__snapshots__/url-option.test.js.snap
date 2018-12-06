@@ -1,5 +1,274 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`url option Function: errors 1`] = `Array []`;
+
+exports[`url option Function: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    ".bar {
+  background: url(/webpack/public/path/img-from-imported.png);
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    ".class {
+  background: url('./img.png');
+}
+
+.class {
+  background: url(\\"./img.png\\");
+}
+
+.class {
+  background: url(./img.png);
+}
+
+.class {
+  background: url(\\"./img.png#hash\\");
+}
+
+.class {
+  background: url(
+    \\"./img.png\\"
+  );
+}
+
+.class {
+  background: green url( './img.png' ) xyz;
+}
+
+.class {
+  background: green url( \\"./img.png\\" ) xyz;
+}
+
+.class {
+  background: green url( ./img.png ) xyz;
+}
+
+.class {
+  background: green url(~package/img.png) url(./other-img.png) xyz;
+}
+
+.class {
+  background: green url( \\"./img img.png\\" ) xyz;
+}
+
+.class {
+  background: green url( './img img.png' ) xyz;
+}
+
+.class {
+  background: green url(/img.png) xyz;
+}
+
+.class {
+  background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz;
+}
+
+.class {
+  background-image: url(\\"data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 26' fill='%23007aff'><rect width='4' height='4'/><rect x='8' y='1' width='34' height='2'/><rect y='11' width='4' height='4'/><rect x='8' y='12' width='34' height='2'/><rect y='22' width='4' height='4'/><rect x='8' y='23' width='34' height='2'/></svg>\\");
+}
+
+.class {
+  background-image: url(\\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2042%2026%27%20fill%3D%27%2523007aff%27%3E%3Crect%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%271%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3Crect%20y%3D%2711%27%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%2712%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3Crect%20y%3D%2722%27%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%2723%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3C%2Fsvg%3E\\");
+}
+
+.class {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns=\\"http://www.w3.org/2000/svg\\"><filter id=\\"filter\\"><feGaussianBlur in=\\"SourceAlpha\\" stdDeviation=\\"0\\" /><feOffset dx=\\"1\\" dy=\\"2\\" result=\\"offsetblur\\" /><feFlood flood-color=\\"rgba(255,255,255,1)\\" /><feComposite in2=\\"offsetblur\\" operator=\\"in\\" /><feMerge><feMergeNode /><feMergeNode in=\\"SourceGraphic\\" /></feMerge></filter></svg>#filter');
+}
+
+.class {
+  filter: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%5C%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%5C%22%3E%3Cfilter%20id%3D%5C%22filter%5C%22%3E%3CfeGaussianBlur%20in%3D%5C%22SourceAlpha%5C%22%20stdDeviation%3D%5C%220%5C%22%20%2F%3E%3CfeOffset%20dx%3D%5C%221%5C%22%20dy%3D%5C%222%5C%22%20result%3D%5C%22offsetblur%5C%22%20%2F%3E%3CfeFlood%20flood-color%3D%5C%22rgba(255%2C255%2C255%2C1)%5C%22%20%2F%3E%3CfeComposite%20in2%3D%5C%22offsetblur%5C%22%20operator%3D%5C%22in%5C%22%20%2F%3E%3CfeMerge%3E%3CfeMergeNode%20%2F%3E%3CfeMergeNode%20in%3D%5C%22SourceGraphic%5C%22%20%2F%3E%3C%2FfeMerge%3E%3C%2Ffilter%3E%3C%2Fsvg%3E%23filter');
+}
+
+.highlight {
+  filter: url(#highlight);
+}
+
+.highlight {
+  filter: url('#line-marker');
+}
+
+@font-face {
+  src: url(/webpack/public/path/font.woff) format('woff'),
+    url(/webpack/public/path/font.woff2) format('woff2'),
+    url(/webpack/public/path/font.eot) format('eot'),
+    url(/webpack/public/path/font.ttf) format('truetype'),
+    url(\\"/webpack/public/path/font with spaces.eot\\") format(\\"embedded-opentype\\"),
+    url(/webpack/public/path/font.svg#svgFontName) format('svg'),
+    url(/webpack/public/path/font.woff2) format('woff2'),
+    url(/webpack/public/path/font.eot?#iefix) format('embedded-opentype'),
+    url(\\"/webpack/public/path/font with spaces.eot?#iefix\\") format('embedded-opentype');
+}
+
+@media (min-width: 500px) {
+  body {
+    background: url(\\"./img.png\\");
+  }
+}
+
+a {
+  content: \\"do not use url(path)\\";
+}
+
+b {
+  content: 'do not \\"use\\" url(path)';
+}
+
+@keyframes anim {
+  background: green url('./img.png') xyz;
+}
+
+.a {
+  background-image: -webkit-image-set(url(/webpack/public/path/img1x.png) 1x, url(/webpack/public/path/img2x.png) 2x)
+}
+
+.a {
+  background-image: image-set(url(/webpack/public/path/img1x.png) 1x, url(/webpack/public/path/img2x.png) 2x)
+}
+
+.class {
+  background: green url() xyz;
+}
+
+.class {
+  background: green url('') xyz;
+}
+
+.class {
+  background: green url(\\"\\") xyz;
+}
+
+.class {
+  background: green url('   ') xyz;
+}
+
+.class {
+  background: green url(
+  
+  ) xyz;
+}
+
+.class {
+  background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;
+}
+
+.class {
+  background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;
+}
+
+.class {
+  background: url(\\"./img.png?foo\\");
+}
+
+.class {
+  background: url(\\"./img.png?foo=bar\\");
+}
+
+.class {
+  background: url(\\"./img.png?foo=bar#hash\\");
+}
+
+.class {
+  background: url(\\"./img.png?foo=bar#hash\\");
+}
+
+.class {
+  background: url(\\"./img.png?\\");
+}
+
+.class {
+  background-image: url('./img.png') url(\\"data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 26' fill='%23007aff'><rect width='4' height='4'/><rect x='8' y='1' width='34' height='2'/><rect y='11' width='4' height='4'/><rect x='8' y='12' width='34' height='2'/><rect y='22' width='4' height='4'/><rect x='8' y='23' width='34' height='2'/></svg>\\") url('./img.png');
+}
+
+.class {
+  background: ___CSS_LOADER_URL___;
+  background: ___CSS_LOADER_URL___INDEX___;
+  background: ___CSS_LOADER_URL___99999___;
+  background: ___CSS_LOADER_IMPORT___;
+  background: ___CSS_LOADER_IMPORT___INDEX___;
+  background: ___CSS_LOADER_IMPORT___99999___;
+}
+
+.pure-url {
+  background: url(/webpack/public/path/img-simple.png);
+}
+
+.not-resolved {
+  background: url('/img-simple.png');
+}
+
+.above-below {
+  background: url(/webpack/public/path/img-simple.png);
+}
+
+.tilde {
+  background: url('~package/img.png');
+}
+
+.aliases {
+  background: url('~aliasesImg/img.png') ;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`url option Function: module 1`] = `
+"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+// Imports
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\"), \\"\\");
+var urlEscape = require(\\"../../../src/runtime/url-escape.js\\");
+var ___CSS_LOADER_URL___0___ = urlEscape(require(\\"./font.woff\\"));
+var ___CSS_LOADER_URL___1___ = urlEscape(require(\\"./font.woff2\\"));
+var ___CSS_LOADER_URL___2___ = urlEscape(require(\\"./font.eot\\"));
+var ___CSS_LOADER_URL___3___ = urlEscape(require(\\"package/font.ttf\\"));
+var ___CSS_LOADER_URL___4___ = urlEscape(require(\\"./font with spaces.eot\\"));
+var ___CSS_LOADER_URL___5___ = urlEscape(require(\\"./font.svg\\") + \\"#svgFontName\\");
+var ___CSS_LOADER_URL___6___ = urlEscape(require(\\"./font.woff2?foo=bar\\"));
+var ___CSS_LOADER_URL___7___ = urlEscape(require(\\"./font.eot\\") + \\"?#iefix\\");
+var ___CSS_LOADER_URL___8___ = urlEscape(require(\\"./font with spaces.eot\\") + \\"?#iefix\\");
+var ___CSS_LOADER_URL___9___ = urlEscape(require(\\"./img1x.png\\"));
+var ___CSS_LOADER_URL___10___ = urlEscape(require(\\"./img2x.png\\"));
+var ___CSS_LOADER_URL___11___ = urlEscape(require(\\"./img-simple.png\\"));
+var ___CSS_LOADER_URL___12___ = urlEscape(require(\\"../url/img-simple.png\\"));
+
+// Module
+exports.push([module.id, \\".class {\\\\n  background: url('./img.png');\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\\\"./img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(./img.png);\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\\\"./img.png#hash\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\n    \\\\\\"./img.png\\\\\\"\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( './img.png' ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\\\\\"./img.png\\\\\\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( ./img.png ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(~package/img.png) url(./other-img.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\\\\\"./img img.png\\\\\\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( './img img.png' ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(/img.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background-image: url(\\\\\\"data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 26' fill='%23007aff'><rect width='4' height='4'/><rect x='8' y='1' width='34' height='2'/><rect y='11' width='4' height='4'/><rect x='8' y='12' width='34' height='2'/><rect y='22' width='4' height='4'/><rect x='8' y='23' width='34' height='2'/></svg>\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image: url(\\\\\\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2042%2026%27%20fill%3D%27%2523007aff%27%3E%3Crect%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%271%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3Crect%20y%3D%2711%27%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%2712%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3Crect%20y%3D%2722%27%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%2723%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3C%2Fsvg%3E\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns=\\\\\\"http://www.w3.org/2000/svg\\\\\\"><filter id=\\\\\\"filter\\\\\\"><feGaussianBlur in=\\\\\\"SourceAlpha\\\\\\" stdDeviation=\\\\\\"0\\\\\\" /><feOffset dx=\\\\\\"1\\\\\\" dy=\\\\\\"2\\\\\\" result=\\\\\\"offsetblur\\\\\\" /><feFlood flood-color=\\\\\\"rgba(255,255,255,1)\\\\\\" /><feComposite in2=\\\\\\"offsetblur\\\\\\" operator=\\\\\\"in\\\\\\" /><feMerge><feMergeNode /><feMergeNode in=\\\\\\"SourceGraphic\\\\\\" /></feMerge></filter></svg>#filter');\\\\n}\\\\n\\\\n.class {\\\\n  filter: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%5C%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%5C%22%3E%3Cfilter%20id%3D%5C%22filter%5C%22%3E%3CfeGaussianBlur%20in%3D%5C%22SourceAlpha%5C%22%20stdDeviation%3D%5C%220%5C%22%20%2F%3E%3CfeOffset%20dx%3D%5C%221%5C%22%20dy%3D%5C%222%5C%22%20result%3D%5C%22offsetblur%5C%22%20%2F%3E%3CfeFlood%20flood-color%3D%5C%22rgba(255%2C255%2C255%2C1)%5C%22%20%2F%3E%3CfeComposite%20in2%3D%5C%22offsetblur%5C%22%20operator%3D%5C%22in%5C%22%20%2F%3E%3CfeMerge%3E%3CfeMergeNode%20%2F%3E%3CfeMergeNode%20in%3D%5C%22SourceGraphic%5C%22%20%2F%3E%3C%2FfeMerge%3E%3C%2Ffilter%3E%3C%2Fsvg%3E%23filter');\\\\n}\\\\n\\\\n.highlight {\\\\n  filter: url(#highlight);\\\\n}\\\\n\\\\n.highlight {\\\\n  filter: url('#line-marker');\\\\n}\\\\n\\\\n@font-face {\\\\n  src: url(\\" + ___CSS_LOADER_URL___0___ + \\") format('woff'),\\\\n    url(\\" + ___CSS_LOADER_URL___1___ + \\") format('woff2'),\\\\n    url(\\" + ___CSS_LOADER_URL___2___ + \\") format('eot'),\\\\n    url(\\" + ___CSS_LOADER_URL___3___ + \\") format('truetype'),\\\\n    url(\\" + ___CSS_LOADER_URL___4___ + \\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL___5___ + \\") format('svg'),\\\\n    url(\\" + ___CSS_LOADER_URL___6___ + \\") format('woff2'),\\\\n    url(\\" + ___CSS_LOADER_URL___7___ + \\") format('embedded-opentype'),\\\\n    url(\\" + ___CSS_LOADER_URL___8___ + \\") format('embedded-opentype');\\\\n}\\\\n\\\\n@media (min-width: 500px) {\\\\n  body {\\\\n    background: url(\\\\\\"./img.png\\\\\\");\\\\n  }\\\\n}\\\\n\\\\na {\\\\n  content: \\\\\\"do not use url(path)\\\\\\";\\\\n}\\\\n\\\\nb {\\\\n  content: 'do not \\\\\\"use\\\\\\" url(path)';\\\\n}\\\\n\\\\n@keyframes anim {\\\\n  background: green url('./img.png') xyz;\\\\n}\\\\n\\\\n.a {\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL___9___ + \\") 1x, url(\\" + ___CSS_LOADER_URL___10___ + \\") 2x)\\\\n}\\\\n\\\\n.a {\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL___9___ + \\") 1x, url(\\" + ___CSS_LOADER_URL___10___ + \\") 2x)\\\\n}\\\\n\\\\n.class {\\\\n  background: green url() xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url('') xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\\\\\"\\\\\\") xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url('   ') xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\\\n  \\\\n  ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\\\"./img.png?foo\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\\\"./img.png?foo=bar\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\\\"./img.png?foo=bar#hash\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\\\"./img.png?foo=bar#hash\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\\\"./img.png?\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image: url('./img.png') url(\\\\\\"data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 26' fill='%23007aff'><rect width='4' height='4'/><rect x='8' y='1' width='34' height='2'/><rect y='11' width='4' height='4'/><rect x='8' y='12' width='34' height='2'/><rect y='22' width='4' height='4'/><rect x='8' y='23' width='34' height='2'/></svg>\\\\\\") url('./img.png');\\\\n}\\\\n\\\\n.class {\\\\n  background: ___CSS_LOADER_URL___;\\\\n  background: ___CSS_LOADER_URL___INDEX___;\\\\n  background: ___CSS_LOADER_URL___99999___;\\\\n  background: ___CSS_LOADER_IMPORT___;\\\\n  background: ___CSS_LOADER_IMPORT___INDEX___;\\\\n  background: ___CSS_LOADER_IMPORT___99999___;\\\\n}\\\\n\\\\n.pure-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL___11___ + \\");\\\\n}\\\\n\\\\n.not-resolved {\\\\n  background: url('/img-simple.png');\\\\n}\\\\n\\\\n.above-below {\\\\n  background: url(\\" + ___CSS_LOADER_URL___12___ + \\");\\\\n}\\\\n\\\\n.tilde {\\\\n  background: url('~package/img.png');\\\\n}\\\\n\\\\n.aliases {\\\\n  background: url('~aliasesImg/img.png') ;\\\\n}\\\\n\\", \\"\\"]);
+
+"
+`;
+
+exports[`url option Function: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(120:3) Unable to find uri in 'background: green url() xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(124:3) Unable to find uri in 'background: green url('') xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(128:3) Unable to find uri in 'background: green url(\\"\\") xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(132:3) Unable to find uri in 'background: green url('   ') xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(136:3) Unable to find uri in 'background: green url(
+  ) xyz'",
+]
+`;
+
 exports[`url option false: errors 1`] = `Array []`;
 
 exports[`url option false: module (evaluated) 1`] = `
