@@ -117,7 +117,7 @@ module.exports = {
 |                    Name                     |         Type          |     Default     | Description                                 |
 | :-----------------------------------------: | :-------------------: | :-------------: | :------------------------------------------ |
 |              **[`url`](#url)**              | `{Boolean\|Function}` |     `true`      | Enable/Disable `url()` handling             |
-|           **[`import`](#import)**           |      `{Boolean}`      |     `true`      | Enable/Disable @import handling             |
+|           **[`import`](#import)**           | `{Boolean\/Function}` |     `true`      | Enable/Disable @import handling             |
 |          **[`modules`](#modules)**          |  `{Boolean\|String}`  |     `false`     | Enable/Disable CSS Modules and setup mode   |
 |   **[`localIdentName`](#localidentname)**   |      `{String}`       | `[hash:base64]` | Configure the generated ident               |
 |        **[`sourceMap`](#sourcemap)**        |      `{Boolean}`      |     `false`     | Enable/Disable Sourcemaps                   |
@@ -130,19 +130,24 @@ module.exports = {
 Type: `Boolean|Function`
 Default: `true`
 
-Control `url()` resolving. Absolute `urls` are not resolving by default.
+Control `url()` resolving. Absolute urls are not resolving.
 
 Examples resolutions:
 
 ```
 url(image.png) => require('./image.png')
+url('image.png') => require('./image.png')
 url(./image.png) => require('./image.png')
+url('./image.png') => require('./image.png')
+url('http://dontwritehorriblecode.com/2112.png') => require('http://dontwritehorriblecode.com/2112.png')
+image-set(url('image2x.png') 1x, url('image1x.png') 2x) => require('./image1x.png') and require('./image2x.png')
 ```
 
 To import assets from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
 
 ```
 url(~module/image.png) => require('module/image.png')
+url('~module/image.png') => require('module/image.png')
 url(~aliasDirectory/image.png) => require('otherDirectory/image.png')
 ```
 
@@ -170,7 +175,9 @@ module.exports = {
 
 #### `Function`
 
-Allow to filter `url()`. All filtered `url()` will not be resolved.
+Allow to filter `url()`. All filtered `url()` will not be resolved (left in the code as they were written).
+
+**webpack.config.js**
 
 ```js
 module.exports = {
@@ -181,6 +188,8 @@ module.exports = {
         loader: 'css-loader',
         options: {
           url: (url, resourcePath) => {
+            // resourcePath - path to css file
+
             // `url()` with `img.png` stay untouched
             return url.includes('img.png');
           },
@@ -196,7 +205,31 @@ module.exports = {
 Type: `Boolean`
 Default: `true`
 
-Enable/disable `@import` resolving. Absolute urls are not resolving.
+Control `@import` resolving. Absolute urls in `@import` will be moved in runtime code.
+
+Examples resolutions:
+
+```
+@import 'style.css' => require('./style.css')
+@import url(style.css) => require('./style.css')
+@import url('style.css') => require('./style.css')
+@import './style.css' => require('./style.css')
+@import url(./style.css) => require('./style.css')
+@import url('./style.css') => require('./style.css')
+@import url('http://dontwritehorriblecode.com/style.css') => @import url('http://dontwritehorriblecode.com/style.css') in runtime
+```
+
+To import styles from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
+
+```
+@import url(~module/style.css) => require('module/style.css')
+@import url('~module/style.css') => require('module/style.css')
+@import url(~aliasDirectory/style.css) => require('otherDirectory/style.css')
+```
+
+#### `Boolean`
+
+Enable/disable `@import` resolving.
 
 **webpack.config.js**
 
@@ -216,22 +249,33 @@ module.exports = {
 };
 ```
 
-Examples resolutions:
+#### `Function`
 
-```
-@import 'style.css' => require('./style.css')
-@import url(style.css) => require('./style.css')
-@import url('style.css') => require('./style.css')
-@import './style.css' => require('./style.css')
-@import url(./style.css) => require('./style.css')
-@import url('./style.css') => require('./style.css')
-```
+Allow to filter `@import`. All filtered `@import` will not be resolved (left in the code as they were written).
 
-To import styles from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
+**webpack.config.js**
 
-```
-@import url(~module/style.css) => require('module/style.css')
-@import url(~aliasDirectory/style.css) => require('otherDirectory/style.css')
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          import: (parsedImport, resourcePath) => {
+            // parsedImport.url - url of `@import`
+            // parsedImport.media - media query of `@import`
+            // resourcePath - path to css file
+
+            // `@import` with `style.css` stay untouched
+            return parsedImport.url.includes('style.css');
+          },
+        },
+      },
+    ],
+  },
+};
 ```
 
 ### [`modules`](https://github.com/css-modules/css-modules)

@@ -27,6 +27,7 @@ it('validation', () => {
 
   expect(() => validate({ import: true })).not.toThrow();
   expect(() => validate({ import: false })).not.toThrow();
+  expect(() => validate({ import: () => {} })).not.toThrow();
   expect(() => validate({ import: 'true' })).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ modules: true })).not.toThrow();

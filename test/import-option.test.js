@@ -54,4 +54,31 @@ describe('import option', () => {
       );
     });
   });
+
+  it('Function', async () => {
+    const config = {
+      loader: {
+        options: {
+          import: (parsedImport, resourcePath) => {
+            expect(typeof resourcePath === 'string').toBe(true);
+
+            return parsedImport.url.includes('test.css');
+          },
+        },
+      },
+    };
+    const testId = './import/import.css';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+  });
 });

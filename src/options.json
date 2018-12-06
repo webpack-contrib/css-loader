@@ -12,7 +12,14 @@
       ]
     },
     "import": {
-      "type": "boolean"
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
     },
     "modules": {
       "anyOf": [

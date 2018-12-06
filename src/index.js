@@ -99,7 +99,11 @@ export default function loader(content, map, meta) {
   }
 
   if (options.import !== false) {
-    plugins.push(importParser());
+    plugins.push(
+      importParser({
+        filter: getFilter(options.import, this.resourcePath),
+      })
+    );
   }
 
   if (options.url !== false) {
