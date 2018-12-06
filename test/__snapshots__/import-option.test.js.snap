@@ -1,5 +1,276 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`import option Function: errors 1`] = `Array []`;
+
+exports[`import option Function: module (evaluated) 1`] = `
+Array [
+  Array [
+    3,
+    "a {
+  b: b;
+}
+",
+    "((min-width: 100px)) and (screen and print)",
+  ],
+  Array [
+    2,
+    ".test {
+  c: c;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/style.css?foo=bar#hash);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(http://example.com/other-style.css);",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(//example.com/style.css);",
+    "",
+  ],
+  Array [
+    4,
+    ".query {
+  e: e;
+}
+",
+    "",
+  ],
+  Array [
+    5,
+    ".other-query {
+  f: f;
+}
+",
+    "",
+  ],
+  Array [
+    6,
+    ".other-query {
+  f: f;
+}
+",
+    "screen and print",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Roboto);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
+    "",
+  ],
+  Array [
+    7,
+    ".relative {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    8,
+    ".top-relative {
+  color: black;
+}
+",
+    "",
+  ],
+  Array [
+    9,
+    ".tilde {
+  color: yellow;
+}
+",
+    "",
+  ],
+  Array [
+    10,
+    ".alias {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    11,
+    ".background-imported {
+  background: url(/webpack/public/path/img.png);
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "@import url(test.css);
+@import url('test.css');
+@import url(\\"test.css\\");
+@IMPORT url(test.css);
+@import URL(test.css);
+@import url(test.css );
+@import url( test.css);
+@import url( test.css );
+@import url(
+  test.css
+);
+@import url();
+@import url('');
+@import url(\\"\\");
+@import \\"test.css\\";
+@import 'test.css';
+@import '';
+@import \\"\\";
+@import \\"   \\";
+@import \\"
+\\";
+@import url();
+@import url('');
+@import url(\\"\\");
+@import url(test.css) screen and print;
+@import url(test.css) SCREEN AND PRINT;
+@import url(test.css)screen and print;
+@import url(test.css)  screen and print;
+@import url(~package/test.css);
+@import ;
+@import foo-bar;
+@import-normalize;
+@import url('http://') :root {}
+
+.class {
+  a: b c d;
+}
+
+.foo {
+  @import 'path.css';
+}
+
+.background {
+  background: url(/webpack/public/path/img.png);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`import option Function: module 1`] = `
+"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+// Imports
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./test-media.css\\"), \\"screen and print\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and print\\"]);
+exports.push([module.id, \\"@import url(//example.com/style.css);\\", \\"\\"]);
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./query.css?foo=1&bar=1\\"), \\"\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./other-query.css?foo=1&bar=1#hash\\"), \\"screen and print\\");
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\", \\"\\"]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\", \\"\\"]);
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!../import/top-relative.css\\"), \\"\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!package/tilde.css\\"), \\"\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!aliasesImport/alias.css\\"), \\"\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./url.css\\"), \\"\\");
+var urlEscape = require(\\"../../../src/runtime/url-escape.js\\");
+var ___CSS_LOADER_URL___0___ = urlEscape(require(\\"./img.png\\"));
+
+// Module
+exports.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\\\\n@import url(\\\\\\"test.css\\\\\\");\\\\n@IMPORT url(test.css);\\\\n@import URL(test.css);\\\\n@import url(test.css );\\\\n@import url( test.css);\\\\n@import url( test.css );\\\\n@import url(\\\\n  test.css\\\\n);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import \\\\\\"test.css\\\\\\";\\\\n@import 'test.css';\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import url(test.css) screen and print;\\\\n@import url(test.css) SCREEN AND PRINT;\\\\n@import url(test.css)screen and print;\\\\n@import url(test.css)  screen and print;\\\\n@import url(~package/test.css);\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+
+"
+`;
+
+exports[`import option Function: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(12:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(13:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(14:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(17:1) Unable to find uri in '@import '''",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(18:1) Unable to find uri in '@import \\"\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(19:1) Unable to find uri in '@import \\"   \\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(20:1) Unable to find uri in '@import \\"
+\\"'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(22:1) Unable to find uri in '@import url()'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(23:1) Unable to find uri in '@import url('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(24:1) Unable to find uri in '@import url(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(40:1) Unable to find uri in '@import '",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(41:1) Unable to find uri in '@import foo-bar'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(43:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+]
+`;
+
 exports[`import option false: errors 1`] = `Array []`;
 
 exports[`import option false: module (evaluated) 1`] = `

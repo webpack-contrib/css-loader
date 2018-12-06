@@ -13,6 +13,8 @@ exports[`validation 2`] = `
 "CSS Loader Invalid Options
 
 options.import should be boolean
+options.import should pass \\"instanceof\\" keyword validation
+options.import should match some schema in anyOf
 "
 `;
 
