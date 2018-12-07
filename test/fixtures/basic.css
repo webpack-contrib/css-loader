@@ -102,3 +102,12 @@ body {
     border: 0;
   };
 }
+
+.test {
+  content: "\2014\A0";
+  content: "\2014 \A0";
+  content: "\A0 \2014";
+  content: "\A0\2014";
+  margin-top: 1px\9;
+  background-color: #000\9;
+}
