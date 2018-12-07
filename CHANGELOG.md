@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/webpack-contrib/css-loader/compare/v1.0.1...v2.0.0) (2018-12-07)
+
+
+### Bug Fixes
+
+* broken unucode characters ([#850](https://github.com/webpack-contrib/css-loader/issues/850)) ([f599c70](https://github.com/webpack-contrib/css-loader/commit/f599c70))
+* correctly processing `urls()` with `?#hash` ([#803](https://github.com/webpack-contrib/css-loader/issues/803)) ([417d105](https://github.com/webpack-contrib/css-loader/commit/417d105))
+* don't break loader on invalid or not exists url or import token ([#827](https://github.com/webpack-contrib/css-loader/issues/827)) ([9e52d26](https://github.com/webpack-contrib/css-loader/commit/9e52d26))
+* don't duplicate import with same media in different case ([#819](https://github.com/webpack-contrib/css-loader/issues/819)) ([9f66e33](https://github.com/webpack-contrib/css-loader/commit/9f66e33))
+* emit warnings on broken `import` at-rules ([#806](https://github.com/webpack-contrib/css-loader/issues/806)) ([4bdf08b](https://github.com/webpack-contrib/css-loader/commit/4bdf08b))
+* handle uppercase `URL` in `import` at-rules ([#818](https://github.com/webpack-contrib/css-loader/issues/818)) ([3ebdcd5](https://github.com/webpack-contrib/css-loader/commit/3ebdcd5))
+* inconsistent generate class names for css modules on difference os ([#812](https://github.com/webpack-contrib/css-loader/issues/812)) ([0bdf9b7](https://github.com/webpack-contrib/css-loader/commit/0bdf9b7))
+* reduce number of `require` for `urls()` ([#854](https://github.com/webpack-contrib/css-loader/issues/854)) ([3338656](https://github.com/webpack-contrib/css-loader/commit/3338656))
+* support deduplication of string module ids (optimization.namedModules) ([#789](https://github.com/webpack-contrib/css-loader/issues/789)) ([e3bb83a](https://github.com/webpack-contrib/css-loader/commit/e3bb83a))
+* support module resolution in `composes` ([#845](https://github.com/webpack-contrib/css-loader/issues/845)) ([453248f](https://github.com/webpack-contrib/css-loader/commit/453248f))
+* same `urls()` resolving logic for `modules` (`local` and `global`) and without modules ([#843](https://github.com/webpack-contrib/css-loader/issues/843)) ([fdcf687](https://github.com/webpack-contrib/css-loader/commit/fdcf687))
+
+### Features
+
+* allow to disable css modules and **disable their by default** ([#842](https://github.com/webpack-contrib/css-loader/issues/842)) ([889dc7f](https://github.com/webpack-contrib/css-loader/commit/889dc7f))
+* disable `import` option doesn't affect on `composes` ([#822](https://github.com/webpack-contrib/css-loader/issues/822)) ([f9aa73c](https://github.com/webpack-contrib/css-loader/commit/f9aa73c))
+* allow to filter `urls` ([#856](https://github.com/webpack-contrib/css-loader/issues/856)) ([5e702e7](https://github.com/webpack-contrib/css-loader/commit/5e702e7))
+* allow to filter `import` at-rules ([#857](https://github.com/webpack-contrib/css-loader/issues/857)) ([5e6034c](https://github.com/webpack-contrib/css-loader/commit/5e6034c))
+* emit warning on invalid `urls()` ([#832](https://github.com/webpack-contrib/css-loader/issues/832)) ([da95db8](https://github.com/webpack-contrib/css-loader/commit/da95db8))
+* added `exportOnlyLocals` option ([#824](https://github.com/webpack-contrib/css-loader/issues/824)) ([e9327c0](https://github.com/webpack-contrib/css-loader/commit/e9327c0))
+* reuse `postcss` ast from other loaders (i.e `postcss-loader`) ([#840](https://github.com/webpack-contrib/css-loader/issues/840)) ([1dad1fb](https://github.com/webpack-contrib/css-loader/commit/1dad1fb))
+* schema options ([b97d997](https://github.com/webpack-contrib/css-loader/commit/b97d997))
+
+
+### BREAKING CHANGES
+
+* resolving logic for `uls()` and `import` at-rules works the same everywhere, it does not matter whether css modules are enabled (with `global` and `local` module) or not. Examples - `url('image.png')` as `require('./image.png')`, `url('./image.png')` as `require('./image.png')`, `url('~module/image.png')` as `require('module/image.png')`.
+* by default css modules are disabled (now `modules: false` disable all css modules features), you can return old behaviour change this on `modules: 'global'`
+* `css-loader/locals` was dropped in favor `exportOnlyLocals` option
+* `import` option only affect on `import` at-rules and doesn't affect on `composes` declarations
+* invalid `@import` at rules now emit warnings
+* use `postcss@7`
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/webpack-contrib/css-loader/compare/v1.0.0...v1.0.1) (2018-10-29)
 

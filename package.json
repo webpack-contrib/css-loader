@@ -1,6 +1,6 @@
 {
   "name": "css-loader",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "css loader module for webpack",
   "license": "MIT",
   "repository": "webpack-contrib/css-loader",
