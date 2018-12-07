@@ -197,3 +197,11 @@ b {
 .aliases {
   background: url('~aliasesImg/img.png') ;
 }
+
+a {
+  background: url(./nested/img.png);
+}
+
+a {
+  background: url(nested/img.png);
+}
