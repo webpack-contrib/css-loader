@@ -52,7 +52,14 @@
       "type": "string"
     },
     "getLocalIdent": {
-      "instanceof": "Function"
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
     },
     "sourceMap": {
       "type": "boolean"

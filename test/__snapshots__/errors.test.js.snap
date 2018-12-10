@@ -78,7 +78,9 @@ options.hashPrefix should be string
 exports[`validation 10`] = `
 "CSS Loader Invalid Options
 
+options.getLocalIdent should be boolean
 options.getLocalIdent should pass \\"instanceof\\" keyword validation
+options.getLocalIdent should match some schema in anyOf
 "
 `;
 
