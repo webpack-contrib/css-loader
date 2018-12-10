@@ -58,9 +58,8 @@ it('validation', () => {
   expect(() => validate({ hashPrefix: true })).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ getLocalIdent: () => {} })).not.toThrow();
-  expect(() =>
-    validate({ getLocalIdent: true })
-  ).toThrowErrorMatchingSnapshot();
+  expect(() => validate({ getLocalIdent: false })).not.toThrow();
+  expect(() => validate({ getLocalIdent: [] })).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ sourceMap: true })).not.toThrow();
   expect(() => validate({ sourceMap: false })).not.toThrow();

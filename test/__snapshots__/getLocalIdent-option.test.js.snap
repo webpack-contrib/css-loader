@@ -30,6 +30,36 @@ Array [
 
 exports[`getLocalIdent option should accepts arguments: warnings 1`] = `Array []`;
 
+exports[`getLocalIdent option should allow to use \`false\` value: errors 1`] = `Array []`;
+
+exports[`getLocalIdent option should allow to use \`false\` value: locals 1`] = `
+Object {
+  "abc": "before_abc__1hk_after",
+  "def": "before_def__3oo_after",
+  "ghi": "before_ghi__2ZR_after",
+  "jkl": "before_jkl__aQ1_after",
+}
+`;
+
+exports[`getLocalIdent option should allow to use \`false\` value: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".before_abc__1hk_after .before_def__3oo_after {
+  color: red;
+}
+
+.before_ghi__2ZR_after .before_jkl__aQ1_after {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`getLocalIdent option should allow to use \`false\` value: warnings 1`] = `Array []`;
+
 exports[`getLocalIdent option should respect \`context\` option: errors 1`] = `Array []`;
 
 exports[`getLocalIdent option should respect \`context\` option: locals 1`] = `
