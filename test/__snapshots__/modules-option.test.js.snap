@@ -5378,3 +5378,62 @@ exports.locals = {
 `;
 
 exports[`modules issue #636: warnings 1`] = `Array []`;
+
+exports[`modules issue #861: errors 1`] = `Array []`;
+
+exports[`modules issue #861: module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "
+",
+    "",
+  ],
+  Array [
+    4,
+    "._1ef5Heix1Kf4k0qYvyWRRO {
+  display: flex;
+}
+",
+    "",
+  ],
+  Array [
+    3,
+    ".L8pnpYm5VAu49S290uPMA {
+  color: red;
+  margin: 0;
+  padding: 0;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._2gV2e6TcHcPgyDTzxbvkKa {
+  color: gray;
+  margin: 0;
+  padding: 0;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules issue #861: module 1`] = `
+"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+// Imports
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!@localpackage/color.css\\"), \\"\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!@localpackage/style.css\\"), \\"\\");
+
+// Module
+exports.push([module.id, \\"._2gV2e6TcHcPgyDTzxbvkKa {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!@localpackage/color.css\\").locals[\\"color-grey\\"] + \\";\\\\n  margin: 0;\\\\n  padding: 0;\\\\n}\\\\n\\", \\"\\"]);
+
+// Exports
+exports.locals = {
+	\\"color-grey\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!@localpackage/color.css\\").locals[\\"color-grey\\"] + \\"\\",
+	\\"copyright\\": \\"_2gV2e6TcHcPgyDTzxbvkKa \\" + require(\\"-!../../../src/index.js??ref--4-0!@localpackage/style.css\\").locals[\\"type-heading\\"] + \\"\\"
+};"
+`;
+
+exports[`modules issue #861: warnings 1`] = `Array []`;
