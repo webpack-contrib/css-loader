@@ -50,6 +50,28 @@ jobs:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+  analysis:
+    docker:
+      - image: webpackcontrib/circleci-node-base:latest
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install Latest NPM.
+          command: npm i -g npm@latest
+      - run:
+          name: NPM Install.
+          command: npm ci
+      - run:
+          name: Run linting.
+          command: npm run lint
+      - run:
+          name: Run NPM Audit.
+          command: npm run security
+      - run:
+          name: Validate Commit Messages.
+          command: npm run ci:lint:commits
   node6-latest:
     docker:
       - image: webpackcontrib/circleci-node6:latest
@@ -78,32 +100,10 @@ jobs:
           name: Submit coverage data to codecov.
           command: bash <(curl -s https://codecov.io/bash)
           when: on_success
-  node10-canary:
+  node6-canary:
     docker:
       - image: webpackcontrib/circleci-node10:latest
     <<: *canary_tests
-  analysis:
-    docker:
-      - image: webpackcontrib/circleci-node-base:latest
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install Latest NPM.
-          command: npm i -g npm@latest
-      - run:
-          name: NPM Install.
-          command: npm ci
-      - run:
-          name: Run linting.
-          command: npm run lint
-      - run:
-          name: Run NPM Audit.
-          command: npm run security
-      - run:
-          name: Validate Commit Messages.
-          command: npm run ci:lint:commits
 
 workflows:
   version: 2
@@ -136,7 +136,7 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - node10-canary:
+      - node6-canary:
           requires:
             - analysis
             - node6-latest

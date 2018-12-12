@@ -15,6 +15,8 @@
     "start": "npm run build -- -w",
     "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js' --copy-files",
     "clean": "del-cli dist",
+    "commitlint": "commitlint",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
     "lint": "eslint --cache src test",
     "prebuild": "npm run clean",
     "prepublish": "npm run build",
@@ -24,9 +26,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
     "ci:lint": "npm run lint && npm run security",
-    "ci:lint:commits": "commitlint --from=origin/master --to=${CIRCLE_SHA1}",
     "ci:test": "npm run test -- --runInBand",
     "ci:coverage": "npm run test:coverage -- --runInBand",
+    "ci:lint:commits": "commitlint --from=origin/master --to=${CIRCLE_SHA1}",
     "defaults": "webpack-defaults"
   },
   "files": [
@@ -56,6 +58,7 @@
     "@babel/preset-env": "^7.1.6",
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
+    "@webpack-contrib/defaults": "^3.0.0",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
@@ -77,8 +80,7 @@
     "sass-loader": "^7.1.0",
     "standard-version": "^4.0.0",
     "strip-ansi": "^5.0.0",
-    "webpack": "^4.26.1",
-    "webpack-defaults": "^2.3.0"
+    "webpack": "^4.26.1"
   },
   "keywords": [
     "webpack",
