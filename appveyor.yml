@@ -9,20 +9,20 @@ cache:
   - '%APPDATA%\npm-cache'
 environment:
   matrix:
-    - nodejs_version: '11'
-      webpack_version: latest
-      job_part: test
-    - nodejs_version: '10'
+    - nodejs_version: '6'
       webpack_version: latest
       job_part: test
     - nodejs_version: '8'
       webpack_version: latest
       job_part: test
-    - nodejs_version: '6'
+    - nodejs_version: '10'
+      webpack_version: latest
+      job_part: test
+    - nodejs_version: '11'
       webpack_version: latest
       job_part: test
     - nodejs_version: '6'
-      webpack_version: latest
+      webpack_version: next
       job_part: next
 build: 'off'
 matrix:
@@ -36,7 +36,6 @@ before_test:
   - cmd: npm install webpack@%webpack_version%
 test_script:
   - node --version
-  - node --version
   - npm --version
   - cmd: FOR /F %%I in ('compver --name webpack --gte %webpack_version% --lt latest') do SET COMPARED_VERSION_RESULT=%%I
-  - cmd: IF %COMPARED_VERSION_RESULT% NEQ -1 (npm run ci:test) ELSE (ECHO "Next is older than Latest - Skipping Canary Suite")
+  - cmd: IF %COMPARED_VERSION_RESULT% NEQ -1 (npm run ci:%job_part%) ELSE (ECHO "Next is older than Latest - Skipping Canary Suite")
