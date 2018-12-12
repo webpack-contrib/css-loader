@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### BREAKING CHANGES
 
-* resolving logic for `uls()` and `import` at-rules works the same everywhere, it does not matter whether css modules are enabled (with `global` and `local` module) or not. Examples - `url('image.png')` as `require('./image.png')`, `url('./image.png')` as `require('./image.png')`, `url('~module/image.png')` as `require('module/image.png')`.
+* resolving logic for `url()` and `import` at-rules works the same everywhere, it does not matter whether css modules are enabled (with `global` and `local` module) or not. Examples - `url('image.png')` as `require('./image.png')`, `url('./image.png')` as `require('./image.png')`, `url('~module/image.png')` as `require('module/image.png')`.
 * by default css modules are disabled (now `modules: false` disable all css modules features), you can return old behaviour change this on `modules: 'global'`
 * `css-loader/locals` was dropped in favor `exportOnlyLocals` option
 * `import` option only affect on `import` at-rules and doesn't affect on `composes` declarations
