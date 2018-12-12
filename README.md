@@ -5,7 +5,6 @@
     <img width="200" height="200"
       src="https://webpack.js.org/assets/icon-square-big.svg">
   </a>
-  <h1>CSS Loader</h1>
 </div>
 
 [![npm][npm]][npm-url]
@@ -661,17 +660,33 @@ module.exports = {
 For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
 This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode.
 
+## Contributing
+
+Please take a moment to read our contributing guidelines if you haven't yet done so.
+
+[CONTRIBUTING](./.github/CONTRIBUTING.md)
+
+## License
+
+[MIT](./LICENSE)
+
 [npm]: https://img.shields.io/npm/v/css-loader.svg
 [npm-url]: https://npmjs.com/package/css-loader
+
 [node]: https://img.shields.io/node/v/css-loader.svg
 [node-url]: https://nodejs.org
+
 [deps]: https://david-dm.org/webpack-contrib/css-loader.svg
 [deps-url]: https://david-dm.org/webpack-contrib/css-loader
+
 [tests]: https://img.shields.io/circleci/project/github/webpack-contrib/css-loader.svg
 [tests-url]: https://circleci.com/gh/webpack-contrib/css-loader
+
 [cover]: https://codecov.io/gh/webpack-contrib/css-loader/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/css-loader
+
 [chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack
+
 [size]: https://packagephobia.now.sh/badge?p=css-loader
 [size-url]: https://packagephobia.now.sh/result?p=css-loader
