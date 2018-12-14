@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.1"></a>
+# [2.0.1](https://github.com/webpack-contrib/css-loader/compare/v2.0.0...v2.0.1) (2018-12-14)
+
+
+### Bug Fixes
+
+* safe checking if params are present for at rule ([#871](https://github.com/webpack-contrib/css-loader/issues/871)) ([a88fed1](https://github.com/webpack-contrib/css-loader/commit/a88fed1))
+* `getLocalIdent` now accepts `false` value ([#865](https://github.com/webpack-contrib/css-loader/issues/865)) ([1825e8a](https://github.com/webpack-contrib/css-loader/commit/1825e8a))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/webpack-contrib/css-loader/compare/v1.0.1...v2.0.0) (2018-12-07)
 
