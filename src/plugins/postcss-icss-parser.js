@@ -75,6 +75,8 @@ export default postcss.plugin(
 
       // Replace tokens in at-rules
       css.walkAtRules((atrule) => {
+        // Due reusing `ast` from `postcss-loader` some plugins may lack
+        // `params` property, we need to account for this possibility
         if (atrule.params) {
           // eslint-disable-next-line no-param-reassign
           atrule.params = replaceImportsInString(atrule.params.toString());
