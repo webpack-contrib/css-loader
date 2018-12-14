@@ -75,8 +75,8 @@ export default postcss.plugin(
 
       // Replace tokens in at-rules
       css.walkAtRules((atrule) => {
-        // eslint-disable-next-line no-param-reassign
         if (atrule.params) {
+          // eslint-disable-next-line no-param-reassign
           atrule.params = replaceImportsInString(atrule.params.toString());
         }
       });
