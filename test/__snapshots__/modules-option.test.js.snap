@@ -1,5 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "a {
+  animation: slide-right 300ms forwards ease-out, fade-in 300ms forwards ease-out;
+
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "a {
+  animation: slide-right 300ms forwards ease-out, fade-in 300ms forwards ease-out;
+
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "fade-in": "_fade-in",
+  "slide-right": "_slide-right",
+}
+`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "a {
+  animation: _slide-right 300ms forwards ease-out, _fade-in 300ms forwards ease-out;
+
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
+Object {
+  "fade-in": "_fade-in",
+  "slide-right": "_slide-right",
+}
+`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "a {
+  animation: _slide-right 300ms forwards ease-out, _fade-in 300ms forwards ease-out;
+
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`animation\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "fade-in": "_fade-in",
+  "slide-right": "_slide-right",
+}
+`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
+Object {
+  "fade-in": "_fade-in",
+  "slide-right": "_slide-right",
+}
+`;
+
+exports[`modules case \`animation\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
 exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
 exports[`modules case \`class-names\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
