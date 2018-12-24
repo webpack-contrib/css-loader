@@ -89,7 +89,7 @@ function toComment(sourceMap) {
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): errors 1`] = `Array []`;
 
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): escape 1`] = `
-"module.exports = function escape(url) {
+"module.exports = function escape(url, needQuotes) {
   if (typeof url !== 'string') {
     return url;
   }
@@ -98,9 +98,10 @@ exports[`loader should compile with \`css\` entry point (with \`modules\` and sc
   if (/^['\\"].*['\\"]$/.test(url)) {
     url = url.slice(1, -1);
   }
+
   // Should url be wrapped?
   // See https://drafts.csswg.org/css-values-3/#urls
-  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+  if (/[\\"'() \\\\t\\\\n]/.test(url) || needQuotes) {
     return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
   }
 
@@ -339,7 +340,7 @@ function toComment(sourceMap) {
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): errors 1`] = `Array []`;
 
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): escape 1`] = `
-"module.exports = function escape(url) {
+"module.exports = function escape(url, needQuotes) {
   if (typeof url !== 'string') {
     return url;
   }
@@ -348,9 +349,10 @@ exports[`loader should compile with \`css\` entry point (with \`modules\` and sc
   if (/^['\\"].*['\\"]$/.test(url)) {
     url = url.slice(1, -1);
   }
+
   // Should url be wrapped?
   // See https://drafts.csswg.org/css-values-3/#urls
-  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+  if (/[\\"'() \\\\t\\\\n]/.test(url) || needQuotes) {
     return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
   }
 
@@ -609,7 +611,7 @@ function toComment(sourceMap) {
 exports[`loader should compile with \`css\` entry point: errors 1`] = `Array []`;
 
 exports[`loader should compile with \`css\` entry point: escape 1`] = `
-"module.exports = function escape(url) {
+"module.exports = function escape(url, needQuotes) {
   if (typeof url !== 'string') {
     return url;
   }
@@ -618,9 +620,10 @@ exports[`loader should compile with \`css\` entry point: escape 1`] = `
   if (/^['\\"].*['\\"]$/.test(url)) {
     url = url.slice(1, -1);
   }
+
   // Should url be wrapped?
   // See https://drafts.csswg.org/css-values-3/#urls
-  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+  if (/[\\"'() \\\\t\\\\n]/.test(url) || needQuotes) {
     return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
   }
 
@@ -859,7 +862,7 @@ function toComment(sourceMap) {
 exports[`loader should compile with \`js\` entry point: errors 1`] = `Array []`;
 
 exports[`loader should compile with \`js\` entry point: escape 1`] = `
-"module.exports = function escape(url) {
+"module.exports = function escape(url, needQuotes) {
   if (typeof url !== 'string') {
     return url;
   }
@@ -868,9 +871,10 @@ exports[`loader should compile with \`js\` entry point: escape 1`] = `
   if (/^['\\"].*['\\"]$/.test(url)) {
     url = url.slice(1, -1);
   }
+
   // Should url be wrapped?
   // See https://drafts.csswg.org/css-values-3/#urls
-  if (/[\\"'() \\\\t\\\\n]/.test(url)) {
+  if (/[\\"'() \\\\t\\\\n]/.test(url) || needQuotes) {
     return '\\"' + url.replace(/\\"/g, '\\\\\\\\\\"').replace(/\\\\n/g, '\\\\\\\\n') + '\\"';
   }
 

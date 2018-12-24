@@ -209,3 +209,62 @@ a {
 @font-face {
   src: url("//at.alicdn.com/t/font_515771_emcns5054x3whfr.eot");
 }
+
+.class {
+  /* Broken */
+  background-image: -webkit-image-set();
+  background-image: -webkit-image-set('');
+  background-image: image-set();
+  background-image: image-set('');
+  background-image: image-set("");
+  background-image: image-set("" 1x);
+  background-image: image-set(url());
+  background-image: image-set(
+    url()
+  );
+  background-image: image-set(URL());
+  background-image: image-set(url(''));
+  background-image: image-set(url(""));
+  background-image: image-set(url('') 1x);
+  background-image: image-set(1x);
+  background-image: image-set(
+    1x
+  );
+  background: image-set(calc(1rem + 1px) 1x);
+
+  /* Strings */
+  background-image: -webkit-image-set("./img1x.png" 1x, "./img2x.png" 2x);
+  background-image: image-set("./img1x.png" 1x);
+  background-image: image-set("./img1x.png" 1x, "./img2x.png" 2x);
+  background-image: image-set("./img img.png" 1x, "./img img.png" 2x);
+  background-image: image-set("./img1x.png" 1x, "./img2x.png" 2x),
+    image-set("./img1x.png" 1x, "./img2x.png" 2x);
+  background-image: image-set(
+    "./img1x.png" 1x,
+    "./img2x.png" 2x,
+    "./img3x.png" 600dpi
+  );
+  background-image: image-set("./img1x.png?foo=bar" 1x);
+  background-image: image-set("./img1x.png#hash" 1x);
+  background-image: image-set("./img1x.png?#iefix" 1x);
+
+  /* With `url` function */
+  background-image: -webkit-image-set(url("./img1x.png") 1x, url("./img2x.png") 2x);
+  background-image: -webkit-image-set(url("./img1x.png") 1x);
+  background-image: -webkit-image-set(
+    url("./img1x.png") 1x
+  );
+  background-image: image-set(url(./img1x.png) 1x);
+  background-image: image-set(
+    url(./img1x.png) 1x
+  );
+  background-image: image-set(url("./img1x.png") 1x, url("./img2x.png") 2x);
+  background-image: image-set(
+    url(./img1x.png) 1x,
+    url(./img2x.png) 2x,
+    url(./img3x.png) 600dpi
+  );
+  background-image: image-set(url("./img img.png") 1x, url("./img img.png") 2x);
+
+  background-image: image-set(url("./img1x.png") 1x, "./img2x.png" 2x);
+}

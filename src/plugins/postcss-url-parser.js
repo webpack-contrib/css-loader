@@ -1,30 +1,52 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
+import _ from 'lodash';
 
 const pluginName = 'postcss-url-parser';
 
-function getArg(nodes) {
-  return nodes.length !== 0 && nodes[0].type === 'string'
-    ? nodes[0].value
-    : valueParser.stringify(nodes);
+const isUrlFunc = /url/i;
+const isImageSetFunc = /^(?:-webkit-)?image-set$/i;
+const needParseDecl = /(?:url|(?:-webkit-)?image-set)\(/i;
+
+function getNodeFromUrlFunc(node) {
+  return node.nodes && node.nodes[0];
+}
+
+function getUrlFromUrlFunc(node) {
+  return node.nodes.length !== 0 && node.nodes[0].type === 'string'
+    ? node.nodes[0].value
+    : valueParser.stringify(node.nodes);
 }
 
 function walkUrls(parsed, callback) {
   parsed.walk((node) => {
-    if (node.type !== 'function' || node.value.toLowerCase() !== 'url') {
+    if (node.type !== 'function') {
       return;
     }
 
-    /* eslint-disable */
-    node.before = '';
-    node.after = '';
-    /* eslint-enable */
+    if (isUrlFunc.test(node.value)) {
+      callback(getNodeFromUrlFunc(node), getUrlFromUrlFunc(node), false);
 
-    callback(node, getArg(node.nodes));
+      // Do not traverse inside `url`
+      // eslint-disable-next-line consistent-return
+      return false;
+    }
 
-    // Do not traverse inside url
-    // eslint-disable-next-line consistent-return
-    return false;
+    if (isImageSetFunc.test(node.value)) {
+      node.nodes.forEach((nNode) => {
+        if (nNode.type === 'function' && isUrlFunc.test(nNode.value)) {
+          callback(getNodeFromUrlFunc(nNode), getUrlFromUrlFunc(nNode), false);
+        }
+
+        if (nNode.type === 'string') {
+          callback(nNode, nNode.value, true);
+        }
+      });
+
+      // Do not traverse inside `image-set`
+      // eslint-disable-next-line consistent-return
+      return false;
+    }
   });
 }
 
@@ -32,14 +54,14 @@ function walkDeclsWithUrl(css, result, filter) {
   const items = [];
 
   css.walkDecls((decl) => {
-    if (!/url\(/i.test(decl.value)) {
+    if (!needParseDecl.test(decl.value)) {
       return;
     }
 
     const parsed = valueParser(decl.value);
     const urls = [];
 
-    walkUrls(parsed, (node, url) => {
+    walkUrls(parsed, (node, url, needQuotes) => {
       if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
         result.warn(`Unable to find uri in '${decl.toString()}'`, {
           node: decl,
@@ -52,7 +74,7 @@ function walkDeclsWithUrl(css, result, filter) {
         return;
       }
 
-      urls.push(url);
+      urls.push({ url, needQuotes });
     });
 
     if (urls.length === 0) {
@@ -65,52 +87,49 @@ function walkDeclsWithUrl(css, result, filter) {
   return items;
 }
 
-function flatten(array) {
-  return array.reduce((acc, d) => [...acc, ...d], []);
-}
-
-function uniq(array) {
-  return array.reduce(
-    (acc, d) => (acc.indexOf(d) === -1 ? [...acc, d] : acc),
-    []
-  );
-}
-
 export default postcss.plugin(
   pluginName,
   (options = {}) =>
     function process(css, result) {
       const traversed = walkDeclsWithUrl(css, result, options.filter);
-      const paths = uniq(flatten(traversed.map((item) => item.urls)));
+      const paths = _.uniqWith(
+        _.flatten(traversed.map((item) => item.urls)),
+        _.isEqual
+      );
 
       if (paths.length === 0) {
         return;
       }
 
-      const urls = {};
+      const placeholders = [];
 
       paths.forEach((path, index) => {
         const placeholder = `___CSS_LOADER_URL___${index}___`;
+        const { url, needQuotes } = path;
 
-        urls[path] = placeholder;
+        placeholders.push({ placeholder, path });
 
         result.messages.push({
           pluginName,
           type: 'url',
-          item: { url: path, placeholder },
+          item: { url, placeholder, needQuotes },
         });
       });
 
       traversed.forEach((item) => {
-        walkUrls(item.parsed, (node, url) => {
-          const value = urls[url];
+        walkUrls(item.parsed, (node, url, needQuotes) => {
+          const value = _.find(placeholders, { path: { url, needQuotes } });
 
           if (!value) {
             return;
           }
 
+          const { placeholder } = value;
+
           // eslint-disable-next-line no-param-reassign
-          node.nodes = [{ type: 'word', value }];
+          node.type = 'word';
+          // eslint-disable-next-line no-param-reassign
+          node.value = placeholder;
         });
 
         // eslint-disable-next-line no-param-reassign
