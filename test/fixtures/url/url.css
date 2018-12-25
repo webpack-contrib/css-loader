@@ -205,3 +205,7 @@ a {
 a {
   background: url(nested/img.png);
 }
+
+@font-face {
+  src: url("//at.alicdn.com/t/font_515771_emcns5054x3whfr.eot");
+}

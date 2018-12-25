@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "icss-utils": "^4.0.0",
-    "loader-utils": "^1.0.2",
+    "loader-utils": "^1.2.1",
     "lodash": "^4.17.11",
     "postcss": "^7.0.6",
     "postcss-modules-extract-imports": "^2.0.0",
