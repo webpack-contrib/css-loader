@@ -11,5 +11,9 @@ describe('escape', () => {
     expect(urlEscape("'image other.png'")).toMatchSnapshot();
     expect(urlEscape('image"other.png')).toMatchSnapshot();
     expect(urlEscape('image\nother.png')).toMatchSnapshot();
+
+    expect(urlEscape('image.png', true)).toMatchSnapshot();
+    expect(urlEscape("'image other.png'", true)).toMatchSnapshot();
+    expect(urlEscape('"image other.png"', true)).toMatchSnapshot();
   });
 });

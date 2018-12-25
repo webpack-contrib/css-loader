@@ -280,7 +280,7 @@ export default function loader(content, map, meta) {
           }
 
           const { item } = message;
-          const { url, placeholder } = item;
+          const { url, placeholder, needQuotes } = item;
           // Remove `#hash` and `?#hash` from `require`
           const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
           const hash =
@@ -292,7 +292,7 @@ export default function loader(content, map, meta) {
             `var ${placeholder} = urlEscape(require(${stringifyRequest(
               this,
               urlToRequest(normalizedUrl)
-            )})${hash ? ` + ${hash}` : ''});`
+            )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`
           );
 
           cssAsString = cssAsString.replace(
