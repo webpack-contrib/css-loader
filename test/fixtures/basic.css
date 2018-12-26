@@ -111,3 +111,7 @@ body {
   margin-top: 1px\9;
   background-color: #000\9;
 }
+
+.light.on .bulb:before{
+  content: '💡';
+}
