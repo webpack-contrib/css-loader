@@ -125,7 +125,7 @@ module.exports = {
 Type: `Boolean|Function`
 Default: `true`
 
-Control `url()` resolving. Absolute urls are not resolving.
+Control `url()` resolving. Absolute URLs and root-relative URLs are not resolving.
 
 Examples resolutions:
 
