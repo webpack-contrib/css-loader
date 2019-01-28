@@ -490,7 +490,7 @@ module.exports = {
 ### `sourceMap`
 
 Type: `Boolean`
-Default: `true`
+Default: `false`
 
 To include source maps set the `sourceMap` option.
 
