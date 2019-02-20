@@ -98,7 +98,7 @@ Array [
     "",
     Object {
       "file": "basic.css",
-      "mappings": "AAAA;EACE,WAAW;CACZ",
+      "mappings": "AAAA;EACE,UAAU;AACZ",
       "names": Array [],
       "sourceRoot": "",
       "sources": Array [
@@ -131,7 +131,7 @@ Array [
     "",
     Object {
       "file": "basic.css",
-      "mappings": "AAAA;EACE,WAAW;CACZ",
+      "mappings": "AAAA;EACE,UAAU;AACZ",
       "names": Array [],
       "sourceRoot": "",
       "sources": Array [
@@ -164,7 +164,7 @@ Array [
     "",
     Object {
       "file": "basic.css",
-      "mappings": "AAAA;ECCE,WAAW;CACZ",
+      "mappings": "AAAA;ECCE,UAAU;AACZ",
       "names": Array [],
       "sourceRoot": "",
       "sources": Array [
@@ -199,7 +199,7 @@ Array [
     "",
     Object {
       "file": "basic.css",
-      "mappings": "AAAA;ECCE,WAAW;CACZ",
+      "mappings": "AAAA;ECCE,UAAU;AACZ",
       "names": Array [],
       "sourceRoot": "",
       "sources": Array [
@@ -234,7 +234,7 @@ Array [
     "",
     Object {
       "file": "basic.css",
-      "mappings": "AAAA;EACE,WAAW;CACZ",
+      "mappings": "AAAA;EACE,UAAU;AACZ",
       "names": Array [],
       "sourceRoot": "",
       "sources": Array [
