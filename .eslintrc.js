@@ -3,9 +3,6 @@ module.exports = {
   plugins: ['prettier'],
   extends: ['@webpack-contrib/eslint-config-webpack'],
   rules: {
-    'prettier/prettier': [
-      'error',
-      { singleQuote: true, trailingComma: 'es5', arrowParens: 'always' },
-    ],
+    'prettier/prettier': ['error'],
   },
 };
