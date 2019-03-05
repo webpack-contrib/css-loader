@@ -109,16 +109,19 @@ module.exports = {
 
 ## Options
 
-|                    Name                     |         Type          |     Default     | Description                                 |
-| :-----------------------------------------: | :-------------------: | :-------------: | :------------------------------------------ |
-|              **[`url`](#url)**              | `{Boolean\|Function}` |     `true`      | Enable/Disable `url()` handling             |
-|           **[`import`](#import)**           | `{Boolean\/Function}` |     `true`      | Enable/Disable @import handling             |
-|          **[`modules`](#modules)**          |  `{Boolean\|String}`  |     `false`     | Enable/Disable CSS Modules and setup mode   |
-|   **[`localIdentName`](#localidentname)**   |      `{String}`       | `[hash:base64]` | Configure the generated ident               |
-|        **[`sourceMap`](#sourcemap)**        |      `{Boolean}`      |     `false`     | Enable/Disable Sourcemaps                   |
-|        **[`camelCase`](#camelcase)**        |  `{Boolean\|String}`  |     `false`     | Export Classnames in CamelCase              |
-|    **[`importLoaders`](#importloaders)**    |      `{Number}`       |       `0`       | Number of loaders applied before CSS loader |
-| **[`exportOnlyLocals`](#exportonlylocals)** |      `{Boolean}`      |     `false`     | Export only locals                          |
+|                    Name                     |         Type          |     Default     | Description                                                              |
+| :-----------------------------------------: | :-------------------: | :-------------: | :----------------------------------------------------------------------- |
+|              **[`url`](#url)**              | `{Boolean\|Function}` |     `true`      | Enable/Disable `url()` handling                                          |
+|           **[`import`](#import)**           | `{Boolean\/Function}` |     `true`      | Enable/Disable @import handling                                          |
+|          **[`modules`](#modules)**          |  `{Boolean\|String}`  |     `false`     | Enable/Disable CSS Modules and setup mode                                |
+|   **[`localIdentName`](#localidentname)**   |      `{String}`       | `[hash:base64]` | Configure the generated ident                                            |
+|          **[`context`](#context)**          |      `{String}`       |   `undefined`   | Allow to redefine basic loader context for local ident name              |
+|       **[`hashPrefix`](#hashprefix)**       |      `{String}`       |   `undefined`   | Allow to add custom hash to generate more unique classes                 |
+|    **[`getLocalIdent`](#getlocalident)**    |     `{Function}`      |   `undefined`   | Configure the function to generate classname based on a different schema |
+|        **[`sourceMap`](#sourcemap)**        |      `{Boolean}`      |     `false`     | Enable/Disable Sourcemaps                                                |
+|        **[`camelCase`](#camelcase)**        |  `{Boolean\|String}`  |     `false`     | Export Classnames in CamelCase                                           |
+|    **[`importLoaders`](#importloaders)**    |      `{Number}`       |       `0`       | Number of loaders applied before CSS loader                              |
+| **[`exportOnlyLocals`](#exportonlylocals)** |      `{Boolean}`      |     `false`     | Export only locals                                                       |
 
 ### `url`
 
@@ -461,7 +464,13 @@ module.exports = {
 };
 ```
 
-You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema.
+### `context`
+
+Type: `String`
+Default: `undefined`
+
+Allow to redefine basic loader context for local ident name.
+By default we use `rootContext` of loader.
 
 **webpack.config.js**
 
@@ -474,9 +483,59 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: true,
-          context: path.resolve(__dirname, 'context'), // Allow to redefine basic loader context for `local-ident-name`
-          hashPrefix: 'hash', // Allow to add custom hash to generate more unique classes
-          localIdentName: '[path][name]__[local]--[hash:base64:5]',
+          context: path.resolve(__dirname, 'context'),
+        },
+      },
+    ],
+  },
+};
+```
+
+### `hashPrefix`
+
+Type: `String`
+Default: `undefined`
+
+Allow to add custom hash to generate more unique classes.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          hashPrefix: 'hash',
+        },
+      },
+    ],
+  },
+};
+```
+
+### `getLocalIdent`
+
+Type: `Function`
+Default: `undefined`
+
+You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema.
+By default we use built-in function to generate a classname.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          modules: true,
           getLocalIdent: (context, localIdentName, localName, options) => {
             return 'whatever_random_class_name';
           },
@@ -654,7 +713,8 @@ module.exports = {
 ### Extract
 
 For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
-- This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode. 
+
+- This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode.
 
 - As an alternative, if seeking better development performance and css outputs that mimic production. [extract-css-chunks-webpack-plugin](https://github.com/faceyspacey/extract-css-chunks-webpack-plugin) offers a hot module reload friendly, extended version of mini-css-extract-plugin. HMR real CSS files in dev, works like mini-css in non-dev
 
@@ -670,21 +730,15 @@ Please take a moment to read our contributing guidelines if you haven't yet done
 
 [npm]: https://img.shields.io/npm/v/css-loader.svg
 [npm-url]: https://npmjs.com/package/css-loader
-
 [node]: https://img.shields.io/node/v/css-loader.svg
 [node-url]: https://nodejs.org
-
 [deps]: https://david-dm.org/webpack-contrib/css-loader.svg
 [deps-url]: https://david-dm.org/webpack-contrib/css-loader
-
 [tests]: https://img.shields.io/circleci/project/github/webpack-contrib/css-loader.svg
 [tests-url]: https://circleci.com/gh/webpack-contrib/css-loader
-
 [cover]: https://codecov.io/gh/webpack-contrib/css-loader/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/css-loader
-
 [chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack
-
 [size]: https://packagephobia.now.sh/badge?p=css-loader
 [size-url]: https://packagephobia.now.sh/result?p=css-loader
