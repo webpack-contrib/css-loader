@@ -1,6 +1,5 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-import _ from 'lodash';
 
 const pluginName = 'postcss-url-parser';
 
@@ -87,14 +86,29 @@ function walkDeclsWithUrl(css, result, filter) {
   return items;
 }
 
+function uniqWith(array, comparator) {
+  return array.reduce(
+    (acc, d) => (!acc.some((item) => comparator(d, item)) ? [...acc, d] : acc),
+    []
+  );
+}
+
+function flatten(array) {
+  return array.reduce((a, b) => a.concat(b), []);
+}
+
+function isEqual(value, other) {
+  return value.url === other.url && value.needQuotes === other.needQuotes;
+}
+
 export default postcss.plugin(
   pluginName,
   (options = {}) =>
     function process(css, result) {
       const traversed = walkDeclsWithUrl(css, result, options.filter);
-      const paths = _.uniqWith(
-        _.flatten(traversed.map((item) => item.urls)),
-        _.isEqual
+      const paths = uniqWith(
+        flatten(traversed.map((item) => item.urls)),
+        isEqual
       );
 
       if (paths.length === 0) {
@@ -118,7 +132,11 @@ export default postcss.plugin(
 
       traversed.forEach((item) => {
         walkUrls(item.parsed, (node, url, needQuotes) => {
-          const value = _.find(placeholders, { path: { url, needQuotes } });
+          const value = placeholders.find(
+            (placeholder) =>
+              placeholder.path.url === url &&
+              placeholder.path.needQuotes === needQuotes
+          );
 
           if (!value) {
             return;

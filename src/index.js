@@ -17,7 +17,6 @@ import {
   getCurrentRequest,
   stringifyRequest,
 } from 'loader-utils';
-import camelCase from 'lodash/camelCase';
 
 import schema from './options.json';
 import { importParser, icssParser, urlParser } from './plugins';
@@ -25,6 +24,7 @@ import {
   getLocalIdent,
   getImportPrefix,
   placholderRegExps,
+  camelCase,
   dashesCamelCase,
   getFilter,
 } from './utils';
