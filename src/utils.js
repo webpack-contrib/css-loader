@@ -4,6 +4,7 @@
 */
 import path from 'path';
 
+import camelCaseLodash from 'lodash/camelCase';
 import loaderUtils from 'loader-utils';
 
 /* eslint-disable line-comment-position */
@@ -28,6 +29,10 @@ function getImportPrefix(loaderContext, importLoaders) {
     .join('!');
 
   return `-!${loadersRequest}!`;
+}
+
+function camelCase(str) {
+  return camelCaseLodash(str);
 }
 
 function dashesCamelCase(str) {
@@ -105,6 +110,7 @@ export {
   getImportPrefix,
   getLocalIdent,
   placholderRegExps,
+  camelCase,
   dashesCamelCase,
   getFilter,
 };
