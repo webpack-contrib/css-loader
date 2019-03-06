@@ -44,8 +44,9 @@ export default function loader(content, map, meta) {
   if (sourceMap) {
     if (map) {
       // Some loader emit source map as string
+      // Strip any JSON XSSI avoidance prefix from the string (as documented in the source maps specification), and then parse the string as JSON.
       if (typeof map === 'string') {
-        map = JSON.stringify(map);
+        map = JSON.parse(map.replace(/^\)]}'[^\n]*\n/, ''));
       }
 
       // Source maps should use forward slash because it is URLs (https://github.com/mozilla/source-map/issues/91)
