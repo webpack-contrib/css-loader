@@ -45,6 +45,7 @@
     "icss-utils": "^4.1.0",
     "loader-utils": "^1.2.3",
     "camelcase": "^5.2.0",
+    "normalize-path": "^3.0.0",
     "postcss": "^7.0.14",
     "postcss-modules-extract-imports": "^2.0.0",
     "postcss-modules-local-by-default": "^2.0.6",

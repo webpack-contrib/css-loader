@@ -5,6 +5,7 @@ const del = require('del');
 const webpack = require('webpack');
 const MemoryFS = require('memory-fs');
 const stripAnsi = require('strip-ansi');
+const normalizePath = require('normalize-path');
 
 function evaluated(output, modules, moduleId = 1) {
   let m;
@@ -224,8 +225,28 @@ function normalizeErrors(errors) {
 function normalizeSourceMap(module) {
   return module.map((m) => {
     if (m[3]) {
-      // eslint-disable-next-line no-param-reassign
-      m[3].sources = m[3].sources.map(() => '/replaced/original/path/');
+      if (m[3].file) {
+        // eslint-disable-next-line no-param-reassign
+        m[3].file = normalizePath(
+          path.relative(path.resolve(__dirname, 'fixtures'), m[3].file)
+        );
+      }
+
+      if (m[3].sourceRoot) {
+        // eslint-disable-next-line no-param-reassign
+        m[3].sourceRoot = normalizePath(
+          path.relative(path.resolve(__dirname, 'fixtures'), m[3].sourceRoot)
+        );
+      }
+
+      if (m[3].sources) {
+        // eslint-disable-next-line no-param-reassign
+        m[3].sources = m[3].sources.map((source) =>
+          normalizePath(
+            path.relative(path.resolve(__dirname, 'fixtures'), source)
+          )
+        );
+      }
     }
 
     return m;

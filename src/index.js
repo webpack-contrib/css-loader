@@ -17,6 +17,7 @@ import {
   getCurrentRequest,
   stringifyRequest,
 } from 'loader-utils';
+import normalizePath from 'normalize-path';
 
 import schema from './options.json';
 import { importParser, icssParser, urlParser } from './plugins';
@@ -42,13 +43,24 @@ export default function loader(content, map, meta) {
   /* eslint-disable no-param-reassign */
   if (sourceMap) {
     if (map) {
+      // Some loader emit source map as string
       if (typeof map === 'string') {
         map = JSON.stringify(map);
       }
 
+      // Source maps should use forward slash because it is URLs (https://github.com/mozilla/source-map/issues/91)
+      // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
+
+      if (map.file) {
+        map.file = normalizePath(map.file);
+      }
+
+      if (map.sourceRoot) {
+        map.sourceRoot = normalizePath(map.sourceRoot);
+      }
+
       if (map.sources) {
-        map.sources = map.sources.map((source) => source.replace(/\\/g, '/'));
-        map.sourceRoot = '';
+        map.sources = map.sources.map((source) => normalizePath(source));
       }
     }
   } else {
@@ -120,17 +132,15 @@ export default function loader(content, map, meta) {
 
   postcss(plugins)
     .process(content, {
-      // we need a prefix to avoid path rewriting of PostCSS
-      from: `/css-loader!${getRemainingRequest(this)
+      from: getRemainingRequest(this)
         .split('!')
-        .pop()}`,
+        .pop(),
       to: getCurrentRequest(this)
         .split('!')
         .pop(),
       map: options.sourceMap
         ? {
             prev: map,
-            sourcesContent: true,
             inline: false,
             annotation: false,
           }
@@ -140,6 +150,14 @@ export default function loader(content, map, meta) {
       result
         .warnings()
         .forEach((warning) => this.emitWarning(new Warning(warning)));
+
+      if (result.map) {
+        const newMap = result.map.toJSON();
+
+        console.log(newMap.file);
+        console.log(newMap.sourceRoot);
+        console.log(newMap.sources);
+      }
 
       const messages = result.messages || [];
 
@@ -301,31 +319,6 @@ export default function loader(content, map, meta) {
           );
         });
 
-      let newMap = result.map;
-
-      if (sourceMap && newMap) {
-        // Add a SourceMap
-        newMap = newMap.toJSON();
-
-        if (newMap.sources) {
-          newMap.sources = newMap.sources.map(
-            (source) =>
-              source
-                .split('!')
-                .pop()
-                .replace(/\\/g, '/'),
-            this
-          );
-          newMap.sourceRoot = '';
-        }
-
-        newMap.file = newMap.file
-          .split('!')
-          .pop()
-          .replace(/\\/g, '/');
-        newMap = JSON.stringify(newMap);
-      }
-
       const runtimeCode = `exports = module.exports = require(${stringifyRequest(
         this,
         require.resolve('./runtime/api')
@@ -333,7 +326,7 @@ export default function loader(content, map, meta) {
       const importCode =
         imports.length > 0 ? `// Imports\n${imports.join('\n')}\n\n` : '';
       const moduleCode = `// Module\nexports.push([module.id, ${cssAsString}, ""${
-        newMap ? `,${newMap}` : ''
+        result.map ? `,${result.map}` : ''
       }]);\n\n`;
       const exportsCode =
         exports.length > 0
