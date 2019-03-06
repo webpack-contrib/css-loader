@@ -1,6 +1,6 @@
-const postcssPresetEnv = require('postcss-preset-env');
+import postcssPresetEnv from 'postcss-preset-env';
 
-const { webpack, evaluated } = require('./helpers');
+import { webpack, evaluated } from './helpers';
 
 describe('importLoaders option', () => {
   it('not specify (no loader before)', async () => {

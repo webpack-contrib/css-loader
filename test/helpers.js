@@ -1,11 +1,11 @@
-const vm = require('vm');
-const path = require('path');
+import vm from 'vm';
+import path from 'path';
 
-const del = require('del');
-const webpack = require('webpack');
-const MemoryFS = require('memory-fs');
-const stripAnsi = require('strip-ansi');
-const normalizePath = require('normalize-path');
+import del from 'del';
+import webpack from 'webpack';
+import MemoryFS from 'memory-fs';
+import stripAnsi from 'strip-ansi';
+import normalizePath from 'normalize-path';
 
 function evaluated(output, modules, moduleId = 1) {
   let m;
