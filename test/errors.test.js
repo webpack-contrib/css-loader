@@ -1,4 +1,4 @@
-const loader = require('../src/cjs');
+import loader from '../src/cjs';
 
 it('validation', () => {
   const validate = (options) =>

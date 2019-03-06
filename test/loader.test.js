@@ -1,8 +1,8 @@
-const path = require('path');
+import path from 'path';
 
-const postcssPresetEnv = require('postcss-preset-env');
+import postcssPresetEnv from 'postcss-preset-env';
 
-const { webpack, evaluated, normalizeErrors } = require('./helpers');
+import { webpack, evaluated, normalizeErrors } from './helpers';
 
 describe('loader', () => {
   it('should compile with `js` entry point', async () => {

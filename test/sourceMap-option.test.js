@@ -1,8 +1,8 @@
-const path = require('path');
+import path from 'path';
 
-const postcssPresetEnv = require('postcss-preset-env');
+import postcssPresetEnv from 'postcss-preset-env';
 
-const { webpack, evaluated, normalizeSourceMap } = require('./helpers');
+import { webpack, evaluated, normalizeSourceMap } from './helpers';
 
 describe('sourceMap option', () => {
   describe('true', () => {

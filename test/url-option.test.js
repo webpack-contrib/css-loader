@@ -1,4 +1,4 @@
-const { webpack, evaluated, normalizeErrors } = require('./helpers');
+import { webpack, evaluated, normalizeErrors } from './helpers';
 
 describe('url option', () => {
   it('true', async () => {

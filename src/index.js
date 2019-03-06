@@ -151,14 +151,6 @@ export default function loader(content, map, meta) {
         .warnings()
         .forEach((warning) => this.emitWarning(new Warning(warning)));
 
-      if (result.map) {
-        const newMap = result.map.toJSON();
-
-        console.log(newMap.file);
-        console.log(newMap.sourceRoot);
-        console.log(newMap.sources);
-      }
-
       const messages = result.messages || [];
 
       // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS

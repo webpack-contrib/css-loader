@@ -1,4 +1,4 @@
-const { webpack, evaluated } = require('./helpers');
+import { webpack, evaluated } from './helpers';
 
 describe('camelCase option', () => {
   it('true', async () => {

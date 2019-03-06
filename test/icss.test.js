@@ -1,7 +1,7 @@
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
 
-const { webpack, evaluated } = require('./helpers');
+import { webpack, evaluated } from './helpers';
 
 const testCasesPath = path.join(__dirname, 'fixtures/icss/tests-cases');
 const testCases = fs.readdirSync(testCasesPath);
