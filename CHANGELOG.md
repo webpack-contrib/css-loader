@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/webpack-contrib/css-loader/compare/v2.1.0...v2.1.1) (2019-03-07)
+
+
+### Bug Fixes
+
+* do not break selector with escaping ([#896](https://github.com/webpack-contrib/css-loader/issues/896)) ([0ba8c66](https://github.com/webpack-contrib/css-loader/commit/0ba8c66))
+* source map generation when `sourceRoot` is present ([#901](https://github.com/webpack-contrib/css-loader/issues/901)) ([e9ce745](https://github.com/webpack-contrib/css-loader/commit/e9ce745))
+* sourcemap generating when previous loader pass sourcemap as string ([#905](https://github.com/webpack-contrib/css-loader/issues/905)) ([3797e4d](https://github.com/webpack-contrib/css-loader/commit/3797e4d))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/webpack-contrib/css-loader/compare/v2.0.2...v2.1.0) (2018-12-25)
 
