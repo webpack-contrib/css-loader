@@ -6,6 +6,7 @@ import path from 'path';
 
 import cc from 'camelcase';
 import loaderUtils from 'loader-utils';
+import normalizePath from 'normalize-path';
 
 /* eslint-disable line-comment-position */
 
@@ -71,9 +72,9 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
     options.context = loaderContext.rootContext;
   }
 
-  const request = path
-    .relative(options.context, loaderContext.resourcePath)
-    .replace(/\\/g, '/');
+  const request = normalizePath(
+    path.relative(options.context || '', loaderContext.resourcePath)
+  );
 
   // eslint-disable-next-line no-param-reassign
   options.content = `${options.hashPrefix + request}+${unescape(localName)}`;
