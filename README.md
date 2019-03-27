@@ -324,7 +324,7 @@ Styles can be locally scoped to avoid globally scoping styles.
 The syntax `:local(.className)` can be used to declare `className` in the local scope. The local identifiers are exported by the module.
 
 With `:local` (without brackets) local mode can be switched on for this selector.
-The `:global(.className)` nocation can be used to declare an explicit global selector.
+The `:global(.className)` notation can be used to declare an explicit global selector.
 With `:global` (without brackets) global mode can be switched on for this selector.
 
 The loader replaces local selectors with unique identifiers. The chosen unique identifiers are exported by the module.
