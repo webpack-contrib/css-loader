@@ -35,7 +35,11 @@ Array [
 :local(.-a0-34a___f) {
   color: red;
 }
-",
+
+:local(.m_x_\\\\@) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}",
     "",
   ],
 ]
@@ -78,7 +82,11 @@ Array [
 :local(.-a0-34a___f) {
   color: red;
 }
-",
+
+:local(.m_x_\\\\@) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}",
     "",
   ],
 ]
@@ -121,7 +129,11 @@ Array [
 :local(.-a0-34a___f) {
   color: red;
 }
-",
+
+:local(.m_x_\\\\@) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}",
     "",
   ],
 ]
@@ -164,7 +176,11 @@ Array [
 :local(.-a0-34a___f) {
   color: red;
 }
-",
+
+:local(.m_x_\\\\@) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}",
     "",
   ],
 ]
@@ -207,7 +223,11 @@ Array [
 :local(.-a0-34a___f) {
   color: red;
 }
-",
+
+:local(.m_x_\\\\@) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}",
     "",
   ],
 ]
@@ -250,7 +270,11 @@ Array [
 :local(.-a0-34a___f) {
   color: red;
 }
-",
+
+:local(.m_x_\\\\@) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}",
     "",
   ],
 ]
@@ -293,10 +317,71 @@ Array [
 :local(.-a0-34a___f) {
   color: red;
 }
-",
+
+:local(.m_x_\\\\@) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}",
     "",
   ],
 ]
 `;
 
 exports[`localIdentName option should use hash prefix: warnings 1`] = `Array []`;
+
+exports[`localIdentName option should сorrectly replace symbol @ in selector: errors 1`] = `Array []`;
+
+exports[`localIdentName option should сorrectly replace symbol @ in selector: locals 1`] = `
+Object {
+  "-a0-34a___f": "-a0-34a___f--2nJ5",
+  "_test": "_test--23te",
+  "className": "className--1E8H",
+  "m_x_@": "m_x_@--2G3b",
+  "someId": "someId--3w7J",
+  "subClass": "subClass--3lo0",
+  "test": "test--NW9Y",
+}
+`;
+
+exports[`localIdentName option should сorrectly replace symbol @ in selector: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".test--NW9Y {
+  background: red;
+}
+
+._test--23te {
+  background: blue;
+}
+
+.className--1E8H {
+  background: red;
+}
+
+#someId--3w7J {
+  background: green;
+}
+
+.className--1E8H .subClass--3lo0 {
+  color: green;
+}
+
+#someId--3w7J .subClass--3lo0 {
+  color: blue;
+}
+
+.-a0-34a___f--2nJ5 {
+  color: red;
+}
+
+.m_x_@--2G3b {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}",
+    "",
+  ],
+]
+`;
+
+exports[`localIdentName option should сorrectly replace symbol @ in selector: warnings 1`] = `Array []`;

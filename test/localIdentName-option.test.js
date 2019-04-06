@@ -117,4 +117,28 @@ describe('localIdentName option', () => {
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
+
+  it('should сorrectly replace symbol @ in selector', async () => {
+    const config = {
+      loader: {
+        options: {
+          importLoaders: 2,
+          localIdentName: '[local]--[hash:base64:4]',
+          modules: true,
+        },
+      },
+    };
+    const testId = './modules/localIdentName.css';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+    const evaluatedModule = evaluated(module.source, modules);
+
+    expect(evaluatedModule.locals['m_x_@']).toContain('m_x_@');
+
+    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
+    expect(evaluatedModule.locals).toMatchSnapshot('locals');
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
 });

@@ -25,3 +25,8 @@
 :local(.-a0-34a___f) {
   color: red;
 }
+
+:local(.m_x_\@) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

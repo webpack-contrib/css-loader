@@ -89,7 +89,8 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
   );
 
   return hash
-    .replace(new RegExp('[^a-zA-Z0-9\\-_\u00A0-\uFFFF]', 'g'), '-')
+    .replace(/\\@/g, '@')
+    .replace(new RegExp('[^a-zA-Z0-9@\\-_\u00A0-\uFFFF]', 'g'), '-')
     .replace(/^((-?[0-9])|--)/, '_$1');
 }
 
