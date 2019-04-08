@@ -118,7 +118,7 @@ describe('localIdentName option', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  it('should сorrectly replace symbol @ in selector', async () => {
+  it('should сorrectly replace escaped symbols in selector', async () => {
     const config = {
       loader: {
         options: {
@@ -133,8 +133,6 @@ describe('localIdentName option', () => {
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);
     const evaluatedModule = evaluated(module.source, modules);
-
-    expect(evaluatedModule.locals['m_x_@']).toContain('m_x_@');
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');

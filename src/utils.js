@@ -88,10 +88,7 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
     options
   );
 
-  return hash
-    .replace(/\\@/g, '@')
-    .replace(new RegExp('[^a-zA-Z0-9@\\-_\u00A0-\uFFFF]', 'g'), '-')
-    .replace(/^((-?[0-9])|--)/, '_$1');
+  return normalizeIdentifier(hash);
 }
 
 function getFilter(filter, resourcePath, defaultFilter = null) {
@@ -106,6 +103,52 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
 
     return true;
   };
+}
+
+function normalizeIdentifier(value) {
+  const escapedSymbols = [
+    '~',
+    '!',
+    '@',
+    '#',
+    '$',
+    '%',
+    '&',
+    '^',
+    '*',
+    '(',
+    ')',
+    '{',
+    '}',
+    '[',
+    ']',
+    '`',
+    '/',
+    '=',
+    '?',
+    '+',
+    '\\',
+    '|',
+    '-',
+    '_',
+    ':',
+    ';',
+    "'",
+    '"',
+    ',',
+    '<',
+    '.',
+    '>',
+  ];
+
+  const identifiersRegExp = new RegExp(
+    `[^a-zA-Z0-9${escapedSymbols.join('\\')}\\-_\u00A0-\uFFFF]`,
+    'g'
+  );
+
+  return value
+    .replace(identifiersRegExp, '-')
+    .replace(/^((-?[0-9])|--)/, '_$1');
 }
 
 export {
