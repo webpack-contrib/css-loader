@@ -2,48 +2,174 @@
 
 exports[`localIdentName option basic: errors 1`] = `Array []`;
 
-exports[`localIdentName option basic: locals 1`] = `undefined`;
+exports[`localIdentName option basic: locals 1`] = `
+Object {
+  "#": "localIdentName--#--O8Yw6",
+  "##": "localIdentName--##--3er0D",
+  "#.#.#": "localIdentName--#.#.#--22RlZ",
+  "#fake-id": "localIdentName--#fake-id--3i_zU",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "localIdentName--++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.--3hmdG",
+  "-a-b-c-": "localIdentName---a-b-c---1cY1s",
+  "-a0-34a___f": "localIdentName---a0-34a___f--3RHUZ",
+  ".": "localIdentName--.--nfd9M",
+  "123": "localIdentName--123--3JQcZ",
+  "1a2b3c": "localIdentName--1a2b3c--3IsxV",
+  ":)": "localIdentName--:)--3EKgI",
+  ":\`(": "localIdentName--:\`(--3oWIz",
+  ":hover": "localIdentName--:hover--B2why",
+  ":hover:focus:active": "localIdentName--:hover:focus:active--3R7r5",
+  "<><<<>><>": "localIdentName--<><<<>><>--Tr9vN",
+  "<p>": "localIdentName--<p>--3Lowm",
+  "?": "localIdentName--?--mRRxx",
+  "@": "localIdentName--@--3ZlTE",
+  "B&W?": "localIdentName--B&W?--3d3wg",
+  "[attr=value]": "localIdentName--[attr=value]--3GgRc",
+  "_": "localIdentName--_--2V6oB",
+  "_test": "localIdentName--_test--3Q--B",
+  "className": "localIdentName--className--3wBIH",
+  "f!o!o": "localIdentName--f!o!o--2pDEJ",
+  "f'o'o": "localIdentName--f'o'o--3297S",
+  "f*o*o": "localIdentName--f*o*o--MI6DP",
+  "f+o+o": "localIdentName--f+o+o--3aNwy",
+  "f/o/o": "localIdentName--f/o/o--jbPgr",
+  "f\\\\o\\\\o": "localIdentName--f\\\\o\\\\o--3x1WT",
+  "foo.bar": "localIdentName--foo.bar--2FVtF",
+  "foo/bar": "localIdentName--foo/bar--13Q-T",
+  "foo/bar/baz": "localIdentName--foo/bar/baz--1I8mG",
+  "foo\\\\bar": "localIdentName--foo\\\\bar--LKTPJ",
+  "foo\\\\bar\\\\baz": "localIdentName--foo\\\\bar\\\\baz--xcAsB",
+  "f~o~o": "localIdentName--f~o~o--1TY6B",
+  "m_x_@": "localIdentName--m_x_@--3SfN7",
+  "someId": "localIdentName--someId--mxosG",
+  "subClass": "localIdentName--subClass--3jIM-",
+  "test": "localIdentName--test--1Os7J",
+  "{}": "localIdentName--{}--2ZR3d",
+  "©": "localIdentName--©--3QaoF",
+  "“‘’”": "localIdentName--“‘’”--3xI9A",
+  "⌘⌥": "localIdentName--⌘⌥--1V-to",
+  "☺☃": "localIdentName--☺☃--uy8uv",
+  "♥": "localIdentName--♥--kO1_7",
+  "𝄞♪♩♫♬": "localIdentName--𝄞♪♩♫♬--1tfs0",
+  "💩": "localIdentName--💩--2Cl61",
+}
+`;
 
 exports[`localIdentName option basic: module (evaluated) 1`] = `
 Array [
   Array [
     1,
-    ":local(.test) {
+    ".localIdentName--test--1Os7J {
   background: red;
 }
 
-:local(._test) {
+.localIdentName--_test--3Q--B {
   background: blue;
 }
 
-:local(.className) {
+.localIdentName--className--3wBIH {
   background: red;
 }
 
-:local(#someId) {
+#localIdentName--someId--mxosG {
   background: green;
 }
 
-:local(.className .subClass) {
+.localIdentName--className--3wBIH .localIdentName--subClass--3jIM- {
   color: green;
 }
 
-:local(#someId .subClass) {
+#localIdentName--someId--mxosG .localIdentName--subClass--3jIM- {
   color: blue;
 }
 
-:local(.-a0-34a___f) {
+.localIdentName---a0-34a___f--3RHUZ {
   color: red;
 }
 
-:local(.m_x_\\\\@) {
+.localIdentName--m_x_\\\\@--3SfN7 {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-:local(.B\\\\&W\\\\?) {
+.localIdentName--B\\\\&W\\\\?--3d3wg {
   margin-left: auto !important;
   margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.localIdentName--\\\\3A \\\\\`\\\\(--3oWIz {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.localIdentName--\\\\31 a2b3c--3IsxV {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#localIdentName--\\\\#fake-id--3i_zU {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#localIdentName---a-b-c---1cY1s {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#localIdentName--©--3QaoF {
+  color: black;
+}
+
+.localIdentName--♥--kO1_7 { background: lime; }
+.localIdentName--©--3QaoF { background: lime; }
+.localIdentName--“‘’”--3xI9A { background: lime; }
+.localIdentName--☺☃--uy8uv { background: lime; }
+.localIdentName--⌘⌥--1V-to { background: lime; }
+.localIdentName--𝄞♪♩♫♬--1tfs0 { background: lime; }
+.localIdentName--💩--2Cl61 { background: lime; }
+.localIdentName--\\\\?--mRRxx { background: lime; }
+.localIdentName--\\\\@--3ZlTE { background: lime; }
+.localIdentName--\\\\.--nfd9M { background: lime; }
+.localIdentName--\\\\3A \\\\)--3EKgI { background: lime; }
+.localIdentName--\\\\3A \\\\\`\\\\(--3oWIz { background: lime; }
+.localIdentName--\\\\31 23--3JQcZ { background: lime; }
+.localIdentName--\\\\31 a2b3c--3IsxV { background: lime; }
+.localIdentName--\\\\<p\\\\>--3Lowm { background: lime; }
+.localIdentName--\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>--Tr9vN { background: lime; }
+.localIdentName--\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.--3hmdG { background: lime; }
+.localIdentName--\\\\#--O8Yw6 { background: lime; }
+.localIdentName--\\\\#\\\\#--3er0D { background: lime; }
+.localIdentName--\\\\#\\\\.\\\\#\\\\.\\\\#--22RlZ { background: lime; }
+.localIdentName--\\\\_--2V6oB { background: lime; }
+.localIdentName--\\\\{\\\\}--2ZR3d { background: lime; }
+.localIdentName--\\\\#fake\\\\-id--3i_zU { background: lime; }
+.localIdentName--foo\\\\.bar--2FVtF { background: lime; }
+.localIdentName--\\\\3A hover--B2why { background: lime; }
+.localIdentName--\\\\3A hover\\\\3A focus\\\\3A active--3R7r5 { background: lime; }
+.localIdentName--\\\\[attr\\\\=value\\\\]--3GgRc { background: lime; }
+.localIdentName--f\\\\/o\\\\/o--jbPgr { background: lime; }
+.localIdentName--f\\\\\\\\o\\\\\\\\o--3x1WT { background: lime; }
+.localIdentName--f\\\\*o\\\\*o--MI6DP { background: lime; }
+.localIdentName--f\\\\!o\\\\!o--2pDEJ { background: lime; }
+.localIdentName--f\\\\'o\\\\'o--3297S { background: lime; }
+.localIdentName--f\\\\~o\\\\~o--1TY6B { background: lime; }
+.localIdentName--f\\\\+o\\\\+o--3aNwy { background: lime; }
+
+.localIdentName--foo\\\\/bar--13Q-T {
+  background: hotpink;
+}
+
+.localIdentName--foo\\\\\\\\bar--LKTPJ {
+  background: hotpink;
+}
+
+.localIdentName--foo\\\\/bar\\\\/baz--1I8mG {
+  background: hotpink;
+}
+
+.localIdentName--foo\\\\\\\\bar\\\\\\\\baz--xcAsB {
+  background: hotpink;
 }
 ",
     "",
@@ -53,340 +179,61 @@ Array [
 
 exports[`localIdentName option basic: warnings 1`] = `Array []`;
 
-exports[`localIdentName option should have hash: errors 1`] = `Array []`;
+exports[`localIdentName option should correctly replace escaped symbols in selector: errors 1`] = `Array []`;
 
-exports[`localIdentName option should have hash: locals 1`] = `undefined`;
-
-exports[`localIdentName option should have hash: module (evaluated) 1`] = `
-Array [
-  Array [
-    1,
-    ":local(.test) {
-  background: red;
-}
-
-:local(._test) {
-  background: blue;
-}
-
-:local(.className) {
-  background: red;
-}
-
-:local(#someId) {
-  background: green;
-}
-
-:local(.className .subClass) {
-  color: green;
-}
-
-:local(#someId .subClass) {
-  color: blue;
-}
-
-:local(.-a0-34a___f) {
-  color: red;
-}
-
-:local(.m_x_\\\\@) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-:local(.B\\\\&W\\\\?) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`localIdentName option should have hash: warnings 1`] = `Array []`;
-
-exports[`localIdentName option should have path naming with context: errors 1`] = `Array []`;
-
-exports[`localIdentName option should have path naming with context: locals 1`] = `undefined`;
-
-exports[`localIdentName option should have path naming with context: module (evaluated) 1`] = `
-Array [
-  Array [
-    1,
-    ":local(.test) {
-  background: red;
-}
-
-:local(._test) {
-  background: blue;
-}
-
-:local(.className) {
-  background: red;
-}
-
-:local(#someId) {
-  background: green;
-}
-
-:local(.className .subClass) {
-  color: green;
-}
-
-:local(#someId .subClass) {
-  color: blue;
-}
-
-:local(.-a0-34a___f) {
-  color: red;
-}
-
-:local(.m_x_\\\\@) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-:local(.B\\\\&W\\\\?) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`localIdentName option should have path naming with context: warnings 1`] = `Array []`;
-
-exports[`localIdentName option should prefixes leading hyphen + digit with underscore: errors 1`] = `Array []`;
-
-exports[`localIdentName option should prefixes leading hyphen + digit with underscore: locals 1`] = `undefined`;
-
-exports[`localIdentName option should prefixes leading hyphen + digit with underscore: module (evaluated) 1`] = `
-Array [
-  Array [
-    1,
-    ":local(.test) {
-  background: red;
-}
-
-:local(._test) {
-  background: blue;
-}
-
-:local(.className) {
-  background: red;
-}
-
-:local(#someId) {
-  background: green;
-}
-
-:local(.className .subClass) {
-  color: green;
-}
-
-:local(#someId .subClass) {
-  color: blue;
-}
-
-:local(.-a0-34a___f) {
-  color: red;
-}
-
-:local(.m_x_\\\\@) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-:local(.B\\\\&W\\\\?) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`localIdentName option should prefixes leading hyphen + digit with underscore: warnings 1`] = `Array []`;
-
-exports[`localIdentName option should prefixes two leading hyphens with underscore: errors 1`] = `Array []`;
-
-exports[`localIdentName option should prefixes two leading hyphens with underscore: locals 1`] = `undefined`;
-
-exports[`localIdentName option should prefixes two leading hyphens with underscore: module (evaluated) 1`] = `
-Array [
-  Array [
-    1,
-    ":local(.test) {
-  background: red;
-}
-
-:local(._test) {
-  background: blue;
-}
-
-:local(.className) {
-  background: red;
-}
-
-:local(#someId) {
-  background: green;
-}
-
-:local(.className .subClass) {
-  color: green;
-}
-
-:local(#someId .subClass) {
-  color: blue;
-}
-
-:local(.-a0-34a___f) {
-  color: red;
-}
-
-:local(.m_x_\\\\@) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-:local(.B\\\\&W\\\\?) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`localIdentName option should prefixes two leading hyphens with underscore: warnings 1`] = `Array []`;
-
-exports[`localIdentName option should saves underscore prefix in exported class names: errors 1`] = `Array []`;
-
-exports[`localIdentName option should saves underscore prefix in exported class names: locals 1`] = `undefined`;
-
-exports[`localIdentName option should saves underscore prefix in exported class names: module (evaluated) 1`] = `
-Array [
-  Array [
-    1,
-    ":local(.test) {
-  background: red;
-}
-
-:local(._test) {
-  background: blue;
-}
-
-:local(.className) {
-  background: red;
-}
-
-:local(#someId) {
-  background: green;
-}
-
-:local(.className .subClass) {
-  color: green;
-}
-
-:local(#someId .subClass) {
-  color: blue;
-}
-
-:local(.-a0-34a___f) {
-  color: red;
-}
-
-:local(.m_x_\\\\@) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-:local(.B\\\\&W\\\\?) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`localIdentName option should saves underscore prefix in exported class names: warnings 1`] = `Array []`;
-
-exports[`localIdentName option should use hash prefix: errors 1`] = `Array []`;
-
-exports[`localIdentName option should use hash prefix: locals 1`] = `undefined`;
-
-exports[`localIdentName option should use hash prefix: module (evaluated) 1`] = `
-Array [
-  Array [
-    1,
-    ":local(.test) {
-  background: red;
-}
-
-:local(._test) {
-  background: blue;
-}
-
-:local(.className) {
-  background: red;
-}
-
-:local(#someId) {
-  background: green;
-}
-
-:local(.className .subClass) {
-  color: green;
-}
-
-:local(#someId .subClass) {
-  color: blue;
-}
-
-:local(.-a0-34a___f) {
-  color: red;
-}
-
-:local(.m_x_\\\\@) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-:local(.B\\\\&W\\\\?) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`localIdentName option should use hash prefix: warnings 1`] = `Array []`;
-
-exports[`localIdentName option should сorrectly replace escaped symbols in selector: errors 1`] = `Array []`;
-
-exports[`localIdentName option should сorrectly replace escaped symbols in selector: locals 1`] = `
+exports[`localIdentName option should correctly replace escaped symbols in selector: locals 1`] = `
 Object {
+  "#": "#--1cQh",
+  "##": "##--1u97",
+  "#.#.#": "#.#.#--2QoP",
+  "#fake-id": "#fake-id--1d23",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.--2vJ9",
+  "-a-b-c-": "-a-b-c---opia",
   "-a0-34a___f": "-a0-34a___f--2nJ5",
+  ".": ".--2hyg",
+  "123": "123--jOxY",
+  "1a2b3c": "1a2b3c--1_Xs",
+  ":)": ":)--2tSN",
+  ":\`(": ":\`(--3G_T",
+  ":hover": ":hover--1EAJ",
+  ":hover:focus:active": ":hover:focus:active--1v8f",
+  "<><<<>><>": "<><<<>><>--2mic",
+  "<p>": "<p>--dDVm",
+  "?": "?--2DX4",
+  "@": "@--mE1z",
   "B&W?": "B&W?--1s8i",
+  "[attr=value]": "[attr=value]--2y3U",
+  "_": "_--2vOX",
   "_test": "_test--23te",
   "className": "className--1E8H",
+  "f!o!o": "f!o!o--3x3B",
+  "f'o'o": "f'o'o--2fVl",
+  "f*o*o": "f*o*o--3sRc",
+  "f+o+o": "f+o+o--38BA",
+  "f/o/o": "f/o/o--OYOz",
+  "f\\\\o\\\\o": "f\\\\o\\\\o--1Knj",
+  "foo.bar": "foo.bar--3ZJa",
+  "foo/bar": "foo/bar--36uD",
+  "foo/bar/baz": "foo/bar/baz--oTEb",
+  "foo\\\\bar": "foo\\\\bar--2KL0",
+  "foo\\\\bar\\\\baz": "foo\\\\bar\\\\baz--2Id2",
+  "f~o~o": "f~o~o--lYb3",
   "m_x_@": "m_x_@--2G3b",
   "someId": "someId--3w7J",
   "subClass": "subClass--3lo0",
   "test": "test--NW9Y",
+  "{}": "{}--3lRh",
+  "©": "©--143H",
+  "“‘’”": "“‘’”--2yW9",
+  "⌘⌥": "⌘⌥--6z9v",
+  "☺☃": "☺☃--3sW7",
+  "♥": "♥--8xlN",
+  "𝄞♪♩♫♬": "𝄞♪♩♫♬--1JEq",
+  "💩": "💩--2i25",
 }
 `;
 
-exports[`localIdentName option should сorrectly replace escaped symbols in selector: module (evaluated) 1`] = `
+exports[`localIdentName option should correctly replace escaped symbols in selector: module (evaluated) 1`] = `
 Array [
   Array [
     1,
@@ -427,10 +274,1160 @@ Array [
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* matches elements with class=\\":\`(\\" */
+.\\\\3A \\\\\`\\\\(--3G_T {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.\\\\31 a2b3c--1_Xs {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#\\\\#fake-id--1d23 {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#-a-b-c---opia {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#©--143H {
+  color: black;
+}
+
+.♥--8xlN { background: lime; }
+.©--143H { background: lime; }
+.“‘’”--2yW9 { background: lime; }
+.☺☃--3sW7 { background: lime; }
+.⌘⌥--6z9v { background: lime; }
+.𝄞♪♩♫♬--1JEq { background: lime; }
+.💩--2i25 { background: lime; }
+.\\\\?--2DX4 { background: lime; }
+.\\\\@--mE1z { background: lime; }
+.\\\\.--2hyg { background: lime; }
+.\\\\3A \\\\)--2tSN { background: lime; }
+.\\\\3A \\\\\`\\\\(--3G_T { background: lime; }
+.\\\\31 23--jOxY { background: lime; }
+.\\\\31 a2b3c--1_Xs { background: lime; }
+.\\\\<p\\\\>--dDVm { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>--2mic { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.--2vJ9 { background: lime; }
+.\\\\#--1cQh { background: lime; }
+.\\\\#\\\\#--1u97 { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\#--2QoP { background: lime; }
+.\\\\_--2vOX { background: lime; }
+.\\\\{\\\\}--3lRh { background: lime; }
+.\\\\#fake\\\\-id--1d23 { background: lime; }
+.foo\\\\.bar--3ZJa { background: lime; }
+.\\\\3A hover--1EAJ { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active--1v8f { background: lime; }
+.\\\\[attr\\\\=value\\\\]--2y3U { background: lime; }
+.f\\\\/o\\\\/o--OYOz { background: lime; }
+.f\\\\\\\\o\\\\\\\\o--1Knj { background: lime; }
+.f\\\\*o\\\\*o--3sRc { background: lime; }
+.f\\\\!o\\\\!o--3x3B { background: lime; }
+.f\\\\'o\\\\'o--2fVl { background: lime; }
+.f\\\\~o\\\\~o--lYb3 { background: lime; }
+.f\\\\+o\\\\+o--38BA { background: lime; }
+
+.foo\\\\/bar--36uD {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar--2KL0 {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz--oTEb {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz--2Id2 {
+  background: hotpink;
+}
 ",
     "",
   ],
 ]
 `;
 
-exports[`localIdentName option should сorrectly replace escaped symbols in selector: warnings 1`] = `Array []`;
+exports[`localIdentName option should correctly replace escaped symbols in selector: warnings 1`] = `Array []`;
+
+exports[`localIdentName option should have only hash: errors 1`] = `Array []`;
+
+exports[`localIdentName option should have only hash: locals 1`] = `
+Object {
+  "#": "O8Yw611P",
+  "##": "_3er0DBiz",
+  "#.#.#": "_22RlZfs4",
+  "#fake-id": "_3i_zUQNU",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "_3hmdGGWi",
+  "-a-b-c-": "_1cY1s7c1",
+  "-a0-34a___f": "_3RHUZpqp",
+  ".": "nfd9MoI8",
+  "123": "_3JQcZq0t",
+  "1a2b3c": "_3IsxVsEE",
+  ":)": "_3EKgIWue",
+  ":\`(": "_3oWIzQc7",
+  ":hover": "B2whyhV4",
+  ":hover:focus:active": "_3R7r57b4",
+  "<><<<>><>": "Tr9vNLcW",
+  "<p>": "_3Lowms-R",
+  "?": "mRRxxKEQ",
+  "@": "_3ZlTEPhx",
+  "B&W?": "_3d3wghvo",
+  "[attr=value]": "_3GgRcos7",
+  "_": "_2V6oBdW4",
+  "_test": "_3Q--BATR",
+  "className": "_3wBIH6Tw",
+  "f!o!o": "_2pDEJqK-",
+  "f'o'o": "_3297Sjlr",
+  "f*o*o": "MI6DPcI5",
+  "f+o+o": "_3aNwyLoj",
+  "f/o/o": "jbPgrxdZ",
+  "f\\\\o\\\\o": "_3x1WTWOH",
+  "foo.bar": "_2FVtFG40",
+  "foo/bar": "_13Q-TIeR",
+  "foo/bar/baz": "_1I8mGSan",
+  "foo\\\\bar": "LKTPJkpW",
+  "foo\\\\bar\\\\baz": "xcAsBCbt",
+  "f~o~o": "_1TY6Bok1",
+  "m_x_@": "_3SfN7O2q",
+  "someId": "mxosG-Ww",
+  "subClass": "_3jIM-zUk",
+  "test": "_1Os7JVOf",
+  "{}": "_2ZR3d8gm",
+  "©": "_3QaoFt--",
+  "“‘’”": "_3xI9AT1p",
+  "⌘⌥": "_1V-to4Of",
+  "☺☃": "uy8uve6R",
+  "♥": "kO1_7SYu",
+  "𝄞♪♩♫♬": "_1tfs0VJo",
+  "💩": "_2Cl61yWh",
+}
+`;
+
+exports[`localIdentName option should have only hash: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._1Os7JVOf {
+  background: red;
+}
+
+._3Q--BATR {
+  background: blue;
+}
+
+._3wBIH6Tw {
+  background: red;
+}
+
+#mxosG-Ww {
+  background: green;
+}
+
+._3wBIH6Tw ._3jIM-zUk {
+  color: green;
+}
+
+#mxosG-Ww ._3jIM-zUk {
+  color: blue;
+}
+
+._3RHUZpqp {
+  color: red;
+}
+
+._3SfN7O2q {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+._3d3wghvo {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+._3oWIzQc7 {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+._3IsxVsEE {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#_3i_zUQNU {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#_1cY1s7c1 {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#_3QaoFt-- {
+  color: black;
+}
+
+.kO1_7SYu { background: lime; }
+._3QaoFt-- { background: lime; }
+._3xI9AT1p { background: lime; }
+.uy8uve6R { background: lime; }
+._1V-to4Of { background: lime; }
+._1tfs0VJo { background: lime; }
+._2Cl61yWh { background: lime; }
+.mRRxxKEQ { background: lime; }
+._3ZlTEPhx { background: lime; }
+.nfd9MoI8 { background: lime; }
+._3EKgIWue { background: lime; }
+._3oWIzQc7 { background: lime; }
+._3JQcZq0t { background: lime; }
+._3IsxVsEE { background: lime; }
+._3Lowms-R { background: lime; }
+.Tr9vNLcW { background: lime; }
+._3hmdGGWi { background: lime; }
+.O8Yw611P { background: lime; }
+._3er0DBiz { background: lime; }
+._22RlZfs4 { background: lime; }
+._2V6oBdW4 { background: lime; }
+._2ZR3d8gm { background: lime; }
+._3i_zUQNU { background: lime; }
+._2FVtFG40 { background: lime; }
+.B2whyhV4 { background: lime; }
+._3R7r57b4 { background: lime; }
+._3GgRcos7 { background: lime; }
+.jbPgrxdZ { background: lime; }
+._3x1WTWOH { background: lime; }
+.MI6DPcI5 { background: lime; }
+._2pDEJqK- { background: lime; }
+._3297Sjlr { background: lime; }
+._1TY6Bok1 { background: lime; }
+._3aNwyLoj { background: lime; }
+
+._13Q-TIeR {
+  background: hotpink;
+}
+
+.LKTPJkpW {
+  background: hotpink;
+}
+
+._1I8mGSan {
+  background: hotpink;
+}
+
+.xcAsBCbt {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`localIdentName option should have only hash: warnings 1`] = `Array []`;
+
+exports[`localIdentName option should have path naming with context: errors 1`] = `Array []`;
+
+exports[`localIdentName option should have path naming with context: locals 1`] = `
+Object {
+  "#": "fixtures/modules/--localIdentName--#",
+  "##": "fixtures/modules/--localIdentName--##",
+  "#.#.#": "fixtures/modules/--localIdentName--#.#.#",
+  "#fake-id": "fixtures/modules/--localIdentName--#fake-id",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "fixtures/modules/--localIdentName--++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.",
+  "-a-b-c-": "fixtures/modules/--localIdentName---a-b-c-",
+  "-a0-34a___f": "fixtures/modules/--localIdentName---a0-34a___f",
+  ".": "fixtures/modules/--localIdentName--.",
+  "123": "fixtures/modules/--localIdentName--123",
+  "1a2b3c": "fixtures/modules/--localIdentName--1a2b3c",
+  ":)": "fixtures/modules/--localIdentName--:)",
+  ":\`(": "fixtures/modules/--localIdentName--:\`(",
+  ":hover": "fixtures/modules/--localIdentName--:hover",
+  ":hover:focus:active": "fixtures/modules/--localIdentName--:hover:focus:active",
+  "<><<<>><>": "fixtures/modules/--localIdentName--<><<<>><>",
+  "<p>": "fixtures/modules/--localIdentName--<p>",
+  "?": "fixtures/modules/--localIdentName--?",
+  "@": "fixtures/modules/--localIdentName--@",
+  "B&W?": "fixtures/modules/--localIdentName--B&W?",
+  "[attr=value]": "fixtures/modules/--localIdentName--[attr=value]",
+  "_": "fixtures/modules/--localIdentName--_",
+  "_test": "fixtures/modules/--localIdentName--_test",
+  "className": "fixtures/modules/--localIdentName--className",
+  "f!o!o": "fixtures/modules/--localIdentName--f!o!o",
+  "f'o'o": "fixtures/modules/--localIdentName--f'o'o",
+  "f*o*o": "fixtures/modules/--localIdentName--f*o*o",
+  "f+o+o": "fixtures/modules/--localIdentName--f+o+o",
+  "f/o/o": "fixtures/modules/--localIdentName--f/o/o",
+  "f\\\\o\\\\o": "fixtures/modules/--localIdentName--f\\\\o\\\\o",
+  "foo.bar": "fixtures/modules/--localIdentName--foo.bar",
+  "foo/bar": "fixtures/modules/--localIdentName--foo/bar",
+  "foo/bar/baz": "fixtures/modules/--localIdentName--foo/bar/baz",
+  "foo\\\\bar": "fixtures/modules/--localIdentName--foo\\\\bar",
+  "foo\\\\bar\\\\baz": "fixtures/modules/--localIdentName--foo\\\\bar\\\\baz",
+  "f~o~o": "fixtures/modules/--localIdentName--f~o~o",
+  "m_x_@": "fixtures/modules/--localIdentName--m_x_@",
+  "someId": "fixtures/modules/--localIdentName--someId",
+  "subClass": "fixtures/modules/--localIdentName--subClass",
+  "test": "fixtures/modules/--localIdentName--test",
+  "{}": "fixtures/modules/--localIdentName--{}",
+  "©": "fixtures/modules/--localIdentName--©",
+  "“‘’”": "fixtures/modules/--localIdentName--“‘’”",
+  "⌘⌥": "fixtures/modules/--localIdentName--⌘⌥",
+  "☺☃": "fixtures/modules/--localIdentName--☺☃",
+  "♥": "fixtures/modules/--localIdentName--♥",
+  "𝄞♪♩♫♬": "fixtures/modules/--localIdentName--𝄞♪♩♫♬",
+  "💩": "fixtures/modules/--localIdentName--💩",
+}
+`;
+
+exports[`localIdentName option should have path naming with context: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".fixtures\\\\/modules\\\\/--localIdentName--test {
+  background: red;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName--_test {
+  background: blue;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName--className {
+  background: red;
+}
+
+#fixtures\\\\/modules\\\\/--localIdentName--someId {
+  background: green;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName--className .fixtures\\\\/modules\\\\/--localIdentName--subClass {
+  color: green;
+}
+
+#fixtures\\\\/modules\\\\/--localIdentName--someId .fixtures\\\\/modules\\\\/--localIdentName--subClass {
+  color: blue;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName---a0-34a___f {
+  color: red;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName--m_x_\\\\@ {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName--B\\\\&W\\\\? {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A \\\\\`\\\\( {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\31 a2b3c {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#fixtures\\\\/modules\\\\/--localIdentName--\\\\#fake-id {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#fixtures\\\\/modules\\\\/--localIdentName---a-b-c- {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#fixtures\\\\/modules\\\\/--localIdentName--© {
+  color: black;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName--♥ { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--© { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--“‘’” { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--☺☃ { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--⌘⌥ { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--𝄞♪♩♫♬ { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--💩 { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\? { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\@ { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\. { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A \\\\) { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A \\\\\`\\\\( { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\31 23 { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\31 a2b3c { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\<p\\\\> { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\> { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\. { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\# { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\#\\\\# { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\#\\\\.\\\\#\\\\.\\\\# { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\_ { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\{\\\\} { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\#fake\\\\-id { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\.bar { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A hover { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A hover\\\\3A focus\\\\3A active { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--\\\\[attr\\\\=value\\\\] { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--f\\\\/o\\\\/o { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--f\\\\\\\\o\\\\\\\\o { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--f\\\\*o\\\\*o { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--f\\\\!o\\\\!o { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--f\\\\'o\\\\'o { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--f\\\\~o\\\\~o { background: lime; }
+.fixtures\\\\/modules\\\\/--localIdentName--f\\\\+o\\\\+o { background: lime; }
+
+.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\/bar {
+  background: hotpink;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\\\\\bar {
+  background: hotpink;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\/bar\\\\/baz {
+  background: hotpink;
+}
+
+.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\\\\\bar\\\\\\\\baz {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`localIdentName option should have path naming with context: warnings 1`] = `Array []`;
+
+exports[`localIdentName option should prefixes leading hyphen + digit with underscore: errors 1`] = `Array []`;
+
+exports[`localIdentName option should prefixes leading hyphen + digit with underscore: locals 1`] = `
+Object {
+  "#": "_-1#",
+  "##": "_-1##",
+  "#.#.#": "_-1#.#.#",
+  "#fake-id": "_-1#fake-id",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "_-1++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.",
+  "-a-b-c-": "_-1-a-b-c-",
+  "-a0-34a___f": "_-1-a0-34a___f",
+  ".": "_-1.",
+  "123": "_-1123",
+  "1a2b3c": "_-11a2b3c",
+  ":)": "_-1:)",
+  ":\`(": "_-1:\`(",
+  ":hover": "_-1:hover",
+  ":hover:focus:active": "_-1:hover:focus:active",
+  "<><<<>><>": "_-1<><<<>><>",
+  "<p>": "_-1<p>",
+  "?": "_-1?",
+  "@": "_-1@",
+  "B&W?": "_-1B&W?",
+  "[attr=value]": "_-1[attr=value]",
+  "_": "_-1_",
+  "_test": "_-1_test",
+  "className": "_-1className",
+  "f!o!o": "_-1f!o!o",
+  "f'o'o": "_-1f'o'o",
+  "f*o*o": "_-1f*o*o",
+  "f+o+o": "_-1f+o+o",
+  "f/o/o": "_-1f/o/o",
+  "f\\\\o\\\\o": "_-1f\\\\o\\\\o",
+  "foo.bar": "_-1foo.bar",
+  "foo/bar": "_-1foo/bar",
+  "foo/bar/baz": "_-1foo/bar/baz",
+  "foo\\\\bar": "_-1foo\\\\bar",
+  "foo\\\\bar\\\\baz": "_-1foo\\\\bar\\\\baz",
+  "f~o~o": "_-1f~o~o",
+  "m_x_@": "_-1m_x_@",
+  "someId": "_-1someId",
+  "subClass": "_-1subClass",
+  "test": "_-1test",
+  "{}": "_-1{}",
+  "©": "_-1©",
+  "“‘’”": "_-1“‘’”",
+  "⌘⌥": "_-1⌘⌥",
+  "☺☃": "_-1☺☃",
+  "♥": "_-1♥",
+  "𝄞♪♩♫♬": "_-1𝄞♪♩♫♬",
+  "💩": "_-1💩",
+}
+`;
+
+exports[`localIdentName option should prefixes leading hyphen + digit with underscore: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._-1test {
+  background: red;
+}
+
+._-1_test {
+  background: blue;
+}
+
+._-1className {
+  background: red;
+}
+
+#_-1someId {
+  background: green;
+}
+
+._-1className ._-1subClass {
+  color: green;
+}
+
+#_-1someId ._-1subClass {
+  color: blue;
+}
+
+._-1-a0-34a___f {
+  color: red;
+}
+
+._-1m_x_\\\\@ {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+._-1B\\\\&W\\\\? {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+._-1\\\\3A \\\\\`\\\\( {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+._-1\\\\31 a2b3c {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#_-1\\\\#fake-id {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#_-1-a-b-c- {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#_-1© {
+  color: black;
+}
+
+._-1♥ { background: lime; }
+._-1© { background: lime; }
+._-1“‘’” { background: lime; }
+._-1☺☃ { background: lime; }
+._-1⌘⌥ { background: lime; }
+._-1𝄞♪♩♫♬ { background: lime; }
+._-1💩 { background: lime; }
+._-1\\\\? { background: lime; }
+._-1\\\\@ { background: lime; }
+._-1\\\\. { background: lime; }
+._-1\\\\3A \\\\) { background: lime; }
+._-1\\\\3A \\\\\`\\\\( { background: lime; }
+._-1\\\\31 23 { background: lime; }
+._-1\\\\31 a2b3c { background: lime; }
+._-1\\\\<p\\\\> { background: lime; }
+._-1\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\> { background: lime; }
+._-1\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\. { background: lime; }
+._-1\\\\# { background: lime; }
+._-1\\\\#\\\\# { background: lime; }
+._-1\\\\#\\\\.\\\\#\\\\.\\\\# { background: lime; }
+._-1\\\\_ { background: lime; }
+._-1\\\\{\\\\} { background: lime; }
+._-1\\\\#fake\\\\-id { background: lime; }
+._-1foo\\\\.bar { background: lime; }
+._-1\\\\3A hover { background: lime; }
+._-1\\\\3A hover\\\\3A focus\\\\3A active { background: lime; }
+._-1\\\\[attr\\\\=value\\\\] { background: lime; }
+._-1f\\\\/o\\\\/o { background: lime; }
+._-1f\\\\\\\\o\\\\\\\\o { background: lime; }
+._-1f\\\\*o\\\\*o { background: lime; }
+._-1f\\\\!o\\\\!o { background: lime; }
+._-1f\\\\'o\\\\'o { background: lime; }
+._-1f\\\\~o\\\\~o { background: lime; }
+._-1f\\\\+o\\\\+o { background: lime; }
+
+._-1foo\\\\/bar {
+  background: hotpink;
+}
+
+._-1foo\\\\\\\\bar {
+  background: hotpink;
+}
+
+._-1foo\\\\/bar\\\\/baz {
+  background: hotpink;
+}
+
+._-1foo\\\\\\\\bar\\\\\\\\baz {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`localIdentName option should prefixes leading hyphen + digit with underscore: warnings 1`] = `Array []`;
+
+exports[`localIdentName option should prefixes two leading hyphens with underscore: errors 1`] = `Array []`;
+
+exports[`localIdentName option should prefixes two leading hyphens with underscore: locals 1`] = `
+Object {
+  "#": "_--#",
+  "##": "_--##",
+  "#.#.#": "_--#.#.#",
+  "#fake-id": "_--#fake-id",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "_--++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.",
+  "-a-b-c-": "_---a-b-c-",
+  "-a0-34a___f": "_---a0-34a___f",
+  ".": "_--.",
+  "123": "_--123",
+  "1a2b3c": "_--1a2b3c",
+  ":)": "_--:)",
+  ":\`(": "_--:\`(",
+  ":hover": "_--:hover",
+  ":hover:focus:active": "_--:hover:focus:active",
+  "<><<<>><>": "_--<><<<>><>",
+  "<p>": "_--<p>",
+  "?": "_--?",
+  "@": "_--@",
+  "B&W?": "_--B&W?",
+  "[attr=value]": "_--[attr=value]",
+  "_": "_--_",
+  "_test": "_--_test",
+  "className": "_--className",
+  "f!o!o": "_--f!o!o",
+  "f'o'o": "_--f'o'o",
+  "f*o*o": "_--f*o*o",
+  "f+o+o": "_--f+o+o",
+  "f/o/o": "_--f/o/o",
+  "f\\\\o\\\\o": "_--f\\\\o\\\\o",
+  "foo.bar": "_--foo.bar",
+  "foo/bar": "_--foo/bar",
+  "foo/bar/baz": "_--foo/bar/baz",
+  "foo\\\\bar": "_--foo\\\\bar",
+  "foo\\\\bar\\\\baz": "_--foo\\\\bar\\\\baz",
+  "f~o~o": "_--f~o~o",
+  "m_x_@": "_--m_x_@",
+  "someId": "_--someId",
+  "subClass": "_--subClass",
+  "test": "_--test",
+  "{}": "_--{}",
+  "©": "_--©",
+  "“‘’”": "_--“‘’”",
+  "⌘⌥": "_--⌘⌥",
+  "☺☃": "_--☺☃",
+  "♥": "_--♥",
+  "𝄞♪♩♫♬": "_--𝄞♪♩♫♬",
+  "💩": "_--💩",
+}
+`;
+
+exports[`localIdentName option should prefixes two leading hyphens with underscore: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._--test {
+  background: red;
+}
+
+._--_test {
+  background: blue;
+}
+
+._--className {
+  background: red;
+}
+
+#_--someId {
+  background: green;
+}
+
+._--className ._--subClass {
+  color: green;
+}
+
+#_--someId ._--subClass {
+  color: blue;
+}
+
+._---a0-34a___f {
+  color: red;
+}
+
+._--m_x_\\\\@ {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+._--B\\\\&W\\\\? {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+._--\\\\3A \\\\\`\\\\( {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+._--\\\\31 a2b3c {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#_--\\\\#fake-id {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#_---a-b-c- {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#_--© {
+  color: black;
+}
+
+._--♥ { background: lime; }
+._--© { background: lime; }
+._--“‘’” { background: lime; }
+._--☺☃ { background: lime; }
+._--⌘⌥ { background: lime; }
+._--𝄞♪♩♫♬ { background: lime; }
+._--💩 { background: lime; }
+._--\\\\? { background: lime; }
+._--\\\\@ { background: lime; }
+._--\\\\. { background: lime; }
+._--\\\\3A \\\\) { background: lime; }
+._--\\\\3A \\\\\`\\\\( { background: lime; }
+._--\\\\31 23 { background: lime; }
+._--\\\\31 a2b3c { background: lime; }
+._--\\\\<p\\\\> { background: lime; }
+._--\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\> { background: lime; }
+._--\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\. { background: lime; }
+._--\\\\# { background: lime; }
+._--\\\\#\\\\# { background: lime; }
+._--\\\\#\\\\.\\\\#\\\\.\\\\# { background: lime; }
+._--\\\\_ { background: lime; }
+._--\\\\{\\\\} { background: lime; }
+._--\\\\#fake\\\\-id { background: lime; }
+._--foo\\\\.bar { background: lime; }
+._--\\\\3A hover { background: lime; }
+._--\\\\3A hover\\\\3A focus\\\\3A active { background: lime; }
+._--\\\\[attr\\\\=value\\\\] { background: lime; }
+._--f\\\\/o\\\\/o { background: lime; }
+._--f\\\\\\\\o\\\\\\\\o { background: lime; }
+._--f\\\\*o\\\\*o { background: lime; }
+._--f\\\\!o\\\\!o { background: lime; }
+._--f\\\\'o\\\\'o { background: lime; }
+._--f\\\\~o\\\\~o { background: lime; }
+._--f\\\\+o\\\\+o { background: lime; }
+
+._--foo\\\\/bar {
+  background: hotpink;
+}
+
+._--foo\\\\\\\\bar {
+  background: hotpink;
+}
+
+._--foo\\\\/bar\\\\/baz {
+  background: hotpink;
+}
+
+._--foo\\\\\\\\bar\\\\\\\\baz {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`localIdentName option should prefixes two leading hyphens with underscore: warnings 1`] = `Array []`;
+
+exports[`localIdentName option should saves underscore prefix in exported class names: errors 1`] = `Array []`;
+
+exports[`localIdentName option should saves underscore prefix in exported class names: locals 1`] = `
+Object {
+  "#": "#",
+  "##": "##",
+  "#.#.#": "#.#.#",
+  "#fake-id": "#fake-id",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.",
+  "-a-b-c-": "-a-b-c-",
+  "-a0-34a___f": "-a0-34a___f",
+  ".": ".",
+  "123": "123",
+  "1a2b3c": "1a2b3c",
+  ":)": ":)",
+  ":\`(": ":\`(",
+  ":hover": ":hover",
+  ":hover:focus:active": ":hover:focus:active",
+  "<><<<>><>": "<><<<>><>",
+  "<p>": "<p>",
+  "?": "?",
+  "@": "@",
+  "B&W?": "B&W?",
+  "[attr=value]": "[attr=value]",
+  "_": "_",
+  "_test": "_test",
+  "className": "className",
+  "f!o!o": "f!o!o",
+  "f'o'o": "f'o'o",
+  "f*o*o": "f*o*o",
+  "f+o+o": "f+o+o",
+  "f/o/o": "f/o/o",
+  "f\\\\o\\\\o": "f\\\\o\\\\o",
+  "foo.bar": "foo.bar",
+  "foo/bar": "foo/bar",
+  "foo/bar/baz": "foo/bar/baz",
+  "foo\\\\bar": "foo\\\\bar",
+  "foo\\\\bar\\\\baz": "foo\\\\bar\\\\baz",
+  "f~o~o": "f~o~o",
+  "m_x_@": "m_x_@",
+  "someId": "someId",
+  "subClass": "subClass",
+  "test": "test",
+  "{}": "{}",
+  "©": "©",
+  "“‘’”": "“‘’”",
+  "⌘⌥": "⌘⌥",
+  "☺☃": "☺☃",
+  "♥": "♥",
+  "𝄞♪♩♫♬": "𝄞♪♩♫♬",
+  "💩": "💩",
+}
+`;
+
+exports[`localIdentName option should saves underscore prefix in exported class names: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".test {
+  background: red;
+}
+
+._test {
+  background: blue;
+}
+
+.className {
+  background: red;
+}
+
+#someId {
+  background: green;
+}
+
+.className .subClass {
+  color: green;
+}
+
+#someId .subClass {
+  color: blue;
+}
+
+.-a0-34a___f {
+  color: red;
+}
+
+.m_x_\\\\@ {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\\\&W\\\\? {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.\\\\3A \\\\\`\\\\( {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.\\\\31 a2b3c {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#\\\\#fake-id {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#-a-b-c- {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#© {
+  color: black;
+}
+
+.♥ { background: lime; }
+.© { background: lime; }
+.“‘’” { background: lime; }
+.☺☃ { background: lime; }
+.⌘⌥ { background: lime; }
+.𝄞♪♩♫♬ { background: lime; }
+.💩 { background: lime; }
+.\\\\? { background: lime; }
+.\\\\@ { background: lime; }
+.\\\\. { background: lime; }
+.\\\\3A \\\\) { background: lime; }
+.\\\\3A \\\\\`\\\\( { background: lime; }
+.\\\\31 23 { background: lime; }
+.\\\\31 a2b3c { background: lime; }
+.\\\\<p\\\\> { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\> { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\. { background: lime; }
+.\\\\# { background: lime; }
+.\\\\#\\\\# { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\# { background: lime; }
+.\\\\_ { background: lime; }
+.\\\\{\\\\} { background: lime; }
+.\\\\#fake\\\\-id { background: lime; }
+.foo\\\\.bar { background: lime; }
+.\\\\3A hover { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active { background: lime; }
+.\\\\[attr\\\\=value\\\\] { background: lime; }
+.f\\\\/o\\\\/o { background: lime; }
+.f\\\\\\\\o\\\\\\\\o { background: lime; }
+.f\\\\*o\\\\*o { background: lime; }
+.f\\\\!o\\\\!o { background: lime; }
+.f\\\\'o\\\\'o { background: lime; }
+.f\\\\~o\\\\~o { background: lime; }
+.f\\\\+o\\\\+o { background: lime; }
+
+.foo\\\\/bar {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`localIdentName option should saves underscore prefix in exported class names: warnings 1`] = `Array []`;
+
+exports[`localIdentName option should use hash prefix: errors 1`] = `Array []`;
+
+exports[`localIdentName option should use hash prefix: locals 1`] = `
+Object {
+  "#": "#--8caa1febb853c79bc5740a51d69b0603",
+  "##": "##--e6e70cede894cf8ecef86891b00438fa",
+  "#.#.#": "#.#.#--f93b20473b91262c9634348506fe36fe",
+  "#fake-id": "#fake-id--a0d1d29b3c920aa3985fb11586f994e6",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.--937528d96919903e5a5172d04ced259a",
+  "-a-b-c-": "-a-b-c---5b1d694462fbb9af324bb0ed2a08d755",
+  "-a0-34a___f": "-a0-34a___f--e99d667fe0ceff9363b011302ac3f508",
+  ".": ".--12cd2fe5f9c81510bf687df3b6461cb1",
+  "123": "123--e5bcdf25b52ca483d65894eae427ccff",
+  "1a2b3c": "1a2b3c--165cab18879cee9a48ae4cbb5fdd39a8",
+  ":)": ":)--2f61aa454a9e7fd205da87e665dff51b",
+  ":\`(": ":\`(--612466e663a46fe230e6db648089b4c4",
+  ":hover": ":hover--af8b669c2dc29371d450d428f0bfa5d2",
+  ":hover:focus:active": ":hover:focus:active--5c55d7a925c8ee5de2e8f175badce4d6",
+  "<><<<>><>": "<><<<>><>--ac5886bfd5b1a8264bdda01deaf52762",
+  "<p>": "<p>--c168cd4e00ec053d5bd509da80f5db38",
+  "?": "?--4f09eb0a56c6b8f25f7ef4def006df7e",
+  "@": "@--254139a6858615f890093da92bb4c90b",
+  "B&W?": "B&W?--8c20b8856e47b8157bf47451b1b6d9a6",
+  "[attr=value]": "[attr=value]--db83b30c2535d713bd9f8fd195909f24",
+  "_": "_--f18cdd3b2ff360c3f4c10cc7559ff003",
+  "_test": "_test--d745495d407559ef605c9072243801fd",
+  "className": "className--eab624d1bc6b9c6b6a4278d1030dd690",
+  "f!o!o": "f!o!o--ea3b21fd9d4327fbc9d8b949a2bd5823",
+  "f'o'o": "f'o'o--95fe160ec21a5b70221e47b09b21fcd2",
+  "f*o*o": "f*o*o--a5f60f217da867c314860c5b2e28bbfd",
+  "f+o+o": "f+o+o--1e99689a1b3985adff358f3bd4aea7ed",
+  "f/o/o": "f/o/o--5de918433a006304ca487065b8626dd4",
+  "f\\\\o\\\\o": "f\\\\o\\\\o--e9ae2e1857289425acfa40a3f741babd",
+  "foo.bar": "foo.bar--e1dfb05dd5c7c36228cc87fe2cd0c6b1",
+  "foo/bar": "foo/bar--5b852e67587217ab19651f30a9b4df53",
+  "foo/bar/baz": "foo/bar/baz--d917a2cf9531290fbf3aa43e0cc0520f",
+  "foo\\\\bar": "foo\\\\bar--6cf70ff94feb1257af10e9ddcc47d54f",
+  "foo\\\\bar\\\\baz": "foo\\\\bar\\\\baz--1900aa5b4b5b2443299cc5e8afa9b3b4",
+  "f~o~o": "f~o~o--b9707d2eae11417a88a3f638b64eca30",
+  "m_x_@": "m_x_@--de463fc45a1e6dd0ed23f26a568f1d61",
+  "someId": "someId--a0ce220cc9bbb1ee0e85cc0d1f0c6aa9",
+  "subClass": "subClass--2c82998be8a2b2e94ad7be56c9e685cd",
+  "test": "test--307c32aa793aaec9aecded85a9fdd448",
+  "{}": "{}--6db4a8e6a78415e8209253db0c3dd7c5",
+  "©": "©--074c8458dd077a052783bb5f4c5b5911",
+  "“‘’”": "“‘’”--00f526c32cd5eec8f5de2965f2ca9457",
+  "⌘⌥": "⌘⌥--c42685a7cfeb3b510a6d8169d58bf02d",
+  "☺☃": "☺☃--0ea31e7c348b5949a05bce4eebcb59eb",
+  "♥": "♥--37952b59a9aa684be1d91192f863babf",
+  "𝄞♪♩♫♬": "𝄞♪♩♫♬--ece85fb9868788feab6a8f1259b9ff9d",
+  "💩": "💩--1c19fe6dd9ca556af34bbda8a2cbbbdf",
+}
+`;
+
+exports[`localIdentName option should use hash prefix: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".test--307c32aa793aaec9aecded85a9fdd448 {
+  background: red;
+}
+
+._test--d745495d407559ef605c9072243801fd {
+  background: blue;
+}
+
+.className--eab624d1bc6b9c6b6a4278d1030dd690 {
+  background: red;
+}
+
+#someId--a0ce220cc9bbb1ee0e85cc0d1f0c6aa9 {
+  background: green;
+}
+
+.className--eab624d1bc6b9c6b6a4278d1030dd690 .subClass--2c82998be8a2b2e94ad7be56c9e685cd {
+  color: green;
+}
+
+#someId--a0ce220cc9bbb1ee0e85cc0d1f0c6aa9 .subClass--2c82998be8a2b2e94ad7be56c9e685cd {
+  color: blue;
+}
+
+.-a0-34a___f--e99d667fe0ceff9363b011302ac3f508 {
+  color: red;
+}
+
+.m_x_\\\\@--de463fc45a1e6dd0ed23f26a568f1d61 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\\\&W\\\\?--8c20b8856e47b8157bf47451b1b6d9a6 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.\\\\3A \\\\\`\\\\(--612466e663a46fe230e6db648089b4c4 {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.\\\\31 a2b3c--165cab18879cee9a48ae4cbb5fdd39a8 {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#\\\\#fake-id--a0d1d29b3c920aa3985fb11586f994e6 {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#-a-b-c---5b1d694462fbb9af324bb0ed2a08d755 {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#©--074c8458dd077a052783bb5f4c5b5911 {
+  color: black;
+}
+
+.♥--37952b59a9aa684be1d91192f863babf { background: lime; }
+.©--074c8458dd077a052783bb5f4c5b5911 { background: lime; }
+.“‘’”--00f526c32cd5eec8f5de2965f2ca9457 { background: lime; }
+.☺☃--0ea31e7c348b5949a05bce4eebcb59eb { background: lime; }
+.⌘⌥--c42685a7cfeb3b510a6d8169d58bf02d { background: lime; }
+.𝄞♪♩♫♬--ece85fb9868788feab6a8f1259b9ff9d { background: lime; }
+.💩--1c19fe6dd9ca556af34bbda8a2cbbbdf { background: lime; }
+.\\\\?--4f09eb0a56c6b8f25f7ef4def006df7e { background: lime; }
+.\\\\@--254139a6858615f890093da92bb4c90b { background: lime; }
+.\\\\.--12cd2fe5f9c81510bf687df3b6461cb1 { background: lime; }
+.\\\\3A \\\\)--2f61aa454a9e7fd205da87e665dff51b { background: lime; }
+.\\\\3A \\\\\`\\\\(--612466e663a46fe230e6db648089b4c4 { background: lime; }
+.\\\\31 23--e5bcdf25b52ca483d65894eae427ccff { background: lime; }
+.\\\\31 a2b3c--165cab18879cee9a48ae4cbb5fdd39a8 { background: lime; }
+.\\\\<p\\\\>--c168cd4e00ec053d5bd509da80f5db38 { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>--ac5886bfd5b1a8264bdda01deaf52762 { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.--937528d96919903e5a5172d04ced259a { background: lime; }
+.\\\\#--8caa1febb853c79bc5740a51d69b0603 { background: lime; }
+.\\\\#\\\\#--e6e70cede894cf8ecef86891b00438fa { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\#--f93b20473b91262c9634348506fe36fe { background: lime; }
+.\\\\_--f18cdd3b2ff360c3f4c10cc7559ff003 { background: lime; }
+.\\\\{\\\\}--6db4a8e6a78415e8209253db0c3dd7c5 { background: lime; }
+.\\\\#fake\\\\-id--a0d1d29b3c920aa3985fb11586f994e6 { background: lime; }
+.foo\\\\.bar--e1dfb05dd5c7c36228cc87fe2cd0c6b1 { background: lime; }
+.\\\\3A hover--af8b669c2dc29371d450d428f0bfa5d2 { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active--5c55d7a925c8ee5de2e8f175badce4d6 { background: lime; }
+.\\\\[attr\\\\=value\\\\]--db83b30c2535d713bd9f8fd195909f24 { background: lime; }
+.f\\\\/o\\\\/o--5de918433a006304ca487065b8626dd4 { background: lime; }
+.f\\\\\\\\o\\\\\\\\o--e9ae2e1857289425acfa40a3f741babd { background: lime; }
+.f\\\\*o\\\\*o--a5f60f217da867c314860c5b2e28bbfd { background: lime; }
+.f\\\\!o\\\\!o--ea3b21fd9d4327fbc9d8b949a2bd5823 { background: lime; }
+.f\\\\'o\\\\'o--95fe160ec21a5b70221e47b09b21fcd2 { background: lime; }
+.f\\\\~o\\\\~o--b9707d2eae11417a88a3f638b64eca30 { background: lime; }
+.f\\\\+o\\\\+o--1e99689a1b3985adff358f3bd4aea7ed { background: lime; }
+
+.foo\\\\/bar--5b852e67587217ab19651f30a9b4df53 {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar--6cf70ff94feb1257af10e9ddcc47d54f {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz--d917a2cf9531290fbf3aa43e0cc0520f {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz--1900aa5b4b5b2443299cc5e8afa9b3b4 {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`localIdentName option should use hash prefix: warnings 1`] = `Array []`;

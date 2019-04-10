@@ -4,8 +4,17 @@ import { webpack, evaluated } from './helpers';
 
 describe('localIdentName option', () => {
   it('basic', async () => {
+    const config = {
+      loader: {
+        options: {
+          modules: true,
+          localIdentName: '[name]--[local]--[hash:base64:5]',
+          context: path.resolve(__dirname),
+        },
+      },
+    };
     const testId = './modules/localIdentName.css';
-    const stats = await webpack(testId);
+    const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);
     const evaluatedModule = evaluated(module.source, modules);
@@ -16,11 +25,12 @@ describe('localIdentName option', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  it('should have hash', async () => {
+  it('should have only hash', async () => {
     const config = {
       loader: {
         options: {
-          localIdentName: '[name]--[local]--[hash:base64:5]',
+          modules: true,
+          localIdentName: '[hash:base64:8]',
           context: path.resolve(__dirname),
         },
       },
@@ -41,7 +51,8 @@ describe('localIdentName option', () => {
     const config = {
       loader: {
         options: {
-          localIdentName: '[path]-[name]--[local]',
+          modules: true,
+          localIdentName: '[path]--[name]--[local]',
           context: path.resolve(__dirname),
         },
       },
@@ -61,7 +72,11 @@ describe('localIdentName option', () => {
   it('should use hash prefix', async () => {
     const config = {
       loader: {
-        options: { localIdentName: '[local]--[hash]', hashPrefix: 'x' },
+        options: {
+          modules: true,
+          localIdentName: '[local]--[hash]',
+          hashPrefix: 'x',
+        },
       },
     };
     const testId = './modules/localIdentName.css';
@@ -77,7 +92,14 @@ describe('localIdentName option', () => {
   });
 
   it('should prefixes leading hyphen + digit with underscore', async () => {
-    const config = { loader: { options: { localIdentName: '-1[local]' } } };
+    const config = {
+      loader: {
+        options: {
+          modules: true,
+          localIdentName: '-1[local]',
+        },
+      },
+    };
     const testId = './modules/localIdentName.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
@@ -91,7 +113,14 @@ describe('localIdentName option', () => {
   });
 
   it('should prefixes two leading hyphens with underscore', async () => {
-    const config = { loader: { options: { localIdentName: '--[local]' } } };
+    const config = {
+      loader: {
+        options: {
+          modules: true,
+          localIdentName: '--[local]',
+        },
+      },
+    };
     const testId = './modules/localIdentName.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
@@ -105,7 +134,14 @@ describe('localIdentName option', () => {
   });
 
   it('should saves underscore prefix in exported class names', async () => {
-    const config = { loader: { options: { localIdentName: '[local]' } } };
+    const config = {
+      loader: {
+        options: {
+          modules: true,
+          localIdentName: '[local]',
+        },
+      },
+    };
     const testId = './modules/localIdentName.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
@@ -118,13 +154,13 @@ describe('localIdentName option', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
-  it('should сorrectly replace escaped symbols in selector', async () => {
+  it('should correctly replace escaped symbols in selector', async () => {
     const config = {
       loader: {
         options: {
+          modules: true,
           importLoaders: 2,
           localIdentName: '[local]--[hash:base64:4]',
-          modules: true,
         },
       },
     };
