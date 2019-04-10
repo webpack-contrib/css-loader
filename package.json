@@ -15,11 +15,11 @@
     "start": "npm run build -- -w",
     "prebuild": "npm run clean",
     "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js' --copy-files",
+    "postbuild": "es-check es5 dist/runtime/*.js",
     "clean": "del-cli dist",
-    "commitlint": "commitlint",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "commitlint": "commitlint --from=master",
     "lint": "eslint --cache src test",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "release": "standard-version",
     "security": "npm audit",
     "test:only": "jest",
@@ -67,6 +67,7 @@
     "cross-env": "^5.2.0",
     "del": "^4.0.0",
     "del-cli": "^1.1.0",
+    "es-check": "^5.0.0",
     "eslint": "^5.9.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
@@ -98,15 +99,15 @@
         {
           "targets": {
             "node": "6.9.0"
-          },
-          "useBuiltIns": "usage"
+          }
         }
       ]
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
