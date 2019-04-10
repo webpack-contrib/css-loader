@@ -7,6 +7,7 @@ import path from 'path';
 import cc from 'camelcase';
 import loaderUtils from 'loader-utils';
 import normalizePath from 'normalize-path';
+import cssesc from 'cssesc';
 
 /* eslint-disable line-comment-position */
 
@@ -79,16 +80,15 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
   // eslint-disable-next-line no-param-reassign
   options.content = `${options.hashPrefix + request}+${unescape(localName)}`;
 
-  // eslint-disable-next-line no-param-reassign
-  localIdentName = localIdentName.replace(/\[local\]/gi, localName);
-
-  const hash = loaderUtils.interpolateName(
-    loaderContext,
-    localIdentName,
-    options
-  );
-
-  return normalizeIdentifier(hash);
+  // Using `[path]` placeholder outputs `/` we need escape their
+  // Also directories can contains invalid characters for css we need escape their too
+  return cssesc(
+    loaderUtils
+      .interpolateName(loaderContext, localIdentName, options)
+      // For `[hash]` placeholder
+      .replace(/^((-?[0-9])|--)/, '_$1'),
+    { isIdentifier: true }
+  ).replace(/\\\[local\\\]/gi, localName);
 }
 
 function getFilter(filter, resourcePath, defaultFilter = null) {
@@ -103,52 +103,6 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
 
     return true;
   };
-}
-
-function normalizeIdentifier(value) {
-  const escapedSymbols = [
-    '~',
-    '!',
-    '@',
-    '#',
-    '$',
-    '%',
-    '&',
-    '^',
-    '*',
-    '(',
-    ')',
-    '{',
-    '}',
-    '[',
-    ']',
-    '`',
-    '/',
-    '=',
-    '?',
-    '+',
-    '\\',
-    '|',
-    '-',
-    '_',
-    ':',
-    ';',
-    "'",
-    '"',
-    ',',
-    '<',
-    '.',
-    '>',
-  ];
-
-  const identifiersRegExp = new RegExp(
-    `[^a-zA-Z0-9${escapedSymbols.join('\\')}\\-_\u00A0-\uFFFF]`,
-    'g'
-  );
-
-  return value
-    .replace(identifiersRegExp, '-')
-    .replace(/^((-?[0-9])|--)/, '_$1');
 }
 
 export {
