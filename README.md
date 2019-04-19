@@ -584,8 +584,8 @@ By default, the exported JSON keys mirror the class names. If you want to cameli
 
 |        Name        |    Type     | Description                                                                                                              |
 | :----------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------- |
-|    **`false`**     | `{Boolean}` | Class names will be camelized, the original class name will not to be removed from the locals                            |
-|     **`true`**     | `{Boolean}` | Class names will be camelized                                                                                            |
+|    **`false`**     | `{Boolean}` | Class names won't be camelized |
+|     **`true`**     | `{Boolean}` | Class names will be camelized, the original class name will not to be removed from the locals |
 |   **`'dashes'`**   | `{String}`  | Only dashes in class names will be camelized                                                                             |
 |    **`'only'`**    | `{String}`  | Introduced in `0.27.1`. Class names will be camelized, the original class name will be removed from the locals           |
 | **`'dashesOnly'`** | `{String}`  | Introduced in `0.27.1`. Dashes in class names will be camelized, the original class name will be removed from the locals |
