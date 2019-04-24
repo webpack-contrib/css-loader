@@ -734,8 +734,8 @@ Please take a moment to read our contributing guidelines if you haven't yet done
 [node-url]: https://nodejs.org
 [deps]: https://david-dm.org/webpack-contrib/css-loader.svg
 [deps-url]: https://david-dm.org/webpack-contrib/css-loader
-[tests]: https://img.shields.io/circleci/project/github/webpack-contrib/css-loader.svg
-[tests-url]: https://circleci.com/gh/webpack-contrib/css-loader
+[tests]: https://dev.azure.com/webpack-contrib/css-loader/_apis/build/status/webpack-contrib.css-loader?branchName=master
+[tests-url]: https://dev.azure.com/webpack-contrib/css-loader/_build/latest?definitionId=2&branchName=master
 [cover]: https://codecov.io/gh/webpack-contrib/css-loader/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/css-loader
 [chat]: https://badges.gitter.im/webpack/webpack.svg
