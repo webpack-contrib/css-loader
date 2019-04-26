@@ -58,7 +58,7 @@
     "@babel/preset-env": "^7.1.6",
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
-    "@webpack-contrib/defaults": "^3.0.0",
+    "@webpack-contrib/defaults": "^4.0.1",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "babel-jest": "^24.1.0",
     "cross-env": "^5.2.0",
@@ -70,7 +70,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
     "file-loader": "^3.0.1",
-    "husky": "^1.2.0",
+    "husky": "^2.1.0",
     "jest": "^24.1.0",
     "jest-junit": "^6.3.0",
     "lint-staged": "^8.1.0",
@@ -90,39 +90,5 @@
     "loader",
     "url",
     "import"
-  ],
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "6.9.0"
-          }
-        }
-      ]
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "arrowParens": "always"
-  }
+  ]
 }
