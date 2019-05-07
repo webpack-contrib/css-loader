@@ -58,7 +58,7 @@ export default postcss.plugin(
           const token = node.value;
           const replacement = importReplacements[token];
 
-          if (replacement != null) {
+          if (replacement) {
             // eslint-disable-next-line no-param-reassign
             node.value = replacement;
           }

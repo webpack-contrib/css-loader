@@ -4,7 +4,6 @@
 @value other from './values.css';
 @value other from './values.css';
 @value something from './something.css';
-@value foo: blue;
 @value bar: block;
 
 .ghi {
@@ -15,7 +14,7 @@
   color: foo;
 }
 
-.other {
+.block {
   display: bar;
 }
 

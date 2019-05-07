@@ -1,0 +1,14 @@
+@value other from './values.css';
+@value button-class: btn;
+
+:import('imported-simple.css') {
+  other-child: imported-simple;
+}
+/* At the moment local-by-default  doesn't understand values .btn would get hashed */
+:global(.button-class) {
+  display: block;
+}
+
+.other > .other-child {
+  color: blue;
+}
