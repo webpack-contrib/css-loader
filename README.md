@@ -437,6 +437,46 @@ To import from multiple modules use multiple `composes:` rules.
 }
 ```
 
+##### `Values`
+
+`css-loader` also includes support for css-modules `@value`s which you can read more of here: https://github.com/css-modules/postcss-modules-values Values provide a way to declare import and exports
+for specific values in a css file that can be used in another.
+
+```css
+/* theme.css */
+@value primary: #BF4040;
+@value secondary: #1F4F7F;
+```
+
+Values are automatically exported and can be imported like so:
+
+```css
+@value primary from './theme.css';
+
+.text-primary {
+  color: primary;
+}
+```
+
+You also don't need to declare a an export as a value to reference in another file:
+
+```css
+/* button.css */
+
+.button {
+  color: red;
+}
+```
+
+```css
+@value button from './button.css';
+
+/* the 'button' class will be replaced with it's hashed value from 'button.css' */
+.toolbar > .button {
+  margin-left: 2rem;
+}
+```
+
 ### `localIdentName`
 
 Type: `String`
@@ -584,8 +624,8 @@ By default, the exported JSON keys mirror the class names. If you want to cameli
 
 |        Name        |    Type     | Description                                                                                                              |
 | :----------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------- |
-|    **`false`**     | `{Boolean}` | Class names won't be camelized |
-|     **`true`**     | `{Boolean}` | Class names will be camelized, the original class name will not to be removed from the locals |
+|    **`false`**     | `{Boolean}` | Class names won't be camelized                                                                                           |
+|     **`true`**     | `{Boolean}` | Class names will be camelized, the original class name will not to be removed from the locals                            |
 |   **`'dashes'`**   | `{String}`  | Only dashes in class names will be camelized                                                                             |
 |    **`'only'`**    | `{String}`  | Introduced in `0.27.1`. Class names will be camelized, the original class name will be removed from the locals           |
 | **`'dashesOnly'`** | `{String}`  | Introduced in `0.27.1`. Dashes in class names will be camelized, the original class name will be removed from the locals |

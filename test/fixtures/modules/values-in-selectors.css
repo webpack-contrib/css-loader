@@ -1,4 +1,5 @@
 @value other from './values.css';
+@value imported-relative from './relative.css';
 @value button-class: btn;
 
 :import('imported-simple.css') {
@@ -11,4 +12,7 @@
 
 .other > .other-child {
   color: blue;
+}
+
+.button > .imported-relative {
 }

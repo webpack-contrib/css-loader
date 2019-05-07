@@ -5453,6 +5453,14 @@ Array [
   ],
   Array [
     3,
+    ".dSGVakTZ8YY-XNW64tg9F {
+  display: inline;
+}
+",
+    "",
+  ],
+  Array [
+    4,
     "._22ETk3ZhhvjVe-4dAULcsF {
   display: block;
 }
@@ -5469,6 +5477,9 @@ Array [
 .green > ._22ETk3ZhhvjVe-4dAULcsF {
   color: blue;
 }
+
+.uTNBxZ_JJrJOoGzCUbSnW > .dSGVakTZ8YY-XNW64tg9F {
+}
 ",
     "",
   ],
@@ -5479,15 +5490,18 @@ exports[`modules composes should values in selectors: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!./values.css\\"), \\"\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\"), \\"\\");
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\"), \\"\\");
 
 // Module
-exports.push([module.id, \\"/* At the moment local-by-default  doesn't understand values .btn would get hashed */\\\\n.btn {\\\\n  display: block;\\\\n}\\\\n\\\\n.\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\" > .\\" + require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\").locals[\\"imported-simple\\"] + \\" {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"/* At the moment local-by-default  doesn't understand values .btn would get hashed */\\\\n.btn {\\\\n  display: block;\\\\n}\\\\n\\\\n.\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\" > .\\" + require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\").locals[\\"imported-simple\\"] + \\" {\\\\n  color: blue;\\\\n}\\\\n\\\\n.uTNBxZ_JJrJOoGzCUbSnW > .\\" + require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\").locals[\\"imported-relative\\"] + \\" {\\\\n}\\\\n\\", \\"\\"]);
 
 // Exports
 exports.locals = {
 	\\"other\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\"\\",
-	\\"button-class\\": \\"btn\\"
+	\\"imported-relative\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\").locals[\\"imported-relative\\"] + \\"\\",
+	\\"button-class\\": \\"btn\\",
+	\\"button\\": \\"uTNBxZ_JJrJOoGzCUbSnW\\"
 };"
 `;
 
