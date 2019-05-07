@@ -5362,7 +5362,7 @@ Array [
   color: blue;
 }
 
-._1wABXM_RabWHj--wsPrhvM {
+.green {
   display: block;
 }
 
@@ -5374,7 +5374,7 @@ Array [
   color: green;
 }
 
-._1tAbIwITRWAdZZE6wKNk9O {
+._3SRb8VDtr6fpZVzVUOJOM2 {
   prop: red;
   duplicate: green;
 }
@@ -5417,19 +5417,20 @@ exports.i(require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\"), \\
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\"), \\"\\");
 
 // Module
-exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n._1wABXM_RabWHj--wsPrhvM {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n._1tAbIwITRWAdZZE6wKNk9O {\\\\n  prop: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n.\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\" {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n._3SRb8VDtr6fpZVzVUOJOM2 {\\\\n  prop: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\", \\"\\"]);
 
 // Exports
 exports.locals = {
 	\\"def\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\"\\",
-	\\"other\\": \\"_1wABXM_RabWHj--wsPrhvM\\",
+	\\"other\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\"\\",
 	\\"something\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\"\\",
-	\\"foo\\": \\"_1tAbIwITRWAdZZE6wKNk9O\\",
+	\\"foo\\": \\"blue\\",
 	\\"bar\\": \\"block\\",
 	\\"ghi\\": \\"_14uFt0lIVKKAlKTTT29IIQ\\",
 	\\"class\\": \\"_3XDgIzfUIQkaUInpEdo7fN\\",
 	\\"other-other\\": \\"_1DFEYnAfn9LZyk4fErI86e\\",
 	\\"green\\": \\"Ywv5coVC2RU-pIFhN9O4w\\",
+	\\"blue\\": \\"_3SRb8VDtr6fpZVzVUOJOM2\\",
 	\\"simple\\": \\"Q3SQ3BwtBwUFLlg6adzOI \\" + require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\").locals[\\"imported-simple\\"] + \\"\\",
 	\\"relative\\": \\"_1n5XhXj4SFnYrwziC3un0d \\" + require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\").locals[\\"imported-relative\\"] + \\"\\",
 	\\"top-relative\\": \\"_3dnFnGkAVAiMA6etF-naHc \\" + require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\").locals[\\"imported-relative\\"] + \\"\\",
