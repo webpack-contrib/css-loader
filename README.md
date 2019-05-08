@@ -446,15 +446,24 @@ for specific values in a css file that can be used in another.
 /* theme.css */
 @value primary: #BF4040;
 @value secondary: #1F4F7F;
+
+@value large: (min-width: 960px);
 ```
 
 Values are automatically exported and can be imported like so:
 
 ```css
-@value primary from './theme.css';
+@value primary, large from './theme.css';
 
-.text-primary {
+.header {
   color: primary;
+  padding: 0 10px;
+}
+
+@media large {
+  .header {
+    padding: 0 20px;
+  }
 }
 ```
 
