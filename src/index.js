@@ -175,7 +175,13 @@ export default function loader(content, map, meta) {
         }
 
         const { item } = message;
-        const importUrl = importUrlPrefix + urlToRequest(item.url);
+        let resolvedUrl = '';
+        if (options.resolve) {
+          resolvedUrl = urlToRequest(options.resolve(item.url));
+        } else {
+          resolvedUrl = urlToRequest(item.url);
+        }
+        const importUrl = importUrlPrefix + resolvedUrl;
 
         if (options.exportOnlyLocals) {
           return `" + require(${stringifyRequest(
@@ -260,7 +266,13 @@ export default function loader(content, map, meta) {
             )}, ${JSON.stringify(media)}]);`;
           }
 
-          const importUrl = importUrlPrefix + urlToRequest(url);
+          let resolvedUrl = '';
+          if (options.resolve) {
+            resolvedUrl = urlToRequest(options.resolve(url));
+          } else {
+            resolvedUrl = urlToRequest(url);
+          }
+          const importUrl = importUrlPrefix + resolvedUrl;
 
           return `exports.i(require(${stringifyRequest(
             this,
@@ -299,10 +311,17 @@ export default function loader(content, map, meta) {
               ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
               : '';
 
+          let resolvedUrl = '';
+          if (options.resolve) {
+            resolvedUrl = urlToRequest(options.resolve(normalizedUrl));
+          } else {
+            resolvedUrl = urlToRequest(normalizedUrl);
+          }
+
           imports.push(
             `var ${placeholder} = urlEscape(require(${stringifyRequest(
               this,
-              urlToRequest(normalizedUrl)
+              resolvedUrl
             )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`
           );
 

@@ -276,6 +276,40 @@ module.exports = {
 };
 ```
 
+### `resolve`
+
+Type: `Function`
+
+Modify finaly `url()` path, e.g. add or remove `~` for Node require resolving.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          resolve: (resourcePath) => {
+            // resourcePath - path to css file
+
+            // Assuming this is `@import url('external-dependancy.css')`,
+            // this will modify it to `@import url('~external-dependancy.css')`
+            // and all other resources will stay untouched
+            if (resourcePath === 'externaldependancy.css') {
+              return `~${resourcePath}`;
+            }
+            return resourcePath;
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
 ### [`modules`](https://github.com/css-modules/css-modules)
 
 Type: `Boolean|String`

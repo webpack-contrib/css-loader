@@ -1,0 +1,5 @@
+@value color-grey from "~@localpackage/color.css";
+
+.copyright {
+  color: color-grey;
+}
