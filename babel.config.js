@@ -15,5 +15,20 @@ module.exports = (api) => {
         },
       ],
     ],
+    overrides: [
+      {
+        test: './src/runtime',
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              targets: {
+                node: '0.12',
+              },
+            },
+          ],
+        ],
+      },
+    ],
   };
 };

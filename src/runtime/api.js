@@ -3,35 +3,45 @@
   Author Tobias Koppers @sokra
 */
 // css base code, injected by the css-loader
+// eslint-disable-next-line func-names
 module.exports = function(useSourceMap) {
-  var list = [];
+  const list = [];
 
   // return the list of modules as css string
   list.toString = function toString() {
-    return this.map(function(item) {
-      var content = cssWithMappingToString(item, useSourceMap);
+    return this.map((item) => {
+      const content = cssWithMappingToString(item, useSourceMap);
+
       if (item[2]) {
-        return '@media ' + item[2] + '{' + content + '}';
-      } else {
-        return content;
+        return `@media ${item[2]}{${content}}`;
       }
+
+      return content;
     }).join('');
   };
 
   // import a list of modules into the list
+  // eslint-disable-next-line func-names
   list.i = function(modules, mediaQuery) {
     if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
       modules = [[null, modules, '']];
     }
-    var alreadyImportedModules = {};
-    for (var i = 0; i < this.length; i++) {
-      var id = this[i][0];
+
+    const alreadyImportedModules = {};
+
+    for (let i = 0; i < this.length; i++) {
+      // eslint-disable-next-line prefer-destructuring
+      const id = this[i][0];
+
       if (id != null) {
         alreadyImportedModules[id] = true;
       }
     }
-    for (i = 0; i < modules.length; i++) {
-      var item = modules[i];
+
+    for (let i = 0; i < modules.length; i++) {
+      const item = modules[i];
+
       // skip already imported module
       // this implementation is not 100% perfect for weird media query combinations
       // when a module is imported multiple times with different media queries.
@@ -40,27 +50,31 @@ module.exports = function(useSourceMap) {
         if (mediaQuery && !item[2]) {
           item[2] = mediaQuery;
         } else if (mediaQuery) {
-          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+          item[2] = `(${item[2]}) and (${mediaQuery})`;
         }
+
         list.push(item);
       }
     }
   };
+
   return list;
 };
 
 function cssWithMappingToString(item, useSourceMap) {
-  var content = item[1] || '';
-  var cssMapping = item[3];
+  const content = item[1] || '';
+  // eslint-disable-next-line prefer-destructuring
+  const cssMapping = item[3];
+
   if (!cssMapping) {
     return content;
   }
 
   if (useSourceMap && typeof btoa === 'function') {
-    var sourceMapping = toComment(cssMapping);
-    var sourceURLs = cssMapping.sources.map(function(source) {
-      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
-    });
+    const sourceMapping = toComment(cssMapping);
+    const sourceURLs = cssMapping.sources.map(
+      (source) => `/*# sourceURL=${cssMapping.sourceRoot}${source} */`
+    );
 
     return [content]
       .concat(sourceURLs)
@@ -74,9 +88,8 @@ function cssWithMappingToString(item, useSourceMap) {
 // Adapted from convert-source-map (MIT)
 function toComment(sourceMap) {
   // eslint-disable-next-line no-undef
-  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-  var data =
-    'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+  const base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  const data = `sourceMappingURL=data:application/json;charset=utf-8;base64,${base64}`;
 
-  return '/*# ' + data + ' */';
+  return `/*# ${data} */`;
 }
