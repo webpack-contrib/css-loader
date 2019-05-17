@@ -5,9 +5,17 @@
 import path from 'path';
 
 import cc from 'camelcase';
-import loaderUtils from 'loader-utils';
+import loaderUtils, {
+  isUrlRequest,
+  stringifyRequest,
+  urlToRequest,
+} from 'loader-utils';
 import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
+import modulesValues from 'postcss-modules-values';
+import localByDefault from 'postcss-modules-local-by-default';
+import extractImports from 'postcss-modules-extract-imports';
+import modulesScope from 'postcss-modules-scope';
 
 /* eslint-disable line-comment-position */
 
@@ -105,6 +113,208 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
   };
 }
 
+function getImportItemReplacer(
+  messages,
+  loaderContext,
+  importUrlPrefix,
+  exportOnlyLocals
+) {
+  return function replacer(placeholder) {
+    const match = placholderRegExps.importItem.exec(placeholder);
+    const idx = Number(match[1]);
+
+    const message = messages.find(
+      // eslint-disable-next-line no-shadow
+      (message) =>
+        message.type === 'icss-import' &&
+        message.item &&
+        message.item.index === idx
+    );
+
+    if (!message) {
+      return placeholder;
+    }
+
+    const { item } = message;
+    const importUrl = importUrlPrefix + urlToRequest(item.url);
+
+    if (exportOnlyLocals) {
+      return `" + require(${stringifyRequest(
+        loaderContext,
+        importUrl
+      )})[${JSON.stringify(item.export)}] + "`;
+    }
+
+    return `" + require(${stringifyRequest(
+      loaderContext,
+      importUrl
+    )}).locals[${JSON.stringify(item.export)}] + "`;
+  };
+}
+
+function getExports(messages, exportStyle, importItemReplacer) {
+  return messages
+    .filter((message) => message.type === 'export')
+    .reduce((accumulator, message) => {
+      const { key, value } = message.item;
+
+      let valueAsString = JSON.stringify(value);
+
+      valueAsString = valueAsString.replace(
+        placholderRegExps.importItemG,
+        importItemReplacer
+      );
+
+      function addEntry(k) {
+        accumulator.push(`\t${JSON.stringify(k)}: ${valueAsString}`);
+      }
+
+      let targetKey;
+
+      switch (exportStyle) {
+        case true:
+          addEntry(key);
+          targetKey = camelCase(key);
+
+          if (targetKey !== key) {
+            addEntry(targetKey);
+          }
+          break;
+        case 'dashes':
+          addEntry(key);
+          targetKey = dashesCamelCase(key);
+
+          if (targetKey !== key) {
+            addEntry(targetKey);
+          }
+          break;
+        case 'only':
+          addEntry(camelCase(key));
+          break;
+        case 'dashesOnly':
+          addEntry(dashesCamelCase(key));
+          break;
+        default:
+          addEntry(key);
+          break;
+      }
+
+      return accumulator;
+    }, []);
+}
+
+function getImports(messages, importUrlPrefix, loaderContext, callback) {
+  const imports = [];
+
+  // Helper for ensuring valid CSS strings from requires
+  let hasUrlEscapeHelper = false;
+
+  messages.forEach((message) => {
+    if (message.type === 'import') {
+      const { url } = message.item;
+      const media = message.item.media || '';
+
+      if (!isUrlRequest(url)) {
+        imports.push(
+          `exports.push([module.id, ${JSON.stringify(
+            `@import url(${url});`
+          )}, ${JSON.stringify(media)}]);`
+        );
+      } else {
+        const importUrl = importUrlPrefix + urlToRequest(url);
+
+        imports.push(
+          `exports.i(require(${stringifyRequest(
+            loaderContext,
+            importUrl
+          )}), ${JSON.stringify(media)});`
+        );
+      }
+    }
+
+    if (message.type === 'url') {
+      if (!hasUrlEscapeHelper) {
+        imports.push(
+          `var urlEscape = require(${stringifyRequest(
+            loaderContext,
+            require.resolve('./runtime/url-escape.js')
+          )});`
+        );
+
+        hasUrlEscapeHelper = true;
+      }
+
+      const { url, placeholder, needQuotes } = message.item;
+      // Remove `#hash` and `?#hash` from `require`
+      const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
+      const hash =
+        singleQuery || hashValue
+          ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
+          : '';
+
+      imports.push(
+        `var ${placeholder} = urlEscape(require(${stringifyRequest(
+          loaderContext,
+          urlToRequest(normalizedUrl)
+        )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`
+      );
+    }
+
+    callback(message);
+  });
+
+  return imports;
+}
+
+function getModulesPlugins(options, loaderContext) {
+  const mode = typeof options.modules === 'boolean' ? 'local' : options.modules;
+
+  return [
+    modulesValues,
+    localByDefault({ mode }),
+    extractImports(),
+    modulesScope({
+      generateScopedName: function generateScopedName(exportName) {
+        const localIdentName = options.localIdentName || '[hash:base64]';
+        const customGetLocalIdent = options.getLocalIdent || getLocalIdent;
+
+        return customGetLocalIdent(loaderContext, localIdentName, exportName, {
+          regExp: options.localIdentRegExp,
+          hashPrefix: options.hashPrefix || '',
+          context: options.context,
+        });
+      },
+    }),
+  ];
+}
+
+function normalizeSourceMap(map) {
+  let newMap = map;
+
+  // Some loader emit source map as string
+  // Strip any JSON XSSI avoidance prefix from the string (as documented in the source maps specification), and then parse the string as JSON.
+  if (typeof newMap === 'string') {
+    newMap = JSON.parse(newMap.replace(/^\)]}'[^\n]*\n/, ''));
+  }
+
+  // Source maps should use forward slash because it is URLs (https://github.com/mozilla/source-map/issues/91)
+  // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
+
+  if (newMap.file) {
+    newMap.file = normalizePath(newMap.file);
+  }
+
+  if (newMap.sourceRoot) {
+    newMap.sourceRoot = normalizePath(newMap.sourceRoot);
+  }
+
+  if (newMap.sources) {
+    newMap.sources = newMap.sources.map((source) => normalizePath(source));
+  }
+
+  return newMap;
+}
+
 export {
   getImportPrefix,
   getLocalIdent,
@@ -112,4 +322,9 @@ export {
   camelCase,
   dashesCamelCase,
   getFilter,
+  getImportItemReplacer,
+  getExports,
+  getImports,
+  getModulesPlugins,
+  normalizeSourceMap,
 };
