@@ -5,29 +5,26 @@
 import validateOptions from 'schema-utils';
 import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
-import localByDefault from 'postcss-modules-local-by-default';
-import extractImports from 'postcss-modules-extract-imports';
-import modulesScope from 'postcss-modules-scope';
-import modulesValues from 'postcss-modules-values';
+
 import {
   getOptions,
   isUrlRequest,
-  urlToRequest,
   getRemainingRequest,
   getCurrentRequest,
   stringifyRequest,
 } from 'loader-utils';
-import normalizePath from 'normalize-path';
 
 import schema from './options.json';
 import { importParser, icssParser, urlParser } from './plugins';
 import {
-  getLocalIdent,
-  getImportPrefix,
+  normalizeSourceMap,
+  getModulesPlugins,
   placholderRegExps,
-  camelCase,
-  dashesCamelCase,
+  getImportPrefix,
+  getImportItemReplacer,
   getFilter,
+  getExports,
+  getImports,
 } from './utils';
 import Warning from './Warning';
 import CssSyntaxError from './CssSyntaxError';
@@ -40,35 +37,14 @@ export default function loader(content, map, meta) {
   const callback = this.async();
   const sourceMap = options.sourceMap || false;
 
-  /* eslint-disable no-param-reassign */
-  if (sourceMap) {
-    if (map) {
-      // Some loader emit source map as string
-      // Strip any JSON XSSI avoidance prefix from the string (as documented in the source maps specification), and then parse the string as JSON.
-      if (typeof map === 'string') {
-        map = JSON.parse(map.replace(/^\)]}'[^\n]*\n/, ''));
-      }
-
-      // Source maps should use forward slash because it is URLs (https://github.com/mozilla/source-map/issues/91)
-      // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
-
-      if (map.file) {
-        map.file = normalizePath(map.file);
-      }
-
-      if (map.sourceRoot) {
-        map.sourceRoot = normalizePath(map.sourceRoot);
-      }
-
-      if (map.sources) {
-        map.sources = map.sources.map((source) => normalizePath(source));
-      }
-    }
+  if (sourceMap && map) {
+    // eslint-disable-next-line no-param-reassign
+    map = normalizeSourceMap(map);
   } else {
     // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
+    // eslint-disable-next-line no-param-reassign
     map = null;
   }
-  /* eslint-enable no-param-reassign */
 
   // Reuse CSS AST (PostCSS AST e.g 'postcss-loader') to avoid reparsing
   if (meta) {
@@ -83,32 +59,7 @@ export default function loader(content, map, meta) {
   const plugins = [];
 
   if (options.modules) {
-    const loaderContext = this;
-    const mode =
-      typeof options.modules === 'boolean' ? 'local' : options.modules;
-
-    plugins.push(
-      modulesValues,
-      localByDefault({ mode }),
-      extractImports(),
-      modulesScope({
-        generateScopedName: function generateScopedName(exportName) {
-          const localIdentName = options.localIdentName || '[hash:base64]';
-          const customGetLocalIdent = options.getLocalIdent || getLocalIdent;
-
-          return customGetLocalIdent(
-            loaderContext,
-            localIdentName,
-            exportName,
-            {
-              regExp: options.localIdentRegExp,
-              hashPrefix: options.hashPrefix || '',
-              context: options.context,
-            }
-          );
-        },
-      })
-    );
+    plugins.push(...getModulesPlugins(options, this));
   }
 
   if (options.import !== false) {
@@ -153,93 +104,22 @@ export default function loader(content, map, meta) {
         .forEach((warning) => this.emitWarning(new Warning(warning)));
 
       const messages = result.messages || [];
+      const { exportOnlyLocals, importLoaders, camelCase } = options;
 
       // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
-      const importUrlPrefix = getImportPrefix(this, options.importLoaders);
+      const importPrefix = getImportPrefix(this, importLoaders);
 
       // Prepare replacer to change from `___CSS_LOADER_IMPORT___INDEX___` to `require('./file.css').locals`
-      const importItemReplacer = (placeholder) => {
-        const match = placholderRegExps.importItem.exec(placeholder);
-        const idx = Number(match[1]);
+      const importItemReplacer = getImportItemReplacer(
+        messages,
+        this,
+        importPrefix,
+        exportOnlyLocals
+      );
 
-        const message = messages.find(
-          // eslint-disable-next-line no-shadow
-          (message) =>
-            message.type === 'icss-import' &&
-            message.item &&
-            message.item.index === idx
-        );
+      const exports = getExports(messages, camelCase, importItemReplacer);
 
-        if (!message) {
-          return placeholder;
-        }
-
-        const { item } = message;
-        const importUrl = importUrlPrefix + urlToRequest(item.url);
-
-        if (options.exportOnlyLocals) {
-          return `" + require(${stringifyRequest(
-            this,
-            importUrl
-          )})[${JSON.stringify(item.export)}] + "`;
-        }
-
-        return `" + require(${stringifyRequest(
-          this,
-          importUrl
-        )}).locals[${JSON.stringify(item.export)}] + "`;
-      };
-
-      const exports = messages
-        .filter((message) => message.type === 'export')
-        .reduce((accumulator, message) => {
-          const { key, value } = message.item;
-
-          let valueAsString = JSON.stringify(value);
-
-          valueAsString = valueAsString.replace(
-            placholderRegExps.importItemG,
-            importItemReplacer
-          );
-
-          function addEntry(k) {
-            accumulator.push(`\t${JSON.stringify(k)}: ${valueAsString}`);
-          }
-
-          let targetKey;
-
-          switch (options.camelCase) {
-            case true:
-              addEntry(key);
-              targetKey = camelCase(key);
-
-              if (targetKey !== key) {
-                addEntry(targetKey);
-              }
-              break;
-            case 'dashes':
-              addEntry(key);
-              targetKey = dashesCamelCase(key);
-
-              if (targetKey !== key) {
-                addEntry(targetKey);
-              }
-              break;
-            case 'only':
-              addEntry(camelCase(key));
-              break;
-            case 'dashesOnly':
-              addEntry(dashesCamelCase(key));
-              break;
-            default:
-              addEntry(key);
-              break;
-          }
-
-          return accumulator;
-        }, []);
-
-      if (options.exportOnlyLocals) {
+      if (exportOnlyLocals) {
         return callback(
           null,
           exports.length > 0
@@ -248,69 +128,23 @@ export default function loader(content, map, meta) {
         );
       }
 
-      const imports = messages
-        .filter((message) => message.type === 'import')
-        .map((message) => {
-          const { url } = message.item;
-          const media = message.item.media || '';
-
-          if (!isUrlRequest(url)) {
-            return `exports.push([module.id, ${JSON.stringify(
-              `@import url(${url});`
-            )}, ${JSON.stringify(media)}]);`;
-          }
-
-          const importUrl = importUrlPrefix + urlToRequest(url);
-
-          return `exports.i(require(${stringifyRequest(
-            this,
-            importUrl
-          )}), ${JSON.stringify(media)});`;
-        }, this);
-
       let cssAsString = JSON.stringify(result.css).replace(
         placholderRegExps.importItemG,
         importItemReplacer
       );
 
-      // Helper for ensuring valid CSS strings from requires
-      let hasUrlEscapeHelper = false;
+      const imports = getImports(messages, importPrefix, this, (message) => {
+        if (message.type !== 'url') {
+          return;
+        }
 
-      messages
-        .filter((message) => message.type === 'url')
-        .forEach((message) => {
-          if (!hasUrlEscapeHelper) {
-            imports.push(
-              `var urlEscape = require(${stringifyRequest(
-                this,
-                require.resolve('./runtime/url-escape.js')
-              )});`
-            );
+        const { placeholder } = message.item;
 
-            hasUrlEscapeHelper = true;
-          }
-
-          const { item } = message;
-          const { url, placeholder, needQuotes } = item;
-          // Remove `#hash` and `?#hash` from `require`
-          const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
-          const hash =
-            singleQuery || hashValue
-              ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
-              : '';
-
-          imports.push(
-            `var ${placeholder} = urlEscape(require(${stringifyRequest(
-              this,
-              urlToRequest(normalizedUrl)
-            )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`
-          );
-
-          cssAsString = cssAsString.replace(
-            new RegExp(placeholder, 'g'),
-            () => `" + ${placeholder} + "`
-          );
-        });
+        cssAsString = cssAsString.replace(
+          new RegExp(placeholder, 'g'),
+          () => `" + ${placeholder} + "`
+        );
+      });
 
       const runtimeCode = `exports = module.exports = require(${stringifyRequest(
         this,
