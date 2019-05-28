@@ -1,6 +1,6 @@
 import loader from '../src/cjs';
 
-it('validation', () => {
+it('validate options', () => {
   const validate = (options) =>
     loader.call(
       Object.assign(
@@ -34,32 +34,60 @@ it('validation', () => {
   expect(() => validate({ modules: false })).not.toThrow();
   expect(() => validate({ modules: 'global' })).not.toThrow();
   expect(() => validate({ modules: 'local' })).not.toThrow();
+  expect(() => validate({ modules: { mode: 'local' } })).not.toThrow();
+  expect(() => validate({ modules: { mode: 'global' } })).not.toThrow();
   expect(() => validate({ modules: 'true' })).toThrowErrorMatchingSnapshot();
   expect(() => validate({ modules: 'globals' })).toThrowErrorMatchingSnapshot();
   expect(() => validate({ modules: 'locals' })).toThrowErrorMatchingSnapshot();
+  expect(() =>
+    validate({ modules: { mode: true } })
+  ).toThrowErrorMatchingSnapshot();
+  expect(() =>
+    validate({ modules: { mode: 'true' } })
+  ).toThrowErrorMatchingSnapshot();
+  expect(() =>
+    validate({ modules: { mode: 'locals' } })
+  ).toThrowErrorMatchingSnapshot();
+  expect(() =>
+    validate({ modules: { mode: 'globals' } })
+  ).toThrowErrorMatchingSnapshot();
 
   expect(() =>
-    validate({ localIdentName: '[path][name]__[local]--[hash:base64:5]' })
+    validate({
+      modules: { localIdentName: '[path][name]__[local]--[hash:base64:5]' },
+    })
   ).not.toThrow();
   expect(() =>
-    validate({ localIdentName: true })
+    validate({ modules: { localIdentName: true } })
   ).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ localIdentRegExp: 'page-(.*)\\.js' })).not.toThrow();
-  expect(() => validate({ localIdentRegExp: /page-(.*)\.js/ })).not.toThrow();
+  expect(() => validate({ modules: { context: 'context' } })).not.toThrow();
   expect(() =>
-    validate({ localIdentRegExp: true })
+    validate({ modules: { context: true } })
   ).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ context: 'context' })).not.toThrow();
-  expect(() => validate({ context: true })).toThrowErrorMatchingSnapshot();
+  expect(() => validate({ modules: { hashPrefix: 'hash' } })).not.toThrow();
+  expect(() =>
+    validate({ modules: { hashPrefix: true } })
+  ).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ hashPrefix: 'hash' })).not.toThrow();
-  expect(() => validate({ hashPrefix: true })).toThrowErrorMatchingSnapshot();
+  expect(() =>
+    validate({ modules: { getLocalIdent: () => {} } })
+  ).not.toThrow();
+  expect(() => validate({ modules: { getLocalIdent: false } })).not.toThrow();
+  expect(() =>
+    validate({ modules: { getLocalIdent: [] } })
+  ).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ getLocalIdent: () => {} })).not.toThrow();
-  expect(() => validate({ getLocalIdent: false })).not.toThrow();
-  expect(() => validate({ getLocalIdent: [] })).toThrowErrorMatchingSnapshot();
+  expect(() =>
+    validate({ modules: { localIdentRegExp: 'page-(.*)\\.js' } })
+  ).not.toThrow();
+  expect(() =>
+    validate({ modules: { localIdentRegExp: /page-(.*)\.js/ } })
+  ).not.toThrow();
+  expect(() =>
+    validate({ modules: { localIdentRegExp: true } })
+  ).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ sourceMap: true })).not.toThrow();
   expect(() => validate({ sourceMap: false })).not.toThrow();

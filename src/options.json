@@ -29,35 +29,45 @@
         {
           "type": "string",
           "enum": ["local", "global"]
-        }
-      ]
-    },
-    "localIdentName": {
-      "type": "string"
-    },
-    "localIdentRegExp": {
-      "anyOf": [
-        {
-          "type": "string"
         },
         {
-          "instanceof": "RegExp"
-        }
-      ]
-    },
-    "context": {
-      "type": "string"
-    },
-    "hashPrefix": {
-      "type": "string"
-    },
-    "getLocalIdent": {
-      "anyOf": [
-        {
-          "type": "boolean"
-        },
-        {
-          "instanceof": "Function"
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": ["local", "global"]
+            },
+            "localIdentName": {
+              "type": "string"
+            },
+            "localIdentRegExp": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "instanceof": "RegExp"
+                }
+              ]
+            },
+            "context": {
+              "type": "string"
+            },
+            "hashPrefix": {
+              "type": "string"
+            },
+            "getLocalIdent": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "instanceof": "Function"
+                }
+              ]
+            }
+          }
         }
       ]
     },

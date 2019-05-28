@@ -42,7 +42,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
     ],
@@ -65,7 +65,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: ['to-string-loader', 'css-loader'],
       },
     ],
@@ -95,7 +95,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           'handlebars-loader', // handlebars loader expects raw resource string
           'extract-loader',
@@ -109,19 +109,15 @@ module.exports = {
 
 ## Options
 
-|                    Name                     |         Type          |     Default     | Description                                                              |
-| :-----------------------------------------: | :-------------------: | :-------------: | :----------------------------------------------------------------------- |
-|              **[`url`](#url)**              | `{Boolean\|Function}` |     `true`      | Enable/Disable `url()` handling                                          |
-|           **[`import`](#import)**           | `{Boolean\/Function}` |     `true`      | Enable/Disable @import handling                                          |
-|          **[`modules`](#modules)**          |  `{Boolean\|String}`  |     `false`     | Enable/Disable CSS Modules and setup mode                                |
-|   **[`localIdentName`](#localidentname)**   |      `{String}`       | `[hash:base64]` | Configure the generated ident                                            |
-|          **[`context`](#context)**          |      `{String}`       |   `undefined`   | Allow to redefine basic loader context for local ident name              |
-|       **[`hashPrefix`](#hashprefix)**       |      `{String}`       |   `undefined`   | Allow to add custom hash to generate more unique classes                 |
-|    **[`getLocalIdent`](#getlocalident)**    |     `{Function}`      |   `undefined`   | Configure the function to generate classname based on a different schema |
-|        **[`sourceMap`](#sourcemap)**        |      `{Boolean}`      |     `false`     | Enable/Disable Sourcemaps                                                |
-|        **[`camelCase`](#camelcase)**        |  `{Boolean\|String}`  |     `false`     | Export Classnames in CamelCase                                           |
-|    **[`importLoaders`](#importloaders)**    |      `{Number}`       |       `0`       | Number of loaders applied before CSS loader                              |
-| **[`exportOnlyLocals`](#exportonlylocals)** |      `{Boolean}`      |     `false`     | Export only locals                                                       |
+|                    Name                     |            Type             | Default | Description                                        |
+| :-----------------------------------------: | :-------------------------: | :-----: | :------------------------------------------------- |
+|              **[`url`](#url)**              |    `{Boolean\|Function}`    | `true`  | Enable/Disable `url()` handling                    |
+|           **[`import`](#import)**           |    `{Boolean\|Function}`    | `true`  | Enable/Disable @import handling                    |
+|          **[`modules`](#modules)**          | `{Boolean\|String\|Object}` | `false` | Enable/Disable CSS Modules and setup their options |
+|        **[`sourceMap`](#sourcemap)**        |         `{Boolean}`         | `false` | Enable/Disable Sourcemaps                          |
+|        **[`camelCase`](#camelcase)**        |     `{Boolean\|String}`     | `false` | Export Classnames in CamelCase                     |
+|    **[`importLoaders`](#importloaders)**    |         `{Number}`          |   `0`   | Number of loaders applied before CSS loader        |
+| **[`exportOnlyLocals`](#exportonlylocals)** |         `{Boolean}`         | `false` | Export only locals                                 |
 
 ### `url`
 
@@ -160,7 +156,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
           url: true,
@@ -182,7 +178,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
           url: (url, resourcePath) => {
@@ -236,7 +232,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
           import: true,
@@ -258,7 +254,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
           import: (parsedImport, resourcePath) => {
@@ -276,23 +272,14 @@ module.exports = {
 };
 ```
 
-### [`modules`](https://github.com/css-modules/css-modules)
+### `modules`
 
-Type: `Boolean|String`
+Type: `Boolean|String|Object`
 Default: `false`
 
-The `modules` option enables/disables the **CSS Modules** spec and setup basic behaviour.
-
-|      Name      |    Type     | Description                                                                                                                      |
-| :------------: | :---------: | :------------------------------------------------------------------------------------------------------------------------------- |
-|   **`true`**   | `{Boolean}` | Enables local scoped CSS by default (use **local** mode by default)                                                              |
-|  **`false`**   | `{Boolean}` | Disable the **CSS Modules** spec, all **CSS Modules** features (like `@value`, `:local`, `:global` and `composes`) will not work |
-| **`'local'`**  | `{String}`  | Enables local scoped CSS by default (same as `true` value)                                                                       |
-| **`'global'`** | `{String}`  | Enables global scoped CSS by default                                                                                             |
+The `modules` option enables/disables the **[CSS Modules](https://github.com/css-modules/css-modules)** specification and setup basic behaviour.
 
 Using `false` value increase performance because we avoid parsing **CSS Modules** features, it will be useful for developers who use vanilla css or use other technologies.
-
-You can read about **modes** below.
 
 **webpack.config.js**
 
@@ -301,7 +288,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
           modules: true,
@@ -311,6 +298,8 @@ module.exports = {
   },
 };
 ```
+
+#### `Features`
 
 ##### `Scope`
 
@@ -437,7 +426,106 @@ To import from multiple modules use multiple `composes:` rules.
 }
 ```
 
-### `localIdentName`
+#### `Boolean`
+
+Enable **CSS Modules** features.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: true,
+        },
+      },
+    ],
+  },
+};
+```
+
+#### `String`
+
+Enable **CSS Modules** features and setup `mode`.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          // Using `local` value has same effect like using `modules: true`
+          modules: 'global',
+        },
+      },
+    ],
+  },
+};
+```
+
+#### `Object`
+
+Enable **CSS Modules** features and setup options for them.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            mode: 'local',
+            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            context: path.resolve(__dirname, 'src'),
+            hashPrefix: 'my-custom-hash',
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `mode`
+
+Type: `String`
+Default: `local`
+
+Setup `mode` option. You can omit the value when you want `local` mode.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            mode: 'global',
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `localIdentName`
 
 Type: `String`
 Default: `[hash:base64]`
@@ -452,11 +540,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
-          modules: true,
-          localIdentName: '[path][name]__[local]--[hash:base64:5]',
+          modules: {
+            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+          },
         },
       },
     ],
@@ -464,7 +553,7 @@ module.exports = {
 };
 ```
 
-### `context`
+##### `context`
 
 Type: `String`
 Default: `undefined`
@@ -479,11 +568,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
-          modules: true,
-          context: path.resolve(__dirname, 'context'),
+          modules: {
+            context: path.resolve(__dirname, 'context'),
+          },
         },
       },
     ],
@@ -491,7 +581,7 @@ module.exports = {
 };
 ```
 
-### `hashPrefix`
+##### `hashPrefix`
 
 Type: `String`
 Default: `undefined`
@@ -505,11 +595,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
-          modules: true,
-          hashPrefix: 'hash',
+          modules: {
+            hashPrefix: 'hash',
+          },
         },
       },
     ],
@@ -517,7 +608,7 @@ module.exports = {
 };
 ```
 
-### `getLocalIdent`
+##### `getLocalIdent`
 
 Type: `Function`
 Default: `undefined`
@@ -532,12 +623,38 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
-          modules: true,
-          getLocalIdent: (context, localIdentName, localName, options) => {
-            return 'whatever_random_class_name';
+          modules: {
+            getLocalIdent: (context, localIdentName, localName, options) => {
+              return 'whatever_random_class_name';
+            },
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `localIdentRegExp`
+
+Type: `String|RegExp`
+Default: `undefined`
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            localIdentRegExp: /page-(.*)\.css/i,
           },
         },
       },
@@ -555,7 +672,9 @@ To include source maps set the `sourceMap` option.
 
 I.e. the `mini-css-extract-plugin` can handle them.
 
-They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not). In addition to that relative paths are buggy and you need to use an absolute public path which includes the server URL.
+They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not). 
+
+In addition to that relative paths are buggy and you need to use an absolute public path which includes the server URL.
 
 **webpack.config.js**
 
@@ -564,7 +683,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
           sourceMap: true,
@@ -580,12 +699,12 @@ module.exports = {
 Type: `Boolean|String`
 Default: `false`
 
-By default, the exported JSON keys mirror the class names. If you want to camelize class names (useful in JS), pass the query parameter `camelCase` to css-loader.
+By default, the exported JSON keys mirror the class names.
 
 |        Name        |    Type     | Description                                                                                                              |
 | :----------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------- |
-|    **`false`**     | `{Boolean}` | Class names won't be camelized |
-|     **`true`**     | `{Boolean}` | Class names will be camelized, the original class name will not to be removed from the locals |
+|    **`false`**     | `{Boolean}` | Class names won't be camelized                                                                                           |
+|     **`true`**     | `{Boolean}` | Class names will be camelized, the original class name will not to be removed from the locals                            |
 |   **`'dashes'`**   | `{String}`  | Only dashes in class names will be camelized                                                                             |
 |    **`'only'`**    | `{String}`  | Introduced in `0.27.1`. Class names will be camelized, the original class name will be removed from the locals           |
 | **`'dashesOnly'`** | `{String}`  | Introduced in `0.27.1`. Dashes in class names will be camelized, the original class name will be removed from the locals |
@@ -610,7 +729,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
           camelCase: true,
@@ -635,7 +754,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           'style-loader',
           {
@@ -671,7 +790,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         loader: 'css-loader',
         options: {
           exportOnlyLocals: true,
@@ -695,7 +814,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
       {
