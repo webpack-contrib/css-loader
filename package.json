@@ -48,9 +48,9 @@
     "normalize-path": "^3.0.0",
     "postcss": "^7.0.14",
     "postcss-modules-extract-imports": "^2.0.0",
-    "postcss-modules-local-by-default": "^2.0.6",
+    "postcss-modules-local-by-default": "^3.0.1",
     "postcss-modules-scope": "^2.1.0",
-    "postcss-modules-values": "^2.0.0",
+    "postcss-modules-values": "^3.0.0",
     "postcss-value-parser": "^3.3.0",
     "schema-utils": "^1.0.0"
   },

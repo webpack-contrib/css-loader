@@ -434,6 +434,33 @@ To import from multiple modules use multiple `composes:` rules.
 }
 ```
 
+##### `Values`
+
+You can use `@value` to specific values to be reused throughout a document.
+
+We recommend use prefix `v-` for values, `s-` for selectors and `m-` for media at-rules.
+
+```css
+@value v-primary: #BF4040;
+@value s-black: black-selector;
+@value m-large: (min-width: 960px);
+
+.header {
+  color: v-primary;
+  padding: 0 10px;
+}
+
+.s-black {
+  color: black;
+}
+
+@media m-large {
+  .header {
+    padding: 0 20px;
+  }
+}
+```
+
 #### `Boolean`
 
 Enable **CSS Modules** features.

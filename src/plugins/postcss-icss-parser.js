@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-import { extractICSS } from 'icss-utils';
+import { extractICSS, replaceValueSymbols } from 'icss-utils';
 import loaderUtils from 'loader-utils';
 
 const pluginName = 'postcss-icss-parser';
@@ -9,22 +9,23 @@ export default postcss.plugin(
   pluginName,
   () =>
     function process(css, result) {
-      const imports = {};
-      const icss = extractICSS(css);
-      const exports = icss.icssExports;
+      const importReplacements = Object.create(null);
+      const { icssImports, icssExports } = extractICSS(css);
 
-      Object.keys(icss.icssImports).forEach((key) => {
+      let index = 0;
+
+      Object.keys(icssImports).forEach((key) => {
         const url = loaderUtils.parseString(key);
 
-        Object.keys(icss.icssImports[key]).forEach((prop) => {
-          const index = Object.keys(imports).length;
+        Object.keys(icssImports[key]).forEach((prop) => {
+          index += 1;
 
-          imports[`$${prop}`] = index;
+          importReplacements[prop] = `___CSS_LOADER_IMPORT___${index}___`;
 
           result.messages.push({
             pluginName,
             type: 'icss-import',
-            item: { url, export: icss.icssImports[key][prop], index },
+            item: { url, export: icssImports[key][prop], index },
           });
 
           const alreadyIncluded = result.messages.find(
@@ -56,41 +57,43 @@ export default postcss.plugin(
           }
 
           const token = node.value;
-          const importIndex = imports[`$${token}`];
+          const replacement = importReplacements[token];
 
-          if (typeof importIndex === 'number') {
+          if (replacement) {
             // eslint-disable-next-line no-param-reassign
-            node.value = `___CSS_LOADER_IMPORT___${importIndex}___`;
+            node.value = replacement;
           }
         });
 
         return tokens.toString();
       }
 
-      // Replace tokens in declarations
-      css.walkDecls((decl) => {
-        // eslint-disable-next-line no-param-reassign
-        decl.value = replaceImportsInString(decl.value.toString());
-      });
-
-      // Replace tokens in at-rules
-      css.walkAtRules((atrule) => {
-        // Due reusing `ast` from `postcss-loader` some plugins may lack
-        // `params` property, we need to account for this possibility
-        if (atrule.params) {
+      // Replace tokens
+      css.walk((node) => {
+        // Due reusing `ast` from `postcss-loader` some plugins may remove `value`, `selector` or `params` properties
+        if (node.type === 'decl' && node.value) {
           // eslint-disable-next-line no-param-reassign
-          atrule.params = replaceImportsInString(atrule.params.toString());
+          node.value = replaceImportsInString(node.value.toString());
+        } else if (node.type === 'rule' && node.selector) {
+          // eslint-disable-next-line no-param-reassign
+          node.selector = replaceValueSymbols(
+            node.selector.toString(),
+            importReplacements
+          );
+        } else if (node.type === 'atrule' && node.params) {
+          // eslint-disable-next-line no-param-reassign
+          node.params = replaceImportsInString(node.params.toString());
         }
       });
 
       // Replace tokens in export
-      Object.keys(exports).forEach((exportName) => {
+      Object.keys(icssExports).forEach((exportName) => {
         result.messages.push({
           pluginName,
           type: 'export',
           item: {
             key: exportName,
-            value: replaceImportsInString(exports[exportName]),
+            value: replaceImportsInString(icssExports[exportName]),
           },
         });
       });

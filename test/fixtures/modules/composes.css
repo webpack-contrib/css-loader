@@ -1,35 +1,40 @@
 @import url(test-other.css) (min-width: 100px);
 
-@value def from './values.css';
-@value other from './values.css';
-@value other from './values.css';
-@value something from './something.css';
-@value foo: blue;
-@value bar: block;
+@value v-def from './values.css';
+@value v-other from './values.css';
+@value v-other from './values.css';
+@value s-white from './values.css';
+@value m-small from './values.css';
+@value v-something from './something.css';
+@value v-foo: blue;
+@value v-bar: block;
+@value v-primary: #BF4040;
+@value s-black: black-selector;
+@value m-large: (min-width: 960px);
 
 .ghi {
-  color: def;
+  color: v-def;
 }
 
 .class {
-  color: foo;
+  color: v-foo;
 }
 
 .other {
-  display: bar;
+  display: v-bar;
 }
 
 .other-other {
-  width: something;
+  width: v-something;
 }
 
 .green {
-  color: other;
+  color: v-other;
 }
 
 .foo {
-  prop: def;
-  duplicate: other;
+  prop: v-def;
+  duplicate: v-other;
 }
 
 .simple {
@@ -55,4 +60,28 @@
 .alias {
   color: gainsboro;
   composes: imported-alias from '~aliasesComposes/alias.css';
+}
+
+.primary-selector {
+  color: v-primary;
+}
+
+.s-black {
+  color: black;
+}
+
+@media m-large {
+  .header {
+    padding: 0 20px;
+  }
+}
+
+.s-white {
+  color: white;
+}
+
+@media m-small {
+  .header {
+    padding: 20px 20px;
+  }
 }
