@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validate options 1`] = `
+"CSS Loader Invalid Options
+
+options.url should be boolean
+options.url should pass \\"instanceof\\" keyword validation
+options.url should match some schema in anyOf
+"
+`;
+
+exports[`validate options 2`] = `
+"CSS Loader Invalid Options
+
+options.import should be boolean
+options.import should pass \\"instanceof\\" keyword validation
+options.import should match some schema in anyOf
+"
+`;
+
+exports[`validate options 3`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be equal to one of the allowed values
+options.modules should be object
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 4`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be equal to one of the allowed values
+options.modules should be object
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 5`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be equal to one of the allowed values
+options.modules should be object
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 6`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be string
+options.modules should be equal to one of the allowed values
+options.modules.mode should be string
+options.modules.mode should be equal to one of the allowed values
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 7`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be string
+options.modules should be equal to one of the allowed values
+options.modules.mode should be equal to one of the allowed values
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 8`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be string
+options.modules should be equal to one of the allowed values
+options.modules.mode should be equal to one of the allowed values
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 9`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be string
+options.modules should be equal to one of the allowed values
+options.modules.mode should be equal to one of the allowed values
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 10`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be string
+options.modules should be equal to one of the allowed values
+options.modules.localIdentName should be string
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 11`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be string
+options.modules should be equal to one of the allowed values
+options.modules.context should be string
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 12`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be string
+options.modules should be equal to one of the allowed values
+options.modules.hashPrefix should be string
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 13`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be string
+options.modules should be equal to one of the allowed values
+options.modules.getLocalIdent should be boolean
+options.modules.getLocalIdent should pass \\"instanceof\\" keyword validation
+options.modules.getLocalIdent should match some schema in anyOf
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 14`] = `
+"CSS Loader Invalid Options
+
+options.modules should be boolean
+options.modules should be string
+options.modules should be equal to one of the allowed values
+options.modules.localIdentRegExp should be string
+options.modules.localIdentRegExp should pass \\"instanceof\\" keyword validation
+options.modules.localIdentRegExp should match some schema in anyOf
+options.modules should match some schema in anyOf
+"
+`;
+
+exports[`validate options 15`] = `
+"CSS Loader Invalid Options
+
+options.sourceMap should be boolean
+"
+`;
+
+exports[`validate options 16`] = `
+"CSS Loader Invalid Options
+
+options.camelCase should be boolean
+options.camelCase should be equal to one of the allowed values
+options.camelCase should match some schema in anyOf
+"
+`;
+
+exports[`validate options 17`] = `
+"CSS Loader Invalid Options
+
+options.importLoaders should be boolean
+options.importLoaders should be number
+options.importLoaders should match some schema in anyOf
+"
+`;
+
+exports[`validate options 18`] = `
+"CSS Loader Invalid Options
+
+options.exportOnlyLocals should be boolean
+"
+`;

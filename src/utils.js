@@ -267,22 +267,41 @@ function getImports(messages, importUrlPrefix, loaderContext, callback) {
 }
 
 function getModulesPlugins(options, loaderContext) {
-  const mode = typeof options.modules === 'boolean' ? 'local' : options.modules;
+  let modulesOptions = {
+    mode: 'local',
+    localIdentName: '[hash:base64]',
+    getLocalIdent,
+    context: null,
+    hashPrefix: '',
+    localIdentRegExp: null,
+  };
+
+  if (
+    typeof options.modules === 'boolean' ||
+    typeof options.modules === 'string'
+  ) {
+    modulesOptions.mode =
+      typeof options.modules === 'string' ? options.modules : 'local';
+  } else {
+    modulesOptions = Object.assign({}, modulesOptions, options.modules);
+  }
 
   return [
     modulesValues,
-    localByDefault({ mode }),
+    localByDefault({ mode: modulesOptions.mode }),
     extractImports(),
     modulesScope({
       generateScopedName: function generateScopedName(exportName) {
-        const localIdentName = options.localIdentName || '[hash:base64]';
-        const customGetLocalIdent = options.getLocalIdent || getLocalIdent;
-
-        return customGetLocalIdent(loaderContext, localIdentName, exportName, {
-          regExp: options.localIdentRegExp,
-          hashPrefix: options.hashPrefix || '',
-          context: options.context,
-        });
+        return modulesOptions.getLocalIdent(
+          loaderContext,
+          modulesOptions.localIdentName,
+          exportName,
+          {
+            context: modulesOptions.context,
+            hashPrefix: modulesOptions.hashPrefix,
+            regExp: modulesOptions.localIdentRegExp,
+          }
+        );
       },
     }),
   ];
