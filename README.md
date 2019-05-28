@@ -183,9 +183,13 @@ module.exports = {
         options: {
           url: (url, resourcePath) => {
             // resourcePath - path to css file
+            
+            // Don't handle `img.png` urls
+            if (url.includes('img.png')) {
+              return false;
+            }
 
-            // `url()` with `img.png` stay untouched
-            return url.includes('img.png');
+            return true;
           },
         },
       },
@@ -262,8 +266,12 @@ module.exports = {
             // parsedImport.media - media query of `@import`
             // resourcePath - path to css file
 
-            // `@import` with `style.css` stay untouched
-            return parsedImport.url.includes('style.css');
+            // Don't handle `style.css` import
+            if (parsedImport.url.includes('style.css')) {
+              return false;
+            }
+
+            return true;
           },
         },
       },
