@@ -104,7 +104,7 @@ export default function loader(content, map, meta) {
         .forEach((warning) => this.emitWarning(new Warning(warning)));
 
       const messages = result.messages || [];
-      const { exportOnlyLocals, importLoaders, camelCase } = options;
+      const { exportOnlyLocals, importLoaders, exportLocalsStyle } = options;
 
       // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
       const importPrefix = getImportPrefix(this, importLoaders);
@@ -117,7 +117,11 @@ export default function loader(content, map, meta) {
         exportOnlyLocals
       );
 
-      const exports = getExports(messages, camelCase, importItemReplacer);
+      const exports = getExports(
+        messages,
+        exportLocalsStyle,
+        importItemReplacer
+      );
 
       if (exportOnlyLocals) {
         return callback(

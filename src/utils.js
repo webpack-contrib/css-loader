@@ -152,7 +152,7 @@ function getImportItemReplacer(
   };
 }
 
-function getExports(messages, exportStyle, importItemReplacer) {
+function getExports(messages, exportLocalsStyle, importItemReplacer) {
   return messages
     .filter((message) => message.type === 'export')
     .reduce((accumulator, message) => {
@@ -171,14 +171,17 @@ function getExports(messages, exportStyle, importItemReplacer) {
 
       let targetKey;
 
-      switch (exportStyle) {
-        case true:
+      switch (exportLocalsStyle) {
+        case 'camelCase':
           addEntry(key);
           targetKey = camelCase(key);
 
           if (targetKey !== key) {
             addEntry(targetKey);
           }
+          break;
+        case 'camelCaseOnly':
+          addEntry(camelCase(key));
           break;
         case 'dashes':
           addEntry(key);
@@ -188,12 +191,10 @@ function getExports(messages, exportStyle, importItemReplacer) {
             addEntry(targetKey);
           }
           break;
-        case 'only':
-          addEntry(camelCase(key));
-          break;
         case 'dashesOnly':
           addEntry(dashesCamelCase(key));
           break;
+        case 'asIs':
         default:
           addEntry(key);
           break;
@@ -338,8 +339,6 @@ export {
   getImportPrefix,
   getLocalIdent,
   placholderRegExps,
-  camelCase,
-  dashesCamelCase,
   getFilter,
   getImportItemReplacer,
   getExports,

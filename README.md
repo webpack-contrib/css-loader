@@ -109,15 +109,15 @@ module.exports = {
 
 ## Options
 
-|                    Name                     |            Type             | Default | Description                                        |
-| :-----------------------------------------: | :-------------------------: | :-----: | :------------------------------------------------- |
-|              **[`url`](#url)**              |    `{Boolean\|Function}`    | `true`  | Enable/Disable `url()` handling                    |
-|           **[`import`](#import)**           |    `{Boolean\|Function}`    | `true`  | Enable/Disable @import handling                    |
-|          **[`modules`](#modules)**          | `{Boolean\|String\|Object}` | `false` | Enable/Disable CSS Modules and setup their options |
-|        **[`sourceMap`](#sourcemap)**        |         `{Boolean}`         | `false` | Enable/Disable Sourcemaps                          |
-|        **[`camelCase`](#camelcase)**        |     `{Boolean\|String}`     | `false` | Export Classnames in CamelCase                     |
-|    **[`importLoaders`](#importloaders)**    |         `{Number}`          |   `0`   | Number of loaders applied before CSS loader        |
-| **[`exportOnlyLocals`](#exportonlylocals)** |         `{Boolean}`         | `false` | Export only locals                                 |
+|                     Name                      |            Type             | Default | Description                                        |
+| :-------------------------------------------: | :-------------------------: | :-----: | :------------------------------------------------- |
+|               **[`url`](#url)**               |    `{Boolean\|Function}`    | `true`  | Enable/Disable `url()` handling                    |
+|            **[`import`](#import)**            |    `{Boolean\|Function}`    | `true`  | Enable/Disable @import handling                    |
+|           **[`modules`](#modules)**           | `{Boolean\|String\|Object}` | `false` | Enable/Disable CSS Modules and setup their options |
+|         **[`sourceMap`](#sourcemap)**         |         `{Boolean}`         | `false` | Enable/Disable Sourcemaps                          |
+|     **[`importLoaders`](#importloaders)**     |         `{Number}`          |   `0`   | Number of loaders applied before CSS loader        |
+| **[`exportLocalsStyle`](#exportlocalsstyle)** |         `{String}`          | `asIs`  | Setup style of exported classnames                 |
+|  **[`exportOnlyLocals`](#exportonlylocals)**  |         `{Boolean}`         | `false` | Export only locals                                 |
 
 ### `url`
 
@@ -672,7 +672,7 @@ To include source maps set the `sourceMap` option.
 
 I.e. the `mini-css-extract-plugin` can handle them.
 
-They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not). 
+They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not).
 
 In addition to that relative paths are buggy and you need to use an absolute public path which includes the server URL.
 
@@ -687,52 +687,6 @@ module.exports = {
         loader: 'css-loader',
         options: {
           sourceMap: true,
-        },
-      },
-    ],
-  },
-};
-```
-
-### `camelCase`
-
-Type: `Boolean|String`
-Default: `false`
-
-By default, the exported JSON keys mirror the class names.
-
-|        Name        |    Type     | Description                                                                                                              |
-| :----------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------- |
-|    **`false`**     | `{Boolean}` | Class names won't be camelized                                                                                           |
-|     **`true`**     | `{Boolean}` | Class names will be camelized, the original class name will not to be removed from the locals                            |
-|   **`'dashes'`**   | `{String}`  | Only dashes in class names will be camelized                                                                             |
-|    **`'only'`**    | `{String}`  | Introduced in `0.27.1`. Class names will be camelized, the original class name will be removed from the locals           |
-| **`'dashesOnly'`** | `{String}`  | Introduced in `0.27.1`. Dashes in class names will be camelized, the original class name will be removed from the locals |
-
-**file.css**
-
-```css
-.class-name {
-}
-```
-
-**file.js**
-
-```js
-import { className } from 'file.css';
-```
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: 'css-loader',
-        options: {
-          camelCase: true,
         },
       },
     ],
@@ -773,6 +727,52 @@ module.exports = {
 ```
 
 This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
+
+### `exportLocalsStyle`
+
+Type: `String`
+Default: `undefined`
+
+By default, the exported JSON keys mirror the class names (i.e `asIs` value).
+
+|         Name          |    Type    | Description                                                                                      |
+| :-------------------: | :--------: | :----------------------------------------------------------------------------------------------- |
+|      **`asIs`**       | `{String}` | Class names will be exported as is.                                                              |
+|   **`'camelCase'`**   | `{String}` | Class names will be camelized, the original class name will not to be removed from the locals    |
+| **`'camelCaseOnly'`** | `{String}` | Class names will be camelized, the original class name will be removed from the locals           |
+|    **`'dashes'`**     | `{String}` | Only dashes in class names will be camelized                                                     |
+|  **`'dashesOnly'`**   | `{String}` | Dashes in class names will be camelized, the original class name will be removed from the locals |
+
+**file.css**
+
+```css
+.class-name {
+}
+```
+
+**file.js**
+
+```js
+import { className } from 'file.css';
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          exportLocalsStyle: 'camelCase',
+        },
+      },
+    ],
+  },
+};
+```
 
 ### `exportOnlyLocals`
 
@@ -821,7 +821,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          limit: 8192,
         },
       },
     ],
