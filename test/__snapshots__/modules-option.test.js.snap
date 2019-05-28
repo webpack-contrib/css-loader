@@ -8086,6 +8086,310 @@ Object {
 
 exports[`modules case \`values-9\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "@value v-primary: #BF4040;
+@value s-black: black-selector;
+@value m-large: (min-width: 960px);
+
+.header {
+  color: v-primary;
+  padding: 0 10px;
+}
+
+.s-black {
+  color: black;
+}
+
+@media m-large {
+  .header {
+    padding: 0 20px;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`global)\`: locals 1`] = `
+Object {
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".header {
+  color: #BF4040;
+  padding: 0 10px;
+}
+
+.black-selector {
+  color: black;
+}
+
+@media (min-width: 960px) {
+  .header {
+    padding: 0 20px;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`local)\`: locals 1`] = `
+Object {
+  "black-selector": "_3xId28FIeFVmNWx5IWeWqN",
+  "header": "ODvOrT6QaJbrNxuVwTgHn",
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".ODvOrT6QaJbrNxuVwTgHn {
+  color: #BF4040;
+  padding: 0 10px;
+}
+
+._3xId28FIeFVmNWx5IWeWqN {
+  color: black;
+}
+
+@media (min-width: 960px) {
+  .ODvOrT6QaJbrNxuVwTgHn {
+    padding: 0 20px;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`object with mode global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`object with mode global)\`: locals 1`] = `
+Object {
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`object with mode global)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".header {
+  color: #BF4040;
+  padding: 0 10px;
+}
+
+.black-selector {
+  color: black;
+}
+
+@media (min-width: 960px) {
+  .header {
+    padding: 0 20px;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`object with mode global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`object with mode local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`object with mode local)\`: locals 1`] = `
+Object {
+  "black-selector": "_black-selector",
+  "header": "_header",
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`object with mode local)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._header {
+  color: #BF4040;
+  padding: 0 10px;
+}
+
+._black-selector {
+  color: black;
+}
+
+@media (min-width: 960px) {
+  ._header {
+    padding: 0 20px;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`object with mode local)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`true)\`: locals 1`] = `
+Object {
+  "black-selector": "_3xId28FIeFVmNWx5IWeWqN",
+  "header": "ODvOrT6QaJbrNxuVwTgHn",
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".ODvOrT6QaJbrNxuVwTgHn {
+  color: #BF4040;
+  padding: 0 10px;
+}
+
+._3xId28FIeFVmNWx5IWeWqN {
+  color: black;
+}
+
+@media (min-width: 960px) {
+  .ODvOrT6QaJbrNxuVwTgHn {
+    padding: 0 20px;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules case \`values-10\`: (export \`all\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`false)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`false)\`: module (evaluated) 1`] = `Object {}`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`false)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`global)\`: module (evaluated) 1`] = `
+Object {
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`local)\`: module (evaluated) 1`] = `
+Object {
+  "black-selector": "_3xId28FIeFVmNWx5IWeWqN",
+  "header": "ODvOrT6QaJbrNxuVwTgHn",
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`local)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`object with mode global)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`object with mode global)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`object with mode global)\`: module (evaluated) 1`] = `
+Object {
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`object with mode global)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`object with mode local)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`object with mode local)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`object with mode local)\`: module (evaluated) 1`] = `
+Object {
+  "black-selector": "_black-selector",
+  "header": "_header",
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`object with mode local)\`: warnings 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`true)\`: errors 1`] = `Array []`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`true)\`: locals 1`] = `undefined`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`true)\`: module (evaluated) 1`] = `
+Object {
+  "black-selector": "_3xId28FIeFVmNWx5IWeWqN",
+  "header": "ODvOrT6QaJbrNxuVwTgHn",
+  "m-large": "(min-width: 960px)",
+  "s-black": "black-selector",
+  "v-primary": "#BF4040",
+}
+`;
+
+exports[`modules case \`values-10\`: (export \`only locals\`) (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
 exports[`modules composes should supports resolving: errors 1`] = `Array []`;
 
 exports[`modules composes should supports resolving: module (evaluated) 1`] = `
@@ -8196,6 +8500,30 @@ Array [
 ._26Jdfenl9Xn8HXwb2jipvt {
   color: gainsboro;
 }
+
+._1ya4VhsDkuPhQeVHQydw2Y {
+  color: #BF4040;
+}
+
+.sGE1Q_LliVEZU2Q4q9j4K {
+  color: black;
+}
+
+@media (min-width: 960px) {
+  ._2zSMJ4hQh0FesbZjiKW_ya {
+    padding: 0 20px;
+  }
+}
+
+.white {
+  color: white;
+}
+
+@media (min-width: 320px) {
+  ._2zSMJ4hQh0FesbZjiKW_ya {
+    padding: 20px 20px;
+  }
+}
 ",
     "",
   ],
@@ -8215,24 +8543,34 @@ exports.i(require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\"), \\
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\"), \\"\\");
 
 // Module
-exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n._1wABXM_RabWHj--wsPrhvM {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n._1tAbIwITRWAdZZE6wKNk9O {\\\\n  prop: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n._1wABXM_RabWHj--wsPrhvM {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._1tAbIwITRWAdZZE6wKNk9O {\\\\n  prop: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ya4VhsDkuPhQeVHQydw2Y {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.sGE1Q_LliVEZU2Q4q9j4K {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"m-small\\"] + \\" {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
 
 // Exports
 exports.locals = {
-	\\"def\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"def\\"] + \\"\\",
-	\\"other\\": \\"_1wABXM_RabWHj--wsPrhvM\\",
-	\\"something\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"something\\"] + \\"\\",
-	\\"foo\\": \\"_1tAbIwITRWAdZZE6wKNk9O\\",
-	\\"bar\\": \\"block\\",
+	\\"v-def\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\"\\",
+	\\"v-other\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\"\\",
+	\\"s-white\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"s-white\\"] + \\"\\",
+	\\"m-small\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"m-small\\"] + \\"\\",
+	\\"v-something\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"v-something\\"] + \\"\\",
+	\\"v-foo\\": \\"blue\\",
+	\\"v-bar\\": \\"block\\",
+	\\"v-primary\\": \\"#BF4040\\",
+	\\"s-black\\": \\"black-selector\\",
+	\\"m-large\\": \\"(min-width: 960px)\\",
 	\\"ghi\\": \\"_14uFt0lIVKKAlKTTT29IIQ\\",
 	\\"class\\": \\"_3XDgIzfUIQkaUInpEdo7fN\\",
+	\\"other\\": \\"_1wABXM_RabWHj--wsPrhvM\\",
 	\\"other-other\\": \\"_1DFEYnAfn9LZyk4fErI86e\\",
 	\\"green\\": \\"Ywv5coVC2RU-pIFhN9O4w\\",
+	\\"foo\\": \\"_1tAbIwITRWAdZZE6wKNk9O\\",
 	\\"simple\\": \\"Q3SQ3BwtBwUFLlg6adzOI \\" + require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\").locals[\\"imported-simple\\"] + \\"\\",
 	\\"relative\\": \\"_1n5XhXj4SFnYrwziC3un0d \\" + require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\").locals[\\"imported-relative\\"] + \\"\\",
 	\\"top-relative\\": \\"_3dnFnGkAVAiMA6etF-naHc \\" + require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\").locals[\\"imported-relative\\"] + \\"\\",
 	\\"module\\": \\"_1xUePnlnafMQ1cExy3PUWT \\" + require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\").locals[\\"imported-module\\"] + \\"\\",
-	\\"alias\\": \\"_26Jdfenl9Xn8HXwb2jipvt \\" + require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\").locals[\\"imported-alias\\"] + \\"\\"
+	\\"alias\\": \\"_26Jdfenl9Xn8HXwb2jipvt \\" + require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\").locals[\\"imported-alias\\"] + \\"\\",
+	\\"primary-selector\\": \\"_1ya4VhsDkuPhQeVHQydw2Y\\",
+	\\"black-selector\\": \\"sGE1Q_LliVEZU2Q4q9j4K\\",
+	\\"header\\": \\"_2zSMJ4hQh0FesbZjiKW_ya\\"
 };"
 `;
 
