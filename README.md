@@ -173,7 +173,11 @@ module.exports = {
 
 #### `Function`
 
-Allow to filter `url()`. All filtered `url()` will not be resolved (left in the code as they were written).
+Allow to filter or modify `url()`.
+
+If return value is boolean, all filtered `url()` will not be resolved (left in the code as they were written).
+
+If return value is string, that value will be used as new `url()` value.
 
 **webpack.config.js**
 
@@ -190,6 +194,34 @@ module.exports = {
 
             // `url()` with `img.png` stay untouched
             return url.includes('img.png');
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          url: (url, resourcePath) => {
+            // resourcePath - path to css file
+
+            // Assuming this is `@import url('external-dependancy.css')`,
+            // this will modify it to `@import url('~external-dependancy.css')`
+            // and all other resources will stay untouched
+            if (url === 'externaldependancy.css') {
+              return `~${url}`;
+            }
+            return url;
           },
         },
       },
@@ -268,40 +300,6 @@ module.exports = {
 
             // `@import` with `style.css` stay untouched
             return parsedImport.url.includes('style.css');
-          },
-        },
-      },
-    ],
-  },
-};
-```
-
-### `resolve`
-
-Type: `Function`
-
-Modify finaly `url()` path, e.g. add or remove `~` for Node require resolving.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        loader: 'css-loader',
-        options: {
-          resolve: (resourcePath) => {
-            // resourcePath - path to css file
-
-            // Assuming this is `@import url('external-dependancy.css')`,
-            // this will modify it to `@import url('~external-dependancy.css')`
-            // and all other resources will stay untouched
-            if (resourcePath === 'externaldependancy.css') {
-              return `~${resourcePath}`;
-            }
-            return resourcePath;
           },
         },
       },

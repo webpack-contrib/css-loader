@@ -176,8 +176,11 @@ export default function loader(content, map, meta) {
 
         const { item } = message;
         let resolvedUrl = '';
-        if (options.resolve) {
-          resolvedUrl = urlToRequest(options.resolve(item.url));
+        if (typeof options.url === 'function') {
+          const resolved = options.url(item.url, this.resourcePath);
+          resolvedUrl = urlToRequest(
+            typeof resolved === 'string' ? resolved : item.url
+          );
         } else {
           resolvedUrl = urlToRequest(item.url);
         }
@@ -267,8 +270,11 @@ export default function loader(content, map, meta) {
           }
 
           let resolvedUrl = '';
-          if (options.resolve) {
-            resolvedUrl = urlToRequest(options.resolve(url));
+          if (typeof options.url === 'function') {
+            const resolved = options.url(url, this.resourcePath);
+            resolvedUrl = urlToRequest(
+              typeof resolved === 'string' ? resolved : url
+            );
           } else {
             resolvedUrl = urlToRequest(url);
           }
@@ -312,8 +318,11 @@ export default function loader(content, map, meta) {
               : '';
 
           let resolvedUrl = '';
-          if (options.resolve) {
-            resolvedUrl = urlToRequest(options.resolve(normalizedUrl));
+          if (typeof options.url === 'function') {
+            const resolved = options.url(normalizedUrl, this.resourcePath);
+            resolvedUrl = urlToRequest(
+              typeof resolved === 'string' ? resolved : normalizedUrl
+            );
           } else {
             resolvedUrl = urlToRequest(normalizedUrl);
           }

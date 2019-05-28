@@ -58,7 +58,7 @@ function evaluated(output, modules, moduleId = 1) {
             'modules/tests-cases/composes-multiple',
             'modules/tests-cases/composes-with-importing',
             'modules/tests-cases/media-2',
-            'resolve',
+            'url-as-string',
           ].map((importedPath) =>
             path.resolve(
               __dirname,

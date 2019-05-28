@@ -1,3 +1,5 @@
+import { join } from 'path';
+
 import { webpack, evaluated, normalizeErrors } from './helpers';
 
 describe('url option', () => {
@@ -68,6 +70,65 @@ describe('url option', () => {
       },
     };
     const testId = './url/url.css';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+  });
+
+  it('Function, string', async () => {
+    const config = {
+      loader: {
+        options: {
+          url: (url) => {
+            expect(typeof url === 'string').toBe(true);
+            if (url.includes('~package')) {
+              return join('node_modules', url.replace('~', ''));
+            }
+            return true;
+          },
+        },
+      },
+    };
+    const testId = './url-as-string/resolve.css';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
+      'warnings'
+    );
+    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+  });
+
+  it('CSS Modules', async () => {
+    const config = {
+      loader: {
+        options: {
+          modules: true,
+          url: (url) => {
+            expect(typeof url === 'string').toBe(true);
+            if (url.includes('~@localpackage')) {
+              return join('node_modules', url.replace('~', ''));
+            }
+            return true;
+          },
+        },
+      },
+    };
+    const testId = './url-as-string/modules.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);

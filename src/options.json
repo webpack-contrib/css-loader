@@ -21,9 +21,6 @@
         }
       ]
     },
-    "resolve": {
-      "instanceof": "Function"
-    },
     "modules": {
       "anyOf": [
         {
