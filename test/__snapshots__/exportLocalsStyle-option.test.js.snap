@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exportLocalsStyle option asIs: errors 1`] = `Array []`;
+
+exports[`exportLocalsStyle option asIs: locals 1`] = `
+Object {
+  "btn--info_is-disabled_1": "_1cmsy2E5swY7Ysn8h7qDun",
+  "btn-info_is-disabled": "qysDcl74sBAzry5FpDPQi",
+  "foo": "bar",
+  "my-btn-info_is-disabled": "value",
+  "simple": "f42SiWmkrcnocxM5cvNJw",
+}
+`;
+
+exports[`exportLocalsStyle option asIs: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".qysDcl74sBAzry5FpDPQi {
+  color: blue;
+}
+
+._1cmsy2E5swY7Ysn8h7qDun {
+  color: blue;
+}
+
+.f42SiWmkrcnocxM5cvNJw {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`exportLocalsStyle option asIs: warnings 1`] = `Array []`;
+
+exports[`exportLocalsStyle option camelCase: errors 1`] = `Array []`;
+
+exports[`exportLocalsStyle option camelCase: locals 1`] = `
+Object {
+  "btn--info_is-disabled_1": "_1cmsy2E5swY7Ysn8h7qDun",
+  "btn-info_is-disabled": "qysDcl74sBAzry5FpDPQi",
+  "btnInfoIsDisabled": "qysDcl74sBAzry5FpDPQi",
+  "btnInfoIsDisabled1": "_1cmsy2E5swY7Ysn8h7qDun",
+  "foo": "bar",
+  "my-btn-info_is-disabled": "value",
+  "myBtnInfoIsDisabled": "value",
+  "simple": "f42SiWmkrcnocxM5cvNJw",
+}
+`;
+
+exports[`exportLocalsStyle option camelCase: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".qysDcl74sBAzry5FpDPQi {
+  color: blue;
+}
+
+._1cmsy2E5swY7Ysn8h7qDun {
+  color: blue;
+}
+
+.f42SiWmkrcnocxM5cvNJw {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`exportLocalsStyle option camelCase: warnings 1`] = `Array []`;
+
+exports[`exportLocalsStyle option camelCaseOnly: errors 1`] = `Array []`;
+
+exports[`exportLocalsStyle option camelCaseOnly: locals 1`] = `
+Object {
+  "btnInfoIsDisabled": "qysDcl74sBAzry5FpDPQi",
+  "btnInfoIsDisabled1": "_1cmsy2E5swY7Ysn8h7qDun",
+  "foo": "bar",
+  "myBtnInfoIsDisabled": "value",
+  "simple": "f42SiWmkrcnocxM5cvNJw",
+}
+`;
+
+exports[`exportLocalsStyle option camelCaseOnly: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".qysDcl74sBAzry5FpDPQi {
+  color: blue;
+}
+
+._1cmsy2E5swY7Ysn8h7qDun {
+  color: blue;
+}
+
+.f42SiWmkrcnocxM5cvNJw {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`exportLocalsStyle option camelCaseOnly: warnings 1`] = `Array []`;
+
+exports[`exportLocalsStyle option dashes: errors 1`] = `Array []`;
+
+exports[`exportLocalsStyle option dashes: locals 1`] = `
+Object {
+  "btn--info_is-disabled_1": "_1cmsy2E5swY7Ysn8h7qDun",
+  "btn-info_is-disabled": "qysDcl74sBAzry5FpDPQi",
+  "btnInfo_isDisabled": "qysDcl74sBAzry5FpDPQi",
+  "btnInfo_isDisabled_1": "_1cmsy2E5swY7Ysn8h7qDun",
+  "foo": "bar",
+  "my-btn-info_is-disabled": "value",
+  "myBtnInfo_isDisabled": "value",
+  "simple": "f42SiWmkrcnocxM5cvNJw",
+}
+`;
+
+exports[`exportLocalsStyle option dashes: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".qysDcl74sBAzry5FpDPQi {
+  color: blue;
+}
+
+._1cmsy2E5swY7Ysn8h7qDun {
+  color: blue;
+}
+
+.f42SiWmkrcnocxM5cvNJw {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`exportLocalsStyle option dashes: warnings 1`] = `Array []`;
+
+exports[`exportLocalsStyle option dashesOnly: errors 1`] = `Array []`;
+
+exports[`exportLocalsStyle option dashesOnly: locals 1`] = `
+Object {
+  "btnInfo_isDisabled": "qysDcl74sBAzry5FpDPQi",
+  "btnInfo_isDisabled_1": "_1cmsy2E5swY7Ysn8h7qDun",
+  "foo": "bar",
+  "myBtnInfo_isDisabled": "value",
+  "simple": "f42SiWmkrcnocxM5cvNJw",
+}
+`;
+
+exports[`exportLocalsStyle option dashesOnly: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".qysDcl74sBAzry5FpDPQi {
+  color: blue;
+}
+
+._1cmsy2E5swY7Ysn8h7qDun {
+  color: blue;
+}
+
+.f42SiWmkrcnocxM5cvNJw {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`exportLocalsStyle option dashesOnly: warnings 1`] = `Array []`;
+
+exports[`exportLocalsStyle option not specified: errors 1`] = `Array []`;
+
+exports[`exportLocalsStyle option not specified: locals 1`] = `
+Object {
+  "btn--info_is-disabled_1": "_1cmsy2E5swY7Ysn8h7qDun",
+  "btn-info_is-disabled": "qysDcl74sBAzry5FpDPQi",
+  "foo": "bar",
+  "my-btn-info_is-disabled": "value",
+  "simple": "f42SiWmkrcnocxM5cvNJw",
+}
+`;
+
+exports[`exportLocalsStyle option not specified: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".qysDcl74sBAzry5FpDPQi {
+  color: blue;
+}
+
+._1cmsy2E5swY7Ysn8h7qDun {
+  color: blue;
+}
+
+.f42SiWmkrcnocxM5cvNJw {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`exportLocalsStyle option not specified: warnings 1`] = `Array []`;

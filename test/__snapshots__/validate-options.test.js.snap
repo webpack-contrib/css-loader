@@ -162,9 +162,8 @@ options.sourceMap should be boolean
 exports[`validate options 16`] = `
 "CSS Loader Invalid Options
 
-options.camelCase should be boolean
-options.camelCase should be equal to one of the allowed values
-options.camelCase should match some schema in anyOf
+options.exportLocalsStyle should be equal to one of the allowed values
+options.exportLocalsStyle should match some schema in anyOf
 "
 `;
 
