@@ -62,7 +62,12 @@ describe('import option', () => {
           import: (parsedImport, resourcePath) => {
             expect(typeof resourcePath === 'string').toBe(true);
 
-            return parsedImport.url.includes('test.css');
+            // Don't handle `test.css`
+            if (parsedImport.url.includes('test.css')) {
+              return false;
+            }
+
+            return true;
           },
         },
       },

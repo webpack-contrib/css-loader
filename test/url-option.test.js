@@ -62,7 +62,12 @@ describe('url option', () => {
           url: (url, resourcePath) => {
             expect(typeof resourcePath === 'string').toBe(true);
 
-            return url.includes('img.png');
+            // Don't handle `img.png`
+            if (url.includes('img.png')) {
+              return false;
+            }
+
+            return true;
           },
         },
       },

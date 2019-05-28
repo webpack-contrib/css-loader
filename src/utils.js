@@ -100,13 +100,13 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
 }
 
 function getFilter(filter, resourcePath, defaultFilter = null) {
-  return (content) => {
-    if (defaultFilter && !defaultFilter(content)) {
+  return (item) => {
+    if (defaultFilter && !defaultFilter(item)) {
       return false;
     }
 
     if (typeof filter === 'function') {
-      return !filter(content, resourcePath);
+      return filter(item, resourcePath);
     }
 
     return true;
