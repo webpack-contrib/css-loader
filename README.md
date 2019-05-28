@@ -183,7 +183,7 @@ module.exports = {
         options: {
           url: (url, resourcePath) => {
             // resourcePath - path to css file
-            
+
             // Don't handle `img.png` urls
             if (url.includes('img.png')) {
               return false;
