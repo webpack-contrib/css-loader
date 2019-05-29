@@ -41,10 +41,10 @@
     "webpack": "^4.0.0"
   },
   "dependencies": {
+    "camelcase": "^5.2.0",
     "cssesc": "^3.0.0",
     "icss-utils": "^4.1.0",
     "loader-utils": "^1.2.3",
-    "camelcase": "^5.2.0",
     "normalize-path": "^3.0.0",
     "postcss": "^7.0.14",
     "postcss-modules-extract-imports": "^2.0.0",

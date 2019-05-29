@@ -127,8 +127,11 @@ exports[`loader should compile with \`css\` entry point (with \`modules\` and sc
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): module (evaluated) 1`] = `
 Array [
   Array [
-    null,
-    "nothing",
+    2,
+    ".foo {
+  color: red;
+}
+",
     "",
   ],
   Array [
@@ -139,11 +142,11 @@ Array [
 
 .class {
   color: red;
-  background: url(nothing);
+  background: url(/webpack/public/path/img.png);
 }
 
 .class-duplicate-url {
-  background: url(nothing);
+  background: url(/webpack/public/path/img.png);
 }
 
 :root {
@@ -416,8 +419,11 @@ exports[`loader should compile with \`css\` entry point (with \`modules\` and sc
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): module (evaluated) 1`] = `
 Array [
   Array [
-    null,
-    "nothing",
+    2,
+    ".KTxgbb6qrDrjy0obHlZaJ {
+  color: red;
+}
+",
     "",
   ],
   Array [
@@ -428,11 +434,11 @@ Array [
 
 ._1PSZ4tK4URrenXyNSoawrx {
   color: red;
-  background: url(nothing);
+  background: url(/webpack/public/path/img.png);
 }
 
 ._3YYoEr128Gk7ZgfRycu4tr {
-  background: url(nothing);
+  background: url(/webpack/public/path/img.png);
 }
 
 :root {
@@ -729,8 +735,11 @@ exports[`loader should compile with \`css\` entry point: escape 1`] = `
 exports[`loader should compile with \`css\` entry point: module (evaluated) 1`] = `
 Array [
   Array [
-    null,
-    "nothing",
+    2,
+    ".foo {
+  color: red;
+}
+",
     "",
   ],
   Array [
@@ -741,11 +750,11 @@ Array [
 
 .class {
   color: red;
-  background: url(nothing);
+  background: url(/webpack/public/path/img.png);
 }
 
 .class-duplicate-url {
-  background: url(nothing);
+  background: url(/webpack/public/path/img.png);
 }
 
 :root {
@@ -1018,8 +1027,11 @@ exports[`loader should compile with \`js\` entry point: escape 1`] = `
 exports[`loader should compile with \`js\` entry point: module (evaluated) 1`] = `
 Array [
   Array [
-    null,
-    "nothing",
+    2,
+    ".foo {
+  color: red;
+}
+",
     "",
   ],
   Array [
@@ -1030,11 +1042,11 @@ Array [
 
 .class {
   color: red;
-  background: url(nothing);
+  background: url(/webpack/public/path/img.png);
 }
 
 .class-duplicate-url {
-  background: url(nothing);
+  background: url(/webpack/public/path/img.png);
 }
 
 :root {
