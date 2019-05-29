@@ -1,9 +1,18 @@
 import postcss from 'postcss';
-import valueParser from 'postcss-value-parser';
-import { extractICSS, replaceValueSymbols } from 'icss-utils';
+import { extractICSS, replaceValueSymbols, replaceSymbols } from 'icss-utils';
 import loaderUtils from 'loader-utils';
 
 const pluginName = 'postcss-icss-parser';
+
+function hasImportMessage(messages, url) {
+  return messages.find(
+    (message) =>
+      message.pluginName === pluginName &&
+      message.type === 'import' &&
+      message.item.url === url &&
+      message.item.media === ''
+  );
+}
 
 export default postcss.plugin(
   pluginName,
@@ -14,88 +23,43 @@ export default postcss.plugin(
 
       let index = 0;
 
-      Object.keys(icssImports).forEach((key) => {
-        const url = loaderUtils.parseString(key);
+      for (const importUrl of Object.keys(icssImports)) {
+        const url = loaderUtils.parseString(importUrl);
 
-        Object.keys(icssImports[key]).forEach((prop) => {
+        for (const token of Object.keys(icssImports[importUrl])) {
           index += 1;
-
-          importReplacements[prop] = `___CSS_LOADER_IMPORT___${index}___`;
+          importReplacements[token] = `___CSS_LOADER_IMPORT___${index}___`;
 
           result.messages.push({
             pluginName,
             type: 'icss-import',
-            item: { url, export: icssImports[key][prop], index },
+            item: { url, export: icssImports[importUrl][token], index },
           });
 
-          const alreadyIncluded = result.messages.find(
-            (message) =>
-              message.pluginName === pluginName &&
-              message.type === 'import' &&
-              message.item.url === url &&
-              message.item.media === ''
-          );
-
-          if (alreadyIncluded) {
-            return;
+          if (!hasImportMessage(result.messages, url)) {
+            result.messages.push({
+              pluginName,
+              type: 'import',
+              item: { url, media: '' },
+            });
           }
-
-          result.messages.push({
-            pluginName,
-            type: 'import',
-            item: { url, media: '' },
-          });
-        });
-      });
-
-      function replaceImportsInString(str) {
-        const tokens = valueParser(str);
-
-        tokens.walk((node) => {
-          if (node.type !== 'word') {
-            return;
-          }
-
-          const token = node.value;
-          const replacement = importReplacements[token];
-
-          if (replacement) {
-            // eslint-disable-next-line no-param-reassign
-            node.value = replacement;
-          }
-        });
-
-        return tokens.toString();
+        }
       }
 
-      // Replace tokens
-      css.walk((node) => {
-        // Due reusing `ast` from `postcss-loader` some plugins may remove `value`, `selector` or `params` properties
-        if (node.type === 'decl' && node.value) {
-          // eslint-disable-next-line no-param-reassign
-          node.value = replaceImportsInString(node.value.toString());
-        } else if (node.type === 'rule' && node.selector) {
-          // eslint-disable-next-line no-param-reassign
-          node.selector = replaceValueSymbols(
-            node.selector.toString(),
-            importReplacements
-          );
-        } else if (node.type === 'atrule' && node.params) {
-          // eslint-disable-next-line no-param-reassign
-          node.params = replaceImportsInString(node.params.toString());
-        }
-      });
+      replaceSymbols(css, importReplacements);
 
-      // Replace tokens in export
-      Object.keys(icssExports).forEach((exportName) => {
+      for (const exportName of Object.keys(icssExports)) {
         result.messages.push({
           pluginName,
           type: 'export',
           item: {
             key: exportName,
-            value: replaceImportsInString(icssExports[exportName]),
+            value: replaceValueSymbols(
+              icssExports[exportName],
+              importReplacements
+            ),
           },
         });
-      });
+      }
     }
 );
