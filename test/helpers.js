@@ -20,9 +20,9 @@ function evaluated(output, modules, moduleId = 1) {
         // eslint-disable-next-line global-require
         return require('../src/runtime/api');
       }
-      if (module.indexOf('runtime/url-escape') >= 0) {
+      if (module.indexOf('runtime/get-url') >= 0) {
         // eslint-disable-next-line global-require
-        return require('../src/runtime/url-escape');
+        return require('../src/runtime/get-url');
       }
       if (/^-!.*?!.*$/.test(module)) {
         // eslint-disable-next-line no-param-reassign

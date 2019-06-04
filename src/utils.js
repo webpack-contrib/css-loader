@@ -207,8 +207,8 @@ function getExports(messages, exportLocalsStyle, importItemReplacer) {
 function getImports(messages, importUrlPrefix, loaderContext, callback) {
   const imports = [];
 
-  // Helper for ensuring valid CSS strings from requires
-  let hasUrlEscapeHelper = false;
+  // Helper for getting url
+  let hasUrlHelper = false;
 
   messages.forEach((message) => {
     if (message.type === 'import') {
@@ -234,15 +234,15 @@ function getImports(messages, importUrlPrefix, loaderContext, callback) {
     }
 
     if (message.type === 'url') {
-      if (!hasUrlEscapeHelper) {
+      if (!hasUrlHelper) {
         imports.push(
-          `var urlEscape = require(${stringifyRequest(
+          `var getUrl = require(${stringifyRequest(
             loaderContext,
-            require.resolve('./runtime/url-escape.js')
+            require.resolve('./runtime/get-url.js')
           )});`
         );
 
-        hasUrlEscapeHelper = true;
+        hasUrlHelper = true;
       }
 
       const { url, placeholder, needQuotes } = message.item;
@@ -254,7 +254,7 @@ function getImports(messages, importUrlPrefix, loaderContext, callback) {
           : '';
 
       imports.push(
-        `var ${placeholder} = urlEscape(require(${stringifyRequest(
+        `var ${placeholder} = getUrl(require(${stringifyRequest(
           loaderContext,
           urlToRequest(normalizedUrl)
         )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`
