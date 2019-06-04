@@ -117,19 +117,21 @@ export default function loader(content, map, meta) {
         exportOnlyLocals
       );
 
-      const exports = getExports(
+      const exportItems = getExports(
         messages,
         exportLocalsStyle,
         importItemReplacer
       );
 
+      const exportsCode =
+        exportItems.length > 0
+          ? exportOnlyLocals
+            ? `module.exports = {\n${exportItems.join(',\n')}\n};`
+            : `// Exports\nexports.locals = {\n${exportItems.join(',\n')}\n};`
+          : '';
+
       if (exportOnlyLocals) {
-        return callback(
-          null,
-          exports.length > 0
-            ? `module.exports = {\n${exports.join(',\n')}\n};`
-            : ''
-        );
+        return callback(null, exportsCode);
       }
 
       let cssAsString = JSON.stringify(result.css).replace(
@@ -137,34 +139,36 @@ export default function loader(content, map, meta) {
         importItemReplacer
       );
 
-      const imports = getImports(messages, importPrefix, this, (message) => {
-        if (message.type !== 'url') {
-          return;
+      const importItems = getImports(
+        messages,
+        importPrefix,
+        this,
+        (message) => {
+          if (message.type !== 'url') {
+            return;
+          }
+
+          const { placeholder } = message.item;
+
+          cssAsString = cssAsString.replace(
+            new RegExp(placeholder, 'g'),
+            () => `" + ${placeholder} + "`
+          );
         }
-
-        const { placeholder } = message.item;
-
-        cssAsString = cssAsString.replace(
-          new RegExp(placeholder, 'g'),
-          () => `" + ${placeholder} + "`
-        );
-      });
+      );
 
       const runtimeCode = `exports = module.exports = require(${stringifyRequest(
         this,
         require.resolve('./runtime/api')
       )})(${!!sourceMap});\n`;
       const importCode =
-        imports.length > 0 ? `// Imports\n${imports.join('\n')}\n\n` : '';
+        importItems.length > 0
+          ? `// Imports\n${importItems.join('\n')}\n\n`
+          : '';
       const moduleCode = `// Module\nexports.push([module.id, ${cssAsString}, ""${
         result.map ? `,${result.map}` : ''
       }]);\n\n`;
-      const exportsCode =
-        exports.length > 0
-          ? `// Exports\nexports.locals = {\n${exports.join(',\n')}\n};`
-          : '';
 
-      // Embed runtime
       return callback(
         null,
         runtimeCode + importCode + moduleCode + exportsCode

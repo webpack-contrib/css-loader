@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modules true (mode: local): errors 1`] = `Array []`;
+
+exports[`modules true (mode: local): module 1`] = `
+"module.exports = {
+	\\"v-def\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"v-def\\"] + \\"\\",
+	\\"v-other\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"v-other\\"] + \\"\\",
+	\\"s-white\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"s-white\\"] + \\"\\",
+	\\"m-small\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"m-small\\"] + \\"\\",
+	\\"v-something\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\")[\\"v-something\\"] + \\"\\",
+	\\"v-foo\\": \\"blue\\",
+	\\"v-bar\\": \\"block\\",
+	\\"v-primary\\": \\"#BF4040\\",
+	\\"s-black\\": \\"black-selector\\",
+	\\"m-large\\": \\"(min-width: 960px)\\",
+	\\"ghi\\": \\"_ghi\\",
+	\\"class\\": \\"_class\\",
+	\\"other\\": \\"_other\\",
+	\\"other-other\\": \\"_other-other\\",
+	\\"green\\": \\"_green\\",
+	\\"foo\\": \\"_foo\\",
+	\\"simple\\": \\"_simple \\" + require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\")[\\"imported-simple\\"] + \\"\\",
+	\\"relative\\": \\"_relative \\" + require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\")[\\"imported-relative\\"] + \\"\\",
+	\\"top-relative\\": \\"_top-relative \\" + require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\")[\\"imported-relative\\"] + \\"\\",
+	\\"module\\": \\"_module \\" + require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\")[\\"imported-module\\"] + \\"\\",
+	\\"alias\\": \\"_alias \\" + require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\")[\\"imported-alias\\"] + \\"\\",
+	\\"primary-selector\\": \\"_primary-selector\\",
+	\\"black-selector\\": \\"_black-selector\\",
+	\\"header\\": \\"_header\\"
+};"
+`;
+
+exports[`modules true (mode: local): values module 1`] = `
+"module.exports = {
+	\\"v-def\\": \\"red\\",
+	\\"v-other\\": \\"green\\",
+	\\"s-white\\": \\"white\\",
+	\\"m-small\\": \\"(min-width: 320px)\\"
+};"
+`;
+
+exports[`modules true (mode: local): warnings 1`] = `Array []`;
