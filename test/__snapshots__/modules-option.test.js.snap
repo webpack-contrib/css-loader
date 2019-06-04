@@ -6093,6 +6093,24 @@ Array [
     padding: 20px 20px;
   }
 }
+
+a {
+  content: 'my-content';
+}
+
+@supports (content: 'my-content') {
+  a {
+    content: 'my-content';
+  }
+}
+
+[class~='my-content'] {
+  color:green;
+}
+
+a {
+  content: '';
+}
 ",
     "",
   ],
@@ -6112,7 +6130,7 @@ exports.i(require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
 
 // Module
-exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n._1wABXM_RabWHj--wsPrhvM {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._1tAbIwITRWAdZZE6wKNk9O {\\\\n  prop: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ya4VhsDkuPhQeVHQydw2Y {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.sGE1Q_LliVEZU2Q4q9j4K {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"m-small\\"] + \\" {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n._1wABXM_RabWHj--wsPrhvM {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._1tAbIwITRWAdZZE6wKNk9O {\\\\n  prop: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ya4VhsDkuPhQeVHQydw2Y {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.sGE1Q_LliVEZU2Q4q9j4K {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"m-small\\"] + \\" {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\\\na {\\\\n  content: 'my-content';\\\\n}\\\\n\\\\n@supports (content: 'my-content') {\\\\n  a {\\\\n    content: 'my-content';\\\\n  }\\\\n}\\\\n\\\\n[class~='my-content'] {\\\\n  color:green;\\\\n}\\\\n\\\\na {\\\\n  content: '';\\\\n}\\\\n\\", \\"\\"]);
 
 // Exports
 exports.locals = {
@@ -6126,6 +6144,8 @@ exports.locals = {
 	\\"v-primary\\": \\"#BF4040\\",
 	\\"s-black\\": \\"black-selector\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
+	\\"v-string\\": \\"'my-content'\\",
+	\\"v-empty-string\\": \\"''\\",
 	\\"ghi\\": \\"_14uFt0lIVKKAlKTTT29IIQ\\",
 	\\"class\\": \\"_3XDgIzfUIQkaUInpEdo7fN\\",
 	\\"other\\": \\"_1wABXM_RabWHj--wsPrhvM\\",
