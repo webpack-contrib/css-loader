@@ -11,7 +11,6 @@ import {
   isUrlRequest,
   getRemainingRequest,
   getCurrentRequest,
-  stringifyRequest,
 } from 'loader-utils';
 
 import schema from './options.json';
@@ -19,12 +18,13 @@ import { importParser, icssParser, urlParser } from './plugins';
 import {
   normalizeSourceMap,
   getModulesPlugins,
-  placholderRegExps,
   getImportPrefix,
-  getImportItemReplacer,
+  getIcssItemReplacer,
   getFilter,
-  getExports,
-  getImports,
+  getRuntimeCode,
+  getImportCode,
+  getModuleCode,
+  getExportCode,
 } from './utils';
 import Warning from './Warning';
 import CssSyntaxError from './CssSyntaxError';
@@ -103,71 +103,37 @@ export default function loader(content, map, meta) {
         .warnings()
         .forEach((warning) => this.emitWarning(new Warning(warning)));
 
-      const messages = result.messages || [];
-      const { exportOnlyLocals, importLoaders, exportLocalsStyle } = options;
-
-      // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
-      const importPrefix = getImportPrefix(this, importLoaders);
-
-      // Prepare replacer to change from `___CSS_LOADER_IMPORT___INDEX___` to `require('./file.css').locals`
-      const importItemReplacer = getImportItemReplacer(
-        messages,
-        this,
-        importPrefix,
-        exportOnlyLocals
-      );
-
-      const exportItems = getExports(
-        messages,
-        exportLocalsStyle,
-        importItemReplacer
-      );
-
-      const exportsCode =
-        exportItems.length > 0
-          ? exportOnlyLocals
-            ? `module.exports = {\n${exportItems.join(',\n')}\n};`
-            : `// Exports\nexports.locals = {\n${exportItems.join(',\n')}\n};`
-          : '';
-
-      if (exportOnlyLocals) {
-        return callback(null, exportsCode);
+      if (!result.messages) {
+        // eslint-disable-next-line no-param-reassign
+        result.messages = [];
       }
 
-      let cssAsString = JSON.stringify(result.css).replace(
-        placholderRegExps.importItemG,
-        importItemReplacer
-      );
-
-      const importItems = getImports(
-        messages,
+      const {
+        exportOnlyLocals: onlyLocals,
+        exportLocalsStyle: localsStyle,
+      } = options;
+      // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
+      const importPrefix = getImportPrefix(this, options.importLoaders);
+      // Prepare replacer to change from `___CSS_LOADER_IMPORT___INDEX___` to `require('./file.css').locals`
+      const replacer = getIcssItemReplacer(
+        result,
+        this,
         importPrefix,
-        this,
-        (message) => {
-          if (message.type !== 'url') {
-            return;
-          }
-
-          const { placeholder } = message.item;
-
-          cssAsString = cssAsString.replace(
-            new RegExp(placeholder, 'g'),
-            () => `" + ${placeholder} + "`
-          );
-        }
+        onlyLocals
       );
 
-      const runtimeCode = `exports = module.exports = require(${stringifyRequest(
-        this,
-        require.resolve('./runtime/api')
-      )})(${!!sourceMap});\n`;
-      const importCode =
-        importItems.length > 0
-          ? `// Imports\n${importItems.join('\n')}\n\n`
-          : '';
-      const moduleCode = `// Module\nexports.push([module.id, ${cssAsString}, ""${
-        result.map ? `,${result.map}` : ''
-      }]);\n\n`;
+      // eslint-disable-next-line no-param-reassign
+      result.cssLoaderBuildInfo = {
+        onlyLocals,
+        localsStyle,
+        importPrefix,
+        replacer,
+      };
+
+      const runtimeCode = getRuntimeCode(result, this, sourceMap);
+      const importCode = getImportCode(result, this);
+      const moduleCode = getModuleCode(result);
+      const exportsCode = getExportCode(result);
 
       return callback(
         null,

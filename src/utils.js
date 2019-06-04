@@ -113,160 +113,6 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
   };
 }
 
-function getImportItemReplacer(
-  messages,
-  loaderContext,
-  importUrlPrefix,
-  exportOnlyLocals
-) {
-  return function replacer(placeholder) {
-    const match = placholderRegExps.importItem.exec(placeholder);
-    const idx = Number(match[1]);
-
-    const message = messages.find(
-      // eslint-disable-next-line no-shadow
-      (message) =>
-        message.type === 'icss-import' &&
-        message.item &&
-        message.item.index === idx
-    );
-
-    if (!message) {
-      return placeholder;
-    }
-
-    const { item } = message;
-    const importUrl = importUrlPrefix + urlToRequest(item.url);
-
-    if (exportOnlyLocals) {
-      return `" + require(${stringifyRequest(
-        loaderContext,
-        importUrl
-      )})[${JSON.stringify(item.export)}] + "`;
-    }
-
-    return `" + require(${stringifyRequest(
-      loaderContext,
-      importUrl
-    )}).locals[${JSON.stringify(item.export)}] + "`;
-  };
-}
-
-function getExports(messages, exportLocalsStyle, importItemReplacer) {
-  return messages
-    .filter((message) => message.type === 'export')
-    .reduce((accumulator, message) => {
-      const { key, value } = message.item;
-
-      let valueAsString = JSON.stringify(value);
-
-      valueAsString = valueAsString.replace(
-        placholderRegExps.importItemG,
-        importItemReplacer
-      );
-
-      function addEntry(k) {
-        accumulator.push(`\t${JSON.stringify(k)}: ${valueAsString}`);
-      }
-
-      let targetKey;
-
-      switch (exportLocalsStyle) {
-        case 'camelCase':
-          addEntry(key);
-          targetKey = camelCase(key);
-
-          if (targetKey !== key) {
-            addEntry(targetKey);
-          }
-          break;
-        case 'camelCaseOnly':
-          addEntry(camelCase(key));
-          break;
-        case 'dashes':
-          addEntry(key);
-          targetKey = dashesCamelCase(key);
-
-          if (targetKey !== key) {
-            addEntry(targetKey);
-          }
-          break;
-        case 'dashesOnly':
-          addEntry(dashesCamelCase(key));
-          break;
-        case 'asIs':
-        default:
-          addEntry(key);
-          break;
-      }
-
-      return accumulator;
-    }, []);
-}
-
-function getImports(messages, importUrlPrefix, loaderContext, callback) {
-  const imports = [];
-
-  // Helper for getting url
-  let hasUrlHelper = false;
-
-  messages.forEach((message) => {
-    if (message.type === 'import') {
-      const { url } = message.item;
-      const media = message.item.media || '';
-
-      if (!isUrlRequest(url)) {
-        imports.push(
-          `exports.push([module.id, ${JSON.stringify(
-            `@import url(${url});`
-          )}, ${JSON.stringify(media)}]);`
-        );
-      } else {
-        const importUrl = importUrlPrefix + urlToRequest(url);
-
-        imports.push(
-          `exports.i(require(${stringifyRequest(
-            loaderContext,
-            importUrl
-          )}), ${JSON.stringify(media)});`
-        );
-      }
-    }
-
-    if (message.type === 'url') {
-      if (!hasUrlHelper) {
-        imports.push(
-          `var getUrl = require(${stringifyRequest(
-            loaderContext,
-            require.resolve('./runtime/get-url.js')
-          )});`
-        );
-
-        hasUrlHelper = true;
-      }
-
-      const { url, placeholder, needQuotes } = message.item;
-      // Remove `#hash` and `?#hash` from `require`
-      const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
-      const hash =
-        singleQuery || hashValue
-          ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
-          : '';
-
-      imports.push(
-        `var ${placeholder} = getUrl(require(${stringifyRequest(
-          loaderContext,
-          urlToRequest(normalizedUrl)
-        )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`
-      );
-    }
-
-    callback(message);
-  });
-
-  return imports;
-}
-
 function getModulesPlugins(options, loaderContext) {
   let modulesOptions = {
     mode: 'local',
@@ -335,14 +181,240 @@ function normalizeSourceMap(map) {
   return newMap;
 }
 
+function getIcssItemReplacer(result, loaderContext, importPrefix, onlyLocals) {
+  const { messages } = result;
+
+  return function replacer(placeholder) {
+    const match = placholderRegExps.importItem.exec(placeholder);
+    const idx = Number(match[1]);
+
+    const message = messages.find(
+      // eslint-disable-next-line no-shadow
+      (message) =>
+        message.type === 'icss-import' &&
+        message.item &&
+        message.item.index === idx
+    );
+
+    if (!message) {
+      return placeholder;
+    }
+
+    const { item } = message;
+    const importUrl = importPrefix + urlToRequest(item.url);
+
+    if (onlyLocals) {
+      return `" + require(${stringifyRequest(
+        loaderContext,
+        importUrl
+      )})[${JSON.stringify(item.export)}] + "`;
+    }
+
+    return `" + require(${stringifyRequest(
+      loaderContext,
+      importUrl
+    )}).locals[${JSON.stringify(item.export)}] + "`;
+  };
+}
+
+function getRuntimeCode(result, loaderContext, sourceMap) {
+  const { cssLoaderBuildInfo } = result;
+  const { onlyLocals } = cssLoaderBuildInfo;
+
+  if (onlyLocals) {
+    return '';
+  }
+
+  return `exports = module.exports = require(${stringifyRequest(
+    loaderContext,
+    require.resolve('./runtime/api')
+  )})(${!!sourceMap});\n`;
+}
+
+function getImportCode(result, loaderContext) {
+  const { cssLoaderBuildInfo, messages } = result;
+  const { importPrefix, onlyLocals } = cssLoaderBuildInfo;
+
+  if (onlyLocals) {
+    return '';
+  }
+
+  const importItems = [];
+
+  // Helper for getting url
+  let hasUrlHelper = false;
+
+  messages
+    .filter(
+      (message) =>
+        message.pluginName === 'postcss-url-parser' ||
+        message.pluginName === 'postcss-import-parser' ||
+        message.pluginName === 'postcss-icss-parser'
+    )
+    .forEach((message) => {
+      if (message.type === 'import') {
+        const { url } = message.item;
+        const media = message.item.media || '';
+
+        if (!isUrlRequest(url)) {
+          importItems.push(
+            `exports.push([module.id, ${JSON.stringify(
+              `@import url(${url});`
+            )}, ${JSON.stringify(media)}]);`
+          );
+        } else {
+          const importUrl = importPrefix + urlToRequest(url);
+
+          importItems.push(
+            `exports.i(require(${stringifyRequest(
+              loaderContext,
+              importUrl
+            )}), ${JSON.stringify(media)});`
+          );
+        }
+      }
+
+      if (message.type === 'url') {
+        if (!hasUrlHelper) {
+          importItems.push(
+            `var getUrl = require(${stringifyRequest(
+              loaderContext,
+              require.resolve('./runtime/get-url.js')
+            )});`
+          );
+
+          hasUrlHelper = true;
+        }
+
+        const { url, placeholder, needQuotes } = message.item;
+        // Remove `#hash` and `?#hash` from `require`
+        const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
+        const hash =
+          singleQuery || hashValue
+            ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
+            : '';
+
+        importItems.push(
+          `var ${placeholder} = getUrl(require(${stringifyRequest(
+            loaderContext,
+            urlToRequest(normalizedUrl)
+          )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`
+        );
+      }
+    });
+
+  return importItems.length > 0
+    ? `// Imports\n${importItems.join('\n')}\n\n`
+    : '';
+}
+
+function getModuleCode(result) {
+  const { cssLoaderBuildInfo, css, messages, map } = result;
+  const { replacer, onlyLocals } = cssLoaderBuildInfo;
+
+  if (onlyLocals) {
+    return '';
+  }
+
+  let cssAsString = JSON.stringify(css).replace(
+    placholderRegExps.importItemG,
+    replacer
+  );
+
+  messages
+    .filter(
+      (message) =>
+        message.pluginName === 'postcss-url-parser' && message.type === 'url'
+    )
+    .forEach((message) => {
+      const { placeholder } = message.item;
+
+      cssAsString = cssAsString.replace(
+        new RegExp(placeholder, 'g'),
+        () => `" + ${placeholder} + "`
+      );
+    });
+
+  return `// Module\nexports.push([module.id, ${cssAsString}, ""${
+    map ? `,${map}` : ''
+  }]);\n\n`;
+}
+
+function getExportCode(result) {
+  const { messages, cssLoaderBuildInfo } = result;
+  const { replacer, localsStyle, onlyLocals } = cssLoaderBuildInfo;
+
+  const exportItems = messages
+    .filter(
+      (message) =>
+        message.pluginName === 'postcss-icss-parser' &&
+        message.type === 'export'
+    )
+    .reduce((accumulator, message) => {
+      const { key, value } = message.item;
+
+      let valueAsString = JSON.stringify(value);
+
+      valueAsString = valueAsString.replace(
+        placholderRegExps.importItemG,
+        replacer
+      );
+
+      function addEntry(k) {
+        accumulator.push(`\t${JSON.stringify(k)}: ${valueAsString}`);
+      }
+
+      let targetKey;
+
+      switch (localsStyle) {
+        case 'camelCase':
+          addEntry(key);
+          targetKey = camelCase(key);
+
+          if (targetKey !== key) {
+            addEntry(targetKey);
+          }
+          break;
+        case 'camelCaseOnly':
+          addEntry(camelCase(key));
+          break;
+        case 'dashes':
+          addEntry(key);
+          targetKey = dashesCamelCase(key);
+
+          if (targetKey !== key) {
+            addEntry(targetKey);
+          }
+          break;
+        case 'dashesOnly':
+          addEntry(dashesCamelCase(key));
+          break;
+        case 'asIs':
+        default:
+          addEntry(key);
+          break;
+      }
+
+      return accumulator;
+    }, []);
+
+  return exportItems.length > 0
+    ? onlyLocals
+      ? `module.exports = {\n${exportItems.join(',\n')}\n};`
+      : `// Exports\nexports.locals = {\n${exportItems.join(',\n')}\n};`
+    : '';
+}
+
 export {
   getImportPrefix,
   getLocalIdent,
   placholderRegExps,
   getFilter,
-  getImportItemReplacer,
-  getExports,
-  getImports,
+  getIcssItemReplacer,
   getModulesPlugins,
   normalizeSourceMap,
+  getRuntimeCode,
+  getImportCode,
+  getModuleCode,
+  getExportCode,
 };
