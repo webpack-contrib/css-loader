@@ -62,6 +62,8 @@ export default function loader(content, map, meta) {
     plugins.push(...getModulesPlugins(options, this));
   }
 
+  plugins.push(icssParser());
+
   if (options.import !== false) {
     plugins.push(
       importParser({
@@ -79,8 +81,6 @@ export default function loader(content, map, meta) {
       })
     );
   }
-
-  plugins.push(icssParser());
 
   postcss(plugins)
     .process(content, {

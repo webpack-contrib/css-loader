@@ -49,38 +49,54 @@ function walkUrls(parsed, callback) {
   });
 }
 
+function getUrlsFromValue(value, result, filter, decl = null) {
+  if (!needParseDecl.test(value)) {
+    return;
+  }
+
+  const parsed = valueParser(value);
+  const urls = [];
+
+  walkUrls(parsed, (node, url, needQuotes) => {
+    if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
+      result.warn(
+        `Unable to find uri in '${decl ? decl.toString() : value}'`,
+        decl
+          ? {
+              node: decl,
+            }
+          : {}
+      );
+
+      return;
+    }
+
+    if (filter && !filter(url)) {
+      return;
+    }
+
+    urls.push({ url, needQuotes });
+  });
+
+  // eslint-disable-next-line consistent-return
+  return { parsed, urls };
+}
+
 function walkDeclsWithUrl(css, result, filter) {
   const items = [];
 
   css.walkDecls((decl) => {
-    if (!needParseDecl.test(decl.value)) {
+    const item = getUrlsFromValue(decl.value, result, filter, decl);
+
+    if (!item) {
       return;
     }
 
-    const parsed = valueParser(decl.value);
-    const urls = [];
-
-    walkUrls(parsed, (node, url, needQuotes) => {
-      if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
-        result.warn(`Unable to find uri in '${decl.toString()}'`, {
-          node: decl,
-        });
-
-        return;
-      }
-
-      if (filter && !filter(url)) {
-        return;
-      }
-
-      urls.push({ url, needQuotes });
-    });
-
-    if (urls.length === 0) {
+    if (item.urls.length === 0) {
       return;
     }
 
-    items.push({ decl, parsed, urls });
+    items.push({ decl, parsed: item.parsed, urls: item.urls });
   });
 
   return items;
