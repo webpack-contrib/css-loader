@@ -14,8 +14,24 @@ exports[`modules true (mode: local): module 1`] = `
 	\\"v-primary\\": \\"#BF4040\\",
 	\\"s-black\\": \\"black-selector\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
-	\\"v-string\\": \\"'my-content'\\",
-	\\"v-empty-string\\": \\"''\\",
+	\\"v-ident\\": \\"validIdent\\",
+	\\"v-pre-defined-ident\\": \\"left\\",
+	\\"v-string\\": \\"'content'\\",
+	\\"v-string-1\\": \\"''\\",
+	\\"v-url\\": \\"url(https://www.exammple.com/images/my-background.png)\\",
+	\\"v-url-1\\": \\"url('https://www.exammple.com/images/my-background.png')\\",
+	\\"v-url-2\\": \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\",
+	\\"v-integer\\": \\"100\\",
+	\\"v-integer-1\\": \\"-100\\",
+	\\"v-integer-2\\": \\"+100\\",
+	\\"v-number\\": \\".60\\",
+	\\"v-number-1\\": \\"-456.8\\",
+	\\"v-number-2\\": \\"-3.4e-2\\",
+	\\"v-dimension\\": \\"12px\\",
+	\\"v-percentage\\": \\"100%\\",
+	\\"v-hex\\": \\"#fff\\",
+	\\"v-function\\": \\"rgb(0,0,0)\\",
+	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_ghi\\",
 	\\"class\\": \\"_class\\",
 	\\"other\\": \\"_other\\",
@@ -29,7 +45,8 @@ exports[`modules true (mode: local): module 1`] = `
 	\\"alias\\": \\"_alias \\" + require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\")[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_primary-selector\\",
 	\\"black-selector\\": \\"_black-selector\\",
-	\\"header\\": \\"_header\\"
+	\\"header\\": \\"_header\\",
+	\\"foobarbaz\\": \\"_foobarbaz\\"
 };"
 `;
 

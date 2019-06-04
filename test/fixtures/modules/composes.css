@@ -86,7 +86,49 @@
   }
 }
 
-@value v-string: 'my-content';
+@value v-ident: validIdent;
+@value v-pre-defined-ident: left;
+@value v-string: 'content';
+@value v-string-1: '';
+@value v-url: url(https://www.exammple.com/images/my-background.png);
+@value v-url-1: url('https://www.exammple.com/images/my-background.png');
+@value v-url-2: url("https://www.exammple.com/images/my-background.png");
+@value v-integer: 100;
+@value v-integer-1: -100;
+@value v-integer-2: +100;
+@value v-number: .60;
+@value v-number-1: -456.8;
+@value v-number-2: -3.4e-2;
+@value v-dimension: 12px;
+@value v-percentage: 100%;
+@value v-hex: #fff;
+@value v-comment: /* comment */;
+@value v-function: rgb(0,0,0);
+@value v-unicode-range: U+0025-00FF;
+
+.foobarbaz {
+  v-ident: v-ident;
+  v-pre-defined-ident: v-pre-defined-ident;
+  v-string: v-string;
+  v-string-1: v-string-1;
+  v-url: v-url;
+  v-url-1: v-url-1;
+  v-url-2: v-url-2;
+  v-integer: v-integer;
+  v-integer-1: v-integer-1;
+  v-integer-2: v-integer-2;
+  v-number: v-number;
+  v-number-1: v-number-1;
+  v-number-2: v-number-2;
+  v-dimension: v-dimension;
+  v-percentage: v-percentage;
+  v-hex: v-hex;
+  v-comment: v-comment 10px v-comment;
+  v-function: v-function;
+  v-unicode-range: v-unicode-range;
+  mutliple: v-hex v-number v-percentage;
+}
+
 
 a {
   content: v-string;
@@ -100,10 +142,4 @@ a {
 
 [class~=v-string] {
   color:green;
-}
-
-@value v-empty-string: '';
-
-a {
-  content: v-empty-string;
 }
