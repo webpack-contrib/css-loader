@@ -8396,11 +8396,9 @@ exports[`modules composes should supports resolving: module (evaluated) 1`] = `
 Array [
   Array [
     2,
-    "._2Nehoi0wFTN-8p0fEfvUYd {
-  d: d;
-}
+    "
 ",
-    "(min-width: 100px)",
+    "",
   ],
   Array [
     3,
@@ -8410,12 +8408,6 @@ Array [
   ],
   Array [
     4,
-    "
-",
-    "",
-  ],
-  Array [
-    5,
     "._22ETk3ZhhvjVe-4dAULcsF {
   display: block;
 }
@@ -8423,7 +8415,7 @@ Array [
     "",
   ],
   Array [
-    6,
+    5,
     ".dSGVakTZ8YY-XNW64tg9F {
   display: inline;
 }
@@ -8431,7 +8423,7 @@ Array [
     "",
   ],
   Array [
-    7,
+    6,
     "._1SUuyapRQ82dAPS8r7zmpY {
   display: flex;
 }
@@ -8439,7 +8431,7 @@ Array [
     "",
   ],
   Array [
-    8,
+    7,
     "._2n5szs-7uGKzfFTp9NTK64 {
   display: inline-block;
 }
@@ -8447,12 +8439,20 @@ Array [
     "",
   ],
   Array [
-    9,
+    8,
     "._37nzOIvIANGnEtP1lWjZDN {
   display: table;
 }
 ",
     "",
+  ],
+  Array [
+    9,
+    "._2Nehoi0wFTN-8p0fEfvUYd {
+  d: d;
+}
+",
+    "(min-width: 100px)",
   ],
   Array [
     1,
@@ -8533,7 +8533,6 @@ Array [
 exports[`modules composes should supports resolving: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!./values.css\\"), \\"\\");
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!./something.css\\"), \\"\\");
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\"), \\"\\");
@@ -8541,6 +8540,7 @@ exports.i(require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\"), \\"\\
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\"), \\"\\");
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\"), \\"\\");
 exports.i(require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\"), \\"\\");
+exports.i(require(\\"-!../../../src/index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
 
 // Module
 exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n._1wABXM_RabWHj--wsPrhvM {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._1tAbIwITRWAdZZE6wKNk9O {\\\\n  prop: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ya4VhsDkuPhQeVHQydw2Y {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.sGE1Q_LliVEZU2Q4q9j4K {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"m-small\\"] + \\" {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
