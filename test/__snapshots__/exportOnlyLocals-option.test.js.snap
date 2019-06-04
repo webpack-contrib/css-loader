@@ -14,6 +14,8 @@ exports[`modules true (mode: local): module 1`] = `
 	\\"v-primary\\": \\"#BF4040\\",
 	\\"s-black\\": \\"black-selector\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
+	\\"v-string\\": \\"'my-content'\\",
+	\\"v-empty-string\\": \\"''\\",
 	\\"ghi\\": \\"_ghi\\",
 	\\"class\\": \\"_class\\",
 	\\"other\\": \\"_other\\",

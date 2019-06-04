@@ -85,3 +85,25 @@
     padding: 20px 20px;
   }
 }
+
+@value v-string: 'my-content';
+
+a {
+  content: v-string;
+}
+
+@supports (content: v-string) {
+  a {
+    content: v-string;
+  }
+}
+
+[class~=v-string] {
+  color:green;
+}
+
+@value v-empty-string: '';
+
+a {
+  content: v-empty-string;
+}
