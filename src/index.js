@@ -19,12 +19,11 @@ import {
   normalizeSourceMap,
   getModulesPlugins,
   getImportPrefix,
-  getIcssItemReplacer,
   getFilter,
-  getRuntimeCode,
   getImportCode,
   getModuleCode,
   getExportCode,
+  prepareCode,
 } from './utils';
 import Warning from './Warning';
 import CssSyntaxError from './CssSyntaxError';
@@ -114,30 +113,25 @@ export default function loader(content, map, meta) {
       } = options;
       // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
       const importPrefix = getImportPrefix(this, options.importLoaders);
-      // Prepare replacer to change from `___CSS_LOADER_IMPORT___INDEX___` to `require('./file.css').locals`
-      const replacer = getIcssItemReplacer(
-        result,
-        this,
-        importPrefix,
-        onlyLocals
-      );
 
-      // eslint-disable-next-line no-param-reassign
-      result.cssLoaderBuildInfo = {
+      const buildInfo = {
+        loaderContext: this,
+        hasUrlHelper: false,
+        hasApi: false,
+        sourceMap,
+        result,
         onlyLocals,
         localsStyle,
         importPrefix,
-        replacer,
       };
 
-      const runtimeCode = getRuntimeCode(result, this, sourceMap);
-      const importCode = getImportCode(result, this);
-      const moduleCode = getModuleCode(result);
-      const exportsCode = getExportCode(result);
+      const importCode = getImportCode(buildInfo);
+      const moduleCode = getModuleCode(buildInfo);
+      const exportCode = getExportCode(buildInfo);
 
       return callback(
         null,
-        runtimeCode + importCode + moduleCode + exportsCode
+        prepareCode(buildInfo, importCode + moduleCode + exportCode)
       );
     })
     .catch((error) => {

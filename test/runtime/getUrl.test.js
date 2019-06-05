@@ -1,4 +1,4 @@
-const getUrl = require('../../src/runtime/get-url');
+const getUrl = require('../../src/runtime/getUrl');
 
 describe('escape', () => {
   it('should escape url', () => {

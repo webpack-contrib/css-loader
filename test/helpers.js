@@ -22,7 +22,7 @@ function evaluated(output, modules, moduleId = 1) {
       }
       if (module.indexOf('runtime/get-url') >= 0) {
         // eslint-disable-next-line global-require
-        return require('../src/runtime/get-url');
+        return require('../src/runtime/getUrl');
       }
       if (/^-!.*?!.*$/.test(module)) {
         // eslint-disable-next-line no-param-reassign
