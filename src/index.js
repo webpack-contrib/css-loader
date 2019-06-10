@@ -37,14 +37,9 @@ export default function loader(content, map, meta) {
   const callback = this.async();
   const sourceMap = options.sourceMap || false;
 
-  if (sourceMap && map) {
-    // eslint-disable-next-line no-param-reassign
-    map = normalizeSourceMap(map);
-  } else {
-    // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-    // eslint-disable-next-line no-param-reassign
-    map = null;
-  }
+  // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
+  // eslint-disable-next-line no-param-reassign
+  map = sourceMap && map ? normalizeSourceMap(map) : null;
 
   // Reuse CSS AST (PostCSS AST e.g 'postcss-loader') to avoid reparsing
   if (meta) {
@@ -140,7 +135,7 @@ export default function loader(content, map, meta) {
       const importCode = getImportCode(importItems, onlyLocals);
       const moduleCode = getModuleCode(result, sourceMap, onlyLocals);
       const exportCode = getExportCode(exportItems, onlyLocals);
-      const apiCode = getApiCode(this, sourceMap, importItems, moduleCode);
+      const apiCode = getApiCode(this, sourceMap, onlyLocals);
 
       return callback(
         null,

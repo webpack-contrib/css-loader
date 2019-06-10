@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
-import { getUrlHelperCode, getUrlItemCode } from '../utils';
+import { uniqWith, flatten, getUrlHelperCode, getUrlItemCode } from '../utils';
 
 const pluginName = 'postcss-url-parser';
 
@@ -104,21 +104,6 @@ function walkDeclsWithUrl(css, result, filter) {
   return items;
 }
 
-function uniqWith(array, comparator) {
-  return array.reduce(
-    (acc, d) => (!acc.some((item) => comparator(d, item)) ? [...acc, d] : acc),
-    []
-  );
-}
-
-function flatten(array) {
-  return array.reduce((a, b) => a.concat(b), []);
-}
-
-function isEqual(value, other) {
-  return value.url === other.url && value.needQuotes === other.needQuotes;
-}
-
 export default postcss.plugin(
   pluginName,
   (options = {}) =>
@@ -126,7 +111,8 @@ export default postcss.plugin(
       const traversed = walkDeclsWithUrl(css, result, options.filter);
       const paths = uniqWith(
         flatten(traversed.map((item) => item.urls)),
-        isEqual
+        (value, other) =>
+          value.url === other.url && value.needQuotes === other.needQuotes
       );
 
       if (paths.length === 0) {

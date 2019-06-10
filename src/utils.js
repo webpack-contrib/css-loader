@@ -15,6 +15,24 @@ import modulesValues from 'postcss-modules-values';
 import localByDefault from 'postcss-modules-local-by-default';
 import extractImports from 'postcss-modules-extract-imports';
 import modulesScope from 'postcss-modules-scope';
+import camelCase from 'camelcase';
+
+function uniqWith(array, comparator) {
+  return array.reduce(
+    (acc, d) => (!acc.some((item) => comparator(d, item)) ? [...acc, d] : acc),
+    []
+  );
+}
+
+function flatten(array) {
+  return array.reduce((a, b) => a.concat(b), []);
+}
+
+function dashesCamelCase(str) {
+  return str.replace(/-+(\w)/g, (match, firstLetter) =>
+    firstLetter.toUpperCase()
+  );
+}
 
 function getImportPrefix(loaderContext, importLoaders) {
   if (importLoaders === false) {
@@ -206,9 +224,8 @@ function getUrlItemCode(item, loaderContext) {
   )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`;
 }
 
-function getApiCode(loaderContext, sourceMap, importItems, moduleCode) {
-  // No imports and no module code
-  if (importItems.length === 0 && moduleCode.length === 0) {
+function getApiCode(loaderContext, sourceMap, onlyLocals) {
+  if (onlyLocals) {
     return '';
   }
 
@@ -234,6 +251,46 @@ function getModuleCode(result, sourceMap, onlyLocals) {
   return `// Module\nexports.push([module.id, ${JSON.stringify(
     result.css
   )}, ""${sourceMap && result.map ? `,${result.map}` : ''}]);\n`;
+}
+
+function getExportItemCode(key, value, localsStyle) {
+  let targetKey;
+  const items = [];
+
+  function addEntry(k) {
+    items.push(`\t${JSON.stringify(k)}: ${JSON.stringify(value)}`);
+  }
+
+  switch (localsStyle) {
+    case 'camelCase':
+      addEntry(key);
+      targetKey = camelCase(key);
+
+      if (targetKey !== key) {
+        addEntry(targetKey);
+      }
+      break;
+    case 'camelCaseOnly':
+      addEntry(camelCase(key));
+      break;
+    case 'dashes':
+      addEntry(key);
+      targetKey = dashesCamelCase(key);
+
+      if (targetKey !== key) {
+        addEntry(targetKey);
+      }
+      break;
+    case 'dashesOnly':
+      addEntry(dashesCamelCase(key));
+      break;
+    case 'asIs':
+    default:
+      addEntry(key);
+      break;
+  }
+
+  return items.join(',\n');
 }
 
 function getExportCode(exportItems, onlyLocals) {
@@ -317,6 +374,9 @@ function prepareCode(file, messages, loaderContext, importPrefix, onlyLocals) {
 }
 
 export {
+  uniqWith,
+  flatten,
+  dashesCamelCase,
   getImportPrefix,
   getLocalIdent,
   getFilter,
@@ -328,6 +388,7 @@ export {
   getApiCode,
   getImportCode,
   getModuleCode,
+  getExportItemCode,
   getExportCode,
   prepareCode,
 };

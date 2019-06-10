@@ -3,8 +3,7 @@
 exports[`modules true (mode: local): errors 1`] = `Array []`;
 
 exports[`modules true (mode: local): module 1`] = `
-"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
-// Exports
+"// Exports
 module.exports = {
 	\\"v-def\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"v-def\\"] + \\"\\",
 	\\"v-other\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"v-other\\"] + \\"\\",
