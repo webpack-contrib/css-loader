@@ -1,4 +1,4 @@
-module.exports = function escape(url, needQuotes) {
+module.exports = (url, needQuotes) => {
   if (typeof url !== 'string') {
     return url;
   }

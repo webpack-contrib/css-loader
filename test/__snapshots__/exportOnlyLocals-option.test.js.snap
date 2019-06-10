@@ -3,7 +3,8 @@
 exports[`modules true (mode: local): errors 1`] = `Array []`;
 
 exports[`modules true (mode: local): module 1`] = `
-"module.exports = {
+"// Exports
+module.exports = {
 	\\"v-def\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"v-def\\"] + \\"\\",
 	\\"v-other\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"v-other\\"] + \\"\\",
 	\\"s-white\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"s-white\\"] + \\"\\",
@@ -51,7 +52,8 @@ exports[`modules true (mode: local): module 1`] = `
 `;
 
 exports[`modules true (mode: local): values module 1`] = `
-"module.exports = {
+"// Exports
+module.exports = {
 	\\"v-def\\": \\"red\\",
 	\\"v-other\\": \\"green\\",
 	\\"s-white\\": \\"white\\",

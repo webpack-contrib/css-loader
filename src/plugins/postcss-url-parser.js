@@ -1,6 +1,8 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
+import { uniqWith, flatten, getUrlHelperCode, getUrlItemCode } from '../utils';
+
 const pluginName = 'postcss-url-parser';
 
 const isUrlFunc = /url/i;
@@ -102,21 +104,6 @@ function walkDeclsWithUrl(css, result, filter) {
   return items;
 }
 
-function uniqWith(array, comparator) {
-  return array.reduce(
-    (acc, d) => (!acc.some((item) => comparator(d, item)) ? [...acc, d] : acc),
-    []
-  );
-}
-
-function flatten(array) {
-  return array.reduce((a, b) => a.concat(b), []);
-}
-
-function isEqual(value, other) {
-  return value.url === other.url && value.needQuotes === other.needQuotes;
-}
-
 export default postcss.plugin(
   pluginName,
   (options = {}) =>
@@ -124,7 +111,8 @@ export default postcss.plugin(
       const traversed = walkDeclsWithUrl(css, result, options.filter);
       const paths = uniqWith(
         flatten(traversed.map((item) => item.urls)),
-        isEqual
+        (value, other) =>
+          value.url === other.url && value.needQuotes === other.needQuotes
       );
 
       if (paths.length === 0) {
@@ -133,16 +121,35 @@ export default postcss.plugin(
 
       const placeholders = [];
 
+      let hasUrlHelper = false;
+
       paths.forEach((path, index) => {
+        const { loaderContext } = options;
         const placeholder = `___CSS_LOADER_URL___${index}___`;
         const { url, needQuotes } = path;
 
         placeholders.push({ placeholder, path });
 
+        if (!hasUrlHelper) {
+          result.messages.push({
+            pluginName,
+            type: 'import',
+            import: getUrlHelperCode(loaderContext),
+          });
+
+          // eslint-disable-next-line no-param-reassign
+          hasUrlHelper = true;
+        }
+
         result.messages.push({
           pluginName,
-          type: 'url',
-          item: { url, placeholder, needQuotes },
+          type: 'import',
+          import: getUrlItemCode(
+            { url, placeholder, needQuotes },
+            loaderContext
+          ),
+          importType: 'url',
+          placeholder,
         });
       });
 

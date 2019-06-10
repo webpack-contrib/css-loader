@@ -19,12 +19,12 @@ import {
   normalizeSourceMap,
   getModulesPlugins,
   getImportPrefix,
-  getIcssItemReplacer,
   getFilter,
-  getRuntimeCode,
+  getApiCode,
   getImportCode,
   getModuleCode,
   getExportCode,
+  prepareCode,
 } from './utils';
 import Warning from './Warning';
 import CssSyntaxError from './CssSyntaxError';
@@ -37,14 +37,9 @@ export default function loader(content, map, meta) {
   const callback = this.async();
   const sourceMap = options.sourceMap || false;
 
-  if (sourceMap && map) {
-    // eslint-disable-next-line no-param-reassign
-    map = normalizeSourceMap(map);
-  } else {
-    // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-    // eslint-disable-next-line no-param-reassign
-    map = null;
-  }
+  // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
+  // eslint-disable-next-line no-param-reassign
+  map = sourceMap && map ? normalizeSourceMap(map) : null;
 
   // Reuse CSS AST (PostCSS AST e.g 'postcss-loader') to avoid reparsing
   if (meta) {
@@ -62,11 +57,22 @@ export default function loader(content, map, meta) {
     plugins.push(...getModulesPlugins(options, this));
   }
 
-  plugins.push(icssParser());
+  // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
+  const importPrefix = getImportPrefix(this, options.importLoaders);
+
+  plugins.push(
+    icssParser({
+      loaderContext: this,
+      importPrefix,
+      exportLocalsStyle: options.exportLocalsStyle,
+    })
+  );
 
   if (options.import !== false) {
     plugins.push(
       importParser({
+        loaderContext: this,
+        importPrefix,
         filter: getFilter(options.import, this.resourcePath),
       })
     );
@@ -75,6 +81,7 @@ export default function loader(content, map, meta) {
   if (options.url !== false) {
     plugins.push(
       urlParser({
+        loaderContext: this,
         filter: getFilter(options.url, this.resourcePath, (value) =>
           isUrlRequest(value)
         ),
@@ -108,36 +115,37 @@ export default function loader(content, map, meta) {
         result.messages = [];
       }
 
-      const {
-        exportOnlyLocals: onlyLocals,
-        exportLocalsStyle: localsStyle,
-      } = options;
-      // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
-      const importPrefix = getImportPrefix(this, options.importLoaders);
-      // Prepare replacer to change from `___CSS_LOADER_IMPORT___INDEX___` to `require('./file.css').locals`
-      const replacer = getIcssItemReplacer(
-        result,
-        this,
-        importPrefix,
-        onlyLocals
-      );
+      const { exportOnlyLocals: onlyLocals } = options;
 
-      // eslint-disable-next-line no-param-reassign
-      result.cssLoaderBuildInfo = {
-        onlyLocals,
-        localsStyle,
-        importPrefix,
-        replacer,
-      };
+      const importItems = result.messages
+        .filter((message) => (message.type === 'import' ? message : false))
+        .reduce((accumulator, currentValue) => {
+          accumulator.push(currentValue.import);
 
-      const runtimeCode = getRuntimeCode(result, this, sourceMap);
-      const importCode = getImportCode(result, this);
-      const moduleCode = getModuleCode(result);
-      const exportsCode = getExportCode(result);
+          return accumulator;
+        }, []);
+      const exportItems = result.messages
+        .filter((message) => (message.type === 'export' ? message : false))
+        .reduce((accumulator, currentValue) => {
+          accumulator.push(currentValue.export);
+
+          return accumulator;
+        }, []);
+
+      const importCode = getImportCode(importItems, onlyLocals);
+      const moduleCode = getModuleCode(result, sourceMap, onlyLocals);
+      const exportCode = getExportCode(exportItems, onlyLocals);
+      const apiCode = getApiCode(this, sourceMap, onlyLocals);
 
       return callback(
         null,
-        runtimeCode + importCode + moduleCode + exportsCode
+        prepareCode(
+          { apiCode, importCode, moduleCode, exportCode },
+          result.messages,
+          this,
+          importPrefix,
+          onlyLocals
+        )
       );
     })
     .catch((error) => {

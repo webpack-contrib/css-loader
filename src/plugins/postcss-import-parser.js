@@ -1,6 +1,8 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
+import { uniqWith, getImportItemCode } from '../utils';
+
 const pluginName = 'postcss-import-parser';
 
 function getArg(nodes) {
@@ -84,25 +86,26 @@ function walkAtRules(css, result, filter) {
   return items;
 }
 
-function uniq(array) {
-  return array.reduce(
-    (acc, d) =>
-      !acc.find((el) => el.url === d.url && el.media === d.media)
-        ? [...acc, d]
-        : acc,
-    []
-  );
-}
-
 export default postcss.plugin(
   pluginName,
   (options = {}) =>
     function process(css, result) {
       const traversed = walkAtRules(css, result, options.filter);
-      const paths = uniq(traversed);
+      const paths = uniqWith(
+        traversed,
+        (value, other) => value.url === other.url && value.media === other.media
+      );
 
       paths.forEach((item) => {
-        result.messages.push({ pluginName, type: 'import', item });
+        result.messages.push({
+          pluginName,
+          type: 'import',
+          import: getImportItemCode(
+            item,
+            options.loaderContext,
+            options.importPrefix
+          ),
+        });
       });
     }
 );
