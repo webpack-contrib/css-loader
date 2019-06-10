@@ -165,19 +165,6 @@ function normalizeSourceMap(map) {
   return newMap;
 }
 
-function getRuntimeCode(buildInfo) {
-  const { onlyLocals, loaderContext, sourceMap } = buildInfo;
-
-  if (onlyLocals) {
-    return '';
-  }
-
-  return `exports = module.exports = require(${stringifyRequest(
-    loaderContext,
-    require.resolve('./runtime/api')
-  )})(${sourceMap});`;
-}
-
 function getImportCode(buildInfo) {
   const { onlyLocals } = buildInfo;
 
@@ -197,13 +184,6 @@ function getImportCode(buildInfo) {
     )
     .forEach((message) => {
       if (message.type === 'import') {
-        if (!buildInfo.hasApi) {
-          importItems.push(getRuntimeCode(buildInfo));
-
-          // eslint-disable-next-line no-param-reassign
-          buildInfo.hasApi = true;
-        }
-
         const { url } = message.item;
         const media = message.item.media || '';
 
@@ -271,13 +251,6 @@ function getModuleCode(buildInfo) {
 
   let cssAsString = JSON.stringify(result.css);
 
-  if (!buildInfo.hasApi) {
-    moduleItems.push(getRuntimeCode(buildInfo));
-
-    // eslint-disable-next-line no-param-reassign
-    buildInfo.hasApi = true;
-  }
-
   result.messages
     .filter(
       (message) =>
@@ -310,10 +283,7 @@ function prepareCode(buildInfo, code) {
 
   // replace external ICSS import on `require`
   result.messages
-    .filter(
-      (message) =>
-        message.type === 'icss-import' && message.item && message.item.index
-    )
+    .filter((message) => message.type === 'icss-import')
     .forEach((message) => {
       const { item } = message;
       const importUrl = importPrefix + urlToRequest(item.url);

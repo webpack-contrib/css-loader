@@ -11,6 +11,7 @@ import {
   isUrlRequest,
   getRemainingRequest,
   getCurrentRequest,
+  stringifyRequest,
 } from 'loader-utils';
 
 import schema from './options.json';
@@ -121,7 +122,6 @@ export default function loader(content, map, meta) {
       const buildInfo = {
         loaderContext: this,
         hasUrlHelper: false,
-        hasApi: false,
         sourceMap,
         result,
         onlyLocals,
@@ -140,8 +140,18 @@ export default function loader(content, map, meta) {
         }, []);
 
       const code = [
+        // API
+        importCode.length > 0 || moduleCode.length > 0
+          ? `exports = module.exports = require(${stringifyRequest(
+              this,
+              require.resolve('./runtime/api')
+            )})(${sourceMap});\n`
+          : false,
+        // Imports
         importCode,
+        // Code
         moduleCode,
+        // Exports
         exportItems.length > 0
           ? `${getExportType(onlyLocals)} = {\n${exportItems.join(',\n')}\n};`
           : false,
