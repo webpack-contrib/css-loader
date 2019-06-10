@@ -22,7 +22,6 @@ import {
   getImportPrefix,
   getFilter,
   getImportCode,
-  getModuleCode,
   getExportType,
   prepareCode,
 } from './utils';
@@ -129,8 +128,6 @@ export default function loader(content, map, meta) {
         importPrefix,
       };
 
-      const importCode = getImportCode(buildInfo);
-      const moduleCode = getModuleCode(buildInfo);
       const exportItems = result.messages
         .filter((message) => (message.type === 'export' ? message : false))
         .reduce((accumulator, currentValue) => {
@@ -139,27 +136,28 @@ export default function loader(content, map, meta) {
           return accumulator;
         }, []);
 
-      const code = [
-        // API
+      const importCode = getImportCode(buildInfo);
+      const moduleCode = !onlyLocals
+        ? `exports.push([module.id, ${JSON.stringify(result.css)}, ""${
+            sourceMap && result.map ? `,${result.map}` : ''
+          }]);\n`
+        : '';
+      const exportCode =
+        exportItems.length > 0
+          ? `${getExportType(onlyLocals)} = {\n${exportItems.join(',\n')}\n};`
+          : false;
+      const apiCode =
         importCode.length > 0 || moduleCode.length > 0
           ? `exports = module.exports = require(${stringifyRequest(
               this,
               require.resolve('./runtime/api')
             )})(${sourceMap});\n`
-          : false,
-        // Imports
-        importCode,
-        // Code
-        moduleCode,
-        // Exports
-        exportItems.length > 0
-          ? `${getExportType(onlyLocals)} = {\n${exportItems.join(',\n')}\n};`
-          : false,
-      ]
-        .filter(Boolean)
-        .join('');
+          : false;
 
-      return callback(null, prepareCode(buildInfo, code));
+      return callback(
+        null,
+        prepareCode({ apiCode, importCode, moduleCode, exportCode }, buildInfo)
+      );
     })
     .catch((error) => {
       callback(

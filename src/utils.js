@@ -238,74 +238,73 @@ function getImportCode(buildInfo) {
   return importItems.length > 0 ? `${importItems.join('\n')}\n` : '';
 }
 
-function getModuleCode(buildInfo) {
-  const { onlyLocals } = buildInfo;
-
-  if (onlyLocals) {
-    return '';
-  }
-
-  const moduleItems = [];
-
-  const { result, sourceMap } = buildInfo;
-
-  let cssAsString = JSON.stringify(result.css);
-
-  result.messages
-    .filter(
-      (message) =>
-        message.pluginName === 'postcss-url-parser' && message.type === 'url'
-    )
-    .forEach((message) => {
-      const { placeholder } = message.item;
-
-      cssAsString = cssAsString.replace(
-        new RegExp(placeholder, 'g'),
-        () => `" + ${placeholder} + "`
-      );
-    });
-
-  moduleItems.push(
-    `exports.push([module.id, ${cssAsString}, ""${
-      sourceMap && result.map ? `,${result.map}` : ''
-    }]);`
-  );
-
-  return moduleItems.length > 0 ? `${moduleItems.join('\n')}\n` : '';
-}
-
 function getExportType(onlyLocals) {
   return onlyLocals ? 'module.exports' : 'exports.locals';
 }
 
-function prepareCode(buildInfo, code) {
-  const { result, importPrefix, onlyLocals, loaderContext } = buildInfo;
+function getIcssReplacer(item, buildInfo) {
+  const { importPrefix, onlyLocals, loaderContext } = buildInfo;
+  const importUrl = importPrefix + urlToRequest(item.url);
 
-  // replace external ICSS import on `require`
+  return () =>
+    onlyLocals
+      ? `" + require(${stringifyRequest(
+          loaderContext,
+          importUrl
+        )})[${JSON.stringify(item.export)}] + "`
+      : `" + require(${stringifyRequest(
+          loaderContext,
+          importUrl
+        )}).locals[${JSON.stringify(item.export)}] + "`;
+}
+
+function prepareCode(file, buildInfo) {
+  const { apiCode, importCode } = file;
+  let { moduleCode, exportCode } = file;
+  const { result } = buildInfo;
+
   result.messages
-    .filter((message) => message.type === 'icss-import')
+    .filter(
+      (message) => message.type === 'icss-import' || message.type === 'url'
+    )
     .forEach((message) => {
-      const { item } = message;
-      const importUrl = importPrefix + urlToRequest(item.url);
+      // Replace all urls on `require`
+      if (message.type === 'url') {
+        const { placeholder } = message.item;
 
-      // eslint-disable-next-line no-param-reassign
-      code = code.replace(
-        new RegExp(`___CSS_LOADER_IMPORT___(${item.index})___`, 'g'),
-        () => {
-          return onlyLocals
-            ? `" + require(${stringifyRequest(
-                loaderContext,
-                importUrl
-              )})[${JSON.stringify(item.export)}] + "`
-            : `" + require(${stringifyRequest(
-                loaderContext,
-                importUrl
-              )}).locals[${JSON.stringify(item.export)}] + "`;
+        if (moduleCode) {
+          // eslint-disable-next-line no-param-reassign
+          moduleCode = moduleCode.replace(
+            new RegExp(placeholder, 'g'),
+            () => `" + ${placeholder} + "`
+          );
         }
-      );
+      }
+
+      // Replace external ICSS import on `require`
+      if (message.type === 'icss-import') {
+        const { item } = message;
+        const replacer = getIcssReplacer(item, buildInfo);
+
+        if (moduleCode) {
+          // eslint-disable-next-line no-param-reassign
+          moduleCode = moduleCode.replace(
+            new RegExp(`___CSS_LOADER_IMPORT___(${item.index})___`, 'g'),
+            replacer
+          );
+        }
+
+        if (exportCode) {
+          // eslint-disable-next-line no-param-reassign
+          exportCode = exportCode.replace(
+            new RegExp(`___CSS_LOADER_IMPORT___(${item.index})___`, 'g'),
+            replacer
+          );
+        }
+      }
     });
 
-  return code;
+  return [apiCode, importCode, moduleCode, exportCode].filter(Boolean).join('');
 }
 
 export {
@@ -315,7 +314,6 @@ export {
   getModulesPlugins,
   normalizeSourceMap,
   getImportCode,
-  getModuleCode,
   getExportType,
   prepareCode,
 };
