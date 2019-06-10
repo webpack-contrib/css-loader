@@ -1,6 +1,7 @@
 import postcss from 'postcss';
 import { extractICSS, replaceValueSymbols, replaceSymbols } from 'icss-utils';
 import loaderUtils from 'loader-utils';
+import cc from 'camelcase';
 
 const pluginName = 'postcss-icss-parser';
 
@@ -14,9 +15,59 @@ function hasImportMessage(messages, url) {
   );
 }
 
+function camelCase(str) {
+  return cc(str);
+}
+
+function dashesCamelCase(str) {
+  return str.replace(/-+(\w)/g, (match, firstLetter) =>
+    firstLetter.toUpperCase()
+  );
+}
+
+function getExportItem(key, value, localsStyle) {
+  let targetKey;
+  const items = [];
+
+  function addEntry(k) {
+    items.push(`\t${JSON.stringify(k)}: ${JSON.stringify(value)}`);
+  }
+
+  switch (localsStyle) {
+    case 'camelCase':
+      addEntry(key);
+      targetKey = camelCase(key);
+
+      if (targetKey !== key) {
+        addEntry(targetKey);
+      }
+      break;
+    case 'camelCaseOnly':
+      addEntry(camelCase(key));
+      break;
+    case 'dashes':
+      addEntry(key);
+      targetKey = dashesCamelCase(key);
+
+      if (targetKey !== key) {
+        addEntry(targetKey);
+      }
+      break;
+    case 'dashesOnly':
+      addEntry(dashesCamelCase(key));
+      break;
+    case 'asIs':
+    default:
+      addEntry(key);
+      break;
+  }
+
+  return items;
+}
+
 export default postcss.plugin(
   pluginName,
-  () =>
+  (options = {}) =>
     function process(css, result) {
       const importReplacements = Object.create(null);
       const { icssImports, icssExports } = extractICSS(css);
@@ -51,14 +102,12 @@ export default postcss.plugin(
       for (const exportName of Object.keys(icssExports)) {
         result.messages.push({
           pluginName,
+          export: getExportItem(
+            exportName,
+            replaceValueSymbols(icssExports[exportName], importReplacements),
+            options.exportLocalsStyle
+          ).join(',\n'),
           type: 'export',
-          item: {
-            key: exportName,
-            value: replaceValueSymbols(
-              icssExports[exportName],
-              importReplacements
-            ),
-          },
         });
       }
     }

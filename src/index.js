@@ -22,7 +22,7 @@ import {
   getFilter,
   getImportCode,
   getModuleCode,
-  getExportCode,
+  getExportType,
   prepareCode,
 } from './utils';
 import Warning from './Warning';
@@ -61,7 +61,11 @@ export default function loader(content, map, meta) {
     plugins.push(...getModulesPlugins(options, this));
   }
 
-  plugins.push(icssParser());
+  plugins.push(
+    icssParser({
+      exportLocalsStyle: options.exportLocalsStyle,
+    })
+  );
 
   if (options.import !== false) {
     plugins.push(
@@ -127,12 +131,25 @@ export default function loader(content, map, meta) {
 
       const importCode = getImportCode(buildInfo);
       const moduleCode = getModuleCode(buildInfo);
-      const exportCode = getExportCode(buildInfo);
+      const exportItems = result.messages
+        .filter((message) => (message.type === 'export' ? message : false))
+        .reduce((accumulator, currentValue) => {
+          accumulator.push(currentValue.export);
 
-      return callback(
-        null,
-        prepareCode(buildInfo, importCode + moduleCode + exportCode)
-      );
+          return accumulator;
+        }, []);
+
+      const code = [
+        importCode,
+        moduleCode,
+        exportItems.length > 0
+          ? `${getExportType(onlyLocals)} = {\n${exportItems.join(',\n')}\n};`
+          : false,
+      ]
+        .filter(Boolean)
+        .join('');
+
+      return callback(null, prepareCode(buildInfo, code));
     })
     .catch((error) => {
       callback(

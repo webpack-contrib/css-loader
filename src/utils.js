@@ -4,7 +4,6 @@
 */
 import path from 'path';
 
-import cc from 'camelcase';
 import loaderUtils, {
   isUrlRequest,
   stringifyRequest,
@@ -32,16 +31,6 @@ function getImportPrefix(loaderContext, importLoaders) {
     .join('!');
 
   return `-!${loadersRequest}!`;
-}
-
-function camelCase(str) {
-  return cc(str);
-}
-
-function dashesCamelCase(str) {
-  return str.replace(/-+(\w)/g, (match, firstLetter) =>
-    firstLetter.toUpperCase()
-  );
 }
 
 const whitespace = '[\\x20\\t\\r\\n\\f]';
@@ -312,74 +301,8 @@ function getModuleCode(buildInfo) {
   return moduleItems.length > 0 ? `${moduleItems.join('\n')}\n` : '';
 }
 
-function getExportItem(item, localsStyle) {
-  const { key, value } = item;
-
-  if (!key || !value) {
-    return [];
-  }
-
-  let targetKey;
-  const items = [];
-
-  function addEntry(k) {
-    items.push(`\t${JSON.stringify(k)}: ${JSON.stringify(value)}`);
-  }
-
-  switch (localsStyle) {
-    case 'camelCase':
-      addEntry(key);
-      targetKey = camelCase(key);
-
-      if (targetKey !== key) {
-        addEntry(targetKey);
-      }
-      break;
-    case 'camelCaseOnly':
-      addEntry(camelCase(key));
-      break;
-    case 'dashes':
-      addEntry(key);
-      targetKey = dashesCamelCase(key);
-
-      if (targetKey !== key) {
-        addEntry(targetKey);
-      }
-      break;
-    case 'dashesOnly':
-      addEntry(dashesCamelCase(key));
-      break;
-    case 'asIs':
-    default:
-      addEntry(key);
-      break;
-  }
-
-  return items;
-}
-
-function getExportCode(buildInfo) {
-  const { localsStyle, onlyLocals, result } = buildInfo;
-
-  let exportItems = [];
-
-  result.messages
-    .filter(
-      (message) =>
-        message.pluginName === 'postcss-icss-parser' &&
-        message.type === 'export'
-    )
-    .forEach((message) => {
-      exportItems = exportItems.concat(
-        getExportItem(message.item, localsStyle)
-      );
-    });
-
-  return exportItems.length > 0
-    ? `${
-        onlyLocals ? 'module.exports' : 'exports.locals'
-      } = {\n${exportItems.join(',\n')}\n};`
-    : '';
+function getExportType(onlyLocals) {
+  return onlyLocals ? 'module.exports' : 'exports.locals';
 }
 
 function prepareCode(buildInfo, code) {
@@ -423,6 +346,6 @@ export {
   normalizeSourceMap,
   getImportCode,
   getModuleCode,
-  getExportCode,
+  getExportType,
   prepareCode,
 };
