@@ -11,7 +11,6 @@ import {
   isUrlRequest,
   getRemainingRequest,
   getCurrentRequest,
-  stringifyRequest,
 } from 'loader-utils';
 
 import schema from './options.json';
@@ -21,8 +20,10 @@ import {
   getModulesPlugins,
   getImportPrefix,
   getFilter,
+  getApiCode,
   getImportCode,
-  getExportType,
+  getModuleCode,
+  getExportCode,
   prepareCode,
 } from './utils';
 import Warning from './Warning';
@@ -61,8 +62,13 @@ export default function loader(content, map, meta) {
     plugins.push(...getModulesPlugins(options, this));
   }
 
+  // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
+  const importPrefix = getImportPrefix(this, options.importLoaders);
+
   plugins.push(
     icssParser({
+      loaderContext: this,
+      importPrefix,
       exportLocalsStyle: options.exportLocalsStyle,
     })
   );
@@ -70,6 +76,8 @@ export default function loader(content, map, meta) {
   if (options.import !== false) {
     plugins.push(
       importParser({
+        loaderContext: this,
+        importPrefix,
         filter: getFilter(options.import, this.resourcePath),
       })
     );
@@ -78,6 +86,7 @@ export default function loader(content, map, meta) {
   if (options.url !== false) {
     plugins.push(
       urlParser({
+        loaderContext: this,
         filter: getFilter(options.url, this.resourcePath, (value) =>
           isUrlRequest(value)
         ),
@@ -111,23 +120,15 @@ export default function loader(content, map, meta) {
         result.messages = [];
       }
 
-      const {
-        exportOnlyLocals: onlyLocals,
-        exportLocalsStyle: localsStyle,
-      } = options;
-      // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
-      const importPrefix = getImportPrefix(this, options.importLoaders);
+      const { exportOnlyLocals: onlyLocals } = options;
 
-      const buildInfo = {
-        loaderContext: this,
-        hasUrlHelper: false,
-        sourceMap,
-        result,
-        onlyLocals,
-        localsStyle,
-        importPrefix,
-      };
+      const importItems = result.messages
+        .filter((message) => (message.type === 'import' ? message : false))
+        .reduce((accumulator, currentValue) => {
+          accumulator.push(currentValue.import);
 
+          return accumulator;
+        }, []);
       const exportItems = result.messages
         .filter((message) => (message.type === 'export' ? message : false))
         .reduce((accumulator, currentValue) => {
@@ -136,27 +137,20 @@ export default function loader(content, map, meta) {
           return accumulator;
         }, []);
 
-      const importCode = getImportCode(buildInfo);
-      const moduleCode = !onlyLocals
-        ? `exports.push([module.id, ${JSON.stringify(result.css)}, ""${
-            sourceMap && result.map ? `,${result.map}` : ''
-          }]);\n`
-        : '';
-      const exportCode =
-        exportItems.length > 0
-          ? `${getExportType(onlyLocals)} = {\n${exportItems.join(',\n')}\n};`
-          : false;
-      const apiCode =
-        importCode.length > 0 || moduleCode.length > 0
-          ? `exports = module.exports = require(${stringifyRequest(
-              this,
-              require.resolve('./runtime/api')
-            )})(${sourceMap});\n`
-          : false;
+      const importCode = getImportCode(importItems, onlyLocals);
+      const moduleCode = getModuleCode(result, sourceMap, onlyLocals);
+      const exportCode = getExportCode(exportItems, onlyLocals);
+      const apiCode = getApiCode(this, sourceMap, importItems, moduleCode);
 
       return callback(
         null,
-        prepareCode({ apiCode, importCode, moduleCode, exportCode }, buildInfo)
+        prepareCode(
+          { apiCode, importCode, moduleCode, exportCode },
+          result.messages,
+          this,
+          importPrefix,
+          onlyLocals
+        )
       );
     })
     .catch((error) => {

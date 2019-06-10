@@ -1,6 +1,8 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
+import { getUrlHelperCode, getUrlItemCode } from '../utils';
+
 const pluginName = 'postcss-url-parser';
 
 const isUrlFunc = /url/i;
@@ -133,16 +135,35 @@ export default postcss.plugin(
 
       const placeholders = [];
 
+      let hasUrlHelper = false;
+
       paths.forEach((path, index) => {
+        const { loaderContext } = options;
         const placeholder = `___CSS_LOADER_URL___${index}___`;
         const { url, needQuotes } = path;
 
         placeholders.push({ placeholder, path });
 
+        if (!hasUrlHelper) {
+          result.messages.push({
+            pluginName,
+            type: 'import',
+            import: getUrlHelperCode(loaderContext),
+          });
+
+          // eslint-disable-next-line no-param-reassign
+          hasUrlHelper = true;
+        }
+
         result.messages.push({
           pluginName,
-          type: 'url',
-          item: { url, placeholder, needQuotes },
+          type: 'import',
+          import: getUrlItemCode(
+            { url, placeholder, needQuotes },
+            loaderContext
+          ),
+          importType: 'url',
+          placeholder,
         });
       });
 

@@ -165,85 +165,88 @@ function normalizeSourceMap(map) {
   return newMap;
 }
 
-function getImportCode(buildInfo) {
-  const { onlyLocals } = buildInfo;
+function getImportItemCode(item, loaderContext, importPrefix) {
+  const { url } = item;
+  const media = item.media || '';
 
+  if (!isUrlRequest(url)) {
+    return `exports.push([module.id, ${JSON.stringify(
+      `@import url(${url});`
+    )}, ${JSON.stringify(media)}]);`;
+  }
+
+  const importUrl = importPrefix + urlToRequest(url);
+
+  return `exports.i(require(${stringifyRequest(
+    loaderContext,
+    importUrl
+  )}), ${JSON.stringify(media)});`;
+}
+
+function getUrlHelperCode(loaderContext) {
+  return `var getUrl = require(${stringifyRequest(
+    loaderContext,
+    require.resolve('./runtime/getUrl.js')
+  )});`;
+}
+
+function getUrlItemCode(item, loaderContext) {
+  const { url, placeholder, needQuotes } = item;
+
+  // Remove `#hash` and `?#hash` from `require`
+  const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
+  const hash =
+    singleQuery || hashValue
+      ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
+      : '';
+
+  return `var ${placeholder} = getUrl(require(${stringifyRequest(
+    loaderContext,
+    urlToRequest(normalizedUrl)
+  )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`;
+}
+
+function getApiCode(loaderContext, sourceMap, importItems, moduleCode) {
+  // No imports and no module code
+  if (importItems.length === 0 && moduleCode.length === 0) {
+    return '';
+  }
+
+  return `exports = module.exports = require(${stringifyRequest(
+    loaderContext,
+    require.resolve('./runtime/api')
+  )})(${sourceMap});\n`;
+}
+
+function getImportCode(importItems, onlyLocals) {
+  if (importItems.length === 0 || onlyLocals) {
+    return '';
+  }
+
+  return `// Imports\n${importItems.join('\n')}\n`;
+}
+
+function getModuleCode(result, sourceMap, onlyLocals) {
   if (onlyLocals) {
     return '';
   }
 
-  const { importPrefix, result, loaderContext } = buildInfo;
-  const importItems = [];
-
-  result.messages
-    .filter(
-      (message) =>
-        message.pluginName === 'postcss-url-parser' ||
-        message.pluginName === 'postcss-import-parser' ||
-        message.pluginName === 'postcss-icss-parser'
-    )
-    .forEach((message) => {
-      if (message.type === 'import') {
-        const { url } = message.item;
-        const media = message.item.media || '';
-
-        if (!isUrlRequest(url)) {
-          importItems.push(
-            `exports.push([module.id, ${JSON.stringify(
-              `@import url(${url});`
-            )}, ${JSON.stringify(media)}]);`
-          );
-        } else {
-          const importUrl = importPrefix + urlToRequest(url);
-
-          importItems.push(
-            `exports.i(require(${stringifyRequest(
-              loaderContext,
-              importUrl
-            )}), ${JSON.stringify(media)});`
-          );
-        }
-      }
-
-      if (message.type === 'url') {
-        if (!buildInfo.hasUrlHelper) {
-          importItems.push(
-            `var getUrl = require(${stringifyRequest(
-              loaderContext,
-              require.resolve('./runtime/getUrl.js')
-            )});`
-          );
-
-          // eslint-disable-next-line no-param-reassign
-          buildInfo.hasUrlHelper = true;
-        }
-
-        const { url, placeholder, needQuotes } = message.item;
-        // Remove `#hash` and `?#hash` from `require`
-        const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
-        const hash =
-          singleQuery || hashValue
-            ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
-            : '';
-
-        importItems.push(
-          `var ${placeholder} = getUrl(require(${stringifyRequest(
-            loaderContext,
-            urlToRequest(normalizedUrl)
-          )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`
-        );
-      }
-    });
-
-  return importItems.length > 0 ? `${importItems.join('\n')}\n` : '';
+  return `// Module\nexports.push([module.id, ${JSON.stringify(
+    result.css
+  )}, ""${sourceMap && result.map ? `,${result.map}` : ''}]);\n`;
 }
 
-function getExportType(onlyLocals) {
-  return onlyLocals ? 'module.exports' : 'exports.locals';
+function getExportCode(exportItems, onlyLocals) {
+  if (exportItems.length === 0) {
+    return '';
+  }
+
+  return `// Exports\n${
+    onlyLocals ? 'module.exports' : 'exports.locals'
+  } = {\n${exportItems.join(',\n')}\n};`;
 }
 
-function getIcssReplacer(item, buildInfo) {
-  const { importPrefix, onlyLocals, loaderContext } = buildInfo;
+function getIcssReplacer(item, loaderContext, importPrefix, onlyLocals) {
   const importUrl = importPrefix + urlToRequest(item.url);
 
   return () =>
@@ -258,19 +261,20 @@ function getIcssReplacer(item, buildInfo) {
         )}).locals[${JSON.stringify(item.export)}] + "`;
 }
 
-function prepareCode(file, buildInfo) {
+function prepareCode(file, messages, loaderContext, importPrefix, onlyLocals) {
   const { apiCode, importCode } = file;
   let { moduleCode, exportCode } = file;
-  const { result } = buildInfo;
 
-  result.messages
+  messages
     .filter(
-      (message) => message.type === 'icss-import' || message.type === 'url'
+      (message) =>
+        message.type === 'icss-import' ||
+        (message.type === 'import' && message.importType === 'url')
     )
     .forEach((message) => {
       // Replace all urls on `require`
-      if (message.type === 'url') {
-        const { placeholder } = message.item;
+      if (message.type === 'import') {
+        const { placeholder } = message;
 
         if (moduleCode) {
           // eslint-disable-next-line no-param-reassign
@@ -284,7 +288,12 @@ function prepareCode(file, buildInfo) {
       // Replace external ICSS import on `require`
       if (message.type === 'icss-import') {
         const { item } = message;
-        const replacer = getIcssReplacer(item, buildInfo);
+        const replacer = getIcssReplacer(
+          item,
+          loaderContext,
+          importPrefix,
+          onlyLocals
+        );
 
         if (moduleCode) {
           // eslint-disable-next-line no-param-reassign
@@ -313,7 +322,12 @@ export {
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,
+  getImportItemCode,
+  getUrlHelperCode,
+  getUrlItemCode,
+  getApiCode,
   getImportCode,
-  getExportType,
+  getModuleCode,
+  getExportCode,
   prepareCode,
 };

@@ -1,6 +1,8 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
+import { getImportItemCode } from '../utils';
+
 const pluginName = 'postcss-import-parser';
 
 function getArg(nodes) {
@@ -102,7 +104,15 @@ export default postcss.plugin(
       const paths = uniq(traversed);
 
       paths.forEach((item) => {
-        result.messages.push({ pluginName, type: 'import', item });
+        result.messages.push({
+          pluginName,
+          type: 'import',
+          import: getImportItemCode(
+            item,
+            options.loaderContext,
+            options.importPrefix
+          ),
+        });
       });
     }
 );
