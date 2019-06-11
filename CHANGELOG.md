@@ -1,6 +1,39 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [3.0.0](https://github.com/webpack-contrib/css-loader/compare/v2.1.1...v3.0.0) (2019-06-11)
+
+
+### Bug Fixes
+
+* avoid the "from" argument must be of type string error ([#908](https://github.com/webpack-contrib/css-loader/issues/908)) ([e5dfd23](https://github.com/webpack-contrib/css-loader/commit/e5dfd23))
+* invert `Function` behavior for `url` and `import` options ([#939](https://github.com/webpack-contrib/css-loader/issues/939)) ([e9eb5ad](https://github.com/webpack-contrib/css-loader/commit/e9eb5ad))
+* properly export locals with escaped characters ([#917](https://github.com/webpack-contrib/css-loader/issues/917)) ([a0efcda](https://github.com/webpack-contrib/css-loader/commit/a0efcda))
+* property handle non css characters in localIdentName ([#920](https://github.com/webpack-contrib/css-loader/issues/920)) ([d3a0a3c](https://github.com/webpack-contrib/css-loader/commit/d3a0a3c))
+
+
+### Features
+
+* modules options now accepts object config ([#937](https://github.com/webpack-contrib/css-loader/issues/937)) ([1d7a464](https://github.com/webpack-contrib/css-loader/commit/1d7a464))
+* support `@value` at-rule in selectors ([#941](https://github.com/webpack-contrib/css-loader/issues/941)) ([05a42e2](https://github.com/webpack-contrib/css-loader/commit/05a42e2))
+
+
+### BREAKING CHANGES
+
+* minimum required nodejs version is 8.9.0
+* `@value` at rules now support in `selector`, recommends checking all `@values` at-rule usage (hint: you can add prefix to all `@value` at-rules, for example `@value v-foo: black;` or `@value m-foo: screen and (max-width: 12450px)`, and then do upgrade)
+* invert `{Function}` behavior for `url` and `import` options  (need return `true` when you want handle `url`/`@import` and return `false` if not)
+* `exportLocalsStyle` option was remove in favor `localsConvention` option, also it is accept only `{String}` value (use `camelCase` value if you previously value was `true` and `asIs` if you previously value was `false`) 
+* `exportOnlyLocals` option was remove in favor `onlyLocals` option
+* `modules` option now can be `{Object}` and allow to setup `CSS Modules` options:
+  * `localIdentName` option was removed in favor `modules.localIdentName` option
+  * `context` option was remove in favor `modules.context` option
+  * `hashPrefix` option was removed in favor `modules.hashPrefix` option
+  * `getLocalIdent` option was removed in favor `modules.getLocalIdent` option
+  * `localIdentRegExp` option was removed in favor `modules.localIdentRegExp` option
+
+
 
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/webpack-contrib/css-loader/compare/v2.1.0...v2.1.1) (2019-03-07)
