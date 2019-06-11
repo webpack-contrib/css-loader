@@ -9,7 +9,7 @@ describe('modules', () => {
             mode: 'local',
             localIdentName: '_[local]',
           },
-          exportOnlyLocals: true,
+          onlyLocals: true,
         },
       },
     };

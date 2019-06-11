@@ -115,7 +115,7 @@ export default function loader(content, map, meta) {
         result.messages = [];
       }
 
-      const { exportOnlyLocals: onlyLocals } = options;
+      const { onlyLocals } = options;
 
       const importItems = result.messages
         .filter((message) => (message.type === 'import' ? message : false))
