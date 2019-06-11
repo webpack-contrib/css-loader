@@ -1,9 +1,9 @@
 import { webpack, evaluated } from './helpers';
 
-describe('exportLocalsStyle option', () => {
+describe('localsConvention option', () => {
   it('not specified', async () => {
     const config = { loader: { options: { modules: true } } };
-    const testId = './modules/exportLocalsStyle.css';
+    const testId = './modules/localsConvention.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);
@@ -20,11 +20,11 @@ describe('exportLocalsStyle option', () => {
       loader: {
         options: {
           modules: true,
-          exportLocalsStyle: 'asIs',
+          localsConvention: 'asIs',
         },
       },
     };
-    const testId = './modules/exportLocalsStyle.css';
+    const testId = './modules/localsConvention.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);
@@ -41,11 +41,11 @@ describe('exportLocalsStyle option', () => {
       loader: {
         options: {
           modules: true,
-          exportLocalsStyle: 'camelCase',
+          localsConvention: 'camelCase',
         },
       },
     };
-    const testId = './modules/exportLocalsStyle.css';
+    const testId = './modules/localsConvention.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);
@@ -62,11 +62,11 @@ describe('exportLocalsStyle option', () => {
       loader: {
         options: {
           modules: true,
-          exportLocalsStyle: 'camelCaseOnly',
+          localsConvention: 'camelCaseOnly',
         },
       },
     };
-    const testId = './modules/exportLocalsStyle.css';
+    const testId = './modules/localsConvention.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);
@@ -83,11 +83,11 @@ describe('exportLocalsStyle option', () => {
       loader: {
         options: {
           modules: true,
-          exportLocalsStyle: 'dashes',
+          localsConvention: 'dashes',
         },
       },
     };
-    const testId = './modules/exportLocalsStyle.css';
+    const testId = './modules/localsConvention.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);
@@ -104,11 +104,11 @@ describe('exportLocalsStyle option', () => {
       loader: {
         options: {
           modules: true,
-          exportLocalsStyle: 'dashesOnly',
+          localsConvention: 'dashesOnly',
         },
       },
     };
-    const testId = './modules/exportLocalsStyle.css';
+    const testId = './modules/localsConvention.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);

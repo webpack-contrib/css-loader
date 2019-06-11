@@ -93,12 +93,12 @@ it('validate options', () => {
   expect(() => validate({ sourceMap: false })).not.toThrow();
   expect(() => validate({ sourceMap: 'true' })).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ exportLocalsStyle: 'camelCase' })).not.toThrow();
-  expect(() => validate({ exportLocalsStyle: 'camelCaseOnly' })).not.toThrow();
-  expect(() => validate({ exportLocalsStyle: 'dashes' })).not.toThrow();
-  expect(() => validate({ exportLocalsStyle: 'dashesOnly' })).not.toThrow();
+  expect(() => validate({ localsConvention: 'camelCase' })).not.toThrow();
+  expect(() => validate({ localsConvention: 'camelCaseOnly' })).not.toThrow();
+  expect(() => validate({ localsConvention: 'dashes' })).not.toThrow();
+  expect(() => validate({ localsConvention: 'dashesOnly' })).not.toThrow();
   expect(() =>
-    validate({ exportLocalsStyle: 'unknown' })
+    validate({ localsConvention: 'unknown' })
   ).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ importLoaders: false })).not.toThrow();

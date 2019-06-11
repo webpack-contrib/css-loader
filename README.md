@@ -109,15 +109,15 @@ module.exports = {
 
 ## Options
 
-|                     Name                      |            Type             | Default | Description                                        |
-| :-------------------------------------------: | :-------------------------: | :-----: | :------------------------------------------------- |
-|               **[`url`](#url)**               |    `{Boolean\|Function}`    | `true`  | Enable/Disable `url()` handling                    |
-|            **[`import`](#import)**            |    `{Boolean\|Function}`    | `true`  | Enable/Disable @import handling                    |
-|           **[`modules`](#modules)**           | `{Boolean\|String\|Object}` | `false` | Enable/Disable CSS Modules and setup their options |
-|         **[`sourceMap`](#sourcemap)**         |         `{Boolean}`         | `false` | Enable/Disable Sourcemaps                          |
-|     **[`importLoaders`](#importloaders)**     |         `{Number}`          |   `0`   | Number of loaders applied before CSS loader        |
-| **[`exportLocalsStyle`](#exportlocalsstyle)** |         `{String}`          | `asIs`  | Setup style of exported classnames                 |
-|        **[`onlyLocals`](#onlylocals)**        |         `{Boolean}`         | `false` | Export only locals                                 |
+|                    Name                     |            Type             | Default | Description                                        |
+| :-----------------------------------------: | :-------------------------: | :-----: | :------------------------------------------------- |
+|              **[`url`](#url)**              |    `{Boolean\|Function}`    | `true`  | Enable/Disable `url()` handling                    |
+|           **[`import`](#import)**           |    `{Boolean\|Function}`    | `true`  | Enable/Disable @import handling                    |
+|          **[`modules`](#modules)**          | `{Boolean\|String\|Object}` | `false` | Enable/Disable CSS Modules and setup their options |
+|        **[`sourceMap`](#sourcemap)**        |         `{Boolean}`         | `false` | Enable/Disable Sourcemaps                          |
+|    **[`importLoaders`](#importloaders)**    |         `{Number}`          |   `0`   | Number of loaders applied before CSS loader        |
+| **[`localsConvention`](#localsconvention)** |         `{String}`          | `asIs`  | Setup style of exported classnames                 |
+|       **[`onlyLocals`](#onlylocals)**       |         `{Boolean}`         | `false` | Export only locals                                 |
 
 ### `url`
 
@@ -763,7 +763,7 @@ module.exports = {
 
 This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
 
-### `exportLocalsStyle`
+### `localsConvention`
 
 Type: `String`
 Default: `undefined`
@@ -801,7 +801,7 @@ module.exports = {
         test: /\.css$/i,
         loader: 'css-loader',
         options: {
-          exportLocalsStyle: 'camelCase',
+          localsConvention: 'camelCase',
         },
       },
     ],

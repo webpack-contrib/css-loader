@@ -253,7 +253,7 @@ function getModuleCode(result, sourceMap, onlyLocals) {
   )}, ""${sourceMap && result.map ? `,${result.map}` : ''}]);\n`;
 }
 
-function getExportItemCode(key, value, localsStyle) {
+function getExportItemCode(key, value, localsConvention) {
   let targetKey;
   const items = [];
 
@@ -261,7 +261,7 @@ function getExportItemCode(key, value, localsStyle) {
     items.push(`\t${JSON.stringify(k)}: ${JSON.stringify(value)}`);
   }
 
-  switch (localsStyle) {
+  switch (localsConvention) {
     case 'camelCase':
       addEntry(key);
       targetKey = camelCase(key);

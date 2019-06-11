@@ -84,7 +84,7 @@
         }
       ]
     },
-    "exportLocalsStyle": {
+    "localsConvention": {
       "anyOf": [
         {
           "type": "string",
