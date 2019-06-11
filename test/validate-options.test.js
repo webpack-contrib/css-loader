@@ -107,9 +107,7 @@ it('validate options', () => {
   expect(() => validate({ importLoaders: 2 })).not.toThrow();
   expect(() => validate({ importLoaders: '1' })).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ exportOnlyLocals: true })).not.toThrow();
-  expect(() => validate({ exportOnlyLocals: false })).not.toThrow();
-  expect(() =>
-    validate({ exportOnlyLocals: 'true' })
-  ).toThrowErrorMatchingSnapshot();
+  expect(() => validate({ onlyLocals: true })).not.toThrow();
+  expect(() => validate({ onlyLocals: false })).not.toThrow();
+  expect(() => validate({ onlyLocals: 'true' })).toThrowErrorMatchingSnapshot();
 });

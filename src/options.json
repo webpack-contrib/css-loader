@@ -92,7 +92,7 @@
         }
       ]
     },
-    "exportOnlyLocals": {
+    "onlyLocals": {
       "type": "boolean"
     }
   },

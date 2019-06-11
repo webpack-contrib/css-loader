@@ -117,7 +117,7 @@ module.exports = {
 |         **[`sourceMap`](#sourcemap)**         |         `{Boolean}`         | `false` | Enable/Disable Sourcemaps                          |
 |     **[`importLoaders`](#importloaders)**     |         `{Number}`          |   `0`   | Number of loaders applied before CSS loader        |
 | **[`exportLocalsStyle`](#exportlocalsstyle)** |         `{String}`          | `asIs`  | Setup style of exported classnames                 |
-|  **[`exportOnlyLocals`](#exportonlylocals)**  |         `{Boolean}`         | `false` | Export only locals                                 |
+|        **[`onlyLocals`](#onlylocals)**        |         `{Boolean}`         | `false` | Export only locals                                 |
 
 ### `url`
 
@@ -772,7 +772,7 @@ By default, the exported JSON keys mirror the class names (i.e `asIs` value).
 
 |         Name          |    Type    | Description                                                                                      |
 | :-------------------: | :--------: | :----------------------------------------------------------------------------------------------- |
-|      **`asIs`**       | `{String}` | Class names will be exported as is.                                                              |
+|     **`'asIs'`**      | `{String}` | Class names will be exported as is.                                                              |
 |   **`'camelCase'`**   | `{String}` | Class names will be camelized, the original class name will not to be removed from the locals    |
 | **`'camelCaseOnly'`** | `{String}` | Class names will be camelized, the original class name will be removed from the locals           |
 |    **`'dashes'`**     | `{String}` | Only dashes in class names will be camelized                                                     |
@@ -809,7 +809,7 @@ module.exports = {
 };
 ```
 
-### `exportOnlyLocals`
+### `onlyLocals`
 
 Type: `Boolean`
 Default: `false`
@@ -828,7 +828,7 @@ module.exports = {
         test: /\.css$/i,
         loader: 'css-loader',
         options: {
-          exportOnlyLocals: true,
+          onlyLocals: true,
         },
       },
     ],
