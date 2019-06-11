@@ -162,8 +162,8 @@ options.sourceMap should be boolean
 exports[`validate options 16`] = `
 "CSS Loader Invalid Options
 
-options.exportLocalsStyle should be equal to one of the allowed values
-options.exportLocalsStyle should match some schema in anyOf
+options.localsConvention should be equal to one of the allowed values
+options.localsConvention should match some schema in anyOf
 "
 `;
 

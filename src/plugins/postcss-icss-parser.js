@@ -67,7 +67,7 @@ export default postcss.plugin(
 
         result.messages.push({
           pluginName,
-          export: getExportItemCode(name, value, options.exportLocalsStyle),
+          export: getExportItemCode(name, value, options.localsConvention),
           type: 'export',
           item: { name, value },
         });

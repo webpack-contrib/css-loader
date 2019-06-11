@@ -64,7 +64,7 @@ export default function loader(content, map, meta) {
     icssParser({
       loaderContext: this,
       importPrefix,
-      exportLocalsStyle: options.exportLocalsStyle,
+      localsConvention: options.localsConvention,
     })
   );
 
