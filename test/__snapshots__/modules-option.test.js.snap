@@ -6201,6 +6201,36 @@ exports.locals = {
 
 exports[`modules composes should supports resolving: warnings 1`] = `Array []`;
 
+exports[`modules getLocalIdent should be allowed to return false: errors 1`] = `Array []`;
+
+exports[`modules getLocalIdent should be allowed to return false: locals 1`] = `
+Object {
+  "abc": "abc",
+  "def": "def",
+  "ghi": "ghi",
+  "jkl": "jkl",
+}
+`;
+
+exports[`modules getLocalIdent should be allowed to return false: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".abc .def {
+  color: red;
+}
+
+.ghi .jkl {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules getLocalIdent should be allowed to return false: warnings 1`] = `Array []`;
+
 exports[`modules issue #286: errors 1`] = `Array []`;
 
 exports[`modules issue #286: module (evaluated) 1`] = `
