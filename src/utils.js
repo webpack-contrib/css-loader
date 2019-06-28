@@ -141,7 +141,7 @@ function getModulesPlugins(options, loaderContext) {
     extractImports(),
     modulesScope({
       generateScopedName: function generateScopedName(exportName) {
-        return modulesOptions.getLocalIdent(
+        let localIdent = modulesOptions.getLocalIdent(
           loaderContext,
           modulesOptions.localIdentName,
           exportName,
@@ -151,6 +151,21 @@ function getModulesPlugins(options, loaderContext) {
             regExp: modulesOptions.localIdentRegExp,
           }
         );
+
+        if (!localIdent) {
+          localIdent = getLocalIdent(
+            loaderContext,
+            modulesOptions.localIdentName,
+            exportName,
+            {
+              context: modulesOptions.context,
+              hashPrefix: modulesOptions.hashPrefix,
+              regExp: modulesOptions.localIdentRegExp,
+            }
+          );
+        }
+
+        return localIdent;
       },
     }),
   ];
