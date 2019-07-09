@@ -120,7 +120,6 @@ function getModulesPlugins(options, loaderContext) {
     mode: 'local',
     localIdentName: '[hash:base64]',
     getLocalIdent,
-    context: null,
     hashPrefix: '',
     localIdentRegExp: null,
   };
