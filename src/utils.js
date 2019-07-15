@@ -16,6 +16,7 @@ import localByDefault from 'postcss-modules-local-by-default';
 import extractImports from 'postcss-modules-extract-imports';
 import modulesScope from 'postcss-modules-scope';
 import camelCase from 'camelcase';
+import incstr from 'incstr';
 
 function uniqWith(array, comparator) {
   return array.reduce(
@@ -67,14 +68,40 @@ function unescape(str) {
     // eslint-disable-next-line no-self-compare
     return high !== high || escapedWhitespace
       ? escaped
-      : high < 0
-      ? // BMP codepoint
-        String.fromCharCode(high + 0x10000)
-      : // Supplemental Plane codepoint (surrogate pair)
-        // eslint-disable-next-line no-bitwise
+      : high < 0 // BMP codepoint
+      ? String.fromCharCode(high + 0x10000) // Supplemental Plane codepoint (surrogate pair)
+      : // eslint-disable-next-line no-bitwise
         String.fromCharCode((high >> 10) | 0xd800, (high & 0x3ff) | 0xdc00);
     /* eslint-enable line-comment-position */
   });
+}
+
+function createUniqueIdGenerator() {
+  const uniqIds = {};
+
+  /* eslint-disable line-comment-position */
+  // ignore 'ad' for avoiding advertisment-error purpose
+  const generateNextId = incstr.idGenerator({
+    alphabet: 'abcefghijklmnopqrstuvwxyzABCEFGHJKLMNOPQRSTUVWXYZ',
+  });
+  /* eslint-enable line-comment-position */
+
+  return (name) => {
+    if (!uniqIds[name]) {
+      uniqIds[name] = generateNextId();
+    }
+
+    return uniqIds[name];
+  };
+}
+
+const localNameIdGenerator = createUniqueIdGenerator();
+const componentNameIdGenerator = createUniqueIdGenerator();
+
+function getMinifiedName(request, localName) {
+  return `${componentNameIdGenerator(request)}_${localNameIdGenerator(
+    localName
+  )}`;
 }
 
 function getLocalIdent(loaderContext, localIdentName, localName, options) {
@@ -87,6 +114,10 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
     path.relative(options.context || '', loaderContext.resourcePath)
   );
 
+  if (options.minify) {
+    return getMinifiedName(request, localName);
+  }
+
   // eslint-disable-next-line no-param-reassign
   options.content = `${options.hashPrefix + request}+${unescape(localName)}`;
 
@@ -97,7 +128,9 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
       .interpolateName(loaderContext, localIdentName, options)
       // For `[hash]` placeholder
       .replace(/^((-?[0-9])|--)/, '_$1'),
-    { isIdentifier: true }
+    {
+      isIdentifier: true,
+    }
   ).replace(/\\\[local\\\]/gi, localName);
 }
 
@@ -122,6 +155,7 @@ function getModulesPlugins(options, loaderContext) {
     getLocalIdent,
     hashPrefix: '',
     localIdentRegExp: null,
+    minifyNames: false,
   };
 
   if (
@@ -136,7 +170,9 @@ function getModulesPlugins(options, loaderContext) {
 
   return [
     modulesValues,
-    localByDefault({ mode: modulesOptions.mode }),
+    localByDefault({
+      mode: modulesOptions.mode,
+    }),
     extractImports(),
     modulesScope({
       generateScopedName: function generateScopedName(exportName) {
@@ -148,6 +184,7 @@ function getModulesPlugins(options, loaderContext) {
             context: modulesOptions.context,
             hashPrefix: modulesOptions.hashPrefix,
             regExp: modulesOptions.localIdentRegExp,
+            minify: modulesOptions.minifyNames,
           }
         );
 
@@ -160,6 +197,7 @@ function getModulesPlugins(options, loaderContext) {
               context: modulesOptions.context,
               hashPrefix: modulesOptions.hashPrefix,
               regExp: modulesOptions.localIdentRegExp,
+              minify: modulesOptions.minifyNames,
             }
           );
         }

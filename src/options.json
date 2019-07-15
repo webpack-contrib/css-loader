@@ -66,6 +66,9 @@
                   "instanceof": "Function"
                 }
               ]
+            },
+            "minifyNames": {
+              "type": "boolean"
             }
           }
         }
