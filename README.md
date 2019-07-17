@@ -572,6 +572,15 @@ Default: `[hash:base64]`
 You can configure the generated ident with the `localIdentName` query parameter.
 See [loader-utils's documentation](https://github.com/webpack/loader-utils#interpolatename) for more information on options.
 
+Recommendations:
+
+- use `[path][name]__[local]` for development
+- use `[hash:base64]` for production
+
+The `[local]` placeholder contains original class.
+
+**Note:** all reserved (`<>:"/\|?*`) and control filesystem characters (excluding characters in the `[local]` placeholder) will be converted to `-`.
+
 **webpack.config.js**
 
 ```js

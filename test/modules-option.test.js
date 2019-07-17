@@ -98,7 +98,7 @@ describe('modules', () => {
       loader: {
         options: {
           modules: {
-            localIdentName: '[path]--[name]--[local]',
+            localIdentName: '[path][name]__[local]',
             context: path.resolve(__dirname),
           },
         },
@@ -449,6 +449,31 @@ describe('modules', () => {
       loader: { options: { modules: true } },
     };
     const testId = './modules/resolving-inside-node-modules.css';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
+  it('issue #967', async () => {
+    const config = {
+      loader: {
+        options: {
+          modules: {
+            mode: 'local',
+            localIdentName:
+              '[path][name]__[local]__/-sep-?-sep-<-sep->-sep-\\\\-sep-:-sep-*-sep-|-sep-"-sep-:',
+          },
+        },
+      },
+    };
+    const testId = './modules/path-placeholder.css';
     const stats = await webpack(testId, config);
     const { modules } = stats.toJson();
     const module = modules.find((m) => m.id === testId);
