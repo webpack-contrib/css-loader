@@ -110,4 +110,6 @@ it('validate options', () => {
   expect(() => validate({ onlyLocals: true })).not.toThrow();
   expect(() => validate({ onlyLocals: false })).not.toThrow();
   expect(() => validate({ onlyLocals: 'true' })).toThrowErrorMatchingSnapshot();
+
+  expect(() => validate({ unknown: 'unknown' })).toThrowErrorMatchingSnapshot();
 });
