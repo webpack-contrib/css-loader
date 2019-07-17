@@ -6355,6 +6355,43 @@ exports.locals = {
 
 exports[`modules issue #861: warnings 1`] = `Array []`;
 
+exports[`modules issue #967: errors 1`] = `Array []`;
+
+exports[`modules issue #967: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".modules-path-placeholder__foo__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {
+  color: red;
+}
+
+.modules-path-placeholder__foo\\\\/bar__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {
+  color: blue;
+}
+
+.modules-path-placeholder__\\\\[\\\\/\\\\?\\\\<\\\\>\\\\\\\\\\\\\\\\\\\\3A \\\\*\\\\|\\\\\\"\\\\3A \\\\]__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules issue #967: module 1`] = `
+"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+// Module
+exports.push([module.id, \\".modules-path-placeholder__foo__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {\\\\n  color: red;\\\\n}\\\\n\\\\n.modules-path-placeholder__foo\\\\\\\\/bar__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {\\\\n  color: blue;\\\\n}\\\\n\\\\n.modules-path-placeholder__\\\\\\\\[\\\\\\\\/\\\\\\\\?\\\\\\\\<\\\\\\\\>\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\3A \\\\\\\\*\\\\\\\\|\\\\\\\\\\\\\\"\\\\\\\\3A \\\\\\\\]__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"foo\\": \\"modules-path-placeholder__foo__--sep---sep---sep---sep----sep---sep---sep---sep---sep--\\",
+	\\"foo/bar\\": \\"modules-path-placeholder__foo/bar__--sep---sep---sep---sep----sep---sep---sep---sep---sep--\\",
+	\\"[/?<>\\\\\\\\\\\\\\\\:*|\\\\\\":]\\": \\"modules-path-placeholder__[/?<>\\\\\\\\\\\\\\\\:*|\\\\\\":]__--sep---sep---sep---sep----sep---sep---sep---sep---sep--\\"
+};"
+`;
+
+exports[`modules issue #967: warnings 1`] = `Array []`;
+
 exports[`modules should accepts all arguments for getLocalIdent option: errors 1`] = `Array []`;
 
 exports[`modules should accepts all arguments for getLocalIdent option: locals 1`] = `
@@ -7553,53 +7590,53 @@ exports[`modules should respects path in localIdentName option: errors 1`] = `Ar
 
 exports[`modules should respects path in localIdentName option: locals 1`] = `
 Object {
-  "#": "fixtures/modules/--localIdentName--#",
-  "##": "fixtures/modules/--localIdentName--##",
-  "#.#.#": "fixtures/modules/--localIdentName--#.#.#",
-  "#fake-id": "fixtures/modules/--localIdentName--#fake-id",
-  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "fixtures/modules/--localIdentName--++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.",
-  "-a-b-c-": "fixtures/modules/--localIdentName---a-b-c-",
-  "-a0-34a___f": "fixtures/modules/--localIdentName---a0-34a___f",
-  ".": "fixtures/modules/--localIdentName--.",
-  "123": "fixtures/modules/--localIdentName--123",
-  "1a2b3c": "fixtures/modules/--localIdentName--1a2b3c",
-  ":)": "fixtures/modules/--localIdentName--:)",
-  ":\`(": "fixtures/modules/--localIdentName--:\`(",
-  ":hover": "fixtures/modules/--localIdentName--:hover",
-  ":hover:focus:active": "fixtures/modules/--localIdentName--:hover:focus:active",
-  "<><<<>><>": "fixtures/modules/--localIdentName--<><<<>><>",
-  "<p>": "fixtures/modules/--localIdentName--<p>",
-  "?": "fixtures/modules/--localIdentName--?",
-  "@": "fixtures/modules/--localIdentName--@",
-  "B&W?": "fixtures/modules/--localIdentName--B&W?",
-  "[attr=value]": "fixtures/modules/--localIdentName--[attr=value]",
-  "_": "fixtures/modules/--localIdentName--_",
-  "_test": "fixtures/modules/--localIdentName--_test",
-  "className": "fixtures/modules/--localIdentName--className",
-  "f!o!o": "fixtures/modules/--localIdentName--f!o!o",
-  "f'o'o": "fixtures/modules/--localIdentName--f'o'o",
-  "f*o*o": "fixtures/modules/--localIdentName--f*o*o",
-  "f+o+o": "fixtures/modules/--localIdentName--f+o+o",
-  "f/o/o": "fixtures/modules/--localIdentName--f/o/o",
-  "f\\\\o\\\\o": "fixtures/modules/--localIdentName--f\\\\o\\\\o",
-  "foo.bar": "fixtures/modules/--localIdentName--foo.bar",
-  "foo/bar": "fixtures/modules/--localIdentName--foo/bar",
-  "foo/bar/baz": "fixtures/modules/--localIdentName--foo/bar/baz",
-  "foo\\\\bar": "fixtures/modules/--localIdentName--foo\\\\bar",
-  "foo\\\\bar\\\\baz": "fixtures/modules/--localIdentName--foo\\\\bar\\\\baz",
-  "f~o~o": "fixtures/modules/--localIdentName--f~o~o",
-  "m_x_@": "fixtures/modules/--localIdentName--m_x_@",
-  "someId": "fixtures/modules/--localIdentName--someId",
-  "subClass": "fixtures/modules/--localIdentName--subClass",
-  "test": "fixtures/modules/--localIdentName--test",
-  "{}": "fixtures/modules/--localIdentName--{}",
-  "©": "fixtures/modules/--localIdentName--©",
-  "“‘’”": "fixtures/modules/--localIdentName--“‘’”",
-  "⌘⌥": "fixtures/modules/--localIdentName--⌘⌥",
-  "☺☃": "fixtures/modules/--localIdentName--☺☃",
-  "♥": "fixtures/modules/--localIdentName--♥",
-  "𝄞♪♩♫♬": "fixtures/modules/--localIdentName--𝄞♪♩♫♬",
-  "💩": "fixtures/modules/--localIdentName--💩",
+  "#": "fixtures-modules-localIdentName__#",
+  "##": "fixtures-modules-localIdentName__##",
+  "#.#.#": "fixtures-modules-localIdentName__#.#.#",
+  "#fake-id": "fixtures-modules-localIdentName__#fake-id",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "fixtures-modules-localIdentName__++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.",
+  "-a-b-c-": "fixtures-modules-localIdentName__-a-b-c-",
+  "-a0-34a___f": "fixtures-modules-localIdentName__-a0-34a___f",
+  ".": "fixtures-modules-localIdentName__.",
+  "123": "fixtures-modules-localIdentName__123",
+  "1a2b3c": "fixtures-modules-localIdentName__1a2b3c",
+  ":)": "fixtures-modules-localIdentName__:)",
+  ":\`(": "fixtures-modules-localIdentName__:\`(",
+  ":hover": "fixtures-modules-localIdentName__:hover",
+  ":hover:focus:active": "fixtures-modules-localIdentName__:hover:focus:active",
+  "<><<<>><>": "fixtures-modules-localIdentName__<><<<>><>",
+  "<p>": "fixtures-modules-localIdentName__<p>",
+  "?": "fixtures-modules-localIdentName__?",
+  "@": "fixtures-modules-localIdentName__@",
+  "B&W?": "fixtures-modules-localIdentName__B&W?",
+  "[attr=value]": "fixtures-modules-localIdentName__[attr=value]",
+  "_": "fixtures-modules-localIdentName___",
+  "_test": "fixtures-modules-localIdentName___test",
+  "className": "fixtures-modules-localIdentName__className",
+  "f!o!o": "fixtures-modules-localIdentName__f!o!o",
+  "f'o'o": "fixtures-modules-localIdentName__f'o'o",
+  "f*o*o": "fixtures-modules-localIdentName__f*o*o",
+  "f+o+o": "fixtures-modules-localIdentName__f+o+o",
+  "f/o/o": "fixtures-modules-localIdentName__f/o/o",
+  "f\\\\o\\\\o": "fixtures-modules-localIdentName__f\\\\o\\\\o",
+  "foo.bar": "fixtures-modules-localIdentName__foo.bar",
+  "foo/bar": "fixtures-modules-localIdentName__foo/bar",
+  "foo/bar/baz": "fixtures-modules-localIdentName__foo/bar/baz",
+  "foo\\\\bar": "fixtures-modules-localIdentName__foo\\\\bar",
+  "foo\\\\bar\\\\baz": "fixtures-modules-localIdentName__foo\\\\bar\\\\baz",
+  "f~o~o": "fixtures-modules-localIdentName__f~o~o",
+  "m_x_@": "fixtures-modules-localIdentName__m_x_@",
+  "someId": "fixtures-modules-localIdentName__someId",
+  "subClass": "fixtures-modules-localIdentName__subClass",
+  "test": "fixtures-modules-localIdentName__test",
+  "{}": "fixtures-modules-localIdentName__{}",
+  "©": "fixtures-modules-localIdentName__©",
+  "“‘’”": "fixtures-modules-localIdentName__“‘’”",
+  "⌘⌥": "fixtures-modules-localIdentName__⌘⌥",
+  "☺☃": "fixtures-modules-localIdentName__☺☃",
+  "♥": "fixtures-modules-localIdentName__♥",
+  "𝄞♪♩♫♬": "fixtures-modules-localIdentName__𝄞♪♩♫♬",
+  "💩": "fixtures-modules-localIdentName__💩",
 }
 `;
 
@@ -7607,117 +7644,117 @@ exports[`modules should respects path in localIdentName option: module (evaluate
 Array [
   Array [
     1,
-    ".fixtures\\\\/modules\\\\/--localIdentName--test {
+    ".fixtures-modules-localIdentName__test {
   background: red;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName--_test {
+.fixtures-modules-localIdentName___test {
   background: blue;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName--className {
+.fixtures-modules-localIdentName__className {
   background: red;
 }
 
-#fixtures\\\\/modules\\\\/--localIdentName--someId {
+#fixtures-modules-localIdentName__someId {
   background: green;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName--className .fixtures\\\\/modules\\\\/--localIdentName--subClass {
+.fixtures-modules-localIdentName__className .fixtures-modules-localIdentName__subClass {
   color: green;
 }
 
-#fixtures\\\\/modules\\\\/--localIdentName--someId .fixtures\\\\/modules\\\\/--localIdentName--subClass {
+#fixtures-modules-localIdentName__someId .fixtures-modules-localIdentName__subClass {
   color: blue;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName---a0-34a___f {
+.fixtures-modules-localIdentName__-a0-34a___f {
   color: red;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName--m_x_\\\\@ {
+.fixtures-modules-localIdentName__m_x_\\\\@ {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName--B\\\\&W\\\\? {
+.fixtures-modules-localIdentName__B\\\\&W\\\\? {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
 /* matches elements with class=\\":\`(\\" */
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A \\\\\`\\\\( {
+.fixtures-modules-localIdentName__\\\\3A \\\\\`\\\\( {
   color: aqua;
 }
 
 /* matches elements with class=\\"1a2b3c\\" */
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\31 a2b3c {
+.fixtures-modules-localIdentName__\\\\31 a2b3c {
   color: aliceblue;
 }
 
 /* matches the element with id=\\"#fake-id\\" */
-#fixtures\\\\/modules\\\\/--localIdentName--\\\\#fake-id {
+#fixtures-modules-localIdentName__\\\\#fake-id {
   color: antiquewhite;
 }
 
 /* matches the element with id=\\"-a-b-c-\\" */
-#fixtures\\\\/modules\\\\/--localIdentName---a-b-c- {
+#fixtures-modules-localIdentName__-a-b-c- {
   color: azure;
 }
 
 /* matches the element with id=\\"©\\" */
-#fixtures\\\\/modules\\\\/--localIdentName--© {
+#fixtures-modules-localIdentName__© {
   color: black;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName--♥ { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--© { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--“‘’” { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--☺☃ { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--⌘⌥ { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--𝄞♪♩♫♬ { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--💩 { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\? { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\@ { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\. { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A \\\\) { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A \\\\\`\\\\( { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\31 23 { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\31 a2b3c { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\<p\\\\> { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\> { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\. { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\# { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\#\\\\# { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\#\\\\.\\\\#\\\\.\\\\# { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\_ { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\{\\\\} { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\#fake\\\\-id { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\.bar { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A hover { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\3A hover\\\\3A focus\\\\3A active { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--\\\\[attr\\\\=value\\\\] { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--f\\\\/o\\\\/o { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--f\\\\\\\\o\\\\\\\\o { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--f\\\\*o\\\\*o { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--f\\\\!o\\\\!o { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--f\\\\'o\\\\'o { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--f\\\\~o\\\\~o { background: lime; }
-.fixtures\\\\/modules\\\\/--localIdentName--f\\\\+o\\\\+o { background: lime; }
+.fixtures-modules-localIdentName__♥ { background: lime; }
+.fixtures-modules-localIdentName__© { background: lime; }
+.fixtures-modules-localIdentName__“‘’” { background: lime; }
+.fixtures-modules-localIdentName__☺☃ { background: lime; }
+.fixtures-modules-localIdentName__⌘⌥ { background: lime; }
+.fixtures-modules-localIdentName__𝄞♪♩♫♬ { background: lime; }
+.fixtures-modules-localIdentName__💩 { background: lime; }
+.fixtures-modules-localIdentName__\\\\? { background: lime; }
+.fixtures-modules-localIdentName__\\\\@ { background: lime; }
+.fixtures-modules-localIdentName__\\\\. { background: lime; }
+.fixtures-modules-localIdentName__\\\\3A \\\\) { background: lime; }
+.fixtures-modules-localIdentName__\\\\3A \\\\\`\\\\( { background: lime; }
+.fixtures-modules-localIdentName__\\\\31 23 { background: lime; }
+.fixtures-modules-localIdentName__\\\\31 a2b3c { background: lime; }
+.fixtures-modules-localIdentName__\\\\<p\\\\> { background: lime; }
+.fixtures-modules-localIdentName__\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\> { background: lime; }
+.fixtures-modules-localIdentName__\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\. { background: lime; }
+.fixtures-modules-localIdentName__\\\\# { background: lime; }
+.fixtures-modules-localIdentName__\\\\#\\\\# { background: lime; }
+.fixtures-modules-localIdentName__\\\\#\\\\.\\\\#\\\\.\\\\# { background: lime; }
+.fixtures-modules-localIdentName__\\\\_ { background: lime; }
+.fixtures-modules-localIdentName__\\\\{\\\\} { background: lime; }
+.fixtures-modules-localIdentName__\\\\#fake\\\\-id { background: lime; }
+.fixtures-modules-localIdentName__foo\\\\.bar { background: lime; }
+.fixtures-modules-localIdentName__\\\\3A hover { background: lime; }
+.fixtures-modules-localIdentName__\\\\3A hover\\\\3A focus\\\\3A active { background: lime; }
+.fixtures-modules-localIdentName__\\\\[attr\\\\=value\\\\] { background: lime; }
+.fixtures-modules-localIdentName__f\\\\/o\\\\/o { background: lime; }
+.fixtures-modules-localIdentName__f\\\\\\\\o\\\\\\\\o { background: lime; }
+.fixtures-modules-localIdentName__f\\\\*o\\\\*o { background: lime; }
+.fixtures-modules-localIdentName__f\\\\!o\\\\!o { background: lime; }
+.fixtures-modules-localIdentName__f\\\\'o\\\\'o { background: lime; }
+.fixtures-modules-localIdentName__f\\\\~o\\\\~o { background: lime; }
+.fixtures-modules-localIdentName__f\\\\+o\\\\+o { background: lime; }
 
-.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\/bar {
+.fixtures-modules-localIdentName__foo\\\\/bar {
   background: hotpink;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\\\\\bar {
+.fixtures-modules-localIdentName__foo\\\\\\\\bar {
   background: hotpink;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\/bar\\\\/baz {
+.fixtures-modules-localIdentName__foo\\\\/bar\\\\/baz {
   background: hotpink;
 }
 
-.fixtures\\\\/modules\\\\/--localIdentName--foo\\\\\\\\bar\\\\\\\\baz {
+.fixtures-modules-localIdentName__foo\\\\\\\\bar\\\\\\\\baz {
   background: hotpink;
 }
 ",

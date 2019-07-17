@@ -77,6 +77,12 @@ function unescape(str) {
   });
 }
 
+// eslint-disable-next-line no-control-regex
+const filenameReservedRegex = /[<>:"/\\|?*\x00-\x1F]/g;
+// eslint-disable-next-line no-control-regex
+const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
+const reRelativePath = /^\.+/;
+
 function getLocalIdent(loaderContext, localIdentName, localName, options) {
   if (!options.context) {
     // eslint-disable-next-line no-param-reassign
@@ -96,7 +102,10 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
     loaderUtils
       .interpolateName(loaderContext, localIdentName, options)
       // For `[hash]` placeholder
-      .replace(/^((-?[0-9])|--)/, '_$1'),
+      .replace(/^((-?[0-9])|--)/, '_$1')
+      .replace(filenameReservedRegex, '-')
+      .replace(reControlChars, '-')
+      .replace(reRelativePath, '-'),
     { isIdentifier: true }
   ).replace(/\\\[local\\\]/gi, localName);
 }
