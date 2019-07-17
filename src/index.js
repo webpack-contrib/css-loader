@@ -32,7 +32,10 @@ import CssSyntaxError from './CssSyntaxError';
 export default function loader(content, map, meta) {
   const options = getOptions(this) || {};
 
-  validateOptions(schema, options, 'CSS Loader');
+  validateOptions(schema, options, {
+    name: 'CSS Loader',
+    baseDataPath: 'options',
+  });
 
   const callback = this.async();
   const sourceMap = options.sourceMap || false;

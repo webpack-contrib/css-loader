@@ -109,21 +109,22 @@ module.exports = {
 
 ## Options
 
-|                    Name                     |            Type             | Default | Description                                        |
-| :-----------------------------------------: | :-------------------------: | :-----: | :------------------------------------------------- |
-|              **[`url`](#url)**              |    `{Boolean\|Function}`    | `true`  | Enable/Disable `url()` handling                    |
-|           **[`import`](#import)**           |    `{Boolean\|Function}`    | `true`  | Enable/Disable @import handling                    |
-|          **[`modules`](#modules)**          | `{Boolean\|String\|Object}` | `false` | Enable/Disable CSS Modules and setup their options |
-|        **[`sourceMap`](#sourcemap)**        |         `{Boolean}`         | `false` | Enable/Disable Sourcemaps                          |
-|    **[`importLoaders`](#importloaders)**    |         `{Number}`          |   `0`   | Number of loaders applied before CSS loader        |
-| **[`localsConvention`](#localsconvention)** |         `{String}`          | `asIs`  | Setup style of exported classnames                 |
-|       **[`onlyLocals`](#onlylocals)**       |         `{Boolean}`         | `false` | Export only locals                                 |
+|                    Name                     |            Type             | Default | Description                                                            |
+| :-----------------------------------------: | :-------------------------: | :-----: | :--------------------------------------------------------------------- |
+|              **[`url`](#url)**              |    `{Boolean\|Function}`    | `true`  | Enables/Disables `url`/`image-set` functions handling                  |
+|           **[`import`](#import)**           |    `{Boolean\|Function}`    | `true`  | Enables/Disables `@import` at-rules handling                           |
+|          **[`modules`](#modules)**          | `{Boolean\|String\|Object}` | `false` | Enables/Disables CSS Modules and their configuration                   |
+|        **[`sourceMap`](#sourcemap)**        |         `{Boolean}`         | `false` | Enables/Disables generation of source maps                             |
+|    **[`importLoaders`](#importloaders)**    |         `{Number}`          |   `0`   | Enables/Disables or setups number of loaders applied before CSS loader |
+| **[`localsConvention`](#localsconvention)** |         `{String}`          | `asIs`  | Style of exported classnames                                           |
+|       **[`onlyLocals`](#onlylocals)**       |         `{Boolean}`         | `false` | Export only locals                                                     |
 
 ### `url`
 
 Type: `Boolean|Function`
 Default: `true`
 
+Enables/Disables `url`/`image-set` functions handling.
 Control `url()` resolving. Absolute URLs and root-relative URLs are not resolving.
 
 Examples resolutions:
@@ -203,6 +204,7 @@ module.exports = {
 Type: `Boolean`
 Default: `true`
 
+Enables/Disables `@import` at-rules handling.
 Control `@import` resolving. Absolute urls in `@import` will be moved in runtime code.
 
 Examples resolutions:
@@ -284,6 +286,8 @@ module.exports = {
 
 Type: `Boolean|String|Object`
 Default: `false`
+
+Enables/Disables CSS Modules and their configuration.
 
 The `modules` option enables/disables the **[CSS Modules](https://github.com/css-modules/css-modules)** specification and setup basic behaviour.
 
@@ -703,13 +707,11 @@ module.exports = {
 Type: `Boolean`
 Default: `false`
 
+Enables/Disables generation of source maps.
+
 To include source maps set the `sourceMap` option.
 
-I.e. the `mini-css-extract-plugin` can handle them.
-
 They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not).
-
-In addition to that relative paths are buggy and you need to use an absolute public path which includes the server URL.
 
 **webpack.config.js**
 
@@ -734,6 +736,8 @@ module.exports = {
 Type: `Number`
 Default: `0`
 
+Enables/Disables or setups number of loaders applied before CSS loader.
+
 The option `importLoaders` allows you to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
 
 **webpack.config.js**
@@ -749,7 +753,10 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2, // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+              importLoaders: 2,
+              // 0 => no loaders (default);
+              // 1 => postcss-loader;
+              // 2 => postcss-loader, sass-loader
             },
           },
           'postcss-loader',
@@ -767,6 +774,8 @@ This may change in the future when the module system (i. e. webpack) supports lo
 
 Type: `String`
 Default: `undefined`
+
+Style of exported classnames.
 
 By default, the exported JSON keys mirror the class names (i.e `asIs` value).
 
@@ -814,7 +823,9 @@ module.exports = {
 Type: `Boolean`
 Default: `false`
 
-Export only locals (**useful** when you use **css modules**).
+Export only locals.
+
+**Useful** when you use **css modules** for pre-rendering (for example SSR).
 For pre-rendering with `mini-css-extract-plugin` you should use this option instead of `style-loader!css-loader` **in the pre-rendering bundle**.
 It doesn't embed CSS but only exports the identifier mappings.
 
