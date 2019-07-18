@@ -6361,7 +6361,7 @@ exports[`modules issue #966: module (evaluated) 1`] = `
 Array [
   Array [
     1,
-    ".button.hey {
+    ".button\\\\.hey {
   color: red;
 }
 ",
@@ -6373,7 +6373,7 @@ Array [
 exports[`modules issue #966: module 1`] = `
 "exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
 // Module
-exports.push([module.id, \\".button.hey {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".button\\\\\\\\.hey {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"button\\": \\"button.hey\\"

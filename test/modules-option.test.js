@@ -491,8 +491,7 @@ describe('modules', () => {
       loader: {
         options: {
           modules: {
-            getLocalIdent: (ctx, localIdentName, localName) =>
-              `${localName}.hey`,
+            localIdentName: '[local].hey',
           },
         },
       },
