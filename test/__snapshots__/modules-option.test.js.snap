@@ -6355,6 +6355,33 @@ exports.locals = {
 
 exports[`modules issue #861: warnings 1`] = `Array []`;
 
+exports[`modules issue #966: errors 1`] = `Array []`;
+
+exports[`modules issue #966: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".button.hey {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules issue #966: module 1`] = `
+"exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
+// Module
+exports.push([module.id, \\".button.hey {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"button\\": \\"button.hey\\"
+};"
+`;
+
+exports[`modules issue #966: warnings 1`] = `Array []`;
+
 exports[`modules issue #967: errors 1`] = `Array []`;
 
 exports[`modules issue #967: module (evaluated) 1`] = `
