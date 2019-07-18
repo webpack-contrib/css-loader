@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/webpack-contrib/css-loader/compare/v3.0.0...v3.1.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* converting all (including reserved and control) filesystem characters to `-` (it was regression in `3.0.0` version) ([#972](https://github.com/webpack-contrib/css-loader/issues/972)) ([f51859b](https://github.com/webpack-contrib/css-loader/commit/f51859b))
+* default context should be undefined instead of null ([#965](https://github.com/webpack-contrib/css-loader/issues/965)) ([9c32885](https://github.com/webpack-contrib/css-loader/commit/9c32885))
+
+
+### Features
+
+* allow `modules.getLocalIdent` to return a falsy value ([#963](https://github.com/webpack-contrib/css-loader/issues/963)) ([9c3571c](https://github.com/webpack-contrib/css-loader/commit/9c3571c))
+* improved validation error messages ([65e4fc0](https://github.com/webpack-contrib/css-loader/commit/65e4fc0))
+
+
+
 ## [3.0.0](https://github.com/webpack-contrib/css-loader/compare/v2.1.1...v3.0.0) (2019-06-11)
 
 
