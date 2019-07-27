@@ -40,7 +40,7 @@ All notable changes to this project will be documented in this file. See [standa
 * minimum required nodejs version is 8.9.0
 * `@value` at rules now support in `selector`, recommends checking all `@values` at-rule usage (hint: you can add prefix to all `@value` at-rules, for example `@value v-foo: black;` or `@value m-foo: screen and (max-width: 12450px)`, and then do upgrade)
 * invert `{Function}` behavior for `url` and `import` options  (need return `true` when you want handle `url`/`@import` and return `false` if not)
-* `exportLocalsStyle` option was remove in favor `localsConvention` option, also it is accept only `{String}` value (use `camelCase` value if you previously value was `true` and `asIs` if you previously value was `false`) 
+* `camelCase` option was remove in favor `localsConvention` option, also it is accept only `{String}` value (use `camelCase` value if you previously value was `true` and `asIs` if you previously value was `false`)
 * `exportOnlyLocals` option was remove in favor `onlyLocals` option
 * `modules` option now can be `{Object}` and allow to setup `CSS Modules` options:
   * `localIdentName` option was removed in favor `modules.localIdentName` option
