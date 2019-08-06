@@ -105,7 +105,8 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
       .replace(/^((-?[0-9])|--)/, '_$1')
       .replace(filenameReservedRegex, '-')
       .replace(reControlChars, '-')
-      .replace(reRelativePath, '-'),
+      .replace(reRelativePath, '-')
+      .replace(/\./g, '-'),
     { isIdentifier: true }
   ).replace(/\\\[local\\\]/gi, localName);
 }
