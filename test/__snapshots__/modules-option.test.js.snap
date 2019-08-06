@@ -6419,6 +6419,33 @@ exports.locals = {
 
 exports[`modules issue #967: warnings 1`] = `Array []`;
 
+exports[`modules issue #980: errors 1`] = `Array []`;
+
+exports[`modules issue #980: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".file-with-many-dots-in-name_a_1j0Lw {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules issue #980: module 1`] = `
+"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+// Module
+exports.push([module.id, \\".file-with-many-dots-in-name_a_1j0Lw {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"a\\": \\"file-with-many-dots-in-name_a_1j0Lw\\"
+};"
+`;
+
+exports[`modules issue #980: warnings 1`] = `Array []`;
+
 exports[`modules should accepts all arguments for getLocalIdent option: errors 1`] = `Array []`;
 
 exports[`modules should accepts all arguments for getLocalIdent option: locals 1`] = `
