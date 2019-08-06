@@ -15,5 +15,40 @@ describe('escape', () => {
     expect(getUrl('image.png', true)).toMatchSnapshot();
     expect(getUrl("'image other.png'", true)).toMatchSnapshot();
     expect(getUrl('"image other.png"', true)).toMatchSnapshot();
+
+    expect(
+      getUrl({ default: 'image.png', __esModule: true })
+    ).toMatchSnapshot();
+    expect(
+      getUrl({ default: "'image.png'", __esModule: true })
+    ).toMatchSnapshot();
+    expect(
+      getUrl({ default: '"image.png"', __esModule: true })
+    ).toMatchSnapshot();
+    expect(
+      getUrl({ default: 'image other.png', __esModule: true })
+    ).toMatchSnapshot();
+    expect(
+      getUrl({ default: '"image other.png"', __esModule: true })
+    ).toMatchSnapshot();
+    expect(
+      getUrl({ default: "'image other.png'", __esModule: true })
+    ).toMatchSnapshot();
+    expect(
+      getUrl({ default: 'image"other.png', __esModule: true })
+    ).toMatchSnapshot();
+    expect(
+      getUrl({ default: 'image\nother.png', __esModule: true })
+    ).toMatchSnapshot();
+
+    expect(
+      getUrl({ default: 'image.png', __esModule: true }, true)
+    ).toMatchSnapshot();
+    expect(
+      getUrl({ default: "'image.png'", __esModule: true }, true)
+    ).toMatchSnapshot();
+    expect(
+      getUrl({ default: '"image.png"', __esModule: true }, true)
+    ).toMatchSnapshot();
   });
 });

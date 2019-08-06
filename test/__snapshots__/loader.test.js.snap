@@ -103,6 +103,9 @@ exports[`loader should compile with \`css\` entry point (with \`modules\` and sc
 
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): escape 1`] = `
 "module.exports = (url, needQuotes) => {
+  // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+  url = url.__esModule ? url.default : url;
+
   if (typeof url !== 'string') {
     return url;
   }
@@ -393,6 +396,9 @@ exports[`loader should compile with \`css\` entry point (with \`modules\` and sc
 
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): escape 1`] = `
 "module.exports = (url, needQuotes) => {
+  // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+  url = url.__esModule ? url.default : url;
+
   if (typeof url !== 'string') {
     return url;
   }
@@ -707,6 +713,9 @@ exports[`loader should compile with \`css\` entry point: errors 1`] = `Array []`
 
 exports[`loader should compile with \`css\` entry point: escape 1`] = `
 "module.exports = (url, needQuotes) => {
+  // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+  url = url.__esModule ? url.default : url;
+
   if (typeof url !== 'string') {
     return url;
   }
@@ -997,6 +1006,9 @@ exports[`loader should compile with \`js\` entry point: errors 1`] = `Array []`;
 
 exports[`loader should compile with \`js\` entry point: escape 1`] = `
 "module.exports = (url, needQuotes) => {
+  // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+  url = url.__esModule ? url.default : url;
+
   if (typeof url !== 'string') {
     return url;
   }
