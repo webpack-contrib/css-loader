@@ -164,4 +164,65 @@ describe('loader', () => {
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
+
+  it('using together with "sass-loader"', async () => {
+    const config = {
+      loader: { test: /\.s[ca]ss$/i },
+      sassLoader: true,
+      sassLoaderOptions: {
+        // eslint-disable-next-line global-require
+        implementation: require('sass'),
+      },
+    };
+    const testId = './scss/source.scss';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
+  it('should work with ModuleConcatenationPlugin (file-loader)', async () => {
+    const stats = await webpack('basic.js', {
+      mode: 'production',
+      fileLoaderOptions: {
+        name: '[name].[ext]',
+        esModules: true,
+      },
+    });
+
+    expect(stats.compilation.assets['main.bundle.js'].source()).toMatchSnapshot(
+      'assets'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
+  it('should work with ModuleConcatenationPlugin (url-loader)', async () => {
+    const stats = await webpack('basic.js', {
+      mode: 'production',
+      disableFileLoader: true,
+      additionalLoader: {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            name: '[name].[ext]',
+            esModules: true,
+          },
+        },
+      },
+    });
+
+    expect(stats.compilation.assets['main.bundle.js'].source()).toMatchSnapshot(
+      'assets'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
 });

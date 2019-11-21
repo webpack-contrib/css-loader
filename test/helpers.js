@@ -142,16 +142,18 @@ const moduleConfig = (config) => {
                   : []
               ),
           },
-          config.additionalLoader ? config.additionalLoader : {},
-          {
-            test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-            use: {
-              loader: 'file-loader',
-              options: {
-                name: '[name].[ext]',
+          config.disableFileLoader
+            ? {}
+            : {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                use: {
+                  loader: 'file-loader',
+                  options: config.fileLoaderOptions || {
+                    name: '[name].[ext]',
+                  },
+                },
               },
-            },
-          },
+          config.additionalLoader ? config.additionalLoader : {},
         ],
   };
 };
@@ -170,7 +172,7 @@ function compile(fixture, config = {}, options = {}) {
   // webpack Config
   // eslint-disable-next-line no-param-reassign
   config = {
-    mode: 'development',
+    mode: config.mode || 'development',
     devtool: config.devtool || 'sourcemap',
     context: path.resolve(__dirname, 'fixtures'),
     entry: path.resolve(__dirname, 'fixtures', fixture),
@@ -178,7 +180,8 @@ function compile(fixture, config = {}, options = {}) {
     module: moduleConfig(config),
     plugins: pluginsConfig(config),
     optimization: {
-      runtimeChunk: true,
+      minimize: false,
+      runtimeChunk: false,
     },
     resolve: {
       alias: {
