@@ -104,10 +104,11 @@ exports[`validate options 13`] = `
    boolean | \\"local\\" | \\"global\\" | object { mode?, localIdentName?, localIdentRegExp?, context?, hashPrefix?, getLocalIdent? }
    -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
-    * options.modules.getLocalIdent should be a boolean.
-    * options.modules.getLocalIdent should be an instance of function.
     * options.modules.getLocalIdent should be one of these:
-      boolean | function"
+      boolean | function
+      Details:
+       * options.modules.getLocalIdent should be a boolean.
+       * options.modules.getLocalIdent should be an instance of function."
 `;
 
 exports[`validate options 14`] = `
@@ -116,10 +117,11 @@ exports[`validate options 14`] = `
    boolean | \\"local\\" | \\"global\\" | object { mode?, localIdentName?, localIdentRegExp?, context?, hashPrefix?, getLocalIdent? }
    -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
-    * options.modules.localIdentRegExp should be a string.
-    * options.modules.localIdentRegExp should be an instance of RegExp.
     * options.modules.localIdentRegExp should be one of these:
-      string | RegExp"
+      string | RegExp
+      Details:
+       * options.modules.localIdentRegExp should be a string.
+       * options.modules.localIdentRegExp should be an instance of RegExp."
 `;
 
 exports[`validate options 15`] = `

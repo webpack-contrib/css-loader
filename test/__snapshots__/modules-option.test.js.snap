@@ -6287,12 +6287,12 @@ Array [
 exports[`modules issue #636: module 1`] = `
 "exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/lib/loader.js??ref--4-1!./foo.scss\\"), \\"\\");
+exports.i(require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/dist/cjs.js??ref--4-1!./foo.scss\\"), \\"\\");
 // Module
 exports.push([module.id, \\".prefix-bar {\\\\n}\\", \\"\\"]);
 // Exports
 exports.locals = {
-	\\"bar\\": \\"prefix-bar \\" + require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/lib/loader.js??ref--4-1!./foo.scss\\").locals[\\"foo\\"] + \\"\\"
+	\\"bar\\": \\"prefix-bar \\" + require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/dist/cjs.js??ref--4-1!./foo.scss\\").locals[\\"foo\\"] + \\"\\"
 };"
 `;
 

@@ -6,12 +6,7 @@ import validateOptions from 'schema-utils';
 import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
 
-import {
-  getOptions,
-  isUrlRequest,
-  getRemainingRequest,
-  getCurrentRequest,
-} from 'loader-utils';
+import { getOptions, isUrlRequest } from 'loader-utils';
 
 import schema from './options.json';
 import { importParser, icssParser, urlParser } from './plugins';
@@ -94,12 +89,8 @@ export default function loader(content, map, meta) {
 
   postcss(plugins)
     .process(content, {
-      from: getRemainingRequest(this)
-        .split('!')
-        .pop(),
-      to: getCurrentRequest(this)
-        .split('!')
-        .pop(),
+      from: this.remainingRequest.split('!').pop(),
+      to: this.currentRequest.split('!').pop(),
       map: options.sourceMap
         ? {
             prev: map,
