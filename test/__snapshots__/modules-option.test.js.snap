@@ -6446,6 +6446,125 @@ exports.locals = {
 
 exports[`modules issue #980: warnings 1`] = `Array []`;
 
+exports[`modules issue #995: errors 1`] = `Array []`;
+
+exports[`modules issue #995: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "/* class=\\"😀\\" */
+.a {
+  color: red;
+}
+
+/* class=\\"😀 😓\\" */
+.a.b {
+  color: red;
+}
+
+/* class=\\"😀\\" > class=\\"😓\\" */
+.a .b {
+  color: red;
+}
+
+/* class=\\"😀\\" */
+.😀 {
+  color: red;
+}
+
+/* class=\\"😀 😓\\" */
+.😀.😓 {
+  color: red;
+}
+
+/* class=\\"😀\\" > class=\\"😓\\" */
+.😀 .😓 {
+  color: red;
+}
+
+/* class=\\"😀\\" */
+.\\\\1F600 {
+  color: red;
+}
+
+/* class=\\"😀 😓\\" */
+.\\\\1F600.\\\\1F613 {
+  color: red;
+}
+
+/* class=\\"😀\\" > class=\\"😓\\" */
+.\\\\1F600  .\\\\1F613 {
+  color: red;
+}
+
+/* Local */
+
+/* class=\\"😀\\" */
+.\\\\1F600 {
+  color: red;
+}
+
+/* class=\\"😀 😓\\" */
+.\\\\1F600.\\\\1F600 {
+  color: red;
+}
+
+/* class=\\"😀\\" > class=\\"😓\\" */
+.\\\\1F600  .\\\\1F600 {
+  color: red;
+}
+
+.\\\\1F600  .a .\\\\1F600 {
+  color: red;
+}
+
+.\\\\1F600  .\\\\1F600  .\\\\1F600 {
+  color: red;
+}
+
+div:not(.\\\\1F600) {
+  color: red;
+}
+
+.\\\\1F600  .b {
+  color: red;
+}
+
+.b .\\\\1F600 {
+  color: red;
+}
+
+.\\\\1F613  .\\\\1F600 {
+  color: red;
+}
+
+.\\\\1F613 .\\\\1F600 {
+  color: red;
+}
+
+.\\\\1F600 > .\\\\1F600 > .\\\\1F600 {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules issue #995: module 1`] = `
+"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+// Module
+exports.push([module.id, \\"/* class=\\\\\\"😀\\\\\\" */\\\\n.a {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.a.b {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.a .b {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" */\\\\n.😀 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.😀.😓 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.😀 .😓 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" */\\\\n.\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.\\\\\\\\1F600.\\\\\\\\1F613 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.\\\\\\\\1F600  .\\\\\\\\1F613 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* Local */\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" */\\\\n.\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.\\\\\\\\1F600.\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.\\\\\\\\1F600  .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F600  .a .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F600  .\\\\\\\\1F600  .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\ndiv:not(.\\\\\\\\1F600) {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F600  .b {\\\\n  color: red;\\\\n}\\\\n\\\\n.b .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F613  .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F613 .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F600 > .\\\\\\\\1F600 > .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"a\\": \\"😀\\",
+	\\"b\\": \\"😀\\",
+	\\"c\\": \\"😀\\"
+};"
+`;
+
+exports[`modules issue #995: warnings 1`] = `Array []`;
+
 exports[`modules should accepts all arguments for getLocalIdent option: errors 1`] = `Array []`;
 
 exports[`modules should accepts all arguments for getLocalIdent option: locals 1`] = `

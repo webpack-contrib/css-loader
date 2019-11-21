@@ -150,6 +150,7 @@ const moduleConfig = (config) => {
                   loader: 'file-loader',
                   options: config.fileLoaderOptions || {
                     name: '[name].[ext]',
+                    esModule: false,
                   },
                 },
               },
