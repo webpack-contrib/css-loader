@@ -109,15 +109,15 @@ module.exports = {
 
 ## Options
 
-|                    Name                     |            Type             | Default | Description                                                            |
-| :-----------------------------------------: | :-------------------------: | :-----: | :--------------------------------------------------------------------- |
-|              **[`url`](#url)**              |    `{Boolean\|Function}`    | `true`  | Enables/Disables `url`/`image-set` functions handling                  |
-|           **[`import`](#import)**           |    `{Boolean\|Function}`    | `true`  | Enables/Disables `@import` at-rules handling                           |
-|          **[`modules`](#modules)**          | `{Boolean\|String\|Object}` | `false` | Enables/Disables CSS Modules and their configuration                   |
-|        **[`sourceMap`](#sourcemap)**        |         `{Boolean}`         | `false` | Enables/Disables generation of source maps                             |
-|    **[`importLoaders`](#importloaders)**    |         `{Number}`          |   `0`   | Enables/Disables or setups number of loaders applied before CSS loader |
-| **[`localsConvention`](#localsconvention)** |         `{String}`          | `asIs`  | Style of exported classnames                                           |
-|       **[`onlyLocals`](#onlylocals)**       |         `{Boolean}`         | `false` | Export only locals                                                     |
+|                    Name                     |            Type             | Default  | Description                                                            |
+| :-----------------------------------------: | :-------------------------: | :------: | :--------------------------------------------------------------------- |
+|              **[`url`](#url)**              |    `{Boolean\|Function}`    |  `true`  | Enables/Disables `url`/`image-set` functions handling                  |
+|           **[`import`](#import)**           |    `{Boolean\|Function}`    |  `true`  | Enables/Disables `@import` at-rules handling                           |
+|          **[`modules`](#modules)**          | `{Boolean\|String\|Object}` | `false`  | Enables/Disables CSS Modules and their configuration                   |
+|        **[`sourceMap`](#sourcemap)**        |         `{Boolean}`         | `false`  | Enables/Disables generation of source maps                             |
+|    **[`importLoaders`](#importloaders)**    |         `{Number}`          |   `0`    | Enables/Disables or setups number of loaders applied before CSS loader |
+| **[`localsConvention`](#localsconvention)** |         `{String}`          | `'asIs'` | Style of exported classnames                                           |
+|       **[`onlyLocals`](#onlylocals)**       |         `{Boolean}`         | `false`  | Export only locals                                                     |
 
 ### `url`
 
@@ -201,7 +201,7 @@ module.exports = {
 
 ### `import`
 
-Type: `Boolean`
+Type: `Boolean|Function`
 Default: `true`
 
 Enables/Disables `@import` at-rules handling.
@@ -540,7 +540,7 @@ module.exports = {
 ##### `mode`
 
 Type: `String`
-Default: `local`
+Default: `'local'`
 
 Setup `mode` option. You can omit the value when you want `local` mode.
 
@@ -567,15 +567,15 @@ module.exports = {
 ##### `localIdentName`
 
 Type: `String`
-Default: `[hash:base64]`
+Default: `'[hash:base64]'`
 
 You can configure the generated ident with the `localIdentName` query parameter.
 See [loader-utils's documentation](https://github.com/webpack/loader-utils#interpolatename) for more information on options.
 
 Recommendations:
 
-- use `[path][name]__[local]` for development
-- use `[hash:base64]` for production
+- use `'[path][name]__[local]'` for development
+- use `'[hash:base64]'` for production
 
 The `[local]` placeholder contains original class.
 
@@ -782,7 +782,7 @@ This may change in the future when the module system (i. e. webpack) supports lo
 ### `localsConvention`
 
 Type: `String`
-Default: `undefined`
+Default: `'asIs'`
 
 Style of exported classnames.
 
