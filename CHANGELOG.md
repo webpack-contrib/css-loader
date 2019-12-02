@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/webpack-contrib/css-loader/compare/v3.2.0...v3.2.1) (2019-12-02)
+
+
+### Bug Fixes
+
+* add an additional space after the escape sequence ([#998](https://github.com/webpack-contrib/css-loader/issues/998)) ([0961304](https://github.com/webpack-contrib/css-loader/commit/0961304020832fc9ca70cc708f4366e1f868e765))
+* compatibility with ES modules syntax and hash in `url` function ([#1001](https://github.com/webpack-contrib/css-loader/issues/1001)) ([8f4d6f5](https://github.com/webpack-contrib/css-loader/commit/8f4d6f508187513347106a436eda993f874065f1))
+
 ## [3.2.0](https://github.com/webpack-contrib/css-loader/compare/v3.1.0...v3.2.0) (2019-08-06)
 
 
