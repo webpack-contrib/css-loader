@@ -242,10 +242,23 @@ function getUrlItemCode(item, loaderContext) {
       ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
       : '';
 
+  const options = [];
+
+  if (hash) {
+    options.push(`hash: ${hash}`);
+  }
+
+  if (needQuotes) {
+    options.push(`needQuotes: true`);
+  }
+
+  const preparedOptions =
+    options.length > 0 ? `, { ${options.join(', ')} }` : '';
+
   return `var ${placeholder} = getUrl(require(${stringifyRequest(
     loaderContext,
     urlToRequest(normalizedUrl)
-  )})${hash ? ` + ${hash}` : ''}${needQuotes ? ', true' : ''});`;
+  )})${preparedOptions});`;
 }
 
 function getApiCode(loaderContext, sourceMap, onlyLocals) {
