@@ -19,7 +19,6 @@ import {
   getImportCode,
   getModuleCode,
   getExportCode,
-  prepareCode,
 } from './utils';
 import Warning from './Warning';
 import CssSyntaxError from './CssSyntaxError';
@@ -58,19 +57,11 @@ export default function loader(content, map, meta) {
   // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
   const importPrefix = getImportPrefix(this, options.importLoaders);
 
-  plugins.push(
-    icssParser({
-      loaderContext: this,
-      importPrefix,
-      localsConvention: options.localsConvention,
-    })
-  );
+  plugins.push(icssParser());
 
   if (options.import !== false) {
     plugins.push(
       importParser({
-        loaderContext: this,
-        importPrefix,
         filter: getFilter(options.import, this.resourcePath),
       })
     );
@@ -79,7 +70,6 @@ export default function loader(content, map, meta) {
   if (options.url !== false) {
     plugins.push(
       urlParser({
-        loaderContext: this,
         filter: getFilter(options.url, this.resourcePath, (value) =>
           isUrlRequest(value)
         ),
@@ -92,54 +82,55 @@ export default function loader(content, map, meta) {
       from: this.remainingRequest.split('!').pop(),
       to: this.currentRequest.split('!').pop(),
       map: options.sourceMap
-        ? {
-            prev: map,
-            inline: false,
-            annotation: false,
-          }
-        : null,
+        ? { prev: map, inline: false, annotation: false }
+        : false,
     })
     .then((result) => {
       result
         .warnings()
         .forEach((warning) => this.emitWarning(new Warning(warning)));
 
-      if (!result.messages) {
-        // eslint-disable-next-line no-param-reassign
-        result.messages = [];
+      const imports = [];
+      const exports = [];
+      const replacers = [];
+
+      for (const message of result.messages) {
+        // eslint-disable-next-line default-case
+        switch (message.type) {
+          case 'import':
+            imports.push(message.value);
+            break;
+          case 'export':
+            exports.push(message.value);
+            break;
+          case 'replacer':
+            replacers.push(message.value);
+            break;
+        }
       }
 
-      const { onlyLocals } = options;
+      const isNormalMode = !options.onlyLocals;
 
-      const importItems = result.messages
-        .filter((message) => (message.type === 'import' ? message : false))
-        .reduce((accumulator, currentValue) => {
-          accumulator.push(currentValue.import);
-
-          return accumulator;
-        }, []);
-      const exportItems = result.messages
-        .filter((message) => (message.type === 'export' ? message : false))
-        .reduce((accumulator, currentValue) => {
-          accumulator.push(currentValue.export);
-
-          return accumulator;
-        }, []);
-
-      const importCode = getImportCode(importItems, onlyLocals);
-      const moduleCode = getModuleCode(result, sourceMap, onlyLocals);
-      const exportCode = getExportCode(exportItems, onlyLocals);
-      const apiCode = getApiCode(this, sourceMap, onlyLocals);
+      const apiCode = isNormalMode ? getApiCode(this, sourceMap) : '';
+      const importCode =
+        isNormalMode && imports.length > 0
+          ? getImportCode(this, imports, { importPrefix })
+          : '';
+      const moduleCode = isNormalMode
+        ? getModuleCode(this, result, replacers, { sourceMap, importPrefix })
+        : '';
+      const exportCode =
+        exports.length > 0
+          ? getExportCode(this, exports, replacers, {
+              importPrefix,
+              localsConvention: options.localsConvention,
+              onlyLocals: options.onlyLocals,
+            })
+          : '';
 
       return callback(
         null,
-        prepareCode(
-          { apiCode, importCode, moduleCode, exportCode },
-          result.messages,
-          this,
-          importPrefix,
-          onlyLocals
-        )
+        [apiCode, importCode, moduleCode, exportCode].join('')
       );
     })
     .catch((error) => {

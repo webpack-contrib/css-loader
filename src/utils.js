@@ -28,12 +28,6 @@ function flatten(array) {
   return array.reduce((a, b) => a.concat(b), []);
 }
 
-function dashesCamelCase(str) {
-  return str.replace(/-+(\w)/g, (match, firstLetter) =>
-    firstLetter.toUpperCase()
-  );
-}
-
 function getImportPrefix(loaderContext, importLoaders) {
   if (importLoaders === false) {
     return '';
@@ -207,207 +201,182 @@ function normalizeSourceMap(map) {
   return newMap;
 }
 
-function getImportItemCode(item, loaderContext, importPrefix) {
-  const { url } = item;
-  const media = item.media || '';
+function getApiCode(loaderContext, sourceMap) {
+  const url = stringifyRequest(loaderContext, require.resolve('./runtime/api'));
 
-  if (!isUrlRequest(url)) {
-    return `exports.push([module.id, ${JSON.stringify(
-      `@import url(${url});`
-    )}, ${JSON.stringify(media)}]);`;
-  }
-
-  const importUrl = importPrefix + urlToRequest(url);
-
-  return `exports.i(require(${stringifyRequest(
-    loaderContext,
-    importUrl
-  )}), ${JSON.stringify(media)});`;
+  return `exports = module.exports = require(${url})(${sourceMap});\n`;
 }
 
-function getUrlHelperCode(loaderContext) {
-  return `var getUrl = require(${stringifyRequest(
-    loaderContext,
-    require.resolve('./runtime/getUrl.js')
-  )});`;
-}
-
-function getUrlItemCode(item, loaderContext) {
-  const { url, placeholder, needQuotes } = item;
-
-  // Remove `#hash` and `?#hash` from `require`
-  const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
-  const hash =
-    singleQuery || hashValue
-      ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
-      : '';
-
-  const options = [];
-
-  if (hash) {
-    options.push(`hash: ${hash}`);
-  }
-
-  if (needQuotes) {
-    options.push(`needQuotes: true`);
-  }
-
-  const preparedOptions =
-    options.length > 0 ? `, { ${options.join(', ')} }` : '';
-
-  return `var ${placeholder} = getUrl(require(${stringifyRequest(
-    loaderContext,
-    urlToRequest(normalizedUrl)
-  )})${preparedOptions});`;
-}
-
-function getApiCode(loaderContext, sourceMap, onlyLocals) {
-  if (onlyLocals) {
-    return '';
-  }
-
-  return `exports = module.exports = require(${stringifyRequest(
-    loaderContext,
-    require.resolve('./runtime/api')
-  )})(${sourceMap});\n`;
-}
-
-function getImportCode(importItems, onlyLocals) {
-  if (importItems.length === 0 || onlyLocals) {
-    return '';
-  }
-
-  return `// Imports\n${importItems.join('\n')}\n`;
-}
-
-function getModuleCode(result, sourceMap, onlyLocals) {
-  if (onlyLocals) {
-    return '';
-  }
-
-  return `// Module\nexports.push([module.id, ${JSON.stringify(
-    result.css
-  )}, ""${sourceMap && result.map ? `,${result.map}` : ''}]);\n`;
-}
-
-function getExportItemCode(key, value, localsConvention) {
-  let targetKey;
+function getImportCode(loaderContext, imports, options) {
   const items = [];
 
-  function addEntry(k) {
-    items.push(`\t${JSON.stringify(k)}: ${JSON.stringify(value)}`);
-  }
+  let hasUrlHelperCode = false;
 
-  switch (localsConvention) {
-    case 'camelCase':
-      addEntry(key);
-      targetKey = camelCase(key);
+  imports.forEach((item) => {
+    if (item.type === '@import' || item.type === 'icss-import') {
+      const url = !isUrlRequest(item.url)
+        ? JSON.stringify(`@import url(${item.url});`)
+        : stringifyRequest(
+            loaderContext,
+            options.importPrefix + urlToRequest(item.url)
+          );
+      const media = JSON.stringify(item.media);
 
-      if (targetKey !== key) {
-        addEntry(targetKey);
+      if (!isUrlRequest(item.url)) {
+        items.push(`exports.push([module.id, ${url}, ${media}]);`);
+
+        return;
       }
-      break;
-    case 'camelCaseOnly':
-      addEntry(camelCase(key));
-      break;
-    case 'dashes':
-      addEntry(key);
-      targetKey = dashesCamelCase(key);
 
-      if (targetKey !== key) {
-        addEntry(targetKey);
+      items.push(`exports.i(require(${url}), ${media});`);
+    }
+
+    if (item.type === 'url') {
+      if (!hasUrlHelperCode) {
+        const pathToGetUrl = require.resolve('./runtime/getUrl.js');
+        const url = stringifyRequest(loaderContext, pathToGetUrl);
+
+        items.push(`var getUrl = require(${url});`);
+
+        hasUrlHelperCode = true;
       }
-      break;
-    case 'dashesOnly':
-      addEntry(dashesCamelCase(key));
-      break;
-    case 'asIs':
-    default:
-      addEntry(key);
-      break;
-  }
 
-  return items.join(',\n');
+      const { url, name, needQuotes } = item;
+      const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
+      const hash =
+        singleQuery || hashValue
+          ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
+          : '';
+
+      const getUrlOptions = [];
+
+      if (hash) {
+        getUrlOptions.push(`hash: ${hash}`);
+      }
+
+      if (needQuotes) {
+        getUrlOptions.push(`needQuotes: true`);
+      }
+
+      const preparedUrl = stringifyRequest(
+        loaderContext,
+        urlToRequest(normalizedUrl)
+      );
+      const preparedOptions =
+        getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
+
+      items.push(
+        `var ${name} = getUrl(require(${preparedUrl})${preparedOptions});`
+      );
+    }
+  });
+
+  return `// Imports\n${items.join('\n')}\n`;
 }
 
-function getExportCode(exportItems, onlyLocals) {
-  if (exportItems.length === 0) {
-    return '';
+function getModuleCode(loaderContext, result, replacers, options) {
+  const { css, map } = result;
+  const sourceMapValue = options.sourceMap && map ? `,${map}` : '';
+  let cssCode = JSON.stringify(css);
+
+  replacers.forEach((replacer) => {
+    const { type, name } = replacer;
+
+    if (type === 'url') {
+      cssCode = cssCode.replace(new RegExp(name, 'g'), () => `" + ${name} + "`);
+    }
+
+    if (type === 'icss-import') {
+      const url = stringifyRequest(
+        loaderContext,
+        options.importPrefix + urlToRequest(replacer.url)
+      );
+      const exportName = JSON.stringify(replacer.export);
+
+      // eslint-disable-next-line no-param-reassign
+      cssCode = cssCode.replace(
+        new RegExp(replacer.name, 'g'),
+        `" + require(${url}).locals[${exportName}] + "`
+      );
+    }
+  });
+
+  return `// Module\nexports.push([module.id, ${cssCode}, ""${sourceMapValue}]);\n`;
+}
+
+function dashesCamelCase(str) {
+  return str.replace(/-+(\w)/g, (match, firstLetter) =>
+    firstLetter.toUpperCase()
+  );
+}
+
+function getExportCode(loaderContext, exports, replacers, options) {
+  const items = [];
+
+  function addExportedItem(name, value) {
+    items.push(`\t${JSON.stringify(name)}: ${JSON.stringify(value)}`);
   }
 
-  return `// Exports\n${
-    onlyLocals ? 'module.exports' : 'exports.locals'
-  } = {\n${exportItems.join(',\n')}\n};`;
-}
+  exports.forEach((item) => {
+    const { name, value } = item;
 
-function getIcssReplacer(item, loaderContext, importPrefix, onlyLocals) {
-  const importUrl = importPrefix + urlToRequest(item.url);
+    switch (options.localsConvention) {
+      case 'camelCase': {
+        addExportedItem(name, value);
 
-  return () =>
-    onlyLocals
-      ? `" + require(${stringifyRequest(
-          loaderContext,
-          importUrl
-        )})[${JSON.stringify(item.export)}] + "`
-      : `" + require(${stringifyRequest(
-          loaderContext,
-          importUrl
-        )}).locals[${JSON.stringify(item.export)}] + "`;
-}
+        const modifiedName = camelCase(name);
 
-function prepareCode(file, messages, loaderContext, importPrefix, onlyLocals) {
-  const { apiCode, importCode } = file;
-  let { moduleCode, exportCode } = file;
-
-  messages
-    .filter(
-      (message) =>
-        message.type === 'icss-import' ||
-        (message.type === 'import' && message.importType === 'url')
-    )
-    .forEach((message) => {
-      // Replace all urls on `require`
-      if (message.type === 'import') {
-        const { placeholder } = message;
-
-        if (moduleCode) {
-          // eslint-disable-next-line no-param-reassign
-          moduleCode = moduleCode.replace(
-            new RegExp(placeholder, 'g'),
-            () => `" + ${placeholder} + "`
-          );
+        if (modifiedName !== name) {
+          addExportedItem(modifiedName, value);
         }
+        break;
       }
-
-      // Replace external ICSS import on `require`
-      if (message.type === 'icss-import') {
-        const { item } = message;
-        const replacer = getIcssReplacer(
-          item,
-          loaderContext,
-          importPrefix,
-          onlyLocals
-        );
-
-        if (moduleCode) {
-          // eslint-disable-next-line no-param-reassign
-          moduleCode = moduleCode.replace(
-            new RegExp(`___CSS_LOADER_IMPORT___(${item.index})___`, 'g'),
-            replacer
-          );
-        }
-
-        if (exportCode) {
-          // eslint-disable-next-line no-param-reassign
-          exportCode = exportCode.replace(
-            new RegExp(`___CSS_LOADER_IMPORT___(${item.index})___`, 'g'),
-            replacer
-          );
-        }
+      case 'camelCaseOnly': {
+        addExportedItem(camelCase(name), value);
+        break;
       }
-    });
+      case 'dashes': {
+        addExportedItem(name, value);
 
-  return [apiCode, importCode, moduleCode, exportCode].filter(Boolean).join('');
+        const modifiedName = dashesCamelCase(name);
+
+        if (modifiedName !== name) {
+          addExportedItem(modifiedName, value);
+        }
+        break;
+      }
+      case 'dashesOnly': {
+        addExportedItem(dashesCamelCase(name), value);
+        break;
+      }
+      case 'asIs':
+      default:
+        addExportedItem(name, value);
+        break;
+    }
+  });
+
+  const exportType = options.onlyLocals ? 'module.exports' : 'exports.locals';
+  let exportCode = `// Exports\n${exportType} = {\n${items.join(',\n')}\n};`;
+
+  replacers.forEach((replacer) => {
+    const { type } = replacer;
+
+    if (type === 'icss-import') {
+      const importUrl = options.importPrefix + urlToRequest(replacer.url);
+
+      exportCode = exportCode.replace(new RegExp(replacer.name, 'g'), () => {
+        const url = stringifyRequest(loaderContext, importUrl);
+        const importName = JSON.stringify(replacer.export);
+
+        return options.onlyLocals
+          ? `" + require(${url})[${importName}] + "`
+          : `" + require(${url}).locals[${importName}] + "`;
+      });
+    }
+  });
+
+  return exportCode;
 }
 
 export {
@@ -419,13 +388,8 @@ export {
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,
-  getImportItemCode,
-  getUrlHelperCode,
-  getUrlItemCode,
   getApiCode,
   getImportCode,
   getModuleCode,
-  getExportItemCode,
   getExportCode,
-  prepareCode,
 };
