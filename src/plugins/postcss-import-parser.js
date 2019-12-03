@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
-import { uniqWith, getImportItemCode } from '../utils';
+import { uniqWith } from '../utils';
 
 const pluginName = 'postcss-import-parser';
 
@@ -88,7 +88,7 @@ function walkAtRules(css, result, filter) {
 
 export default postcss.plugin(
   pluginName,
-  (options = {}) =>
+  (options) =>
     function process(css, result) {
       const traversed = walkAtRules(css, result, options.filter);
       const paths = uniqWith(
@@ -100,11 +100,7 @@ export default postcss.plugin(
         result.messages.push({
           pluginName,
           type: 'import',
-          import: getImportItemCode(
-            item,
-            options.loaderContext,
-            options.importPrefix
-          ),
+          value: { type: '@import', url: item.url, media: item.media },
         });
       });
     }

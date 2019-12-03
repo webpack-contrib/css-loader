@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
-import { uniqWith, flatten, getUrlHelperCode, getUrlItemCode } from '../utils';
+import { uniqWith, flatten } from '../utils';
 
 const pluginName = 'postcss-url-parser';
 
@@ -106,7 +106,7 @@ function walkDeclsWithUrl(css, result, filter) {
 
 export default postcss.plugin(
   pluginName,
-  (options = {}) =>
+  (options) =>
     function process(css, result) {
       const traversed = walkDeclsWithUrl(css, result, options.filter);
       const paths = uniqWith(
@@ -121,36 +121,24 @@ export default postcss.plugin(
 
       const placeholders = [];
 
-      let hasUrlHelper = false;
-
       paths.forEach((path, index) => {
-        const { loaderContext } = options;
-        const placeholder = `___CSS_LOADER_URL___${index}___`;
+        const name = `___CSS_LOADER_URL___${index}___`;
         const { url, needQuotes } = path;
 
-        placeholders.push({ placeholder, path });
+        placeholders.push({ name, path });
 
-        if (!hasUrlHelper) {
-          result.messages.push({
+        result.messages.push(
+          {
             pluginName,
             type: 'import',
-            import: getUrlHelperCode(loaderContext),
-          });
-
-          // eslint-disable-next-line no-param-reassign
-          hasUrlHelper = true;
-        }
-
-        result.messages.push({
-          pluginName,
-          type: 'import',
-          import: getUrlItemCode(
-            { url, placeholder, needQuotes },
-            loaderContext
-          ),
-          importType: 'url',
-          placeholder,
-        });
+            value: { type: 'url', url, name, needQuotes },
+          },
+          {
+            pluginName,
+            type: 'replacer',
+            value: { type: 'url', name },
+          }
+        );
       });
 
       traversed.forEach((item) => {
@@ -165,12 +153,12 @@ export default postcss.plugin(
             return;
           }
 
-          const { placeholder } = value;
+          const { name } = value;
 
           // eslint-disable-next-line no-param-reassign
           node.type = 'word';
           // eslint-disable-next-line no-param-reassign
-          node.value = placeholder;
+          node.value = name;
         });
 
         // eslint-disable-next-line no-param-reassign
