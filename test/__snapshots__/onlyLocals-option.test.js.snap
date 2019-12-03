@@ -3,13 +3,21 @@
 exports[`modules true (mode: local): errors 1`] = `Array []`;
 
 exports[`modules true (mode: local): module 1`] = `
-"// Exports
+"// Imports
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./values.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-0!./something.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\");
+// Exports
 module.exports = {
-	\\"v-def\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"v-def\\"] + \\"\\",
-	\\"v-other\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"v-other\\"] + \\"\\",
-	\\"s-white\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"s-white\\"] + \\"\\",
-	\\"m-small\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\")[\\"m-small\\"] + \\"\\",
-	\\"v-something\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\")[\\"v-something\\"] + \\"\\",
+	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
+	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-other\\"] + \\"\\",
+	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"s-white\\"] + \\"\\",
+	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"m-small\\"] + \\"\\",
+	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___[\\"v-something\\"] + \\"\\",
 	\\"v-foo\\": \\"blue\\",
 	\\"v-bar\\": \\"block\\",
 	\\"v-primary\\": \\"#BF4040\\",
@@ -39,15 +47,16 @@ module.exports = {
 	\\"other-other\\": \\"_other-other\\",
 	\\"green\\": \\"_green\\",
 	\\"foo\\": \\"_foo\\",
-	\\"simple\\": \\"_simple \\" + require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\")[\\"imported-simple\\"] + \\"\\",
-	\\"relative\\": \\"_relative \\" + require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\")[\\"imported-relative\\"] + \\"\\",
-	\\"top-relative\\": \\"_top-relative \\" + require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\")[\\"imported-relative\\"] + \\"\\",
-	\\"module\\": \\"_module \\" + require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\")[\\"imported-module\\"] + \\"\\",
-	\\"alias\\": \\"_alias \\" + require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\")[\\"imported-alias\\"] + \\"\\",
+	\\"simple\\": \\"_simple \\" + ___CSS_LOADER_ICSS_IMPORT_2___[\\"imported-simple\\"] + \\"\\",
+	\\"relative\\": \\"_relative \\" + ___CSS_LOADER_ICSS_IMPORT_3___[\\"imported-relative\\"] + \\"\\",
+	\\"top-relative\\": \\"_top-relative \\" + ___CSS_LOADER_ICSS_IMPORT_4___[\\"imported-relative\\"] + \\"\\",
+	\\"module\\": \\"_module \\" + ___CSS_LOADER_ICSS_IMPORT_5___[\\"imported-module\\"] + \\"\\",
+	\\"alias\\": \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6___[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_primary-selector\\",
 	\\"black-selector\\": \\"_black-selector\\",
 	\\"header\\": \\"_header\\",
-	\\"foobarbaz\\": \\"_foobarbaz\\"
+	\\"foobarbaz\\": \\"_foobarbaz\\",
+	\\"url\\": \\"_url\\"
 };"
 `;
 

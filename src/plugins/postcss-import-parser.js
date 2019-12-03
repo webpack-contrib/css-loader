@@ -96,11 +96,14 @@ export default postcss.plugin(
         (value, other) => value.url === other.url && value.media === other.media
       );
 
-      paths.forEach((item) => {
+      paths.forEach((item, index) => {
+        const { url, media } = item;
+        const name = `___CSS_LOADER_IMPORT___${index}___`;
+
         result.messages.push({
           pluginName,
           type: 'import',
-          value: { type: '@import', url: item.url, media: item.media },
+          value: { type: '@import', name, url, media },
         });
       });
     }

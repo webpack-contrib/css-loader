@@ -228,7 +228,11 @@ function getImportCode(loaderContext, imports, options) {
         return;
       }
 
-      items.push(`exports.i(require(${url}), ${media});`);
+      items.push(`var ${item.name} = require(${url});`);
+
+      if (options.exportType === 'full') {
+        items.push(`exports.i(${item.name}, ${media});`);
+      }
     }
 
     if (item.type === 'url') {
@@ -274,9 +278,9 @@ function getImportCode(loaderContext, imports, options) {
   return `// Imports\n${items.join('\n')}\n`;
 }
 
-function getModuleCode(loaderContext, result, replacers, options) {
+function getModuleCode(loaderContext, result, replacers, sourceMap) {
   const { css, map } = result;
-  const sourceMapValue = options.sourceMap && map ? `,${map}` : '';
+  const sourceMapValue = sourceMap && map ? `,${map}` : '';
   let cssCode = JSON.stringify(css);
 
   replacers.forEach((replacer) => {
@@ -287,17 +291,11 @@ function getModuleCode(loaderContext, result, replacers, options) {
     }
 
     if (type === 'icss-import') {
-      const url = stringifyRequest(
-        loaderContext,
-        options.importPrefix + urlToRequest(replacer.url)
-      );
-      const exportName = JSON.stringify(replacer.export);
+      cssCode = cssCode.replace(new RegExp(name, 'g'), () => {
+        const { importName, localName } = replacer;
 
-      // eslint-disable-next-line no-param-reassign
-      cssCode = cssCode.replace(
-        new RegExp(replacer.name, 'g'),
-        `" + require(${url}).locals[${exportName}] + "`
-      );
+        return `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
+      });
     }
   });
 
@@ -356,22 +354,20 @@ function getExportCode(loaderContext, exports, replacers, options) {
     }
   });
 
-  const exportType = options.onlyLocals ? 'module.exports' : 'exports.locals';
-  let exportCode = `// Exports\n${exportType} = {\n${items.join(',\n')}\n};`;
+  let exportCode = `// Exports\n${
+    options.exportType === 'locals' ? 'module.exports' : 'exports.locals'
+  } = {\n${items.join(',\n')}\n};`;
 
   replacers.forEach((replacer) => {
-    const { type } = replacer;
+    if (replacer.type === 'icss-import') {
+      const { name, importName } = replacer;
 
-    if (type === 'icss-import') {
-      const importUrl = options.importPrefix + urlToRequest(replacer.url);
+      exportCode = exportCode.replace(new RegExp(name, 'g'), () => {
+        const localName = JSON.stringify(replacer.localName);
 
-      exportCode = exportCode.replace(new RegExp(replacer.name, 'g'), () => {
-        const url = stringifyRequest(loaderContext, importUrl);
-        const importName = JSON.stringify(replacer.export);
-
-        return options.onlyLocals
-          ? `" + require(${url})[${importName}] + "`
-          : `" + require(${url}).locals[${importName}] + "`;
+        return options.exportType === 'locals'
+          ? `" + ${importName}[${localName}] + "`
+          : `" + ${importName}.locals[${localName}] + "`;
       });
     }
   });

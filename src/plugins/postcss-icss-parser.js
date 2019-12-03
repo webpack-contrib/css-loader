@@ -1,19 +1,7 @@
 import postcss from 'postcss';
 import { extractICSS, replaceValueSymbols, replaceSymbols } from 'icss-utils';
-import loaderUtils from 'loader-utils';
 
 const pluginName = 'postcss-icss-parser';
-
-function hasImportMessage(messages, url) {
-  return messages.find(
-    (message) =>
-      message.pluginName === pluginName &&
-      message.type === 'import' &&
-      message.value &&
-      message.value.url === url &&
-      message.value.media === ''
-  );
-}
 
 export default postcss.plugin(
   pluginName,
@@ -22,42 +10,38 @@ export default postcss.plugin(
       const importReplacements = Object.create(null);
       const { icssImports, icssExports } = extractICSS(css);
 
-      let index = 0;
+      Object.keys(icssImports).forEach((url, importIndex) => {
+        const tokens = Object.keys(icssImports[url]);
 
-      for (const importUrl of Object.keys(icssImports)) {
-        const url = loaderUtils.parseString(importUrl);
+        if (tokens.length === 0) {
+          return;
+        }
 
-        for (const token of Object.keys(icssImports[importUrl])) {
-          const name = `___CSS_LOADER_IMPORT___${index}___`;
+        const importName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}___`;
 
-          index += 1;
+        result.messages.push({
+          pluginName,
+          type: 'import',
+          value: { type: 'icss-import', name: importName, url, media: '' },
+        });
+
+        tokens.forEach((token, replacementIndex) => {
+          const name = `___CSS_LOADER_ICSS_IMPORT_${importIndex}_REPLACEMENT_${replacementIndex}___`;
+          const localName = icssImports[url][token];
+
           importReplacements[token] = name;
 
           result.messages.push({
             pluginName,
             type: 'replacer',
-            value: {
-              type: 'icss-import',
-              name,
-              url,
-              export: icssImports[importUrl][token],
-            },
+            value: { type: 'icss-import', name, importName, localName },
           });
-
-          if (!hasImportMessage(result.messages, url)) {
-            result.messages.push({
-              pluginName,
-              type: 'import',
-              value: { type: 'icss-import', url, media: '', name },
-            });
-          }
-        }
-      }
+        });
+      });
 
       replaceSymbols(css, importReplacements);
 
-      for (const exportName of Object.keys(icssExports)) {
-        const name = exportName;
+      Object.keys(icssExports).forEach((name) => {
         const value = replaceValueSymbols(
           icssExports[name],
           importReplacements
@@ -68,6 +52,6 @@ export default postcss.plugin(
           type: 'export',
           value: { name, value },
         });
-      }
+      });
     }
 );

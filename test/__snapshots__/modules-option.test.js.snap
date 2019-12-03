@@ -6132,6 +6132,10 @@ a {
 [class~='content'] {
   color:green;
 }
+
+._340mxt1qHaYWfC81FJUajb {
+  background: url(/webpack/public/path/img.png);
+}
 ",
     "",
   ],
@@ -6141,23 +6145,33 @@ a {
 exports[`modules composes should supports resolving: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!./values.css\\"), \\"\\");
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!./something.css\\"), \\"\\");
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\"), \\"\\");
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\"), \\"\\");
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\"), \\"\\");
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\"), \\"\\");
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\"), \\"\\");
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!./test-other.css\\"), \\"(min-width: 100px)\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./values.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-0!./something.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_2___, \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_3___, \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_4___, \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_5___, \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\");
+var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../../src/index.js??ref--4-0!./test-other.css\\");
+exports.i(___CSS_LOADER_IMPORT___0___, \\"(min-width: 100px)\\");
+var getUrl = require(\\"../../../src/runtime/getUrl.js\\");
+var ___CSS_LOADER_URL___0___ = getUrl(require(\\"../url/img.png\\"));
 // Module
-exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n._1wABXM_RabWHj--wsPrhvM {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._1tAbIwITRWAdZZE6wKNk9O {\\\\n  prop: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ya4VhsDkuPhQeVHQydw2Y {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.sGE1Q_LliVEZU2Q4q9j4K {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"m-small\\"] + \\" {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._3qS0_85PLYhk_pNQ69KfSo {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"._14uFt0lIVKKAlKTTT29IIQ {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._3XDgIzfUIQkaUInpEdo7fN {\\\\n  color: blue;\\\\n}\\\\n\\\\n._1wABXM_RabWHj--wsPrhvM {\\\\n  display: block;\\\\n}\\\\n\\\\n._1DFEYnAfn9LZyk4fErI86e {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n.Ywv5coVC2RU-pIFhN9O4w {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._1tAbIwITRWAdZZE6wKNk9O {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.Q3SQ3BwtBwUFLlg6adzOI {\\\\n  color: red;\\\\n}\\\\n\\\\n._1n5XhXj4SFnYrwziC3un0d {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3dnFnGkAVAiMA6etF-naHc {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1xUePnlnafMQ1cExy3PUWT {\\\\n  color: gray;\\\\n}\\\\n\\\\n._26Jdfenl9Xn8HXwb2jipvt {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ya4VhsDkuPhQeVHQydw2Y {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.sGE1Q_LliVEZU2Q4q9j4K {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2zSMJ4hQh0FesbZjiKW_ya {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._3qS0_85PLYhk_pNQ69KfSo {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._340mxt1qHaYWfC81FJUajb {\\\\n  background: url(\\" + ___CSS_LOADER_URL___0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
-	\\"v-def\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-def\\"] + \\"\\",
-	\\"v-other\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"v-other\\"] + \\"\\",
-	\\"s-white\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"s-white\\"] + \\"\\",
-	\\"m-small\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./values.css\\").locals[\\"m-small\\"] + \\"\\",
-	\\"v-something\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!./something.css\\").locals[\\"v-something\\"] + \\"\\",
+	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
+	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\"\\",
+	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\"\\",
+	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\"\\",
+	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\"\\",
 	\\"v-foo\\": \\"blue\\",
 	\\"v-bar\\": \\"block\\",
 	\\"v-primary\\": \\"#BF4040\\",
@@ -6187,15 +6201,16 @@ exports.locals = {
 	\\"other-other\\": \\"_1DFEYnAfn9LZyk4fErI86e\\",
 	\\"green\\": \\"Ywv5coVC2RU-pIFhN9O4w\\",
 	\\"foo\\": \\"_1tAbIwITRWAdZZE6wKNk9O\\",
-	\\"simple\\": \\"Q3SQ3BwtBwUFLlg6adzOI \\" + require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\").locals[\\"imported-simple\\"] + \\"\\",
-	\\"relative\\": \\"_1n5XhXj4SFnYrwziC3un0d \\" + require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\").locals[\\"imported-relative\\"] + \\"\\",
-	\\"top-relative\\": \\"_3dnFnGkAVAiMA6etF-naHc \\" + require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\").locals[\\"imported-relative\\"] + \\"\\",
-	\\"module\\": \\"_1xUePnlnafMQ1cExy3PUWT \\" + require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\").locals[\\"imported-module\\"] + \\"\\",
-	\\"alias\\": \\"_26Jdfenl9Xn8HXwb2jipvt \\" + require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\").locals[\\"imported-alias\\"] + \\"\\",
+	\\"simple\\": \\"Q3SQ3BwtBwUFLlg6adzOI \\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"imported-simple\\"] + \\"\\",
+	\\"relative\\": \\"_1n5XhXj4SFnYrwziC3un0d \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"imported-relative\\"] + \\"\\",
+	\\"top-relative\\": \\"_3dnFnGkAVAiMA6etF-naHc \\" + ___CSS_LOADER_ICSS_IMPORT_4___.locals[\\"imported-relative\\"] + \\"\\",
+	\\"module\\": \\"_1xUePnlnafMQ1cExy3PUWT \\" + ___CSS_LOADER_ICSS_IMPORT_5___.locals[\\"imported-module\\"] + \\"\\",
+	\\"alias\\": \\"_26Jdfenl9Xn8HXwb2jipvt \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_1ya4VhsDkuPhQeVHQydw2Y\\",
 	\\"black-selector\\": \\"sGE1Q_LliVEZU2Q4q9j4K\\",
 	\\"header\\": \\"_2zSMJ4hQh0FesbZjiKW_ya\\",
-	\\"foobarbaz\\": \\"_3qS0_85PLYhk_pNQ69KfSo\\"
+	\\"foobarbaz\\": \\"_3qS0_85PLYhk_pNQ69KfSo\\",
+	\\"url\\": \\"_340mxt1qHaYWfC81FJUajb\\"
 };"
 `;
 
@@ -6253,12 +6268,13 @@ Array [
 exports[`modules issue #286: module 1`] = `
 "exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"./dep.css\\"), \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"./dep.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\");
 // Module
 exports.push([module.id, \\".b--main { }\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
-	\\"main\\": \\"b--main \\" + require(\\"./dep.css\\").locals[\\"red\\"] + \\"\\"
+	\\"main\\": \\"b--main \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"red\\"] + \\"\\"
 };"
 `;
 
@@ -6287,12 +6303,13 @@ Array [
 exports[`modules issue #636: module 1`] = `
 "exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/dist/cjs.js??ref--4-1!./foo.scss\\"), \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/dist/cjs.js??ref--4-1!./foo.scss\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\");
 // Module
 exports.push([module.id, \\".prefix-bar {\\\\n}\\", \\"\\"]);
 // Exports
 exports.locals = {
-	\\"bar\\": \\"prefix-bar \\" + require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/dist/cjs.js??ref--4-1!./foo.scss\\").locals[\\"foo\\"] + \\"\\"
+	\\"bar\\": \\"prefix-bar \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"foo\\"] + \\"\\"
 };"
 `;
 
@@ -6342,14 +6359,16 @@ Array [
 exports[`modules issue #861: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!@localpackage/color.css\\"), \\"\\");
-exports.i(require(\\"-!../../../src/index.js??ref--4-0!@localpackage/style.css\\"), \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!@localpackage/color.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\");
+var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-0!@localpackage/style.css\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\");
 // Module
-exports.push([module.id, \\"._2gV2e6TcHcPgyDTzxbvkKa {\\\\n  color: \\" + require(\\"-!../../../src/index.js??ref--4-0!@localpackage/color.css\\").locals[\\"color-grey\\"] + \\";\\\\n  margin: 0;\\\\n  padding: 0;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"._2gV2e6TcHcPgyDTzxbvkKa {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color-grey\\"] + \\";\\\\n  margin: 0;\\\\n  padding: 0;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
-	\\"color-grey\\": \\"\\" + require(\\"-!../../../src/index.js??ref--4-0!@localpackage/color.css\\").locals[\\"color-grey\\"] + \\"\\",
-	\\"copyright\\": \\"_2gV2e6TcHcPgyDTzxbvkKa \\" + require(\\"-!../../../src/index.js??ref--4-0!@localpackage/style.css\\").locals[\\"type-heading\\"] + \\"\\"
+	\\"color-grey\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color-grey\\"] + \\"\\",
+	\\"copyright\\": \\"_2gV2e6TcHcPgyDTzxbvkKa \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"type-heading\\"] + \\"\\"
 };"
 `;
 

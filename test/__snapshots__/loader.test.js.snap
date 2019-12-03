@@ -293,7 +293,8 @@ a[href=\\"\\" i] {
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`global\`): module 1`] = `
 "exports = module.exports = require(\\"../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"-!../../src/index.js??ref--4-0!./imported.css\\"), \\"\\");
+var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../src/index.js??ref--4-0!./imported.css\\");
+exports.i(___CSS_LOADER_IMPORT___0___, \\"\\");
 var getUrl = require(\\"../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./url/img.png\\"));
 // Module
@@ -596,7 +597,8 @@ a[href=\\"\\" i] {
 exports[`loader should compile with \`css\` entry point (with \`modules\` and scope \`local\`): module 1`] = `
 "exports = module.exports = require(\\"../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"-!../../src/index.js??ref--4-0!./imported.css\\"), \\"\\");
+var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../src/index.js??ref--4-0!./imported.css\\");
+exports.i(___CSS_LOADER_IMPORT___0___, \\"\\");
 var getUrl = require(\\"../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./url/img.png\\"));
 // Module
@@ -923,7 +925,8 @@ a[href=\\"\\" i] {
 exports[`loader should compile with \`css\` entry point: module 1`] = `
 "exports = module.exports = require(\\"../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"-!../../src/index.js??ref--4-0!./imported.css\\"), \\"\\");
+var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../src/index.js??ref--4-0!./imported.css\\");
+exports.i(___CSS_LOADER_IMPORT___0___, \\"\\");
 var getUrl = require(\\"../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./url/img.png\\"));
 // Module
@@ -1226,7 +1229,8 @@ a[href=\\"\\" i] {
 exports[`loader should compile with \`js\` entry point: module 1`] = `
 "exports = module.exports = require(\\"../../src/runtime/api.js\\")(false);
 // Imports
-exports.i(require(\\"-!../../src/index.js??ref--4-0!./imported.css\\"), \\"\\");
+var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../src/index.js??ref--4-0!./imported.css\\");
+exports.i(___CSS_LOADER_IMPORT___0___, \\"\\");
 var getUrl = require(\\"../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./url/img.png\\"));
 // Module
@@ -1510,7 +1514,8 @@ console.log(styles);
 
 exports = module.exports = __webpack_require__(0)(false);
 // Imports
-exports.i(__webpack_require__(3), \\"\\");
+var ___CSS_LOADER_IMPORT___0___ = __webpack_require__(3);
+exports.i(___CSS_LOADER_IMPORT___0___, \\"\\");
 var getUrl = __webpack_require__(4);
 var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(5));
 // Module
@@ -1785,7 +1790,8 @@ console.log(styles);
 
 exports = module.exports = __webpack_require__(0)(false);
 // Imports
-exports.i(__webpack_require__(3), \\"\\");
+var ___CSS_LOADER_IMPORT___0___ = __webpack_require__(3);
+exports.i(___CSS_LOADER_IMPORT___0___, \\"\\");
 var getUrl = __webpack_require__(4);
 var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(5));
 // Module
