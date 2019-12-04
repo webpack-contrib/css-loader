@@ -39,7 +39,9 @@ export default postcss.plugin(
         });
       });
 
-      replaceSymbols(css, importReplacements);
+      if (Object.keys(importReplacements).length > 0) {
+        replaceSymbols(css, importReplacements);
+      }
 
       Object.keys(icssExports).forEach((name) => {
         const value = replaceValueSymbols(
