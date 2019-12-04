@@ -90,11 +90,7 @@ function walkDeclsWithUrl(css, result, filter) {
   css.walkDecls((decl) => {
     const item = getUrlsFromValue(decl.value, result, filter, decl);
 
-    if (!item) {
-      return;
-    }
-
-    if (item.urls.length === 0) {
+    if (!item || item.urls.length === 0) {
       return;
     }
 
