@@ -292,8 +292,8 @@ exports[`url option Function: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT___0___);
 var getUrl = require(\\"../../../src/runtime/getUrl.js\\");
+exports.i(___CSS_LOADER_IMPORT___0___);
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./font.woff\\"));
 var ___CSS_LOADER_URL___1___ = getUrl(require(\\"./font.woff2\\"));
 var ___CSS_LOADER_URL___2___ = getUrl(require(\\"./font.eot\\"));
@@ -979,8 +979,8 @@ exports[`url option true and modules \`false\`: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT___0___);
 var getUrl = require(\\"../../../src/runtime/getUrl.js\\");
+exports.i(___CSS_LOADER_IMPORT___0___);
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./img.png\\"));
 var ___CSS_LOADER_URL___1___ = getUrl(require(\\"./img.png\\"), { hash: \\"#hash\\" });
 var ___CSS_LOADER_URL___2___ = getUrl(require(\\"package/img.png\\"));
@@ -1379,8 +1379,8 @@ exports[`url option true and modules \`global\`: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT___0___);
 var getUrl = require(\\"../../../src/runtime/getUrl.js\\");
+exports.i(___CSS_LOADER_IMPORT___0___);
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./img.png\\"));
 var ___CSS_LOADER_URL___1___ = getUrl(require(\\"./img.png\\"), { hash: \\"#hash\\" });
 var ___CSS_LOADER_URL___2___ = getUrl(require(\\"package/img.png\\"));
@@ -1779,8 +1779,8 @@ exports[`url option true and modules \`local\`: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT___0___);
 var getUrl = require(\\"../../../src/runtime/getUrl.js\\");
+exports.i(___CSS_LOADER_IMPORT___0___);
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./img.png\\"));
 var ___CSS_LOADER_URL___1___ = getUrl(require(\\"./img.png\\"), { hash: \\"#hash\\" });
 var ___CSS_LOADER_URL___2___ = getUrl(require(\\"package/img.png\\"));
@@ -2190,8 +2190,8 @@ exports[`url option true and modules \`true\`: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT___0___);
 var getUrl = require(\\"../../../src/runtime/getUrl.js\\");
+exports.i(___CSS_LOADER_IMPORT___0___);
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./img.png\\"));
 var ___CSS_LOADER_URL___1___ = getUrl(require(\\"./img.png\\"), { hash: \\"#hash\\" });
 var ___CSS_LOADER_URL___2___ = getUrl(require(\\"package/img.png\\"));
@@ -2601,8 +2601,8 @@ exports[`url option true: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT___0___);
 var getUrl = require(\\"../../../src/runtime/getUrl.js\\");
+exports.i(___CSS_LOADER_IMPORT___0___);
 var ___CSS_LOADER_URL___0___ = getUrl(require(\\"./img.png\\"));
 var ___CSS_LOADER_URL___1___ = getUrl(require(\\"./img.png\\"), { hash: \\"#hash\\" });
 var ___CSS_LOADER_URL___2___ = getUrl(require(\\"package/img.png\\"));

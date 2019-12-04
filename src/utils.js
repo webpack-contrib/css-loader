@@ -208,7 +208,8 @@ function getApiCode(loaderContext, sourceMap) {
 }
 
 function getImportCode(loaderContext, imports, options) {
-  const items = [];
+  const importItems = [];
+  const codeItems = [];
 
   let hasUrlHelperCode = false;
 
@@ -223,15 +224,15 @@ function getImportCode(loaderContext, imports, options) {
       const media = item.media ? `, ${JSON.stringify(item.media)}` : '';
 
       if (!isUrlRequest(item.url)) {
-        items.push(`exports.push([module.id, ${url}${media}]);`);
+        codeItems.push(`exports.push([module.id, ${url}${media}]);`);
 
         return;
       }
 
-      items.push(`var ${item.name} = require(${url});`);
+      importItems.push(`var ${item.name} = require(${url});`);
 
       if (options.exportType === 'full') {
-        items.push(`exports.i(${item.name}${media});`);
+        codeItems.push(`exports.i(${item.name}${media});`);
       }
     }
 
@@ -240,7 +241,7 @@ function getImportCode(loaderContext, imports, options) {
         const pathToGetUrl = require.resolve('./runtime/getUrl.js');
         const url = stringifyRequest(loaderContext, pathToGetUrl);
 
-        items.push(`var getUrl = require(${url});`);
+        importItems.push(`var getUrl = require(${url});`);
 
         hasUrlHelperCode = true;
       }
@@ -269,13 +270,13 @@ function getImportCode(loaderContext, imports, options) {
       const preparedOptions =
         getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
 
-      items.push(
+      codeItems.push(
         `var ${name} = getUrl(require(${preparedUrl})${preparedOptions});`
       );
     }
   });
 
-  return `// Imports\n${items.join('\n')}\n`;
+  return `// Imports\n${importItems.join('\n')}\n${codeItems.join('\n')}\n`;
 }
 
 function getModuleCode(loaderContext, result, replacers, sourceMap) {

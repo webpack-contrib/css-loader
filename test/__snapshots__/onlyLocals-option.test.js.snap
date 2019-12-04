@@ -11,6 +11,7 @@ var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4-
 var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\");
+
 // Exports
 module.exports = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
