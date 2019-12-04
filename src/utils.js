@@ -276,11 +276,12 @@ function getModuleCode(loaderContext, result, replacers, sourceMap) {
     }
 
     if (type === 'icss-import') {
-      cssCode = cssCode.replace(new RegExp(name, 'g'), () => {
-        const { importName, localName } = replacer;
+      const { importName, localName } = replacer;
 
-        return `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
-      });
+      cssCode = cssCode.replace(
+        new RegExp(name, 'g'),
+        () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+      );
     }
   });
 
@@ -346,14 +347,13 @@ function getExportCode(loaderContext, exports, replacers, options) {
   replacers.forEach((replacer) => {
     if (replacer.type === 'icss-import') {
       const { name, importName } = replacer;
+      const localName = JSON.stringify(replacer.localName);
 
-      exportCode = exportCode.replace(new RegExp(name, 'g'), () => {
-        const localName = JSON.stringify(replacer.localName);
-
-        return options.exportType === 'locals'
+      exportCode = exportCode.replace(new RegExp(name, 'g'), () =>
+        options.exportType === 'locals'
           ? `" + ${importName}[${localName}] + "`
-          : `" + ${importName}.locals[${localName}] + "`;
-      });
+          : `" + ${importName}.locals[${localName}] + "`
+      );
     }
   });
 
