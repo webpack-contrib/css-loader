@@ -246,27 +246,11 @@ function getImportCode(loaderContext, imports, options) {
         hasUrlHelperCode = true;
       }
 
-      const { url, name, needQuotes } = item;
-      const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
-      const hash =
-        singleQuery || hashValue
-          ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
-          : '';
-
-      const getUrlOptions = [];
-
-      if (hash) {
-        getUrlOptions.push(`hash: ${hash}`);
-      }
-
-      if (needQuotes) {
-        getUrlOptions.push(`needQuotes: true`);
-      }
-
-      const preparedUrl = stringifyRequest(
-        loaderContext,
-        urlToRequest(normalizedUrl)
-      );
+      const { name, url, hash, needQuotes } = item;
+      const getUrlOptions = []
+        .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
+        .concat(needQuotes ? 'needQuotes: true' : []);
+      const preparedUrl = stringifyRequest(loaderContext, urlToRequest(url));
       const preparedOptions =
         getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
 

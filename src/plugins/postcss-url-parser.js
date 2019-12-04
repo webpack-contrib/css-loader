@@ -125,13 +125,19 @@ export default postcss.plugin(
         const name = `___CSS_LOADER_URL___${index}___`;
         const { url, needQuotes } = path;
 
+        const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
+        const hash =
+          singleQuery || hashValue
+            ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
+            : '';
+
         placeholders.push({ name, path });
 
         result.messages.push(
           {
             pluginName,
             type: 'import',
-            value: { type: 'url', url, name, needQuotes },
+            value: { type: 'url', name, url: normalizedUrl, needQuotes, hash },
           },
           {
             pluginName,
