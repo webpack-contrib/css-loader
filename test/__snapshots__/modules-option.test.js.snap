@@ -6146,19 +6146,19 @@ exports[`modules composes should supports resolving: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./values.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-0!./something.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_1___);
 var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_2___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_2___);
 var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_3___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_3___);
 var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_4___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_4___);
 var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_5___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_5___);
 var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_6___);
 var ___CSS_LOADER_IMPORT___0___ = require(\\"-!../../../src/index.js??ref--4-0!./test-other.css\\");
 exports.i(___CSS_LOADER_IMPORT___0___, \\"(min-width: 100px)\\");
 var getUrl = require(\\"../../../src/runtime/getUrl.js\\");
@@ -6269,7 +6269,7 @@ exports[`modules issue #286: module 1`] = `
 "exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"./dep.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 // Module
 exports.push([module.id, \\".b--main { }\\\\n\\", \\"\\"]);
 // Exports
@@ -6304,7 +6304,7 @@ exports[`modules issue #636: module 1`] = `
 "exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/dist/cjs.js??ref--4-1!./foo.scss\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 // Module
 exports.push([module.id, \\".prefix-bar {\\\\n}\\", \\"\\"]);
 // Exports
@@ -6360,9 +6360,9 @@ exports[`modules issue #861: module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!@localpackage/color.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-0!@localpackage/style.css\\");
-exports.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\");
+exports.i(___CSS_LOADER_ICSS_IMPORT_1___);
 // Module
 exports.push([module.id, \\"._2gV2e6TcHcPgyDTzxbvkKa {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color-grey\\"] + \\";\\\\n  margin: 0;\\\\n  padding: 0;\\\\n}\\\\n\\", \\"\\"]);
 // Exports

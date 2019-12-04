@@ -220,10 +220,10 @@ function getImportCode(loaderContext, imports, options) {
             loaderContext,
             options.importPrefix + urlToRequest(item.url)
           );
-      const media = JSON.stringify(item.media);
+      const media = item.media ? `, ${JSON.stringify(item.media)}` : '';
 
       if (!isUrlRequest(item.url)) {
-        items.push(`exports.push([module.id, ${url}, ${media}]);`);
+        items.push(`exports.push([module.id, ${url}${media}]);`);
 
         return;
       }
@@ -231,7 +231,7 @@ function getImportCode(loaderContext, imports, options) {
       items.push(`var ${item.name} = require(${url});`);
 
       if (options.exportType === 'full') {
-        items.push(`exports.i(${item.name}, ${media});`);
+        items.push(`exports.i(${item.name}${media});`);
       }
     }
 

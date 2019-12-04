@@ -22,7 +22,7 @@ export default postcss.plugin(
         result.messages.push({
           pluginName,
           type: 'import',
-          value: { type: 'icss-import', name: importName, url, media: '' },
+          value: { type: 'icss-import', name: importName, url },
         });
 
         tokens.forEach((token, replacementIndex) => {
