@@ -1,8 +1,6 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
-import { uniqWith, flatten } from '../utils';
-
 const pluginName = 'postcss-url-parser';
 
 const isUrlFunc = /url/i;
@@ -51,7 +49,7 @@ function walkUrls(parsed, callback) {
   });
 }
 
-function getUrlsFromValue(value, result, filter, decl = null) {
+function getUrlsFromValue(value, result, filter, decl) {
   if (!needParseDecl.test(value)) {
     return;
   }
@@ -61,14 +59,9 @@ function getUrlsFromValue(value, result, filter, decl = null) {
 
   walkUrls(parsed, (node, url, needQuotes) => {
     if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
-      result.warn(
-        `Unable to find uri in '${decl ? decl.toString() : value}'`,
-        decl
-          ? {
-              node: decl,
-            }
-          : {}
-      );
+      result.warn(`Unable to find uri in '${decl ? decl.toString() : value}'`, {
+        node: decl,
+      });
 
       return;
     }
@@ -77,24 +70,26 @@ function getUrlsFromValue(value, result, filter, decl = null) {
       return;
     }
 
-    urls.push({ url, needQuotes });
+    const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
+    const hash =
+      singleQuery || hashValue
+        ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
+        : '';
+
+    urls.push({ node, url: normalizedUrl, hash, needQuotes });
   });
 
   // eslint-disable-next-line consistent-return
   return { parsed, urls };
 }
 
-function walkDeclsWithUrl(css, result, filter) {
+function walkDecls(css, result, filter) {
   const items = [];
 
   css.walkDecls((decl) => {
     const item = getUrlsFromValue(decl.value, result, filter, decl);
 
-    if (!item) {
-      return;
-    }
-
-    if (item.urls.length === 0) {
+    if (!item || item.urls.length === 0) {
       return;
     }
 
@@ -104,34 +99,47 @@ function walkDeclsWithUrl(css, result, filter) {
   return items;
 }
 
+function flatten(array) {
+  return array.reduce((a, b) => a.concat(b), []);
+}
+
+function collectUniqueUrlsWithNodes(array) {
+  return array.reduce((accumulator, currentValue) => {
+    const { url, needQuotes, hash, node } = currentValue;
+    const found = accumulator.find(
+      (item) =>
+        url === item.url && needQuotes === item.needQuotes && hash === item.hash
+    );
+
+    if (!found) {
+      accumulator.push({ url, hash, needQuotes, nodes: [node] });
+    } else {
+      found.nodes.push(node);
+    }
+
+    return accumulator;
+  }, []);
+}
+
 export default postcss.plugin(
   pluginName,
   (options) =>
     function process(css, result) {
-      const traversed = walkDeclsWithUrl(css, result, options.filter);
-      const paths = uniqWith(
-        flatten(traversed.map((item) => item.urls)),
-        (value, other) =>
-          value.url === other.url && value.needQuotes === other.needQuotes
+      const traversed = walkDecls(css, result, options.filter);
+      const paths = collectUniqueUrlsWithNodes(
+        flatten(traversed.map((item) => item.urls))
       );
-
-      if (paths.length === 0) {
-        return;
-      }
-
-      const placeholders = [];
+      const replacers = new Map();
 
       paths.forEach((path, index) => {
-        const name = `___CSS_LOADER_URL___${index}___`;
-        const { url, needQuotes } = path;
-
-        placeholders.push({ name, path });
+        const { url, hash, needQuotes, nodes } = path;
+        const name = `___CSS_LOADER_URL_IMPORT_${index}___`;
 
         result.messages.push(
           {
             pluginName,
             type: 'import',
-            value: { type: 'url', url, name, needQuotes },
+            value: { type: 'url', name, url, needQuotes, hash, index },
           },
           {
             pluginName,
@@ -139,21 +147,19 @@ export default postcss.plugin(
             value: { type: 'url', name },
           }
         );
+
+        nodes.forEach((node) => {
+          replacers.set(node, name);
+        });
       });
 
       traversed.forEach((item) => {
-        walkUrls(item.parsed, (node, url, needQuotes) => {
-          const value = placeholders.find(
-            (placeholder) =>
-              placeholder.path.url === url &&
-              placeholder.path.needQuotes === needQuotes
-          );
+        walkUrls(item.parsed, (node) => {
+          const name = replacers.get(node);
 
-          if (!value) {
+          if (!name) {
             return;
           }
-
-          const { name } = value;
 
           // eslint-disable-next-line no-param-reassign
           node.type = 'word';

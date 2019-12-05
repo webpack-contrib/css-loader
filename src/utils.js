@@ -17,17 +17,6 @@ import extractImports from 'postcss-modules-extract-imports';
 import modulesScope from 'postcss-modules-scope';
 import camelCase from 'camelcase';
 
-function uniqWith(array, comparator) {
-  return array.reduce(
-    (acc, d) => (!acc.some((item) => comparator(d, item)) ? [...acc, d] : acc),
-    []
-  );
-}
-
-function flatten(array) {
-  return array.reduce((a, b) => a.concat(b), []);
-}
-
 function getImportPrefix(loaderContext, importLoaders) {
   if (importLoaders === false) {
     return '';
@@ -208,27 +197,38 @@ function getApiCode(loaderContext, sourceMap) {
 }
 
 function getImportCode(loaderContext, imports, options) {
-  const items = [];
+  const importItems = [];
+  const codeItems = [];
+  const urlImportNames = new Map();
 
   let hasUrlHelperCode = false;
+  let importPrefix;
 
   imports.forEach((item) => {
     if (item.type === '@import' || item.type === 'icss-import') {
-      const url = !isUrlRequest(item.url)
-        ? JSON.stringify(`@import url(${item.url});`)
-        : stringifyRequest(
-            loaderContext,
-            options.importPrefix + urlToRequest(item.url)
-          );
-      const media = JSON.stringify(item.media);
+      const media = item.media ? `, ${JSON.stringify(item.media)}` : '';
 
       if (!isUrlRequest(item.url)) {
-        items.push(`exports.push([module.id, ${url}, ${media}]);`);
+        const url = JSON.stringify(`@import url(${item.url});`);
+        codeItems.push(`exports.push([module.id, ${url}${media}]);`);
 
         return;
       }
 
-      items.push(`exports.i(require(${url}), ${media});`);
+      if (!importPrefix) {
+        importPrefix = getImportPrefix(loaderContext, options.importLoaders);
+      }
+
+      const url = stringifyRequest(
+        loaderContext,
+        importPrefix + urlToRequest(item.url)
+      );
+
+      importItems.push(`var ${item.name} = require(${url});`);
+
+      if (options.exportType === 'full') {
+        codeItems.push(`exports.i(${item.name}${media});`);
+      }
     }
 
     if (item.type === 'url') {
@@ -236,47 +236,43 @@ function getImportCode(loaderContext, imports, options) {
         const pathToGetUrl = require.resolve('./runtime/getUrl.js');
         const url = stringifyRequest(loaderContext, pathToGetUrl);
 
-        items.push(`var getUrl = require(${url});`);
+        importItems.push(
+          `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${url});`
+        );
 
         hasUrlHelperCode = true;
       }
 
-      const { url, name, needQuotes } = item;
-      const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
-      const hash =
-        singleQuery || hashValue
-          ? `"${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}"`
-          : '';
+      const { name, url, hash, needQuotes, index } = item;
 
-      const getUrlOptions = [];
+      let importName = urlImportNames.get(url);
 
-      if (hash) {
-        getUrlOptions.push(`hash: ${hash}`);
+      if (!importName) {
+        const preparedUrl = stringifyRequest(loaderContext, urlToRequest(url));
+
+        importName = `___CSS_LOADER_URL_PURE_IMPORT_${index}___`;
+        importItems.push(`var ${importName} = require(${preparedUrl});`);
+        urlImportNames.set(url, importName);
       }
 
-      if (needQuotes) {
-        getUrlOptions.push(`needQuotes: true`);
-      }
-
-      const preparedUrl = stringifyRequest(
-        loaderContext,
-        urlToRequest(normalizedUrl)
-      );
+      const getUrlOptions = []
+        .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
+        .concat(needQuotes ? 'needQuotes: true' : []);
       const preparedOptions =
         getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
 
-      items.push(
-        `var ${name} = getUrl(require(${preparedUrl})${preparedOptions});`
+      codeItems.push(
+        `var ${name} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});`
       );
     }
   });
 
-  return `// Imports\n${items.join('\n')}\n`;
+  return `// Imports\n${importItems.join('\n')}\n${codeItems.join('\n')}\n`;
 }
 
-function getModuleCode(loaderContext, result, replacers, options) {
+function getModuleCode(loaderContext, result, replacers, sourceMap) {
   const { css, map } = result;
-  const sourceMapValue = options.sourceMap && map ? `,${map}` : '';
+  const sourceMapValue = sourceMap && map ? `,${map}` : '';
   let cssCode = JSON.stringify(css);
 
   replacers.forEach((replacer) => {
@@ -287,16 +283,11 @@ function getModuleCode(loaderContext, result, replacers, options) {
     }
 
     if (type === 'icss-import') {
-      const url = stringifyRequest(
-        loaderContext,
-        options.importPrefix + urlToRequest(replacer.url)
-      );
-      const exportName = JSON.stringify(replacer.export);
+      const { importName, localName } = replacer;
 
-      // eslint-disable-next-line no-param-reassign
       cssCode = cssCode.replace(
-        new RegExp(replacer.name, 'g'),
-        `" + require(${url}).locals[${exportName}] + "`
+        new RegExp(name, 'g'),
+        () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
       );
     }
   });
@@ -356,23 +347,20 @@ function getExportCode(loaderContext, exports, replacers, options) {
     }
   });
 
-  const exportType = options.onlyLocals ? 'module.exports' : 'exports.locals';
-  let exportCode = `// Exports\n${exportType} = {\n${items.join(',\n')}\n};`;
+  let exportCode = `// Exports\n${
+    options.exportType === 'locals' ? 'module.exports' : 'exports.locals'
+  } = {\n${items.join(',\n')}\n};`;
 
   replacers.forEach((replacer) => {
-    const { type } = replacer;
+    if (replacer.type === 'icss-import') {
+      const { name, importName } = replacer;
+      const localName = JSON.stringify(replacer.localName);
 
-    if (type === 'icss-import') {
-      const importUrl = options.importPrefix + urlToRequest(replacer.url);
-
-      exportCode = exportCode.replace(new RegExp(replacer.name, 'g'), () => {
-        const url = stringifyRequest(loaderContext, importUrl);
-        const importName = JSON.stringify(replacer.export);
-
-        return options.onlyLocals
-          ? `" + require(${url})[${importName}] + "`
-          : `" + require(${url}).locals[${importName}] + "`;
-      });
+      exportCode = exportCode.replace(new RegExp(name, 'g'), () =>
+        options.exportType === 'locals'
+          ? `" + ${importName}[${localName}] + "`
+          : `" + ${importName}.locals[${localName}] + "`
+      );
     }
   });
 
@@ -380,11 +368,6 @@ function getExportCode(loaderContext, exports, replacers, options) {
 }
 
 export {
-  uniqWith,
-  flatten,
-  dashesCamelCase,
-  getImportPrefix,
-  getLocalIdent,
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,

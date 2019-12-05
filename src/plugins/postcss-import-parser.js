@@ -1,8 +1,6 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
-import { uniqWith } from '../utils';
-
 const pluginName = 'postcss-import-parser';
 
 function getArg(nodes) {
@@ -46,7 +44,7 @@ function parseImport(params) {
 }
 
 function walkAtRules(css, result, filter) {
-  const items = [];
+  const items = new Map();
 
   css.walkAtRules(/^import$/i, (atRule) => {
     // Convert only top-level @import
@@ -79,8 +77,13 @@ function walkAtRules(css, result, filter) {
     atRule.remove();
 
     const { url, media } = parsed;
+    const value = items.get(url);
 
-    items.push({ url, media });
+    if (!value) {
+      items.set(url, new Set([media]));
+    } else {
+      value.add(media);
+    }
   });
 
   return items;
@@ -90,18 +93,27 @@ export default postcss.plugin(
   pluginName,
   (options) =>
     function process(css, result) {
-      const traversed = walkAtRules(css, result, options.filter);
-      const paths = uniqWith(
-        traversed,
-        (value, other) => value.url === other.url && value.media === other.media
-      );
+      const items = walkAtRules(css, result, options.filter);
 
-      paths.forEach((item) => {
-        result.messages.push({
-          pluginName,
-          type: 'import',
-          value: { type: '@import', url: item.url, media: item.media },
+      [...items]
+        .reduce((accumulator, currentValue) => {
+          const [url, medias] = currentValue;
+
+          medias.forEach((media) => {
+            accumulator.push({ url, media });
+          });
+
+          return accumulator;
+        }, [])
+        .forEach((item, index) => {
+          const { url, media } = item;
+          const name = `___CSS_LOADER_AT_RULE_IMPORT_${index}___`;
+
+          result.messages.push({
+            pluginName,
+            type: 'import',
+            value: { type: '@import', name, url, media },
+          });
         });
-      });
     }
 );

@@ -13,7 +13,6 @@ import { importParser, icssParser, urlParser } from './plugins';
 import {
   normalizeSourceMap,
   getModulesPlugins,
-  getImportPrefix,
   getFilter,
   getApiCode,
   getImportCode,
@@ -54,12 +53,11 @@ export default function loader(content, map, meta) {
     plugins.push(...getModulesPlugins(options, this));
   }
 
-  // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
-  const importPrefix = getImportPrefix(this, options.importLoaders);
+  const exportType = options.onlyLocals ? 'locals' : 'full';
 
   plugins.push(icssParser());
 
-  if (options.import !== false) {
+  if (options.import !== false && exportType === 'full') {
     plugins.push(
       importParser({
         filter: getFilter(options.import, this.resourcePath),
@@ -67,7 +65,7 @@ export default function loader(content, map, meta) {
     );
   }
 
-  if (options.url !== false) {
+  if (options.url !== false && exportType === 'full') {
     plugins.push(
       urlParser({
         filter: getFilter(options.url, this.resourcePath, (value) =>
@@ -109,22 +107,24 @@ export default function loader(content, map, meta) {
         }
       }
 
-      const isNormalMode = !options.onlyLocals;
-
-      const apiCode = isNormalMode ? getApiCode(this, sourceMap) : '';
+      // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
+      const apiCode = exportType === 'full' ? getApiCode(this, sourceMap) : '';
       const importCode =
-        isNormalMode && imports.length > 0
-          ? getImportCode(this, imports, { importPrefix })
+        imports.length > 0
+          ? getImportCode(this, imports, {
+              importLoaders: options.importLoaders,
+              exportType,
+            })
           : '';
-      const moduleCode = isNormalMode
-        ? getModuleCode(this, result, replacers, { sourceMap, importPrefix })
-        : '';
+      const moduleCode =
+        exportType === 'full'
+          ? getModuleCode(this, result, replacers, sourceMap)
+          : '';
       const exportCode =
         exports.length > 0
           ? getExportCode(this, exports, replacers, {
-              importPrefix,
               localsConvention: options.localsConvention,
-              onlyLocals: options.onlyLocals,
+              exportType,
             })
           : '';
 
