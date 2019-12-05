@@ -13,7 +13,6 @@ import { importParser, icssParser, urlParser } from './plugins';
 import {
   normalizeSourceMap,
   getModulesPlugins,
-  getImportPrefix,
   getFilter,
   getApiCode,
   getImportCode,
@@ -109,11 +108,13 @@ export default function loader(content, map, meta) {
       }
 
       // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
-      const importPrefix = getImportPrefix(this, options.importLoaders);
       const apiCode = exportType === 'full' ? getApiCode(this, sourceMap) : '';
       const importCode =
         imports.length > 0
-          ? getImportCode(this, imports, { importPrefix, exportType })
+          ? getImportCode(this, imports, {
+              importLoaders: options.importLoaders,
+              exportType,
+            })
           : '';
       const moduleCode =
         exportType === 'full'

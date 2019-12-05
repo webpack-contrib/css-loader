@@ -107,7 +107,7 @@ export default postcss.plugin(
         }, [])
         .forEach((item, index) => {
           const { url, media } = item;
-          const name = `___CSS_LOADER_IMPORT_${index}___`;
+          const name = `___CSS_LOADER_AT_RULE_IMPORT_${index}___`;
 
           result.messages.push({
             pluginName,

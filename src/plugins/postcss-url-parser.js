@@ -49,7 +49,7 @@ function walkUrls(parsed, callback) {
   });
 }
 
-function getUrlsFromValue(value, result, filter, decl = null) {
+function getUrlsFromValue(value, result, filter, decl) {
   if (!needParseDecl.test(value)) {
     return;
   }
@@ -59,10 +59,9 @@ function getUrlsFromValue(value, result, filter, decl = null) {
 
   walkUrls(parsed, (node, url, needQuotes) => {
     if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
-      result.warn(
-        `Unable to find uri in '${decl ? decl.toString() : value}'`,
-        decl ? { node: decl } : {}
-      );
+      result.warn(`Unable to find uri in '${decl ? decl.toString() : value}'`, {
+        node: decl,
+      });
 
       return;
     }
@@ -134,13 +133,13 @@ export default postcss.plugin(
 
       paths.forEach((path, index) => {
         const { url, hash, needQuotes, nodes } = path;
-        const name = `___CSS_LOADER_URL_${index}___`;
+        const name = `___CSS_LOADER_URL_IMPORT_${index}___`;
 
         result.messages.push(
           {
             pluginName,
             type: 'import',
-            value: { type: 'url', name, url, needQuotes, hash },
+            value: { type: 'url', name, url, needQuotes, hash, index },
           },
           {
             pluginName,

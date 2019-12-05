@@ -199,24 +199,30 @@ function getApiCode(loaderContext, sourceMap) {
 function getImportCode(loaderContext, imports, options) {
   const importItems = [];
   const codeItems = [];
+  const urlImportNames = new Map();
 
   let hasUrlHelperCode = false;
+  let importPrefix;
 
   imports.forEach((item) => {
     if (item.type === '@import' || item.type === 'icss-import') {
-      const url = !isUrlRequest(item.url)
-        ? JSON.stringify(`@import url(${item.url});`)
-        : stringifyRequest(
-            loaderContext,
-            options.importPrefix + urlToRequest(item.url)
-          );
       const media = item.media ? `, ${JSON.stringify(item.media)}` : '';
 
       if (!isUrlRequest(item.url)) {
+        const url = JSON.stringify(`@import url(${item.url});`);
         codeItems.push(`exports.push([module.id, ${url}${media}]);`);
 
         return;
       }
+
+      if (!importPrefix) {
+        importPrefix = getImportPrefix(loaderContext, options.importLoaders);
+      }
+
+      const url = stringifyRequest(
+        loaderContext,
+        importPrefix + urlToRequest(item.url)
+      );
 
       importItems.push(`var ${item.name} = require(${url});`);
 
@@ -230,21 +236,33 @@ function getImportCode(loaderContext, imports, options) {
         const pathToGetUrl = require.resolve('./runtime/getUrl.js');
         const url = stringifyRequest(loaderContext, pathToGetUrl);
 
-        importItems.push(`var getUrl = require(${url});`);
+        importItems.push(
+          `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${url});`
+        );
 
         hasUrlHelperCode = true;
       }
 
-      const { name, url, hash, needQuotes } = item;
+      const { name, url, hash, needQuotes, index } = item;
+
+      let importName = urlImportNames.get(url);
+
+      if (!importName) {
+        const preparedUrl = stringifyRequest(loaderContext, urlToRequest(url));
+
+        importName = `___CSS_LOADER_URL_PURE_IMPORT_${index}___`;
+        importItems.push(`var ${importName} = require(${preparedUrl});`);
+        urlImportNames.set(url, importName);
+      }
+
       const getUrlOptions = []
         .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
         .concat(needQuotes ? 'needQuotes: true' : []);
-      const preparedUrl = stringifyRequest(loaderContext, urlToRequest(url));
       const preparedOptions =
         getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
 
       codeItems.push(
-        `var ${name} = getUrl(require(${preparedUrl})${preparedOptions});`
+        `var ${name} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});`
       );
     }
   });
@@ -350,8 +368,6 @@ function getExportCode(loaderContext, exports, replacers, options) {
 }
 
 export {
-  getImportPrefix,
-  getLocalIdent,
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,

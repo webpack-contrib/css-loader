@@ -28,8 +28,8 @@ Array [
 exports[`importLoaders option 0 (\`postcss-loader\` before): module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
-var ___CSS_LOADER_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT_0___);
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
 "
@@ -65,8 +65,8 @@ Array [
 exports[`importLoaders option 1 (\`postcss-loader\` before): module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
-var ___CSS_LOADER_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!../../../node_modules/postcss-loader/src/index.js??ref--4-1!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT_0___);
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!../../../node_modules/postcss-loader/src/index.js??ref--4-1!./imported.css\\");
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
 "
@@ -102,8 +102,8 @@ Array [
 exports[`importLoaders option 1 (no loaders before): module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
-var ___CSS_LOADER_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT_0___);
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgb(0 0 100% / 90%);\\\\n}\\\\n\\", \\"\\"]);
 "
@@ -139,8 +139,8 @@ Array [
 exports[`importLoaders option 2 (\`postcss-loader\` before): module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
-var ___CSS_LOADER_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!../../../node_modules/postcss-loader/src/index.js??ref--4-1!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT_0___);
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!../../../node_modules/postcss-loader/src/index.js??ref--4-1!./imported.css\\");
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
 "
@@ -176,8 +176,8 @@ Array [
 exports[`importLoaders option not specify (no loader before): module 1`] = `
 "exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
 // Imports
-var ___CSS_LOADER_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
-exports.i(___CSS_LOADER_IMPORT_0___);
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported.css\\");
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
 "
