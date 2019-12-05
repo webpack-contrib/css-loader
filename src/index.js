@@ -56,9 +56,6 @@ export default function loader(content, map, meta) {
 
   const exportType = options.onlyLocals ? 'locals' : 'full';
 
-  // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
-  const importPrefix = getImportPrefix(this, options.importLoaders);
-
   plugins.push(icssParser());
 
   if (options.import !== false && exportType === 'full') {
@@ -111,6 +108,8 @@ export default function loader(content, map, meta) {
         }
       }
 
+      // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
+      const importPrefix = getImportPrefix(this, options.importLoaders);
       const apiCode = exportType === 'full' ? getApiCode(this, sourceMap) : '';
       const importCode =
         imports.length > 0

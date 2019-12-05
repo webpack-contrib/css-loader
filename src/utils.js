@@ -17,17 +17,6 @@ import extractImports from 'postcss-modules-extract-imports';
 import modulesScope from 'postcss-modules-scope';
 import camelCase from 'camelcase';
 
-function uniqWith(array, comparator) {
-  return array.reduce(
-    (acc, d) => (!acc.some((item) => comparator(d, item)) ? [...acc, d] : acc),
-    []
-  );
-}
-
-function flatten(array) {
-  return array.reduce((a, b) => a.concat(b), []);
-}
-
 function getImportPrefix(loaderContext, importLoaders) {
   if (importLoaders === false) {
     return '';
@@ -361,9 +350,6 @@ function getExportCode(loaderContext, exports, replacers, options) {
 }
 
 export {
-  uniqWith,
-  flatten,
-  dashesCamelCase,
   getImportPrefix,
   getLocalIdent,
   getFilter,
