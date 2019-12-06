@@ -3,6 +3,9 @@ const getUrl = require('../../src/runtime/getUrl');
 describe('escape', () => {
   it('should escape url', () => {
     expect(getUrl(true)).toMatchSnapshot();
+    expect(getUrl(null)).toMatchSnapshot();
+    // eslint-disable-next-line no-undefined
+    expect(getUrl(undefined)).toMatchSnapshot();
     expect(getUrl('image.png')).toMatchSnapshot();
     expect(getUrl('"image.png"')).toMatchSnapshot();
     expect(getUrl("'image.png'")).toMatchSnapshot();
