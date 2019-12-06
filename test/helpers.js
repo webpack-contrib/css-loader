@@ -44,6 +44,7 @@ function evaluated(output, modules, moduleId = 1) {
             'modules/',
             'modules/issue-286',
             'modules/issue-636',
+            'modules/issue-916',
             'modules/node_modules',
             'modules/tests-cases/urls',
             'modules/tests-cases/issue-589',

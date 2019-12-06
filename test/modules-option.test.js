@@ -556,4 +556,34 @@ describe('modules', () => {
     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
+
+  it('issue #916', async () => {
+    const config = {
+      loader: {
+        test: /\.s[ca]ss$/i,
+        options: {
+          modules: {
+            localIdentName: '[local]-sufx',
+          },
+        },
+      },
+      sassLoader: true,
+      sassLoaderOptions: {
+        // eslint-disable-next-line global-require
+        implementation: require('sass'),
+      },
+    };
+
+    const testId = './modules/issue-916/index.scss';
+    const stats = await webpack(testId, config);
+    const { modules } = stats.toJson();
+    const module = modules.find((m) => m.id === testId);
+
+    expect(module.source).toMatchSnapshot('module');
+    expect(evaluated(module.source, modules)).toMatchSnapshot(
+      'module (evaluated)'
+    );
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
 });

@@ -6375,6 +6375,42 @@ exports.locals = {
 
 exports[`modules issue #861: warnings 1`] = `Array []`;
 
+exports[`modules issue #916: errors 1`] = `Array []`;
+
+exports[`modules issue #916: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    ".im-missing-from-css-sufx {
+  color: blue;
+}
+
+.im-from-another-scss-sufx {
+  left: 40px;
+}
+
+.im-from-scss-sufx {
+  bottom: 20px;
+}",
+    "",
+  ],
+]
+`;
+
+exports[`modules issue #916: module 1`] = `
+"exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
+// Module
+exports.push([module.id, \\".im-missing-from-css-sufx {\\\\n  color: blue;\\\\n}\\\\n\\\\n.im-from-another-scss-sufx {\\\\n  left: 40px;\\\\n}\\\\n\\\\n.im-from-scss-sufx {\\\\n  bottom: 20px;\\\\n}\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"im-missing-from-css\\": \\"im-missing-from-css-sufx\\",
+	\\"im-from-another-scss\\": \\"im-from-another-scss-sufx\\",
+	\\"im-from-scss\\": \\"im-from-scss-sufx\\"
+};"
+`;
+
+exports[`modules issue #916: warnings 1`] = `Array []`;
+
 exports[`modules issue #966: errors 1`] = `Array []`;
 
 exports[`modules issue #966: module (evaluated) 1`] = `
