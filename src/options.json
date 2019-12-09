@@ -30,14 +30,14 @@
           "type": "boolean"
         },
         {
-          "enum": ["local", "global"]
+          "enum": ["local", "global", "pure"]
         },
         {
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "mode": {
-              "enum": ["local", "global"]
+              "enum": ["local", "global", "pure"]
             },
             "localIdentName": {
               "type": "string"

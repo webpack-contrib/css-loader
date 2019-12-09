@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`modules true (mode: local): errors 1`] = `Array []`;
+exports[`modules true: errors 1`] = `Array []`;
 
-exports[`modules true (mode: local): module 1`] = `
+exports[`modules true: module 1`] = `
 "// Imports
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./values.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-0!./something.css\\");
@@ -61,7 +61,7 @@ module.exports = {
 };"
 `;
 
-exports[`modules true (mode: local): values module 1`] = `
+exports[`modules true: values module 1`] = `
 "// Exports
 module.exports = {
 	\\"v-def\\": \\"red\\",
@@ -71,4 +71,4 @@ module.exports = {
 };"
 `;
 
-exports[`modules true (mode: local): warnings 1`] = `Array []`;
+exports[`modules true: warnings 1`] = `Array []`;

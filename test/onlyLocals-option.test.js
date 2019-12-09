@@ -1,7 +1,7 @@
 import { webpack } from './helpers';
 
 describe('modules', () => {
-  it('true (mode: local)', async () => {
+  it('true', async () => {
     const config = {
       loader: {
         options: {

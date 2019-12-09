@@ -8136,3 +8136,80 @@ Array [
 `;
 
 exports[`modules should saves underscore prefix in exported class names with localIdentName option: warnings 1`] = `Array []`;
+
+exports[`modules should support "pure" value: errors 1`] = `Array []`;
+
+exports[`modules should support "pure" value: module (evaluated) 1`] = `
+Array [
+  Array [
+    1,
+    "._3nNRq3PQ9uK67a19lT8NHq {
+  color: red;
+}
+
+h1 ._2-tJ-0L9xa__ypZabJN82L {
+  color: green;
+}
+
+._1ItNtG9CwOxu2Vxb-etJHN h1 {
+  color: blue;
+}
+
+.SDNtlQ92cFx6fiH6yuh5K h1 ._35UJyh7y0HgDlh3_YNNxbm {
+  color: red;
+}
+
+#_15-F5dpJOOl0BGWwx4yHdh {
+  color: red;
+}
+
+h1 #_1NoAfl4L6pYsi53yvE4szS {
+  color: green;
+}
+
+#Gf_c6hz7pPUKG_4DBKZX_ h1 {
+  color: blue;
+}
+
+#gcol1OF3vPJZQgK7JWvsX h1 #_3vlp1YEgWrcYSofV_DbgLl {
+  color: red;
+}
+
+._1aIXXfKePbQyIoBtx5r_i3 .bar ._1yneLDnIvMLhNduXi5yqqV {
+  color: white;
+}
+
+._2u-qJxyLPtRRB90K5UQGa1 .Xt6ycOTkGG2zy0zRDe6BK ._3M5wEyAlDWBbzYBzLLARxJ {
+  color: black;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules should support "pure" value: module 1`] = `
+"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+// Module
+exports.push([module.id, \\"._3nNRq3PQ9uK67a19lT8NHq {\\\\n  color: red;\\\\n}\\\\n\\\\nh1 ._2-tJ-0L9xa__ypZabJN82L {\\\\n  color: green;\\\\n}\\\\n\\\\n._1ItNtG9CwOxu2Vxb-etJHN h1 {\\\\n  color: blue;\\\\n}\\\\n\\\\n.SDNtlQ92cFx6fiH6yuh5K h1 ._35UJyh7y0HgDlh3_YNNxbm {\\\\n  color: red;\\\\n}\\\\n\\\\n#_15-F5dpJOOl0BGWwx4yHdh {\\\\n  color: red;\\\\n}\\\\n\\\\nh1 #_1NoAfl4L6pYsi53yvE4szS {\\\\n  color: green;\\\\n}\\\\n\\\\n#Gf_c6hz7pPUKG_4DBKZX_ h1 {\\\\n  color: blue;\\\\n}\\\\n\\\\n#gcol1OF3vPJZQgK7JWvsX h1 #_3vlp1YEgWrcYSofV_DbgLl {\\\\n  color: red;\\\\n}\\\\n\\\\n._1aIXXfKePbQyIoBtx5r_i3 .bar ._1yneLDnIvMLhNduXi5yqqV {\\\\n  color: white;\\\\n}\\\\n\\\\n._2u-qJxyLPtRRB90K5UQGa1 .Xt6ycOTkGG2zy0zRDe6BK ._3M5wEyAlDWBbzYBzLLARxJ {\\\\n  color: black;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"foo\\": \\"_3nNRq3PQ9uK67a19lT8NHq\\",
+	\\"foo-1\\": \\"_2-tJ-0L9xa__ypZabJN82L\\",
+	\\"foo-2\\": \\"_1ItNtG9CwOxu2Vxb-etJHN\\",
+	\\"foo-3\\": \\"SDNtlQ92cFx6fiH6yuh5K\\",
+	\\"foo-4\\": \\"_35UJyh7y0HgDlh3_YNNxbm\\",
+	\\"foo-5\\": \\"_15-F5dpJOOl0BGWwx4yHdh\\",
+	\\"foo-6\\": \\"_1NoAfl4L6pYsi53yvE4szS\\",
+	\\"foo-7\\": \\"Gf_c6hz7pPUKG_4DBKZX_\\",
+	\\"foo-8\\": \\"gcol1OF3vPJZQgK7JWvsX\\",
+	\\"foo-9\\": \\"_3vlp1YEgWrcYSofV_DbgLl\\",
+	\\"bar-1\\": \\"_1aIXXfKePbQyIoBtx5r_i3\\",
+	\\"bar-2\\": \\"_1yneLDnIvMLhNduXi5yqqV\\",
+	\\"baz-3\\": \\"_2u-qJxyLPtRRB90K5UQGa1\\",
+	\\"baz\\": \\"Xt6ycOTkGG2zy0zRDe6BK\\",
+	\\"bar-4\\": \\"_3M5wEyAlDWBbzYBzLLARxJ\\"
+};"
+`;
+
+exports[`modules should support "pure" value: warnings 1`] = `Array []`;
