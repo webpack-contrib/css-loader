@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/webpack-contrib/css-loader/compare/v3.2.1...v3.3.0) (2019-12-09)
+
+
+### Features
+
+* support `pure` css modules ([#1008](https://github.com/webpack-contrib/css-loader/issues/1008)) ([6177af5](https://github.com/webpack-contrib/css-loader/commit/6177af5596566fead13a8f66d5abcb4dc2b744db))
+
+
+### Bug Fixes
+
+* do not crash when an assert return `null` or `undefined` ([#1006](https://github.com/webpack-contrib/css-loader/issues/1006)) ([6769783](https://github.com/webpack-contrib/css-loader/commit/67697833725e1cff12a14663390bbe4c65ea36d2))
+* reduce count of `require` ([#1004](https://github.com/webpack-contrib/css-loader/issues/1004)) ([80e9662](https://github.com/webpack-contrib/css-loader/commit/80e966280f2477c5c0e4553d3be3a04511fea381))
+
 ### [3.2.1](https://github.com/webpack-contrib/css-loader/compare/v3.2.0...v3.2.1) (2019-12-02)
 
 
