@@ -317,6 +317,7 @@ module.exports = {
 
 Using `local` value requires you to specify `:global` classes.
 Using `global` value requires you to specify `:local` classes.
+Using `pure` value requires selectors must contain at least one local class or id.
 
 You can find more information [here](https://github.com/css-modules/css-modules).
 

@@ -34,11 +34,14 @@ it('validate options', () => {
   expect(() => validate({ modules: false })).not.toThrow();
   expect(() => validate({ modules: 'global' })).not.toThrow();
   expect(() => validate({ modules: 'local' })).not.toThrow();
+  expect(() => validate({ modules: 'pure' })).not.toThrow();
   expect(() => validate({ modules: { mode: 'local' } })).not.toThrow();
   expect(() => validate({ modules: { mode: 'global' } })).not.toThrow();
+  expect(() => validate({ modules: { mode: 'pure' } })).not.toThrow();
   expect(() => validate({ modules: 'true' })).toThrowErrorMatchingSnapshot();
   expect(() => validate({ modules: 'globals' })).toThrowErrorMatchingSnapshot();
   expect(() => validate({ modules: 'locals' })).toThrowErrorMatchingSnapshot();
+  expect(() => validate({ modules: 'pures' })).toThrowErrorMatchingSnapshot();
   expect(() =>
     validate({ modules: { mode: true } })
   ).toThrowErrorMatchingSnapshot();
