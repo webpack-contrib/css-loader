@@ -190,19 +190,30 @@ function normalizeSourceMap(map) {
   return newMap;
 }
 
-function getApiCode(loaderContext, sourceMap) {
-  const url = stringifyRequest(loaderContext, require.resolve('./runtime/api'));
-
-  return `exports = module.exports = require(${url})(${sourceMap});\n`;
-}
-
-function getImportCode(loaderContext, imports, options) {
+function getImportCode(
+  loaderContext,
+  imports,
+  exportType,
+  sourceMap,
+  importLoaders
+) {
   const importItems = [];
   const codeItems = [];
   const urlImportNames = new Map();
 
   let hasUrlHelperCode = false;
   let importPrefix;
+
+  if (exportType === 'full') {
+    const url = stringifyRequest(
+      loaderContext,
+      require.resolve('./runtime/api')
+    );
+    importItems.push(`var ___CSS_LOADER_API_IMPORT___ = require(${url});`);
+    codeItems.push(
+      `exports = module.exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});`
+    );
+  }
 
   imports.forEach((item) => {
     if (item.type === '@import' || item.type === 'icss-import') {
@@ -216,7 +227,7 @@ function getImportCode(loaderContext, imports, options) {
       }
 
       if (!importPrefix) {
-        importPrefix = getImportPrefix(loaderContext, options.importLoaders);
+        importPrefix = getImportPrefix(loaderContext, importLoaders);
       }
 
       const url = stringifyRequest(
@@ -226,7 +237,7 @@ function getImportCode(loaderContext, imports, options) {
 
       importItems.push(`var ${item.name} = require(${url});`);
 
-      if (options.exportType === 'full') {
+      if (exportType === 'full') {
         codeItems.push(`exports.i(${item.name}${media});`);
       }
     }
@@ -267,12 +278,25 @@ function getImportCode(loaderContext, imports, options) {
     }
   });
 
-  return `// Imports\n${importItems.join('\n')}\n${codeItems.join('\n')}\n`;
+  const items = importItems.concat(codeItems);
+
+  return items.length > 0 ? `// Imports\n${items.join('\n')}\n` : '';
 }
 
-function getModuleCode(loaderContext, result, replacers, sourceMap) {
+function getModuleCode(
+  loaderContext,
+  result,
+  exportType,
+  sourceMap,
+  replacers
+) {
+  if (exportType !== 'full') {
+    return '';
+  }
+
   const { css, map } = result;
   const sourceMapValue = sourceMap && map ? `,${map}` : '';
+
   let cssCode = JSON.stringify(css);
 
   replacers.forEach((replacer) => {
@@ -301,7 +325,17 @@ function dashesCamelCase(str) {
   );
 }
 
-function getExportCode(loaderContext, exports, replacers, options) {
+function getExportCode(
+  loaderContext,
+  exports,
+  exportType,
+  replacers,
+  localsConvention
+) {
+  if (exports.length === 0) {
+    return '';
+  }
+
   const items = [];
 
   function addExportedItem(name, value) {
@@ -311,7 +345,7 @@ function getExportCode(loaderContext, exports, replacers, options) {
   exports.forEach((item) => {
     const { name, value } = item;
 
-    switch (options.localsConvention) {
+    switch (localsConvention) {
       case 'camelCase': {
         addExportedItem(name, value);
 
@@ -348,7 +382,7 @@ function getExportCode(loaderContext, exports, replacers, options) {
   });
 
   let exportCode = `// Exports\n${
-    options.exportType === 'locals' ? 'module.exports' : 'exports.locals'
+    exportType === 'locals' ? 'module.exports' : 'exports.locals'
   } = {\n${items.join(',\n')}\n};`;
 
   replacers.forEach((replacer) => {
@@ -357,7 +391,7 @@ function getExportCode(loaderContext, exports, replacers, options) {
       const localName = JSON.stringify(replacer.localName);
 
       exportCode = exportCode.replace(new RegExp(name, 'g'), () =>
-        options.exportType === 'locals'
+        exportType === 'locals'
           ? `" + ${importName}[${localName}] + "`
           : `" + ${importName}.locals[${localName}] + "`
       );
@@ -371,7 +405,6 @@ export {
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,
-  getApiCode,
   getImportCode,
   getModuleCode,
   getExportCode,

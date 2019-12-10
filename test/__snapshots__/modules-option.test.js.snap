@@ -6143,8 +6143,8 @@ a {
 `;
 
 exports[`modules composes should supports resolving: module 1`] = `
-"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
-// Imports
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./values.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-0!./something.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\");
@@ -6155,6 +6155,7 @@ var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4-
 var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./test-other.css\\");
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_PURE_IMPORT_0___ = require(\\"../url/img.png\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 exports.i(___CSS_LOADER_ICSS_IMPORT_1___);
 exports.i(___CSS_LOADER_ICSS_IMPORT_2___);
@@ -6267,9 +6268,10 @@ Array [
 `;
 
 exports[`modules issue #286: module 1`] = `
-"exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
-// Imports
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"./dep.css\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 // Module
 exports.push([module.id, \\".b--main { }\\\\n\\", \\"\\"]);
@@ -6302,9 +6304,10 @@ Array [
 `;
 
 exports[`modules issue #636: module 1`] = `
-"exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
-// Imports
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../src/index.js??ref--4-0!../../../../node_modules/sass-loader/dist/cjs.js??ref--4-1!./foo.scss\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 // Module
 exports.push([module.id, \\".prefix-bar {\\\\n}\\", \\"\\"]);
@@ -6358,10 +6361,11 @@ Array [
 `;
 
 exports[`modules issue #861: module 1`] = `
-"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
-// Imports
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!@localpackage/color.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-0!@localpackage/style.css\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 exports.i(___CSS_LOADER_ICSS_IMPORT_1___);
 // Module
@@ -6391,7 +6395,9 @@ Array [
 `;
 
 exports[`modules issue #966: module 1`] = `
-"exports = module.exports = require(\\"../../../../src/runtime/api.js\\")(false);
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\".button.hey {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -6426,7 +6432,9 @@ Array [
 `;
 
 exports[`modules issue #967: module 1`] = `
-"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\".modules-path-placeholder__foo__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {\\\\n  color: red;\\\\n}\\\\n\\\\n.modules-path-placeholder__foo\\\\\\\\/bar__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {\\\\n  color: blue;\\\\n}\\\\n\\\\n.modules-path-placeholder__\\\\\\\\[\\\\\\\\/\\\\\\\\?\\\\\\\\<\\\\\\\\>\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\3A \\\\\\\\*\\\\\\\\|\\\\\\\\\\\\\\"\\\\\\\\3A \\\\\\\\]__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -6455,7 +6463,9 @@ Array [
 `;
 
 exports[`modules issue #980: module 1`] = `
-"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\".file-with-many-dots-in-name_a_1j0Lw {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -6572,7 +6582,9 @@ div:not(.\\\\1F600) {
 `;
 
 exports[`modules issue #995: module 1`] = `
-"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\"/* class=\\\\\\"😀\\\\\\" */\\\\n.a {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.a.b {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.a .b {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" */\\\\n.😀 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.😀.😓 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.😀 .😓 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" */\\\\n.\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.\\\\\\\\1F600.\\\\\\\\1F613 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.\\\\\\\\1F600  .\\\\\\\\1F613 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* Local */\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" */\\\\n.\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.\\\\\\\\1F600.\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.\\\\\\\\1F600  .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F600  .a .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F600  .\\\\\\\\1F600  .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\ndiv:not(.\\\\\\\\1F600) {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F600  .b {\\\\n  color: red;\\\\n}\\\\n\\\\n.b .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F613  .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F613 .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F600 > .\\\\\\\\1F600 > .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -8189,7 +8201,9 @@ h1 #_1NoAfl4L6pYsi53yvE4szS {
 `;
 
 exports[`modules should support "pure" value: module 1`] = `
-"exports = module.exports = require(\\"../../../src/runtime/api.js\\")(false);
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\"._3nNRq3PQ9uK67a19lT8NHq {\\\\n  color: red;\\\\n}\\\\n\\\\nh1 ._2-tJ-0L9xa__ypZabJN82L {\\\\n  color: green;\\\\n}\\\\n\\\\n._1ItNtG9CwOxu2Vxb-etJHN h1 {\\\\n  color: blue;\\\\n}\\\\n\\\\n.SDNtlQ92cFx6fiH6yuh5K h1 ._35UJyh7y0HgDlh3_YNNxbm {\\\\n  color: red;\\\\n}\\\\n\\\\n#_15-F5dpJOOl0BGWwx4yHdh {\\\\n  color: red;\\\\n}\\\\n\\\\nh1 #_1NoAfl4L6pYsi53yvE4szS {\\\\n  color: green;\\\\n}\\\\n\\\\n#Gf_c6hz7pPUKG_4DBKZX_ h1 {\\\\n  color: blue;\\\\n}\\\\n\\\\n#gcol1OF3vPJZQgK7JWvsX h1 #_3vlp1YEgWrcYSofV_DbgLl {\\\\n  color: red;\\\\n}\\\\n\\\\n._1aIXXfKePbQyIoBtx5r_i3 .bar ._1yneLDnIvMLhNduXi5yqqV {\\\\n  color: white;\\\\n}\\\\n\\\\n._2u-qJxyLPtRRB90K5UQGa1 .Xt6ycOTkGG2zy0zRDe6BK ._3M5wEyAlDWBbzYBzLLARxJ {\\\\n  color: black;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
