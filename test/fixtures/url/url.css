@@ -310,3 +310,18 @@ a {
 \
 (img.png');
 }
+
+.other-test-case {
+  background: url("./img%27%27%27img.png");
+  background: url("./img%27%28%29%20img.png");
+  background: url("./img%27img.png");
+  background: url("./img%28img.png");
+  background: url("./img%29img.png");
+  background: url("./img%20img.png");
+  background: url(./img%27%27%27img.png);
+  background: url(./img%27%28%29%20img.png);
+  background: url(./img%27img.png);
+  background: url(./img%28img.png);
+  background: url(./img%29img.png);
+  background: url(./img%20img.png);
+}

@@ -77,7 +77,7 @@ function getUrlsFromValue(value, result, filter, decl) {
     }
 
     const splittedUrl = url.split(/(\?)?#/);
-    let [normalizedUrl] = splittedUrl;
+    let normalizedUrl = decodeURIComponent(splittedUrl[0]);
     const [, singleQuery, hashValue] = splittedUrl;
     const hash =
       singleQuery || hashValue
