@@ -89,6 +89,10 @@ function getUrlsFromValue(value, result, filter, decl) {
     if (!isStringNode && /\\["'() \t\n]/.test(normalizedUrl)) {
       normalizedUrl = normalizedUrl.replace(/\\(["'() \t\n])/g, '$1');
     }
+    // https://drafts.csswg.org/css-values-4/#strings
+    else if (isStringNode && /\\[\n]/.test(normalizedUrl)) {
+      normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
+    }
 
     urls.push({ node, url: normalizedUrl, hash, needQuotes });
   });
