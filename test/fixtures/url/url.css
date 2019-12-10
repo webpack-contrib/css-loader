@@ -300,3 +300,13 @@ a {
   background: url('./img img.png');
   background: url("./img img.png");
 }
+
+.class.class.class {
+  background: url('./img\
+(img.png');
+  background: url('./img\
+\
+\
+\
+(img.png');
+}
