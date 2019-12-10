@@ -14,7 +14,6 @@ import {
   normalizeSourceMap,
   getModulesPlugins,
   getFilter,
-  getApiCode,
   getImportCode,
   getModuleCode,
   getExportCode,
@@ -107,31 +106,30 @@ export default function loader(content, map, meta) {
         }
       }
 
-      // Run other loader (`postcss-loader`, `sass-loader` and etc) for importing CSS
-      const apiCode = exportType === 'full' ? getApiCode(this, sourceMap) : '';
-      const importCode =
-        imports.length > 0
-          ? getImportCode(this, imports, {
-              importLoaders: options.importLoaders,
-              exportType,
-            })
-          : '';
-      const moduleCode =
-        exportType === 'full'
-          ? getModuleCode(this, result, replacers, sourceMap)
-          : '';
-      const exportCode =
-        exports.length > 0
-          ? getExportCode(this, exports, replacers, {
-              localsConvention: options.localsConvention,
-              exportType,
-            })
-          : '';
-
-      return callback(
-        null,
-        [apiCode, importCode, moduleCode, exportCode].join('')
+      const { importLoaders, localsConvention } = options;
+      const importCode = getImportCode(
+        this,
+        imports,
+        exportType,
+        sourceMap,
+        importLoaders
       );
+      const moduleCode = getModuleCode(
+        this,
+        result,
+        exportType,
+        sourceMap,
+        replacers
+      );
+      const exportCode = getExportCode(
+        this,
+        exports,
+        exportType,
+        replacers,
+        localsConvention
+      );
+
+      return callback(null, [importCode, moduleCode, exportCode].join(''));
     })
     .catch((error) => {
       callback(
