@@ -4,11 +4,7 @@
 */
 import path from 'path';
 
-import loaderUtils, {
-  isUrlRequest,
-  stringifyRequest,
-  urlToRequest,
-} from 'loader-utils';
+import loaderUtils, { isUrlRequest, stringifyRequest } from 'loader-utils';
 import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
 import modulesValues from 'postcss-modules-values';
@@ -230,10 +226,7 @@ function getImportCode(
         importPrefix = getImportPrefix(loaderContext, importLoaders);
       }
 
-      const url = stringifyRequest(
-        loaderContext,
-        importPrefix + urlToRequest(item.url)
-      );
+      const url = stringifyRequest(loaderContext, importPrefix + item.url);
 
       importItems.push(`var ${item.name} = require(${url});`);
 
@@ -259,7 +252,7 @@ function getImportCode(
       let importName = urlImportNames.get(url);
 
       if (!importName) {
-        const preparedUrl = stringifyRequest(loaderContext, urlToRequest(url));
+        const preparedUrl = stringifyRequest(loaderContext, url);
 
         importName = `___CSS_LOADER_URL_PURE_IMPORT_${index}___`;
         importItems.push(`var ${importName} = require(${preparedUrl});`);

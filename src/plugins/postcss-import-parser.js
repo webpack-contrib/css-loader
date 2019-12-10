@@ -1,5 +1,6 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
+import { isUrlRequest, urlToRequest } from 'loader-utils';
 
 const pluginName = 'postcss-import-parser';
 
@@ -28,10 +29,14 @@ function parseImport(params) {
     return null;
   }
 
-  const url = getUrl(nodes[0]);
+  let url = getUrl(nodes[0]);
 
   if (!url || url.trim().length === 0) {
     return null;
+  }
+
+  if (isUrlRequest(url)) {
+    url = urlToRequest(url);
   }
 
   return {

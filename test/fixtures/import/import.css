@@ -65,3 +65,5 @@
 .background {
   background: url('./img.png');
 }
+
+@import url(./test.css);
