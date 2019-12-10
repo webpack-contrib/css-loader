@@ -17,7 +17,7 @@ describe('url option', () => {
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
   });
 
-  /* it('false', async () => {
+  it('false', async () => {
     const config = { loader: { options: { url: false } } };
     const testId = './url/url.css';
     const stats = await webpack(testId, config);
@@ -62,5 +62,5 @@ describe('url option', () => {
       'warnings'
     );
     expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
-  });*/
+  });
 });
