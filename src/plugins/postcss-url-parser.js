@@ -1,5 +1,6 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
+import { urlToRequest } from 'loader-utils';
 
 const pluginName = 'postcss-url-parser';
 
@@ -77,7 +78,7 @@ function getUrlsFromValue(value, result, filter, decl) {
     }
 
     const splittedUrl = url.split(/(\?)?#/);
-    let normalizedUrl = decodeURIComponent(splittedUrl[0]);
+    let normalizedUrl = urlToRequest(decodeURIComponent(splittedUrl[0]));
     const [, singleQuery, hashValue] = splittedUrl;
     const hash =
       singleQuery || hashValue

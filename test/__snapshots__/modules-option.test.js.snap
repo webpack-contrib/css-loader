@@ -6627,6 +6627,50 @@ Array [
 
 exports[`modules should accepts all arguments for getLocalIdent option: warnings 1`] = `Array []`;
 
+exports[`modules should avoid unnecessary "require": errors 1`] = `Array []`;
+
+exports[`modules should avoid unnecessary "require": module (evaluated) 1`] = `
+Array [
+  Array [
+    2,
+    "._22ETk3ZhhvjVe-4dAULcsF {
+  display: block;
+}
+",
+    "",
+  ],
+  Array [
+    1,
+    "._1UrsXQ2x66vvn0IAbZqRYi {
+  color: red;
+}
+
+._3xlGH7JLMDZsCqOwH83KaV {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`modules should avoid unnecessary "require": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
+// Module
+exports.push([module.id, \\"._1UrsXQ2x66vvn0IAbZqRYi {\\\\n  color: red;\\\\n}\\\\n\\\\n._3xlGH7JLMDZsCqOwH83KaV {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"simple-foo\\": \\"_1UrsXQ2x66vvn0IAbZqRYi \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"imported-simple\\"] + \\"\\",
+	\\"simple-bar\\": \\"_3xlGH7JLMDZsCqOwH83KaV \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"imported-simple\\"] + \\"\\"
+};"
+`;
+
+exports[`modules should avoid unnecessary "require": warnings 1`] = `Array []`;
+
 exports[`modules should correctly replace escaped symbols in selector with localIdentName option: errors 1`] = `Array []`;
 
 exports[`modules should correctly replace escaped symbols in selector with localIdentName option: locals 1`] = `
