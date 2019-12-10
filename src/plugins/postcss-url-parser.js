@@ -11,12 +11,6 @@ function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
 
-function getUrlFromUrlFunc(node) {
-  return node.nodes.length !== 0 && node.nodes[0].type === 'string'
-    ? node.nodes[0].value
-    : valueParser.stringify(node.nodes);
-}
-
 function walkUrls(parsed, callback) {
   parsed.walk((node) => {
     if (node.type !== 'function') {
@@ -24,7 +18,13 @@ function walkUrls(parsed, callback) {
     }
 
     if (isUrlFunc.test(node.value)) {
-      callback(getNodeFromUrlFunc(node), getUrlFromUrlFunc(node), false);
+      const isStringNode =
+        node.nodes.length !== 0 && node.nodes[0].type === 'string';
+      const url = isStringNode
+        ? node.nodes[0].value
+        : valueParser.stringify(node.nodes);
+
+      callback(getNodeFromUrlFunc(node), url, false, isStringNode);
 
       // Do not traverse inside `url`
       // eslint-disable-next-line consistent-return
@@ -34,11 +34,17 @@ function walkUrls(parsed, callback) {
     if (isImageSetFunc.test(node.value)) {
       node.nodes.forEach((nNode) => {
         if (nNode.type === 'function' && isUrlFunc.test(nNode.value)) {
-          callback(getNodeFromUrlFunc(nNode), getUrlFromUrlFunc(nNode), false);
+          const isStringNode =
+            nNode.nodes.length !== 0 && nNode.nodes[0].type === 'string';
+          const url = isStringNode
+            ? nNode.nodes[0].value
+            : valueParser.stringify(nNode.nodes);
+
+          callback(getNodeFromUrlFunc(nNode), url, false, isStringNode);
         }
 
         if (nNode.type === 'string') {
-          callback(nNode, nNode.value, true);
+          callback(nNode, nNode.value, true, true);
         }
       });
 
@@ -57,7 +63,7 @@ function getUrlsFromValue(value, result, filter, decl) {
   const parsed = valueParser(value);
   const urls = [];
 
-  walkUrls(parsed, (node, url, needQuotes) => {
+  walkUrls(parsed, (node, url, needQuotes, isStringNode) => {
     if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
       result.warn(`Unable to find uri in '${decl ? decl.toString() : value}'`, {
         node: decl,
@@ -70,11 +76,19 @@ function getUrlsFromValue(value, result, filter, decl) {
       return;
     }
 
-    const [normalizedUrl, singleQuery, hashValue] = url.split(/(\?)?#/);
+    const splittedUrl = url.split(/(\?)?#/);
+    let [normalizedUrl] = splittedUrl;
+    const [, singleQuery, hashValue] = splittedUrl;
     const hash =
       singleQuery || hashValue
         ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
         : '';
+
+    // Remove extra escaping requirements for `require`
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (!isStringNode && /\\["'() \t\n]/.test(normalizedUrl)) {
+      normalizedUrl = normalizedUrl.replace(/\\(["'() \t\n])/g, '$1');
+    }
 
     urls.push({ node, url: normalizedUrl, hash, needQuotes });
   });
