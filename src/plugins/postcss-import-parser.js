@@ -1,22 +1,24 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-import { isUrlRequest, urlToRequest } from 'loader-utils';
+import { isUrlRequest } from 'loader-utils';
+
+import { normalizeUrl } from '../utils';
 
 const pluginName = 'postcss-import-parser';
 
-function getArg(nodes) {
-  return nodes.length !== 0 && nodes[0].type === 'string'
-    ? nodes[0].value
-    : valueParser.stringify(nodes);
-}
-
-function getUrl(node) {
+function getParsedValue(node) {
   if (node.type === 'function' && node.value.toLowerCase() === 'url') {
-    return getArg(node.nodes);
+    const { nodes } = node;
+    const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
+    const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
+
+    return { url, isStringValue };
   }
 
   if (node.type === 'string') {
-    return node.value;
+    const url = node.value;
+
+    return { url, isStringValue: true };
   }
 
   return null;
@@ -29,14 +31,22 @@ function parseImport(params) {
     return null;
   }
 
-  let url = getUrl(nodes[0]);
+  const value = getParsedValue(nodes[0]);
 
-  if (!url || url.trim().length === 0) {
+  if (!value) {
+    return null;
+  }
+
+  let { url } = value;
+
+  if (url.trim().length === 0) {
     return null;
   }
 
   if (isUrlRequest(url)) {
-    url = urlToRequest(url);
+    const { isStringValue } = value;
+
+    url = normalizeUrl(url, isStringValue);
   }
 
   return {

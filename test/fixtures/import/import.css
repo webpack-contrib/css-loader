@@ -67,3 +67,38 @@
 }
 
 @import url(./test.css);
+
+@import './te\
+st.css';
+@import './te\
+\
+\
+st.css';
+@import url('./te\
+st.css');
+@import url('./te\
+\
+\
+st.css');
+
+@import "./te'st.css";
+@import url("./te'st.css");
+@import './te\'st.css';
+@import url('./te\'st.css');
+@import './test test.css';
+@import url('./test test.css');
+@import './test\ test.css';
+@import url('./test\ test.css');
+@import './test%20test.css';
+@import url('./test%20test.css');
+@import './\74\65\73\74.css';
+@import url('./\74\65\73\74.css');
+@import './t\65\73\74.css';
+@import url('./t\65\73\74.css');
+@import url(./test\ test.css);
+@import url(./t\65st%20test.css);
+@import url('./t\65st%20test.css');
+@import url("./t\65st%20test.css");
+@import "./t\65st%20test.css";
+@import './t\65st%20test.css';
+@import url(                 test.css                      );
