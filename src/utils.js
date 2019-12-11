@@ -4,7 +4,11 @@
 */
 import path from 'path';
 
-import loaderUtils, { isUrlRequest, stringifyRequest } from 'loader-utils';
+import loaderUtils, {
+  isUrlRequest,
+  stringifyRequest,
+  urlToRequest,
+} from 'loader-utils';
 import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
 import modulesValues from 'postcss-modules-values';
@@ -12,23 +16,6 @@ import localByDefault from 'postcss-modules-local-by-default';
 import extractImports from 'postcss-modules-extract-imports';
 import modulesScope from 'postcss-modules-scope';
 import camelCase from 'camelcase';
-
-function getImportPrefix(loaderContext, importLoaders) {
-  if (importLoaders === false) {
-    return '';
-  }
-
-  const numberImportedLoaders = parseInt(importLoaders, 10) || 0;
-  const loadersRequest = loaderContext.loaders
-    .slice(
-      loaderContext.loaderIndex,
-      loaderContext.loaderIndex + 1 + numberImportedLoaders
-    )
-    .map((x) => x.request)
-    .join('!');
-
-  return `-!${loadersRequest}!`;
-}
 
 const whitespace = '[\\x20\\t\\r\\n\\f]';
 const unescapeRegExp = new RegExp(
@@ -88,6 +75,16 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
       .replace(/\./g, '-'),
     { isIdentifier: true }
   ).replace(/\\\[local\\\]/gi, localName);
+}
+
+function normalizeUrl(url, isStringValue) {
+  let normalizedUrl = url;
+
+  if (isStringValue && /\\[\n]/.test(normalizedUrl)) {
+    normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
+  }
+
+  return urlToRequest(decodeURIComponent(unescape(normalizedUrl)));
 }
 
 function getFilter(filter, resourcePath, defaultFilter = null) {
@@ -184,6 +181,23 @@ function normalizeSourceMap(map) {
   }
 
   return newMap;
+}
+
+function getImportPrefix(loaderContext, importLoaders) {
+  if (importLoaders === false) {
+    return '';
+  }
+
+  const numberImportedLoaders = parseInt(importLoaders, 10) || 0;
+  const loadersRequest = loaderContext.loaders
+    .slice(
+      loaderContext.loaderIndex,
+      loaderContext.loaderIndex + 1 + numberImportedLoaders
+    )
+    .map((x) => x.request)
+    .join('!');
+
+  return `-!${loadersRequest}!`;
 }
 
 function getImportCode(
@@ -395,7 +409,7 @@ function getExportCode(
 }
 
 export {
-  unescape,
+  normalizeUrl,
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,

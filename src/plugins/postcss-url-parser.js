@@ -1,8 +1,7 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-import { urlToRequest } from 'loader-utils';
 
-import { unescape } from '../utils';
+import { normalizeUrl } from '../utils';
 
 const pluginName = 'postcss-url-parser';
 
@@ -21,13 +20,11 @@ function walkUrls(parsed, callback) {
     }
 
     if (isUrlFunc.test(node.value)) {
-      const isStringNode =
-        node.nodes.length !== 0 && node.nodes[0].type === 'string';
-      const url = isStringNode
-        ? node.nodes[0].value
-        : valueParser.stringify(node.nodes);
+      const { nodes } = node;
+      const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
+      const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
 
-      callback(getNodeFromUrlFunc(node), url, false, isStringNode);
+      callback(getNodeFromUrlFunc(node), url, false, isStringValue);
 
       // Do not traverse inside `url`
       // eslint-disable-next-line consistent-return
@@ -36,18 +33,22 @@ function walkUrls(parsed, callback) {
 
     if (isImageSetFunc.test(node.value)) {
       node.nodes.forEach((nNode) => {
-        if (nNode.type === 'function' && isUrlFunc.test(nNode.value)) {
-          const isStringNode =
-            nNode.nodes.length !== 0 && nNode.nodes[0].type === 'string';
-          const url = isStringNode
-            ? nNode.nodes[0].value
-            : valueParser.stringify(nNode.nodes);
+        const { type, value } = nNode;
 
-          callback(getNodeFromUrlFunc(nNode), url, false, isStringNode);
+        if (type === 'function' && isUrlFunc.test(value)) {
+          const { nodes } = nNode;
+
+          const isStringValue =
+            nodes.length !== 0 && nodes[0].type === 'string';
+          const url = isStringValue
+            ? nodes[0].value
+            : valueParser.stringify(nodes);
+
+          callback(getNodeFromUrlFunc(nNode), url, false, isStringValue);
         }
 
-        if (nNode.type === 'string') {
-          callback(nNode, nNode.value, true, true);
+        if (type === 'string') {
+          callback(nNode, value, true, true);
         }
       });
 
@@ -66,7 +67,7 @@ function getUrlsFromValue(value, result, filter, decl) {
   const parsed = valueParser(value);
   const urls = [];
 
-  walkUrls(parsed, (node, url, needQuotes, isStringNode) => {
+  walkUrls(parsed, (node, url, needQuotes, isStringValue) => {
     if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
       result.warn(`Unable to find uri in '${decl ? decl.toString() : value}'`, {
         node: decl,
@@ -80,19 +81,13 @@ function getUrlsFromValue(value, result, filter, decl) {
     }
 
     const splittedUrl = url.split(/(\?)?#/);
-    let [normalizedUrl] = splittedUrl;
-    const [, singleQuery, hashValue] = splittedUrl;
+    const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
     const hash =
       singleQuery || hashValue
         ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
         : '';
 
-    // See https://drafts.csswg.org/css-values-4/#strings
-    if (isStringNode && /\\[\n]/.test(normalizedUrl)) {
-      normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
-    }
-
-    normalizedUrl = urlToRequest(decodeURIComponent(unescape(normalizedUrl)));
+    const normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
 
     urls.push({ node, url: normalizedUrl, hash, needQuotes });
   });
