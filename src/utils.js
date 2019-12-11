@@ -395,6 +395,7 @@ function getExportCode(
 }
 
 export {
+  unescape,
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,

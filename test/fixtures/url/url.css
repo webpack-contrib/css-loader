@@ -329,3 +329,17 @@ a {
 .qqq {
   background: url('img.png');
 }
+
+.www {
+  background: url("./img\'\'\'img.png");
+  background: url("./img\'\(\)\ img.png");
+  background: url("./img\'img.png");
+  background: url("./img\(img.png");
+  background: url("./img\)img.png");
+  background: url("./img\ img.png");
+  background: url("./\69\6D\67.png");
+  background: url(./\69\6D\67.png);
+  background: url("./img\27img.png");
+  background: url("./img\'\28%29 img.png");
+  background: url(./img\'\28%29\ img.png);
+}

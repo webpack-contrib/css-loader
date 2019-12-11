@@ -2,6 +2,8 @@ import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 import { urlToRequest } from 'loader-utils';
 
+import { unescape } from '../utils';
+
 const pluginName = 'postcss-url-parser';
 
 const isUrlFunc = /url/i;
@@ -78,22 +80,19 @@ function getUrlsFromValue(value, result, filter, decl) {
     }
 
     const splittedUrl = url.split(/(\?)?#/);
-    let normalizedUrl = urlToRequest(decodeURIComponent(splittedUrl[0]));
+    let [normalizedUrl] = splittedUrl;
     const [, singleQuery, hashValue] = splittedUrl;
     const hash =
       singleQuery || hashValue
         ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
         : '';
 
-    // Remove extra escaping requirements for `require`
-    // See https://drafts.csswg.org/css-values-3/#urls
-    if (!isStringNode && /\\["'() \t\n]/.test(normalizedUrl)) {
-      normalizedUrl = normalizedUrl.replace(/\\(["'() \t\n])/g, '$1');
-    }
-    // https://drafts.csswg.org/css-values-4/#strings
-    else if (isStringNode && /\\[\n]/.test(normalizedUrl)) {
+    // See https://drafts.csswg.org/css-values-4/#strings
+    if (isStringNode && /\\[\n]/.test(normalizedUrl)) {
       normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
     }
+
+    normalizedUrl = urlToRequest(decodeURIComponent(unescape(normalizedUrl)));
 
     urls.push({ node, url: normalizedUrl, hash, needQuotes });
   });
