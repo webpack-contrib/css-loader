@@ -59,7 +59,7 @@ function parseImport(params) {
 }
 
 function walkAtRules(css, result, filter) {
-  const items = new Map();
+  const items = [];
 
   css.walkAtRules(/^import$/i, (atRule) => {
     // Convert only top-level @import
@@ -91,14 +91,7 @@ function walkAtRules(css, result, filter) {
 
     atRule.remove();
 
-    const { url, media } = parsed;
-    const value = items.get(url);
-
-    if (!value) {
-      items.set(url, new Set([media]));
-    } else {
-      value.add(media);
-    }
+    items.push(parsed);
   });
 
   return items;
@@ -110,25 +103,14 @@ export default postcss.plugin(
     function process(css, result) {
       const items = walkAtRules(css, result, options.filter);
 
-      [...items]
-        .reduce((accumulator, currentValue) => {
-          const [url, medias] = currentValue;
+      items.forEach((item) => {
+        const { url, media } = item;
 
-          medias.forEach((media) => {
-            accumulator.push({ url, media });
-          });
-
-          return accumulator;
-        }, [])
-        .forEach((item, index) => {
-          const { url, media } = item;
-          const name = `___CSS_LOADER_AT_RULE_IMPORT_${index}___`;
-
-          result.messages.push({
-            pluginName,
-            type: 'import',
-            value: { type: '@import', name, url, media },
-          });
+        result.messages.push({
+          pluginName,
+          type: 'import',
+          value: { type: '@import', url, media },
         });
+      });
     }
 );

@@ -31,21 +31,6 @@ export default function loader(content, map, meta) {
 
   const callback = this.async();
   const sourceMap = options.sourceMap || false;
-
-  // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-  // eslint-disable-next-line no-param-reassign
-  map = sourceMap && map ? normalizeSourceMap(map) : null;
-
-  // Reuse CSS AST (PostCSS AST e.g 'postcss-loader') to avoid reparsing
-  if (meta) {
-    const { ast } = meta;
-
-    if (ast && ast.type === 'postcss' && ast.version === postcssPkg.version) {
-      // eslint-disable-next-line no-param-reassign
-      content = ast.root;
-    }
-  }
-
   const plugins = [];
 
   if (options.modules) {
@@ -74,12 +59,27 @@ export default function loader(content, map, meta) {
     );
   }
 
+  // Reuse CSS AST (PostCSS AST e.g 'postcss-loader') to avoid reparsing
+  if (meta) {
+    const { ast } = meta;
+
+    if (ast && ast.type === 'postcss' && ast.version === postcssPkg.version) {
+      // eslint-disable-next-line no-param-reassign
+      content = ast.root;
+    }
+  }
+
   postcss(plugins)
     .process(content, {
       from: this.remainingRequest.split('!').pop(),
       to: this.currentRequest.split('!').pop(),
       map: options.sourceMap
-        ? { prev: map, inline: false, annotation: false }
+        ? {
+            // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
+            prev: sourceMap && map ? normalizeSourceMap(map) : null,
+            inline: false,
+            annotation: false,
+          }
         : false,
     })
     .then((result) => {

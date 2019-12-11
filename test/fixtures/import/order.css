@@ -1,0 +1,13 @@
+@import url('./order-1.css');
+@import url(http://example.com/style.css);
+@import url('./order-2.css');
+@import url(http://example.com/style.css);
+@import url('./order-1.css');
+@import url(http://example.com/style.css);
+@import url('./order-2.css') screen and (min-width: 2000px);
+@import url(http://example.com/style.css);
+
+div {
+  width: 100%;
+  height: 200px;
+}

@@ -209,79 +209,121 @@ function getImportCode(
 ) {
   const importItems = [];
   const codeItems = [];
+  const atRuleImportNames = new Map();
   const urlImportNames = new Map();
 
-  let hasUrlHelperCode = false;
   let importPrefix;
 
   if (exportType === 'full') {
-    const url = stringifyRequest(
-      loaderContext,
-      require.resolve('./runtime/api')
+    importItems.push(
+      `var ___CSS_LOADER_API_IMPORT___ = require(${stringifyRequest(
+        loaderContext,
+        require.resolve('./runtime/api')
+      )});`
     );
-    importItems.push(`var ___CSS_LOADER_API_IMPORT___ = require(${url});`);
     codeItems.push(
       `exports = module.exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});`
     );
   }
 
   imports.forEach((item) => {
-    if (item.type === '@import' || item.type === 'icss-import') {
-      const media = item.media ? `, ${JSON.stringify(item.media)}` : '';
+    // eslint-disable-next-line default-case
+    switch (item.type) {
+      case '@import':
+        {
+          const { url, media } = item;
+          const preparedMedia = media ? `, ${JSON.stringify(media)}` : '';
 
-      if (!isUrlRequest(item.url)) {
-        const url = JSON.stringify(`@import url(${item.url});`);
-        codeItems.push(`exports.push([module.id, ${url}${media}]);`);
+          if (!isUrlRequest(url)) {
+            codeItems.push(
+              `exports.push([module.id, ${JSON.stringify(
+                `@import url(${url});`
+              )}${preparedMedia}]);`
+            );
 
-        return;
-      }
+            return;
+          }
 
-      if (!importPrefix) {
-        importPrefix = getImportPrefix(loaderContext, importLoaders);
-      }
+          let importName = atRuleImportNames.get(url);
 
-      const url = stringifyRequest(loaderContext, importPrefix + item.url);
+          if (!importName) {
+            if (!importPrefix) {
+              importPrefix = getImportPrefix(loaderContext, importLoaders);
+            }
 
-      importItems.push(`var ${item.name} = require(${url});`);
+            importName = `___CSS_LOADER_AT_RULE_IMPORT_${atRuleImportNames.size}___`;
+            importItems.push(
+              `var ${importName} = require(${stringifyRequest(
+                loaderContext,
+                importPrefix + url
+              )});`
+            );
 
-      if (exportType === 'full') {
-        codeItems.push(`exports.i(${item.name}${media});`);
-      }
-    }
+            atRuleImportNames.set(url, importName);
+          }
 
-    if (item.type === 'url') {
-      if (!hasUrlHelperCode) {
-        const pathToGetUrl = require.resolve('./runtime/getUrl.js');
-        const url = stringifyRequest(loaderContext, pathToGetUrl);
+          codeItems.push(`exports.i(${importName}${preparedMedia});`);
+        }
+        break;
+      case 'url':
+        {
+          if (urlImportNames.size === 0) {
+            importItems.push(
+              `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${stringifyRequest(
+                loaderContext,
+                require.resolve('./runtime/getUrl.js')
+              )});`
+            );
+          }
 
-        importItems.push(
-          `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${url});`
-        );
+          const { replacementName, url, hash, needQuotes } = item;
 
-        hasUrlHelperCode = true;
-      }
+          let importName = urlImportNames.get(url);
 
-      const { name, url, hash, needQuotes, index } = item;
+          if (!importName) {
+            importName = `___CSS_LOADER_URL_IMPORT_${urlImportNames.size}___`;
+            importItems.push(
+              `var ${importName} = require(${stringifyRequest(
+                loaderContext,
+                url
+              )});`
+            );
 
-      let importName = urlImportNames.get(url);
+            urlImportNames.set(url, importName);
+          }
 
-      if (!importName) {
-        const preparedUrl = stringifyRequest(loaderContext, url);
+          const getUrlOptions = []
+            .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
+            .concat(needQuotes ? 'needQuotes: true' : []);
+          const preparedOptions =
+            getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
 
-        importName = `___CSS_LOADER_URL_PURE_IMPORT_${index}___`;
-        importItems.push(`var ${importName} = require(${preparedUrl});`);
-        urlImportNames.set(url, importName);
-      }
+          codeItems.push(
+            `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});`
+          );
+        }
+        break;
+      case 'icss-import':
+        {
+          const { importName, url, media } = item;
+          const preparedMedia = media ? `, ${JSON.stringify(media)}` : '';
 
-      const getUrlOptions = []
-        .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
-        .concat(needQuotes ? 'needQuotes: true' : []);
-      const preparedOptions =
-        getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
+          if (!importPrefix) {
+            importPrefix = getImportPrefix(loaderContext, importLoaders);
+          }
 
-      codeItems.push(
-        `var ${name} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});`
-      );
+          importItems.push(
+            `var ${importName} = require(${stringifyRequest(
+              loaderContext,
+              importPrefix + url
+            )});`
+          );
+
+          if (exportType === 'full') {
+            codeItems.push(`exports.i(${importName}${preparedMedia});`);
+          }
+        }
+        break;
     }
   });
 
@@ -307,17 +349,20 @@ function getModuleCode(
   let cssCode = JSON.stringify(css);
 
   replacers.forEach((replacer) => {
-    const { type, name } = replacer;
+    const { type, replacementName } = replacer;
 
     if (type === 'url') {
-      cssCode = cssCode.replace(new RegExp(name, 'g'), () => `" + ${name} + "`);
+      cssCode = cssCode.replace(
+        new RegExp(replacementName, 'g'),
+        () => `" + ${replacementName} + "`
+      );
     }
 
     if (type === 'icss-import') {
       const { importName, localName } = replacer;
 
       cssCode = cssCode.replace(
-        new RegExp(name, 'g'),
+        new RegExp(replacementName, 'g'),
         () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
       );
     }
@@ -344,10 +389,9 @@ function getExportCode(
   }
 
   const items = [];
-
-  function addExportedItem(name, value) {
+  const addExportedItem = (name, value) => {
     items.push(`\t${JSON.stringify(name)}: ${JSON.stringify(value)}`);
-  }
+  };
 
   exports.forEach((item) => {
     const { name, value } = item;
@@ -394,13 +438,12 @@ function getExportCode(
 
   replacers.forEach((replacer) => {
     if (replacer.type === 'icss-import') {
-      const { name, importName } = replacer;
-      const localName = JSON.stringify(replacer.localName);
+      const { replacementName, importName, localName } = replacer;
 
-      exportCode = exportCode.replace(new RegExp(name, 'g'), () =>
+      exportCode = exportCode.replace(new RegExp(replacementName, 'g'), () =>
         exportType === 'locals'
-          ? `" + ${importName}[${localName}] + "`
-          : `" + ${importName}.locals[${localName}] + "`
+          ? `" + ${importName}[${JSON.stringify(localName)}] + "`
+          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
       );
     }
   });

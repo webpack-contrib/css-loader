@@ -10,6 +10,7 @@ it('validate options', () => {
           loaders: [],
           remainingRequest: 'file.css',
           currentRequest: 'file.css',
+          resourcePath: 'file.css',
           async: () => (error) => {
             if (error) {
               throw error;
@@ -17,7 +18,7 @@ it('validate options', () => {
           },
         }
       ),
-      'a { color: red; }'
+      '.red { color: red; }'
     );
 
   expect(() => validate({ url: true })).not.toThrow();
@@ -77,7 +78,6 @@ it('validate options', () => {
   expect(() =>
     validate({ modules: { getLocalIdent: () => {} } })
   ).not.toThrow();
-  expect(() => validate({ modules: { getLocalIdent: false } })).not.toThrow();
   expect(() =>
     validate({ modules: { getLocalIdent: [] } })
   ).toThrowErrorMatchingSnapshot();
