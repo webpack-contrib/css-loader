@@ -139,45 +139,44 @@ export default postcss.plugin(
   (options) =>
     function process(css, result) {
       const traversed = walkDecls(css, result, options.filter);
-      const paths = collectUniqueUrlsWithNodes(
-        flatten(traversed.map((item) => item.urls))
-      );
+      const flattenTraversed = flatten(traversed.map((item) => item.urls));
+      const urlsWithNodes = collectUniqueUrlsWithNodes(flattenTraversed);
       const replacers = new Map();
 
-      paths.forEach((path, index) => {
-        const { url, hash, needQuotes, nodes } = path;
-        const name = `___CSS_LOADER_URL_IMPORT_${index}___`;
+      urlsWithNodes.forEach((urlWithNodes, index) => {
+        const { url, hash, needQuotes, nodes } = urlWithNodes;
+        const replacementName = `___CSS_LOADER_URL_REPLACEMENT_${index}___`;
 
         result.messages.push(
           {
             pluginName,
             type: 'import',
-            value: { type: 'url', name, url, needQuotes, hash, index },
+            value: { type: 'url', replacementName, url, needQuotes, hash },
           },
           {
             pluginName,
             type: 'replacer',
-            value: { type: 'url', name },
+            value: { type: 'url', replacementName },
           }
         );
 
         nodes.forEach((node) => {
-          replacers.set(node, name);
+          replacers.set(node, replacementName);
         });
       });
 
       traversed.forEach((item) => {
         walkUrls(item.parsed, (node) => {
-          const name = replacers.get(node);
+          const replacementName = replacers.get(node);
 
-          if (!name) {
+          if (!replacementName) {
             return;
           }
 
           // eslint-disable-next-line no-param-reassign
           node.type = 'word';
           // eslint-disable-next-line no-param-reassign
-          node.value = name;
+          node.value = replacementName;
         });
 
         // eslint-disable-next-line no-param-reassign
