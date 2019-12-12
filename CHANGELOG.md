@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.1](https://github.com/webpack-contrib/css-loader/compare/v3.3.0...v3.3.1) (2019-12-12)
+
+
+### Bug Fixes
+
+* better handling url functions and an url in `@import` at-rules
+* reduce count of `require` ([#1014](https://github.com/webpack-contrib/css-loader/issues/1014)) ([e091d27](https://github.com/webpack-contrib/css-loader/commit/e091d2709c29ac57ed0106af8ec3b581cbda7a9c))
+
 ## [3.3.0](https://github.com/webpack-contrib/css-loader/compare/v3.2.1...v3.3.0) (2019-12-09)
 
 
