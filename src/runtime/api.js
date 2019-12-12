@@ -13,7 +13,7 @@ module.exports = function(useSourceMap) {
       const content = cssWithMappingToString(item, useSourceMap);
 
       if (item[2]) {
-        return `@media ${item[2]}{${content}}`;
+        return `@media ${item[2]} {${content}}`;
       }
 
       return content;
@@ -28,33 +28,18 @@ module.exports = function(useSourceMap) {
       modules = [[null, modules, '']];
     }
 
-    const alreadyImportedModules = {};
-
-    for (let i = 0; i < this.length; i++) {
-      // eslint-disable-next-line prefer-destructuring
-      const id = this[i][0];
-
-      if (id != null) {
-        alreadyImportedModules[id] = true;
-      }
-    }
-
     for (let i = 0; i < modules.length; i++) {
-      const item = modules[i];
+      const item = [].concat(modules[i]);
 
-      // skip already imported module
-      // this implementation is not 100% perfect for weird media query combinations
-      // when a module is imported multiple times with different media queries.
-      // I hope this will never occur (Hey this way we have smaller bundles)
-      if (item[0] == null || !alreadyImportedModules[item[0]]) {
-        if (mediaQuery && !item[2]) {
+      if (mediaQuery) {
+        if (!item[2]) {
           item[2] = mediaQuery;
-        } else if (mediaQuery) {
-          item[2] = `(${item[2]}) and (${mediaQuery})`;
+        } else {
+          item[2] = `${mediaQuery} and ${item[2]}`;
         }
-
-        list.push(item);
       }
+
+      list.push(item);
     }
   };
 

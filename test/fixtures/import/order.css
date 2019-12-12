@@ -6,6 +6,9 @@
 @import url(http://example.com/style.css);
 @import url('./order-2.css') screen and (min-width: 2000px);
 @import url(http://example.com/style.css);
+@import url('./order-3.css');
+@import url(http://example.com/style.css);
+@import url('./order-4.css') screen;
 
 div {
   width: 100%;
