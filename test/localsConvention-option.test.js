@@ -1,122 +1,111 @@
-import { webpack, evaluated } from './helpers';
-import { getErrors, getWarnings } from './helpers/index';
+import {
+  compile,
+  execute,
+  getCompiler,
+  getErrors,
+  getModuleSource,
+  getWarnings,
+  readAsset,
+} from './helpers/index';
 
-describe('localsConvention option', () => {
-  it('not specified', async () => {
-    const config = { loader: { options: { modules: true } } };
-    const testId = './modules/localsConvention.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-    const evaluatedModule = evaluated(module.source);
+describe('"localsConvention" option', () => {
+  it('should work when not specified', async () => {
+    const compiler = getCompiler('./modules/localsConvention.js', {
+      modules: true,
+    });
+    const stats = await compile(compiler);
 
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
-  });
-
-  it('asIs', async () => {
-    const config = {
-      loader: {
-        options: {
-          modules: true,
-          localsConvention: 'asIs',
-        },
-      },
-    };
-    const testId = './modules/localsConvention.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-    const evaluatedModule = evaluated(module.source);
-
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('locals');
+    expect(
+      getModuleSource('./modules/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('camelCase', async () => {
-    const config = {
-      loader: {
-        options: {
-          modules: true,
-          localsConvention: 'camelCase',
-        },
-      },
-    };
-    const testId = './modules/localsConvention.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-    const evaluatedModule = evaluated(module.source);
+  it('should work with a value equal to "asIs"', async () => {
+    const compiler = getCompiler('./modules/localsConvention.js', {
+      modules: true,
+      localsConvention: 'asIs',
+    });
+    const stats = await compile(compiler);
 
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('locals');
+    expect(
+      getModuleSource('./modules/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('camelCaseOnly', async () => {
-    const config = {
-      loader: {
-        options: {
-          modules: true,
-          localsConvention: 'camelCaseOnly',
-        },
-      },
-    };
-    const testId = './modules/localsConvention.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-    const evaluatedModule = evaluated(module.source);
+  it('should work with a value equal to "camelCase"', async () => {
+    const compiler = getCompiler('./modules/localsConvention.js', {
+      modules: true,
+      localsConvention: 'camelCase',
+    });
+    const stats = await compile(compiler);
 
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('locals');
+    expect(
+      getModuleSource('./modules/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('dashes', async () => {
-    const config = {
-      loader: {
-        options: {
-          modules: true,
-          localsConvention: 'dashes',
-        },
-      },
-    };
-    const testId = './modules/localsConvention.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-    const evaluatedModule = evaluated(module.source);
+  it('should work with a value equal to "camelCaseOnly"', async () => {
+    const compiler = getCompiler('./modules/localsConvention.js', {
+      modules: true,
+      localsConvention: 'camelCaseOnly',
+    });
+    const stats = await compile(compiler);
 
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('locals');
+    expect(
+      getModuleSource('./modules/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('dashesOnly', async () => {
-    const config = {
-      loader: {
-        options: {
-          modules: true,
-          localsConvention: 'dashesOnly',
-        },
-      },
-    };
-    const testId = './modules/localsConvention.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-    const evaluatedModule = evaluated(module.source);
+  it('should work with a value equal to "dashes"', async () => {
+    const compiler = getCompiler('./modules/localsConvention.js', {
+      modules: true,
+      localsConvention: 'dashes',
+    });
+    const stats = await compile(compiler);
 
-    expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
-    expect(evaluatedModule.locals).toMatchSnapshot('locals');
+    expect(
+      getModuleSource('./modules/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with a value equal to "dashesOnly"', async () => {
+    const compiler = getCompiler('./modules/localsConvention.js', {
+      modules: true,
+      localsConvention: 'dashesOnly',
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
