@@ -21,7 +21,7 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work when "true"', async () => {
+  it('should work with a value equal to "true"', async () => {
     const compiler = getCompiler('./url/url.js', { url: true });
     const stats = await compile(compiler);
 
@@ -33,7 +33,7 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work when "false"', async () => {
+  it('should work with a value equal to "false"', async () => {
     const compiler = getCompiler('./url/url.js', { url: false });
     const stats = await compile(compiler);
 
@@ -45,7 +45,7 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work when "Function"', async () => {
+  it('should work with a value equal to "Function"', async () => {
     const compiler = getCompiler('./url/url.js', {
       url: (url, resourcePath) => {
         expect(typeof resourcePath === 'string').toBe(true);

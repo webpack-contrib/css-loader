@@ -23,7 +23,7 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work when "true"', async () => {
+  it('should work with a value equal to "true"', async () => {
     const compiler = getCompiler('./import/import.js', { import: true });
     const stats = await compile(compiler);
 
@@ -37,7 +37,7 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work when "false"', async () => {
+  it('should work with a value equal to "false"', async () => {
     const compiler = getCompiler('./import/import.js', { import: false });
     const stats = await compile(compiler);
 
