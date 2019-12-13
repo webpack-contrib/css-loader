@@ -2,7 +2,8 @@ import path from 'path';
 
 import postcssPresetEnv from 'postcss-preset-env';
 
-import { webpack, evaluated, normalizeErrors } from './helpers';
+import { webpack, evaluated } from './helpers';
+import { getErrors, getWarnings } from './helpers/index';
 
 describe('loader', () => {
   it('should compile with `js` entry point', async () => {
@@ -16,8 +17,8 @@ describe('loader', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should compile with `css` entry point', async () => {
@@ -31,8 +32,8 @@ describe('loader', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should compile with `css` entry point (with `modules` and scope `local`)', async () => {
@@ -47,8 +48,8 @@ describe('loader', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should compile with `css` entry point (with `modules` and scope `global`)', async () => {
@@ -63,8 +64,8 @@ describe('loader', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should compile with empty css entry point', async () => {
@@ -77,8 +78,8 @@ describe('loader', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should compile with empty options', async () => {
@@ -92,8 +93,8 @@ describe('loader', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should throws error when no loader for assets', async () => {
@@ -109,17 +110,15 @@ describe('loader', () => {
     };
     const stats = await webpack('basic.css', config);
 
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should throw error on invalid css syntax', async () => {
     const stats = await webpack('invalid.css');
 
-    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
-      'warnings'
-    );
-    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('using together with "postcss-loader" and reuse `ast`', async () => {
@@ -139,8 +138,8 @@ describe('loader', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('using together with "sass-loader"', async () => {
@@ -161,8 +160,8 @@ describe('loader', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('using together with "sass-loader"', async () => {
@@ -183,8 +182,8 @@ describe('loader', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should work with ModuleConcatenationPlugin (file-loader)', async () => {
@@ -199,8 +198,8 @@ describe('loader', () => {
     expect(stats.compilation.assets['main.bundle.js'].source()).toMatchSnapshot(
       'assets'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should work with ModuleConcatenationPlugin (url-loader)', async () => {
@@ -222,7 +221,7 @@ describe('loader', () => {
     expect(stats.compilation.assets['main.bundle.js'].source()).toMatchSnapshot(
       'assets'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

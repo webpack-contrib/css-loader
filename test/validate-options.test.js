@@ -1,118 +1,112 @@
-import loader from '../src/cjs';
+import { getCompiler, compile } from './helpers/index';
 
-it('validate options', () => {
-  const validate = (options) =>
-    loader.call(
-      Object.assign(
-        {},
-        {
-          query: options,
-          loaders: [],
-          remainingRequest: 'file.css',
-          currentRequest: 'file.css',
-          resourcePath: 'file.css',
-          async: () => (error) => {
-            if (error) {
-              throw error;
-            }
-          },
+describe('validate options', () => {
+  const tests = {
+    url: {
+      success: [true, false, () => {}],
+      failure: ['true'],
+    },
+    import: {
+      success: [true, false, () => {}],
+      failure: ['true'],
+    },
+    modules: {
+      success: [
+        true,
+        false,
+        'global',
+        'local',
+        'pure',
+        { mode: 'global' },
+        { mode: 'local' },
+        { mode: 'pure' },
+        { localIdentName: '[path][name]__[local]--[hash:base64:5]' },
+        { context: 'context' },
+        { hashPrefix: 'hash' },
+        { getLocalIdent: () => {} },
+        { localIdentRegExp: 'page-(.*)\\.js' },
+        { localIdentRegExp: /page-(.*)\.js/ },
+      ],
+      failure: [
+        'true',
+        'globals',
+        'locals',
+        'pures',
+        { mode: true },
+        { mode: 'globals' },
+        { mode: 'locals' },
+        { mode: 'pures' },
+        { localIdentName: true },
+        { context: true },
+        { hashPrefix: true },
+        { getLocalIdent: [] },
+        { localIdentRegExp: true },
+      ],
+    },
+    sourceMap: {
+      success: [true, false],
+      failure: ['true'],
+    },
+    localsConvention: {
+      success: ['camelCase', 'camelCaseOnly', 'dashes', 'dashesOnly'],
+      failure: ['unknown'],
+    },
+    importLoaders: {
+      success: [false, 0, 1, 2],
+      failure: ['1'],
+    },
+    onlyLocals: {
+      success: [true, false],
+      failure: ['true'],
+    },
+    unknown: {
+      success: [],
+      failure: [1, true, false, 'test', /test/, [], {}, { foo: 'bar' }],
+    },
+  };
+
+  function stringifyValue(value) {
+    if (
+      Array.isArray(value) ||
+      (value && typeof value === 'object' && value.constructor === Object)
+    ) {
+      return JSON.stringify(value);
+    }
+
+    return value;
+  }
+
+  async function createTestCase(key, value, type) {
+    it(`should ${
+      type === 'success' ? 'successfully validate' : 'throw an error on'
+    } the "${key}" option with "${stringifyValue(value)}" value`, async () => {
+      const compiler = getCompiler('simple.js', { [key]: value });
+      let stats;
+
+      try {
+        stats = await compile(compiler);
+      } finally {
+        if (type === 'success') {
+          expect(stats.hasErrors()).toBe(false);
+        } else if (type === 'failure') {
+          const {
+            compilation: { errors },
+          } = stats;
+
+          expect(errors).toHaveLength(1);
+          expect(() => {
+            throw new Error(errors[0].error.message);
+          }).toThrowErrorMatchingSnapshot();
         }
-      ),
-      '.red { color: red; }'
-    );
+      }
+    });
+  }
 
-  expect(() => validate({ url: true })).not.toThrow();
-  expect(() => validate({ url: false })).not.toThrow();
-  expect(() => validate({ url: () => {} })).not.toThrow();
-  expect(() => validate({ url: 'true' })).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ import: true })).not.toThrow();
-  expect(() => validate({ import: false })).not.toThrow();
-  expect(() => validate({ import: () => {} })).not.toThrow();
-  expect(() => validate({ import: 'true' })).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ modules: true })).not.toThrow();
-  expect(() => validate({ modules: false })).not.toThrow();
-  expect(() => validate({ modules: 'global' })).not.toThrow();
-  expect(() => validate({ modules: 'local' })).not.toThrow();
-  expect(() => validate({ modules: 'pure' })).not.toThrow();
-  expect(() => validate({ modules: { mode: 'local' } })).not.toThrow();
-  expect(() => validate({ modules: { mode: 'global' } })).not.toThrow();
-  expect(() => validate({ modules: { mode: 'pure' } })).not.toThrow();
-  expect(() => validate({ modules: 'true' })).toThrowErrorMatchingSnapshot();
-  expect(() => validate({ modules: 'globals' })).toThrowErrorMatchingSnapshot();
-  expect(() => validate({ modules: 'locals' })).toThrowErrorMatchingSnapshot();
-  expect(() => validate({ modules: 'pures' })).toThrowErrorMatchingSnapshot();
-  expect(() =>
-    validate({ modules: { mode: true } })
-  ).toThrowErrorMatchingSnapshot();
-  expect(() =>
-    validate({ modules: { mode: 'true' } })
-  ).toThrowErrorMatchingSnapshot();
-  expect(() =>
-    validate({ modules: { mode: 'locals' } })
-  ).toThrowErrorMatchingSnapshot();
-  expect(() =>
-    validate({ modules: { mode: 'globals' } })
-  ).toThrowErrorMatchingSnapshot();
-
-  expect(() =>
-    validate({
-      modules: { localIdentName: '[path][name]__[local]--[hash:base64:5]' },
-    })
-  ).not.toThrow();
-  expect(() =>
-    validate({ modules: { localIdentName: true } })
-  ).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ modules: { context: 'context' } })).not.toThrow();
-  expect(() =>
-    validate({ modules: { context: true } })
-  ).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ modules: { hashPrefix: 'hash' } })).not.toThrow();
-  expect(() =>
-    validate({ modules: { hashPrefix: true } })
-  ).toThrowErrorMatchingSnapshot();
-
-  expect(() =>
-    validate({ modules: { getLocalIdent: () => {} } })
-  ).not.toThrow();
-  expect(() =>
-    validate({ modules: { getLocalIdent: [] } })
-  ).toThrowErrorMatchingSnapshot();
-
-  expect(() =>
-    validate({ modules: { localIdentRegExp: 'page-(.*)\\.js' } })
-  ).not.toThrow();
-  expect(() =>
-    validate({ modules: { localIdentRegExp: /page-(.*)\.js/ } })
-  ).not.toThrow();
-  expect(() =>
-    validate({ modules: { localIdentRegExp: true } })
-  ).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ sourceMap: true })).not.toThrow();
-  expect(() => validate({ sourceMap: false })).not.toThrow();
-  expect(() => validate({ sourceMap: 'true' })).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ localsConvention: 'camelCase' })).not.toThrow();
-  expect(() => validate({ localsConvention: 'camelCaseOnly' })).not.toThrow();
-  expect(() => validate({ localsConvention: 'dashes' })).not.toThrow();
-  expect(() => validate({ localsConvention: 'dashesOnly' })).not.toThrow();
-  expect(() =>
-    validate({ localsConvention: 'unknown' })
-  ).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ importLoaders: false })).not.toThrow();
-  expect(() => validate({ importLoaders: 0 })).not.toThrow();
-  expect(() => validate({ importLoaders: 1 })).not.toThrow();
-  expect(() => validate({ importLoaders: 2 })).not.toThrow();
-  expect(() => validate({ importLoaders: '1' })).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ onlyLocals: true })).not.toThrow();
-  expect(() => validate({ onlyLocals: false })).not.toThrow();
-  expect(() => validate({ onlyLocals: 'true' })).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ unknown: 'unknown' })).toThrowErrorMatchingSnapshot();
+  for (const [key, values] of Object.entries(tests)) {
+    for (const type of Object.keys(values)) {
+      for (const value of values[type]) {
+        createTestCase(key, value, type);
+      }
+    }
+  }
 });

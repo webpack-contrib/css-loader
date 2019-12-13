@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs';
 
 import { webpack, evaluated } from './helpers';
+import { getErrors, getWarnings } from './helpers/index';
 
 const testCasesPath = path.join(__dirname, 'fixtures/modules/tests-cases');
 const testCases = fs.readdirSync(testCasesPath);
@@ -43,8 +44,8 @@ describe('modules', () => {
 
         expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
         expect(evaluatedModule.locals).toMatchSnapshot('locals');
-        expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-        expect(stats.compilation.errors).toMatchSnapshot('errors');
+        expect(getWarnings(stats)).toMatchSnapshot('warnings');
+        expect(getErrors(stats)).toMatchSnapshot('errors');
       });
     });
   });
@@ -66,8 +67,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should respects localIdentName option', async () => {
@@ -89,8 +90,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should respects context option', async () => {
@@ -112,8 +113,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should respects path in localIdentName option', async () => {
@@ -135,8 +136,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should respects hashPrefix option with localIdentName option', async () => {
@@ -158,8 +159,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should prefixes leading hyphen + digit with underscore with localIdentName option', async () => {
@@ -180,8 +181,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should prefixes two leading hyphens with underscore with localIdentName option', async () => {
@@ -202,8 +203,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should saves underscore prefix in exported class names with localIdentName option', async () => {
@@ -224,8 +225,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should correctly replace escaped symbols in selector with localIdentName option', async () => {
@@ -247,8 +248,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should respects getLocalIdent option (local mode)', async () => {
@@ -271,8 +272,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should accepts all arguments for getLocalIdent option', async () => {
@@ -307,8 +308,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should have an undefined context if no context was given', async () => {
@@ -332,8 +333,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should respects getLocalIdent option (global mode)', async () => {
@@ -356,8 +357,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('getLocalIdent should be allowed to return false', async () => {
@@ -379,8 +380,8 @@ describe('modules', () => {
 
     expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
     expect(evaluatedModule.locals).toMatchSnapshot('locals');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('composes should supports resolving', async () => {
@@ -396,8 +397,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('issue #286', async () => {
@@ -431,8 +432,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('issue #636', async () => {
@@ -463,8 +464,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('issue #861', async () => {
@@ -480,8 +481,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('issue #967', async () => {
@@ -505,8 +506,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('issue #966', async () => {
@@ -529,8 +530,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('issue #980', async () => {
@@ -552,8 +553,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('issue #995', async () => {
@@ -576,8 +577,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should avoid unnecessary "require"', async () => {
@@ -597,8 +598,8 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should keep order', async () => {
@@ -618,7 +619,7 @@ describe('modules', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

@@ -1,4 +1,5 @@
 import { webpack } from './helpers';
+import { getErrors, getWarnings } from './helpers/index';
 
 describe('modules', () => {
   it('true', async () => {
@@ -23,7 +24,7 @@ describe('modules', () => {
 
     expect(module.source).toMatchSnapshot('module');
     expect(valueModule.source).toMatchSnapshot('values module');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

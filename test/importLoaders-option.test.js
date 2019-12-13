@@ -1,6 +1,7 @@
 import postcssPresetEnv from 'postcss-preset-env';
 
 import { webpack, evaluated } from './helpers';
+import { getErrors, getWarnings } from './helpers/index';
 
 describe('importLoaders option', () => {
   it('not specify (no loader before)', async () => {
@@ -20,8 +21,8 @@ describe('importLoaders option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('1 (no loaders before)', async () => {
@@ -37,8 +38,8 @@ describe('importLoaders option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('0 (`postcss-loader` before)', async () => {
@@ -58,8 +59,8 @@ describe('importLoaders option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('1 (`postcss-loader` before)', async () => {
@@ -79,8 +80,8 @@ describe('importLoaders option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('2 (`postcss-loader` before)', async () => {
@@ -100,7 +101,7 @@ describe('importLoaders option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

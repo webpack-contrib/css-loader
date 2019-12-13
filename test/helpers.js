@@ -4,7 +4,6 @@ import path from 'path';
 import del from 'del';
 import webpack from 'webpack';
 import { createFsFromVolume, Volume } from 'memfs';
-import stripAnsi from 'strip-ansi';
 import normalizePath from 'normalize-path';
 
 function evaluated(output, modules, moduleId = 1) {
@@ -222,16 +221,6 @@ function compile(fixture, config = {}, options = {}) {
   );
 }
 
-function normalizeErrors(errors) {
-  return errors.map((error) => {
-    const message = error.toString();
-
-    return stripAnsi(message)
-      .replace(/\(from .*?\)/, '(from `replaced original path`)')
-      .replace(/at(.*?)\(.*?\)/g, 'at$1(`replaced original path`)');
-  });
-}
-
 function normalizeSourceMap(module) {
   return module.map((m) => {
     if (m[3]) {
@@ -266,6 +255,5 @@ function normalizeSourceMap(module) {
 module.exports = {
   webpack: compile,
   evaluated,
-  normalizeErrors,
   normalizeSourceMap,
 };

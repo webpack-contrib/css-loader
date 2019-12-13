@@ -1,4 +1,5 @@
-import { webpack, evaluated, normalizeErrors } from './helpers';
+import { webpack, evaluated } from './helpers';
+import { getErrors, getWarnings } from './helpers/index';
 
 describe('import option', () => {
   it('true', async () => {
@@ -11,10 +12,8 @@ describe('import option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
-      'warnings'
-    );
-    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('false', async () => {
@@ -28,8 +27,8 @@ describe('import option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('Function', async () => {
@@ -58,10 +57,8 @@ describe('import option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
-      'warnings'
-    );
-    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should keep original order', async () => {
@@ -74,9 +71,7 @@ describe('import option', () => {
     expect(evaluated(module.source, modules)).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
-      'warnings'
-    );
-    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

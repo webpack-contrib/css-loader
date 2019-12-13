@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs';
 
 import { webpack, evaluated } from './helpers';
+import { getErrors, getWarnings } from './helpers/index';
 
 const testCasesPath = path.join(__dirname, 'fixtures/icss/tests-cases');
 const testCases = fs.readdirSync(testCasesPath);
@@ -17,8 +18,8 @@ describe('ICSS', () => {
 
       expect(evaluatedModule).toMatchSnapshot('module (evaluated)');
       expect(evaluatedModule.locals).toMatchSnapshot('locals');
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
   });
 });

@@ -3,6 +3,7 @@ import path from 'path';
 import postcssPresetEnv from 'postcss-preset-env';
 
 import { webpack, evaluated, normalizeSourceMap } from './helpers';
+import { getErrors, getWarnings } from './helpers/index';
 
 describe('sourceMap option', () => {
   describe('true', () => {
@@ -22,8 +23,8 @@ describe('sourceMap option', () => {
       expect(normalizeSourceMap(evaluated(module.source))).toMatchSnapshot(
         'module (evaluated)'
       );
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it('should generate source map when source map is `null` from other loader', async () => {
@@ -43,8 +44,8 @@ describe('sourceMap option', () => {
       expect(normalizeSourceMap(evaluated(module.source))).toMatchSnapshot(
         'module (evaluated)'
       );
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it('should generate source map when source map is `undefined` from other loader', async () => {
@@ -65,8 +66,8 @@ describe('sourceMap option', () => {
       expect(normalizeSourceMap(evaluated(module.source))).toMatchSnapshot(
         'module (evaluated)'
       );
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it('should generate source map when source map is valid and it is string from other loader', async () => {
@@ -98,8 +99,8 @@ describe('sourceMap option', () => {
       expect(normalizeSourceMap(evaluated(module.source))).toMatchSnapshot(
         'module (evaluated)'
       );
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it('should generate source map when source map is valid from other loader (`sass-loader`)', async () => {
@@ -125,8 +126,8 @@ describe('sourceMap option', () => {
       expect(normalizeSourceMap(evaluated(module.source))).toMatchSnapshot(
         'module (evaluated)'
       );
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it('should generate source map when source map is valid from other loader (`postcss-loader`)', async () => {
@@ -150,8 +151,8 @@ describe('sourceMap option', () => {
       expect(normalizeSourceMap(evaluated(module.source))).toMatchSnapshot(
         'module (evaluated)'
       );
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
   });
 
@@ -170,8 +171,8 @@ describe('sourceMap option', () => {
       const module = modules.find((m) => m.id === testId);
 
       expect(evaluated(module.source)).toMatchSnapshot('module (evaluated)');
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it('should not generate source map when source map is `null` from other loader', async () => {
@@ -189,8 +190,8 @@ describe('sourceMap option', () => {
       const module = modules.find((m) => m.id === testId);
 
       expect(evaluated(module.source)).toMatchSnapshot('module (evaluated)');
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it('should not generate source map when source map is `undefined` from other loader', async () => {
@@ -209,8 +210,8 @@ describe('sourceMap option', () => {
       const module = modules.find((m) => m.id === testId);
 
       expect(evaluated(module.source)).toMatchSnapshot('module (evaluated)');
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
   });
 
@@ -237,7 +238,7 @@ describe('sourceMap option', () => {
     expect(normalizeSourceMap(evaluated(module.source))).toMatchSnapshot(
       'module (evaluated)'
     );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });
