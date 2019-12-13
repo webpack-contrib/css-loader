@@ -36,6 +36,8 @@ export default (fixture, loaderOptions = {}, config = {}) => {
     resolve: {
       alias: {
         aliasesImg: path.resolve(__dirname, '../fixtures/url'),
+        aliasesImport: path.resolve(__dirname, '../fixtures/import'),
+        aliasesComposes: path.resolve(__dirname, '../fixtures/modules'),
       },
     },
     plugins: [],

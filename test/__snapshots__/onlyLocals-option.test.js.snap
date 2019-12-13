@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`modules true: errors 1`] = `Array []`;
+exports[`"onlyLocals" option should work: errors 1`] = `Array []`;
 
-exports[`modules true: module 1`] = `
+exports[`"onlyLocals" option should work: module 1`] = `
 "// Imports
-var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-0!./values.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-0!./something.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4-0!./imported-simple.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4-0!./relative.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4-0!../modules/top-relative.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4-0!package/style.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4-0!aliasesComposes/alias.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-rules-0!./values.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4-rules-0!./something.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4-rules-0!./imported-simple.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4-rules-0!./relative.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4-rules-0!../modules/top-relative.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4-rules-0!package/style.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4-rules-0!aliasesComposes/alias.css\\");
 // Exports
 module.exports = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
@@ -60,14 +60,53 @@ module.exports = {
 };"
 `;
 
-exports[`modules true: values module 1`] = `
-"// Exports
-module.exports = {
-	\\"v-def\\": \\"red\\",
-	\\"v-other\\": \\"green\\",
-	\\"s-white\\": \\"white\\",
-	\\"m-small\\": \\"(min-width: 320px)\\"
-};"
+exports[`"onlyLocals" option should work: result 1`] = `
+Object {
+  "alias": "_alias _imported-alias",
+  "black-selector": "_black-selector",
+  "class": "_class",
+  "foo": "_foo",
+  "foobarbaz": "_foobarbaz",
+  "ghi": "_ghi",
+  "green": "_green",
+  "header": "_header",
+  "m-large": "(min-width: 960px)",
+  "m-small": "(min-width: 320px)",
+  "module": "_module _imported-module",
+  "other": "_other",
+  "other-other": "_other-other",
+  "primary-selector": "_primary-selector",
+  "relative": "_relative _imported-relative",
+  "s-black": "black-selector",
+  "s-white": "white",
+  "simple": "_simple _imported-simple",
+  "top-relative": "_top-relative undefined",
+  "url": "_url",
+  "v-bar": "block",
+  "v-def": "red",
+  "v-dimension": "12px",
+  "v-foo": "blue",
+  "v-function": "rgb(0,0,0)",
+  "v-hex": "#fff",
+  "v-ident": "validIdent",
+  "v-integer": "100",
+  "v-integer-1": "-100",
+  "v-integer-2": "+100",
+  "v-number": ".60",
+  "v-number-1": "-456.8",
+  "v-number-2": "-3.4e-2",
+  "v-other": "green",
+  "v-percentage": "100%",
+  "v-pre-defined-ident": "left",
+  "v-primary": "#BF4040",
+  "v-something": "2112moon",
+  "v-string": "'content'",
+  "v-string-1": "''",
+  "v-unicode-range": "U+0025-00FF",
+  "v-url": "url(https://www.exammple.com/images/my-background.png)",
+  "v-url-1": "url('https://www.exammple.com/images/my-background.png')",
+  "v-url-2": "url(\\"https://www.exammple.com/images/my-background.png\\")",
+}
 `;
 
-exports[`modules true: warnings 1`] = `Array []`;
+exports[`"onlyLocals" option should work: warnings 1`] = `Array []`;
