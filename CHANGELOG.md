@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.2](https://github.com/webpack-contrib/css-loader/compare/v3.3.1...v3.3.2) (2019-12-12)
+
+
+### Bug Fixes
+
+* logic for order and media queries for imports ([1fb5134](https://github.com/webpack-contrib/css-loader/commit/1fb51340a7719b6f5b517cb71ea85ec5d45c1199))
+
 ### [3.3.1](https://github.com/webpack-contrib/css-loader/compare/v3.3.0...v3.3.1) (2019-12-12)
 
 

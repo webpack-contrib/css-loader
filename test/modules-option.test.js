@@ -6,6 +6,8 @@ import { webpack, evaluated } from './helpers';
 const testCasesPath = path.join(__dirname, 'fixtures/modules/tests-cases');
 const testCases = fs.readdirSync(testCasesPath);
 
+jest.setTimeout(30000);
+
 describe('modules', () => {
   [
     true,
