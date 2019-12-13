@@ -1,106 +1,173 @@
+import path from 'path';
+
 import postcssPresetEnv from 'postcss-preset-env';
 
-import { webpack, evaluated } from './helpers';
-import { getErrors, getWarnings } from './helpers/index';
+import {
+  compile,
+  execute,
+  getCompiler,
+  getErrors,
+  getModuleSource,
+  getWarnings,
+  readAsset,
+} from './helpers/index';
 
-describe('importLoaders option', () => {
-  it('not specify (no loader before)', async () => {
+describe('"importLoaders" option', () => {
+  it('should work when not specified', async () => {
     // It is hard to test `postcss` on reuse `ast`, please look on coverage before merging
-    const config = {
-      postcssLoader: true,
-      postcssLoaderOptions: {
-        plugins: () => [postcssPresetEnv({ stage: 0 })],
-      },
-    };
-    const testId = './nested-import/source.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
+    const compiler = getCompiler(
+      './nested-import/source.js',
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              rules: [
+                { loader: path.resolve(__dirname, '../src') },
+                {
+                  loader: 'postcss-loader',
+                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                },
+              ],
+            },
+          ],
+        },
+      }
     );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./nested-import/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('1 (no loaders before)', async () => {
-    const config = {
-      loader: { options: { importLoaders: 1 } },
-    };
-    const testId = './nested-import/source.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
+  it('should work with a value equal to "0" (`postcss-loader` before)', async () => {
+    // It is hard to test `postcss` on reuse `ast`, please look on coverage before merging
+    const compiler = getCompiler(
+      './nested-import/source.js',
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                  options: { importLoaders: 0 },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                },
+              ],
+            },
+          ],
+        },
+      }
     );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./nested-import/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('0 (`postcss-loader` before)', async () => {
-    const config = {
-      loader: { options: { importLoaders: 0 } },
-      postcssLoader: true,
-      postcssLoaderOptions: {
-        plugins: () => [postcssPresetEnv({ stage: 0 })],
-      },
-    };
-    const testId = './nested-import/source.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
+  it('should work with a value equal to "1" (no loaders before)', async () => {
+    const compiler = getCompiler('./nested-import/source.js');
+    const stats = await compile(compiler);
 
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
+    expect(
+      getModuleSource('./nested-import/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('1 (`postcss-loader` before)', async () => {
-    const config = {
-      loader: { options: { importLoaders: 1 } },
-      postcssLoader: true,
-      postcssLoaderOptions: {
-        plugins: () => [postcssPresetEnv({ stage: 0 })],
-      },
-    };
-    const testId = './nested-import/source.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
+  it('should work with a value equal to "1" ("postcss-loader" before)', async () => {
+    // It is hard to test `postcss` on reuse `ast`, please look on coverage before merging
+    const compiler = getCompiler(
+      './nested-import/source.js',
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                  options: { importLoaders: 1 },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                },
+              ],
+            },
+          ],
+        },
+      }
     );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./nested-import/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('2 (`postcss-loader` before)', async () => {
-    const config = {
-      loader: { options: { importLoaders: 2 } },
-      postcssLoader: true,
-      postcssLoaderOptions: {
-        plugins: () => [postcssPresetEnv({ stage: 0 })],
-      },
-    };
-    const testId = './nested-import/source.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
+  it('should work with a value equal to "2" ("postcss-loader" before)', async () => {
+    // It is hard to test `postcss` on reuse `ast`, please look on coverage before merging
+    const compiler = getCompiler(
+      './nested-import/source.js',
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                  options: { importLoaders: 2 },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                },
+              ],
+            },
+          ],
+        },
+      }
     );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./nested-import/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
