@@ -13,6 +13,7 @@ export default (fixture, loaderOptions = {}, config = {}) => {
       path: path.resolve(__dirname, '../outputs'),
       filename: '[name].bundle.js',
       chunkFilename: '[name].chunk.js',
+      publicPath: '/webpack/public/path/',
     },
     module: {
       rules: [
@@ -31,6 +32,11 @@ export default (fixture, loaderOptions = {}, config = {}) => {
           options: { name: '[name].[ext]' },
         },
       ],
+    },
+    resolve: {
+      alias: {
+        aliasesImg: path.resolve(__dirname, '../fixtures/url'),
+      },
     },
     plugins: [],
     ...config,
