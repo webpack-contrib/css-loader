@@ -1,4 +1,3 @@
-/* eslint-disable */
 import css from './basic.scss';
 
 __export__ = css;

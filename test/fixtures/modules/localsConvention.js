@@ -1,4 +1,3 @@
-/* eslint-disable */
 import css from './localsConvention.css';
 
 __export__ = css;

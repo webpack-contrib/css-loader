@@ -1,4 +1,3 @@
-/* eslint-disable */
 import css from './source.scss';
 
 __export__ = css;

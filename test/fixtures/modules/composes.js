@@ -1,4 +1,3 @@
-/* eslint-disable */
 import css from './composes.css';
 
 __export__ = css;

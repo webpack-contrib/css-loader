@@ -1,4 +1,3 @@
-/* eslint-disable */
 import css from './button.css';
 
 __export__ = css;

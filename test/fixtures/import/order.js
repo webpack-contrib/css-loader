@@ -1,4 +1,3 @@
-/* eslint-disable */
 import css from './order.css';
 
 __export__ = css;

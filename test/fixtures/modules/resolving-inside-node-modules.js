@@ -1,4 +1,3 @@
-/* eslint-disable */
 import css from './resolving-inside-node-modules.css';
 
 __export__ = css;
