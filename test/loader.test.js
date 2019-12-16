@@ -2,225 +2,211 @@ import path from 'path';
 
 import postcssPresetEnv from 'postcss-preset-env';
 
-import { webpack, evaluated } from './helpers';
-import { getErrors, getWarnings } from './helpers/index';
+import {
+  compile,
+  execute,
+  getCompiler,
+  getErrors,
+  getModuleSource,
+  getWarnings,
+  readAsset,
+} from './helpers/index';
 
 describe('loader', () => {
-  it('should compile with `js` entry point', async () => {
-    const stats = await webpack('basic.js');
-    const { modules } = stats.toJson();
-    const [, api, escape, module] = modules;
+  it('should work', async () => {
+    const compiler = getCompiler('./basic.js');
+    const stats = await compile(compiler);
 
-    expect(api.source).toMatchSnapshot('api');
-    expect(escape.source).toMatchSnapshot('escape');
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
+    expect(getModuleSource('./basic.css', stats)).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should compile with `css` entry point', async () => {
-    const stats = await webpack('basic.css');
-    const { modules } = stats.toJson();
-    const [, runtime, escape, module] = modules;
+  it('should work with empty css', async () => {
+    const compiler = getCompiler('./empty.js');
+    const stats = await compile(compiler);
 
-    expect(runtime.source).toMatchSnapshot('api');
-    expect(escape.source).toMatchSnapshot('escape');
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
+    expect(getModuleSource('./empty.css', stats)).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should compile with `css` entry point (with `modules` and scope `local`)', async () => {
-    const config = { loader: { options: { modules: 'local' } } };
-    const stats = await webpack('basic.css', config);
-    const { modules } = stats.toJson();
-    const [, runtime, escape, module] = modules;
+  it('should work with empty options', async () => {
+    const compiler = getCompiler('./basic.js', {});
+    const stats = await compile(compiler);
 
-    expect(runtime.source).toMatchSnapshot('api');
-    expect(escape.source).toMatchSnapshot('escape');
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
+    expect(getModuleSource('./basic.css', stats)).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should compile with `css` entry point (with `modules` and scope `global`)', async () => {
-    const config = { loader: { options: { modules: 'global' } } };
-    const stats = await webpack('basic.css', config);
-    const { modules } = stats.toJson();
-    const [, runtime, escape, module] = modules;
-
-    expect(runtime.source).toMatchSnapshot('api');
-    expect(escape.source).toMatchSnapshot('escape');
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
-  it('should compile with empty css entry point', async () => {
-    const testId = './empty.css';
-    const stats = await webpack(testId);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
-  it('should compile with empty options', async () => {
-    const config = { loader: { options: {} } };
-    const testId = './empty.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
-  it('should throws error when no loader for assets', async () => {
-    const config = {
-      rules: [
-        {
-          test: /\.css$/,
-          use: {
-            loader: path.resolve(__dirname, '../src/index'),
-          },
+  it('should throws error when no loader(s) for assets', async () => {
+    const compiler = getCompiler(
+      './basic.js',
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              loader: path.resolve(__dirname, '../src'),
+            },
+          ],
         },
-      ],
-    };
-    const stats = await webpack('basic.css', config);
+      }
+    );
+    const stats = await compile(compiler);
 
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should throw error on invalid css syntax', async () => {
-    const stats = await webpack('invalid.css');
+    const compiler = getCompiler('./invalid.js', {});
+    const stats = await compile(compiler);
 
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('using together with "postcss-loader" and reuse `ast`', async () => {
-    // It is hard to test `postcss` on reuse `ast`, please look on coverage before merging
-    const config = {
-      postcssLoader: true,
-      postcssLoaderOptions: {
-        plugins: () => [postcssPresetEnv({ stage: 0 })],
-      },
-    };
-    const testId = './postcss-present-env/source.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
+  it('should reuse `ast` from "postcss-loader"', async () => {
+    const compiler = getCompiler(
+      './postcss-present-env/source.js',
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                  options: { importLoaders: 1 },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+              loader: 'file-loader',
+              options: { name: '[name].[ext]' },
+            },
+          ],
+        },
+      }
     );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./postcss-present-env/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('using together with "sass-loader"', async () => {
-    const config = {
-      loader: { test: /\.s[ca]ss$/i },
-      sassLoader: true,
-      sassLoaderOptions: {
-        // eslint-disable-next-line global-require
-        implementation: require('sass'),
-      },
-    };
-    const testId = './scss/source.scss';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
+  it('should work with "sass-loader"', async () => {
+    const compiler = getCompiler(
+      './scss/source.js',
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.s[ca]ss$/i,
+              rules: [
+                { loader: path.resolve(__dirname, '../src') },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    // eslint-disable-next-line global-require
+                    implementation: require('sass'),
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
+    const stats = await compile(compiler);
 
-  it('using together with "sass-loader"', async () => {
-    const config = {
-      loader: { test: /\.s[ca]ss$/i },
-      sassLoader: true,
-      sassLoaderOptions: {
-        // eslint-disable-next-line global-require
-        implementation: require('sass'),
-      },
-    };
-    const testId = './scss/source.scss';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
+    expect(getModuleSource('./scss/source.scss', stats)).toMatchSnapshot(
+      'module'
     );
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should work with ModuleConcatenationPlugin (file-loader)', async () => {
-    const stats = await webpack('basic.js', {
-      mode: 'production',
-      fileLoaderOptions: {
-        name: '[name].[ext]',
-        esModules: true,
-      },
-    });
-
-    expect(stats.compilation.assets['main.bundle.js'].source()).toMatchSnapshot(
-      'assets'
+    const compiler = getCompiler(
+      './basic.js',
+      {},
+      {
+        mode: 'production',
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              loader: path.resolve(__dirname, '../src'),
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+              loader: 'file-loader',
+              options: { name: '[name].[ext]', esModules: true },
+            },
+          ],
+        },
+      }
     );
+    const stats = await compile(compiler);
+
+    expect(stats.compilation.modules.length).toBe(6);
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should work with ModuleConcatenationPlugin (url-loader)', async () => {
-    const stats = await webpack('basic.js', {
-      mode: 'production',
-      disableFileLoader: true,
-      additionalLoader: {
-        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            name: '[name].[ext]',
-            esModules: true,
-          },
+    const compiler = getCompiler(
+      './basic.js',
+      {},
+      {
+        mode: 'production',
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              loader: path.resolve(__dirname, '../src'),
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+              loader: 'url-loader',
+              options: { name: '[name].[ext]', limit: true, esModules: true },
+            },
+          ],
         },
-      },
-    });
-
-    expect(stats.compilation.assets['main.bundle.js'].source()).toMatchSnapshot(
-      'assets'
+      }
     );
+    const stats = await compile(compiler);
+
+    expect(stats.compilation.modules.length).toBe(6);
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });

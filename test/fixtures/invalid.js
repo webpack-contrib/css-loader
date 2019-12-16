@@ -1,5 +1,5 @@
 /* eslint-disable */
-import css from './basic.css';
+import css from './invalid.css';
 
 __export__ = css;
 

@@ -19,12 +19,8 @@ export default (fixture, loaderOptions = {}, config = {}) => {
       rules: [
         {
           test: /\.css$/i,
-          rules: [
-            {
-              loader: path.resolve(__dirname, '../../src'),
-              options: loaderOptions || {},
-            },
-          ],
+          loader: path.resolve(__dirname, '../../src'),
+          options: loaderOptions || {},
         },
         {
           test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -39,6 +35,9 @@ export default (fixture, loaderOptions = {}, config = {}) => {
         aliasesImport: path.resolve(__dirname, '../fixtures/import'),
         aliasesComposes: path.resolve(__dirname, '../fixtures/modules'),
       },
+    },
+    optimization: {
+      minimize: false,
     },
     plugins: [],
     ...config,
