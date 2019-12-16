@@ -35,6 +35,8 @@ Array [
 
 exports[`"modules" option issue #286: warnings 1`] = `Array []`;
 
+exports[`"modules" option issue #636: errors 1`] = `Array []`;
+
 exports[`"modules" option issue #636: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
@@ -48,6 +50,26 @@ exports.locals = {
 	\\"bar\\": \\"prefix-bar \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"foo\\"] + \\"\\"
 };"
 `;
+
+exports[`"modules" option issue #636: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./modules/issue-636/foo.scss",
+    ".prefix-foo {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    "./modules/issue-636/source.scss",
+    ".prefix-bar {
+}",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option issue #636: warnings 1`] = `Array []`;
 
 exports[`"modules" option issue #861: errors 1`] = `Array []`;
 

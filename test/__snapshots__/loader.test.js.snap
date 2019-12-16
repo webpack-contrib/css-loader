@@ -139,6 +139,14 @@ Array [
 
 exports[`loader should work with "sass-loader": warnings 1`] = `Array []`;
 
+exports[`loader should work with ModuleConcatenationPlugin (file-loader): errors 1`] = `Array []`;
+
+exports[`loader should work with ModuleConcatenationPlugin (file-loader): warnings 1`] = `Array []`;
+
+exports[`loader should work with ModuleConcatenationPlugin (url-loader): errors 1`] = `Array []`;
+
+exports[`loader should work with ModuleConcatenationPlugin (url-loader): warnings 1`] = `Array []`;
+
 exports[`loader should work with empty css: errors 1`] = `Array []`;
 
 exports[`loader should work with empty css: module 1`] = `

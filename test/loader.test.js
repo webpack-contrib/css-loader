@@ -177,7 +177,12 @@ describe('loader', () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.modules.length).toBe(6);
+    if (stats.compilation.modules.size) {
+      expect(stats.compilation.modules.size).toBe(11);
+    } else {
+      expect(stats.compilation.modules.length).toBe(6);
+    }
+
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -205,7 +210,12 @@ describe('loader', () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.modules.length).toBe(6);
+    if (stats.compilation.modules.size) {
+      expect(stats.compilation.modules.size).toBe(10);
+    } else {
+      expect(stats.compilation.modules.length).toBe(6);
+    }
+
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });

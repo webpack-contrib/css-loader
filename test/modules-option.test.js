@@ -380,7 +380,7 @@ describe('"modules" option', () => {
           rules: [
             {
               test: /\.s[ca]ss$/i,
-              rules: [
+              use: [
                 {
                   loader: path.resolve(__dirname, '../src'),
                   options: {
