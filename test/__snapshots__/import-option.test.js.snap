@@ -44,7 +44,7 @@ Array [
   ],
   Array [
     "../../src/index.js?[ident]!./import/order-2.css",
-    ".order-1 {
+    ".order-2 {
   color: red;
 }
 ",
@@ -68,7 +68,7 @@ Array [
   ],
   Array [
     "../../src/index.js?[ident]!./import/order-2.css",
-    ".order-1 {
+    ".order-2 {
   color: red;
 }
 ",
