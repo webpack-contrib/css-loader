@@ -221,9 +221,7 @@ function getImportCode(
         require.resolve('./runtime/api')
       )});`
     );
-    codeItems.push(
-      `exports = module.exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});`
-    );
+    codeItems.push(`exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});`);
   }
 
   imports.forEach((item) => {
@@ -385,76 +383,79 @@ function getExportCode(
   localsConvention
 ) {
   const exportItems = [];
+  let exportLocalsCode;
 
-  if (exports.length === 0) {
-    return '';
+  if (exports.length > 0) {
+    const exportLocals = [];
+    const addExportedLocal = (name, value) => {
+      exportLocals.push(`\t${JSON.stringify(name)}: ${JSON.stringify(value)}`);
+    };
+
+    exports.forEach((item) => {
+      const { name, value } = item;
+
+      switch (localsConvention) {
+        case 'camelCase': {
+          addExportedLocal(name, value);
+
+          const modifiedName = camelCase(name);
+
+          if (modifiedName !== name) {
+            addExportedLocal(modifiedName, value);
+          }
+          break;
+        }
+        case 'camelCaseOnly': {
+          addExportedLocal(camelCase(name), value);
+          break;
+        }
+        case 'dashes': {
+          addExportedLocal(name, value);
+
+          const modifiedName = dashesCamelCase(name);
+
+          if (modifiedName !== name) {
+            addExportedLocal(modifiedName, value);
+          }
+          break;
+        }
+        case 'dashesOnly': {
+          addExportedLocal(dashesCamelCase(name), value);
+          break;
+        }
+        case 'asIs':
+        default:
+          addExportedLocal(name, value);
+          break;
+      }
+    });
+
+    exportLocalsCode = exportLocals.join(',\n');
+
+    replacers.forEach((replacer) => {
+      if (replacer.type === 'icss-import') {
+        const { replacementName, importName, localName } = replacer;
+
+        exportLocalsCode = exportLocalsCode.replace(
+          new RegExp(replacementName, 'g'),
+          () =>
+            exportType === 'locals'
+              ? `" + ${importName}[${JSON.stringify(localName)}] + "`
+              : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+        );
+      }
+    });
   }
 
-  const exportLocals = [];
-  const addExportedLocal = (name, value) => {
-    exportLocals.push(`\t${JSON.stringify(name)}: ${JSON.stringify(value)}`);
-  };
-
-  exports.forEach((item) => {
-    const { name, value } = item;
-
-    switch (localsConvention) {
-      case 'camelCase': {
-        addExportedLocal(name, value);
-
-        const modifiedName = camelCase(name);
-
-        if (modifiedName !== name) {
-          addExportedLocal(modifiedName, value);
-        }
-        break;
-      }
-      case 'camelCaseOnly': {
-        addExportedLocal(camelCase(name), value);
-        break;
-      }
-      case 'dashes': {
-        addExportedLocal(name, value);
-
-        const modifiedName = dashesCamelCase(name);
-
-        if (modifiedName !== name) {
-          addExportedLocal(modifiedName, value);
-        }
-        break;
-      }
-      case 'dashesOnly': {
-        addExportedLocal(dashesCamelCase(name), value);
-        break;
-      }
-      case 'asIs':
-      default:
-        addExportedLocal(name, value);
-        break;
+  if (exportType === 'locals') {
+    exportItems.push(`module.exports = {\n${exportLocalsCode}\n};`);
+  } else {
+    if (exportLocalsCode) {
+      exportItems.push(`exports.locals = {\n${exportLocalsCode}\n};`);
     }
-  });
 
-  let joinedExportLocals = exportLocals.join(',\n');
-
-  replacers.forEach((replacer) => {
-    if (replacer.type === 'icss-import') {
-      const { replacementName, importName, localName } = replacer;
-
-      joinedExportLocals = joinedExportLocals.replace(
-        new RegExp(replacementName, 'g'),
-        () =>
-          exportType === 'locals'
-            ? `" + ${importName}[${JSON.stringify(localName)}] + "`
-            : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
-      );
-    }
-  });
-
-  exportItems.push(
-    `${
-      exportType === 'locals' ? 'module.exports' : 'exports.locals'
-    } = {\n${joinedExportLocals}\n};`
-  );
+    exportItems.push('module.exports = exports;');
+  }
 
   return `// Exports\n${exportItems.join('\n')}\n`;
 }
