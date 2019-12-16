@@ -56,7 +56,7 @@ describe('"importLoaders" option', () => {
           rules: [
             {
               test: /\.css$/i,
-              rules: [
+              use: [
                 {
                   loader: path.resolve(__dirname, '../src'),
                   options: { importLoaders: 0 },
@@ -107,7 +107,7 @@ describe('"importLoaders" option', () => {
           rules: [
             {
               test: /\.css$/i,
-              rules: [
+              use: [
                 {
                   loader: path.resolve(__dirname, '../src'),
                   options: { importLoaders: 1 },
@@ -144,7 +144,7 @@ describe('"importLoaders" option', () => {
           rules: [
             {
               test: /\.css$/i,
-              rules: [
+              use: [
                 {
                   loader: path.resolve(__dirname, '../src'),
                   options: { importLoaders: 2 },
