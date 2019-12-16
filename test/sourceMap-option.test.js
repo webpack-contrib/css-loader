@@ -219,7 +219,7 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should generate source maps when source maps is valid from an other loader (`sass-loader`)', async () => {
+    it.only('should generate source maps when source maps is valid from an other loader (`sass-loader`)', async () => {
       const compiler = getCompiler(
         './source-map/basic-scss.js',
         {},
@@ -251,9 +251,12 @@ describe('"sourceMap" option', () => {
       );
       const stats = await compile(compiler);
 
-      expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
-        'module'
-      );
+      expect(
+        getModuleSource('./source-map/basic.scss', stats).replace(
+          new RegExp(process.cwd(), 'g'),
+          '[absolute_path]'
+        )
+      ).toMatchSnapshot('module');
 
       const executed = execute(readAsset('main.bundle.js', compiler, stats));
 
