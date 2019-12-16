@@ -52,38 +52,43 @@ describe('loader', () => {
 
   it('should work with "asset" module type', async () => {
     const isWebpack5 = version[0] === '5';
+    const config = {
+      module: {
+        rules: [
+          {
+            test: /\.css$/i,
+            use: [
+              {
+                loader: path.resolve(__dirname, '../src'),
+              },
+            ],
+          },
+          isWebpack5
+            ? {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+                type: 'asset',
+              }
+            : {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+                loader: 'file-loader',
+                options: { name: '[name].[ext]' },
+              },
+        ],
+      },
+    };
 
-    const compiler = getCompiler(
-      './basic.js',
-      {},
-      {
-        module: {
-          rules: [
-            {
-              test: /\.css$/i,
-              use: [
-                {
-                  loader: path.resolve(__dirname, '../src'),
-                },
-              ],
-            },
-            isWebpack5
-              ? {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  type: 'asset',
-                }
-              : {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  loader: 'file-loader',
-                  options: { name: '[hash].[ext]' },
-                },
-          ],
-        },
-        experiments: {
-          asset: true,
-        },
-      }
-    );
+    if (isWebpack5) {
+      config.experiments = { asset: true };
+      config.output = {
+        path: path.resolve(__dirname, 'outputs'),
+        filename: '[name].bundle.js',
+        chunkFilename: '[name].chunk.js',
+        publicPath: '/webpack/public/path/',
+        assetModuleFilename: '[name][ext]',
+      };
+    }
+
+    const compiler = getCompiler('./basic.js', {}, config);
     const stats = await compile(compiler);
 
     expect(getModuleSource('./basic.css', stats)).toMatchSnapshot('module');

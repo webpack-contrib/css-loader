@@ -5,7 +5,9 @@ exports[`"sourceMap" option false should not generate source maps when source ma
 exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -15,6 +17,14 @@ module.exports = exports;
 
 exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+  ],
   Array [
     "./source-map/basic.css",
     ".class {
@@ -33,7 +43,9 @@ exports[`"sourceMap" option false should not generate source maps when source ma
 exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -43,6 +55,14 @@ module.exports = exports;
 
 exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+  ],
   Array [
     "./source-map/basic.css",
     ".class {
@@ -61,7 +81,9 @@ exports[`"sourceMap" option false should not generate source maps when source ma
 exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -71,6 +93,14 @@ module.exports = exports;
 
 exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+  ],
   Array [
     "./source-map/basic.css",
     ".class {
@@ -89,7 +119,9 @@ exports[`"sourceMap" option false should not generate source maps when source ma
 exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.postcss.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\"]);
 // Exports
@@ -99,6 +131,14 @@ module.exports = exports;
 
 exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.postcss.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+  ],
   Array [
     "./source-map/basic.postcss.css",
     ":root {
@@ -183,7 +223,9 @@ exports[`"sourceMap" option false should not generate source maps: errors 1`] = 
 exports[`"sourceMap" option false should not generate source maps: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -193,6 +235,14 @@ module.exports = exports;
 
 exports[`"sourceMap" option false should not generate source maps: result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+  ],
   Array [
     "./source-map/basic.css",
     ".class {
@@ -211,7 +261,9 @@ exports[`"sourceMap" option not specified should not generate source maps: error
 exports[`"sourceMap" option not specified should not generate source maps: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -221,6 +273,14 @@ module.exports = exports;
 
 exports[`"sourceMap" option not specified should not generate source maps: result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+  ],
   Array [
     "./source-map/basic.css",
     ".class {
@@ -239,9 +299,11 @@ exports[`"sourceMap" option true should generate source maps when source maps eq
 exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -249,6 +311,29 @@ module.exports = exports;
 
 exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+    Object {
+      "file": "nested.css",
+      "mappings": "AAAA;EACE,WAAW;AACb",
+      "names": Array [],
+      "sources": Array [
+        "nested.css",
+      ],
+      "sourcesContent": Array [
+        ".nested {
+  color: blue;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
   Array [
     "./source-map/basic.css",
     ".class {
@@ -258,13 +343,15 @@ Array [
     "",
     Object {
       "file": "basic.css",
-      "mappings": "AAAA;EACE,UAAU;AACZ",
+      "mappings": "AAEA;EACE,UAAU;AACZ",
       "names": Array [],
       "sources": Array [
         "basic.css",
       ],
       "sourcesContent": Array [
-        ".class {
+        "@import \\"./nested/nested.css\\";
+
+.class {
   color: red;
 }
 ",
@@ -282,9 +369,11 @@ exports[`"sourceMap" option true should generate source maps when source maps eq
 exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -292,6 +381,29 @@ module.exports = exports;
 
 exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+    Object {
+      "file": "nested.css",
+      "mappings": "AAAA;EACE,WAAW;AACb",
+      "names": Array [],
+      "sources": Array [
+        "nested.css",
+      ],
+      "sourcesContent": Array [
+        ".nested {
+  color: blue;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
   Array [
     "./source-map/basic.css",
     ".class {
@@ -301,13 +413,15 @@ Array [
     "",
     Object {
       "file": "basic.css",
-      "mappings": "AAAA;EACE,UAAU;AACZ",
+      "mappings": "AAEA;EACE,UAAU;AACZ",
       "names": Array [],
       "sources": Array [
         "basic.css",
       ],
       "sourcesContent": Array [
-        ".class {
+        "@import \\"./nested/nested.css\\";
+
+.class {
   color: red;
 }
 ",
@@ -325,9 +439,11 @@ exports[`"sourceMap" option true should generate source maps when source maps is
 exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -335,6 +451,29 @@ module.exports = exports;
 
 exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+    Object {
+      "file": "nested.css",
+      "mappings": "AAAA;EACE,WAAW;AACb",
+      "names": Array [],
+      "sources": Array [
+        "nested.css",
+      ],
+      "sourcesContent": Array [
+        ".nested {
+  color: blue;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
   Array [
     "./source-map/basic.css",
     ".class {
@@ -344,7 +483,7 @@ Array [
     "",
     Object {
       "file": "basic.css",
-      "mappings": "AAAA;EACE,UAAU;AACZ",
+      "mappings": "AAEA;EACE,UAAU;AACZ",
       "names": Array [],
       "sources": Array [
         "basic.css",
@@ -368,9 +507,11 @@ exports[`"sourceMap" option true should generate source maps when source maps is
 exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.postcss.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAGA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"file\\":\\"basic.postcss.css\\",\\"sourcesContent\\":[\\"@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAKA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"file\\":\\"basic.postcss.css\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -378,6 +519,29 @@ module.exports = exports;
 
 exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.postcss.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+    Object {
+      "file": "nested.postcss.css",
+      "mappings": "AAAA;EACE,WAAW;AACb",
+      "names": Array [],
+      "sources": Array [
+        "nested.postcss.css",
+      ],
+      "sourcesContent": Array [
+        ".nested {
+  color: blue;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
   Array [
     "./source-map/basic.postcss.css",
     ":root {
@@ -425,13 +589,15 @@ a:hover {
     "",
     Object {
       "file": "basic.postcss.css",
-      "mappings": "AAGA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB",
+      "mappings": "AAKA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB",
       "names": Array [],
       "sources": Array [
         "basic.postcss.css",
       ],
       "sourcesContent": Array [
-        "@custom-media --viewport-medium (width <= 50rem);
+        "@import \\"./nested/nested.postcss.css\\";
+
+@custom-media --viewport-medium (width <= 50rem);
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
 
 :root {
@@ -481,9 +647,11 @@ exports[`"sourceMap" option true should generate source maps: errors 1`] = `Arra
 exports[`"sourceMap" option true should generate source maps: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -491,6 +659,29 @@ module.exports = exports;
 
 exports[`"sourceMap" option true should generate source maps: result 1`] = `
 Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+    Object {
+      "file": "nested.css",
+      "mappings": "AAAA;EACE,WAAW;AACb",
+      "names": Array [],
+      "sources": Array [
+        "nested.css",
+      ],
+      "sourcesContent": Array [
+        ".nested {
+  color: blue;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
   Array [
     "./source-map/basic.css",
     ".class {
@@ -500,13 +691,15 @@ Array [
     "",
     Object {
       "file": "basic.css",
-      "mappings": "AAAA;EACE,UAAU;AACZ",
+      "mappings": "AAEA;EACE,UAAU;AACZ",
       "names": Array [],
       "sources": Array [
         "basic.css",
       ],
       "sourcesContent": Array [
-        ".class {
+        "@import \\"./nested/nested.css\\";
+
+.class {
   color: red;
 }
 ",
