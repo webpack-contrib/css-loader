@@ -162,7 +162,7 @@ exports[`ICSS case import: errors 1`] = `Array []`;
 exports[`ICSS case import: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
-var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??ref--4-rules-0!./vars.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??ref--4!./vars.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 // Module
@@ -199,7 +199,7 @@ exports[`ICSS case import-reserved-keywords: errors 1`] = `Array []`;
 exports[`ICSS case import-reserved-keywords: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
-var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??ref--4-rules-0!./vars.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??ref--4!./vars.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 // Module

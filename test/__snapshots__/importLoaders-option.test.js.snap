@@ -119,7 +119,7 @@ exports[`"importLoaders" option should work with a value equal to "1" (no loader
 exports[`"importLoaders" option should work with a value equal to "1" (no loaders before): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-rules-0!./imported.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4!./imported.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
