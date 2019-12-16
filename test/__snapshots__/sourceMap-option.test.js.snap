@@ -370,10 +370,7 @@ Array [
       "file": "basic.scss",
       "mappings": "AAGA;EACE,gCAAA;EACA,WAJc;ACEhB",
       "names": Array [],
-      "sources": Array [
-        "/home/evilebottnawi/IdeaProjects/css-loader/test/fixtures/source-map/basic.scss",
-        "basic.scss",
-      ],
+      "sources": "",
       "sourcesContent": Array [
         "$font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
