@@ -51,10 +51,10 @@ describe('"modules" option', () => {
   });
 
   it('should support "pure" value', async () => {
-    const compiler = getCompiler('./modules/pure.js', { modules: 'pure' });
+    const compiler = getCompiler('./modules/pure/pure.js', { modules: 'pure' });
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./modules/pure.css', stats)).toMatchSnapshot(
+    expect(getModuleSource('./modules/pure/pure.css', stats)).toMatchSnapshot(
       'module'
     );
     expect(
@@ -65,12 +65,12 @@ describe('"modules" option', () => {
   });
 
   it('should support "pure" value #2', async () => {
-    const compiler = getCompiler('./modules/pure.js', {
+    const compiler = getCompiler('./modules/pure/pure.js', {
       modules: { mode: 'pure' },
     });
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./modules/pure.css', stats)).toMatchSnapshot(
+    expect(getModuleSource('./modules/pure/pure.css', stats)).toMatchSnapshot(
       'module'
     );
     expect(
@@ -81,13 +81,13 @@ describe('"modules" option', () => {
   });
 
   it('should work underscore prefix in exported class names with "localIdentName" option with "[local]"', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '[local]' },
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -97,7 +97,7 @@ describe('"modules" option', () => {
   });
 
   it('should respects localIdentName option', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[name]--[local]--[hash:base64:5]',
         context: path.resolve(__dirname),
@@ -106,7 +106,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -116,7 +116,7 @@ describe('"modules" option', () => {
   });
 
   it('should respects context option', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[hash:base64:8]',
         context: path.resolve(__dirname),
@@ -125,7 +125,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -135,7 +135,7 @@ describe('"modules" option', () => {
   });
 
   it('should respects path in localIdentName option', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[path][name]__[local]',
         context: path.resolve(__dirname),
@@ -144,7 +144,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -154,7 +154,7 @@ describe('"modules" option', () => {
   });
 
   it('should respect hashPrefix option with localIdentName option', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[local]--[hash]',
         hashPrefix: 'x',
@@ -163,7 +163,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -173,13 +173,13 @@ describe('"modules" option', () => {
   });
 
   it('should prefixes leading hyphen + digit with underscore with localIdentName option', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '-1[local]' },
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -189,13 +189,13 @@ describe('"modules" option', () => {
   });
 
   it('should prefixes two leading hyphens with underscore with localIdentName option', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '--[local]' },
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -205,13 +205,13 @@ describe('"modules" option', () => {
   });
 
   it('should save underscore prefix in exported class names with "localIdentName" option', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '__[local]' },
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -221,13 +221,13 @@ describe('"modules" option', () => {
   });
 
   it('should correctly replace escaped symbols in selector with localIdentName option', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '[local]--[hash:base64:4]' },
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -239,7 +239,7 @@ describe('"modules" option', () => {
   it('should respect the "getLocalIdent" option', async () => {
     expect.assertions(382);
 
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentRegExp: 'regExp',
         context: 'context',
@@ -261,7 +261,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -273,7 +273,7 @@ describe('"modules" option', () => {
   it('should have an undefined context if no context was given', async () => {
     expect.assertions(58);
 
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         getLocalIdent(loaderContext, localIdentName, localName, options) {
           expect(options.context).toBeUndefined();
@@ -285,7 +285,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -295,7 +295,7 @@ describe('"modules" option', () => {
   });
 
   it('getLocalIdent should be allowed to return false', async () => {
-    const compiler = getCompiler('./modules/localIdentName.js', {
+    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[local]',
         getLocalIdent: () => false,
@@ -304,7 +304,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/localIdentName.css', stats)
+      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -314,14 +314,14 @@ describe('"modules" option', () => {
   });
 
   it('composes should supports resolving', async () => {
-    const compiler = getCompiler('./modules/composes.js', {
+    const compiler = getCompiler('./modules/composes/composes.js', {
       modules: true,
     });
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./modules/composes.css', stats)).toMatchSnapshot(
-      'module'
-    );
+    expect(
+      getModuleSource('./modules/composes/composes.css', stats)
+    ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
     ).toMatchSnapshot('result');
@@ -419,33 +419,19 @@ describe('"modules" option', () => {
   });
 
   it('issue #861', async () => {
-    const compiler = getCompiler('./modules/resolving-inside-node-modules.js', {
-      modules: true,
-    });
+    const compiler = getCompiler(
+      './modules/issue-861/resolving-from-node_modules.js',
+      {
+        modules: true,
+      }
+    );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/resolving-inside-node-modules.css', stats)
-    ).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
-  it('issue #967', async () => {
-    const compiler = getCompiler('./modules/path-placeholder.js', {
-      modules: {
-        mode: 'local',
-        localIdentName:
-          '[path][name]__[local]__/-sep-?-sep-<-sep->-sep-\\\\-sep-:-sep-*-sep-|-sep-"-sep-:',
-      },
-    });
-    const stats = await compile(compiler);
-
-    expect(
-      getModuleSource('./modules/path-placeholder.css', stats)
+      getModuleSource(
+        './modules/issue-861/resolving-from-node_modules.css',
+        stats
+      )
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -472,16 +458,42 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('issue #980', async () => {
-    const compiler = getCompiler('./modules/file.with.many.dots.in.name.js', {
+  it('issue #967', async () => {
+    const compiler = getCompiler('./modules/issue-967/path-placeholder.js', {
       modules: {
-        localIdentName: '[name]_[local]_[hash:base64:5]',
+        mode: 'local',
+        localIdentName:
+          '[path][name]__[local]__/-sep-?-sep-<-sep->-sep-\\\\-sep-:-sep-*-sep-|-sep-"-sep-:',
       },
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/file.with.many.dots.in.name.css', stats)
+      getModuleSource('./modules/issue-967/path-placeholder.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('issue #980', async () => {
+    const compiler = getCompiler(
+      './modules/issue-980/file.with.many.dots.in.name.js',
+      {
+        modules: {
+          localIdentName: '[name]_[local]_[hash:base64:5]',
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource(
+        './modules/issue-980/file.with.many.dots.in.name.css',
+        stats
+      )
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
@@ -491,7 +503,7 @@ describe('"modules" option', () => {
   });
 
   it('issue #995', async () => {
-    const compiler = getCompiler('./modules/issue-995.js', {
+    const compiler = getCompiler('./modules/issue-995/issue-995.js', {
       modules: {
         mode: 'global',
         localIdentName: '😀',
@@ -499,9 +511,9 @@ describe('"modules" option', () => {
     });
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./modules/issue-995.css', stats)).toMatchSnapshot(
-      'module'
-    );
+    expect(
+      getModuleSource('./modules/issue-995/issue-995.css', stats)
+    ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
     ).toMatchSnapshot('result');
@@ -510,13 +522,13 @@ describe('"modules" option', () => {
   });
 
   it('should avoid unnecessary "require"', async () => {
-    const compiler = getCompiler('./modules/composes-duplicate.js', {
+    const compiler = getCompiler('./modules/composes/composes-duplicate.js', {
       modules: true,
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/composes-duplicate.css', stats)
+      getModuleSource('./modules/composes/composes-duplicate.css', stats)
     ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
