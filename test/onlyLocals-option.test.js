@@ -1,29 +1,28 @@
-import { webpack } from './helpers';
+import {
+  compile,
+  execute,
+  getCompiler,
+  getErrors,
+  getModuleSource,
+  getWarnings,
+  readAsset,
+} from './helpers/index';
 
-describe('modules', () => {
-  it('true', async () => {
-    const config = {
-      loader: {
-        options: {
-          modules: {
-            mode: 'local',
-            localIdentName: '_[local]',
-          },
-          onlyLocals: true,
-        },
-      },
-    };
-    const testId = `./modules/composes.css`;
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
-    const valueModule = modules.find((m) =>
-      m.id.endsWith('./modules/values.css')
-    );
+describe('"onlyLocals" option', () => {
+  it('should work', async () => {
+    const compiler = getCompiler('./modules/composes/composes.js', {
+      modules: { mode: 'local', localIdentName: '_[local]' },
+      onlyLocals: true,
+    });
+    const stats = await compile(compiler);
 
-    expect(module.source).toMatchSnapshot('module');
-    expect(valueModule.source).toMatchSnapshot('values module');
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(
+      getModuleSource('./modules/composes/composes.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

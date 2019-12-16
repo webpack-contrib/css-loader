@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`api should import modules 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {body { a: 1; }}"`;
+exports[`api should import modules 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen and (orientation:landscape) {body { a: 1; }}@media (orientation:landscape) {body { a: 1; }}"`;
 
 exports[`api should import named modules 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {body { a: 1; }}"`;
 
@@ -8,7 +8,7 @@ exports[`api should toString a single module 1`] = `"body { a: 1; }"`;
 
 exports[`api should toString multiple modules 1`] = `"body { b: 2; }body { a: 1; }"`;
 
-exports[`api should toString with media query 1`] = `"@media screen {body { a: 1; }}"`;
+exports[`api should toString with media query 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {body { a: 1; }}"`;
 
 exports[`api should toString with source mapping 1`] = `
 "body { a: 1; }

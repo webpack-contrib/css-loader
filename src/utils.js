@@ -162,7 +162,7 @@ function normalizeSourceMap(map) {
   // Some loader emit source map as string
   // Strip any JSON XSSI avoidance prefix from the string (as documented in the source maps specification), and then parse the string as JSON.
   if (typeof newMap === 'string') {
-    newMap = JSON.parse(newMap.replace(/^\)]}'[^\n]*\n/, ''));
+    newMap = JSON.parse(newMap);
   }
 
   // Source maps should use forward slash because it is URLs (https://github.com/mozilla/source-map/issues/91)

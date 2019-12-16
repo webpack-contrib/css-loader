@@ -1,8 +1,8 @@
-import loader from '../src';
-import CJSLoader from '../src/cjs';
+import src from '../src';
+import cjs from '../src/cjs';
 
-describe('CJS', () => {
-  it('should exported loader', () => {
-    expect(CJSLoader).toEqual(loader);
+describe('cjs', () => {
+  it('should exported', () => {
+    expect(cjs).toEqual(src);
   });
 });

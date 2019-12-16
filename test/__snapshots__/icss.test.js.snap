@@ -1,17 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ICSS case duplicate-export: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "duplicate-export": errors 1`] = `Array []`;
 
-exports[`ICSS case duplicate-export: locals 1`] = `
-Object {
-  "_test": "_right_value",
-}
+exports[`ICSS show work with the case "duplicate-export": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"_test\\": \\"_right_value\\"
+};"
 `;
 
-exports[`ICSS case duplicate-export: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "duplicate-export": result 1`] = `
 Array [
   Array [
-    1,
+    "./icss/tests-cases/duplicate-export/source.css",
     "
 ",
     "",
@@ -19,20 +25,26 @@ Array [
 ]
 `;
 
-exports[`ICSS case duplicate-export: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "duplicate-export": warnings 1`] = `Array []`;
 
-exports[`ICSS case duplicate-export-in-multiple-export: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "duplicate-export-in-multiple-export": errors 1`] = `Array []`;
 
-exports[`ICSS case duplicate-export-in-multiple-export: locals 1`] = `
-Object {
-  "_test": "_right_value",
-}
+exports[`ICSS show work with the case "duplicate-export-in-multiple-export": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"_test\\": \\"_right_value\\"
+};"
 `;
 
-exports[`ICSS case duplicate-export-in-multiple-export: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "duplicate-export-in-multiple-export": result 1`] = `
 Array [
   Array [
-    1,
+    "./icss/tests-cases/duplicate-export-in-multiple-export/source.css",
     "
 ",
     "",
@@ -40,16 +52,23 @@ Array [
 ]
 `;
 
-exports[`ICSS case duplicate-export-in-multiple-export: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "duplicate-export-in-multiple-export": warnings 1`] = `Array []`;
 
-exports[`ICSS case empty-export: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "empty-export": errors 1`] = `Array []`;
 
-exports[`ICSS case empty-export: locals 1`] = `undefined`;
+exports[`ICSS show work with the case "empty-export": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"\\\\n\\", \\"\\"]);
+"
+`;
 
-exports[`ICSS case empty-export: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "empty-export": result 1`] = `
 Array [
   Array [
-    1,
+    "./icss/tests-cases/empty-export/source.css",
     "
 ",
     "",
@@ -57,16 +76,23 @@ Array [
 ]
 `;
 
-exports[`ICSS case empty-export: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "empty-export": warnings 1`] = `Array []`;
 
-exports[`ICSS case empty-import: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "empty-import": errors 1`] = `Array []`;
 
-exports[`ICSS case empty-import: locals 1`] = `undefined`;
+exports[`ICSS show work with the case "empty-import": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"\\\\n\\", \\"\\"]);
+"
+`;
 
-exports[`ICSS case empty-import: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "empty-import": result 1`] = `
 Array [
   Array [
-    1,
+    "./icss/tests-cases/empty-import/source.css",
     "
 ",
     "",
@@ -74,20 +100,26 @@ Array [
 ]
 `;
 
-exports[`ICSS case empty-import: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "empty-import": warnings 1`] = `Array []`;
 
-exports[`ICSS case export: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "export": errors 1`] = `Array []`;
 
-exports[`ICSS case export: locals 1`] = `
-Object {
-  "_test": "_test",
-}
+exports[`ICSS show work with the case "export": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"_test\\": \\"_test\\"
+};"
 `;
 
-exports[`ICSS case export: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "export": result 1`] = `
 Array [
   Array [
-    1,
+    "./icss/tests-cases/export/source.css",
     "
 ",
     "",
@@ -95,21 +127,27 @@ Array [
 ]
 `;
 
-exports[`ICSS case export: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "export": warnings 1`] = `Array []`;
 
-exports[`ICSS case export-reserved-keywords: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "export-reserved-keywords": errors 1`] = `Array []`;
 
-exports[`ICSS case export-reserved-keywords: locals 1`] = `
-Object {
-  "constructor": "constructor",
-  "toString": "toString",
-}
+exports[`ICSS show work with the case "export-reserved-keywords": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"constructor\\": \\"constructor\\",
+	\\"toString\\": \\"toString\\"
+};"
 `;
 
-exports[`ICSS case export-reserved-keywords: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "export-reserved-keywords": result 1`] = `
 Array [
   Array [
-    1,
+    "./icss/tests-cases/export-reserved-keywords/source.css",
     "
 ",
     "",
@@ -117,26 +155,34 @@ Array [
 ]
 `;
 
-exports[`ICSS case export-reserved-keywords: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "export-reserved-keywords": warnings 1`] = `Array []`;
 
-exports[`ICSS case import: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "import": errors 1`] = `Array []`;
 
-exports[`ICSS case import: locals 1`] = `
-Object {
-  "primary-color": "red",
-}
+exports[`ICSS show work with the case "import": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??ref--4!./vars.css\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
+// Module
+exports.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\"
+};"
 `;
 
-exports[`ICSS case import: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "import": result 1`] = `
 Array [
   Array [
-    2,
+    "../../src/index.js?!./icss/tests-cases/import/vars.css",
     "
 ",
     "",
   ],
   Array [
-    1,
+    "./icss/tests-cases/import/source.css",
     ".className {
   color: red;
 }
@@ -146,27 +192,35 @@ Array [
 ]
 `;
 
-exports[`ICSS case import: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "import": warnings 1`] = `Array []`;
 
-exports[`ICSS case import-reserved-keywords: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "import-reserved-keywords": errors 1`] = `Array []`;
 
-exports[`ICSS case import-reserved-keywords: locals 1`] = `
-Object {
-  "primary-color": "red",
-  "secondary-color": "block",
-}
+exports[`ICSS show work with the case "import-reserved-keywords": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??ref--4!./vars.css\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
+// Module
+exports.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n  display: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"secondary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\",
+	\\"secondary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"secondary-color\\"] + \\"\\"
+};"
 `;
 
-exports[`ICSS case import-reserved-keywords: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "import-reserved-keywords": result 1`] = `
 Array [
   Array [
-    2,
+    "../../src/index.js?!./icss/tests-cases/import-reserved-keywords/vars.css",
     "
 ",
     "",
   ],
   Array [
-    1,
+    "./icss/tests-cases/import-reserved-keywords/source.css",
     ".className {
   color: red;
   display: block;
@@ -177,21 +231,27 @@ Array [
 ]
 `;
 
-exports[`ICSS case import-reserved-keywords: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "import-reserved-keywords": warnings 1`] = `Array []`;
 
-exports[`ICSS case multiple-export: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "multiple-export": errors 1`] = `Array []`;
 
-exports[`ICSS case multiple-export: locals 1`] = `
-Object {
-  "_foo": "_bar",
-  "_test": "_test",
-}
+exports[`ICSS show work with the case "multiple-export": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"_test\\": \\"_test\\",
+	\\"_foo\\": \\"_bar\\"
+};"
 `;
 
-exports[`ICSS case multiple-export: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "multiple-export": result 1`] = `
 Array [
   Array [
-    1,
+    "./icss/tests-cases/multiple-export/source.css",
     "
 ",
     "",
@@ -199,24 +259,30 @@ Array [
 ]
 `;
 
-exports[`ICSS case multiple-export: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "multiple-export": warnings 1`] = `Array []`;
 
-exports[`ICSS case multiple-keys-values-in-export: errors 1`] = `Array []`;
+exports[`ICSS show work with the case "multiple-keys-values-in-export": errors 1`] = `Array []`;
 
-exports[`ICSS case multiple-keys-values-in-export: locals 1`] = `
-Object {
-  "_test": "_test",
-  "_test1": "1",
-  "_test2": "'string'",
-  "_test3": "1px 2px 3px",
-  "_test4": "1px 2px 3px, 1px 2px 3px",
-}
+exports[`ICSS show work with the case "multiple-keys-values-in-export": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"_test\\": \\"_test\\",
+	\\"_test1\\": \\"1\\",
+	\\"_test2\\": \\"'string'\\",
+	\\"_test3\\": \\"1px 2px 3px\\",
+	\\"_test4\\": \\"1px 2px 3px, 1px 2px 3px\\"
+};"
 `;
 
-exports[`ICSS case multiple-keys-values-in-export: module (evaluated) 1`] = `
+exports[`ICSS show work with the case "multiple-keys-values-in-export": result 1`] = `
 Array [
   Array [
-    1,
+    "./icss/tests-cases/multiple-keys-values-in-export/source.css",
     "
 ",
     "",
@@ -224,4 +290,4 @@ Array [
 ]
 `;
 
-exports[`ICSS case multiple-keys-values-in-export: warnings 1`] = `Array []`;
+exports[`ICSS show work with the case "multiple-keys-values-in-export": warnings 1`] = `Array []`;

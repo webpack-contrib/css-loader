@@ -1,4 +1,4 @@
-@import url(test-other.css) (min-width: 100px);
+@import url(./test-other.css) (min-width: 100px);
 
 @value v-def from './values.css';
 @value v-other from './values.css';
@@ -39,7 +39,7 @@
 
 .simple {
   color: red;
-  composes: imported-simple from 'imported-simple.css';
+  composes: imported-simple from './imported-simple.css';
 }
 
 .relative {
@@ -49,12 +49,12 @@
 
 .top-relative {
   color: gray;
-  composes: imported-relative from '../modules/top-relative.css';
+  composes: imported-relative from './top-relative.css';
 }
 
 .module {
   color: gray;
-  composes: imported-module from '~package/style.css';
+  composes: imported-module from '../issue-861/node_modules/package/style.css';
 }
 
 .alias {
@@ -145,5 +145,5 @@ a {
 }
 
 .url {
-  background: url(../url/img.png);
+  background: url(../../url/img.png);
 }

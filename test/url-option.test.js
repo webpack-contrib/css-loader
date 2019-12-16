@@ -1,66 +1,70 @@
-import { webpack, evaluated, normalizeErrors } from './helpers';
+import {
+  compile,
+  execute,
+  getCompiler,
+  getErrors,
+  getModuleSource,
+  getWarnings,
+  readAsset,
+} from './helpers/index';
 
-describe('url option', () => {
-  it('true', async () => {
-    const testId = './url/url.css';
-    const stats = await webpack(testId);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
+describe('"url" option', () => {
+  it('should work when not specified', async () => {
+    const compiler = getCompiler('./url/url.js');
+    const stats = await compile(compiler);
 
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
-    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
-      'warnings'
-    );
-    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+    expect(getModuleSource('./url/url.css', stats)).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('false', async () => {
-    const config = { loader: { options: { url: false } } };
-    const testId = './url/url.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
+  it('should work with a value equal to "true"', async () => {
+    const compiler = getCompiler('./url/url.js', { url: true });
+    const stats = await compile(compiler);
 
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getModuleSource('./url/url.css', stats)).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('Function', async () => {
-    const config = {
-      loader: {
-        options: {
-          url: (url, resourcePath) => {
-            expect(typeof resourcePath === 'string').toBe(true);
+  it('should work with a value equal to "false"', async () => {
+    const compiler = getCompiler('./url/url.js', { url: false });
+    const stats = await compile(compiler);
 
-            // Don't handle `img.png`
-            if (url.includes('img.png')) {
-              return false;
-            }
+    expect(getModuleSource('./url/url.css', stats)).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 
-            return true;
-          },
-        },
+  it('should work with a value equal to "Function"', async () => {
+    const compiler = getCompiler('./url/url.js', {
+      url: (url, resourcePath) => {
+        expect(typeof resourcePath === 'string').toBe(true);
+
+        // Don't handle `img.png`
+        if (url.includes('img.png')) {
+          return false;
+        }
+
+        return true;
       },
-    };
-    const testId = './url/url.css';
-    const stats = await webpack(testId, config);
-    const { modules } = stats.toJson();
-    const module = modules.find((m) => m.id === testId);
+    });
+    const stats = await compile(compiler);
 
-    expect(module.source).toMatchSnapshot('module');
-    expect(evaluated(module.source, modules)).toMatchSnapshot(
-      'module (evaluated)'
-    );
-    expect(normalizeErrors(stats.compilation.warnings)).toMatchSnapshot(
-      'warnings'
-    );
-    expect(normalizeErrors(stats.compilation.errors)).toMatchSnapshot('errors');
+    expect(getModuleSource('./url/url.css', stats)).toMatchSnapshot('module');
+    expect(
+      execute(readAsset('main.bundle.js', compiler, stats))
+    ).toMatchSnapshot('result');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });
