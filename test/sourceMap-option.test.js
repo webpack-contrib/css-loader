@@ -180,7 +180,7 @@ describe('"sourceMap" option', () => {
 
     it('should generate source maps when source maps is valid from an other loader (`postcss-loader`)', async () => {
       const compiler = getCompiler(
-        './source-map/basic.js',
+        './source-map/basic-postcss.js',
         {},
         {
           module: {
@@ -209,9 +209,9 @@ describe('"sourceMap" option', () => {
       );
       const stats = await compile(compiler);
 
-      expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
-        'module'
-      );
+      expect(
+        getModuleSource('./source-map/basic.postcss.css', stats)
+      ).toMatchSnapshot('module');
       expect(
         execute(readAsset('main.bundle.js', compiler, stats))
       ).toMatchSnapshot('result');
@@ -418,7 +418,7 @@ describe('"sourceMap" option', () => {
 
     it('should not generate source maps when source maps is valid from an other loader (`postcss-loader`)', async () => {
       const compiler = getCompiler(
-        './source-map/basic.js',
+        './source-map/basic-postcss.js',
         {},
         {
           module: {
@@ -446,9 +446,9 @@ describe('"sourceMap" option', () => {
       );
       const stats = await compile(compiler);
 
-      expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
-        'module'
-      );
+      expect(
+        getModuleSource('./source-map/basic.postcss.css', stats)
+      ).toMatchSnapshot('module');
       expect(
         execute(readAsset('main.bundle.js', compiler, stats))
       ).toMatchSnapshot('result');
