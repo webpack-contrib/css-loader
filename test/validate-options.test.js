@@ -59,6 +59,10 @@ describe('validate options', () => {
       success: [true, false],
       failure: ['true'],
     },
+    esModule: {
+      success: [true, false],
+      failure: ['true'],
+    },
     unknown: {
       success: [],
       failure: [1, true, false, 'test', /test/, [], {}, { foo: 'bar' }],
