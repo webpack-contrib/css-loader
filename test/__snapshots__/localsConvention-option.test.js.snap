@@ -15,7 +15,8 @@ exports.locals = {
 	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+"
 `;
 
 exports[`"localsConvention" option should work when not specified: result 1`] = `
@@ -60,7 +61,8 @@ exports.locals = {
 	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "asIs": result 1`] = `
@@ -108,7 +110,8 @@ exports.locals = {
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"btnInfoIsDisabled1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "camelCase": result 1`] = `
@@ -153,7 +156,8 @@ exports.locals = {
 	\\"btnInfoIsDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btnInfoIsDisabled1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "camelCaseOnly": result 1`] = `
@@ -201,7 +205,8 @@ exports.locals = {
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"btnInfo_isDisabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "dashes": result 1`] = `
@@ -246,7 +251,8 @@ exports.locals = {
 	\\"btnInfo_isDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btnInfo_isDisabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "dashesOnly": result 1`] = `

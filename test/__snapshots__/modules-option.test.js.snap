@@ -13,7 +13,8 @@ exports.push([module.id, \\".b--main { }\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"main\\": \\"b--main \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"red\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option issue #286: result 1`] = `
@@ -48,7 +49,8 @@ exports.push([module.id, \\".prefix-bar {\\\\n}\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"bar\\": \\"prefix-bar \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"foo\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option issue #636: result 1`] = `
@@ -87,7 +89,8 @@ exports.push([module.id, \\"._2TvhMv03l8C6o3eyE8OUU3 {\\\\n  color: \\" + ___CSS
 exports.locals = {
 	\\"color-grey\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color-grey\\"] + \\"\\",
 	\\"copyright\\": \\"_2TvhMv03l8C6o3eyE8OUU3 \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"type-heading\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option issue #861: result 1`] = `
@@ -142,7 +145,8 @@ exports.push([module.id, \\".button.hey {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\
 // Exports
 exports.locals = {
 	\\"button\\": \\"button.hey\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option issue #966: result 1`] = `
@@ -173,7 +177,8 @@ exports.locals = {
 	\\"foo\\": \\"modules-issue-967-path-placeholder__foo__--sep---sep---sep---sep----sep---sep---sep---sep---sep--\\",
 	\\"foo/bar\\": \\"modules-issue-967-path-placeholder__foo/bar__--sep---sep---sep---sep----sep---sep---sep---sep---sep--\\",
 	\\"[/?<>\\\\\\\\\\\\\\\\:*|\\\\\\":]\\": \\"modules-issue-967-path-placeholder__[/?<>\\\\\\\\\\\\\\\\:*|\\\\\\":]__--sep---sep---sep---sep----sep---sep---sep---sep---sep--\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option issue #967: result 1`] = `
@@ -210,7 +215,8 @@ exports.push([module.id, \\".file-with-many-dots-in-name_a_22FL3 {\\\\n  color: 
 // Exports
 exports.locals = {
 	\\"a\\": \\"file-with-many-dots-in-name_a_22FL3\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option issue #980: result 1`] = `
@@ -241,7 +247,8 @@ exports.locals = {
 	\\"a\\": \\"😀\\",
 	\\"b\\": \\"😀\\",
 	\\"c\\": \\"😀\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option issue #995: result 1`] = `
@@ -363,7 +370,8 @@ exports.push([module.id, \\"._1UgilPFsYxSK4gX5ZkTYCj {\\\\n  color: red;\\\\n}\\
 exports.locals = {
 	\\"simple-foo\\": \\"_1UgilPFsYxSK4gX5ZkTYCj \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"imported-simple\\"] + \\"\\",
 	\\"simple-bar\\": \\"_3V5dPWs_xG519C1PGI1Njd \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"imported-simple\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should avoid unnecessary "require": result 1`] = `
@@ -409,7 +417,8 @@ exports.push([module.id, \\".Wjk4jowq_W5p9UqAWNj8p {\\\\n  display: block;\\\\n}
 exports.locals = {
 	\\"simple\\": \\"Wjk4jowq_W5p9UqAWNj8p \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"order-1\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"order-2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"order-1-1\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"order-2-2\\"] + \\"\\",
 	\\"simple-other\\": \\"_1hTJaGPJyAIYbIwkbYwOGW \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"order-1\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should keep order: result 1`] = `
@@ -512,7 +521,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"_--foo\\\\\\\\bar\\",
 	\\"foo/bar/baz\\": \\"_--foo/bar/baz\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"_--foo\\\\\\\\bar\\\\\\\\baz\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should should work with two leading hyphens: result 1`] = `
@@ -697,7 +707,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"__foo\\\\\\\\bar\\",
 	\\"foo/bar/baz\\": \\"__foo/bar/baz\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"__foo\\\\\\\\bar\\\\\\\\baz\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should should work with two leading underscore: result 1`] = `
@@ -898,7 +909,8 @@ exports.locals = {
 	\\"header\\": \\"_21OP3aGLw7Si4lLuiK3vhf\\",
 	\\"foobarbaz\\": \\"zbowt65f4EBNzWh_uiPv0\\",
 	\\"url\\": \\"_3yApLlXpoidfnd3JfO_WEf\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should support resolving in composes: result 1`] = `
@@ -1141,7 +1153,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar--7qaP\\",
 	\\"foo/bar/baz\\": \\"foo/bar/baz--24g3\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz--2NRI\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and correctly replace escaped symbols: result 1`] = `
@@ -1326,7 +1339,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"foo\\",
 	\\"foo/bar/baz\\": \\"foo\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and has "undefined" context if no context was given: result 1`] = `
@@ -1511,7 +1525,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"_-1foo\\\\\\\\bar\\",
 	\\"foo/bar/baz\\": \\"_-1foo/bar/baz\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"_-1foo\\\\\\\\bar\\\\\\\\baz\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and prefix leading hyphen when digit is first: result 1`] = `
@@ -1696,7 +1711,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"_2hUYlBhh\\",
 	\\"foo/bar/baz\\": \\"_1GrpvCLQ\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"_2iqkFI_a\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and respect the "context" option: result 1`] = `
@@ -1881,7 +1897,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"foo\\",
 	\\"foo/bar/baz\\": \\"foo\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and respect the "getLocalIdent" option: result 1`] = `
@@ -2066,7 +2083,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar--aec6247bb9290ae6726f5a36f5816c09\\",
 	\\"foo/bar/baz\\": \\"foo/bar/baz--d2a732e8a4a273013b0b929ab95835c2\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz--bc6ce37cc0c680420ee5056f527a94e7\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and respect the "hashPrefix" option: result 1`] = `
@@ -2251,7 +2269,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"localIdentName--foo\\\\\\\\bar--2hUYl\\",
 	\\"foo/bar/baz\\": \\"localIdentName--foo/bar/baz--1Grpv\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"localIdentName--foo\\\\\\\\bar\\\\\\\\baz--2iqkF\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and respect the "localIdentName" option: result 1`] = `
@@ -2436,7 +2455,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"fixtures-modules-localIdentName-localIdentName__foo\\\\\\\\bar\\",
 	\\"foo/bar/baz\\": \\"fixtures-modules-localIdentName-localIdentName__foo/bar/baz\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"fixtures-modules-localIdentName-localIdentName__foo\\\\\\\\bar\\\\\\\\baz\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and respect the "path" placeholder: result 1`] = `
@@ -2589,7 +2609,8 @@ exports.locals = {
 	\\"baz-3\\": \\"FTCrXWhb6BcHdiPxKhbDq\\",
 	\\"baz\\": \\"_3Spcb1SWXkMsVPOJBD4FCA\\",
 	\\"bar-4\\": \\"_3J8yK5Q14ZQ1VUMZ3vk9yl\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and support "pure" mode #2: result 1`] = `
@@ -2668,7 +2689,8 @@ exports.locals = {
 	\\"baz-3\\": \\"FTCrXWhb6BcHdiPxKhbDq\\",
 	\\"baz\\": \\"_3Spcb1SWXkMsVPOJBD4FCA\\",
 	\\"bar-4\\": \\"_3J8yK5Q14ZQ1VUMZ3vk9yl\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work and support "pure" mode: result 1`] = `
@@ -2779,7 +2801,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar\\",
 	\\"foo/bar/baz\\": \\"foo/bar/baz\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work when the "getLocalIdent" option returns "false": result 1`] = `
@@ -2973,7 +2996,8 @@ exports.push([module.id, \\"a {\\\\n  animation: _2jinakhsfBWcUNZSsOxUHz 300ms f
 exports.locals = {
 	\\"slide-right\\": \\"_2jinakhsfBWcUNZSsOxUHz\\",
 	\\"fade-in\\": \\"_3XZSV759G141XcbTZgtQkF\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`animation\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -3031,7 +3055,8 @@ exports.push([module.id, \\"a {\\\\n  animation: _slide-right 300ms forwards eas
 exports.locals = {
 	\\"slide-right\\": \\"_slide-right\\",
 	\\"fade-in\\": \\"_fade-in\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`animation\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -3062,7 +3087,8 @@ exports.push([module.id, \\"a {\\\\n  animation: _2jinakhsfBWcUNZSsOxUHz 300ms f
 exports.locals = {
 	\\"slide-right\\": \\"_2jinakhsfBWcUNZSsOxUHz\\",
 	\\"fade-in\\": \\"_3XZSV759G141XcbTZgtQkF\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`animation\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -3146,7 +3172,8 @@ exports.locals = {
 	\\"class-1\\": \\"_1GNZOTxutjEX7cZ3Ec7knU\\",
 	\\"class-10\\": \\"_15N9BXxWirSgwhYficwysK\\",
 	\\"bar-1\\": \\"_3GpM4NK17tELexNK1Szvws\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`class-names\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -3203,7 +3230,8 @@ exports.locals = {
 	\\"class-1\\": \\"_class-1\\",
 	\\"class-10\\": \\"_class-10\\",
 	\\"bar-1\\": \\"_bar-1\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`class-names\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -3234,7 +3262,8 @@ exports.locals = {
 	\\"class-1\\": \\"_1GNZOTxutjEX7cZ3Ec7knU\\",
 	\\"class-10\\": \\"_15N9BXxWirSgwhYficwysK\\",
 	\\"bar-1\\": \\"_3GpM4NK17tELexNK1Szvws\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`class-names\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -3288,7 +3317,8 @@ exports.push([module.id, \\"._1xn1UbV-5a_s7ig53fR7Lz/*.c2*/._36mr1nZ1pdjd1s5j3RV
 exports.locals = {
 	\\"c1\\": \\"_1xn1UbV-5a_s7ig53fR7Lz\\",
 	\\"c3\\": \\"_36mr1nZ1pdjd1s5j3RV-z7\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`comment-in-local\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -3316,7 +3346,8 @@ exports.push([module.id, \\"._1xn1UbV-5a_s7ig53fR7Lz/*.c2*/._36mr1nZ1pdjd1s5j3RV
 exports.locals = {
 	\\"c1\\": \\"_1xn1UbV-5a_s7ig53fR7Lz\\",
 	\\"c3\\": \\"_36mr1nZ1pdjd1s5j3RV-z7\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`comment-in-local\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -3344,7 +3375,8 @@ exports.push([module.id, \\"._c1/*.c2*/._c3 { background: red; }\\\\n\\", \\"\\"
 exports.locals = {
 	\\"c1\\": \\"_c1\\",
 	\\"c3\\": \\"_c3\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`comment-in-local\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -3372,7 +3404,8 @@ exports.push([module.id, \\"._c1/*.c2*/._c3 { background: red; }\\\\n\\", \\"\\"
 exports.locals = {
 	\\"c1\\": \\"_c1\\",
 	\\"c3\\": \\"_c3\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`comment-in-local\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -3400,7 +3433,8 @@ exports.push([module.id, \\"._1xn1UbV-5a_s7ig53fR7Lz/*.c2*/._36mr1nZ1pdjd1s5j3RV
 exports.locals = {
 	\\"c1\\": \\"_1xn1UbV-5a_s7ig53fR7Lz\\",
 	\\"c3\\": \\"_36mr1nZ1pdjd1s5j3RV-z7\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`comment-in-local\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -3504,7 +3538,8 @@ exports.push([module.id, \\"/*\\\\n * a ' above\\\\n */\\\\n\\\\n._28-VAWbJ8gQCg
 // Exports
 exports.locals = {
 	\\"bg\\": \\"_28-VAWbJ8gQCgX50Jcqtzs\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`comments\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -3581,7 +3616,8 @@ exports.push([module.id, \\"/*\\\\n * a ' above\\\\n */\\\\n\\\\n._bg {\\\\n  ba
 // Exports
 exports.locals = {
 	\\"bg\\": \\"_bg\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`comments\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -3621,7 +3657,8 @@ exports.push([module.id, \\"/*\\\\n * a ' above\\\\n */\\\\n\\\\n._28-VAWbJ8gQCg
 // Exports
 exports.locals = {
 	\\"bg\\": \\"_28-VAWbJ8gQCgX50Jcqtzs\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`comments\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -3684,7 +3721,8 @@ exports.push([module.id, \\"._2lVGKlfYXzywV6_acW1a3J { a: 1; }\\\\n._2FPXZHdIWog
 exports.locals = {
 	\\"c1\\": \\"_2lVGKlfYXzywV6_acW1a3J\\",
 	\\"c2\\": \\"_2FPXZHdIWogtLWkFQcjYj7 _2lVGKlfYXzywV6_acW1a3J\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -3713,7 +3751,8 @@ exports.push([module.id, \\"._2lVGKlfYXzywV6_acW1a3J { a: 1; }\\\\n._2FPXZHdIWog
 exports.locals = {
 	\\"c1\\": \\"_2lVGKlfYXzywV6_acW1a3J\\",
 	\\"c2\\": \\"_2FPXZHdIWogtLWkFQcjYj7 _2lVGKlfYXzywV6_acW1a3J\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -3742,7 +3781,8 @@ exports.push([module.id, \\"._c1 { a: 1; }\\\\n._c2 { b: 1; }\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"c1\\": \\"_c1\\",
 	\\"c2\\": \\"_c2 _c1\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -3771,7 +3811,8 @@ exports.push([module.id, \\"._c1 { a: 1; }\\\\n._c2 { b: 1; }\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"c1\\": \\"_c1\\",
 	\\"c2\\": \\"_c2 _c1\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -3800,7 +3841,8 @@ exports.push([module.id, \\"._2lVGKlfYXzywV6_acW1a3J { a: 1; }\\\\n._2FPXZHdIWog
 exports.locals = {
 	\\"c1\\": \\"_2lVGKlfYXzywV6_acW1a3J\\",
 	\\"c2\\": \\"_2FPXZHdIWogtLWkFQcjYj7 _2lVGKlfYXzywV6_acW1a3J\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -3858,7 +3900,8 @@ exports.locals = {
 	\\"c1\\": \\"_1DZQbqp1oX8etdFa5oSOnV \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c3\\": \\"_1PKuwglb3xQB3gwJBZx6_G _1DZQbqp1oX8etdFa5oSOnV \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c5\\": \\"_1MtdK0_soIbU20fcYBbRAe \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -3907,7 +3950,8 @@ exports.locals = {
 	\\"c1\\": \\"_1DZQbqp1oX8etdFa5oSOnV \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c3\\": \\"_1PKuwglb3xQB3gwJBZx6_G _1DZQbqp1oX8etdFa5oSOnV \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c5\\": \\"_1MtdK0_soIbU20fcYBbRAe \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -3956,7 +4000,8 @@ exports.locals = {
 	\\"c1\\": \\"_c1 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c3\\": \\"_c3 _c1 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c5\\": \\"_c5 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -4005,7 +4050,8 @@ exports.locals = {
 	\\"c1\\": \\"_c1 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c3\\": \\"_c3 _c1 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c5\\": \\"_c5 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -4054,7 +4100,8 @@ exports.locals = {
 	\\"c1\\": \\"_1DZQbqp1oX8etdFa5oSOnV \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c3\\": \\"_1PKuwglb3xQB3gwJBZx6_G _1DZQbqp1oX8etdFa5oSOnV \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\"\\",
 	\\"c5\\": \\"_1MtdK0_soIbU20fcYBbRAe \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -4129,7 +4176,8 @@ exports.locals = {
 	\\"c1\\": \\"_2tj5Xzv7Ei8HGFvkrlGXyv \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c3\\": \\"_1TPNBQGz_snQ6aGvXARYo0 _2tj5Xzv7Ei8HGFvkrlGXyv \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c5\\": \\"rkDOmH5RkgZGaQ5Fey09Z \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -4178,7 +4226,8 @@ exports.locals = {
 	\\"c1\\": \\"_2tj5Xzv7Ei8HGFvkrlGXyv \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c3\\": \\"_1TPNBQGz_snQ6aGvXARYo0 _2tj5Xzv7Ei8HGFvkrlGXyv \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c5\\": \\"rkDOmH5RkgZGaQ5Fey09Z \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -4227,7 +4276,8 @@ exports.locals = {
 	\\"c1\\": \\"_c1 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c3\\": \\"_c3 _c1 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c5\\": \\"_c5 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -4276,7 +4326,8 @@ exports.locals = {
 	\\"c1\\": \\"_c1 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c3\\": \\"_c3 _c1 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c5\\": \\"_c5 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -4325,7 +4376,8 @@ exports.locals = {
 	\\"c1\\": \\"_2tj5Xzv7Ei8HGFvkrlGXyv \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c3\\": \\"_1TPNBQGz_snQ6aGvXARYo0 _2tj5Xzv7Ei8HGFvkrlGXyv \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\"\\",
 	\\"c5\\": \\"rkDOmH5RkgZGaQ5Fey09Z \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c-2\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"c4\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -4401,7 +4453,8 @@ exports.push([module.id, \\"._1bAv4bLL8-hE3a7MyZXrT- {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_1bAv4bLL8-hE3a7MyZXrT- \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def1\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def2\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -4449,7 +4502,8 @@ exports.push([module.id, \\"._1bAv4bLL8-hE3a7MyZXrT- {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_1bAv4bLL8-hE3a7MyZXrT- \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def1\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def2\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -4497,7 +4551,8 @@ exports.push([module.id, \\"._abc {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_abc \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def1\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def2\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -4545,7 +4600,8 @@ exports.push([module.id, \\"._abc {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_abc \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def1\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def2\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -4593,7 +4649,8 @@ exports.push([module.id, \\"._1bAv4bLL8-hE3a7MyZXrT- {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_1bAv4bLL8-hE3a7MyZXrT- \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def1\\"] + \\" \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def2\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -4665,7 +4722,8 @@ exports.push([module.id, \\"._3sT-Lzs6aj6TM9J3mM7_Cj {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_3sT-Lzs6aj6TM9J3mM7_Cj \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -4703,7 +4761,8 @@ exports.push([module.id, \\"._3sT-Lzs6aj6TM9J3mM7_Cj {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_3sT-Lzs6aj6TM9J3mM7_Cj \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -4741,7 +4800,8 @@ exports.push([module.id, \\"._abc {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_abc \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -4779,7 +4839,8 @@ exports.push([module.id, \\"._abc {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_abc \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -4817,7 +4878,8 @@ exports.push([module.id, \\"._3sT-Lzs6aj6TM9J3mM7_Cj {\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"abc\\": \\"_3sT-Lzs6aj6TM9J3mM7_Cj \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -4881,7 +4943,8 @@ exports.push([module.id, \\".a {\\\\n  border: 1px solid red;\\\\n}\\\\n\\", \\"
 // Exports
 exports.locals = {
 	\\"blue\\": \\"red\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`declaration-value\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -4911,7 +4974,8 @@ exports.push([module.id, \\".rUmYXW8EUSiAHIrtvLLrL {\\\\n  border: 1px solid red
 exports.locals = {
 	\\"blue\\": \\"red\\",
 	\\"a\\": \\"rUmYXW8EUSiAHIrtvLLrL\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`declaration-value\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -4940,7 +5004,8 @@ exports.push([module.id, \\".a {\\\\n  border: 1px solid red;\\\\n}\\\\n\\", \\"
 // Exports
 exports.locals = {
 	\\"blue\\": \\"red\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`declaration-value\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -4970,7 +5035,8 @@ exports.push([module.id, \\"._a {\\\\n  border: 1px solid red;\\\\n}\\\\n\\", \\
 exports.locals = {
 	\\"blue\\": \\"red\\",
 	\\"a\\": \\"_a\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`declaration-value\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -5000,7 +5066,8 @@ exports.push([module.id, \\".rUmYXW8EUSiAHIrtvLLrL {\\\\n  border: 1px solid red
 exports.locals = {
 	\\"blue\\": \\"red\\",
 	\\"a\\": \\"rUmYXW8EUSiAHIrtvLLrL\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`declaration-value\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -5356,7 +5423,8 @@ exports.locals = {
 	\\"bounce3\\": \\"_3OQHSo2d42CWSR-npTXaic\\",
 	\\"bounce4\\": \\"_3bL1lmhMKE-Qlk83VSMCHN\\",
 	\\"b\\": \\"_1eH5GHM6EfKYOklEd2mhle\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`keyframes-and-animation\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -5506,7 +5574,8 @@ exports.locals = {
 	\\"bounce3\\": \\"_bounce3\\",
 	\\"bounce4\\": \\"_bounce4\\",
 	\\"b\\": \\"_b\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`keyframes-and-animation\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -5585,7 +5654,8 @@ exports.locals = {
 	\\"bounce3\\": \\"_3OQHSo2d42CWSR-npTXaic\\",
 	\\"bounce4\\": \\"_3bL1lmhMKE-Qlk83VSMCHN\\",
 	\\"b\\": \\"_1eH5GHM6EfKYOklEd2mhle\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`keyframes-and-animation\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -5786,7 +5856,8 @@ exports.locals = {
 	\\"c3\\": \\"_9skQ6KRXi6qCorV5zNSyV\\",
 	\\"c4\\": \\"_1Gh6Pqr28qXCExbnssOGX9\\",
 	\\"d2\\": \\"_35GAwk8Rb2LyIN0pSAXjyy\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`leak-scope\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -5916,7 +5987,8 @@ exports.locals = {
 	\\"c3\\": \\"_c3\\",
 	\\"c4\\": \\"_c4\\",
 	\\"d2\\": \\"_d2\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`leak-scope\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -5986,7 +6058,8 @@ exports.locals = {
 	\\"c3\\": \\"_9skQ6KRXi6qCorV5zNSyV\\",
 	\\"c4\\": \\"_1Gh6Pqr28qXCExbnssOGX9\\",
 	\\"d2\\": \\"_35GAwk8Rb2LyIN0pSAXjyy\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`leak-scope\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -6081,7 +6154,8 @@ exports.locals = {
 	\\"def\\": \\"_1UnGDcMVVYIU_547CDqQJU\\",
 	\\"ghi\\": \\"_1k8c5svlAtK4vFkSsZdl4o\\",
 	\\"jkl\\": \\"pRQR9FSSkxNL6roex-uGp\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -6117,7 +6191,8 @@ exports.locals = {
 	\\"def\\": \\"_1UnGDcMVVYIU_547CDqQJU\\",
 	\\"ghi\\": \\"_1k8c5svlAtK4vFkSsZdl4o\\",
 	\\"jkl\\": \\"pRQR9FSSkxNL6roex-uGp\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -6152,7 +6227,8 @@ exports.locals = {
 	\\"def\\": \\"_def\\",
 	\\"ghi\\": \\"_ghi\\",
 	\\"jkl\\": \\"_jkl\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -6188,7 +6264,8 @@ exports.locals = {
 	\\"def\\": \\"_def\\",
 	\\"ghi\\": \\"_ghi\\",
 	\\"jkl\\": \\"_jkl\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -6224,7 +6301,8 @@ exports.locals = {
 	\\"def\\": \\"_1UnGDcMVVYIU_547CDqQJU\\",
 	\\"ghi\\": \\"_1k8c5svlAtK4vFkSsZdl4o\\",
 	\\"jkl\\": \\"pRQR9FSSkxNL6roex-uGp\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -6286,7 +6364,8 @@ exports.locals = {
 	\\"className\\": \\"PTH0TZDPxpREaV5cxtahd\\",
 	\\"someId\\": \\"_1XQl0Np_jYcDGudXKxmL8A\\",
 	\\"subClass\\": \\"_2MrzTmc8jtF-E5FfuMPQie\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-2\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -6318,7 +6397,8 @@ exports.locals = {
 	\\"className\\": \\"PTH0TZDPxpREaV5cxtahd\\",
 	\\"someId\\": \\"_1XQl0Np_jYcDGudXKxmL8A\\",
 	\\"subClass\\": \\"_2MrzTmc8jtF-E5FfuMPQie\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-2\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -6350,7 +6430,8 @@ exports.locals = {
 	\\"className\\": \\"_className\\",
 	\\"someId\\": \\"_someId\\",
 	\\"subClass\\": \\"_subClass\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-2\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -6382,7 +6463,8 @@ exports.locals = {
 	\\"className\\": \\"_className\\",
 	\\"someId\\": \\"_someId\\",
 	\\"subClass\\": \\"_subClass\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-2\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -6414,7 +6496,8 @@ exports.locals = {
 	\\"className\\": \\"PTH0TZDPxpREaV5cxtahd\\",
 	\\"someId\\": \\"_1XQl0Np_jYcDGudXKxmL8A\\",
 	\\"subClass\\": \\"_2MrzTmc8jtF-E5FfuMPQie\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-2\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -6475,7 +6558,8 @@ exports.push([module.id, \\"._1wzWGMZGmVz3uhGAmwbXwR {\\\\n  color: red;\\\\n}\\
 exports.locals = {
 	\\"abc\\": \\"_1wzWGMZGmVz3uhGAmwbXwR\\",
 	\\"def\\": \\"_3zcEXyCxYPLdb_6bVqY6Df _1wzWGMZGmVz3uhGAmwbXwR\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-and-composes\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -6508,7 +6592,8 @@ exports.push([module.id, \\"._1wzWGMZGmVz3uhGAmwbXwR {\\\\n  color: red;\\\\n}\\
 exports.locals = {
 	\\"abc\\": \\"_1wzWGMZGmVz3uhGAmwbXwR\\",
 	\\"def\\": \\"_3zcEXyCxYPLdb_6bVqY6Df _1wzWGMZGmVz3uhGAmwbXwR\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-and-composes\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -6541,7 +6626,8 @@ exports.push([module.id, \\"._abc {\\\\n  color: red;\\\\n}\\\\n._def {\\\\n  ba
 exports.locals = {
 	\\"abc\\": \\"_abc\\",
 	\\"def\\": \\"_def _abc\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-and-composes\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -6574,7 +6660,8 @@ exports.push([module.id, \\"._abc {\\\\n  color: red;\\\\n}\\\\n._def {\\\\n  ba
 exports.locals = {
 	\\"abc\\": \\"_abc\\",
 	\\"def\\": \\"_def _abc\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-and-composes\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -6607,7 +6694,8 @@ exports.push([module.id, \\"._1wzWGMZGmVz3uhGAmwbXwR {\\\\n  color: red;\\\\n}\\
 exports.locals = {
 	\\"abc\\": \\"_1wzWGMZGmVz3uhGAmwbXwR\\",
 	\\"def\\": \\"_3zcEXyCxYPLdb_6bVqY6Df _1wzWGMZGmVz3uhGAmwbXwR\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-and-composes\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -6667,7 +6755,8 @@ exports.locals = {
 	\\"c1\\": \\"_1sz8PE1ejGPcGRSnIAWKZt\\",
 	\\"c3\\": \\"_2DFDxRic974g-wJ7S9rbP1\\",
 	\\"c4\\": \\"xo8O_am1gQUkHa-_J-WSe\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-with-string\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -6698,7 +6787,8 @@ exports.locals = {
 	\\"c1\\": \\"_1sz8PE1ejGPcGRSnIAWKZt\\",
 	\\"c3\\": \\"_2DFDxRic974g-wJ7S9rbP1\\",
 	\\"c4\\": \\"xo8O_am1gQUkHa-_J-WSe\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-with-string\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -6729,7 +6819,8 @@ exports.locals = {
 	\\"c1\\": \\"_c1\\",
 	\\"c3\\": \\"_c3\\",
 	\\"c4\\": \\"_c4\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-with-string\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -6760,7 +6851,8 @@ exports.locals = {
 	\\"c1\\": \\"_c1\\",
 	\\"c3\\": \\"_c3\\",
 	\\"c4\\": \\"_c4\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-with-string\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -6791,7 +6883,8 @@ exports.locals = {
 	\\"c1\\": \\"_1sz8PE1ejGPcGRSnIAWKZt\\",
 	\\"c3\\": \\"_2DFDxRic974g-wJ7S9rbP1\\",
 	\\"c4\\": \\"xo8O_am1gQUkHa-_J-WSe\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`local-with-string\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -6850,7 +6943,8 @@ exports.push([module.id, \\"@media (max-width: 599px) {\\\\n  .header {\\\\n    
 // Exports
 exports.locals = {
 	\\"small\\": \\"(max-width: 599px)\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -6882,7 +6976,8 @@ exports.push([module.id, \\"@media (max-width: 599px) {\\\\n  ._1wyVAJXtjGZLoQNO
 exports.locals = {
 	\\"small\\": \\"(max-width: 599px)\\",
 	\\"header\\": \\"_1wyVAJXtjGZLoQNO_yG8b3\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -6913,7 +7008,8 @@ exports.push([module.id, \\"@media (max-width: 599px) {\\\\n  .header {\\\\n    
 // Exports
 exports.locals = {
 	\\"small\\": \\"(max-width: 599px)\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -6945,7 +7041,8 @@ exports.push([module.id, \\"@media (max-width: 599px) {\\\\n  ._header {\\\\n   
 exports.locals = {
 	\\"small\\": \\"(max-width: 599px)\\",
 	\\"header\\": \\"_header\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -6977,7 +7074,8 @@ exports.push([module.id, \\"@media (max-width: 599px) {\\\\n  ._1wyVAJXtjGZLoQNO
 exports.locals = {
 	\\"small\\": \\"(max-width: 599px)\\",
 	\\"header\\": \\"_1wyVAJXtjGZLoQNO_yG8b3\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -7039,7 +7137,8 @@ exports.push([module.id, \\"@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\
 // Exports
 exports.locals = {
 	\\"small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"small\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -7079,7 +7178,8 @@ exports.push([module.id, \\"@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\
 exports.locals = {
 	\\"small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"small\\"] + \\"\\",
 	\\"header\\": \\"UbDEjEuweJXO7yHMpC8qp\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -7118,7 +7218,8 @@ exports.push([module.id, \\"@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\
 // Exports
 exports.locals = {
 	\\"small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"small\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -7158,7 +7259,8 @@ exports.push([module.id, \\"@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\
 exports.locals = {
 	\\"small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"small\\"] + \\"\\",
 	\\"header\\": \\"_header\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -7198,7 +7300,8 @@ exports.push([module.id, \\"@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\
 exports.locals = {
 	\\"small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"small\\"] + \\"\\",
 	\\"header\\": \\"UbDEjEuweJXO7yHMpC8qp\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -7263,7 +7366,8 @@ exports.locals = {
 	\\"c3\\": \\"_2ZTY7KJ2nkQND4VqlaSz9a\\",
 	\\"c5\\": \\"tEu6_PTqhxImp1tyYQTWz\\",
 	\\"c7\\": \\"FBEuAfqI8VKhU-w-9RNH\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`mode-switching\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -7297,7 +7401,8 @@ exports.locals = {
 	\\"c6\\": \\"sUDXsigYAAb8sNlOMs_Oc\\",
 	\\"c7\\": \\"FBEuAfqI8VKhU-w-9RNH\\",
 	\\"c8\\": \\"_1JUWq0LIxk9cx-H1cbqyAD\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`mode-switching\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -7328,7 +7433,8 @@ exports.locals = {
 	\\"c3\\": \\"_c3\\",
 	\\"c5\\": \\"_c5\\",
 	\\"c7\\": \\"_c7\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`mode-switching\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -7362,7 +7468,8 @@ exports.locals = {
 	\\"c6\\": \\"_c6\\",
 	\\"c7\\": \\"_c7\\",
 	\\"c8\\": \\"_c8\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`mode-switching\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -7396,7 +7503,8 @@ exports.locals = {
 	\\"c6\\": \\"sUDXsigYAAb8sNlOMs_Oc\\",
 	\\"c7\\": \\"FBEuAfqI8VKhU-w-9RNH\\",
 	\\"c8\\": \\"_1JUWq0LIxk9cx-H1cbqyAD\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`mode-switching\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -7499,7 +7607,8 @@ exports.locals = {
 	\\"x\\": \\"_3jqDKJEcQhMnSj5LXFzCMT\\",
 	\\"y\\": \\"_2CdavzdbxA-_uaXjgT2eG\\",
 	\\"z\\": \\"eawDxhAAUQ-HvrUhhwSML\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`simple\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -7577,7 +7686,8 @@ exports.locals = {
 	\\"x\\": \\"_x\\",
 	\\"y\\": \\"_y\\",
 	\\"z\\": \\"_z\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`simple\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -7621,7 +7731,8 @@ exports.locals = {
 	\\"x\\": \\"_3jqDKJEcQhMnSj5LXFzCMT\\",
 	\\"y\\": \\"_2CdavzdbxA-_uaXjgT2eG\\",
 	\\"z\\": \\"eawDxhAAUQ-HvrUhhwSML\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`simple\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -7750,7 +7861,8 @@ exports.push([module.id, \\"._1goi1QVFtUMjX82JoFfLLJ {\\\\n\\\\tbackground: url(
 // Exports
 exports.locals = {
 	\\"a\\": \\"_1goi1QVFtUMjX82JoFfLLJ\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`urls\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -7839,7 +7951,8 @@ exports.push([module.id, \\"._a {\\\\n\\\\tbackground: url(\\" + ___CSS_LOADER_U
 // Exports
 exports.locals = {
 	\\"a\\": \\"_a\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`urls\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -7885,7 +7998,8 @@ exports.push([module.id, \\"._1goi1QVFtUMjX82JoFfLLJ {\\\\n\\\\tbackground: url(
 // Exports
 exports.locals = {
 	\\"a\\": \\"_1goi1QVFtUMjX82JoFfLLJ\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`urls\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -7959,7 +8073,8 @@ exports.locals = {
 	\\"aaa\\": \\"red\\",
 	\\"bbb\\": \\"green\\",
 	\\"ccc\\": \\"red\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -7993,7 +8108,8 @@ exports.locals = {
 	\\"bbb\\": \\"green\\",
 	\\"ccc\\": \\"red\\",
 	\\"a\\": \\"_18yRHBx_s3xK1t_zOjEfo\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -8026,7 +8142,8 @@ exports.locals = {
 	\\"aaa\\": \\"red\\",
 	\\"bbb\\": \\"green\\",
 	\\"ccc\\": \\"red\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -8060,7 +8177,8 @@ exports.locals = {
 	\\"bbb\\": \\"green\\",
 	\\"ccc\\": \\"red\\",
 	\\"a\\": \\"_a\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -8094,7 +8212,8 @@ exports.locals = {
 	\\"bbb\\": \\"green\\",
 	\\"ccc\\": \\"red\\",
 	\\"a\\": \\"_18yRHBx_s3xK1t_zOjEfo\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -8151,7 +8270,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"def\\": \\"red\\",
 	\\"ghi\\": \\"1px solid black\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-1\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -8179,7 +8299,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"def\\": \\"red\\",
 	\\"ghi\\": \\"1px solid black\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-1\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -8207,7 +8328,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"def\\": \\"red\\",
 	\\"ghi\\": \\"1px solid black\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-1\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -8235,7 +8357,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"def\\": \\"red\\",
 	\\"ghi\\": \\"1px solid black\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-1\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -8263,7 +8386,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"def\\": \\"red\\",
 	\\"ghi\\": \\"1px solid black\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-1\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -8315,7 +8439,8 @@ exports.push([module.id, \\".ghi { color: red; }\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"def\\": \\"red\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-2\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -8343,7 +8468,8 @@ exports.push([module.id, \\"._2aKAT4pAinaabqEIFgdhTC { color: red; }\\\\n\\", \\
 exports.locals = {
 	\\"def\\": \\"red\\",
 	\\"ghi\\": \\"_2aKAT4pAinaabqEIFgdhTC\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-2\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -8370,7 +8496,8 @@ exports.push([module.id, \\".ghi { color: red; }\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"def\\": \\"red\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-2\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -8398,7 +8525,8 @@ exports.push([module.id, \\"._ghi { color: red; }\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"def\\": \\"red\\",
 	\\"ghi\\": \\"_ghi\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-2\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -8426,7 +8554,8 @@ exports.push([module.id, \\"._2aKAT4pAinaabqEIFgdhTC { color: red; }\\\\n\\", \\
 exports.locals = {
 	\\"def\\": \\"red\\",
 	\\"ghi\\": \\"_2aKAT4pAinaabqEIFgdhTC\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-2\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -8480,7 +8609,8 @@ exports.push([module.id, \\".ghi { color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.l
 // Exports
 exports.locals = {
 	\\"def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -8516,7 +8646,8 @@ exports.push([module.id, \\"._29ART3-NNe4DU1X-5_7419 { color: \\" + ___CSS_LOADE
 exports.locals = {
 	\\"def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\",
 	\\"ghi\\": \\"_29ART3-NNe4DU1X-5_7419\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -8551,7 +8682,8 @@ exports.push([module.id, \\".ghi { color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.l
 // Exports
 exports.locals = {
 	\\"def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -8587,7 +8719,8 @@ exports.push([module.id, \\"._ghi { color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.
 exports.locals = {
 	\\"def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\",
 	\\"ghi\\": \\"_ghi\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -8623,7 +8756,8 @@ exports.push([module.id, \\"._29ART3-NNe4DU1X-5_7419 { color: \\" + ___CSS_LOADE
 exports.locals = {
 	\\"def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\",
 	\\"ghi\\": \\"_29ART3-NNe4DU1X-5_7419\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -8687,7 +8821,8 @@ exports.push([module.id, \\".ghi { background: \\" + ___CSS_LOADER_ICSS_IMPORT_0
 exports.locals = {
 	\\"aaa\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\",
 	\\"bbb\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -8732,7 +8867,8 @@ exports.locals = {
 	\\"aaa\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\",
 	\\"bbb\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def\\"] + \\"\\",
 	\\"ghi\\": \\"_1vGjNPdz_qWrUvzTY2pCsS\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -8776,7 +8912,8 @@ exports.push([module.id, \\".ghi { background: \\" + ___CSS_LOADER_ICSS_IMPORT_0
 exports.locals = {
 	\\"aaa\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\",
 	\\"bbb\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -8821,7 +8958,8 @@ exports.locals = {
 	\\"aaa\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\",
 	\\"bbb\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def\\"] + \\"\\",
 	\\"ghi\\": \\"_ghi\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -8866,7 +9004,8 @@ exports.locals = {
 	\\"aaa\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"def\\"] + \\"\\",
 	\\"bbb\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"def\\"] + \\"\\",
 	\\"ghi\\": \\"_1vGjNPdz_qWrUvzTY2pCsS\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -8934,7 +9073,8 @@ exports.push([module.id, \\".ghi { box-shadow: 0 0 \\" + ___CSS_LOADER_ICSS_IMPO
 exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\",0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -8971,7 +9111,8 @@ exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\",0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"ghi\\": \\"_3Uw-A6Tr2LkIED6NTqwFvj\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -9007,7 +9148,8 @@ exports.push([module.id, \\".ghi { box-shadow: 0 0 \\" + ___CSS_LOADER_ICSS_IMPO
 exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\",0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -9044,7 +9186,8 @@ exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\",0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"ghi\\": \\"_ghi\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -9081,7 +9224,8 @@ exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\",0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"ghi\\": \\"_3Uw-A6Tr2LkIED6NTqwFvj\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -9143,7 +9287,8 @@ exports.push([module.id, \\".ghi { box-shadow: 0 0 \\" + ___CSS_LOADER_ICSS_IMPO
 exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\" ,0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -9180,7 +9325,8 @@ exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\" ,0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"ghi\\": \\"_2qKjolC-wu9Dp8-RCkWiLN\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -9216,7 +9362,8 @@ exports.push([module.id, \\".ghi { box-shadow: 0 0 \\" + ___CSS_LOADER_ICSS_IMPO
 exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\" ,0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -9253,7 +9400,8 @@ exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\" ,0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"ghi\\": \\"_ghi\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -9290,7 +9438,8 @@ exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\" ,0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"ghi\\": \\"_2qKjolC-wu9Dp8-RCkWiLN\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -9352,7 +9501,8 @@ exports.push([module.id, \\".ghi { box-shadow: 0 0 \\" + ___CSS_LOADER_ICSS_IMPO
 exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\", 0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -9389,7 +9539,8 @@ exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\", 0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"ghi\\": \\"_1SVUxnI1T0vYEcq2VXU5pr\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -9425,7 +9576,8 @@ exports.push([module.id, \\".ghi { box-shadow: 0 0 \\" + ___CSS_LOADER_ICSS_IMPO
 exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\", 0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -9462,7 +9614,8 @@ exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\", 0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"ghi\\": \\"_ghi\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -9499,7 +9652,8 @@ exports.locals = {
 	\\"color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"shadow\\": \\"0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\", 0 0 \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"color\\"] + \\"\\",
 	\\"ghi\\": \\"_1SVUxnI1T0vYEcq2VXU5pr\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -9561,7 +9715,8 @@ exports.push([module.id, \\".shadow {\\\\n  box-shadow: 0 10px 10px rgba(0, 0, 0
 // Exports
 exports.locals = {
 	\\"shadow-color\\": \\"rgba(0, 0, 0, 0.5)\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-8\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -9592,7 +9747,8 @@ exports.push([module.id, \\"._3fhB2YwAmhjTmtcd6ofBQH {\\\\n  box-shadow: 0 10px 
 exports.locals = {
 	\\"shadow-color\\": \\"rgba(0, 0, 0, 0.5)\\",
 	\\"shadow\\": \\"_3fhB2YwAmhjTmtcd6ofBQH\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-8\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -9622,7 +9778,8 @@ exports.push([module.id, \\".shadow {\\\\n  box-shadow: 0 10px 10px rgba(0, 0, 0
 // Exports
 exports.locals = {
 	\\"shadow-color\\": \\"rgba(0, 0, 0, 0.5)\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-8\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -9653,7 +9810,8 @@ exports.push([module.id, \\"._shadow {\\\\n  box-shadow: 0 10px 10px rgba(0, 0, 
 exports.locals = {
 	\\"shadow-color\\": \\"rgba(0, 0, 0, 0.5)\\",
 	\\"shadow\\": \\"_shadow\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-8\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -9684,7 +9842,8 @@ exports.push([module.id, \\"._3fhB2YwAmhjTmtcd6ofBQH {\\\\n  box-shadow: 0 10px 
 exports.locals = {
 	\\"shadow-color\\": \\"rgba(0, 0, 0, 0.5)\\",
 	\\"shadow\\": \\"_3fhB2YwAmhjTmtcd6ofBQH\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-8\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -9766,7 +9925,8 @@ exports.push([module.id, \\".foo1 {\\\\n  prop: func(red);\\\\n}\\\\n\\\\n.foo2 
 // Exports
 exports.locals = {
 	\\"def\\": \\"red\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-9\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -9826,7 +9986,8 @@ exports.locals = {
 	\\"foo5\\": \\"_1FHimE7YIOvZ66qJzb5oD7\\",
 	\\"foo6\\": \\"_2ZsNKxzBYz6NW_ITMiAbSo\\",
 	\\"foo7\\": \\"_18TpSE38_jlCbLotZMXh67\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-9\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -9879,7 +10040,8 @@ exports.push([module.id, \\".foo1 {\\\\n  prop: func(red);\\\\n}\\\\n\\\\n.foo2 
 // Exports
 exports.locals = {
 	\\"def\\": \\"red\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-9\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -9939,7 +10101,8 @@ exports.locals = {
 	\\"foo5\\": \\"_foo5\\",
 	\\"foo6\\": \\"_foo6\\",
 	\\"foo7\\": \\"_foo7\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-9\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -9999,7 +10162,8 @@ exports.locals = {
 	\\"foo5\\": \\"_1FHimE7YIOvZ66qJzb5oD7\\",
 	\\"foo6\\": \\"_2ZsNKxzBYz6NW_ITMiAbSo\\",
 	\\"foo7\\": \\"_18TpSE38_jlCbLotZMXh67\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-9\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -10095,7 +10259,8 @@ exports.locals = {
 	\\"v-primary\\": \\"#BF4040\\",
 	\\"s-black\\": \\"black-selector\\",
 	\\"m-large\\": \\"(min-width: 960px)\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-10\` (\`modules\` value is \`global)\`: result 1`] = `
@@ -10139,7 +10304,8 @@ exports.locals = {
 	\\"m-large\\": \\"(min-width: 960px)\\",
 	\\"header\\": \\"ODvOrT6QaJbrNxuVwTgHn\\",
 	\\"black-selector\\": \\"_3xId28FIeFVmNWx5IWeWqN\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-10\` (\`modules\` value is \`local)\`: result 1`] = `
@@ -10181,7 +10347,8 @@ exports.locals = {
 	\\"v-primary\\": \\"#BF4040\\",
 	\\"s-black\\": \\"black-selector\\",
 	\\"m-large\\": \\"(min-width: 960px)\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-10\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
@@ -10225,7 +10392,8 @@ exports.locals = {
 	\\"m-large\\": \\"(min-width: 960px)\\",
 	\\"header\\": \\"_header\\",
 	\\"black-selector\\": \\"_black-selector\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-10\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
@@ -10269,7 +10437,8 @@ exports.locals = {
 	\\"m-large\\": \\"(min-width: 960px)\\",
 	\\"header\\": \\"ODvOrT6QaJbrNxuVwTgHn\\",
 	\\"black-selector\\": \\"_3xId28FIeFVmNWx5IWeWqN\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with case \`values-10\` (\`modules\` value is \`true)\`: result 1`] = `
@@ -10355,7 +10524,8 @@ exports.locals = {
 	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar\\",
 	\\"foo/bar/baz\\": \\"foo/bar/baz\\",
 	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz\\"
-};"
+};
+"
 `;
 
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: result 1`] = `

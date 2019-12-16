@@ -384,6 +384,8 @@ function getExportCode(
   replacers,
   localsConvention
 ) {
+  const exportItems = [];
+
   if (exports.length === 0) {
     return '';
   }
@@ -448,9 +450,13 @@ function getExportCode(
     }
   });
 
-  return `// Exports\n${
-    exportType === 'locals' ? 'module.exports' : 'exports.locals'
-  } = {\n${exportLocalsCode}\n};`;
+  exportItems.push(
+    `${
+      exportType === 'locals' ? 'module.exports' : 'exports.locals'
+    } = {\n${exportLocalsCode}\n};`
+  );
+
+  return `// Exports\n${exportItems.join('\n')}\n`;
 }
 
 export {

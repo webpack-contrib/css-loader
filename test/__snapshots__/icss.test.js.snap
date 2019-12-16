@@ -11,7 +11,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"_test\\": \\"_right_value\\"
-};"
+};
+"
 `;
 
 exports[`ICSS show work with the case "duplicate-export": result 1`] = `
@@ -38,7 +39,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"_test\\": \\"_right_value\\"
-};"
+};
+"
 `;
 
 exports[`ICSS show work with the case "duplicate-export-in-multiple-export": result 1`] = `
@@ -113,7 +115,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"_test\\": \\"_test\\"
-};"
+};
+"
 `;
 
 exports[`ICSS show work with the case "export": result 1`] = `
@@ -141,7 +144,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"constructor\\": \\"constructor\\",
 	\\"toString\\": \\"toString\\"
-};"
+};
+"
 `;
 
 exports[`ICSS show work with the case "export-reserved-keywords": result 1`] = `
@@ -170,7 +174,8 @@ exports.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_I
 // Exports
 exports.locals = {
 	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`ICSS show work with the case "import": result 1`] = `
@@ -208,7 +213,8 @@ exports.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_I
 exports.locals = {
 	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\",
 	\\"secondary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"secondary-color\\"] + \\"\\"
-};"
+};
+"
 `;
 
 exports[`ICSS show work with the case "import-reserved-keywords": result 1`] = `
@@ -245,7 +251,8 @@ exports.push([module.id, \\"\\\\n\\", \\"\\"]);
 exports.locals = {
 	\\"_test\\": \\"_test\\",
 	\\"_foo\\": \\"_bar\\"
-};"
+};
+"
 `;
 
 exports[`ICSS show work with the case "multiple-export": result 1`] = `
@@ -276,7 +283,8 @@ exports.locals = {
 	\\"_test2\\": \\"'string'\\",
 	\\"_test3\\": \\"1px 2px 3px\\",
 	\\"_test4\\": \\"1px 2px 3px, 1px 2px 3px\\"
-};"
+};
+"
 `;
 
 exports[`ICSS show work with the case "multiple-keys-values-in-export": result 1`] = `

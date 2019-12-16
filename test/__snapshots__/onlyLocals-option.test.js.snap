@@ -57,7 +57,8 @@ module.exports = {
 	\\"header\\": \\"_header\\",
 	\\"foobarbaz\\": \\"_foobarbaz\\",
 	\\"url\\": \\"_url\\"
-};"
+};
+"
 `;
 
 exports[`"onlyLocals" option should work: result 1`] = `
