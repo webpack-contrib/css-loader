@@ -6,10 +6,12 @@ exports[`"importLoaders" option should work when not specified: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js!./imported.css\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
 "
 `;
 
@@ -44,10 +46,12 @@ exports[`"importLoaders" option should work with a value equal to "0" (\`postcss
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
 "
 `;
 
@@ -82,10 +86,12 @@ exports[`"importLoaders" option should work with a value equal to "1" ("postcss-
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
 "
 `;
 
@@ -120,10 +126,12 @@ exports[`"importLoaders" option should work with a value equal to "1" (no loader
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgb(0 0 100% / 90%);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
 "
 `;
 
@@ -158,10 +166,12 @@ exports[`"importLoaders" option should work with a value equal to "2" ("postcss-
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
 "
 `;
 

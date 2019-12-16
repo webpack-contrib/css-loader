@@ -5,7 +5,7 @@ exports[`"localsConvention" option should work when not specified: errors 1`] = 
 exports[`"localsConvention" option should work when not specified: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -15,7 +15,9 @@ exports.locals = {
 	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+module.exports = exports;
+"
 `;
 
 exports[`"localsConvention" option should work when not specified: result 1`] = `
@@ -50,7 +52,7 @@ exports[`"localsConvention" option should work with a value equal to "asIs": err
 exports[`"localsConvention" option should work with a value equal to "asIs": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -60,7 +62,9 @@ exports.locals = {
 	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+module.exports = exports;
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "asIs": result 1`] = `
@@ -95,7 +99,7 @@ exports[`"localsConvention" option should work with a value equal to "camelCase"
 exports[`"localsConvention" option should work with a value equal to "camelCase": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -108,7 +112,9 @@ exports.locals = {
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"btnInfoIsDisabled1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+module.exports = exports;
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "camelCase": result 1`] = `
@@ -143,7 +149,7 @@ exports[`"localsConvention" option should work with a value equal to "camelCaseO
 exports[`"localsConvention" option should work with a value equal to "camelCaseOnly": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -153,7 +159,9 @@ exports.locals = {
 	\\"btnInfoIsDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btnInfoIsDisabled1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+module.exports = exports;
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "camelCaseOnly": result 1`] = `
@@ -188,7 +196,7 @@ exports[`"localsConvention" option should work with a value equal to "dashes": e
 exports[`"localsConvention" option should work with a value equal to "dashes": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -201,7 +209,9 @@ exports.locals = {
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"btnInfo_isDisabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+module.exports = exports;
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "dashes": result 1`] = `
@@ -236,7 +246,7 @@ exports[`"localsConvention" option should work with a value equal to "dashesOnly
 exports[`"localsConvention" option should work with a value equal to "dashesOnly": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -246,7 +256,9 @@ exports.locals = {
 	\\"btnInfo_isDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btnInfo_isDisabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
-};"
+};
+module.exports = exports;
+"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "dashesOnly": result 1`] = `
