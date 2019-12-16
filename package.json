@@ -37,12 +37,10 @@
     "defaults": "webpack-defaults"
   },
   "files": [
-    "dist/",
-    "lib/",
-    "index.js"
+    "dist"
   ],
   "peerDependencies": {
-    "webpack": "^4.0.0"
+    "webpack": "^4.0.0 || ^5.0.0"
   },
   "dependencies": {
     "camelcase": "^5.3.1",
