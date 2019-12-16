@@ -10,15 +10,15 @@ import {
 
 describe('"onlyLocals" option', () => {
   it('should work', async () => {
-    const compiler = getCompiler('./modules/composes.js', {
+    const compiler = getCompiler('./modules/composes/composes.js', {
       modules: { mode: 'local', localIdentName: '_[local]' },
       onlyLocals: true,
     });
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./modules/composes.css', stats)).toMatchSnapshot(
-      'module'
-    );
+    expect(
+      getModuleSource('./modules/composes/composes.css', stats)
+    ).toMatchSnapshot('module');
     expect(
       execute(readAsset('main.bundle.js', compiler, stats))
     ).toMatchSnapshot('result');

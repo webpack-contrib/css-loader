@@ -16,7 +16,7 @@ const testCases = fs.readdirSync(testCasesPath);
 
 describe('ICSS', () => {
   testCases.forEach((name) => {
-    it(`case ${name}`, async () => {
+    it(`show work with the case "${name}"`, async () => {
       const compiler = getCompiler(`./icss/tests-cases/${name}/source.js`);
       const stats = await compile(compiler);
 

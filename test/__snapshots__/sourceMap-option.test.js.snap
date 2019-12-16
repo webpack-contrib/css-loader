@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`sourceMap option false should not generate source map when source map is \`null\` from other loader: errors 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: errors 1`] = `Array []`;
 
-exports[`sourceMap option false should not generate source map when source map is \`null\` from other loader: module 1`] = `
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -11,7 +11,7 @@ exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 "
 `;
 
-exports[`sourceMap option false should not generate source map when source map is \`null\` from other loader: result 1`] = `
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: result 1`] = `
 Array [
   Array [
     "./source-map/basic.css",
@@ -24,11 +24,11 @@ Array [
 ]
 `;
 
-exports[`sourceMap option false should not generate source map when source map is \`null\` from other loader: warnings 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: warnings 1`] = `Array []`;
 
-exports[`sourceMap option false should not generate source map when source map is \`undefined\` from other loader: errors 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: errors 1`] = `Array []`;
 
-exports[`sourceMap option false should not generate source map when source map is \`undefined\` from other loader: module 1`] = `
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -37,7 +37,7 @@ exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 "
 `;
 
-exports[`sourceMap option false should not generate source map when source map is \`undefined\` from other loader: result 1`] = `
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: result 1`] = `
 Array [
   Array [
     "./source-map/basic.css",
@@ -50,11 +50,11 @@ Array [
 ]
 `;
 
-exports[`sourceMap option false should not generate source map when source map is \`undefined\` from other loader: warnings 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: warnings 1`] = `Array []`;
 
-exports[`sourceMap option false should not generate source map: errors 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): errors 1`] = `Array []`;
 
-exports[`sourceMap option false should not generate source map: module 1`] = `
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -63,7 +63,7 @@ exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 "
 `;
 
-exports[`sourceMap option false should not generate source map: result 1`] = `
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): result 1`] = `
 Array [
   Array [
     "./source-map/basic.css",
@@ -76,37 +76,11 @@ Array [
 ]
 `;
 
-exports[`sourceMap option false should not generate source map: warnings 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): warnings 1`] = `Array []`;
 
-exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader (\`postcss-loader\`): errors 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): errors 1`] = `Array []`;
 
-exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader (\`postcss-loader\`): module 1`] = `
-"// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
-"
-`;
-
-exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader (\`postcss-loader\`): result 1`] = `
-Array [
-  Array [
-    "./source-map/basic.css",
-    ".class {
-  color: red;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader (\`postcss-loader\`): warnings 1`] = `Array []`;
-
-exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader (\`sass-loader\`): errors 1`] = `Array []`;
-
-exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader (\`sass-loader\`): module 1`] = `
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -115,7 +89,7 @@ exports.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n 
 "
 `;
 
-exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader (\`sass-loader\`): result 1`] = `
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): result 1`] = `
 Array [
   Array [
     "./source-map/basic.scss",
@@ -128,11 +102,11 @@ Array [
 ]
 `;
 
-exports[`sourceMap option false should not generate sourceMap when source map is valid from other loader (\`sass-loader\`): warnings 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): warnings 1`] = `Array []`;
 
-exports[`sourceMap option not specified should work: errors 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps: errors 1`] = `Array []`;
 
-exports[`sourceMap option not specified should work: module 1`] = `
+exports[`"sourceMap" option false should not generate source maps: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -141,7 +115,7 @@ exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 "
 `;
 
-exports[`sourceMap option not specified should work: result 1`] = `
+exports[`"sourceMap" option false should not generate source maps: result 1`] = `
 Array [
   Array [
     "./source-map/basic.css",
@@ -154,11 +128,37 @@ Array [
 ]
 `;
 
-exports[`sourceMap option not specified should work: warnings 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps: warnings 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map when source map is \`null\` from other loader: errors 1`] = `Array []`;
+exports[`"sourceMap" option not specified should not generate source maps: errors 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map when source map is \`null\` from other loader: module 1`] = `
+exports[`"sourceMap" option not specified should not generate source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+"
+`;
+
+exports[`"sourceMap" option not specified should not generate source maps: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"sourceMap" option not specified should not generate source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
@@ -167,7 +167,7 @@ exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\
 "
 `;
 
-exports[`sourceMap option true should generate source map when source map is \`null\` from other loader: result 1`] = `
+exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: result 1`] = `
 Array [
   Array [
     "./source-map/basic.css",
@@ -195,11 +195,11 @@ Array [
 ]
 `;
 
-exports[`sourceMap option true should generate source map when source map is \`null\` from other loader: warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: warnings 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map when source map is \`undefined\` from other loader: errors 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: errors 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map when source map is \`undefined\` from other loader: module 1`] = `
+exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
@@ -208,7 +208,7 @@ exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\
 "
 `;
 
-exports[`sourceMap option true should generate source map when source map is \`undefined\` from other loader: result 1`] = `
+exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: result 1`] = `
 Array [
   Array [
     "./source-map/basic.css",
@@ -236,11 +236,11 @@ Array [
 ]
 `;
 
-exports[`sourceMap option true should generate source map when source map is \`undefined\` from other loader: warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: warnings 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map when source map is valid from other loader (\`postcss-loader\`): errors 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): errors 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map when source map is valid from other loader (\`postcss-loader\`): module 1`] = `
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
@@ -249,7 +249,7 @@ exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\
 "
 `;
 
-exports[`sourceMap option true should generate source map when source map is valid from other loader (\`postcss-loader\`): result 1`] = `
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): result 1`] = `
 Array [
   Array [
     "./source-map/basic.css",
@@ -277,11 +277,11 @@ Array [
 ]
 `;
 
-exports[`sourceMap option true should generate source map when source map is valid from other loader (\`postcss-loader\`): warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): warnings 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map when source map is valid from other loader (\`sass-loader\`): errors 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): errors 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map when source map is valid from other loader (\`sass-loader\`): module 1`] = `
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
@@ -290,7 +290,7 @@ exports.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n 
 "
 `;
 
-exports[`sourceMap option true should generate source map when source map is valid from other loader (\`sass-loader\`): result 1`] = `
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): result 1`] = `
 Array [
   Array [
     "./source-map/basic.scss",
@@ -327,11 +327,11 @@ body {
 ]
 `;
 
-exports[`sourceMap option true should generate source map when source map is valid from other loader (\`sass-loader\`): warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): warnings 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map: errors 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps: errors 1`] = `Array []`;
 
-exports[`sourceMap option true should generate source map: module 1`] = `
+exports[`"sourceMap" option true should generate source maps: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
@@ -340,7 +340,7 @@ exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\
 "
 `;
 
-exports[`sourceMap option true should generate source map: result 1`] = `
+exports[`"sourceMap" option true should generate source maps: result 1`] = `
 Array [
   Array [
     "./source-map/basic.css",
@@ -368,4 +368,4 @@ Array [
 ]
 `;
 
-exports[`sourceMap option true should generate source map: warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps: warnings 1`] = `Array []`;

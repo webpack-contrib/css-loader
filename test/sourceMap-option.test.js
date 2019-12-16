@@ -12,9 +12,9 @@ import {
   readAsset,
 } from './helpers/index';
 
-describe('sourceMap option', () => {
+describe('"sourceMap" option', () => {
   describe('not specified', () => {
-    it('should work', async () => {
+    it('should not generate source maps', async () => {
       const compiler = getCompiler('./source-map/basic.js');
       const stats = await compile(compiler);
 
@@ -30,7 +30,7 @@ describe('sourceMap option', () => {
   });
 
   describe('true', () => {
-    it('should generate source map', async () => {
+    it('should generate source maps', async () => {
       const compiler = getCompiler('./source-map/basic.js', {
         sourceMap: true,
       });
@@ -46,7 +46,7 @@ describe('sourceMap option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should generate source map when source map is `null` from other loader', async () => {
+    it('should generate source maps when source maps equal to "null" from an other loader', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
@@ -87,7 +87,7 @@ describe('sourceMap option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should generate source map when source map is `undefined` from other loader', async () => {
+    it('should generate source maps when source maps equal to "undefined" from an other loader', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
@@ -129,7 +129,7 @@ describe('sourceMap option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should generate source map when source map is valid from other loader (`postcss-loader`)', async () => {
+    it('should generate source maps when source maps is valid from an other loader (`postcss-loader`)', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
@@ -170,7 +170,7 @@ describe('sourceMap option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should generate source map when source map is valid from other loader (`sass-loader`)', async () => {
+    it('should generate source maps when source maps is valid from an other loader (`sass-loader`)', async () => {
       const compiler = getCompiler(
         './source-map/basic-scss.js',
         {},
@@ -214,7 +214,7 @@ describe('sourceMap option', () => {
   });
 
   describe('false', () => {
-    it('should not generate source map', async () => {
+    it('should not generate source maps', async () => {
       const compiler = getCompiler('./source-map/basic.js', {
         sourceMap: false,
       });
@@ -230,7 +230,7 @@ describe('sourceMap option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should not generate source map when source map is `null` from other loader', async () => {
+    it('should not generate source maps when source maps equal to "null" from an other loader', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
@@ -271,7 +271,7 @@ describe('sourceMap option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should not generate source map when source map is `undefined` from other loader', async () => {
+    it('should not generate source maps when source maps equal to "undefined" from an other loader', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
@@ -313,7 +313,7 @@ describe('sourceMap option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should not generate sourceMap when source map is valid from other loader (`postcss-loader`)', async () => {
+    it('should not generate source maps when source maps is valid from an other loader (`postcss-loader`)', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
@@ -353,7 +353,7 @@ describe('sourceMap option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should not generate sourceMap when source map is valid from other loader (`sass-loader`)', async () => {
+    it('should not generate source maps when source maps is valid from an other loader (`sass-loader`)', async () => {
       const compiler = getCompiler(
         './source-map/basic-scss.js',
         {},

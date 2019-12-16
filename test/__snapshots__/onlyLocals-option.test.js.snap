@@ -4,13 +4,13 @@ exports[`"onlyLocals" option should work: errors 1`] = `Array []`;
 
 exports[`"onlyLocals" option should work: module 1`] = `
 "// Imports
-var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4!./values.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4!./something.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4!./imported-simple.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4!./relative.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4!../modules/top-relative.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4!package/style.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4!aliasesComposes/alias.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../src/index.js??ref--4!./values.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../../src/index.js??ref--4!./something.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../../src/index.js??ref--4!./imported-simple.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../../src/index.js??ref--4!./relative.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../../src/index.js??ref--4!./top-relative.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../../src/index.js??ref--4!../issue-861/node_modules/package/style.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../../src/index.js??ref--4!aliasesComposes/alias.css\\");
 // Exports
 module.exports = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",

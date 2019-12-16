@@ -4,33 +4,33 @@ exports[`"localsConvention" option should work when not specified: errors 1`] = 
 
 exports[`"localsConvention" option should work when not specified: module 1`] = `
 "// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\"._2HovG-ymIjf-Q-jdQr_LQ- {\\\\n  color: blue;\\\\n}\\\\n\\\\n.aF9yrid0BHOaiL3bSWCyJ {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2UqJ0qi8H2Q5R46tr_dUvz {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"my-btn-info_is-disabled\\": \\"value\\",
-	\\"btn-info_is-disabled\\": \\"_2HovG-ymIjf-Q-jdQr_LQ-\\",
-	\\"btn--info_is-disabled_1\\": \\"aF9yrid0BHOaiL3bSWCyJ\\",
-	\\"simple\\": \\"_2UqJ0qi8H2Q5R46tr_dUvz\\"
+	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
+	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
 };"
 `;
 
 exports[`"localsConvention" option should work when not specified: result 1`] = `
 Array [
   Array [
-    "./modules/localsConvention.css",
-    "._2HovG-ymIjf-Q-jdQr_LQ- {
+    "./modules/localsConvention/localsConvention.css",
+    ".erBXHZCN_thRYfCnk-aH8 {
   color: blue;
 }
 
-.aF9yrid0BHOaiL3bSWCyJ {
+._2YsQE-S0o0NRXfC6XNApz2 {
   color: blue;
 }
 
-._2UqJ0qi8H2Q5R46tr_dUvz {
+._3gGBcJHZU3seQVP5aq7Ksq {
   color: red;
 }
 
@@ -49,33 +49,33 @@ exports[`"localsConvention" option should work with a value equal to "asIs": err
 
 exports[`"localsConvention" option should work with a value equal to "asIs": module 1`] = `
 "// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\"._2HovG-ymIjf-Q-jdQr_LQ- {\\\\n  color: blue;\\\\n}\\\\n\\\\n.aF9yrid0BHOaiL3bSWCyJ {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2UqJ0qi8H2Q5R46tr_dUvz {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"my-btn-info_is-disabled\\": \\"value\\",
-	\\"btn-info_is-disabled\\": \\"_2HovG-ymIjf-Q-jdQr_LQ-\\",
-	\\"btn--info_is-disabled_1\\": \\"aF9yrid0BHOaiL3bSWCyJ\\",
-	\\"simple\\": \\"_2UqJ0qi8H2Q5R46tr_dUvz\\"
+	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
+	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
 };"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "asIs": result 1`] = `
 Array [
   Array [
-    "./modules/localsConvention.css",
-    "._2HovG-ymIjf-Q-jdQr_LQ- {
+    "./modules/localsConvention/localsConvention.css",
+    ".erBXHZCN_thRYfCnk-aH8 {
   color: blue;
 }
 
-.aF9yrid0BHOaiL3bSWCyJ {
+._2YsQE-S0o0NRXfC6XNApz2 {
   color: blue;
 }
 
-._2UqJ0qi8H2Q5R46tr_dUvz {
+._3gGBcJHZU3seQVP5aq7Ksq {
   color: red;
 }
 
@@ -94,36 +94,36 @@ exports[`"localsConvention" option should work with a value equal to "camelCase"
 
 exports[`"localsConvention" option should work with a value equal to "camelCase": module 1`] = `
 "// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\"._2HovG-ymIjf-Q-jdQr_LQ- {\\\\n  color: blue;\\\\n}\\\\n\\\\n.aF9yrid0BHOaiL3bSWCyJ {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2UqJ0qi8H2Q5R46tr_dUvz {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"my-btn-info_is-disabled\\": \\"value\\",
 	\\"myBtnInfoIsDisabled\\": \\"value\\",
-	\\"btn-info_is-disabled\\": \\"_2HovG-ymIjf-Q-jdQr_LQ-\\",
-	\\"btnInfoIsDisabled\\": \\"_2HovG-ymIjf-Q-jdQr_LQ-\\",
-	\\"btn--info_is-disabled_1\\": \\"aF9yrid0BHOaiL3bSWCyJ\\",
-	\\"btnInfoIsDisabled1\\": \\"aF9yrid0BHOaiL3bSWCyJ\\",
-	\\"simple\\": \\"_2UqJ0qi8H2Q5R46tr_dUvz\\"
+	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
+	\\"btnInfoIsDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
+	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
+	\\"btnInfoIsDisabled1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
 };"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "camelCase": result 1`] = `
 Array [
   Array [
-    "./modules/localsConvention.css",
-    "._2HovG-ymIjf-Q-jdQr_LQ- {
+    "./modules/localsConvention/localsConvention.css",
+    ".erBXHZCN_thRYfCnk-aH8 {
   color: blue;
 }
 
-.aF9yrid0BHOaiL3bSWCyJ {
+._2YsQE-S0o0NRXfC6XNApz2 {
   color: blue;
 }
 
-._2UqJ0qi8H2Q5R46tr_dUvz {
+._3gGBcJHZU3seQVP5aq7Ksq {
   color: red;
 }
 
@@ -142,33 +142,33 @@ exports[`"localsConvention" option should work with a value equal to "camelCaseO
 
 exports[`"localsConvention" option should work with a value equal to "camelCaseOnly": module 1`] = `
 "// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\"._2HovG-ymIjf-Q-jdQr_LQ- {\\\\n  color: blue;\\\\n}\\\\n\\\\n.aF9yrid0BHOaiL3bSWCyJ {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2UqJ0qi8H2Q5R46tr_dUvz {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"myBtnInfoIsDisabled\\": \\"value\\",
-	\\"btnInfoIsDisabled\\": \\"_2HovG-ymIjf-Q-jdQr_LQ-\\",
-	\\"btnInfoIsDisabled1\\": \\"aF9yrid0BHOaiL3bSWCyJ\\",
-	\\"simple\\": \\"_2UqJ0qi8H2Q5R46tr_dUvz\\"
+	\\"btnInfoIsDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
+	\\"btnInfoIsDisabled1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
 };"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "camelCaseOnly": result 1`] = `
 Array [
   Array [
-    "./modules/localsConvention.css",
-    "._2HovG-ymIjf-Q-jdQr_LQ- {
+    "./modules/localsConvention/localsConvention.css",
+    ".erBXHZCN_thRYfCnk-aH8 {
   color: blue;
 }
 
-.aF9yrid0BHOaiL3bSWCyJ {
+._2YsQE-S0o0NRXfC6XNApz2 {
   color: blue;
 }
 
-._2UqJ0qi8H2Q5R46tr_dUvz {
+._3gGBcJHZU3seQVP5aq7Ksq {
   color: red;
 }
 
@@ -187,36 +187,36 @@ exports[`"localsConvention" option should work with a value equal to "dashes": e
 
 exports[`"localsConvention" option should work with a value equal to "dashes": module 1`] = `
 "// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\"._2HovG-ymIjf-Q-jdQr_LQ- {\\\\n  color: blue;\\\\n}\\\\n\\\\n.aF9yrid0BHOaiL3bSWCyJ {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2UqJ0qi8H2Q5R46tr_dUvz {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"my-btn-info_is-disabled\\": \\"value\\",
 	\\"myBtnInfo_isDisabled\\": \\"value\\",
-	\\"btn-info_is-disabled\\": \\"_2HovG-ymIjf-Q-jdQr_LQ-\\",
-	\\"btnInfo_isDisabled\\": \\"_2HovG-ymIjf-Q-jdQr_LQ-\\",
-	\\"btn--info_is-disabled_1\\": \\"aF9yrid0BHOaiL3bSWCyJ\\",
-	\\"btnInfo_isDisabled_1\\": \\"aF9yrid0BHOaiL3bSWCyJ\\",
-	\\"simple\\": \\"_2UqJ0qi8H2Q5R46tr_dUvz\\"
+	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
+	\\"btnInfo_isDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
+	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
+	\\"btnInfo_isDisabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
 };"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "dashes": result 1`] = `
 Array [
   Array [
-    "./modules/localsConvention.css",
-    "._2HovG-ymIjf-Q-jdQr_LQ- {
+    "./modules/localsConvention/localsConvention.css",
+    ".erBXHZCN_thRYfCnk-aH8 {
   color: blue;
 }
 
-.aF9yrid0BHOaiL3bSWCyJ {
+._2YsQE-S0o0NRXfC6XNApz2 {
   color: blue;
 }
 
-._2UqJ0qi8H2Q5R46tr_dUvz {
+._3gGBcJHZU3seQVP5aq7Ksq {
   color: red;
 }
 
@@ -235,33 +235,33 @@ exports[`"localsConvention" option should work with a value equal to "dashesOnly
 
 exports[`"localsConvention" option should work with a value equal to "dashesOnly": module 1`] = `
 "// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\"._2HovG-ymIjf-Q-jdQr_LQ- {\\\\n  color: blue;\\\\n}\\\\n\\\\n.aF9yrid0BHOaiL3bSWCyJ {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2UqJ0qi8H2Q5R46tr_dUvz {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"myBtnInfo_isDisabled\\": \\"value\\",
-	\\"btnInfo_isDisabled\\": \\"_2HovG-ymIjf-Q-jdQr_LQ-\\",
-	\\"btnInfo_isDisabled_1\\": \\"aF9yrid0BHOaiL3bSWCyJ\\",
-	\\"simple\\": \\"_2UqJ0qi8H2Q5R46tr_dUvz\\"
+	\\"btnInfo_isDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
+	\\"btnInfo_isDisabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
 };"
 `;
 
 exports[`"localsConvention" option should work with a value equal to "dashesOnly": result 1`] = `
 Array [
   Array [
-    "./modules/localsConvention.css",
-    "._2HovG-ymIjf-Q-jdQr_LQ- {
+    "./modules/localsConvention/localsConvention.css",
+    ".erBXHZCN_thRYfCnk-aH8 {
   color: blue;
 }
 
-.aF9yrid0BHOaiL3bSWCyJ {
+._2YsQE-S0o0NRXfC6XNApz2 {
   color: blue;
 }
 
-._2UqJ0qi8H2Q5R46tr_dUvz {
+._3gGBcJHZU3seQVP5aq7Ksq {
   color: red;
 }
 

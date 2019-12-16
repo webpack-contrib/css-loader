@@ -26,7 +26,7 @@ describe('"modules" option', () => {
     { mode: 'global' },
   ].forEach((modulesValue) => {
     testCases.forEach((name) => {
-      it(`case \`${name}\` (\`modules\` value is \`${
+      it(`should work with case \`${name}\` (\`modules\` value is \`${
         modulesValue.mode
           ? `object with mode ${modulesValue.mode}`
           : modulesValue
@@ -50,7 +50,7 @@ describe('"modules" option', () => {
     });
   });
 
-  it('should support "pure" value', async () => {
+  it('should work and support "pure" mode', async () => {
     const compiler = getCompiler('./modules/pure/pure.js', { modules: 'pure' });
     const stats = await compile(compiler);
 
@@ -64,7 +64,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should support "pure" value #2', async () => {
+  it('should work and support "pure" mode #2', async () => {
     const compiler = getCompiler('./modules/pure/pure.js', {
       modules: { mode: 'pure' },
     });
@@ -80,7 +80,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work underscore prefix in exported class names with "localIdentName" option with "[local]"', async () => {
+  it('should work with the "[local]" placeholder for the "localIdentName" option', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '[local]' },
     });
@@ -96,7 +96,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should respects localIdentName option', async () => {
+  it('should work and respect the "localIdentName" option', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[name]--[local]--[hash:base64:5]',
@@ -115,7 +115,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should respects context option', async () => {
+  it('should work and respect the "context" option', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[hash:base64:8]',
@@ -134,7 +134,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should respects path in localIdentName option', async () => {
+  it('should work and respect the "path" placeholder', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[path][name]__[local]',
@@ -153,7 +153,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should respect hashPrefix option with localIdentName option', async () => {
+  it('should work and respect the "hashPrefix" option', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[local]--[hash]',
@@ -172,7 +172,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should prefixes leading hyphen + digit with underscore with localIdentName option', async () => {
+  it('should work and prefix leading hyphen when digit is first', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '-1[local]' },
     });
@@ -188,7 +188,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should prefixes two leading hyphens with underscore with localIdentName option', async () => {
+  it('should should work with two leading hyphens', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '--[local]' },
     });
@@ -204,7 +204,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should save underscore prefix in exported class names with "localIdentName" option', async () => {
+  it('should should work with two leading underscore', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '__[local]' },
     });
@@ -220,7 +220,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should correctly replace escaped symbols in selector with localIdentName option', async () => {
+  it('should work and correctly replace escaped symbols', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: { localIdentName: '[local]--[hash:base64:4]' },
     });
@@ -236,7 +236,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should respect the "getLocalIdent" option', async () => {
+  it('should work and respect the "getLocalIdent" option', async () => {
     expect.assertions(382);
 
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
@@ -270,7 +270,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should have an undefined context if no context was given', async () => {
+  it('should work and has "undefined" context if no context was given', async () => {
     expect.assertions(58);
 
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
@@ -294,7 +294,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('getLocalIdent should be allowed to return false', async () => {
+  it('should work when the "getLocalIdent" option returns "false"', async () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[local]',
@@ -313,7 +313,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('composes should supports resolving', async () => {
+  it('should support resolving in composes', async () => {
     const compiler = getCompiler('./modules/composes/composes.js', {
       modules: true,
     });
