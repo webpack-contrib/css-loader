@@ -129,6 +129,55 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
+    it('should generate source maps when source maps is valid and string from an other loader', async () => {
+      const compiler = getCompiler(
+        './source-map/basic.js',
+        {},
+        {
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                use: [
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: { sourceMap: true },
+                  },
+                  {
+                    loader: path.resolve(
+                      __dirname,
+                      './fixtures/source-map-loader.js'
+                    ),
+                    options: {
+                      sourceMap: JSON.stringify({
+                        foo: 'bar',
+                        version: 3,
+                        sources: ['basic.css'],
+                        names: [],
+                        mappings: 'AAAA;EACE,UAAU;AACZ',
+                        file: 'basic.css',
+                        sourcesContent: ['.class {\n  color: red;\n}\n'],
+                      }),
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
+        'module'
+      );
+      expect(
+        execute(readAsset('main.bundle.js', compiler, stats))
+      ).toMatchSnapshot('result');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+
     it('should generate source maps when source maps is valid from an other loader (`postcss-loader`)', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
@@ -293,6 +342,55 @@ describe('"sourceMap" option', () => {
                     options: {
                       // eslint-disable-next-line no-undefined
                       sourceMap: undefined,
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
+        'module'
+      );
+      expect(
+        execute(readAsset('main.bundle.js', compiler, stats))
+      ).toMatchSnapshot('result');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+
+    it('should not generate source maps when source maps is valid and string from an other loader', async () => {
+      const compiler = getCompiler(
+        './source-map/basic.js',
+        {},
+        {
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                use: [
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: { sourceMap: false },
+                  },
+                  {
+                    loader: path.resolve(
+                      __dirname,
+                      './fixtures/source-map-loader.js'
+                    ),
+                    options: {
+                      sourceMap: JSON.stringify({
+                        foo: 'bar',
+                        version: 3,
+                        sources: ['basic.css'],
+                        names: [],
+                        mappings: 'AAAA;EACE,UAAU;AACZ',
+                        file: 'basic.css',
+                        sourcesContent: ['.class {\n  color: red;\n}\n'],
+                      }),
                     },
                   },
                 ],
