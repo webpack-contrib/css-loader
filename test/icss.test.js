@@ -3,12 +3,11 @@ import fs from 'fs';
 
 import {
   compile,
-  execute,
   getCompiler,
   getErrors,
+  getExecutedCode,
   getModuleSource,
   getWarnings,
-  readAsset,
 } from './helpers/index';
 
 const testCasesPath = path.join(__dirname, 'fixtures/icss/tests-cases');
@@ -24,7 +23,7 @@ describe('ICSS', () => {
         getModuleSource(`./icss/tests-cases/${name}/source.css`, stats)
       ).toMatchSnapshot('module');
       expect(
-        execute(readAsset('main.bundle.js', compiler, stats))
+        getExecutedCode('main.bundle.js', compiler, stats)
       ).toMatchSnapshot('result');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');

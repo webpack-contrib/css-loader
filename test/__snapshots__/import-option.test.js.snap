@@ -5,10 +5,10 @@ exports[`"import" option should keep original order: errors 1`] = `Array []`;
 exports[`"import" option should keep original order: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4!./order-1.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4!./order-2.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4!./order-3.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4!./order-4.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./order-1.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??[ident]!./order-2.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??[ident]!./order-3.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!./order-4.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
@@ -29,7 +29,7 @@ exports.push([module.id, \\"div {\\\\n  width: 100%;\\\\n  height: 200px;\\\\n}\
 exports[`"import" option should keep original order: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./import/order-1.css",
+    "../../src/index.js?[ident]!./import/order-1.css",
     ".order-1 {
   color: red;
 }
@@ -41,7 +41,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?!./import/order-2.css",
+    "../../src/index.js?[ident]!./import/order-2.css",
     ".order-1 {
   color: red;
 }
@@ -53,7 +53,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?!./import/order-1.css",
+    "../../src/index.js?[ident]!./import/order-1.css",
     ".order-1 {
   color: red;
 }
@@ -65,7 +65,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?!./import/order-2.css",
+    "../../src/index.js?[ident]!./import/order-2.css",
     ".order-1 {
   color: red;
 }
@@ -77,7 +77,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?!./import/order-3-1.css",
+    "../../src/index.js?[ident]!./import/order-3-1.css",
     ".order-3-1 {
   color: white;
 }
@@ -85,7 +85,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/order-3.css",
+    "../../src/index.js?[ident]!./import/order-3.css",
     ".order-3 {
   color: red;
 }
@@ -97,7 +97,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?!./import/order-4-1.css",
+    "../../src/index.js?[ident]!./import/order-4-1.css",
     ".order-4-1 {
   color: red;
 }
@@ -105,7 +105,7 @@ Array [
     "screen and (min-width: 1000px)",
   ],
   Array [
-    "../../src/index.js?!./import/order-4-2-1.css",
+    "../../src/index.js?[ident]!./import/order-4-2-1.css",
     ".order-4-2-1 {
   color: red;
 }
@@ -113,7 +113,7 @@ Array [
     "screen and (min-width: 2000px)",
   ],
   Array [
-    "../../src/index.js?!./import/order-4-2-2.css",
+    "../../src/index.js?[ident]!./import/order-4-2-2.css",
     ".order-4-2-2 {
   color: red;
 }
@@ -121,7 +121,7 @@ Array [
     "screen and (min-width: 2000px) and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/order-4-2.css",
+    "../../src/index.js?[ident]!./import/order-4-2.css",
     ".order-4-2 {
   color: red;
 }
@@ -129,7 +129,7 @@ Array [
     "screen and (min-width: 2000px)",
   ],
   Array [
-    "../../src/index.js?!./import/order-4.css",
+    "../../src/index.js?[ident]!./import/order-4.css",
     ".order-4 {
   color: red;
 }
@@ -155,16 +155,16 @@ exports[`"import" option should work when "Function": errors 1`] = `Array []`;
 exports[`"import" option should work when "Function": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4!./test-media.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4!./test-other.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4!./query.css?foo=1&bar=1\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4!./other-query.css?foo=1&bar=1#hash\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4!./relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4!../import/top-relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4!package/tilde.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??ref--4!aliasesImport/alias.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??ref--4!./url.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??ref--4!./te'st.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./test-media.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??[ident]!./test-other.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??[ident]!./query.css?foo=1&bar=1\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!./other-query.css?foo=1&bar=1#hash\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_4___ = require(\\"-!../../../src/index.js??[ident]!./relative.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??[ident]!../import/top-relative.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??[ident]!package/tilde.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??[ident]!aliasesImport/alias.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??[ident]!./url.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??[ident]!./te'st.css\\");
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./img.png\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -202,7 +202,7 @@ exports.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\
 exports[`"import" option should work when "Function": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./import/test-nested-media.css",
+    "../../src/index.js?[ident]!./import/test-nested-media.css",
     "a {
   b: b;
 }
@@ -210,7 +210,7 @@ Array [
     "screen and (orientation:landscape) and (min-width: 100px)",
   ],
   Array [
-    "../../src/index.js?!./import/test-media.css",
+    "../../src/index.js?[ident]!./import/test-media.css",
     ".test {
   c: c;
 }
@@ -218,7 +218,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test-other.css",
+    "../../src/index.js?[ident]!./import/test-other.css",
     ".test {
   d: d;
 }
@@ -260,7 +260,7 @@ Array [
     "@import url(//example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?!./import/query.css?foo=1&bar=1",
+    "../../src/index.js?[ident]!./import/query.css?foo=1&bar=1",
     ".query {
   e: e;
 }
@@ -268,7 +268,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -276,7 +276,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -296,7 +296,7 @@ Array [
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
   ],
   Array [
-    "../../src/index.js?!./import/relative.css",
+    "../../src/index.js?[ident]!./import/relative.css",
     ".relative {
   color: red;
 }
@@ -304,7 +304,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/top-relative.css",
+    "../../src/index.js?[ident]!./import/top-relative.css",
     ".top-relative {
   color: black;
 }
@@ -312,7 +312,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/node_modules/package/tilde.css",
+    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
     ".tilde {
   color: yellow;
 }
@@ -320,7 +320,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/alias.css",
+    "../../src/index.js?[ident]!./import/alias.css",
     ".alias {
   color: red;
 }
@@ -328,7 +328,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/url.css",
+    "../../src/index.js?[ident]!./import/url.css",
     ".background-imported {
   background: url(/webpack/public/path/img.png);
 }
@@ -336,7 +336,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -344,7 +344,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -352,7 +352,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -360,7 +360,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -515,19 +515,19 @@ exports[`"import" option should work when not specified: errors 1`] = `Array []`
 exports[`"import" option should work when not specified: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4!./test.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4!./test-media.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4!./test-other.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4!package/test.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4!./query.css?foo=1&bar=1\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4!./other-query.css?foo=1&bar=1#hash\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4!./relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??ref--4!../import/top-relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??ref--4!package/tilde.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??ref--4!aliasesImport/alias.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_10___ = require(\\"-!../../../src/index.js??ref--4!./url.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_11___ = require(\\"-!../../../src/index.js??ref--4!./te'st.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_12___ = require(\\"-!../../../src/index.js??ref--4!./test test.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./test.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??[ident]!./test-media.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??[ident]!./test-other.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!package/test.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_4___ = require(\\"-!../../../src/index.js??[ident]!./query.css?foo=1&bar=1\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??[ident]!./other-query.css?foo=1&bar=1#hash\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??[ident]!./relative.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??[ident]!../import/top-relative.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??[ident]!package/tilde.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??[ident]!aliasesImport/alias.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_10___ = require(\\"-!../../../src/index.js??[ident]!./url.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_11___ = require(\\"-!../../../src/index.js??[ident]!./te'st.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_12___ = require(\\"-!../../../src/index.js??[ident]!./test test.css\\");
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./img.png\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -603,7 +603,7 @@ exports.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(
 exports[`"import" option should work when not specified: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -611,7 +611,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -619,7 +619,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -627,7 +627,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -635,7 +635,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -643,7 +643,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -651,7 +651,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -659,7 +659,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -667,7 +667,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -675,7 +675,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -683,7 +683,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -691,7 +691,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -699,7 +699,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -707,7 +707,7 @@ Array [
     "screen and (orientation: landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -715,7 +715,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -723,7 +723,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test-nested-media.css",
+    "../../src/index.js?[ident]!./import/test-nested-media.css",
     "a {
   b: b;
 }
@@ -731,7 +731,7 @@ Array [
     "screen and (orientation:landscape) and (min-width: 100px)",
   ],
   Array [
-    "../../src/index.js?!./import/test-media.css",
+    "../../src/index.js?[ident]!./import/test-media.css",
     ".test {
   c: c;
 }
@@ -739,7 +739,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test-other.css",
+    "../../src/index.js?[ident]!./import/test-other.css",
     ".test {
   d: d;
 }
@@ -781,7 +781,7 @@ Array [
     "@import url(//example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?!./import/node_modules/package/test.css",
+    "../../src/index.js?[ident]!./import/node_modules/package/test.css",
     ".test {
   d: d
 }
@@ -789,7 +789,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/query.css?foo=1&bar=1",
+    "../../src/index.js?[ident]!./import/query.css?foo=1&bar=1",
     ".query {
   e: e;
 }
@@ -797,7 +797,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -805,7 +805,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -825,7 +825,7 @@ Array [
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
   ],
   Array [
-    "../../src/index.js?!./import/relative.css",
+    "../../src/index.js?[ident]!./import/relative.css",
     ".relative {
   color: red;
 }
@@ -833,7 +833,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/top-relative.css",
+    "../../src/index.js?[ident]!./import/top-relative.css",
     ".top-relative {
   color: black;
 }
@@ -841,7 +841,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/node_modules/package/tilde.css",
+    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
     ".tilde {
   color: yellow;
 }
@@ -849,7 +849,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/alias.css",
+    "../../src/index.js?[ident]!./import/alias.css",
     ".alias {
   color: red;
 }
@@ -857,7 +857,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/url.css",
+    "../../src/index.js?[ident]!./import/url.css",
     ".background-imported {
   background: url(/webpack/public/path/img.png);
 }
@@ -865,7 +865,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -873,7 +873,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -881,7 +881,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -889,7 +889,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -897,7 +897,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -905,7 +905,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -913,7 +913,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -921,7 +921,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -929,7 +929,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -937,7 +937,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -945,7 +945,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -953,7 +953,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -961,7 +961,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -969,7 +969,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -977,7 +977,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -985,7 +985,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -993,7 +993,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1001,7 +1001,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1009,7 +1009,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1017,7 +1017,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1025,7 +1025,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1033,7 +1033,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1041,7 +1041,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1049,7 +1049,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1057,7 +1057,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1065,7 +1065,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1300,19 +1300,19 @@ exports[`"import" option should work with a value equal to "true": errors 1`] = 
 exports[`"import" option should work with a value equal to "true": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4!./test.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??ref--4!./test-media.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??ref--4!./test-other.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??ref--4!package/test.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_4___ = require(\\"-!../../../src/index.js??ref--4!./query.css?foo=1&bar=1\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??ref--4!./other-query.css?foo=1&bar=1#hash\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??ref--4!./relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??ref--4!../import/top-relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??ref--4!package/tilde.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??ref--4!aliasesImport/alias.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_10___ = require(\\"-!../../../src/index.js??ref--4!./url.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_11___ = require(\\"-!../../../src/index.js??ref--4!./te'st.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_12___ = require(\\"-!../../../src/index.js??ref--4!./test test.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./test.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??[ident]!./test-media.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??[ident]!./test-other.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!package/test.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_4___ = require(\\"-!../../../src/index.js??[ident]!./query.css?foo=1&bar=1\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??[ident]!./other-query.css?foo=1&bar=1#hash\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??[ident]!./relative.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??[ident]!../import/top-relative.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??[ident]!package/tilde.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??[ident]!aliasesImport/alias.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_10___ = require(\\"-!../../../src/index.js??[ident]!./url.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_11___ = require(\\"-!../../../src/index.js??[ident]!./te'st.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_12___ = require(\\"-!../../../src/index.js??[ident]!./test test.css\\");
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./img.png\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -1388,7 +1388,7 @@ exports.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(
 exports[`"import" option should work with a value equal to "true": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1396,7 +1396,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1404,7 +1404,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1412,7 +1412,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1420,7 +1420,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1428,7 +1428,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1436,7 +1436,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1444,7 +1444,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1452,7 +1452,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1460,7 +1460,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1468,7 +1468,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1476,7 +1476,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1484,7 +1484,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1492,7 +1492,7 @@ Array [
     "screen and (orientation: landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1500,7 +1500,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1508,7 +1508,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test-nested-media.css",
+    "../../src/index.js?[ident]!./import/test-nested-media.css",
     "a {
   b: b;
 }
@@ -1516,7 +1516,7 @@ Array [
     "screen and (orientation:landscape) and (min-width: 100px)",
   ],
   Array [
-    "../../src/index.js?!./import/test-media.css",
+    "../../src/index.js?[ident]!./import/test-media.css",
     ".test {
   c: c;
 }
@@ -1524,7 +1524,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?!./import/test-other.css",
+    "../../src/index.js?[ident]!./import/test-other.css",
     ".test {
   d: d;
 }
@@ -1566,7 +1566,7 @@ Array [
     "@import url(//example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?!./import/node_modules/package/test.css",
+    "../../src/index.js?[ident]!./import/node_modules/package/test.css",
     ".test {
   d: d
 }
@@ -1574,7 +1574,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/query.css?foo=1&bar=1",
+    "../../src/index.js?[ident]!./import/query.css?foo=1&bar=1",
     ".query {
   e: e;
 }
@@ -1582,7 +1582,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -1590,7 +1590,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -1610,7 +1610,7 @@ Array [
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
   ],
   Array [
-    "../../src/index.js?!./import/relative.css",
+    "../../src/index.js?[ident]!./import/relative.css",
     ".relative {
   color: red;
 }
@@ -1618,7 +1618,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/top-relative.css",
+    "../../src/index.js?[ident]!./import/top-relative.css",
     ".top-relative {
   color: black;
 }
@@ -1626,7 +1626,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/node_modules/package/tilde.css",
+    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
     ".tilde {
   color: yellow;
 }
@@ -1634,7 +1634,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/alias.css",
+    "../../src/index.js?[ident]!./import/alias.css",
     ".alias {
   color: red;
 }
@@ -1642,7 +1642,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/url.css",
+    "../../src/index.js?[ident]!./import/url.css",
     ".background-imported {
   background: url(/webpack/public/path/img.png);
 }
@@ -1650,7 +1650,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1658,7 +1658,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1666,7 +1666,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1674,7 +1674,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1682,7 +1682,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1690,7 +1690,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -1698,7 +1698,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -1706,7 +1706,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -1714,7 +1714,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/te'st.css",
+    "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -1722,7 +1722,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1730,7 +1730,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1738,7 +1738,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1746,7 +1746,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1754,7 +1754,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1762,7 +1762,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1770,7 +1770,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1778,7 +1778,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1786,7 +1786,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1794,7 +1794,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1802,7 +1802,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1810,7 +1810,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1818,7 +1818,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1826,7 +1826,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1834,7 +1834,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1842,7 +1842,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test test.css",
+    "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1850,7 +1850,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?!./import/test.css",
+    "../../src/index.js?[ident]!./import/test.css",
     ".test {
   a: a;
 }

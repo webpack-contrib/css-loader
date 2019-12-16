@@ -4,12 +4,11 @@ import postcssPresetEnv from 'postcss-preset-env';
 
 import {
   compile,
-  execute,
   getCompiler,
   getErrors,
+  getExecutedCode,
   getModuleSource,
   getWarnings,
-  readAsset,
 } from './helpers/index';
 
 describe('loader', () => {
@@ -18,9 +17,9 @@ describe('loader', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource('./basic.css', stats)).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -30,9 +29,9 @@ describe('loader', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource('./empty.css', stats)).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -42,9 +41,9 @@ describe('loader', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource('./basic.css', stats)).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -112,9 +111,9 @@ describe('loader', () => {
     expect(
       getModuleSource('./postcss-present-env/source.css', stats)
     ).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -148,9 +147,9 @@ describe('loader', () => {
     expect(getModuleSource('./scss/source.scss', stats)).toMatchSnapshot(
       'module'
     );
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });

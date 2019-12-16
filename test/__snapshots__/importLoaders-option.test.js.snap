@@ -43,7 +43,7 @@ exports[`"importLoaders" option should work with a value equal to "0" (\`postcss
 exports[`"importLoaders" option should work with a value equal to "0" (\`postcss-loader\` before): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-rules-0!./imported.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
@@ -54,7 +54,7 @@ exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255
 exports[`"importLoaders" option should work with a value equal to "0" (\`postcss-loader\` before): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./nested-import/imported.css",
+    "../../src/index.js?[ident]!./nested-import/imported.css",
     ".bar {
   color: blue;
   color: rgb(0 0 100% / 90%);
@@ -81,7 +81,7 @@ exports[`"importLoaders" option should work with a value equal to "1" ("postcss-
 exports[`"importLoaders" option should work with a value equal to "1" ("postcss-loader" before): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-rules-0!../../../node_modules/postcss-loader/src/index.js??ref--4-rules-1!./imported.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
@@ -92,7 +92,7 @@ exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255
 exports[`"importLoaders" option should work with a value equal to "1" ("postcss-loader" before): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!../../node_modules/postcss-loader/src/index.js?!./nested-import/imported.css",
+    "../../src/index.js?[ident]!./nested-import/imported.css",
     ".bar {
   color: blue;
   color: rgba(0, 0, 255, 0.9);
@@ -119,7 +119,7 @@ exports[`"importLoaders" option should work with a value equal to "1" (no loader
 exports[`"importLoaders" option should work with a value equal to "1" (no loaders before): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4!./imported.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
@@ -130,7 +130,7 @@ exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgb(0 0 100% /
 exports[`"importLoaders" option should work with a value equal to "1" (no loaders before): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./nested-import/imported.css",
+    "../../src/index.js?[ident]!./nested-import/imported.css",
     ".bar {
   color: blue;
   color: rgb(0 0 100% / 90%);
@@ -157,7 +157,7 @@ exports[`"importLoaders" option should work with a value equal to "2" ("postcss-
 exports[`"importLoaders" option should work with a value equal to "2" ("postcss-loader" before): module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ref--4-rules-0!../../../node_modules/postcss-loader/src/index.js??ref--4-rules-1!./imported.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
@@ -168,7 +168,7 @@ exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255
 exports[`"importLoaders" option should work with a value equal to "2" ("postcss-loader" before): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!../../node_modules/postcss-loader/src/index.js?!./nested-import/imported.css",
+    "../../src/index.js?[ident]!./nested-import/imported.css",
     ".bar {
   color: blue;
   color: rgba(0, 0, 255, 0.9);

@@ -1,11 +1,10 @@
 import {
   compile,
-  execute,
   getCompiler,
   getErrors,
+  getExecutedCode,
   getModuleSource,
   getWarnings,
-  readAsset,
 } from './helpers/index';
 
 describe('"localsConvention" option', () => {
@@ -21,9 +20,9 @@ describe('"localsConvention" option', () => {
     expect(
       getModuleSource('./modules/localsConvention/localsConvention.css', stats)
     ).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -41,9 +40,9 @@ describe('"localsConvention" option', () => {
     expect(
       getModuleSource('./modules/localsConvention/localsConvention.css', stats)
     ).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -61,9 +60,9 @@ describe('"localsConvention" option', () => {
     expect(
       getModuleSource('./modules/localsConvention/localsConvention.css', stats)
     ).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -81,9 +80,9 @@ describe('"localsConvention" option', () => {
     expect(
       getModuleSource('./modules/localsConvention/localsConvention.css', stats)
     ).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -101,9 +100,9 @@ describe('"localsConvention" option', () => {
     expect(
       getModuleSource('./modules/localsConvention/localsConvention.css', stats)
     ).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -121,9 +120,9 @@ describe('"localsConvention" option', () => {
     expect(
       getModuleSource('./modules/localsConvention/localsConvention.css', stats)
     ).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
