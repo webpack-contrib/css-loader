@@ -1,5 +1,459 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+"
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+"
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+"
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): errors 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\"]);
+"
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.postcss.css",
+    ":root {
+  --fontSize: 1rem;
+  --mainColor: rgba(18,52,86,0.47059);
+  --secondaryColor: rgba(102, 51, 153, 0.9);
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+
+@media (max-width: 50rem) {
+  body {
+    color: rgba(18,52,86,0.47059);
+    color: var(--mainColor);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    font-size: 1rem;
+    font-size: var(--fontSize);
+    line-height: calc(1rem * 1.5);
+    line-height: calc(var(--fontSize) * 1.5);
+    word-wrap: break-word;
+    padding-left: calc(1rem / 2 + 1px);
+    padding-right: calc(1rem / 2 + 1px);
+    padding-left: calc(var(--fontSize) / 2 + 1px);
+    padding-right: calc(var(--fontSize) / 2 + 1px);
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  color: rgba(0, 0, 255, 0.9)
+}
+
+a:hover {
+   color: #639;
+ }
+",
+    "",
+  ],
+]
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): errors 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
+"
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.scss",
+    "body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}",
+    "",
+  ],
+]
+`;
+
+exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option false should not generate source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+"
+`;
+
+exports[`"sourceMap" option false should not generate source maps: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"sourceMap" option false should not generate source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option not specified should not generate source maps: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option not specified should not generate source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+"
+`;
+
+exports[`"sourceMap" option not specified should not generate source maps: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"sourceMap" option not specified should not generate source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;EACE,UAAU;AACZ",
+      "names": Array [],
+      "sources": Array [
+        "basic.css",
+      ],
+      "sourcesContent": Array [
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;EACE,UAAU;AACZ",
+      "names": Array [],
+      "sources": Array [
+        "basic.css",
+      ],
+      "sourcesContent": Array [
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;EACE,UAAU;AACZ",
+      "names": Array [],
+      "sources": Array [
+        "basic.css",
+      ],
+      "sourcesContent": Array [
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAGA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"file\\":\\"basic.postcss.css\\",\\"sourcesContent\\":[\\"@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"]}]);
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.postcss.css",
+    ":root {
+  --fontSize: 1rem;
+  --mainColor: rgba(18,52,86,0.47059);
+  --secondaryColor: rgba(102, 51, 153, 0.9);
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+
+@media (max-width: 50rem) {
+  body {
+    color: rgba(18,52,86,0.47059);
+    color: var(--mainColor);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    font-size: 1rem;
+    font-size: var(--fontSize);
+    line-height: calc(1rem * 1.5);
+    line-height: calc(var(--fontSize) * 1.5);
+    word-wrap: break-word;
+    padding-left: calc(1rem / 2 + 1px);
+    padding-right: calc(1rem / 2 + 1px);
+    padding-left: calc(var(--fontSize) / 2 + 1px);
+    padding-right: calc(var(--fontSize) / 2 + 1px);
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  color: rgba(0, 0, 255, 0.9)
+}
+
+a:hover {
+   color: #639;
+ }
+",
+    "",
+    Object {
+      "file": "basic.postcss.css",
+      "mappings": "AAGA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB",
+      "names": Array [],
+      "sources": Array [
+        "basic.postcss.css",
+      ],
+      "sourcesContent": Array [
+        "@custom-media --viewport-medium (width <= 50rem);
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+:root {
+  --fontSize: 1rem;
+  --mainColor: #12345678;
+  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);
+}
+
+html {
+  overflow: hidden auto;
+}
+
+@media (--viewport-medium) {
+  body {
+    color: var(--mainColor);
+    font-family: system-ui;
+    font-size: var(--fontSize);
+    line-height: calc(var(--fontSize) * 1.5);
+    overflow-wrap: break-word;
+    padding-inline: calc(var(--fontSize) / 2 + 1px);
+  }
+}
+
+:--heading {
+  margin-block: 0;
+}
+
+a {
+  color: rgb(0 0 100% / 90%);
+
+&:hover {
+   color: rebeccapurple;
+ }
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): warnings 1`] = `Array []`;
+
 exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): errors 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): module 1`] = `
@@ -46,3 +500,44 @@ body {
 `;
 
 exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = module.exports = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "file": "basic.css",
+      "mappings": "AAAA;EACE,UAAU;AACZ",
+      "names": Array [],
+      "sources": Array [
+        "basic.css",
+      ],
+      "sourcesContent": Array [
+        ".class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option true should generate source maps: warnings 1`] = `Array []`;
