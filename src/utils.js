@@ -388,9 +388,9 @@ function getExportCode(
     return '';
   }
 
-  const items = [];
-  const addExportedItem = (name, value) => {
-    items.push(`\t${JSON.stringify(name)}: ${JSON.stringify(value)}`);
+  const exportLocals = [];
+  const addExportedLocal = (name, value) => {
+    exportLocals.push(`\t${JSON.stringify(name)}: ${JSON.stringify(value)}`);
   };
 
   exports.forEach((item) => {
@@ -398,57 +398,59 @@ function getExportCode(
 
     switch (localsConvention) {
       case 'camelCase': {
-        addExportedItem(name, value);
+        addExportedLocal(name, value);
 
         const modifiedName = camelCase(name);
 
         if (modifiedName !== name) {
-          addExportedItem(modifiedName, value);
+          addExportedLocal(modifiedName, value);
         }
         break;
       }
       case 'camelCaseOnly': {
-        addExportedItem(camelCase(name), value);
+        addExportedLocal(camelCase(name), value);
         break;
       }
       case 'dashes': {
-        addExportedItem(name, value);
+        addExportedLocal(name, value);
 
         const modifiedName = dashesCamelCase(name);
 
         if (modifiedName !== name) {
-          addExportedItem(modifiedName, value);
+          addExportedLocal(modifiedName, value);
         }
         break;
       }
       case 'dashesOnly': {
-        addExportedItem(dashesCamelCase(name), value);
+        addExportedLocal(dashesCamelCase(name), value);
         break;
       }
       case 'asIs':
       default:
-        addExportedItem(name, value);
+        addExportedLocal(name, value);
         break;
     }
   });
 
-  let exportCode = `// Exports\n${
-    exportType === 'locals' ? 'module.exports' : 'exports.locals'
-  } = {\n${items.join(',\n')}\n};`;
+  let exportLocalsCode = exportLocals.join(',\n');
 
   replacers.forEach((replacer) => {
     if (replacer.type === 'icss-import') {
       const { replacementName, importName, localName } = replacer;
 
-      exportCode = exportCode.replace(new RegExp(replacementName, 'g'), () =>
-        exportType === 'locals'
-          ? `" + ${importName}[${JSON.stringify(localName)}] + "`
-          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+      exportLocalsCode = exportLocalsCode.replace(
+        new RegExp(replacementName, 'g'),
+        () =>
+          exportType === 'locals'
+            ? `" + ${importName}[${JSON.stringify(localName)}] + "`
+            : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
       );
     }
   });
 
-  return exportCode;
+  return `// Exports\n${
+    exportType === 'locals' ? 'module.exports' : 'exports.locals'
+  } = {\n${exportLocalsCode}\n};`;
 }
 
 export {
