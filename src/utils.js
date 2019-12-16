@@ -434,13 +434,13 @@ function getExportCode(
     }
   });
 
-  let exportLocalsCode = exportLocals.join(',\n');
+  let joinedExportLocals = exportLocals.join(',\n');
 
   replacers.forEach((replacer) => {
     if (replacer.type === 'icss-import') {
       const { replacementName, importName, localName } = replacer;
 
-      exportLocalsCode = exportLocalsCode.replace(
+      joinedExportLocals = joinedExportLocals.replace(
         new RegExp(replacementName, 'g'),
         () =>
           exportType === 'locals'
@@ -453,7 +453,7 @@ function getExportCode(
   exportItems.push(
     `${
       exportType === 'locals' ? 'module.exports' : 'exports.locals'
-    } = {\n${exportLocalsCode}\n};`
+    } = {\n${joinedExportLocals}\n};`
   );
 
   return `// Exports\n${exportItems.join('\n')}\n`;
