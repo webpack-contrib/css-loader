@@ -175,7 +175,7 @@ exports[`loader should work with empty options: errors 1`] = `Array []`;
 exports[`loader should work with empty options: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../src/index.js??ref--4!./imported.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../src/index.js??[ident]!./imported.css\\");
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./url/img.png\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -189,7 +189,7 @@ exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */
 exports[`loader should work with empty options: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./imported.css",
+    "../../src/index.js?[ident]!./imported.css",
     ".foo {
   color: red;
 }
@@ -346,7 +346,7 @@ exports[`loader should work: errors 1`] = `Array []`;
 exports[`loader should work: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../src/index.js??ref--4!./imported.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../src/index.js??[ident]!./imported.css\\");
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./url/img.png\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -360,7 +360,7 @@ exports.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */
 exports[`loader should work: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./imported.css",
+    "../../src/index.js?[ident]!./imported.css",
     ".foo {
   color: red;
 }

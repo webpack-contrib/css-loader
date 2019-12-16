@@ -1,6 +1,10 @@
 export default (id, stats) => {
   const { modules } = stats.toJson({ source: true });
   const module = modules.find((m) => m.id === id);
+  let { source } = module;
 
-  return module.source;
+  // Todo remove after drop webpack@4 support
+  source = source.replace(/\?\?.*!/g, '??[ident]!');
+
+  return source;
 };

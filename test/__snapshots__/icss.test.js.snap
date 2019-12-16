@@ -162,7 +162,7 @@ exports[`ICSS show work with the case "import": errors 1`] = `Array []`;
 exports[`ICSS show work with the case "import": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
-var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??ref--4!./vars.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??[ident]!./vars.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 // Module
@@ -176,7 +176,7 @@ exports.locals = {
 exports[`ICSS show work with the case "import": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./icss/tests-cases/import/vars.css",
+    "../../src/index.js?[ident]!./icss/tests-cases/import/vars.css",
     "
 ",
     "",
@@ -199,7 +199,7 @@ exports[`ICSS show work with the case "import-reserved-keywords": errors 1`] = `
 exports[`ICSS show work with the case "import-reserved-keywords": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
-var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??ref--4!./vars.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??[ident]!./vars.css\\");
 exports = module.exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
 // Module
@@ -214,7 +214,7 @@ exports.locals = {
 exports[`ICSS show work with the case "import-reserved-keywords": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?!./icss/tests-cases/import-reserved-keywords/vars.css",
+    "../../src/index.js?[ident]!./icss/tests-cases/import-reserved-keywords/vars.css",
     "
 ",
     "",

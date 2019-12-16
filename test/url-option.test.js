@@ -1,11 +1,10 @@
 import {
   compile,
-  execute,
   getCompiler,
   getErrors,
+  getExecutedCode,
   getModuleSource,
   getWarnings,
-  readAsset,
 } from './helpers/index';
 
 describe('"url" option', () => {
@@ -14,9 +13,9 @@ describe('"url" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource('./url/url.css', stats)).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -26,9 +25,9 @@ describe('"url" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource('./url/url.css', stats)).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -38,9 +37,9 @@ describe('"url" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource('./url/url.css', stats)).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -61,9 +60,9 @@ describe('"url" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource('./url/url.css', stats)).toMatchSnapshot('module');
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });

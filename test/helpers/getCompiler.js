@@ -19,8 +19,12 @@ export default (fixture, loaderOptions = {}, config = {}) => {
       rules: [
         {
           test: /\.css$/i,
-          loader: path.resolve(__dirname, '../../src'),
-          options: loaderOptions || {},
+          use: [
+            {
+              loader: path.resolve(__dirname, '../../src'),
+              options: loaderOptions || {},
+            },
+          ],
         },
         {
           test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
