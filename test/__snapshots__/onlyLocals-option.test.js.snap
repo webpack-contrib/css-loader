@@ -1,5 +1,117 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"onlyLocals" option should work with the "esModule" option: errors 1`] = `Array []`;
+
+exports[`"onlyLocals" option should work with the "esModule" option: module 1`] = `
+"// Imports
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./something.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??[ident]!./imported-simple.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??[ident]!./relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??[ident]!./top-relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??[ident]!aliasesComposes/alias.css\\";
+// Exports
+export default {
+	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
+	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-other\\"] + \\"\\",
+	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"s-white\\"] + \\"\\",
+	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"m-small\\"] + \\"\\",
+	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___[\\"v-something\\"] + \\"\\",
+	\\"v-foo\\": \\"blue\\",
+	\\"v-bar\\": \\"block\\",
+	\\"v-primary\\": \\"#BF4040\\",
+	\\"s-black\\": \\"black-selector\\",
+	\\"m-large\\": \\"(min-width: 960px)\\",
+	\\"v-ident\\": \\"validIdent\\",
+	\\"v-pre-defined-ident\\": \\"left\\",
+	\\"v-string\\": \\"'content'\\",
+	\\"v-string-1\\": \\"''\\",
+	\\"v-url\\": \\"url(https://www.exammple.com/images/my-background.png)\\",
+	\\"v-url-1\\": \\"url('https://www.exammple.com/images/my-background.png')\\",
+	\\"v-url-2\\": \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\",
+	\\"v-integer\\": \\"100\\",
+	\\"v-integer-1\\": \\"-100\\",
+	\\"v-integer-2\\": \\"+100\\",
+	\\"v-number\\": \\".60\\",
+	\\"v-number-1\\": \\"-456.8\\",
+	\\"v-number-2\\": \\"-3.4e-2\\",
+	\\"v-dimension\\": \\"12px\\",
+	\\"v-percentage\\": \\"100%\\",
+	\\"v-hex\\": \\"#fff\\",
+	\\"v-function\\": \\"rgb(0,0,0)\\",
+	\\"v-unicode-range\\": \\"U+0025-00FF\\",
+	\\"ghi\\": \\"_ghi\\",
+	\\"class\\": \\"_class\\",
+	\\"other\\": \\"_other\\",
+	\\"other-other\\": \\"_other-other\\",
+	\\"green\\": \\"_green\\",
+	\\"foo\\": \\"_foo\\",
+	\\"simple\\": \\"_simple \\" + ___CSS_LOADER_ICSS_IMPORT_2___[\\"imported-simple\\"] + \\"\\",
+	\\"relative\\": \\"_relative \\" + ___CSS_LOADER_ICSS_IMPORT_3___[\\"imported-relative\\"] + \\"\\",
+	\\"top-relative\\": \\"_top-relative \\" + ___CSS_LOADER_ICSS_IMPORT_4___[\\"imported-relative\\"] + \\"\\",
+	\\"module\\": \\"_module \\" + ___CSS_LOADER_ICSS_IMPORT_5___[\\"imported-module\\"] + \\"\\",
+	\\"alias\\": \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6___[\\"imported-alias\\"] + \\"\\",
+	\\"primary-selector\\": \\"_primary-selector\\",
+	\\"black-selector\\": \\"_black-selector\\",
+	\\"header\\": \\"_header\\",
+	\\"foobarbaz\\": \\"_foobarbaz\\",
+	\\"url\\": \\"_url\\"
+};
+"
+`;
+
+exports[`"onlyLocals" option should work with the "esModule" option: result 1`] = `
+Object {
+  "alias": "_alias _imported-alias",
+  "black-selector": "_black-selector",
+  "class": "_class",
+  "foo": "_foo",
+  "foobarbaz": "_foobarbaz",
+  "ghi": "_ghi",
+  "green": "_green",
+  "header": "_header",
+  "m-large": "(min-width: 960px)",
+  "m-small": "(min-width: 320px)",
+  "module": "_module _imported-module",
+  "other": "_other",
+  "other-other": "_other-other",
+  "primary-selector": "_primary-selector",
+  "relative": "_relative _imported-relative",
+  "s-black": "black-selector",
+  "s-white": "white",
+  "simple": "_simple _imported-simple",
+  "top-relative": "_top-relative undefined",
+  "url": "_url",
+  "v-bar": "block",
+  "v-def": "red",
+  "v-dimension": "12px",
+  "v-foo": "blue",
+  "v-function": "rgb(0,0,0)",
+  "v-hex": "#fff",
+  "v-ident": "validIdent",
+  "v-integer": "100",
+  "v-integer-1": "-100",
+  "v-integer-2": "+100",
+  "v-number": ".60",
+  "v-number-1": "-456.8",
+  "v-number-2": "-3.4e-2",
+  "v-other": "green",
+  "v-percentage": "100%",
+  "v-pre-defined-ident": "left",
+  "v-primary": "#BF4040",
+  "v-something": "2112moon",
+  "v-string": "'content'",
+  "v-string-1": "''",
+  "v-unicode-range": "U+0025-00FF",
+  "v-url": "url(https://www.exammple.com/images/my-background.png)",
+  "v-url-1": "url('https://www.exammple.com/images/my-background.png')",
+  "v-url-2": "url(\\"https://www.exammple.com/images/my-background.png\\")",
+}
+`;
+
+exports[`"onlyLocals" option should work with the "esModule" option: warnings 1`] = `Array []`;
+
 exports[`"onlyLocals" option should work: errors 1`] = `Array []`;
 
 exports[`"onlyLocals" option should work: module 1`] = `

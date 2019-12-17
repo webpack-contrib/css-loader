@@ -107,12 +107,16 @@ export default function loader(content, map, meta) {
       }
 
       const { importLoaders, localsConvention } = options;
+      const esModule =
+        typeof options.esModule !== 'undefined' ? options.esModule : false;
+
       const importCode = getImportCode(
         this,
         imports,
         exportType,
         sourceMap,
-        importLoaders
+        importLoaders,
+        esModule
       );
       const moduleCode = getModuleCode(
         this,
@@ -126,7 +130,8 @@ export default function loader(content, map, meta) {
         exports,
         exportType,
         replacers,
-        localsConvention
+        localsConvention,
+        esModule
       );
 
       return callback(null, [importCode, moduleCode, exportCode].join(''));

@@ -154,6 +154,44 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it('should work with ModuleConcatenationPlugin', async () => {
+    const compiler = getCompiler(
+      './basic.js',
+      {},
+      {
+        mode: 'production',
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                  options: { esModule: true },
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+              loader: 'file-loader',
+              options: { name: '[name].[ext]', esModule: true },
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    if (stats.compilation.modules.size) {
+      expect(stats.compilation.modules.size).toBe(10);
+    } else {
+      expect(stats.compilation.modules.length).toBe(6);
+    }
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
   it('should work with ModuleConcatenationPlugin (file-loader)', async () => {
     const compiler = getCompiler(
       './basic.js',
@@ -169,7 +207,7 @@ describe('loader', () => {
             {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
               loader: 'file-loader',
-              options: { name: '[name].[ext]', esModules: true },
+              options: { name: '[name].[ext]', esModule: true },
             },
           ],
         },
@@ -202,7 +240,7 @@ describe('loader', () => {
             {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
               loader: 'url-loader',
-              options: { name: '[name].[ext]', limit: true, esModules: true },
+              options: { name: '[name].[ext]', limit: true, esModule: true },
             },
           ],
         },

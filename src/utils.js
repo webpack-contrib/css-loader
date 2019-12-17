@@ -205,7 +205,8 @@ function getImportCode(
   imports,
   exportType,
   sourceMap,
-  importLoaders
+  importLoaders,
+  esModule
 ) {
   const importItems = [];
   const codeItems = [];
@@ -216,12 +217,21 @@ function getImportCode(
 
   if (exportType === 'full') {
     importItems.push(
-      `var ___CSS_LOADER_API_IMPORT___ = require(${stringifyRequest(
-        loaderContext,
-        require.resolve('./runtime/api')
-      )});`
+      esModule
+        ? `import ___CSS_LOADER_API_IMPORT___ from ${stringifyRequest(
+            loaderContext,
+            require.resolve('./runtime/api')
+          )};`
+        : `var ___CSS_LOADER_API_IMPORT___ = require(${stringifyRequest(
+            loaderContext,
+            require.resolve('./runtime/api')
+          )});`
     );
-    codeItems.push(`exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});`);
+    codeItems.push(
+      esModule
+        ? `var exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});`
+        : `exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});`
+    );
   }
 
   imports.forEach((item) => {
@@ -251,10 +261,15 @@ function getImportCode(
 
             importName = `___CSS_LOADER_AT_RULE_IMPORT_${atRuleImportNames.size}___`;
             importItems.push(
-              `var ${importName} = require(${stringifyRequest(
-                loaderContext,
-                importPrefix + url
-              )});`
+              esModule
+                ? `import ${importName} from ${stringifyRequest(
+                    loaderContext,
+                    importPrefix + url
+                  )};`
+                : `var ${importName} = require(${stringifyRequest(
+                    loaderContext,
+                    importPrefix + url
+                  )});`
             );
 
             atRuleImportNames.set(url, importName);
@@ -267,10 +282,15 @@ function getImportCode(
         {
           if (urlImportNames.size === 0) {
             importItems.push(
-              `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${stringifyRequest(
-                loaderContext,
-                require.resolve('./runtime/getUrl.js')
-              )});`
+              esModule
+                ? `import ___CSS_LOADER_GET_URL_IMPORT___ from ${stringifyRequest(
+                    loaderContext,
+                    require.resolve('./runtime/getUrl.js')
+                  )};`
+                : `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${stringifyRequest(
+                    loaderContext,
+                    require.resolve('./runtime/getUrl.js')
+                  )});`
             );
           }
 
@@ -281,10 +301,15 @@ function getImportCode(
           if (!importName) {
             importName = `___CSS_LOADER_URL_IMPORT_${urlImportNames.size}___`;
             importItems.push(
-              `var ${importName} = require(${stringifyRequest(
-                loaderContext,
-                url
-              )});`
+              esModule
+                ? `import ${importName} from ${stringifyRequest(
+                    loaderContext,
+                    url
+                  )};`
+                : `var ${importName} = require(${stringifyRequest(
+                    loaderContext,
+                    url
+                  )});`
             );
 
             urlImportNames.set(url, importName);
@@ -311,10 +336,15 @@ function getImportCode(
           }
 
           importItems.push(
-            `var ${importName} = require(${stringifyRequest(
-              loaderContext,
-              importPrefix + url
-            )});`
+            esModule
+              ? `import ${importName} from ${stringifyRequest(
+                  loaderContext,
+                  importPrefix + url
+                )};`
+              : `var ${importName} = require(${stringifyRequest(
+                  loaderContext,
+                  importPrefix + url
+                )});`
           );
 
           if (exportType === 'full') {
@@ -380,7 +410,8 @@ function getExportCode(
   exports,
   exportType,
   replacers,
-  localsConvention
+  localsConvention,
+  esModule
 ) {
   const exportItems = [];
   let exportLocalsCode;
@@ -448,13 +479,19 @@ function getExportCode(
   }
 
   if (exportType === 'locals') {
-    exportItems.push(`module.exports = {\n${exportLocalsCode}\n};`);
+    exportItems.push(
+      `${
+        esModule ? 'export default' : 'module.exports ='
+      } {\n${exportLocalsCode}\n};`
+    );
   } else {
     if (exportLocalsCode) {
       exportItems.push(`exports.locals = {\n${exportLocalsCode}\n};`);
     }
 
-    exportItems.push('module.exports = exports;');
+    exportItems.push(
+      `${esModule ? 'export default' : 'module.exports ='} exports;`
+    );
   }
 
   return `// Exports\n${exportItems.join('\n')}\n`;
