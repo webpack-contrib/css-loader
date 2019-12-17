@@ -186,7 +186,7 @@ describe('"sourceMap" option', () => {
             rules: [
               {
                 test: /\.css$/i,
-                rules: [
+                use: [
                   {
                     loader: path.resolve(__dirname, '../src'),
                     options: {
@@ -228,7 +228,7 @@ describe('"sourceMap" option', () => {
     //         rules: [
     //           {
     //             test: /\.s[ca]ss$/i,
-    //             rules: [
+    //             use: [
     //               {
     //                 loader: path.resolve(__dirname, '../src'),
     //                 options: {
@@ -418,7 +418,7 @@ describe('"sourceMap" option', () => {
             rules: [
               {
                 test: /\.css$/i,
-                rules: [
+                use: [
                   {
                     loader: path.resolve(__dirname, '../src'),
                     options: {
@@ -458,7 +458,7 @@ describe('"sourceMap" option', () => {
             rules: [
               {
                 test: /\.s[ca]ss$/i,
-                rules: [
+                use: [
                   {
                     loader: path.resolve(__dirname, '../src'),
                     options: {
