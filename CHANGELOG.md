@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/webpack-contrib/css-loader/compare/v3.3.1...v3.4.0) (2019-12-17)
+
+
+### Features
+
+* `esModule` option ([#1026](https://github.com/webpack-contrib/css-loader/issues/1026)) ([d358cdb](https://github.com/webpack-contrib/css-loader/commit/d358cdbe2c026afafa0279003cb6c8a3eff4c419))
+
+
+### Bug Fixes
+
+* logic for order and media queries for imports ([#1018](https://github.com/webpack-contrib/css-loader/issues/1018)) ([65450d9](https://github.com/webpack-contrib/css-loader/commit/65450d9c04790ccc9fb06eac81ea6d8f3cdbfaac))
+
 ### [3.3.2](https://github.com/webpack-contrib/css-loader/compare/v3.3.1...v3.3.2) (2019-12-12)
 
 
