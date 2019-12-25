@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`loader should have same "contenthash" with "css-loader" and source maps: errors 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "css-loader" and source maps: module 1`] = `
+Array [
+  "main.54b9712c1981e48c12c4.bundle.js",
+]
+`;
+
+exports[`loader should have same "contenthash" with "css-loader" and source maps: warnings 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "postcss-loader" and source maps: errors 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "postcss-loader" and source maps: module 1`] = `
+Array [
+  "main.d77dd6564bc6e6297cd4.bundle.js",
+]
+`;
+
+exports[`loader should have same "contenthash" with "postcss-loader" and source maps: warnings 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "sass-loader" and source maps: errors 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "sass-loader" and source maps: module 1`] = `
+Array [
+  "main.151589c7e12ebfd445e7.bundle.js",
+]
+`;
+
+exports[`loader should have same "contenthash" with "sass-loader" and source maps: warnings 1`] = `Array []`;
+
 exports[`loader should reuse \`ast\` from "postcss-loader": errors 1`] = `Array []`;
 
 exports[`loader should reuse \`ast\` from "postcss-loader": module 1`] = `

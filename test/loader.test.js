@@ -308,4 +308,133 @@ describe('loader', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should have same "contenthash" with "css-loader" and source maps', async () => {
+    const compiler = getCompiler(
+      './contenthash/basic-css.js',
+      {},
+      {
+        output: {
+          path: path.resolve(__dirname, '../outputs'),
+          filename: '[name].[contenthash].bundle.js',
+          chunkFilename: '[name].[contenthash].chunk.js',
+          publicPath: '/webpack/public/path/',
+        },
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                  options: { sourceMap: true },
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(Object.keys(stats.compilation.assets)).toMatchSnapshot('module');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should have same "contenthash" with "postcss-loader" and source maps', async () => {
+    const compiler = getCompiler(
+      './contenthash/basic-postcss.js',
+      {},
+      {
+        output: {
+          path: path.resolve(__dirname, '../outputs'),
+          filename: '[name].[contenthash].bundle.js',
+          chunkFilename: '[name].[contenthash].chunk.js',
+          publicPath: '/webpack/public/path/',
+        },
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                  options: {
+                    sourceMap: true,
+                    importLoaders: 1,
+                  },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    plugins: () => [postcssPresetEnv({ stage: 0 })],
+                    sourceMap: true,
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(Object.keys(stats.compilation.assets)).toMatchSnapshot('module');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should have same "contenthash" with "sass-loader" and source maps', async () => {
+    const compiler = getCompiler(
+      './contenthash/basic-sass.js',
+      {},
+      {
+        output: {
+          path: path.resolve(__dirname, '../outputs'),
+          filename: '[name].[contenthash].bundle.js',
+          chunkFilename: '[name].[contenthash].chunk.js',
+          publicPath: '/webpack/public/path/',
+        },
+        module: {
+          rules: [
+            {
+              test: /\.s[ca]ss$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                  options: {
+                    sourceMap: true,
+                    importLoaders: 1,
+                  },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    plugins: () => [postcssPresetEnv({ stage: 0 })],
+                    sourceMap: true,
+                  },
+                },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    // eslint-disable-next-line global-require
+                    implementation: require('sass'),
+                    sourceMap: true,
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    console.log(stats.compilation.assets);
+
+    expect(Object.keys(stats.compilation.assets)).toMatchSnapshot('module');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });
