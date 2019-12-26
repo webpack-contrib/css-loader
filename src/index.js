@@ -3,7 +3,6 @@
   Author Tobias Koppers @sokra
 */
 import validateOptions from 'schema-utils';
-import RequestShortener from 'webpack/lib/RequestShortener';
 import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
 
@@ -12,7 +11,6 @@ import { getOptions, isUrlRequest } from 'loader-utils';
 import schema from './options.json';
 import { importParser, icssParser, urlParser } from './plugins';
 import {
-  normalizeSourceMap,
   getModulesPlugins,
   getFilter,
   getImportCode,
@@ -76,14 +74,7 @@ export default function loader(content, map, meta) {
       to: this.currentRequest.split('!').pop(),
       map: options.sourceMap
         ? {
-            // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-            prev:
-              sourceMap && map
-                ? normalizeSourceMap(
-                    map,
-                    new RequestShortener(this.rootContext)
-                  )
-                : null,
+            prev: sourceMap && map ? map : null,
             inline: false,
             annotation: false,
           }

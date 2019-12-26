@@ -11,6 +11,7 @@ import {
   getExecutedCode,
   getModuleSource,
   getWarnings,
+  readsAssets,
 } from './helpers/index';
 
 describe('loader', () => {
@@ -309,7 +310,7 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it.only('should have same "contenthash" with "css-loader" and without source maps', async () => {
+  it('should have same "contenthash" with "css-loader" and without source maps', async () => {
     const compiler = getCompiler(
       './contenthash/basic-css.js',
       {},
@@ -342,7 +343,7 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it.only('should have same "contenthash" with "css-loader" and with source maps', async () => {
+  it('should have same "contenthash" with "css-loader" and with source maps', async () => {
     const compiler = getCompiler(
       './contenthash/basic-css.js',
       {},
@@ -375,7 +376,7 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it.only('should have same "contenthash" with "postcss-loader" and without source maps', async () => {
+  it('should have same "contenthash" with "postcss-loader" and without source maps', async () => {
     const compiler = getCompiler(
       './contenthash/basic-postcss.js',
       {},
@@ -418,7 +419,7 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it.only('should have same "contenthash" with "postcss-loader" and with source maps', async () => {
+  it('should have same "contenthash" with "postcss-loader" and with source maps', async () => {
     const compiler = getCompiler(
       './contenthash/basic-postcss.js',
       {},
@@ -461,7 +462,7 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it.only('should have same "contenthash" with "sass-loader" and without source maps', async () => {
+  it('should have same "contenthash" with "sass-loader" and without source maps', async () => {
     const compiler = getCompiler(
       './contenthash/basic-sass.js',
       {},
@@ -558,7 +559,7 @@ describe('loader', () => {
     );
     const stats = await compile(compiler);
 
-    expect(Object.keys(stats.compilation.assets)).toMatchSnapshot('module');
+    expect(readsAssets(compiler, stats)).toMatchSnapshot('module');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });

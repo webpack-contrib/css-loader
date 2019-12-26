@@ -1,61 +1,228 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`loader should have same "contenthash" with "css-loader" and with source maps: errors 1`] = `Array []`;
-
-exports[`loader should have same "contenthash" with "css-loader" and with source maps: module 1`] = `
-Array [
-  "main.54b9712c1981e48c12c4.bundle.js",
-]
-`;
-
-exports[`loader should have same "contenthash" with "css-loader" and with source maps: warnings 1`] = `Array []`;
-
-exports[`loader should have same "contenthash" with "css-loader" and without source maps: errors 1`] = `Array []`;
-
-exports[`loader should have same "contenthash" with "css-loader" and without source maps: module 1`] = `
-Array [
-  "main.b38d5f87c88c55a4258e.bundle.js",
-]
-`;
-
-exports[`loader should have same "contenthash" with "css-loader" and without source maps: warnings 1`] = `Array []`;
-
-exports[`loader should have same "contenthash" with "postcss-loader" and with source maps: errors 1`] = `Array []`;
-
-exports[`loader should have same "contenthash" with "postcss-loader" and with source maps: module 1`] = `
-Array [
-  "main.d77dd6564bc6e6297cd4.bundle.js",
-]
-`;
-
-exports[`loader should have same "contenthash" with "postcss-loader" and with source maps: warnings 1`] = `Array []`;
-
-exports[`loader should have same "contenthash" with "postcss-loader" and without source maps: errors 1`] = `Array []`;
-
-exports[`loader should have same "contenthash" with "postcss-loader" and without source maps: module 1`] = `
-Array [
-  "main.f8e62206a43c13393798.bundle.js",
-]
-`;
-
-exports[`loader should have same "contenthash" with "postcss-loader" and without source maps: warnings 1`] = `Array []`;
-
 exports[`loader should have same "contenthash" with "sass-loader" and with source maps: errors 1`] = `Array []`;
 
 exports[`loader should have same "contenthash" with "sass-loader" and with source maps: module 1`] = `
-Array [
-  "main.151589c7e12ebfd445e7.bundle.js",
-]
+Object {
+  "main.a12ab765493c74c80be2.bundle.js": "/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = \\"/webpack/public/path/\\";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = \\"./contenthash/basic-sass.js\\");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ \\"../../src/runtime/api.js\\":
+/*!**********************************************************************!*\\\\
+  !*** /home/evilebottnawi/IdeaProjects/css-loader/src/runtime/api.js ***!
+  \\\\**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function(useSourceMap) {
+  const list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map((item) => {
+      const content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return \`@media \${item[2]} {\${content}}\`;
+      }
+
+      return content;
+    }).join('');
+  };
+
+  // import a list of modules into the list
+  // eslint-disable-next-line func-names
+  list.i = function(modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    for (let i = 0; i < modules.length; i++) {
+      const item = [].concat(modules[i]);
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = \`\${mediaQuery} and \${item[2]}\`;
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  const content = item[1] || '';
+  // eslint-disable-next-line prefer-destructuring
+  const cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    const sourceMapping = toComment(cssMapping);
+    const sourceURLs = cssMapping.sources.map(
+      (source) => \`/*# sourceURL=\${cssMapping.sourceRoot}\${source} */\`
+    );
+
+    return [content]
+      .concat(sourceURLs)
+      .concat([sourceMapping])
+      .join('\\\\n');
+  }
+
+  return [content].join('\\\\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  const base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  const data = \`sourceMappingURL=data:application/json;charset=utf-8;base64,\${base64}\`;
+
+  return \`/*# \${data} */\`;
+}
+
+
+/***/ }),
+
+/***/ \\"./contenthash/basic-sass.js\\":
+/*!***********************************!*\\\\
+  !*** ./contenthash/basic-sass.js ***!
+  \\\\***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _basic_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basic.scss */ \\"./contenthash/basic.scss\\");
+/* harmony import */ var _basic_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_basic_scss__WEBPACK_IMPORTED_MODULE_0__);
+
+
+__export__ = _basic_scss__WEBPACK_IMPORTED_MODULE_0___default.a;
+
+/* harmony default export */ __webpack_exports__[\\"default\\"] = (_basic_scss__WEBPACK_IMPORTED_MODULE_0___default.a);
+
+
+/***/ }),
+
+/***/ \\"./contenthash/basic.scss\\":
+/*!********************************!*\\\\
+  !*** ./contenthash/basic.scss ***!
+  \\\\********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../src/runtime/api.js */ \\"../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+exports.push([module.i, \\"a {\\\\n  color: red;\\\\n}\\\\na:hover {\\\\n  color: red;\\\\n}\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./contenthash/basic.scss\\",\\"basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAHI;ACEN;ADGE;EACE,UANE;ACKN\\",\\"file\\":\\"basic.scss\\",\\"sourcesContent\\":[\\"$var: red;\\\\n\\\\na {\\\\n  color: $var;\\\\n\\\\n  &:hover {\\\\n    color: $var;\\\\n  }\\\\n}\\\\n\\",\\"a {\\\\n  color: red;\\\\n}\\\\na:hover {\\\\n  color: red;\\\\n}\\"]}]);
+// Exports
+module.exports = exports;
+
+
+/***/ })
+
+/******/ });",
+}
 `;
 
 exports[`loader should have same "contenthash" with "sass-loader" and with source maps: warnings 1`] = `Array []`;
-
-exports[`loader should have same "contenthash" with "sass-loader" and without source maps: errors 1`] = `Array []`;
-
-exports[`loader should have same "contenthash" with "sass-loader" and without source maps: module 1`] = `
-Array [
-  "main.9ae036ace8bbbebbd185.bundle.js",
-]
-`;
-
-exports[`loader should have same "contenthash" with "sass-loader" and without source maps: warnings 1`] = `Array []`;

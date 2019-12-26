@@ -16,6 +16,7 @@ import localByDefault from 'postcss-modules-local-by-default';
 import extractImports from 'postcss-modules-extract-imports';
 import modulesScope from 'postcss-modules-scope';
 import camelCase from 'camelcase';
+import RequestShortener from 'webpack/lib/RequestShortener';
 
 const whitespace = '[\\x20\\t\\r\\n\\f]';
 const unescapeRegExp = new RegExp(
@@ -156,15 +157,9 @@ function getModulesPlugins(options, loaderContext) {
   ];
 }
 
-function normalizeSourceMap(map, requestShortener) {
-  let newMap = map;
-
-  // Some loader emit source map as string
-  if (typeof newMap === 'string') {
-    newMap = JSON.parse(newMap);
-  }
-
-  console.log(newMap);
+function normalizeSourceMap(map, rootContext) {
+  const newMap = map.toJSON();
+  const requestShortener = new RequestShortener(rootContext);
 
   // Source maps should use forward slash because it is URLs (https://github.com/mozilla/source-map/issues/91)
   // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
@@ -183,9 +178,7 @@ function normalizeSourceMap(map, requestShortener) {
     );
   }
 
-  console.log(newMap);
-
-  return newMap;
+  return JSON.stringify(newMap);
 }
 
 function getImportPrefix(loaderContext, importLoaders) {
@@ -377,7 +370,10 @@ function getModuleCode(
   }
 
   const { css, map } = result;
-  const sourceMapValue = sourceMap && map ? `,${map}` : '';
+  const sourceMapValue =
+    sourceMap && map
+      ? `,${normalizeSourceMap(map, loaderContext.rootContext)}`
+      : '';
 
   let cssCode = JSON.stringify(css);
 
@@ -506,7 +502,6 @@ export {
   normalizeUrl,
   getFilter,
   getModulesPlugins,
-  normalizeSourceMap,
   getImportCode,
   getModuleCode,
   getExportCode,
