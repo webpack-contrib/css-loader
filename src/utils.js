@@ -156,29 +156,34 @@ function getModulesPlugins(options, loaderContext) {
   ];
 }
 
-function normalizeSourceMap(map) {
+function normalizeSourceMap(map, requestShortener) {
   let newMap = map;
 
   // Some loader emit source map as string
-  // Strip any JSON XSSI avoidance prefix from the string (as documented in the source maps specification), and then parse the string as JSON.
   if (typeof newMap === 'string') {
     newMap = JSON.parse(newMap);
   }
+
+  console.log(newMap);
 
   // Source maps should use forward slash because it is URLs (https://github.com/mozilla/source-map/issues/91)
   // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
 
   if (newMap.file) {
-    newMap.file = normalizePath(newMap.file);
+    newMap.file = requestShortener.shorten(newMap.file);
   }
 
   if (newMap.sourceRoot) {
-    newMap.sourceRoot = normalizePath(newMap.sourceRoot);
+    newMap.sourceRoot = requestShortener.shorten(newMap.sourceRoot);
   }
 
   if (newMap.sources) {
-    newMap.sources = newMap.sources.map((source) => normalizePath(source));
+    newMap.sources = newMap.sources.map((source) =>
+      requestShortener.shorten(source)
+    );
   }
+
+  console.log(newMap);
 
   return newMap;
 }
