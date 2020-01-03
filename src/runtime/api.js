@@ -58,7 +58,7 @@ function cssWithMappingToString(item, useSourceMap) {
   if (useSourceMap && typeof btoa === 'function') {
     const sourceMapping = toComment(cssMapping);
     const sourceURLs = cssMapping.sources.map(
-      (source) => `/*# sourceURL=${cssMapping.sourceRoot}${source} */`
+      (source) => `/*# sourceURL=${cssMapping.sourceRoot || ''}${source} */`
     );
 
     return [content]
