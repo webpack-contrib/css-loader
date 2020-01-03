@@ -308,4 +308,37 @@ describe('loader', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('issue #1033', async () => {
+    const compiler = getCompiler('./modules/issue-1033/issue-1033.js', {
+      modules: { mode: 'local', localIdentName: '_[local]' },
+      onlyLocals: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/issue-1033/issue-1033.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('issue #1033 (2)', async () => {
+    const compiler = getCompiler('./modules/issue-1033/issue-1033.js', {
+      modules: { mode: 'local', localIdentName: '_[local]' },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/issue-1033/issue-1033.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });

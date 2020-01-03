@@ -480,9 +480,9 @@ function getExportCode(
 
   if (exportType === 'locals') {
     exportItems.push(
-      `${
-        esModule ? 'export default' : 'module.exports ='
-      } {\n${exportLocalsCode}\n};`
+      `${esModule ? 'export default' : 'module.exports ='} ${
+        exportLocalsCode ? `{\n${exportLocalsCode}\n}` : '{}'
+      };`
     );
   } else {
     if (exportLocalsCode) {
