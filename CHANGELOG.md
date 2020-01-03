@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.1](https://github.com/webpack-contrib/css-loader/compare/v3.4.0...v3.4.1) (2020-01-03)
+
+
+### Bug Fixes
+
+* do not output `undefined` when sourceRoot is unavailable ([#1036](https://github.com/webpack-contrib/css-loader/issues/1036)) ([ded2a79](https://github.com/webpack-contrib/css-loader/commit/ded2a797271f2adf864bf92300621c024974bc79))
+* don't output invalid es5 code when locals do not exists ([#1035](https://github.com/webpack-contrib/css-loader/issues/1035)) ([b60e62a](https://github.com/webpack-contrib/css-loader/commit/b60e62a655719cc1779fae7d577af6ad6cf42135))
+
 ## [3.4.0](https://github.com/webpack-contrib/css-loader/compare/v3.3.1...v3.4.0) (2019-12-17)
 
 
