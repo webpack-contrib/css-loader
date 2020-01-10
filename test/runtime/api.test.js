@@ -101,6 +101,23 @@ describe('api', () => {
     expect(m.toString()).toMatchSnapshot();
   });
 
+  it('should toString with a source map without "sourceRoot"', () => {
+    const m = api(true);
+
+    m.push([
+      1,
+      'body { a: 1; }',
+      '',
+      {
+        file: 'test.scss',
+        sources: ['./path/to/test.scss'],
+        mappings: 'AAAA;',
+      },
+    ]);
+
+    expect(m.toString()).toMatchSnapshot();
+  });
+
   it('should toString without source mapping if btoa not available', () => {
     global.btoa = null;
 
@@ -115,23 +132,6 @@ describe('api', () => {
         sources: ['./path/to/test.scss'],
         mappings: 'AAAA;',
         sourceRoot: 'webpack://',
-      },
-    ]);
-
-    expect(m.toString()).toMatchSnapshot();
-  });
-
-  it.only('should toString with a source map without "sourceRoot"', () => {
-    const m = api(true);
-
-    m.push([
-      1,
-      'body { a: 1; }',
-      '',
-      {
-        file: 'test.scss',
-        sources: ['./path/to/test.scss'],
-        mappings: 'AAAA;',
       },
     ]);
 

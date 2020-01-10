@@ -549,4 +549,20 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should dedupe same modules in one module (issue #1037)', async () => {
+    const compiler = getCompiler('./modules/dedupe/source.js', {
+      modules: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/dedupe/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });
