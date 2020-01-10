@@ -329,7 +329,7 @@ function getImportCode(
       case 'icss-import':
         {
           const { importName, url, media } = item;
-          const preparedMedia = media ? `, ${JSON.stringify(media)}` : '';
+          const preparedMedia = media ? `, ${JSON.stringify(media)}` : ', ""';
 
           if (!importPrefix) {
             importPrefix = getImportPrefix(loaderContext, importLoaders);
@@ -348,7 +348,7 @@ function getImportCode(
           );
 
           if (exportType === 'full') {
-            codeItems.push(`exports.i(${importName}${preparedMedia});`);
+            codeItems.push(`exports.i(${importName}${preparedMedia}, true);`);
           }
         }
         break;

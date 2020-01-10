@@ -22,14 +22,32 @@ module.exports = function(useSourceMap) {
 
   // import a list of modules into the list
   // eslint-disable-next-line func-names
-  list.i = function(modules, mediaQuery) {
+  list.i = function(modules, mediaQuery, dedupe) {
     if (typeof modules === 'string') {
       // eslint-disable-next-line no-param-reassign
       modules = [[null, modules, '']];
     }
 
+    const alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (let i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        const id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
     for (let i = 0; i < modules.length; i++) {
       const item = [].concat(modules[i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
 
       if (mediaQuery) {
         if (!item[2]) {

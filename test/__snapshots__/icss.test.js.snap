@@ -176,7 +176,7 @@ exports[`ICSS show work with the case "import": module 1`] = `
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??[ident]!./vars.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
-exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
 exports.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -215,7 +215,7 @@ exports[`ICSS show work with the case "import-reserved-keywords": module 1`] = `
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../../src/index.js??[ident]!./vars.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
-exports.i(___CSS_LOADER_ICSS_IMPORT_0___);
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
 exports.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n  display: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"secondary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
