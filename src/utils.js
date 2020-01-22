@@ -74,7 +74,7 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
       .replace(reRelativePath, '-')
       .replace(/\./g, '-'),
     { isIdentifier: true }
-  ).replace(/\\\[local\\\]/gi, localName);
+  ).replace(/\\\[local\\]/gi, localName);
 }
 
 function normalizeUrl(url, isStringValue) {
@@ -503,6 +503,7 @@ export {
   getModulesPlugins,
   normalizeSourceMap,
   getImportCode,
+  getLocalIdent,
   getModuleCode,
   getExportCode,
 };
