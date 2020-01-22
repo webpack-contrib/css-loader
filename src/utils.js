@@ -246,7 +246,7 @@ function getImportCode(
             codeItems.push(
               `exports.push([module.id, ${JSON.stringify(
                 `@import url(${url});`
-              )}${preparedMedia}], true);`
+              )}${preparedMedia}, true]);`
             );
 
             return;

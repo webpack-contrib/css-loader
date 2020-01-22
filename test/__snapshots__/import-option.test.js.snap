@@ -10,17 +10,17 @@ var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??[ide
 var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??[ident]!./order-3.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!./order-4.css\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___, \\"screen and (min-width: 2000px)\\");
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_2___);
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___, \\"screen\\");
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___, \\"\\", true);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___, \\"screen and (min-width: 2000px)\\", true);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_2___, \\"\\", true);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___, \\"screen\\", true);
 // Module
 exports.push([module.id, \\"div {\\\\n  width: 100%;\\\\n  height: 200px;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
@@ -41,6 +41,8 @@ Array [
   Array [
     "./import/order.css",
     "@import url(http://example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "../../src/index.js?[ident]!./import/order-2.css",
@@ -53,30 +55,20 @@ Array [
   Array [
     "./import/order.css",
     "@import url(http://example.com/style.css);",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/order-1.css",
-    ".order-1 {
-  color: red;
-}
-",
     "",
+    true,
   ],
   Array [
     "./import/order.css",
     "@import url(http://example.com/style.css);",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/order-2.css",
-    ".order-2 {
-  color: red;
-}
-",
-    "screen and (min-width: 2000px)",
+    "",
+    true,
   ],
   Array [
     "./import/order.css",
     "@import url(http://example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "../../src/index.js?[ident]!./import/order-3-1.css",
@@ -97,6 +89,8 @@ Array [
   Array [
     "./import/order.css",
     "@import url(http://example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "../../src/index.js?[ident]!./import/order-4-1.css",
@@ -170,31 +164,31 @@ var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??[ide
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./img.png\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___, \\"(min-width: 100px)\\");
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\"]);
-exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\"]);
-exports.push([module.id, \\"@import url(//example.com/style.css);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_2___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___, \\"screen and (orientation:landscape)\\");
-exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\"]);
-exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\"]);
-exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_4___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_6___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_7___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_8___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___, \\"(min-width: 100px)\\", true);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\", true]);
+exports.push([module.id, \\"@import url(//example.com/style.css);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_2___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___, \\"screen and (orientation:landscape)\\", true);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_4___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_6___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_7___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_8___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
 exports.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\\\\n@import url(\\\\\\"test.css\\\\\\");\\\\n@IMPORT url(test.css);\\\\n@import URL(test.css);\\\\n@import url(test.css );\\\\n@import url( test.css);\\\\n@import url( test.css );\\\\n@import url(\\\\n  test.css\\\\n);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import \\\\\\"test.css\\\\\\";\\\\n@import 'test.css';\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import url(test.css) screen and (orientation:landscape);\\\\n@import url(test.css) SCREEN AND (ORIENTATION: LANDSCAPE);\\\\n@import url(test.css)screen and (orientation:landscape);\\\\n@import url(test.css)  screen and (orientation:landscape);\\\\n@import url(~package/test.css);\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@import url(./test.css);\\\\n\\\\n@import './te\\\\\\\\\\\\nst.css';\\\\n@import './te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css';\\\\n@import url('./te\\\\\\\\\\\\nst.css');\\\\n@import url('./te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css');\\\\n@import './test test.css';\\\\n@import url('./test test.css');\\\\n@import './test\\\\\\\\ test.css';\\\\n@import url('./test\\\\\\\\ test.css');\\\\n@import './test%20test.css';\\\\n@import url('./test%20test.css');\\\\n@import './\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import './t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import url(./test\\\\\\\\ test.css);\\\\n@import url(./t\\\\\\\\65st%20test.css);\\\\n@import url('./t\\\\\\\\65st%20test.css');\\\\n@import url(\\\\\\"./t\\\\\\\\65st%20test.css\\\\\\");\\\\n@import \\\\\\"./t\\\\\\\\65st%20test.css\\\\\\";\\\\n@import './t\\\\\\\\65st%20test.css';\\\\n@import url(                 test.css                      );\\\\n\\", \\"\\"]);
@@ -232,36 +226,50 @@ Array [
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css#hash);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css?#hash);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css?foo=bar#hash);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/other-style.css);",
     "screen and (orientation:landscape)",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/other-style.css);",
     "screen and (orientation:landscape)",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(//example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "../../src/index.js?[ident]!./import/query.css?foo=1&bar=1",
@@ -280,24 +288,22 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
-    ".other-query {
-  f: f;
-}
-",
-    "screen and (orientation:landscape)",
-  ],
-  Array [
     "./import/import.css",
     "@import url(https://fonts.googleapis.com/css?family=Roboto);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
+    "",
+    true,
   ],
   Array [
     "../../src/index.js?[ident]!./import/relative.css",
@@ -335,30 +341,6 @@ Array [
     "../../src/index.js?[ident]!./import/url.css",
     ".background-imported {
   background: url(/webpack/public/path/img.png);
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
-    ".strange {
-  color: red;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
-    ".strange {
-  color: red;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
-    ".strange {
-  color: red;
 }
 ",
     "",
@@ -535,69 +517,69 @@ var ___CSS_LOADER_AT_RULE_IMPORT_12___ = require(\\"-!../../../src/index.js??[id
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./img.png\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation: landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___, \\"screen and (orientation:landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_2___, \\"(min-width: 100px)\\");
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\"]);
-exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\"]);
-exports.push([module.id, \\"@import url(//example.com/style.css);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_4___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___, \\"screen and (orientation:landscape)\\");
-exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\"]);
-exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\"]);
-exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_6___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_7___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_8___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_10___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation: landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___, \\"screen and (orientation:landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_2___, \\"(min-width: 100px)\\", true);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\", true]);
+exports.push([module.id, \\"@import url(//example.com/style.css);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_4___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___, \\"screen and (orientation:landscape)\\", true);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_6___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_7___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_8___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_10___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
 exports.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
@@ -615,118 +597,6 @@ Array [
 }
 ",
     "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "screen and (orientation:landscape)",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "screen and (orientation: landscape)",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "screen and (orientation:landscape)",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "screen and (orientation:landscape)",
   ],
   Array [
     "../../src/index.js?[ident]!./import/test-nested-media.css",
@@ -755,36 +625,50 @@ Array [
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css#hash);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css?#hash);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css?foo=bar#hash);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/other-style.css);",
     "screen and (orientation:landscape)",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/other-style.css);",
     "screen and (orientation:landscape)",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(//example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "../../src/index.js?[ident]!./import/node_modules/package/test.css",
@@ -811,24 +695,22 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
-    ".other-query {
-  f: f;
-}
-",
-    "screen and (orientation:landscape)",
-  ],
-  Array [
     "./import/import.css",
     "@import url(https://fonts.googleapis.com/css?family=Roboto);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
+    "",
+    true,
   ],
   Array [
     "../../src/index.js?[ident]!./import/relative.css",
@@ -871,70 +753,6 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
-    ".strange {
-  color: red;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
-    ".strange {
-  color: red;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
-    ".strange {
-  color: red;
-}
-",
-    "",
-  ],
-  Array [
     "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
@@ -946,134 +764,6 @@ Array [
     "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
 }
 ",
     "",
@@ -1324,69 +1014,69 @@ var ___CSS_LOADER_AT_RULE_IMPORT_12___ = require(\\"-!../../../src/index.js??[id
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./img.png\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation: landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___, \\"screen and (orientation:landscape)\\");
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_2___, \\"(min-width: 100px)\\");
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\"]);
-exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\"]);
-exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\"]);
-exports.push([module.id, \\"@import url(//example.com/style.css);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_4___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___, \\"screen and (orientation:landscape)\\");
-exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\"]);
-exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\"]);
-exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\"]);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_6___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_7___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_8___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_10___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation: landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"screen and (orientation:landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_1___, \\"screen and (orientation:landscape)\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_2___, \\"(min-width: 100px)\\", true);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css#hash);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?#hash);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/style.css?foo=bar#hash);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\", true]);
+exports.push([module.id, \\"@import url(http://example.com/other-style.css);\\", \\"screen and (orientation:landscape)\\", true]);
+exports.push([module.id, \\"@import url(//example.com/style.css);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_3___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_4___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_5___, \\"screen and (orientation:landscape)\\", true);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Roboto);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);\\", \\"\\", true]);
+exports.push([module.id, \\"@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);\\", \\"\\", true]);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_6___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_7___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_8___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_9___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_10___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_11___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_12___, \\"\\", true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
 exports.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
@@ -1404,118 +1094,6 @@ Array [
 }
 ",
     "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "screen and (orientation:landscape)",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "screen and (orientation: landscape)",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "screen and (orientation:landscape)",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "screen and (orientation:landscape)",
   ],
   Array [
     "../../src/index.js?[ident]!./import/test-nested-media.css",
@@ -1544,36 +1122,50 @@ Array [
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css#hash);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css?#hash);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/style.css?foo=bar#hash);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/other-style.css);",
     "screen and (orientation:landscape)",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(http://example.com/other-style.css);",
     "screen and (orientation:landscape)",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(//example.com/style.css);",
+    "",
+    true,
   ],
   Array [
     "../../src/index.js?[ident]!./import/node_modules/package/test.css",
@@ -1600,24 +1192,22 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
-    ".other-query {
-  f: f;
-}
-",
-    "screen and (orientation:landscape)",
-  ],
-  Array [
     "./import/import.css",
     "@import url(https://fonts.googleapis.com/css?family=Roboto);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);",
+    "",
+    true,
   ],
   Array [
     "./import/import.css",
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
+    "",
+    true,
   ],
   Array [
     "../../src/index.js?[ident]!./import/relative.css",
@@ -1660,70 +1250,6 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
-    ".strange {
-  color: red;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
-    ".strange {
-  color: red;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
-    ".strange {
-  color: red;
-}
-",
-    "",
-  ],
-  Array [
     "../../src/index.js?[ident]!./import/te'st.css",
     ".strange {
   color: red;
@@ -1735,134 +1261,6 @@ Array [
     "../../src/index.js?[ident]!./import/test test.css",
     ".space {
   color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test test.css",
-    ".space {
-  color: gray;
-}
-",
-    "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./import/test.css",
-    ".test {
-  a: a;
 }
 ",
     "",
