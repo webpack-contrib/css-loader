@@ -1,3 +1,6 @@
+@import './colors/black.css';
+@import './colors/white.css';
+
 .nextButton
 {
   composes:primaryButton from './buttons/primary-button.css';

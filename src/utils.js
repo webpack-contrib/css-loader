@@ -240,13 +240,13 @@ function getImportCode(
       case '@import':
         {
           const { url, media } = item;
-          const preparedMedia = media ? `, ${JSON.stringify(media)}` : '';
+          const preparedMedia = media ? `, ${JSON.stringify(media)}` : ', ""';
 
           if (!isUrlRequest(url)) {
             codeItems.push(
               `exports.push([module.id, ${JSON.stringify(
                 `@import url(${url});`
-              )}${preparedMedia}]);`
+              )}${preparedMedia}], true);`
             );
 
             return;
@@ -275,7 +275,7 @@ function getImportCode(
             atRuleImportNames.set(url, importName);
           }
 
-          codeItems.push(`exports.i(${importName}${preparedMedia});`);
+          codeItems.push(`exports.i(${importName}${preparedMedia}, true);`);
         }
         break;
       case 'url':
