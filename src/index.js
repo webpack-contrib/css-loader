@@ -2,24 +2,24 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import validateOptions from 'schema-utils';
+import { getOptions, isUrlRequest } from 'loader-utils';
 import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
+import validateOptions from 'schema-utils';
+import { satisfies } from 'semver';
 
-import { getOptions, isUrlRequest } from 'loader-utils';
-
+import CssSyntaxError from './CssSyntaxError';
+import Warning from './Warning';
 import schema from './options.json';
-import { importParser, icssParser, urlParser } from './plugins';
+import { icssParser, importParser, urlParser } from './plugins';
 import {
-  normalizeSourceMap,
-  getModulesPlugins,
+  getExportCode,
   getFilter,
   getImportCode,
   getModuleCode,
-  getExportCode,
+  getModulesPlugins,
+  normalizeSourceMap,
 } from './utils';
-import Warning from './Warning';
-import CssSyntaxError from './CssSyntaxError';
 
 export default function loader(content, map, meta) {
   const options = getOptions(this) || {};
@@ -63,7 +63,11 @@ export default function loader(content, map, meta) {
   if (meta) {
     const { ast } = meta;
 
-    if (ast && ast.type === 'postcss' && ast.version === postcssPkg.version) {
+    if (
+      ast &&
+      ast.type === 'postcss' &&
+      satisfies(ast.version, `^${postcssPkg.version}`)
+    ) {
       // eslint-disable-next-line no-param-reassign
       content = ast.root;
     }

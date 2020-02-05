@@ -1,7 +1,5 @@
 import path from 'path';
 
-import postcssPresetEnv from 'postcss-preset-env';
-
 import { version } from 'webpack';
 
 import {
@@ -129,6 +127,7 @@ describe('loader', () => {
   });
 
   it('should reuse `ast` from "postcss-loader"', async () => {
+    const spy = jest.fn();
     const compiler = getCompiler(
       './postcss-present-env/source.js',
       {},
@@ -143,8 +142,8 @@ describe('loader', () => {
                   options: { importLoaders: 1 },
                 },
                 {
-                  loader: 'postcss-loader',
-                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                  loader: require.resolve('./helpers/ast-loader'),
+                  options: { spy },
                 },
               ],
             },
@@ -158,6 +157,8 @@ describe('loader', () => {
       }
     );
     const stats = await compile(compiler);
+
+    expect(spy).toHaveBeenCalledTimes(1);
 
     expect(
       getModuleSource('./postcss-present-env/source.css', stats)
