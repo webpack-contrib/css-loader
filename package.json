@@ -54,7 +54,8 @@
     "postcss-modules-scope": "^2.1.1",
     "postcss-modules-values": "^3.0.0",
     "postcss-value-parser": "^4.0.2",
-    "schema-utils": "^2.6.0"
+    "schema-utils": "^2.6.0",
+    "semver": "^7.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
