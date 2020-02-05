@@ -1,9 +1,9 @@
 import postcss from 'postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssPkg from 'postcss/package.json';
-import semverInc from 'semver/functions/inc';
+import semver from 'semver';
 
-const incomingVersion = semverInc(postcssPkg.version, 'minor');
+const incomingVersion = semver.inc(postcssPkg.version, 'minor');
 
 export default function astLoader(content) {
   const callback = this.async();
