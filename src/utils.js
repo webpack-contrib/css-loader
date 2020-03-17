@@ -103,6 +103,7 @@ function getModulesPlugins(options, loaderContext) {
     getLocalIdent,
     hashPrefix: '',
     localIdentRegExp: null,
+    exportGlobals: false,
   };
 
   if (
@@ -147,6 +148,7 @@ function getModulesPlugins(options, loaderContext) {
 
         return localIdent;
       },
+      exportGlobals: modulesOptions.exportGlobals,
     }),
   ];
 }

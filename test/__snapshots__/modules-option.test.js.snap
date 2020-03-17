@@ -10811,6 +10811,37 @@ Array [
 
 exports[`"modules" option should work with case \`values-10\` (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with exportGlobals option: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with exportGlobals option: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".foo {\\\\n    background-color: #ffffff;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"foo\\": \\"foo\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should work with exportGlobals option: result 1`] = `
+Array [
+  Array [
+    "./modules/exportGlobals/exportGlobals.css",
+    ".foo {
+    background-color: #ffffff;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with exportGlobals option: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: module 1`] = `

@@ -67,6 +67,9 @@
                   "instanceof": "Function"
                 }
               ]
+            },
+            "exportGlobals": {
+              "type": "boolean"
             }
           }
         }
