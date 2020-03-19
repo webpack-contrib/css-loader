@@ -4,7 +4,7 @@
 */
 import path from 'path';
 
-import loaderUtils, { stringifyRequest, urlToRequest } from 'loader-utils';
+import { stringifyRequest, urlToRequest, interpolateName } from 'loader-utils';
 import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
 import modulesValues from 'postcss-modules-values';
@@ -61,8 +61,7 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
   // Using `[path]` placeholder outputs `/` we need escape their
   // Also directories can contains invalid characters for css we need escape their too
   return cssesc(
-    loaderUtils
-      .interpolateName(loaderContext, localIdentName, options)
+    interpolateName(loaderContext, localIdentName, options)
       // For `[hash]` placeholder
       .replace(/^((-?[0-9])|--)/, '_$1')
       .replace(filenameReservedRegex, '-')
