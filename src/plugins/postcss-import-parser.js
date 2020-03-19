@@ -24,22 +24,6 @@ function getParsedValue(node) {
   return null;
 }
 
-function getUrl(value) {
-  let { url } = value;
-
-  if (url.trim().length === 0) {
-    return null;
-  }
-
-  if (isUrlRequest(url)) {
-    const { isStringValue } = value;
-
-    url = normalizeUrl(url, isStringValue);
-  }
-
-  return url;
-}
-
 export default postcss.plugin(pluginName, (options) => (css, result) => {
   css.walkAtRules(/^import$/i, (atRule) => {
     // Convert only top-level @import
@@ -52,6 +36,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         "It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
         { node: atRule }
       );
+
       return;
     }
 
@@ -75,7 +60,21 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       return;
     }
 
-    const url = getUrl(value);
+    let { url } = value;
+
+    if (url.trim().length === 0) {
+      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
+        node: atRule,
+      });
+
+      return;
+    }
+
+    if (isUrlRequest(url)) {
+      const { isStringValue } = value;
+
+      url = normalizeUrl(url, isStringValue);
+    }
 
     if (!url) {
       // eslint-disable-next-line consistent-return
