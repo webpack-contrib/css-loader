@@ -24,13 +24,7 @@ function getParsedValue(node) {
   return null;
 }
 
-function getUrlAndImport(params) {
-  const { nodes } = valueParser(params);
-
-  if (nodes.length === 0) {
-    return null;
-  }
-
+function getUrlAndImport(nodes) {
   const value = getParsedValue(nodes[0]);
 
   if (!value) {
@@ -73,11 +67,21 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       return;
     }
 
-    const item = getUrlAndImport(atRule.params);
+    const { nodes } = valueParser(atRule.params);
+
+    if (nodes.length === 0) {
+      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
+        node: atRule,
+      });
+
+      return;
+    }
+
+    const item = getUrlAndImport(nodes);
 
     if (!item) {
       // eslint-disable-next-line consistent-return
-      return result.warn(`Unable to find uri in '${atRule.toString()}'`, {
+      return result.warn(`Unable to find uri in "${atRule.toString()}"`, {
         node: atRule,
       });
     }

@@ -461,52 +461,52 @@ Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(12:1) Unable to find uri in '@import url()'",
+(12:1) Unable to find uri in \\"@import url()\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(13:1) Unable to find uri in '@import url('')'",
+(13:1) Unable to find uri in \\"@import url('')\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(14:1) Unable to find uri in '@import url(\\"\\")'",
+(14:1) Unable to find uri in \\"@import url(\\"\\")\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(17:1) Unable to find uri in '@import '''",
+(17:1) Unable to find uri in \\"@import ''\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(18:1) Unable to find uri in '@import \\"\\"'",
+(18:1) Unable to find uri in \\"@import \\"\\"\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(19:1) Unable to find uri in '@import \\"   \\"'",
+(19:1) Unable to find uri in \\"@import \\"   \\"\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(20:1) Unable to find uri in '@import \\"
-\\"'",
+(20:1) Unable to find uri in \\"@import \\"
+\\"\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(22:1) Unable to find uri in '@import url()'",
+(22:1) Unable to find uri in \\"@import url()\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(23:1) Unable to find uri in '@import url('')'",
+(23:1) Unable to find uri in \\"@import url('')\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(24:1) Unable to find uri in '@import url(\\"\\")'",
+(24:1) Unable to find uri in \\"@import url(\\"\\")\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(40:1) Unable to find uri in '@import '",
+(40:1) Unable to find uri in \\"@import \\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(41:1) Unable to find uri in '@import foo-bar'",
+(41:1) Unable to find uri in \\"@import foo-bar\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
@@ -1118,52 +1118,52 @@ Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(12:1) Unable to find uri in '@import url()'",
+(12:1) Unable to find uri in \\"@import url()\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(13:1) Unable to find uri in '@import url('')'",
+(13:1) Unable to find uri in \\"@import url('')\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(14:1) Unable to find uri in '@import url(\\"\\")'",
+(14:1) Unable to find uri in \\"@import url(\\"\\")\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(17:1) Unable to find uri in '@import '''",
+(17:1) Unable to find uri in \\"@import ''\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(18:1) Unable to find uri in '@import \\"\\"'",
+(18:1) Unable to find uri in \\"@import \\"\\"\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(19:1) Unable to find uri in '@import \\"   \\"'",
+(19:1) Unable to find uri in \\"@import \\"   \\"\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(20:1) Unable to find uri in '@import \\"
-\\"'",
+(20:1) Unable to find uri in \\"@import \\"
+\\"\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(22:1) Unable to find uri in '@import url()'",
+(22:1) Unable to find uri in \\"@import url()\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(23:1) Unable to find uri in '@import url('')'",
+(23:1) Unable to find uri in \\"@import url('')\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(24:1) Unable to find uri in '@import url(\\"\\")'",
+(24:1) Unable to find uri in \\"@import url(\\"\\")\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(40:1) Unable to find uri in '@import '",
+(40:1) Unable to find uri in \\"@import \\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(41:1) Unable to find uri in '@import foo-bar'",
+(41:1) Unable to find uri in \\"@import foo-bar\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
@@ -1907,52 +1907,52 @@ Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(12:1) Unable to find uri in '@import url()'",
+(12:1) Unable to find uri in \\"@import url()\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(13:1) Unable to find uri in '@import url('')'",
+(13:1) Unable to find uri in \\"@import url('')\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(14:1) Unable to find uri in '@import url(\\"\\")'",
+(14:1) Unable to find uri in \\"@import url(\\"\\")\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(17:1) Unable to find uri in '@import '''",
+(17:1) Unable to find uri in \\"@import ''\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(18:1) Unable to find uri in '@import \\"\\"'",
+(18:1) Unable to find uri in \\"@import \\"\\"\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(19:1) Unable to find uri in '@import \\"   \\"'",
+(19:1) Unable to find uri in \\"@import \\"   \\"\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(20:1) Unable to find uri in '@import \\"
-\\"'",
+(20:1) Unable to find uri in \\"@import \\"
+\\"\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(22:1) Unable to find uri in '@import url()'",
+(22:1) Unable to find uri in \\"@import url()\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(23:1) Unable to find uri in '@import url('')'",
+(23:1) Unable to find uri in \\"@import url('')\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(24:1) Unable to find uri in '@import url(\\"\\")'",
+(24:1) Unable to find uri in \\"@import url(\\"\\")\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(40:1) Unable to find uri in '@import '",
+(40:1) Unable to find uri in \\"@import \\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
-(41:1) Unable to find uri in '@import foo-bar'",
+(41:1) Unable to find uri in \\"@import foo-bar\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
