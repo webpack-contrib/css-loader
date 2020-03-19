@@ -6,26 +6,6 @@ import { normalizeUrl } from '../utils';
 
 const pluginName = 'postcss-import-parser';
 
-function getParsedValue(nodes) {
-  if (nodes[0].type === 'function' && nodes[0].value.toLowerCase() === 'url') {
-    const isStringValue =
-      nodes[0].nodes.length !== 0 && nodes[0].nodes[0].type === 'string';
-    const url = isStringValue
-      ? nodes[0].nodes[0].value
-      : valueParser.stringify(nodes[0].nodes);
-
-    return { url, isStringValue };
-  }
-
-  if (nodes[0].type === 'string') {
-    const url = nodes[0].value;
-
-    return { url, isStringValue: true };
-  }
-
-  return null;
-}
-
 export default postcss.plugin(pluginName, (options) => (css, result) => {
   css.walkAtRules(/^import$/i, (atRule) => {
     // Convert only top-level @import
@@ -33,6 +13,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       return;
     }
 
+    // Nodes do not exists - `@import url('http://') :root {}`
     if (atRule.nodes) {
       result.warn(
         "It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
@@ -44,7 +25,12 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
     const { nodes } = valueParser(atRule.params);
 
-    if (nodes.length === 0) {
+    // No nodes - `@import ;`
+    // Invalid type - `@import foo-bar;`
+    if (
+      nodes.length === 0 ||
+      (nodes[0].type !== 'string' && nodes[0].type !== 'function')
+    ) {
       result.warn(`Unable to find uri in "${atRule.toString()}"`, {
         node: atRule,
       });
@@ -52,18 +38,30 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       return;
     }
 
-    const value = getParsedValue(nodes);
+    let isStringValue;
+    let url;
 
-    if (!value) {
-      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
-        node: atRule,
-      });
+    if (nodes[0].type === 'string') {
+      isStringValue = true;
+      url = nodes[0].value;
+    } else if (nodes[0].type === 'function') {
+      // Invalid function - `@import nourl(test.css);`
+      if (nodes[0].value.toLowerCase() !== 'url') {
+        result.warn(`Unable to find uri in "${atRule.toString()}"`, {
+          node: atRule,
+        });
 
-      return;
+        return;
+      }
+
+      isStringValue =
+        nodes[0].nodes.length !== 0 && nodes[0].nodes[0].type === 'string';
+      url = isStringValue
+        ? nodes[0].nodes[0].value
+        : valueParser.stringify(nodes[0].nodes);
     }
 
-    let { url } = value;
-
+    // Empty url - `@import "";` or `@import url();`
     if (url.trim().length === 0) {
       result.warn(`Unable to find uri in "${atRule.toString()}"`, {
         node: atRule,
@@ -73,18 +71,19 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
     }
 
     if (isUrlRequest(url)) {
-      const { isStringValue } = value;
-
       url = normalizeUrl(url, isStringValue);
-    }
 
-    // TODO need test
-    if (!url) {
-      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
-        node: atRule,
-      });
+      // Empty url after normalize - `@import '\
+      // \
+      // \
+      // ';
+      if (url.trim().length === 0) {
+        result.warn(`Unable to find uri in "${atRule.toString()}"`, {
+          node: atRule,
+        });
 
-      return;
+        return;
+      }
     }
 
     const media = valueParser
