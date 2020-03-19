@@ -24,7 +24,7 @@ function getParsedValue(node) {
   return null;
 }
 
-function getUrlAndImport(nodes) {
+function getUrl(nodes) {
   const value = getParsedValue(nodes[0]);
 
   if (!value) {
@@ -43,13 +43,7 @@ function getUrlAndImport(nodes) {
     url = normalizeUrl(url, isStringValue);
   }
 
-  return {
-    url,
-    media: valueParser
-      .stringify(nodes.slice(1))
-      .trim()
-      .toLowerCase(),
-  };
+  return url;
 }
 
 export default postcss.plugin(pluginName, (options) => (css, result) => {
@@ -77,16 +71,21 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       return;
     }
 
-    const item = getUrlAndImport(nodes);
+    const url = getUrl(nodes);
 
-    if (!item) {
+    if (!url) {
       // eslint-disable-next-line consistent-return
       return result.warn(`Unable to find uri in "${atRule.toString()}"`, {
         node: atRule,
       });
     }
 
-    if (options.filter && !options.filter(item)) {
+    const media = valueParser
+      .stringify(nodes.slice(1))
+      .trim()
+      .toLowerCase();
+
+    if (options.filter && !options.filter({ url, media })) {
       return;
     }
 
@@ -95,7 +94,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
     result.messages.push({
       pluginName,
       type: 'import',
-      value: { type: '@import', url: item.url, media: item.media },
+      value: { type: '@import', url, media },
     });
   });
 });
