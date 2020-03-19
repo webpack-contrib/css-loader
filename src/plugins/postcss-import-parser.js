@@ -24,13 +24,7 @@ function getParsedValue(node) {
   return null;
 }
 
-function getUrl(nodes) {
-  const value = getParsedValue(nodes[0]);
-
-  if (!value) {
-    return null;
-  }
-
+function getUrl(value) {
   let { url } = value;
 
   if (url.trim().length === 0) {
@@ -71,7 +65,17 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       return;
     }
 
-    const url = getUrl(nodes);
+    const value = getParsedValue(nodes[0]);
+
+    if (!value) {
+      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
+        node: atRule,
+      });
+
+      return;
+    }
+
+    const url = getUrl(value);
 
     if (!url) {
       // eslint-disable-next-line consistent-return
