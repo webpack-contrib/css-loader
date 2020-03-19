@@ -4,11 +4,7 @@
 */
 import path from 'path';
 
-import loaderUtils, {
-  isUrlRequest,
-  stringifyRequest,
-  urlToRequest,
-} from 'loader-utils';
+import loaderUtils, { stringifyRequest, urlToRequest } from 'loader-utils';
 import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
 import modulesValues from 'postcss-modules-values';
@@ -239,10 +235,10 @@ function getImportCode(
     switch (item.type) {
       case '@import':
         {
-          const { url, media } = item;
+          const { isRequestable, url, media } = item;
           const preparedMedia = media ? `, ${JSON.stringify(media)}` : '';
 
-          if (!isUrlRequest(url)) {
+          if (!isRequestable) {
             codeItems.push(
               `exports.push([module.id, ${JSON.stringify(
                 `@import url(${url});`

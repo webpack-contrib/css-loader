@@ -70,7 +70,9 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       return;
     }
 
-    if (isUrlRequest(url)) {
+    const isRequestable = isUrlRequest(url);
+
+    if (isRequestable) {
       url = normalizeUrl(url, isStringValue);
 
       // Empty url after normalize - `@import '\
@@ -100,7 +102,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
     result.messages.push({
       pluginName,
       type: 'import',
-      value: { type: '@import', url, media },
+      value: { type: '@import', isRequestable, url, media },
     });
   });
 });
