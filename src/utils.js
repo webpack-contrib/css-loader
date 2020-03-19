@@ -211,16 +211,15 @@ function getImportCode(
   let importPrefix;
 
   if (exportType === 'full') {
+    const apiUrl = stringifyRequest(
+      loaderContext,
+      require.resolve('./runtime/api')
+    );
+
     importItems.push(
       esModule
-        ? `import ___CSS_LOADER_API_IMPORT___ from ${stringifyRequest(
-            loaderContext,
-            require.resolve('./runtime/api')
-          )};`
-        : `var ___CSS_LOADER_API_IMPORT___ = require(${stringifyRequest(
-            loaderContext,
-            require.resolve('./runtime/api')
-          )});`
+        ? `import ___CSS_LOADER_API_IMPORT___ from ${apiUrl};`
+        : `var ___CSS_LOADER_API_IMPORT___ = require(${apiUrl});`
     );
     codeItems.push(
       esModule
@@ -254,17 +253,16 @@ function getImportCode(
               importPrefix = getImportPrefix(loaderContext, importLoaders);
             }
 
+            const importUrl = stringifyRequest(
+              loaderContext,
+              importPrefix + url
+            );
+
             importName = `___CSS_LOADER_AT_RULE_IMPORT_${atRuleImportNames.size}___`;
             importItems.push(
               esModule
-                ? `import ${importName} from ${stringifyRequest(
-                    loaderContext,
-                    importPrefix + url
-                  )};`
-                : `var ${importName} = require(${stringifyRequest(
-                    loaderContext,
-                    importPrefix + url
-                  )});`
+                ? `import ${importName} from ${importUrl};`
+                : `var ${importName} = require(${importUrl});`
             );
 
             atRuleImportNames.set(url, importName);
@@ -276,16 +274,15 @@ function getImportCode(
       case 'url':
         {
           if (urlImportNames.size === 0) {
+            const helperUrl = stringifyRequest(
+              loaderContext,
+              require.resolve('./runtime/getUrl.js')
+            );
+
             importItems.push(
               esModule
-                ? `import ___CSS_LOADER_GET_URL_IMPORT___ from ${stringifyRequest(
-                    loaderContext,
-                    require.resolve('./runtime/getUrl.js')
-                  )};`
-                : `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${stringifyRequest(
-                    loaderContext,
-                    require.resolve('./runtime/getUrl.js')
-                  )});`
+                ? `import ___CSS_LOADER_GET_URL_IMPORT___ from ${helperUrl};`
+                : `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${helperUrl});`
             );
           }
 
@@ -294,17 +291,13 @@ function getImportCode(
           let importName = urlImportNames.get(url);
 
           if (!importName) {
+            const importUrl = stringifyRequest(loaderContext, url);
+
             importName = `___CSS_LOADER_URL_IMPORT_${urlImportNames.size}___`;
             importItems.push(
               esModule
-                ? `import ${importName} from ${stringifyRequest(
-                    loaderContext,
-                    url
-                  )};`
-                : `var ${importName} = require(${stringifyRequest(
-                    loaderContext,
-                    url
-                  )});`
+                ? `import ${importName} from ${importUrl};`
+                : `var ${importName} = require(${importUrl});`
             );
 
             urlImportNames.set(url, importName);
@@ -330,16 +323,12 @@ function getImportCode(
             importPrefix = getImportPrefix(loaderContext, importLoaders);
           }
 
+          const importUrl = stringifyRequest(loaderContext, importPrefix + url);
+
           importItems.push(
             esModule
-              ? `import ${importName} from ${stringifyRequest(
-                  loaderContext,
-                  importPrefix + url
-                )};`
-              : `var ${importName} = require(${stringifyRequest(
-                  loaderContext,
-                  importPrefix + url
-                )});`
+              ? `import ${importName} from ${importUrl};`
+              : `var ${importName} = require(${importUrl});`
           );
 
           if (exportType === 'full') {
