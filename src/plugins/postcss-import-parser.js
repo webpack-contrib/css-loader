@@ -6,17 +6,19 @@ import { normalizeUrl } from '../utils';
 
 const pluginName = 'postcss-import-parser';
 
-function getParsedValue(node) {
-  if (node.type === 'function' && node.value.toLowerCase() === 'url') {
-    const { nodes } = node;
-    const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
-    const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
+function getParsedValue(nodes) {
+  if (nodes[0].type === 'function' && nodes[0].value.toLowerCase() === 'url') {
+    const isStringValue =
+      nodes[0].nodes.length !== 0 && nodes[0].nodes[0].type === 'string';
+    const url = isStringValue
+      ? nodes[0].nodes[0].value
+      : valueParser.stringify(nodes[0].nodes);
 
     return { url, isStringValue };
   }
 
-  if (node.type === 'string') {
-    const url = node.value;
+  if (nodes[0].type === 'string') {
+    const url = nodes[0].value;
 
     return { url, isStringValue: true };
   }
@@ -50,7 +52,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       return;
     }
 
-    const value = getParsedValue(nodes[0]);
+    const value = getParsedValue(nodes);
 
     if (!value) {
       result.warn(`Unable to find uri in "${atRule.toString()}"`, {
