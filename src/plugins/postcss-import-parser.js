@@ -76,11 +76,13 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       url = normalizeUrl(url, isStringValue);
     }
 
+    // TODO need test
     if (!url) {
-      // eslint-disable-next-line consistent-return
-      return result.warn(`Unable to find uri in "${atRule.toString()}"`, {
+      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
         node: atRule,
       });
+
+      return;
     }
 
     const media = valueParser
