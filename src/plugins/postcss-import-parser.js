@@ -24,7 +24,7 @@ function getParsedValue(node) {
   return null;
 }
 
-function parseImport(params) {
+function getUrlAndImport(params) {
   const { nodes } = valueParser(params);
 
   if (nodes.length === 0) {
@@ -58,9 +58,7 @@ function parseImport(params) {
   };
 }
 
-function walkAtRules(css, result, filter) {
-  const items = [];
-
+export default postcss.plugin(pluginName, (options) => (css, result) => {
   css.walkAtRules(/^import$/i, (atRule) => {
     // Convert only top-level @import
     if (atRule.parent.type !== 'root') {
@@ -76,41 +74,25 @@ function walkAtRules(css, result, filter) {
       return;
     }
 
-    const parsed = parseImport(atRule.params);
+    const item = getUrlAndImport(atRule.params);
 
-    if (!parsed) {
+    if (!item) {
       // eslint-disable-next-line consistent-return
       return result.warn(`Unable to find uri in '${atRule.toString()}'`, {
         node: atRule,
       });
     }
 
-    if (filter && !filter(parsed)) {
+    if (options.filter && !options.filter(item)) {
       return;
     }
 
     atRule.remove();
 
-    items.push(parsed);
+    result.messages.push({
+      pluginName,
+      type: 'import',
+      value: { type: '@import', url: item.url, media: item.media },
+    });
   });
-
-  return items;
-}
-
-export default postcss.plugin(
-  pluginName,
-  (options) =>
-    function process(css, result) {
-      const items = walkAtRules(css, result, options.filter);
-
-      items.forEach((item) => {
-        const { url, media } = item;
-
-        result.messages.push({
-          pluginName,
-          type: 'import',
-          value: { type: '@import', url, media },
-        });
-      });
-    }
-);
+});
