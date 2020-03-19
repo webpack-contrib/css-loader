@@ -67,8 +67,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
     if (atRule.nodes) {
       result.warn(
-        "It looks like you didn't end your @import statement correctly. " +
-          'Child nodes are attached to it.',
+        "It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
         { node: atRule }
       );
       return;
