@@ -59,128 +59,80 @@ function walkUrls(parsed, callback) {
   });
 }
 
-function getUrlsFromValue(value, result, filter, decl) {
-  if (!needParseDecl.test(value)) {
-    return;
-  }
-
-  const parsed = valueParser(value);
-  const urls = [];
-
-  walkUrls(parsed, (node, url, needQuotes, isStringValue) => {
-    if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
-      result.warn(`Unable to find uri in '${decl ? decl.toString() : value}'`, {
-        node: decl,
-      });
-
-      return;
-    }
-
-    if (filter && !filter(url)) {
-      return;
-    }
-
-    const splittedUrl = url.split(/(\?)?#/);
-    const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
-    const hash =
-      singleQuery || hashValue
-        ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
-        : '';
-
-    const normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
-
-    urls.push({ node, url: normalizedUrl, hash, needQuotes });
-  });
-
-  // eslint-disable-next-line consistent-return
-  return { parsed, urls };
-}
-
-function walkDecls(css, result, filter) {
-  const items = [];
+export default postcss.plugin(pluginName, (options) => (css, result) => {
+  const importsMap = new Map();
+  const replacersMap = new Map();
 
   css.walkDecls((decl) => {
-    const item = getUrlsFromValue(decl.value, result, filter, decl);
-
-    if (!item || item.urls.length === 0) {
+    if (!needParseDecl.test(decl.value)) {
       return;
     }
 
-    items.push({ decl, parsed: item.parsed, urls: item.urls });
-  });
+    const parsed = valueParser(decl.value);
 
-  return items;
-}
-
-function flatten(array) {
-  return array.reduce((a, b) => a.concat(b), []);
-}
-
-function collectUniqueUrlsWithNodes(array) {
-  return array.reduce((accumulator, currentValue) => {
-    const { url, needQuotes, hash, node } = currentValue;
-    const found = accumulator.find(
-      (item) =>
-        url === item.url && needQuotes === item.needQuotes && hash === item.hash
-    );
-
-    if (!found) {
-      accumulator.push({ url, hash, needQuotes, nodes: [node] });
-    } else {
-      found.nodes.push(node);
-    }
-
-    return accumulator;
-  }, []);
-}
-
-export default postcss.plugin(
-  pluginName,
-  (options) =>
-    function process(css, result) {
-      const traversed = walkDecls(css, result, options.filter);
-      const flattenTraversed = flatten(traversed.map((item) => item.urls));
-      const urlsWithNodes = collectUniqueUrlsWithNodes(flattenTraversed);
-      const replacers = new Map();
-
-      urlsWithNodes.forEach((urlWithNodes, index) => {
-        const { url, hash, needQuotes, nodes } = urlWithNodes;
-        const replacementName = `___CSS_LOADER_URL_REPLACEMENT_${index}___`;
-
-        result.messages.push(
-          {
-            pluginName,
-            type: 'import',
-            value: { type: 'url', replacementName, url, needQuotes, hash },
-          },
-          {
-            pluginName,
-            type: 'replacer',
-            value: { type: 'url', replacementName },
-          }
+    walkUrls(parsed, (node, url, needQuotes, isStringValue) => {
+      if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
+        result.warn(
+          `Unable to find uri in '${decl ? decl.toString() : decl.value}'`,
+          { node: decl }
         );
 
-        nodes.forEach((node) => {
-          replacers.set(node, replacementName);
+        return;
+      }
+
+      if (options.filter && !options.filter(url)) {
+        return;
+      }
+
+      const splittedUrl = url.split(/(\?)?#/);
+      const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
+      const hash =
+        singleQuery || hashValue
+          ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
+          : '';
+
+      const normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
+
+      const importKey = normalizedUrl;
+      let importName = importsMap.get(importKey);
+
+      if (!importName) {
+        importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
+        importsMap.set(importKey, importName);
+
+        result.messages.push({
+          pluginName,
+          type: 'import',
+          value: {
+            type: 'url',
+            importName,
+            url: normalizedUrl,
+          },
         });
-      });
+      }
 
-      traversed.forEach((item) => {
-        walkUrls(item.parsed, (node) => {
-          const replacementName = replacers.get(node);
+      const replacerKey = JSON.stringify({ importKey, hash, needQuotes });
 
-          if (!replacementName) {
-            return;
-          }
+      let replacerName = replacersMap.get(replacerKey);
 
-          // eslint-disable-next-line no-param-reassign
-          node.type = 'word';
-          // eslint-disable-next-line no-param-reassign
-          node.value = replacementName;
+      if (!replacerName) {
+        replacerName = `___CSS_LOADER_URL_REPLACEMENT_${replacersMap.size}___`;
+        replacersMap.set(replacerKey, replacerName);
+
+        result.messages.push({
+          pluginName,
+          type: 'replacer',
+          value: { type: 'url', replacerName, importName, hash, needQuotes },
         });
+      }
 
-        // eslint-disable-next-line no-param-reassign
-        item.decl.value = item.parsed.toString();
-      });
-    }
-);
+      // eslint-disable-next-line no-param-reassign
+      node.type = 'word';
+      // eslint-disable-next-line no-param-reassign
+      node.value = replacerName;
+    });
+
+    // eslint-disable-next-line no-param-reassign
+    decl.value = parsed.toString();
+  });
+});
