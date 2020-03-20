@@ -112,10 +112,6 @@ function walkDecls(css, result, filter) {
   return items;
 }
 
-function flatten(array) {
-  return array.reduce((a, b) => a.concat(b), []);
-}
-
 function collectUniqueUrlsWithNodes(array) {
   return array.reduce((accumulator, currentValue) => {
     const { url, needQuotes, hash, node } = currentValue;
@@ -139,8 +135,9 @@ export default postcss.plugin(
   (options) =>
     function process(css, result) {
       const traversed = walkDecls(css, result, options.filter);
-      const flattenTraversed = flatten(traversed.map((item) => item.urls));
-      const urlsWithNodes = collectUniqueUrlsWithNodes(flattenTraversed);
+      const urlsWithNodes = collectUniqueUrlsWithNodes(
+        traversed.map((item) => item.urls).reduce((a, b) => a.concat(b), [])
+      );
       const replacers = new Map();
 
       urlsWithNodes.forEach((urlWithNodes, index) => {
