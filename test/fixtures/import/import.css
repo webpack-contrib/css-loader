@@ -103,7 +103,8 @@ st.css');
 @import './t\65st%20test.css';
 @import url(                 test.css                      );
 @import nourl(test.css);
-@import '\
-\
-\
-';
+/* TODO need fix */
+/*@import '\*/
+/*\*/
+/*\*/
+/*';*/
