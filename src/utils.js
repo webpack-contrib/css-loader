@@ -206,8 +206,8 @@ function getImportCode(
   const importItems = [];
   const codeItems = [];
   const atRuleImportNames = new Map();
-  const urlImportNames = new Map();
 
+  let hasUrlHelper = false;
   let importPrefix;
 
   if (exportType === 'full') {
@@ -273,7 +273,7 @@ function getImportCode(
         break;
       case 'url':
         {
-          if (urlImportNames.size === 0) {
+          if (!hasUrlHelper) {
             const helperUrl = stringifyRequest(
               loaderContext,
               require.resolve('./runtime/getUrl.js')
@@ -284,33 +284,16 @@ function getImportCode(
                 ? `import ___CSS_LOADER_GET_URL_IMPORT___ from ${helperUrl};`
                 : `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${helperUrl});`
             );
+            hasUrlHelper = true;
           }
 
-          const { replacementName, url, hash, needQuotes } = item;
+          const { importName, url } = item;
+          const importUrl = stringifyRequest(loaderContext, url);
 
-          let importName = urlImportNames.get(url);
-
-          if (!importName) {
-            const importUrl = stringifyRequest(loaderContext, url);
-
-            importName = `___CSS_LOADER_URL_IMPORT_${urlImportNames.size}___`;
-            importItems.push(
-              esModule
-                ? `import ${importName} from ${importUrl};`
-                : `var ${importName} = require(${importUrl});`
-            );
-
-            urlImportNames.set(url, importName);
-          }
-
-          const getUrlOptions = []
-            .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
-            .concat(needQuotes ? 'needQuotes: true' : []);
-          const preparedOptions =
-            getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
-
-          codeItems.push(
-            `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});`
+          importItems.push(
+            esModule
+              ? `import ${importName} from ${importUrl};`
+              : `var ${importName} = require(${importUrl});`
           );
         }
         break;
@@ -359,19 +342,30 @@ function getModuleCode(
   const sourceMapValue = sourceMap && map ? `,${map}` : '';
 
   let cssCode = JSON.stringify(css);
+  let replacersCode = '';
 
   replacers.forEach((replacer) => {
-    const { type, replacementName } = replacer;
+    const { type } = replacer;
 
     if (type === 'url') {
+      const { replacerName, importName, hash, needQuotes } = replacer;
+
+      const getUrlOptions = []
+        .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
+        .concat(needQuotes ? 'needQuotes: true' : []);
+      const preparedOptions =
+        getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
+
+      replacersCode += `var ${replacerName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
+
       cssCode = cssCode.replace(
-        new RegExp(replacementName, 'g'),
-        () => `" + ${replacementName} + "`
+        new RegExp(replacerName, 'g'),
+        () => `" + ${replacerName} + "`
       );
     }
 
     if (type === 'icss-import') {
-      const { importName, localName } = replacer;
+      const { importName, localName, replacementName } = replacer;
 
       cssCode = cssCode.replace(
         new RegExp(replacementName, 'g'),
@@ -380,7 +374,7 @@ function getModuleCode(
     }
   });
 
-  return `// Module\nexports.push([module.id, ${cssCode}, ""${sourceMapValue}]);\n`;
+  return `${replacersCode}// Module\nexports.push([module.id, ${cssCode}, ""${sourceMapValue}]);\n`;
 }
 
 function dashesCamelCase(str) {

@@ -59,58 +59,9 @@ function walkUrls(parsed, callback) {
   });
 }
 
-function getUrlsFromValue(parsed, value, result, filter, decl) {
-  const urls = [];
-
-  walkUrls(parsed, (node, url, needQuotes, isStringValue) => {
-    if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
-      result.warn(`Unable to find uri in '${decl ? decl.toString() : value}'`, {
-        node: decl,
-      });
-
-      return;
-    }
-
-    if (filter && !filter(url)) {
-      return;
-    }
-
-    const splittedUrl = url.split(/(\?)?#/);
-    const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
-    const hash =
-      singleQuery || hashValue
-        ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
-        : '';
-
-    const normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
-
-    urls.push({ node, url: normalizedUrl, hash, needQuotes });
-  });
-
-  // eslint-disable-next-line consistent-return
-  return { parsed, urls };
-}
-
-function collectUniqueUrlsWithNodes(array) {
-  return array.reduce((accumulator, currentValue) => {
-    const { url, needQuotes, hash, node } = currentValue;
-    const found = accumulator.find(
-      (item) =>
-        url === item.url && needQuotes === item.needQuotes && hash === item.hash
-    );
-
-    if (!found) {
-      accumulator.push({ url, hash, needQuotes, nodes: [node] });
-    } else {
-      found.nodes.push(node);
-    }
-
-    return accumulator;
-  }, []);
-}
-
 export default postcss.plugin(pluginName, (options) => (css, result) => {
-  const items = [];
+  const importsMap = new Map();
+  const replacersMap = new Map();
 
   css.walkDecls((decl) => {
     if (!needParseDecl.test(decl.value)) {
@@ -119,63 +70,69 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
     const parsed = valueParser(decl.value);
 
-    const item = getUrlsFromValue(
-      parsed,
-      decl.value,
-      result,
-      options.filter,
-      decl
-    );
+    walkUrls(parsed, (node, url, needQuotes, isStringValue) => {
+      if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
+        result.warn(
+          `Unable to find uri in '${decl ? decl.toString() : decl.value}'`,
+          { node: decl }
+        );
 
-    if (!item || item.urls.length === 0) {
-      return;
-    }
-
-    items.push({ decl, parsed: item.parsed, urls: item.urls });
-  });
-
-  const urlsWithNodes = collectUniqueUrlsWithNodes(
-    items.map((item) => item.urls).reduce((a, b) => a.concat(b), [])
-  );
-  const replacers = new Map();
-
-  urlsWithNodes.forEach((urlWithNodes, index) => {
-    const { url, hash, needQuotes, nodes } = urlWithNodes;
-    const replacementName = `___CSS_LOADER_URL_REPLACEMENT_${index}___`;
-
-    result.messages.push(
-      {
-        pluginName,
-        type: 'import',
-        value: { type: 'url', replacementName, url, needQuotes, hash },
-      },
-      {
-        pluginName,
-        type: 'replacer',
-        value: { type: 'url', replacementName },
-      }
-    );
-
-    nodes.forEach((node) => {
-      replacers.set(node, replacementName);
-    });
-  });
-
-  items.forEach((item) => {
-    walkUrls(item.parsed, (node) => {
-      const replacementName = replacers.get(node);
-
-      if (!replacementName) {
         return;
+      }
+
+      if (options.filter && !options.filter(url)) {
+        return;
+      }
+
+      const splittedUrl = url.split(/(\?)?#/);
+      const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
+      const hash =
+        singleQuery || hashValue
+          ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
+          : '';
+
+      const normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
+
+      const importKey = normalizedUrl;
+      let importName = importsMap.get(importKey);
+
+      if (!importName) {
+        importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
+        importsMap.set(importKey, importName);
+
+        result.messages.push({
+          pluginName,
+          type: 'import',
+          value: {
+            type: 'url',
+            importName,
+            url: normalizedUrl,
+          },
+        });
+      }
+
+      const replacerKey = JSON.stringify({ importKey, hash, needQuotes });
+
+      let replacerName = replacersMap.get(replacerKey);
+
+      if (!replacerName) {
+        replacerName = `___CSS_LOADER_URL_REPLACEMENT_${replacersMap.size}___`;
+        replacersMap.set(replacerKey, replacerName);
+
+        result.messages.push({
+          pluginName,
+          type: 'replacer',
+          value: { type: 'url', replacerName, importName, hash, needQuotes },
+        });
       }
 
       // eslint-disable-next-line no-param-reassign
       node.type = 'word';
       // eslint-disable-next-line no-param-reassign
-      node.value = replacementName;
+      node.value = replacerName;
     });
 
     // eslint-disable-next-line no-param-reassign
-    item.decl.value = item.parsed.toString();
+    decl.value = parsed.toString();
   });
 });
