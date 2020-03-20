@@ -6,111 +6,103 @@ import { normalizeUrl } from '../utils';
 
 const pluginName = 'postcss-import-parser';
 
-function getParsedValue(node) {
-  if (node.type === 'function' && node.value.toLowerCase() === 'url') {
-    const { nodes } = node;
-    const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
-    const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
-
-    return { url, isStringValue };
-  }
-
-  if (node.type === 'string') {
-    const url = node.value;
-
-    return { url, isStringValue: true };
-  }
-
-  return null;
-}
-
-function parseImport(params) {
-  const { nodes } = valueParser(params);
-
-  if (nodes.length === 0) {
-    return null;
-  }
-
-  const value = getParsedValue(nodes[0]);
-
-  if (!value) {
-    return null;
-  }
-
-  let { url } = value;
-
-  if (url.trim().length === 0) {
-    return null;
-  }
-
-  if (isUrlRequest(url)) {
-    const { isStringValue } = value;
-
-    url = normalizeUrl(url, isStringValue);
-  }
-
-  return {
-    url,
-    media: valueParser
-      .stringify(nodes.slice(1))
-      .trim()
-      .toLowerCase(),
-  };
-}
-
-function walkAtRules(css, result, filter) {
-  const items = [];
-
+export default postcss.plugin(pluginName, (options) => (css, result) => {
   css.walkAtRules(/^import$/i, (atRule) => {
     // Convert only top-level @import
     if (atRule.parent.type !== 'root') {
       return;
     }
 
+    // Nodes do not exists - `@import url('http://') :root {}`
     if (atRule.nodes) {
       result.warn(
-        "It looks like you didn't end your @import statement correctly. " +
-          'Child nodes are attached to it.',
+        "It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
         { node: atRule }
       );
+
       return;
     }
 
-    const parsed = parseImport(atRule.params);
+    const { nodes } = valueParser(atRule.params);
 
-    if (!parsed) {
-      // eslint-disable-next-line consistent-return
-      return result.warn(`Unable to find uri in '${atRule.toString()}'`, {
+    // No nodes - `@import ;`
+    // Invalid type - `@import foo-bar;`
+    if (
+      nodes.length === 0 ||
+      (nodes[0].type !== 'string' && nodes[0].type !== 'function')
+    ) {
+      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
         node: atRule,
       });
+
+      return;
     }
 
-    if (filter && !filter(parsed)) {
+    let isStringValue;
+    let url;
+
+    if (nodes[0].type === 'string') {
+      isStringValue = true;
+      url = nodes[0].value;
+    } else if (nodes[0].type === 'function') {
+      // Invalid function - `@import nourl(test.css);`
+      if (nodes[0].value.toLowerCase() !== 'url') {
+        result.warn(`Unable to find uri in "${atRule.toString()}"`, {
+          node: atRule,
+        });
+
+        return;
+      }
+
+      isStringValue =
+        nodes[0].nodes.length !== 0 && nodes[0].nodes[0].type === 'string';
+      url = isStringValue
+        ? nodes[0].nodes[0].value
+        : valueParser.stringify(nodes[0].nodes);
+    }
+
+    // Empty url - `@import "";` or `@import url();`
+    if (url.trim().length === 0) {
+      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
+        node: atRule,
+      });
+
+      return;
+    }
+
+    const isRequestable = isUrlRequest(url);
+
+    if (isRequestable) {
+      url = normalizeUrl(url, isStringValue);
+
+      // Empty url after normalize - `@import '\
+      // \
+      // \
+      // ';
+      if (url.trim().length === 0) {
+        result.warn(`Unable to find uri in "${atRule.toString()}"`, {
+          node: atRule,
+        });
+
+        return;
+      }
+    }
+
+    const media = valueParser
+      .stringify(nodes.slice(1))
+      .trim()
+      .toLowerCase();
+
+    if (options.filter && !options.filter({ url, media })) {
       return;
     }
 
     atRule.remove();
 
-    items.push(parsed);
+    result.messages.push({
+      pluginName,
+      type: 'import',
+      value: { type: '@import', isRequestable, url, media },
+    });
   });
-
-  return items;
-}
-
-export default postcss.plugin(
-  pluginName,
-  (options) =>
-    function process(css, result) {
-      const items = walkAtRules(css, result, options.filter);
-
-      items.forEach((item) => {
-        const { url, media } = item;
-
-        result.messages.push({
-          pluginName,
-          type: 'import',
-          value: { type: '@import', url, media },
-        });
-      });
-    }
-);
+});

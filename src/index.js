@@ -138,7 +138,7 @@ export default function loader(content, map, meta) {
         esModule
       );
 
-      return callback(null, [importCode, moduleCode, exportCode].join(''));
+      return callback(null, `${importCode}${moduleCode}${exportCode}`);
     })
     .catch((error) => {
       callback(
