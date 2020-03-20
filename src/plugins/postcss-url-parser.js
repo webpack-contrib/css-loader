@@ -96,22 +96,6 @@ function getUrlsFromValue(value, result, filter, decl) {
   return { parsed, urls };
 }
 
-function walkDecls(css, result, filter) {
-  const items = [];
-
-  css.walkDecls((decl) => {
-    const item = getUrlsFromValue(decl.value, result, filter, decl);
-
-    if (!item || item.urls.length === 0) {
-      return;
-    }
-
-    items.push({ decl, parsed: item.parsed, urls: item.urls });
-  });
-
-  return items;
-}
-
 function collectUniqueUrlsWithNodes(array) {
   return array.reduce((accumulator, currentValue) => {
     const { url, needQuotes, hash, node } = currentValue;
@@ -130,54 +114,61 @@ function collectUniqueUrlsWithNodes(array) {
   }, []);
 }
 
-export default postcss.plugin(
-  pluginName,
-  (options) =>
-    function process(css, result) {
-      const traversed = walkDecls(css, result, options.filter);
-      const urlsWithNodes = collectUniqueUrlsWithNodes(
-        traversed.map((item) => item.urls).reduce((a, b) => a.concat(b), [])
-      );
-      const replacers = new Map();
+export default postcss.plugin(pluginName, (options) => (css, result) => {
+  const items = [];
 
-      urlsWithNodes.forEach((urlWithNodes, index) => {
-        const { url, hash, needQuotes, nodes } = urlWithNodes;
-        const replacementName = `___CSS_LOADER_URL_REPLACEMENT_${index}___`;
+  css.walkDecls((decl) => {
+    const item = getUrlsFromValue(decl.value, result, options.filter, decl);
 
-        result.messages.push(
-          {
-            pluginName,
-            type: 'import',
-            value: { type: 'url', replacementName, url, needQuotes, hash },
-          },
-          {
-            pluginName,
-            type: 'replacer',
-            value: { type: 'url', replacementName },
-          }
-        );
-
-        nodes.forEach((node) => {
-          replacers.set(node, replacementName);
-        });
-      });
-
-      traversed.forEach((item) => {
-        walkUrls(item.parsed, (node) => {
-          const replacementName = replacers.get(node);
-
-          if (!replacementName) {
-            return;
-          }
-
-          // eslint-disable-next-line no-param-reassign
-          node.type = 'word';
-          // eslint-disable-next-line no-param-reassign
-          node.value = replacementName;
-        });
-
-        // eslint-disable-next-line no-param-reassign
-        item.decl.value = item.parsed.toString();
-      });
+    if (!item || item.urls.length === 0) {
+      return;
     }
-);
+
+    items.push({ decl, parsed: item.parsed, urls: item.urls });
+  });
+
+  const urlsWithNodes = collectUniqueUrlsWithNodes(
+    items.map((item) => item.urls).reduce((a, b) => a.concat(b), [])
+  );
+  const replacers = new Map();
+
+  urlsWithNodes.forEach((urlWithNodes, index) => {
+    const { url, hash, needQuotes, nodes } = urlWithNodes;
+    const replacementName = `___CSS_LOADER_URL_REPLACEMENT_${index}___`;
+
+    result.messages.push(
+      {
+        pluginName,
+        type: 'import',
+        value: { type: 'url', replacementName, url, needQuotes, hash },
+      },
+      {
+        pluginName,
+        type: 'replacer',
+        value: { type: 'url', replacementName },
+      }
+    );
+
+    nodes.forEach((node) => {
+      replacers.set(node, replacementName);
+    });
+  });
+
+  items.forEach((item) => {
+    walkUrls(item.parsed, (node) => {
+      const replacementName = replacers.get(node);
+
+      if (!replacementName) {
+        return;
+      }
+
+      // eslint-disable-next-line no-param-reassign
+      node.type = 'word';
+      // eslint-disable-next-line no-param-reassign
+      node.value = replacementName;
+    });
+
+    // eslint-disable-next-line no-param-reassign
+    item.decl.value = item.parsed.toString();
+  });
+});
