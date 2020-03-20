@@ -59,12 +59,7 @@ function walkUrls(parsed, callback) {
   });
 }
 
-function getUrlsFromValue(value, result, filter, decl) {
-  if (!needParseDecl.test(value)) {
-    return;
-  }
-
-  const parsed = valueParser(value);
+function getUrlsFromValue(parsed, value, result, filter, decl) {
   const urls = [];
 
   walkUrls(parsed, (node, url, needQuotes, isStringValue) => {
@@ -118,7 +113,19 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
   const items = [];
 
   css.walkDecls((decl) => {
-    const item = getUrlsFromValue(decl.value, result, options.filter, decl);
+    if (!needParseDecl.test(decl.value)) {
+      return;
+    }
+
+    const parsed = valueParser(decl.value);
+
+    const item = getUrlsFromValue(
+      parsed,
+      decl.value,
+      result,
+      options.filter,
+      decl
+    );
 
     if (!item || item.urls.length === 0) {
       return;
