@@ -934,6 +934,7 @@ var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../../src/index.js??[
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"../../url/img.png\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"(min-width: 100px)\\");
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 exports.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
 exports.i(___CSS_LOADER_ICSS_IMPORT_2___, \\"\\", true);
@@ -941,7 +942,6 @@ exports.i(___CSS_LOADER_ICSS_IMPORT_3___, \\"\\", true);
 exports.i(___CSS_LOADER_ICSS_IMPORT_4___, \\"\\", true);
 exports.i(___CSS_LOADER_ICSS_IMPORT_5___, \\"\\", true);
 exports.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"(min-width: 100px)\\");
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
 exports.push([module.id, \\".fSErEFKw3e7Iv0EmVr4Ii {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1NrOxbibeQ5qcRoPL7kDtu {\\\\n  color: blue;\\\\n}\\\\n\\\\n.djNAVB7y500wM1pkOwuGn {\\\\n  display: block;\\\\n}\\\\n\\\\n._291GtMV2HIwa4Iis74myBh {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._2KPSOif5_L54Ue252-4SMZ {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._1ZuFusdyp6cE2KJ9RECux1 {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.dMcylihD3G3oGCNWDsAa3 {\\\\n  color: red;\\\\n}\\\\n\\\\n._2t9qA9qE4OH2A3DVwUtOFP {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._1XQGy4UOqsVVHSULdn-uc6 {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3oZRfl5v6W4ji2oerfYhpL {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1KLfOsDDmt6EGUIDKukOvV {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n.PxB1r-csu3e3lUOZiD69t {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n._2nUmv-YIlxvzza9j2rJQjJ {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._21OP3aGLw7Si4lLuiK3vhf {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._21OP3aGLw7Si4lLuiK3vhf {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n.zbowt65f4EBNzWh_uiPv0 {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._3yApLlXpoidfnd3JfO_WEf {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
@@ -999,6 +999,14 @@ module.exports = exports;
 exports[`"modules" option should support resolving in composes: result 1`] = `
 Array [
   Array [
+    "../../src/index.js?[ident]!./modules/composes/test-other.css",
+    "._2KbNYW68v_VxbQ8XdpUuGh {
+  d: d;
+}
+",
+    "(min-width: 100px)",
+  ],
+  Array [
     "../../src/index.js?[ident]!./modules/composes/values.css",
     "
 ",
@@ -1049,14 +1057,6 @@ Array [
 }
 ",
     "",
-  ],
-  Array [
-    "../../src/index.js?[ident]!./modules/composes/test-other.css",
-    "._2KbNYW68v_VxbQ8XdpUuGh {
-  d: d;
-}
-",
-    "(min-width: 100px)",
   ],
   Array [
     "./modules/composes/composes.css",

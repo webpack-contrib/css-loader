@@ -271,10 +271,9 @@ function getImportCode(
             : `var ${importName} = require(${importUrl});\n`;
         }
         break;
-      case 'icss-import':
+      case 'icss':
         {
-          const { importName, url, media } = item;
-          const preparedMedia = media ? `, ${JSON.stringify(media)}` : ', ""';
+          const { importName, url } = item;
 
           if (!importPrefix) {
             importPrefix = getImportPrefix(loaderContext, importLoaders);
@@ -285,10 +284,6 @@ function getImportCode(
           code += esModule
             ? `import ${importName} from ${importUrl};\n`
             : `var ${importName} = require(${importUrl});\n`;
-
-          if (exportType === 'full') {
-            apiCode += `exports.i(${importName}${preparedMedia}, true);\n`;
-          }
         }
         break;
     }
@@ -304,6 +299,8 @@ function getModuleCode(
   result,
   exportType,
   sourceMap,
+  importLoaders,
+  apiInternalImports,
   urlReplacements,
   icssReplacements
 ) {
@@ -317,8 +314,12 @@ function getModuleCode(
   let code = JSON.stringify(css);
   let beforeCode = '';
 
-  for (const replacement of urlReplacements) {
-    const { replacementName, importName, hash, needQuotes } = replacement;
+  for (const item of apiInternalImports) {
+    beforeCode += `exports.i(${item.importName}, "", true);\n`;
+  }
+
+  for (const item of urlReplacements) {
+    const { replacementName, importName, hash, needQuotes } = item;
 
     const getUrlOptions = []
       .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])

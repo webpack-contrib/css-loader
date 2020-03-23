@@ -36,10 +36,16 @@ export default postcss.plugin('postcss-icss-parser', () => (css, result) => {
   for (const [importIndex, url] of Object.keys(icssImports).entries()) {
     const importName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}___`;
 
-    result.messages.push({
-      type: 'import',
-      value: { type: 'icss-import', importName, url },
-    });
+    result.messages.push(
+      {
+        type: 'import',
+        value: { type: 'icss', importName, url },
+      },
+      {
+        type: 'api-internal-import',
+        value: { importName },
+      }
+    );
 
     const tokenMap = icssImports[url];
     const tokens = Object.keys(tokenMap);
@@ -66,9 +72,6 @@ export default postcss.plugin('postcss-icss-parser', () => (css, result) => {
   for (const name of Object.keys(icssExports)) {
     const value = replaceValueSymbols(icssExports[name], importReplacements);
 
-    result.messages.push({
-      type: 'export',
-      value: { name, value },
-    });
+    result.messages.push({ type: 'export', value: { name, value } });
   }
 });
