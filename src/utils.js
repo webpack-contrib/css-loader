@@ -262,24 +262,15 @@ function getImportCode(
         }
         break;
       case 'url':
-        {
-          const { importName, url } = item;
-          const importUrl = stringifyRequest(loaderContext, url);
-
-          code += esModule
-            ? `import ${importName} from ${importUrl};\n`
-            : `var ${importName} = require(${importUrl});\n`;
-        }
-        break;
       case 'icss':
         {
           const { importName, url } = item;
-
-          if (!importPrefix) {
-            importPrefix = getImportPrefix(loaderContext, importLoaders);
-          }
-
-          const importUrl = stringifyRequest(loaderContext, importPrefix + url);
+          const importUrl = stringifyRequest(
+            loaderContext,
+            item.type === 'icss'
+              ? getImportPrefix(loaderContext, importLoaders) + url
+              : url
+          );
 
           code += esModule
             ? `import ${importName} from ${importUrl};\n`
