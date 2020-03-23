@@ -87,9 +87,9 @@ export default function loader(content, map, meta) {
         : false,
     })
     .then((result) => {
-      result
-        .warnings()
-        .forEach((warning) => this.emitWarning(new Warning(warning)));
+      for (const warning of result.warnings()) {
+        this.emitWarning(new Warning(warning));
+      }
 
       const imports = [];
       const urlReplacements = [];
