@@ -203,8 +203,9 @@ function getImportCode(
   importLoaders,
   esModule
 ) {
-  const importItems = [];
-  const codeItems = [];
+  let code = '';
+  let apiCode = '';
+
   const atRuleImportNames = new Map();
 
   let hasUrlHelper = false;
@@ -216,16 +217,12 @@ function getImportCode(
       require.resolve('./runtime/api')
     );
 
-    importItems.push(
-      esModule
-        ? `import ___CSS_LOADER_API_IMPORT___ from ${apiUrl};`
-        : `var ___CSS_LOADER_API_IMPORT___ = require(${apiUrl});`
-    );
-    codeItems.push(
-      esModule
-        ? `var exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});`
-        : `exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});`
-    );
+    code += esModule
+      ? `import ___CSS_LOADER_API_IMPORT___ from ${apiUrl};\n`
+      : `var ___CSS_LOADER_API_IMPORT___ = require(${apiUrl});\n`;
+    apiCode += esModule
+      ? `var exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`
+      : `exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
   }
 
   imports.forEach((item) => {
@@ -237,12 +234,9 @@ function getImportCode(
           const preparedMedia = media ? `, ${JSON.stringify(media)}` : '';
 
           if (!isRequestable) {
-            codeItems.push(
-              `exports.push([module.id, ${JSON.stringify(
-                `@import url(${url});`
-              )}${preparedMedia}]);`
-            );
-
+            apiCode += `exports.push([module.id, ${JSON.stringify(
+              `@import url(${url});`
+            )}${preparedMedia}]);\n`;
             return;
           }
 
@@ -259,16 +253,14 @@ function getImportCode(
             );
 
             importName = `___CSS_LOADER_AT_RULE_IMPORT_${atRuleImportNames.size}___`;
-            importItems.push(
-              esModule
-                ? `import ${importName} from ${importUrl};`
-                : `var ${importName} = require(${importUrl});`
-            );
+            code += esModule
+              ? `import ${importName} from ${importUrl};\n`
+              : `var ${importName} = require(${importUrl});\n`;
 
             atRuleImportNames.set(url, importName);
           }
 
-          codeItems.push(`exports.i(${importName}${preparedMedia});`);
+          apiCode += `exports.i(${importName}${preparedMedia});\n`;
         }
         break;
       case 'url':
@@ -279,22 +271,18 @@ function getImportCode(
               require.resolve('./runtime/getUrl.js')
             );
 
-            importItems.push(
-              esModule
-                ? `import ___CSS_LOADER_GET_URL_IMPORT___ from ${helperUrl};`
-                : `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${helperUrl});`
-            );
+            code += esModule
+              ? `import ___CSS_LOADER_GET_URL_IMPORT___ from ${helperUrl};\n`
+              : `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${helperUrl});\n`;
             hasUrlHelper = true;
           }
 
           const { importName, url } = item;
           const importUrl = stringifyRequest(loaderContext, url);
 
-          importItems.push(
-            esModule
-              ? `import ${importName} from ${importUrl};`
-              : `var ${importName} = require(${importUrl});`
-          );
+          code += esModule
+            ? `import ${importName} from ${importUrl};\n`
+            : `var ${importName} = require(${importUrl});\n`;
         }
         break;
       case 'icss-import':
@@ -308,23 +296,21 @@ function getImportCode(
 
           const importUrl = stringifyRequest(loaderContext, importPrefix + url);
 
-          importItems.push(
-            esModule
-              ? `import ${importName} from ${importUrl};`
-              : `var ${importName} = require(${importUrl});`
-          );
+          code += esModule
+            ? `import ${importName} from ${importUrl};\n`
+            : `var ${importName} = require(${importUrl});\n`;
 
           if (exportType === 'full') {
-            codeItems.push(`exports.i(${importName}${preparedMedia}, true);`);
+            apiCode += `exports.i(${importName}${preparedMedia}, true);\n`;
           }
         }
         break;
     }
   });
 
-  const items = importItems.concat(codeItems);
+  const fullCode = code + apiCode;
 
-  return items.length > 0 ? `// Imports\n${items.join('\n')}\n` : '';
+  return fullCode.length > 0 ? `// Imports\n${fullCode}` : '';
 }
 
 function getModuleCode(
