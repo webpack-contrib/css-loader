@@ -63,6 +63,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
   const importsMap = new Map();
   const replacementsMap = new Map();
 
+  let hasHelper = false;
+
   css.walkDecls((decl) => {
     if (!needParseDecl.test(decl.value)) {
       return;
@@ -99,6 +101,20 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       if (!importName) {
         importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
         importsMap.set(importKey, importName);
+
+        if (!hasHelper) {
+          result.messages.push({
+            pluginName,
+            type: 'import',
+            value: {
+              type: 'url',
+              importName: '___CSS_LOADER_GET_URL_IMPORT___',
+              url: require.resolve('../runtime/getUrl.js'),
+            },
+          });
+
+          hasHelper = true;
+        }
 
         result.messages.push({
           pluginName,

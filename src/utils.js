@@ -208,7 +208,6 @@ function getImportCode(
 
   const atRuleImportNames = new Map();
 
-  let hasUrlHelper = false;
   let importPrefix;
 
   if (exportType === 'full') {
@@ -264,18 +263,6 @@ function getImportCode(
         break;
       case 'url':
         {
-          if (!hasUrlHelper) {
-            const helperUrl = stringifyRequest(
-              loaderContext,
-              require.resolve('./runtime/getUrl.js')
-            );
-
-            code += esModule
-              ? `import ___CSS_LOADER_GET_URL_IMPORT___ from ${helperUrl};\n`
-              : `var ___CSS_LOADER_GET_URL_IMPORT___ = require(${helperUrl});\n`;
-            hasUrlHelper = true;
-          }
-
           const { importName, url } = item;
           const importUrl = stringifyRequest(loaderContext, url);
 
