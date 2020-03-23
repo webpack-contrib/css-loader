@@ -92,8 +92,8 @@ export default function loader(content, map, meta) {
         .forEach((warning) => this.emitWarning(new Warning(warning)));
 
       const imports = [];
+      const replacements = [];
       const exports = [];
-      const replacers = [];
 
       for (const message of result.messages) {
         // eslint-disable-next-line default-case
@@ -101,11 +101,11 @@ export default function loader(content, map, meta) {
           case 'import':
             imports.push(message.value);
             break;
+          case 'replacement':
+            replacements.push(message.value);
+            break;
           case 'export':
             exports.push(message.value);
-            break;
-          case 'replacer':
-            replacers.push(message.value);
             break;
         }
       }
@@ -127,13 +127,13 @@ export default function loader(content, map, meta) {
         result,
         exportType,
         sourceMap,
-        replacers
+        replacements
       );
       const exportCode = getExportCode(
         this,
         exports,
         exportType,
-        replacers,
+        replacements,
         localsConvention,
         esModule
       );

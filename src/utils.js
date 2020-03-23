@@ -332,7 +332,7 @@ function getModuleCode(
   result,
   exportType,
   sourceMap,
-  replacers
+  replacements
 ) {
   if (exportType !== 'full') {
     return '';
@@ -342,13 +342,13 @@ function getModuleCode(
   const sourceMapValue = sourceMap && map ? `,${map}` : '';
 
   let cssCode = JSON.stringify(css);
-  let replacersCode = '';
+  let replacementsCode = '';
 
-  replacers.forEach((replacer) => {
-    const { type } = replacer;
+  replacements.forEach((replacement) => {
+    const { type, replacementName, importName } = replacement;
 
     if (type === 'url') {
-      const { replacerName, importName, hash, needQuotes } = replacer;
+      const { hash, needQuotes } = replacement;
 
       const getUrlOptions = []
         .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
@@ -356,16 +356,16 @@ function getModuleCode(
       const preparedOptions =
         getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
 
-      replacersCode += `var ${replacerName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
+      replacementsCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
 
       cssCode = cssCode.replace(
-        new RegExp(replacerName, 'g'),
-        () => `" + ${replacerName} + "`
+        new RegExp(replacementName, 'g'),
+        () => `" + ${replacementName} + "`
       );
     }
 
     if (type === 'icss-import') {
-      const { importName, localName, replacementName } = replacer;
+      const { localName } = replacement;
 
       cssCode = cssCode.replace(
         new RegExp(replacementName, 'g'),
@@ -374,7 +374,7 @@ function getModuleCode(
     }
   });
 
-  return `${replacersCode}// Module\nexports.push([module.id, ${cssCode}, ""${sourceMapValue}]);\n`;
+  return `${replacementsCode}// Module\nexports.push([module.id, ${cssCode}, ""${sourceMapValue}]);\n`;
 }
 
 function dashesCamelCase(str) {
@@ -387,7 +387,7 @@ function getExportCode(
   loaderContext,
   exports,
   exportType,
-  replacers,
+  replacements,
   localsConvention,
   esModule
 ) {
@@ -441,9 +441,9 @@ function getExportCode(
 
     exportLocalsCode = exportLocals.join(',\n');
 
-    replacers.forEach((replacer) => {
-      if (replacer.type === 'icss-import') {
-        const { replacementName, importName, localName } = replacer;
+    replacements.forEach((replacement) => {
+      if (replacement.type === 'icss-import') {
+        const { replacementName, importName, localName } = replacement;
 
         exportLocalsCode = exportLocalsCode.replace(
           new RegExp(replacementName, 'g'),

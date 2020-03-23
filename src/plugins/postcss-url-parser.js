@@ -61,7 +61,7 @@ function walkUrls(parsed, callback) {
 
 export default postcss.plugin(pluginName, (options) => (css, result) => {
   const importsMap = new Map();
-  const replacersMap = new Map();
+  const replacementsMap = new Map();
 
   css.walkDecls((decl) => {
     if (!needParseDecl.test(decl.value)) {
@@ -111,25 +111,24 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         });
       }
 
-      const replacerKey = JSON.stringify({ importKey, hash, needQuotes });
+      const replacementKey = JSON.stringify({ importKey, hash, needQuotes });
+      let replacementName = replacementsMap.get(replacementKey);
 
-      let replacerName = replacersMap.get(replacerKey);
-
-      if (!replacerName) {
-        replacerName = `___CSS_LOADER_URL_REPLACEMENT_${replacersMap.size}___`;
-        replacersMap.set(replacerKey, replacerName);
+      if (!replacementName) {
+        replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacementsMap.size}___`;
+        replacementsMap.set(replacementKey, replacementName);
 
         result.messages.push({
           pluginName,
-          type: 'replacer',
-          value: { type: 'url', replacerName, importName, hash, needQuotes },
+          type: 'replacement',
+          value: { type: 'url', replacementName, importName, hash, needQuotes },
         });
       }
 
       // eslint-disable-next-line no-param-reassign
       node.type = 'word';
       // eslint-disable-next-line no-param-reassign
-      node.value = replacerName;
+      node.value = replacementName;
     });
 
     // eslint-disable-next-line no-param-reassign
