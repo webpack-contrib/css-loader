@@ -393,45 +393,58 @@ function getExportCode(
 
   if (exports.length > 0) {
     const exportLocals = [];
-    const addExportedLocal = (name, value) => {
-      exportLocals.push(`\t${JSON.stringify(name)}: ${JSON.stringify(value)}`);
-    };
 
     exports.forEach((item) => {
       const { name, value } = item;
 
       switch (localsConvention) {
         case 'camelCase': {
-          addExportedLocal(name, value);
+          exportLocals.push(
+            `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`
+          );
 
           const modifiedName = camelCase(name);
 
           if (modifiedName !== name) {
-            addExportedLocal(modifiedName, value);
+            exportLocals.push(
+              `\t${JSON.stringify(modifiedName)}: ${JSON.stringify(value)}`
+            );
           }
           break;
         }
         case 'camelCaseOnly': {
-          addExportedLocal(camelCase(name), value);
+          exportLocals.push(
+            `\t${JSON.stringify(camelCase(name))}: ${JSON.stringify(value)}`
+          );
           break;
         }
         case 'dashes': {
-          addExportedLocal(name, value);
+          exportLocals.push(
+            `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`
+          );
 
           const modifiedName = dashesCamelCase(name);
 
           if (modifiedName !== name) {
-            addExportedLocal(modifiedName, value);
+            exportLocals.push(
+              `\t${JSON.stringify(modifiedName)}: ${JSON.stringify(value)}`
+            );
           }
           break;
         }
         case 'dashesOnly': {
-          addExportedLocal(dashesCamelCase(name), value);
+          exportLocals.push(
+            `\t${JSON.stringify(dashesCamelCase(name))}: ${JSON.stringify(
+              value
+            )}`
+          );
           break;
         }
         case 'asIs':
         default:
-          addExportedLocal(name, value);
+          exportLocals.push(
+            `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`
+          );
           break;
       }
     });
