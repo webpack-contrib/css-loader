@@ -330,8 +330,8 @@ function getModuleCode(
   let code = JSON.stringify(css);
   let beforeCode = '';
 
-  urlReplacements.forEach((urlReplacement) => {
-    const { replacementName, importName, hash, needQuotes } = urlReplacement;
+  for (const replacement of urlReplacements) {
+    const { replacementName, importName, hash, needQuotes } = replacement;
 
     const getUrlOptions = []
       .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
@@ -345,16 +345,16 @@ function getModuleCode(
       new RegExp(replacementName, 'g'),
       () => `" + ${replacementName} + "`
     );
-  });
+  }
 
-  icssReplacements.forEach((replacement) => {
+  for (const replacement of icssReplacements) {
     const { replacementName, importName, localName } = replacement;
 
     code = code.replace(
       new RegExp(replacementName, 'g'),
       () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
     );
-  });
+  }
 
   return `${beforeCode}// Module\nexports.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
 }
@@ -423,15 +423,15 @@ function getExportCode(
     }
   }
 
-  icssReplacements.forEach((icssReplacement) => {
-    const { replacementName, importName, localName } = icssReplacement;
+  for (const replacement of icssReplacements) {
+    const { replacementName, importName, localName } = replacement;
 
     localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
       exportType === 'locals'
         ? `" + ${importName}[${JSON.stringify(localName)}] + "`
         : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
     );
-  });
+  }
 
   if (exportType === 'locals') {
     code += `${esModule ? 'export default' : 'module.exports ='} ${
