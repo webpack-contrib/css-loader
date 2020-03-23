@@ -7,6 +7,8 @@ import { normalizeUrl } from '../utils';
 const pluginName = 'postcss-import-parser';
 
 export default postcss.plugin(pluginName, (options) => (css, result) => {
+  const importsMap = new Map();
+
   css.walkAtRules(/^import$/i, (atRule) => {
     // Convert only top-level @import
     if (atRule.parent.type !== 'root') {
@@ -96,10 +98,32 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
     atRule.remove();
 
+    if (isRequestable) {
+      const importKey = url;
+      let importName = importsMap.get(importKey);
+
+      if (!importName) {
+        importName = `___CSS_LOADER_AT_RULE_IMPORT_${importsMap.size}___`;
+        importsMap.set(importKey, importName);
+
+        result.messages.push({
+          type: 'import',
+          value: { type: '@import', importName, url },
+        });
+      }
+
+      result.messages.push({
+        type: 'api-import',
+        value: { type: 'internal', importName, media },
+      });
+
+      return;
+    }
+
     result.messages.push({
       pluginName,
-      type: 'import',
-      value: { type: '@import', isRequestable, url, media },
+      type: 'api-import',
+      value: { type: 'external', url, media },
     });
   });
 });

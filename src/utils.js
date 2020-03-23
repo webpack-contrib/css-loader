@@ -199,16 +199,10 @@ function getImportCode(
   loaderContext,
   imports,
   exportType,
-  sourceMap,
   importLoaders,
   esModule
 ) {
   let code = '';
-  let apiCode = '';
-
-  const atRuleImportNames = new Map();
-
-  let importPrefix;
 
   if (exportType === 'full') {
     const apiUrl = stringifyRequest(
@@ -219,76 +213,30 @@ function getImportCode(
     code += esModule
       ? `import ___CSS_LOADER_API_IMPORT___ from ${apiUrl};\n`
       : `var ___CSS_LOADER_API_IMPORT___ = require(${apiUrl});\n`;
-    apiCode += esModule
-      ? `var exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`
-      : `exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
   }
 
   for (const item of imports) {
-    // eslint-disable-next-line default-case
-    switch (item.type) {
-      case '@import':
-        {
-          const { isRequestable, url, media } = item;
-          const preparedMedia = media ? `, ${JSON.stringify(media)}` : '';
+    const { importName, url } = item;
+    const importUrl = stringifyRequest(
+      loaderContext,
+      item.type !== 'url'
+        ? getImportPrefix(loaderContext, importLoaders) + url
+        : url
+    );
 
-          if (!isRequestable) {
-            apiCode += `exports.push([module.id, ${JSON.stringify(
-              `@import url(${url});`
-            )}${preparedMedia}]);\n`;
-          } else {
-            let importName = atRuleImportNames.get(url);
-
-            if (!importName) {
-              if (!importPrefix) {
-                importPrefix = getImportPrefix(loaderContext, importLoaders);
-              }
-
-              const importUrl = stringifyRequest(
-                loaderContext,
-                importPrefix + url
-              );
-
-              importName = `___CSS_LOADER_AT_RULE_IMPORT_${atRuleImportNames.size}___`;
-              code += esModule
-                ? `import ${importName} from ${importUrl};\n`
-                : `var ${importName} = require(${importUrl});\n`;
-
-              atRuleImportNames.set(url, importName);
-            }
-
-            apiCode += `exports.i(${importName}${preparedMedia});\n`;
-          }
-        }
-        break;
-      case 'url':
-      case 'icss':
-        {
-          const { importName, url } = item;
-          const importUrl = stringifyRequest(
-            loaderContext,
-            item.type === 'icss'
-              ? getImportPrefix(loaderContext, importLoaders) + url
-              : url
-          );
-
-          code += esModule
-            ? `import ${importName} from ${importUrl};\n`
-            : `var ${importName} = require(${importUrl});\n`;
-        }
-        break;
-    }
+    code += esModule
+      ? `import ${importName} from ${importUrl};\n`
+      : `var ${importName} = require(${importUrl});\n`;
   }
 
-  const fullCode = code + apiCode;
-
-  return fullCode.length > 0 ? `// Imports\n${fullCode}` : '';
+  return code ? `// Imports\n${code}` : '';
 }
 
 function getModuleCode(
   loaderContext,
   result,
   exportType,
+  esModule,
   sourceMap,
   importLoaders,
   apiImports,
@@ -305,8 +253,21 @@ function getModuleCode(
   let code = JSON.stringify(css);
   let beforeCode = '';
 
+  beforeCode += esModule
+    ? `var exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`
+    : `exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
+
   for (const item of apiImports) {
-    beforeCode += `exports.i(${item.importName}, "", true);\n`;
+    const { type, media, dedupe } = item;
+
+    beforeCode +=
+      type === 'internal'
+        ? `exports.i(${item.importName}${
+            media ? `, ${JSON.stringify(media)}` : dedupe ? ', ""' : ''
+          }${dedupe ? ', true' : ''});\n`
+        : `exports.push([module.id, ${JSON.stringify(
+            `@import url(${item.url});`
+          )}${media ? `, ${JSON.stringify(media)}` : ''}]);\n`;
   }
 
   for (const item of urlReplacements) {

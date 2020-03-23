@@ -126,7 +126,6 @@ export default function loader(content, map, meta) {
         this,
         imports,
         exportType,
-        sourceMap,
         importLoaders,
         esModule
       );
@@ -134,6 +133,7 @@ export default function loader(content, map, meta) {
         this,
         result,
         exportType,
+        esModule,
         sourceMap,
         importLoaders,
         apiImports,
