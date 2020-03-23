@@ -225,7 +225,7 @@ function getImportCode(
       : `exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
   }
 
-  imports.forEach((item) => {
+  for (const item of imports) {
     // eslint-disable-next-line default-case
     switch (item.type) {
       case '@import':
@@ -237,30 +237,29 @@ function getImportCode(
             apiCode += `exports.push([module.id, ${JSON.stringify(
               `@import url(${url});`
             )}${preparedMedia}]);\n`;
-            return;
-          }
+          } else {
+            let importName = atRuleImportNames.get(url);
 
-          let importName = atRuleImportNames.get(url);
+            if (!importName) {
+              if (!importPrefix) {
+                importPrefix = getImportPrefix(loaderContext, importLoaders);
+              }
 
-          if (!importName) {
-            if (!importPrefix) {
-              importPrefix = getImportPrefix(loaderContext, importLoaders);
+              const importUrl = stringifyRequest(
+                loaderContext,
+                importPrefix + url
+              );
+
+              importName = `___CSS_LOADER_AT_RULE_IMPORT_${atRuleImportNames.size}___`;
+              code += esModule
+                ? `import ${importName} from ${importUrl};\n`
+                : `var ${importName} = require(${importUrl});\n`;
+
+              atRuleImportNames.set(url, importName);
             }
 
-            const importUrl = stringifyRequest(
-              loaderContext,
-              importPrefix + url
-            );
-
-            importName = `___CSS_LOADER_AT_RULE_IMPORT_${atRuleImportNames.size}___`;
-            code += esModule
-              ? `import ${importName} from ${importUrl};\n`
-              : `var ${importName} = require(${importUrl});\n`;
-
-            atRuleImportNames.set(url, importName);
+            apiCode += `exports.i(${importName}${preparedMedia});\n`;
           }
-
-          apiCode += `exports.i(${importName}${preparedMedia});\n`;
         }
         break;
       case 'url':
@@ -306,7 +305,7 @@ function getImportCode(
         }
         break;
     }
-  });
+  }
 
   const fullCode = code + apiCode;
 
