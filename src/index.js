@@ -130,18 +130,15 @@ export default function loader(content, map, meta) {
         esModule
       );
       const moduleCode = getModuleCode(
-        this,
         result,
         exportType,
         esModule,
         sourceMap,
-        importLoaders,
         apiImports,
         urlReplacements,
         icssReplacements
       );
       const exportCode = getExportCode(
-        this,
         exports,
         exportType,
         localsConvention,

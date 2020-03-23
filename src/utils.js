@@ -233,12 +233,10 @@ function getImportCode(
 }
 
 function getModuleCode(
-  loaderContext,
   result,
   exportType,
   esModule,
   sourceMap,
-  importLoaders,
   apiImports,
   urlReplacements,
   icssReplacements
@@ -306,7 +304,6 @@ function dashesCamelCase(str) {
 }
 
 function getExportCode(
-  loaderContext,
   exports,
   exportType,
   localsConvention,
