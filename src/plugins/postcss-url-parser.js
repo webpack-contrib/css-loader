@@ -32,7 +32,7 @@ function walkUrls(parsed, callback) {
     }
 
     if (isImageSetFunc.test(node.value)) {
-      node.nodes.forEach((nNode) => {
+      for (const nNode of node.nodes) {
         const { type, value } = nNode;
 
         if (type === 'function' && isUrlFunc.test(value)) {
@@ -50,7 +50,7 @@ function walkUrls(parsed, callback) {
         if (type === 'string') {
           callback(nNode, value, true, true);
         }
-      });
+      }
 
       // Do not traverse inside `image-set`
       // eslint-disable-next-line consistent-return
