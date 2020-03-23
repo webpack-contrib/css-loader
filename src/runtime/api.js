@@ -4,7 +4,7 @@
 */
 // css base code, injected by the css-loader
 // eslint-disable-next-line func-names
-module.exports = function(useSourceMap) {
+module.exports = function (useSourceMap) {
   const list = [];
 
   // return the list of modules as css string
@@ -22,7 +22,7 @@ module.exports = function(useSourceMap) {
 
   // import a list of modules into the list
   // eslint-disable-next-line func-names
-  list.i = function(modules, mediaQuery, dedupe) {
+  list.i = function (modules, mediaQuery, dedupe) {
     if (typeof modules === 'string') {
       // eslint-disable-next-line no-param-reassign
       modules = [[null, modules, '']];
@@ -79,10 +79,7 @@ function cssWithMappingToString(item, useSourceMap) {
       (source) => `/*# sourceURL=${cssMapping.sourceRoot || ''}${source} */`
     );
 
-    return [content]
-      .concat(sourceURLs)
-      .concat([sourceMapping])
-      .join('\n');
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
   }
 
   return [content].join('\n');

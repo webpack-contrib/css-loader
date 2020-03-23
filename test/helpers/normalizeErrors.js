@@ -18,12 +18,6 @@ function removeCWD(str) {
 
 export default (errors) => {
   return errors.map((error) =>
-    removeCWD(
-      error
-        .toString()
-        .split('\n')
-        .slice(0, 12)
-        .join('\n')
-    )
+    removeCWD(error.toString().split('\n').slice(0, 12).join('\n'))
   );
 };

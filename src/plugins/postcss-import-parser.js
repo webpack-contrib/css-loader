@@ -88,10 +88,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       }
     }
 
-    const media = valueParser
-      .stringify(nodes.slice(1))
-      .trim()
-      .toLowerCase();
+    const media = valueParser.stringify(nodes.slice(1)).trim().toLowerCase();
 
     if (options.filter && !options.filter({ url, media })) {
       return;
