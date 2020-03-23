@@ -388,8 +388,8 @@ function getExportCode(
   icssReplacements,
   esModule
 ) {
-  const exportItems = [];
-  let exportLocalsCode;
+  let code = '';
+  let localsCode;
 
   if (exports.length > 0) {
     const exportLocals = [];
@@ -436,38 +436,32 @@ function getExportCode(
       }
     });
 
-    exportLocalsCode = exportLocals.join(',\n');
+    localsCode = exportLocals.join(',\n');
 
     icssReplacements.forEach((icssReplacement) => {
       const { replacementName, importName, localName } = icssReplacement;
 
-      exportLocalsCode = exportLocalsCode.replace(
-        new RegExp(replacementName, 'g'),
-        () =>
-          exportType === 'locals'
-            ? `" + ${importName}[${JSON.stringify(localName)}] + "`
-            : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+      localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
+        exportType === 'locals'
+          ? `" + ${importName}[${JSON.stringify(localName)}] + "`
+          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
       );
     });
   }
 
   if (exportType === 'locals') {
-    exportItems.push(
-      `${esModule ? 'export default' : 'module.exports ='} ${
-        exportLocalsCode ? `{\n${exportLocalsCode}\n}` : '{}'
-      };`
-    );
+    code += `${esModule ? 'export default' : 'module.exports ='} ${
+      localsCode ? `{\n${localsCode}\n}` : '{}'
+    };\n`;
   } else {
-    if (exportLocalsCode) {
-      exportItems.push(`exports.locals = {\n${exportLocalsCode}\n};`);
+    if (localsCode) {
+      code += `exports.locals = {\n${localsCode}\n};\n`;
     }
 
-    exportItems.push(
-      `${esModule ? 'export default' : 'module.exports ='} exports;`
-    );
+    code += `${esModule ? 'export default' : 'module.exports ='} exports;\n`;
   }
 
-  return `// Exports\n${exportItems.join('\n')}\n`;
+  return `// Exports\n${code}`;
 }
 
 export {
