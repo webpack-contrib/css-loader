@@ -208,7 +208,8 @@ exports.locals = {
 	\\"btnInfo_isDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"btnInfo_isDisabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
-	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\",
+
 };
 module.exports = exports;
 "

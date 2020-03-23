@@ -87,13 +87,15 @@ export default function loader(content, map, meta) {
         : false,
     })
     .then((result) => {
-      result
-        .warnings()
-        .forEach((warning) => this.emitWarning(new Warning(warning)));
+      for (const warning of result.warnings()) {
+        this.emitWarning(new Warning(warning));
+      }
 
       const imports = [];
+      const apiImports = [];
+      const urlReplacements = [];
+      const icssReplacements = [];
       const exports = [];
-      const replacers = [];
 
       for (const message of result.messages) {
         // eslint-disable-next-line default-case
@@ -101,11 +103,17 @@ export default function loader(content, map, meta) {
           case 'import':
             imports.push(message.value);
             break;
+          case 'api-import':
+            apiImports.push(message.value);
+            break;
+          case 'url-replacement':
+            urlReplacements.push(message.value);
+            break;
+          case 'icss-replacement':
+            icssReplacements.push(message.value);
+            break;
           case 'export':
             exports.push(message.value);
-            break;
-          case 'replacer':
-            replacers.push(message.value);
             break;
         }
       }
@@ -118,7 +126,6 @@ export default function loader(content, map, meta) {
         this,
         imports,
         exportType,
-        sourceMap,
         importLoaders,
         esModule
       );
@@ -126,15 +133,19 @@ export default function loader(content, map, meta) {
         this,
         result,
         exportType,
+        esModule,
         sourceMap,
-        replacers
+        importLoaders,
+        apiImports,
+        urlReplacements,
+        icssReplacements
       );
       const exportCode = getExportCode(
         this,
         exports,
         exportType,
-        replacers,
         localsConvention,
+        icssReplacements,
         esModule
       );
 
