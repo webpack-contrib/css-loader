@@ -332,7 +332,8 @@ function getModuleCode(
   result,
   exportType,
   sourceMap,
-  replacements
+  urlReplacements,
+  icssReplacements
 ) {
   if (exportType !== 'full') {
     return '';
@@ -341,40 +342,36 @@ function getModuleCode(
   const { css, map } = result;
   const sourceMapValue = sourceMap && map ? `,${map}` : '';
 
-  let cssCode = JSON.stringify(css);
-  let replacementsCode = '';
+  let code = JSON.stringify(css);
+  let beforeCode = '';
 
-  replacements.forEach((replacement) => {
-    const { type, replacementName, importName } = replacement;
+  urlReplacements.forEach((urlReplacement) => {
+    const { replacementName, importName, hash, needQuotes } = urlReplacement;
 
-    if (type === 'url') {
-      const { hash, needQuotes } = replacement;
+    const getUrlOptions = []
+      .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
+      .concat(needQuotes ? 'needQuotes: true' : []);
+    const preparedOptions =
+      getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
 
-      const getUrlOptions = []
-        .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
-        .concat(needQuotes ? 'needQuotes: true' : []);
-      const preparedOptions =
-        getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
+    beforeCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
 
-      replacementsCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
-
-      cssCode = cssCode.replace(
-        new RegExp(replacementName, 'g'),
-        () => `" + ${replacementName} + "`
-      );
-    }
-
-    if (type === 'icss-import') {
-      const { localName } = replacement;
-
-      cssCode = cssCode.replace(
-        new RegExp(replacementName, 'g'),
-        () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
-      );
-    }
+    code = code.replace(
+      new RegExp(replacementName, 'g'),
+      () => `" + ${replacementName} + "`
+    );
   });
 
-  return `${replacementsCode}// Module\nexports.push([module.id, ${cssCode}, ""${sourceMapValue}]);\n`;
+  icssReplacements.forEach((replacement) => {
+    const { replacementName, importName, localName } = replacement;
+
+    code = code.replace(
+      new RegExp(replacementName, 'g'),
+      () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+    );
+  });
+
+  return `${beforeCode}// Module\nexports.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
 }
 
 function dashesCamelCase(str) {
@@ -387,8 +384,8 @@ function getExportCode(
   loaderContext,
   exports,
   exportType,
-  replacements,
   localsConvention,
+  icssReplacements,
   esModule
 ) {
   const exportItems = [];
@@ -441,18 +438,16 @@ function getExportCode(
 
     exportLocalsCode = exportLocals.join(',\n');
 
-    replacements.forEach((replacement) => {
-      if (replacement.type === 'icss-import') {
-        const { replacementName, importName, localName } = replacement;
+    icssReplacements.forEach((icssReplacement) => {
+      const { replacementName, importName, localName } = icssReplacement;
 
-        exportLocalsCode = exportLocalsCode.replace(
-          new RegExp(replacementName, 'g'),
-          () =>
-            exportType === 'locals'
-              ? `" + ${importName}[${JSON.stringify(localName)}] + "`
-              : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
-        );
-      }
+      exportLocalsCode = exportLocalsCode.replace(
+        new RegExp(replacementName, 'g'),
+        () =>
+          exportType === 'locals'
+            ? `" + ${importName}[${JSON.stringify(localName)}] + "`
+            : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+      );
     });
   }
 

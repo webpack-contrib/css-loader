@@ -120,8 +120,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
         result.messages.push({
           pluginName,
-          type: 'replacement',
-          value: { type: 'url', replacementName, importName, hash, needQuotes },
+          type: 'url-replacement',
+          value: { replacementName, importName, hash, needQuotes },
         });
       }
 

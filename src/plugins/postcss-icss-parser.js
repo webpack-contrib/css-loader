@@ -51,8 +51,8 @@ export default postcss.plugin('postcss-icss-parser', () => (css, result) => {
       importReplacements[token] = replacementName;
 
       result.messages.push({
-        type: 'replacement',
-        value: { type: 'icss-import', replacementName, importName, localName },
+        type: 'icss-replacement',
+        value: { replacementName, importName, localName },
       });
     }
   }

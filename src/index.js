@@ -92,7 +92,8 @@ export default function loader(content, map, meta) {
         .forEach((warning) => this.emitWarning(new Warning(warning)));
 
       const imports = [];
-      const replacements = [];
+      const urlReplacements = [];
+      const icssReplacements = [];
       const exports = [];
 
       for (const message of result.messages) {
@@ -101,8 +102,11 @@ export default function loader(content, map, meta) {
           case 'import':
             imports.push(message.value);
             break;
-          case 'replacement':
-            replacements.push(message.value);
+          case 'url-replacement':
+            urlReplacements.push(message.value);
+            break;
+          case 'icss-replacement':
+            icssReplacements.push(message.value);
             break;
           case 'export':
             exports.push(message.value);
@@ -127,14 +131,15 @@ export default function loader(content, map, meta) {
         result,
         exportType,
         sourceMap,
-        replacements
+        urlReplacements,
+        icssReplacements
       );
       const exportCode = getExportCode(
         this,
         exports,
         exportType,
-        replacements,
         localsConvention,
+        icssReplacements,
         esModule
       );
 
