@@ -375,78 +375,64 @@ function getExportCode(
   esModule
 ) {
   let code = '';
-  let localsCode;
+  let localsCode = '';
 
-  if (exports.length > 0) {
-    const exportLocals = [];
+  const addExportToLocalsCode = (name, value, index) => {
+    const isLastItem = index === exports.length - 1;
 
-    exports.forEach((item) => {
-      const { name, value } = item;
+    localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}${
+      isLastItem ? '' : ',\n'
+    }`;
+  };
 
-      switch (localsConvention) {
-        case 'camelCase': {
-          exportLocals.push(
-            `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`
-          );
+  for (const [index, item] of exports.entries()) {
+    const { name, value } = item;
 
-          const modifiedName = camelCase(name);
+    switch (localsConvention) {
+      case 'camelCase': {
+        addExportToLocalsCode(name, value, index);
 
-          if (modifiedName !== name) {
-            exportLocals.push(
-              `\t${JSON.stringify(modifiedName)}: ${JSON.stringify(value)}`
-            );
-          }
-          break;
+        const modifiedName = camelCase(name);
+
+        if (modifiedName !== name) {
+          addExportToLocalsCode(modifiedName, value, index);
         }
-        case 'camelCaseOnly': {
-          exportLocals.push(
-            `\t${JSON.stringify(camelCase(name))}: ${JSON.stringify(value)}`
-          );
-          break;
-        }
-        case 'dashes': {
-          exportLocals.push(
-            `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`
-          );
-
-          const modifiedName = dashesCamelCase(name);
-
-          if (modifiedName !== name) {
-            exportLocals.push(
-              `\t${JSON.stringify(modifiedName)}: ${JSON.stringify(value)}`
-            );
-          }
-          break;
-        }
-        case 'dashesOnly': {
-          exportLocals.push(
-            `\t${JSON.stringify(dashesCamelCase(name))}: ${JSON.stringify(
-              value
-            )}`
-          );
-          break;
-        }
-        case 'asIs':
-        default:
-          exportLocals.push(
-            `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`
-          );
-          break;
+        break;
       }
-    });
+      case 'camelCaseOnly': {
+        addExportToLocalsCode(camelCase(name), value, index);
+        break;
+      }
+      case 'dashes': {
+        addExportToLocalsCode(name, value);
 
-    localsCode = exportLocals.join(',\n');
+        const modifiedName = dashesCamelCase(name, index);
 
-    icssReplacements.forEach((icssReplacement) => {
-      const { replacementName, importName, localName } = icssReplacement;
-
-      localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
-        exportType === 'locals'
-          ? `" + ${importName}[${JSON.stringify(localName)}] + "`
-          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
-      );
-    });
+        if (modifiedName !== name) {
+          addExportToLocalsCode(modifiedName, value, index);
+        }
+        break;
+      }
+      case 'dashesOnly': {
+        addExportToLocalsCode(dashesCamelCase(name), value, index);
+        break;
+      }
+      case 'asIs':
+      default:
+        addExportToLocalsCode(name, value, index);
+        break;
+    }
   }
+
+  icssReplacements.forEach((icssReplacement) => {
+    const { replacementName, importName, localName } = icssReplacement;
+
+    localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
+      exportType === 'locals'
+        ? `" + ${importName}[${JSON.stringify(localName)}] + "`
+        : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+    );
+  });
 
   if (exportType === 'locals') {
     code += `${esModule ? 'export default' : 'module.exports ='} ${
