@@ -291,7 +291,7 @@ function getModuleCode(
   exportType,
   sourceMap,
   importLoaders,
-  apiInternalImports,
+  apiImports,
   urlReplacements,
   icssReplacements
 ) {
@@ -305,7 +305,7 @@ function getModuleCode(
   let code = JSON.stringify(css);
   let beforeCode = '';
 
-  for (const item of apiInternalImports) {
+  for (const item of apiImports) {
     beforeCode += `exports.i(${item.importName}, "", true);\n`;
   }
 

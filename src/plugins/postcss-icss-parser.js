@@ -42,8 +42,8 @@ export default postcss.plugin('postcss-icss-parser', () => (css, result) => {
         value: { type: 'icss', importName, url },
       },
       {
-        type: 'api-internal-import',
-        value: { importName },
+        type: 'api-import',
+        value: { type: 'internal', importName },
       }
     );
 

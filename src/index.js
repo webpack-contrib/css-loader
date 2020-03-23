@@ -92,7 +92,7 @@ export default function loader(content, map, meta) {
       }
 
       const imports = [];
-      const apiInternalImports = [];
+      const apiImports = [];
       const urlReplacements = [];
       const icssReplacements = [];
       const exports = [];
@@ -103,8 +103,8 @@ export default function loader(content, map, meta) {
           case 'import':
             imports.push(message.value);
             break;
-          case 'api-internal-import':
-            apiInternalImports.push(message.value);
+          case 'api-import':
+            apiImports.push(message.value);
             break;
           case 'url-replacement':
             urlReplacements.push(message.value);
@@ -136,7 +136,7 @@ export default function loader(content, map, meta) {
         exportType,
         sourceMap,
         importLoaders,
-        apiInternalImports,
+        apiImports,
         urlReplacements,
         icssReplacements
       );
