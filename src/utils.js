@@ -217,11 +217,10 @@ function getImportCode(
 
   for (const item of imports) {
     const { importName, url } = item;
-    const importUrl = stringifyRequest(loaderContext, url);
 
     code += esModule
-      ? `import ${importName} from ${importUrl};\n`
-      : `var ${importName} = require(${importUrl});\n`;
+      ? `import ${importName} from ${url};\n`
+      : `var ${importName} = require(${url});\n`;
   }
 
   return code ? `// Imports\n${code}` : '';

@@ -2,7 +2,7 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import { getOptions, isUrlRequest } from 'loader-utils';
+import { getOptions, isUrlRequest, stringifyRequest } from 'loader-utils';
 import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
 import validateOptions from 'schema-utils';
@@ -39,7 +39,8 @@ export default function loader(content, map, meta) {
   }
 
   const exportType = options.onlyLocals ? 'locals' : 'full';
-  const urlHandler = (url) => getRequest(this, options.importLoaders) + url;
+  const urlHandler = (url) =>
+    stringifyRequest(this, getRequest(this, options.importLoaders) + url);
 
   plugins.push(icssParser({ urlHandler }));
 
@@ -55,6 +56,7 @@ export default function loader(content, map, meta) {
   if (options.url !== false && exportType === 'full') {
     plugins.push(
       urlParser({
+        urlHandler: (url) => stringifyRequest(this, url),
         filter: getFilter(options.url, this.resourcePath, (value) =>
           isUrlRequest(value)
         ),

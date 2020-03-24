@@ -104,12 +104,16 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         importsMap.set(importKey, importName);
 
         if (!hasHelper) {
+          const urlToHelper = require.resolve('../runtime/getUrl.js');
+
           result.messages.push({
             pluginName,
             type: 'import',
             value: {
               importName: '___CSS_LOADER_GET_URL_IMPORT___',
-              url: require.resolve('../runtime/getUrl.js'),
+              url: options.urlHandler
+                ? options.urlHandler(urlToHelper)
+                : urlToHelper,
             },
           });
 
@@ -119,7 +123,12 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         result.messages.push({
           pluginName,
           type: 'import',
-          value: { importName, url: normalizedUrl },
+          value: {
+            importName,
+            url: options.urlHandler
+              ? options.urlHandler(normalizedUrl)
+              : normalizedUrl,
+          },
         });
       }
 
