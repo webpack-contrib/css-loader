@@ -179,10 +179,6 @@ function normalizeSourceMap(map) {
 }
 
 function getRequest(loaderContext, importLoaders) {
-  if (importLoaders === false) {
-    return '';
-  }
-
   const numberImportedLoaders = parseInt(importLoaders, 10) || 0;
   const loadersRequest = loaderContext.loaders
     .slice(

@@ -40,7 +40,12 @@ export default function loader(content, map, meta) {
 
   const exportType = options.onlyLocals ? 'locals' : 'full';
   const urlHandler = (url) =>
-    stringifyRequest(this, getRequest(this, options.importLoaders) + url);
+    stringifyRequest(
+      this,
+      options.importLoaders === false
+        ? url
+        : getRequest(this, options.importLoaders) + url
+    );
 
   plugins.push(icssParser({ urlHandler }));
 
