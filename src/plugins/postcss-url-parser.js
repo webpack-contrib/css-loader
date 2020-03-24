@@ -73,7 +73,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
     const parsed = valueParser(decl.value);
 
     walkUrls(parsed, (node, url, needQuotes, isStringValue) => {
-      if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
+      // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
+      if (url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
         result.warn(
           `Unable to find uri in '${decl ? decl.toString() : decl.value}'`,
           { node: decl }
