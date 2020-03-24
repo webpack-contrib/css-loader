@@ -13,6 +13,7 @@ import Warning from './Warning';
 import schema from './options.json';
 import { icssParser, importParser, urlParser } from './plugins';
 import {
+  getRequest,
   getExportCode,
   getFilter,
   getImportCode,
@@ -38,12 +39,14 @@ export default function loader(content, map, meta) {
   }
 
   const exportType = options.onlyLocals ? 'locals' : 'full';
+  const urlHandler = (url) => getRequest(this, options.importLoaders) + url;
 
-  plugins.push(icssParser());
+  plugins.push(icssParser({ urlHandler }));
 
   if (options.import !== false && exportType === 'full') {
     plugins.push(
       importParser({
+        urlHandler,
         filter: getFilter(options.import, this.resourcePath),
       })
     );

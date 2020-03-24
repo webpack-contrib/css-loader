@@ -178,7 +178,7 @@ function normalizeSourceMap(map) {
   return newMap;
 }
 
-function getImportPrefix(loaderContext, importLoaders) {
+function getRequest(loaderContext, importLoaders) {
   if (importLoaders === false) {
     return '';
   }
@@ -217,12 +217,7 @@ function getImportCode(
 
   for (const item of imports) {
     const { importName, url } = item;
-    const importUrl = stringifyRequest(
-      loaderContext,
-      item.type !== 'url'
-        ? getImportPrefix(loaderContext, importLoaders) + url
-        : url
-    );
+    const importUrl = stringifyRequest(loaderContext, url);
 
     code += esModule
       ? `import ${importName} from ${importUrl};\n`
@@ -390,6 +385,7 @@ export {
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,
+  getRequest,
   getImportCode,
   getModuleCode,
   getExportCode,
