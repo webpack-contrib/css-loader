@@ -124,6 +124,21 @@ a:hover {
 
 exports[`loader should reuse \`ast\` from "postcss-loader": warnings 1`] = `Array []`;
 
+exports[`loader should throw an error on invisible spaces: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+CssSyntaxError
+
+(1:8) Unknown word
+
+> 1 | a {    color: red;    }
+    |        ^
+",
+]
+`;
+
+exports[`loader should throw an error on invisible spaces: warnings 1`] = `Array []`;
+
 exports[`loader should throw error on invalid css syntax: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
