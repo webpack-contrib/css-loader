@@ -13,7 +13,7 @@ import Warning from './Warning';
 import schema from './options.json';
 import { icssParser, importParser, urlParser } from './plugins';
 import {
-  getRequest,
+  getPreRequester,
   getExportCode,
   getFilter,
   getImportCode,
@@ -39,13 +39,9 @@ export default function loader(content, map, meta) {
   }
 
   const exportType = options.onlyLocals ? 'locals' : 'full';
+  const preRequester = getPreRequester(this);
   const urlHandler = (url) =>
-    stringifyRequest(
-      this,
-      options.importLoaders === false
-        ? url
-        : getRequest(this, options.importLoaders) + url
-    );
+    stringifyRequest(this, preRequester(options.importLoaders) + url);
 
   plugins.push(icssParser({ urlHandler }));
 

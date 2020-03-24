@@ -178,17 +178,29 @@ function normalizeSourceMap(map) {
   return newMap;
 }
 
-function getRequest(loaderContext, importLoaders) {
-  const numberImportedLoaders = parseInt(importLoaders, 10) || 0;
-  const loadersRequest = loaderContext.loaders
-    .slice(
-      loaderContext.loaderIndex,
-      loaderContext.loaderIndex + 1 + numberImportedLoaders
-    )
-    .map((x) => x.request)
-    .join('!');
+function getPreRequester(loaderContext) {
+  const { loaders, loaderIndex } = loaderContext;
+  const cache = Object.create(null);
 
-  return `-!${loadersRequest}!`;
+  return (number) => {
+    if (cache[number]) {
+      return cache[number];
+    }
+
+    if (number === false) {
+      cache[number] = '';
+    } else {
+      const numberImportedLoaders = parseInt(number, 10) || 0;
+      const loadersRequest = loaders
+        .slice(loaderIndex, loaderIndex + 1 + numberImportedLoaders)
+        .map((x) => x.request)
+        .join('!');
+
+      cache[number] = `-!${loadersRequest}!`;
+    }
+
+    return cache[number];
+  };
 }
 
 function getImportCode(
@@ -380,7 +392,7 @@ export {
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,
-  getRequest,
+  getPreRequester,
   getImportCode,
   getModuleCode,
   getExportCode,

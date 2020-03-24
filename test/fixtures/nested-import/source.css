@@ -1,4 +1,5 @@
 @import './imported.css';
+@import './other-imported.css';
 
 .foo {
   color: red;
