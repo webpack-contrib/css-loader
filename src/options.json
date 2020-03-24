@@ -83,7 +83,7 @@
           "type": "boolean"
         },
         {
-          "type": "number"
+          "type": "integer"
         }
       ]
     },

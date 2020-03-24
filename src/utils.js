@@ -190,9 +190,11 @@ function getPreRequester(loaderContext) {
     if (number === false) {
       cache[number] = '';
     } else {
-      const numberImportedLoaders = parseInt(number, 10) || 0;
       const loadersRequest = loaders
-        .slice(loaderIndex, loaderIndex + 1 + numberImportedLoaders)
+        .slice(
+          loaderIndex,
+          loaderIndex + 1 + (typeof number !== 'number' ? 0 : number)
+        )
         .map((x) => x.request)
         .join('!');
 
