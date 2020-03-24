@@ -52,8 +52,8 @@ export default function loader(content, map, meta) {
   if (options.import !== false && exportType === 'full') {
     plugins.push(
       importParser({
-        urlHandler,
         filter: getFilter(options.import, this.resourcePath),
+        urlHandler,
       })
     );
   }
@@ -61,10 +61,10 @@ export default function loader(content, map, meta) {
   if (options.url !== false && exportType === 'full') {
     plugins.push(
       urlParser({
-        urlHandler: (url) => stringifyRequest(this, url),
         filter: getFilter(options.url, this.resourcePath, (value) =>
           isUrlRequest(value)
         ),
+        urlHandler: (url) => stringifyRequest(this, url),
       })
     );
   }
