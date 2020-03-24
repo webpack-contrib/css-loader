@@ -205,13 +205,7 @@ function getPreRequester(loaderContext) {
   };
 }
 
-function getImportCode(
-  loaderContext,
-  imports,
-  exportType,
-  importLoaders,
-  esModule
-) {
+function getImportCode(loaderContext, exportType, imports, esModule) {
   let code = '';
 
   if (exportType === 'full') {
@@ -239,11 +233,11 @@ function getImportCode(
 function getModuleCode(
   result,
   exportType,
-  esModule,
   sourceMap,
   apiImports,
   urlReplacements,
-  icssReplacements
+  icssReplacements,
+  esModule
 ) {
   if (exportType !== 'full') {
     return '';

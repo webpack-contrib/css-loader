@@ -124,25 +124,19 @@ export default function loader(content, map, meta) {
         }
       }
 
-      const { importLoaders, localsConvention } = options;
+      const { localsConvention } = options;
       const esModule =
         typeof options.esModule !== 'undefined' ? options.esModule : false;
 
-      const importCode = getImportCode(
-        this,
-        imports,
-        exportType,
-        importLoaders,
-        esModule
-      );
+      const importCode = getImportCode(this, exportType, imports, esModule);
       const moduleCode = getModuleCode(
         result,
         exportType,
-        esModule,
         sourceMap,
         apiImports,
         urlReplacements,
-        icssReplacements
+        icssReplacements,
+        esModule
       );
       const exportCode = getExportCode(
         exports,
