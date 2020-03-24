@@ -108,7 +108,6 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
             pluginName,
             type: 'import',
             value: {
-              type: 'url',
               importName: '___CSS_LOADER_GET_URL_IMPORT___',
               url: require.resolve('../runtime/getUrl.js'),
             },
@@ -120,11 +119,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         result.messages.push({
           pluginName,
           type: 'import',
-          value: {
-            type: 'url',
-            importName,
-            url: normalizedUrl,
-          },
+          value: { importName, url: normalizedUrl },
         });
       }
 

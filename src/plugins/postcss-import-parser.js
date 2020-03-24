@@ -109,7 +109,6 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         result.messages.push({
           type: 'import',
           value: {
-            type: '@import',
             importName,
             url: options.urlHandler ? options.urlHandler(url) : url,
           },

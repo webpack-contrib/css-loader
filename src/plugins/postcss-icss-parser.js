@@ -42,7 +42,6 @@ export default postcss.plugin(
         {
           type: 'import',
           value: {
-            type: 'icss',
             importName,
             url: options.urlHandler ? options.urlHandler(url) : url,
           },
