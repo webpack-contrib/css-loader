@@ -178,8 +178,7 @@ function normalizeSourceMap(map) {
   return newMap;
 }
 
-function getPreRequester(loaderContext) {
-  const { loaders, loaderIndex } = loaderContext;
+function getPreRequester({ loaders, loaderIndex }) {
   const cache = Object.create(null);
 
   return (number) => {
