@@ -28,50 +28,56 @@ function makeRequestableIcssImports(icssImports) {
   }, {});
 }
 
-export default postcss.plugin('postcss-icss-parser', () => (css, result) => {
-  const importReplacements = Object.create(null);
-  const extractedICSS = extractICSS(css);
-  const icssImports = makeRequestableIcssImports(extractedICSS.icssImports);
+export default postcss.plugin(
+  'postcss-icss-parser',
+  (options) => (css, result) => {
+    const importReplacements = Object.create(null);
+    const extractedICSS = extractICSS(css);
+    const icssImports = makeRequestableIcssImports(extractedICSS.icssImports);
 
-  for (const [importIndex, url] of Object.keys(icssImports).entries()) {
-    const importName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}___`;
+    for (const [importIndex, url] of Object.keys(icssImports).entries()) {
+      const importName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}___`;
 
-    result.messages.push(
-      {
-        type: 'import',
-        value: { type: 'icss', importName, url },
-      },
-      {
-        type: 'api-import',
-        value: { type: 'internal', importName, dedupe: true },
+      result.messages.push(
+        {
+          type: 'import',
+          value: {
+            importName,
+            url: options.urlHandler ? options.urlHandler(url) : url,
+          },
+        },
+        {
+          type: 'api-import',
+          value: { type: 'internal', importName, dedupe: true },
+        }
+      );
+
+      const tokenMap = icssImports[url];
+      const tokens = Object.keys(tokenMap);
+
+      for (const [replacementIndex, token] of tokens.entries()) {
+        const replacementName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}_REPLACEMENT_${replacementIndex}___`;
+        const localName = tokenMap[token];
+
+        importReplacements[token] = replacementName;
+
+        result.messages.push({
+          type: 'icss-replacement',
+          value: { replacementName, importName, localName },
+        });
       }
-    );
+    }
 
-    const tokenMap = icssImports[url];
-    const tokens = Object.keys(tokenMap);
+    if (Object.keys(importReplacements).length > 0) {
+      replaceSymbols(css, importReplacements);
+    }
 
-    for (const [replacementIndex, token] of tokens.entries()) {
-      const replacementName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}_REPLACEMENT_${replacementIndex}___`;
-      const localName = tokenMap[token];
+    const { icssExports } = extractedICSS;
 
-      importReplacements[token] = replacementName;
+    for (const name of Object.keys(icssExports)) {
+      const value = replaceValueSymbols(icssExports[name], importReplacements);
 
-      result.messages.push({
-        type: 'icss-replacement',
-        value: { replacementName, importName, localName },
-      });
+      result.messages.push({ type: 'export', value: { name, value } });
     }
   }
-
-  if (Object.keys(importReplacements).length > 0) {
-    replaceSymbols(css, importReplacements);
-  }
-
-  const { icssExports } = extractedICSS;
-
-  for (const name of Object.keys(icssExports)) {
-    const value = replaceValueSymbols(icssExports[name], importReplacements);
-
-    result.messages.push({ type: 'export', value: { name, value } });
-  }
-});
+);

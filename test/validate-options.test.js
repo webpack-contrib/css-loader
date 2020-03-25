@@ -53,7 +53,7 @@ describe('validate options', () => {
     },
     importLoaders: {
       success: [false, 0, 1, 2],
-      failure: ['1'],
+      failure: ['1', 2.5],
     },
     onlyLocals: {
       success: [true, false],

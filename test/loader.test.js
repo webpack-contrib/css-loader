@@ -11,6 +11,8 @@ import {
   getWarnings,
 } from './helpers/index';
 
+jest.setTimeout(10000);
+
 describe('loader', () => {
   it('should work', async () => {
     const compiler = getCompiler('./basic.js');
@@ -339,6 +341,14 @@ describe('loader', () => {
     expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
       'result'
     );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should throw an error on invisible spaces', async () => {
+    const compiler = getCompiler('./invisible-space.js');
+    const stats = await compile(compiler);
+
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });

@@ -178,30 +178,33 @@ function normalizeSourceMap(map) {
   return newMap;
 }
 
-function getImportPrefix(loaderContext, importLoaders) {
-  if (importLoaders === false) {
-    return '';
-  }
+function getPreRequester({ loaders, loaderIndex }) {
+  const cache = Object.create(null);
 
-  const numberImportedLoaders = parseInt(importLoaders, 10) || 0;
-  const loadersRequest = loaderContext.loaders
-    .slice(
-      loaderContext.loaderIndex,
-      loaderContext.loaderIndex + 1 + numberImportedLoaders
-    )
-    .map((x) => x.request)
-    .join('!');
+  return (number) => {
+    if (cache[number]) {
+      return cache[number];
+    }
 
-  return `-!${loadersRequest}!`;
+    if (number === false) {
+      cache[number] = '';
+    } else {
+      const loadersRequest = loaders
+        .slice(
+          loaderIndex,
+          loaderIndex + 1 + (typeof number !== 'number' ? 0 : number)
+        )
+        .map((x) => x.request)
+        .join('!');
+
+      cache[number] = `-!${loadersRequest}!`;
+    }
+
+    return cache[number];
+  };
 }
 
-function getImportCode(
-  loaderContext,
-  imports,
-  exportType,
-  importLoaders,
-  esModule
-) {
+function getImportCode(loaderContext, exportType, imports, esModule) {
   let code = '';
 
   if (exportType === 'full') {
@@ -217,31 +220,23 @@ function getImportCode(
 
   for (const item of imports) {
     const { importName, url } = item;
-    const importUrl = stringifyRequest(
-      loaderContext,
-      item.type !== 'url'
-        ? getImportPrefix(loaderContext, importLoaders) + url
-        : url
-    );
 
     code += esModule
-      ? `import ${importName} from ${importUrl};\n`
-      : `var ${importName} = require(${importUrl});\n`;
+      ? `import ${importName} from ${url};\n`
+      : `var ${importName} = require(${url});\n`;
   }
 
   return code ? `// Imports\n${code}` : '';
 }
 
 function getModuleCode(
-  loaderContext,
   result,
   exportType,
-  esModule,
   sourceMap,
-  importLoaders,
   apiImports,
   urlReplacements,
-  icssReplacements
+  icssReplacements,
+  esModule
 ) {
   if (exportType !== 'full') {
     return '';
@@ -306,7 +301,6 @@ function dashesCamelCase(str) {
 }
 
 function getExportCode(
-  loaderContext,
   exports,
   exportType,
   localsConvention,
@@ -393,6 +387,7 @@ export {
   getFilter,
   getModulesPlugins,
   normalizeSourceMap,
+  getPreRequester,
   getImportCode,
   getModuleCode,
   getExportCode,

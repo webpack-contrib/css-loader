@@ -2,7 +2,7 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import { getOptions, isUrlRequest } from 'loader-utils';
+import { getOptions, isUrlRequest, stringifyRequest } from 'loader-utils';
 import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
 import validateOptions from 'schema-utils';
@@ -13,6 +13,7 @@ import Warning from './Warning';
 import schema from './options.json';
 import { icssParser, importParser, urlParser } from './plugins';
 import {
+  getPreRequester,
   getExportCode,
   getFilter,
   getImportCode,
@@ -38,13 +39,17 @@ export default function loader(content, map, meta) {
   }
 
   const exportType = options.onlyLocals ? 'locals' : 'full';
+  const preRequester = getPreRequester(this);
+  const urlHandler = (url) =>
+    stringifyRequest(this, preRequester(options.importLoaders) + url);
 
-  plugins.push(icssParser());
+  plugins.push(icssParser({ urlHandler }));
 
   if (options.import !== false && exportType === 'full') {
     plugins.push(
       importParser({
         filter: getFilter(options.import, this.resourcePath),
+        urlHandler,
       })
     );
   }
@@ -55,6 +60,7 @@ export default function loader(content, map, meta) {
         filter: getFilter(options.url, this.resourcePath, (value) =>
           isUrlRequest(value)
         ),
+        urlHandler: (url) => stringifyRequest(this, url),
       })
     );
   }
@@ -118,30 +124,21 @@ export default function loader(content, map, meta) {
         }
       }
 
-      const { importLoaders, localsConvention } = options;
+      const { localsConvention } = options;
       const esModule =
         typeof options.esModule !== 'undefined' ? options.esModule : false;
 
-      const importCode = getImportCode(
-        this,
-        imports,
-        exportType,
-        importLoaders,
-        esModule
-      );
+      const importCode = getImportCode(this, exportType, imports, esModule);
       const moduleCode = getModuleCode(
-        this,
         result,
         exportType,
-        esModule,
         sourceMap,
-        importLoaders,
         apiImports,
         urlReplacements,
-        icssReplacements
+        icssReplacements,
+        esModule
       );
       const exportCode = getExportCode(
-        this,
         exports,
         exportType,
         localsConvention,

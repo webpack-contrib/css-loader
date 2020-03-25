@@ -73,7 +73,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
     const parsed = valueParser(decl.value);
 
     walkUrls(parsed, (node, url, needQuotes, isStringValue) => {
-      if (url.trim().replace(/\\[\r\n]/g, '').length === 0) {
+      // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
+      if (url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
         result.warn(
           `Unable to find uri in '${decl ? decl.toString() : decl.value}'`,
           { node: decl }
@@ -103,13 +104,16 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         importsMap.set(importKey, importName);
 
         if (!hasHelper) {
+          const urlToHelper = require.resolve('../runtime/getUrl.js');
+
           result.messages.push({
             pluginName,
             type: 'import',
             value: {
-              type: 'url',
               importName: '___CSS_LOADER_GET_URL_IMPORT___',
-              url: require.resolve('../runtime/getUrl.js'),
+              url: options.urlHandler
+                ? options.urlHandler(urlToHelper)
+                : urlToHelper,
             },
           });
 
@@ -120,9 +124,10 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
           pluginName,
           type: 'import',
           value: {
-            type: 'url',
             importName,
-            url: normalizedUrl,
+            url: options.urlHandler
+              ? options.urlHandler(normalizedUrl)
+              : normalizedUrl,
           },
         });
       }
