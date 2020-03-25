@@ -11,6 +11,8 @@ import {
   getWarnings,
 } from './helpers/index';
 
+jest.setTimeout(10000);
+
 describe('loader', () => {
   it('should work', async () => {
     const compiler = getCompiler('./basic.js');
