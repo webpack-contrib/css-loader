@@ -963,6 +963,38 @@ module.exports = {
 };
 ```
 
+### Plugin: One Letter CSS
+
+For efficient gzip/br compression, plugin combine css hash via one symbol name,
+as a classname position at file, with filepath `hash:base64:8`, to have strong sequences
+
+**webpack.config.js**
+
+```js
+const { OneLetterCss } = require('css-loader/plugins');
+const MyOneLetterCss = new OneLetterCss();
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            mode: 'local',
+            localIdentName: '[hash:base64:8]',
+            // for develop
+            // localIdentName: '[local]__[hash:base64:8]',
+            getLocalIdent: MyOneLetterCss.getLocalIdent,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
 ## Contributing
 
 Please take a moment to read our contributing guidelines if you haven't yet done so.
