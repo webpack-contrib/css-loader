@@ -37,7 +37,14 @@
           "additionalProperties": false,
           "properties": {
             "mode": {
-              "enum": ["local", "global", "pure"]
+              "anyOf": [
+                {
+                  "enum": ["local", "global", "pure"]
+                },
+                {
+                  "instanceof": "Function"
+                }
+              ]
             },
             "localIdentName": {
               "type": "string"

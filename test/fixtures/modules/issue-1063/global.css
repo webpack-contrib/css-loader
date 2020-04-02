@@ -1,0 +1,7 @@
+.className {
+  color: green;
+}
+
+:local(.otherClass) {
+  color: blue;
+}

@@ -565,4 +565,54 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('issue #1063', async () => {
+    const compiler = getCompiler('./modules/issue-1063/issue-1063.js', {
+      modules: {
+        mode: (resourcePath) => {
+          if (resourcePath === 'global.css') {
+            return 'global';
+          }
+
+          return 'local';
+        },
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/issue-1063/local.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      getModuleSource('./modules/issue-1063/global.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('issue #1063 throw error', async () => {
+    const compiler = getCompiler('./modules/issue-1063/issue-1063.js', {
+      modules: {
+        mode: () => {
+          return 'not local, global or pure';
+        },
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/issue-1063/local.css', stats)
+    ).toMatchSnapshot('module');
+    expect(
+      getModuleSource('./modules/issue-1063/global.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });

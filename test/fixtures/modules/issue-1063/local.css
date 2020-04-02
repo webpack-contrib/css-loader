@@ -1,0 +1,7 @@
+.className {
+  color: green;
+}
+
+:global(.otherClass) {
+  color: blue;
+}

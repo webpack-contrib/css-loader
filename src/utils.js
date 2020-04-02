@@ -115,25 +115,24 @@ function getModulesPlugins(options, loaderContext) {
     modulesOptions = Object.assign({}, modulesOptions, options.modules);
   }
 
-  return [
-    modulesValues,
-    localByDefault({ mode: modulesOptions.mode }),
-    extractImports(),
-    modulesScope({
-      generateScopedName: function generateScopedName(exportName) {
-        let localIdent = modulesOptions.getLocalIdent(
-          loaderContext,
-          modulesOptions.localIdentName,
-          exportName,
-          {
-            context: modulesOptions.context,
-            hashPrefix: modulesOptions.hashPrefix,
-            regExp: modulesOptions.localIdentRegExp,
-          }
-        );
+  if (typeof modulesOptions.mode === 'function') {
+    const modeFromFunction = modulesOptions.mode(loaderContext.resourcePath);
 
-        if (!localIdent) {
-          localIdent = getLocalIdent(
+    if (modeFromFunction === 'local' || modeFromFunction === 'global') {
+      modulesOptions.mode = modeFromFunction;
+    }
+  }
+
+  let plugins = [];
+
+  try {
+    plugins = [
+      modulesValues,
+      localByDefault({ mode: modulesOptions.mode }),
+      extractImports(),
+      modulesScope({
+        generateScopedName: function generateScopedName(exportName) {
+          let localIdent = modulesOptions.getLocalIdent(
             loaderContext,
             modulesOptions.localIdentName,
             exportName,
@@ -143,12 +142,29 @@ function getModulesPlugins(options, loaderContext) {
               regExp: modulesOptions.localIdentRegExp,
             }
           );
-        }
 
-        return localIdent;
-      },
-    }),
-  ];
+          if (!localIdent) {
+            localIdent = getLocalIdent(
+              loaderContext,
+              modulesOptions.localIdentName,
+              exportName,
+              {
+                context: modulesOptions.context,
+                hashPrefix: modulesOptions.hashPrefix,
+                regExp: modulesOptions.localIdentRegExp,
+              }
+            );
+          }
+
+          return localIdent;
+        },
+      }),
+    ];
+  } catch (error) {
+    loaderContext.emitError(error);
+  }
+
+  return plugins;
 }
 
 function normalizeSourceMap(map) {
