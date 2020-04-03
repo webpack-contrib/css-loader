@@ -20,6 +20,7 @@ import {
   getModuleCode,
   getModulesPlugins,
   normalizeSourceMap,
+  shouldUseModulesPlugins,
 } from './utils';
 
 export default function loader(content, map, meta) {
@@ -34,7 +35,7 @@ export default function loader(content, map, meta) {
   const sourceMap = options.sourceMap || false;
   const plugins = [];
 
-  if (options.modules) {
+  if (shouldUseModulesPlugins(options.modules, this.resourcePath)) {
     plugins.push(...getModulesPlugins(options, this));
   }
 

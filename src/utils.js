@@ -96,6 +96,32 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
   };
 }
 
+function shouldUseModulesPlugins(modules, resourcePath) {
+  const defaultModulePathRegExp = /\.modules\.\w+$/i;
+
+  if (typeof modules === 'undefined') {
+    return false;
+  }
+
+  if (typeof modules === 'boolean') {
+    return modules;
+  }
+
+  if (typeof modules === 'string') {
+    return true;
+  }
+
+  if (typeof modules.auto === 'boolean') {
+    return modules.auto ? defaultModulePathRegExp.test(resourcePath) : false;
+  }
+
+  if (modules.auto instanceof RegExp) {
+    return modules.auto.test(resourcePath);
+  }
+
+  return true;
+}
+
 function getModulesPlugins(options, loaderContext) {
   let modulesOptions = {
     mode: 'local',
@@ -405,4 +431,5 @@ export {
   getImportCode,
   getModuleCode,
   getExportCode,
+  shouldUseModulesPlugins,
 };
