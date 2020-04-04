@@ -541,10 +541,16 @@ module.exports = {
 
 ##### `mode`
 
-Type: `String`
+Type: `String|Function`
 Default: `'local'`
 
 Setup `mode` option. You can omit the value when you want `local` mode.
+
+###### `String`
+
+Possible values:
+
+`local`, `global`, `pure`
 
 **webpack.config.js**
 
@@ -558,6 +564,41 @@ module.exports = {
         options: {
           modules: {
             mode: 'global',
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+###### `Function`
+
+Allows set different values modules.mode based on filename
+
+Possible return values:
+
+`local`, `global`, `pure`
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            // Callback must return "local", "global" or "pure"
+            mode: (filename) => {
+              if (/global.css$/i.test(filename)) {
+                return 'global';
+              }
+
+              return 'local';
+            },
           },
         },
       },
