@@ -570,7 +570,7 @@ describe('"modules" option', () => {
     const compiler = getCompiler('./modules/issue-1063/issue-1063.js', {
       modules: {
         mode: (resourcePath) => {
-          if (resourcePath === 'global.css') {
+          if (/global.css$/i.test(resourcePath)) {
             return 'global';
           }
 

@@ -377,7 +377,7 @@ exports[`"modules" option issue #1063 throw error: module 1`] = `
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\".className {\\\\n  color: green;\\\\n}\\\\n\\\\n:global(.otherClass) {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".classNameLocalFile {\\\\n  color: green;\\\\n}\\\\n\\\\n:global(.otherClassLocalFile) {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 module.exports = exports;
 "
@@ -388,26 +388,26 @@ exports[`"modules" option issue #1063 throw error: module 2`] = `
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\".className {\\\\n  color: green;\\\\n}\\\\n\\\\n:local(.otherClass) {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".classNameGlobalFile {\\\\n  color: black;\\\\n}\\\\n\\\\n:local(.otherClassGlobalFile) {\\\\n  color: coral;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 module.exports = exports;
 "
 `;
 
 exports[`"modules" option issue #1063 throw error: result 1`] = `
-".className {
+".classNameLocalFile {
   color: green;
 }
 
-:global(.otherClass) {
+:global(.otherClassLocalFile) {
   color: blue;
 }
-.className {
-  color: green;
+.classNameGlobalFile {
+  color: black;
 }
 
-:local(.otherClass) {
-  color: blue;
+:local(.otherClassGlobalFile) {
+  color: coral;
 }
 "
 `;
@@ -421,10 +421,10 @@ exports[`"modules" option issue #1063: module 1`] = `
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\"._1iR-jQngOXizCZOLZck-4P {\\\\n  color: green;\\\\n}\\\\n\\\\n.otherClass {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"._2cZDGA9F7Kx1vfQmWcLP51 {\\\\n  color: green;\\\\n}\\\\n\\\\n.otherClassLocalFile {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
-	\\"className\\": \\"_1iR-jQngOXizCZOLZck-4P\\"
+	\\"classNameLocalFile\\": \\"_2cZDGA9F7Kx1vfQmWcLP51\\"
 };
 module.exports = exports;
 "
@@ -435,30 +435,29 @@ exports[`"modules" option issue #1063: module 2`] = `
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\"._2WZy6LhVz_KGVbdNCAmL6C {\\\\n  color: green;\\\\n}\\\\n\\\\n._7mafm73rmgiKuViZtzNmn {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".classNameGlobalFile {\\\\n  color: black;\\\\n}\\\\n\\\\n._2rcag09JpwrP4_hfyyRmm- {\\\\n  color: coral;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
-	\\"className\\": \\"_2WZy6LhVz_KGVbdNCAmL6C\\",
-	\\"otherClass\\": \\"_7mafm73rmgiKuViZtzNmn\\"
+	\\"otherClassGlobalFile\\": \\"_2rcag09JpwrP4_hfyyRmm-\\"
 };
 module.exports = exports;
 "
 `;
 
 exports[`"modules" option issue #1063: result 1`] = `
-"._1iR-jQngOXizCZOLZck-4P {
+"._2cZDGA9F7Kx1vfQmWcLP51 {
   color: green;
 }
 
-.otherClass {
+.otherClassLocalFile {
   color: blue;
 }
-._2WZy6LhVz_KGVbdNCAmL6C {
-  color: green;
+.classNameGlobalFile {
+  color: black;
 }
 
-._7mafm73rmgiKuViZtzNmn {
-  color: blue;
+._2rcag09JpwrP4_hfyyRmm- {
+  color: coral;
 }
 "
 `;
