@@ -369,6 +369,8 @@ Array [
 options.mode must be either \\"global\\", \\"local\\" or \\"pure\\" (default \\"local\\")",
   "ModuleError: Module Error (from \`replaced original path\`):
 options.mode must be either \\"global\\", \\"local\\" or \\"pure\\" (default \\"local\\")",
+  "ModuleError: Module Error (from \`replaced original path\`):
+options.mode must be either \\"global\\", \\"local\\" or \\"pure\\" (default \\"local\\")",
 ]
 `;
 
@@ -409,6 +411,9 @@ exports[`"modules" option issue #1063 throw error: result 1`] = `
 :local(.otherClassGlobalFile) {
   color: coral;
 }
+.foo :local(.bar) {
+  color: red;
+}
 "
 `;
 
@@ -416,7 +421,21 @@ exports[`"modules" option issue #1063 throw error: warnings 1`] = `Array []`;
 
 exports[`"modules" option issue #1063: errors 1`] = `Array []`;
 
-exports[`"modules" option issue #1063: module 1`] = `
+exports[`"modules" option issue #1063: module with the \`global\` mode 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".classNameGlobalFile {\\\\n  color: black;\\\\n}\\\\n\\\\n._2rcag09JpwrP4_hfyyRmm- {\\\\n  color: coral;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"otherClassGlobalFile\\": \\"_2rcag09JpwrP4_hfyyRmm-\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option issue #1063: module with the \`local\` mode 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -430,15 +449,16 @@ module.exports = exports;
 "
 `;
 
-exports[`"modules" option issue #1063: module 2`] = `
+exports[`"modules" option issue #1063: module with the \`pure\` mode 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\".classNameGlobalFile {\\\\n  color: black;\\\\n}\\\\n\\\\n._2rcag09JpwrP4_hfyyRmm- {\\\\n  color: coral;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\"._1rycxa6QkLdgO7vayuTDvk ._3Otdq1jay-xaQGguOXb-0X {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
-	\\"otherClassGlobalFile\\": \\"_2rcag09JpwrP4_hfyyRmm-\\"
+	\\"foo\\": \\"_1rycxa6QkLdgO7vayuTDvk\\",
+	\\"bar\\": \\"_3Otdq1jay-xaQGguOXb-0X\\"
 };
 module.exports = exports;
 "
@@ -458,6 +478,9 @@ exports[`"modules" option issue #1063: result 1`] = `
 
 ._2rcag09JpwrP4_hfyyRmm- {
   color: coral;
+}
+._1rycxa6QkLdgO7vayuTDvk ._3Otdq1jay-xaQGguOXb-0X {
+  color: red;
 }
 "
 `;
@@ -11098,3 +11121,128 @@ Array [
 `;
 
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`global\`): errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`global\`): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".QLhabfC4HjcIBmobkGW_v {\\\\n  background-color: red;\\\\n}\\\\n\\\\n._1fCLE6vkQLICB5aEeEaLgd {\\\\n  background-color: green;\\\\n}\\\\n\\\\n.baz {\\\\n  background-color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"foo\\": \\"QLhabfC4HjcIBmobkGW_v\\",
+	\\"bar\\": \\"_1fCLE6vkQLICB5aEeEaLgd\\",
+	\\"baz\\": \\"baz\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`global\`): result 1`] = `
+Array [
+  Array [
+    "./modules/exportGlobals-global/exportGlobals.css",
+    ".QLhabfC4HjcIBmobkGW_v {
+  background-color: red;
+}
+
+._1fCLE6vkQLICB5aEeEaLgd {
+  background-color: green;
+}
+
+.baz {
+  background-color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`global\`): warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`local\`): errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`local\`): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".foo {\\\\n  background-color: red;\\\\n}\\\\n\\\\n._3loyPgwYlZ-RBGWccx71es {\\\\n  background-color: green;\\\\n}\\\\n\\\\n.baz {\\\\n  background-color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"foo\\": \\"foo\\",
+	\\"bar\\": \\"_3loyPgwYlZ-RBGWccx71es\\",
+	\\"baz\\": \\"baz\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`local\`): result 1`] = `
+Array [
+  Array [
+    "./modules/exportGlobals-local/exportGlobals.css",
+    ".foo {
+  background-color: red;
+}
+
+._3loyPgwYlZ-RBGWccx71es {
+  background-color: green;
+}
+
+.baz {
+  background-color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`local\`): warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`pure\`): errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`pure\`): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"._3OALfsKrVzw8QnGzfteWls {\\\\n  background-color: red;\\\\n}\\\\n\\\\n._3w1OTKuiiZvf8WY1tCPaZH ._1cmRmgT7HI056zoTdHDOVh {\\\\n  background-color: green;\\\\n}\\\\n\\\\n._3pB9KhpUqVA1pPH1Y8ei3y .baz {\\\\n  background-color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"foo\\": \\"_3OALfsKrVzw8QnGzfteWls\\",
+	\\"one\\": \\"_3w1OTKuiiZvf8WY1tCPaZH\\",
+	\\"bar\\": \\"_1cmRmgT7HI056zoTdHDOVh\\",
+	\\"two\\": \\"_3pB9KhpUqVA1pPH1Y8ei3y\\",
+	\\"baz\\": \\"baz\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`pure\`): result 1`] = `
+Array [
+  Array [
+    "./modules/exportGlobals-pure/exportGlobals.css",
+    "._3OALfsKrVzw8QnGzfteWls {
+  background-color: red;
+}
+
+._3w1OTKuiiZvf8WY1tCPaZH ._1cmRmgT7HI056zoTdHDOVh {
+  background-color: green;
+}
+
+._3pB9KhpUqVA1pPH1Y8ei3y .baz {
+  background-color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`pure\`): warnings 1`] = `Array []`;

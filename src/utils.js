@@ -99,6 +99,7 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
 function getModulesPlugins(options, loaderContext) {
   let modulesOptions = {
     mode: 'local',
+    exportGlobals: false,
     localIdentName: '[hash:base64]',
     getLocalIdent,
     hashPrefix: '',
@@ -116,11 +117,7 @@ function getModulesPlugins(options, loaderContext) {
   }
 
   if (typeof modulesOptions.mode === 'function') {
-    const modeFromFunction = modulesOptions.mode(loaderContext.resourcePath);
-
-    if (modeFromFunction === 'local' || modeFromFunction === 'global') {
-      modulesOptions.mode = modeFromFunction;
-    }
+    modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
   }
 
   let plugins = [];
@@ -158,6 +155,7 @@ function getModulesPlugins(options, loaderContext) {
 
           return localIdent;
         },
+        exportGlobals: modulesOptions.exportGlobals,
       }),
     ];
   } catch (error) {
