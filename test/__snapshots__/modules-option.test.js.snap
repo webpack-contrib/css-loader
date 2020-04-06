@@ -363,6 +363,107 @@ div:not(.\\\\1F600) {
 
 exports[`"modules" option issue #995: warnings 1`] = `Array []`;
 
+exports[`"modules" option issue #1063 throw error: errors 1`] = `
+Array [
+  "ModuleError: Module Error (from \`replaced original path\`):
+options.mode must be either \\"global\\", \\"local\\" or \\"pure\\" (default \\"local\\")",
+  "ModuleError: Module Error (from \`replaced original path\`):
+options.mode must be either \\"global\\", \\"local\\" or \\"pure\\" (default \\"local\\")",
+]
+`;
+
+exports[`"modules" option issue #1063 throw error: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".classNameLocalFile {\\\\n  color: green;\\\\n}\\\\n\\\\n:global(.otherClassLocalFile) {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option issue #1063 throw error: module 2`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".classNameGlobalFile {\\\\n  color: black;\\\\n}\\\\n\\\\n:local(.otherClassGlobalFile) {\\\\n  color: coral;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option issue #1063 throw error: result 1`] = `
+".classNameLocalFile {
+  color: green;
+}
+
+:global(.otherClassLocalFile) {
+  color: blue;
+}
+.classNameGlobalFile {
+  color: black;
+}
+
+:local(.otherClassGlobalFile) {
+  color: coral;
+}
+"
+`;
+
+exports[`"modules" option issue #1063 throw error: warnings 1`] = `Array []`;
+
+exports[`"modules" option issue #1063: errors 1`] = `Array []`;
+
+exports[`"modules" option issue #1063: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"._2cZDGA9F7Kx1vfQmWcLP51 {\\\\n  color: green;\\\\n}\\\\n\\\\n.otherClassLocalFile {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"classNameLocalFile\\": \\"_2cZDGA9F7Kx1vfQmWcLP51\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option issue #1063: module 2`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".classNameGlobalFile {\\\\n  color: black;\\\\n}\\\\n\\\\n._2rcag09JpwrP4_hfyyRmm- {\\\\n  color: coral;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"otherClassGlobalFile\\": \\"_2rcag09JpwrP4_hfyyRmm-\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option issue #1063: result 1`] = `
+"._2cZDGA9F7Kx1vfQmWcLP51 {
+  color: green;
+}
+
+.otherClassLocalFile {
+  color: blue;
+}
+.classNameGlobalFile {
+  color: black;
+}
+
+._2rcag09JpwrP4_hfyyRmm- {
+  color: coral;
+}
+"
+`;
+
+exports[`"modules" option issue #1063: warnings 1`] = `Array []`;
+
 exports[`"modules" option should avoid unnecessary "require": errors 1`] = `Array []`;
 
 exports[`"modules" option should avoid unnecessary "require": module 1`] = `

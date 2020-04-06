@@ -20,6 +20,7 @@ describe('validate options', () => {
         { mode: 'global' },
         { mode: 'local' },
         { mode: 'pure' },
+        { mode: () => 'local' },
         { localIdentName: '[path][name]__[local]--[hash:base64:5]' },
         { context: 'context' },
         { hashPrefix: 'hash' },
