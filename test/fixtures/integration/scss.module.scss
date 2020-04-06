@@ -1,0 +1,12 @@
+@import "./imported-by-module-scss.css";
+
+$primary-color: #333;
+
+.local {
+  color: $primary-color;
+  overflow: hidden auto;
+}
+
+:global(.global) {
+  color: $primary-color;
+}

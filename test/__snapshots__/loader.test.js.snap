@@ -578,6 +578,76 @@ a[href=\\"\\" i] {
 
 exports[`loader should work with empty options: warnings 1`] = `Array []`;
 
+exports[`loader should work with the "modules.auto" option and the "importLoaders" option: errors 1`] = `Array []`;
+
+exports[`loader should work with the "modules.auto" option and the "importLoaders" option: result 1`] = `
+"/* Pure CSS */
+.imported-by-pure {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+.pure {
+  color: red;
+}
+
+/* PostCSS */
+.imported-by-postcss {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+.postcss {
+  color: rgba(0, 0, 255, 0.9)
+}
+
+.postcss:hover {
+    color: #639;
+  }
+
+/* SCSS */
+.imported-by-scss {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+.scss {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+/* CSS modules */
+.dA97I-anu7-0d9tFzAFON {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+  color: red;
+}
+
+.global {
+  color: blue;
+}
+
+/* CSS modules + SCSS */
+.imported-by-module-scss {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+._2qRovssCxTKx1PYTv5qdNp {
+  color: #333;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+
+.global {
+  color: #333;
+}
+"
+`;
+
+exports[`loader should work with the "modules.auto" option and the "importLoaders" option: warnings 1`] = `Array []`;
+
 exports[`loader should work: errors 1`] = `Array []`;
 
 exports[`loader should work: module 1`] = `
