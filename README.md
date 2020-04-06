@@ -1049,9 +1049,9 @@ For production builds it's recommended to extract the CSS from your bundle being
 
 - As an alternative, if seeking better development performance and css outputs that mimic production. [extract-css-chunks-webpack-plugin](https://github.com/faceyspacey/extract-css-chunks-webpack-plugin) offers a hot module reload friendly, extended version of mini-css-extract-plugin. HMR real CSS files in dev, works like mini-css in non-dev
 
-### CSS modules and pure CSS
+### Pure CSS, CSS modules and PostCSS
 
-When you have pure CSS (without CSS modules) and CSS modules in project you can use this setup:
+When you have pure CSS (without CSS modules), CSS modules and PostCSS in your project you can use this setup:
 
 **webpack.config.js**
 
@@ -1070,7 +1070,9 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
+              // Run `postcss-loader` on each CSS `@import`, do not forget that `sass-loader` compile non CSS `@import`'s into a single file
+              // If you need run `sass-loader` and `postcss-loader` on each CSS `@import` please set it to `2`
+              importLoaders: 1,
               // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
               modules: { auto: true },
             },

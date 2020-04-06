@@ -368,6 +368,8 @@ describe('loader', () => {
                 {
                   loader: path.resolve(__dirname, '../src'),
                   options: {
+                    // Run only `postcss-loader` on each `@import`
+                    // If you need run `sass-loader` and `postcss-loader` please set it to `2`
                     importLoaders: 1,
                     // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
                     modules: { auto: true },
