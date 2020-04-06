@@ -355,7 +355,7 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it.only('should work with the "modules.auto" option and the "importLoaders" option', async () => {
+  it('should work with the "modules.auto" option and the "importLoaders" option', async () => {
     const compiler = getCompiler(
       './integration/index.js',
       {},
