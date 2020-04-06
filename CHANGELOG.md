@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.5.0](https://github.com/webpack-contrib/css-loader/compare/v3.4.2...v3.5.0) (2020-04-06)
+
+
+### Features
+
+* accept semver compatible postcss AST ([#1049](https://github.com/webpack-contrib/css-loader/issues/1049)) ([14c4faa](https://github.com/webpack-contrib/css-loader/commit/14c4faae87305c9b965de4f468bb1e118f6b84cc))
+* allow to determinate css modules using the `modules.auto` option, please look at an [example](https://github.com/webpack-contrib/css-loader#pure-css-css-modules-and-postcss) of how you can simplify the configuration. ([#1067](https://github.com/webpack-contrib/css-loader/issues/1067)) ([c673cf4](https://github.com/webpack-contrib/css-loader/commit/c673cf418e901c5050bc697eb45401dc9a42c477))
+* the `modules.exportGlobals` option for export global classes and ids ([#1069](https://github.com/webpack-contrib/css-loader/issues/1069)) ([519e5f4](https://github.com/webpack-contrib/css-loader/commit/519e5f41539f4c87ec96db0a908aaadecc284a6c))
+* the `modules.mode` option may be a function ([#1065](https://github.com/webpack-contrib/css-loader/issues/1065)) ([0d8ac3b](https://github.com/webpack-contrib/css-loader/commit/0d8ac3bcb831bc747657c914aba106b93840737e))
+
 ### [3.4.2](https://github.com/webpack-contrib/css-loader/compare/v3.4.1...v3.4.2) (2020-01-10)
 
 
