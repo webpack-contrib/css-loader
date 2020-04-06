@@ -570,6 +570,10 @@ describe('"modules" option', () => {
     const compiler = getCompiler('./modules/issue-1063/issue-1063.js', {
       modules: {
         mode: (resourcePath) => {
+          if (/pure.css$/i.test(resourcePath)) {
+            return 'pure';
+          }
+
           if (/global.css$/i.test(resourcePath)) {
             return 'global';
           }
@@ -582,10 +586,13 @@ describe('"modules" option', () => {
 
     expect(
       getModuleSource('./modules/issue-1063/local.css', stats)
-    ).toMatchSnapshot('module');
+    ).toMatchSnapshot('module with the `local` mode');
     expect(
       getModuleSource('./modules/issue-1063/global.css', stats)
-    ).toMatchSnapshot('module');
+    ).toMatchSnapshot('module with the `global` mode');
+    expect(
+      getModuleSource('./modules/issue-1063/pure.css', stats)
+    ).toMatchSnapshot('module with the `pure` mode');
     expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
       'result'
     );
@@ -608,6 +615,72 @@ describe('"modules" option', () => {
     ).toMatchSnapshot('module');
     expect(
       getModuleSource('./modules/issue-1063/global.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with the `exportGlobals` option (the `mode` option is `global`)', async () => {
+    const compiler = getCompiler(
+      './modules/exportGlobals-global/exportGlobals.js',
+      {
+        modules: {
+          mode: 'local',
+          exportGlobals: true,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/exportGlobals-global/exportGlobals.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with the `exportGlobals` option (the `mode` option is `local`)', async () => {
+    const compiler = getCompiler(
+      './modules/exportGlobals-local/exportGlobals.js',
+      {
+        modules: {
+          mode: 'global',
+          exportGlobals: true,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/exportGlobals-local/exportGlobals.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with the `exportGlobals` option (the `mode` option is `pure`)', async () => {
+    const compiler = getCompiler(
+      './modules/exportGlobals-pure/exportGlobals.js',
+      {
+        modules: {
+          mode: 'pure',
+          exportGlobals: true,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/exportGlobals-pure/exportGlobals.css', stats)
     ).toMatchSnapshot('module');
     expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
       'result'

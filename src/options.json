@@ -46,6 +46,9 @@
                 }
               ]
             },
+            "exportGlobals": {
+              "type": "boolean"
+            },
             "localIdentName": {
               "type": "string"
             },

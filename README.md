@@ -528,6 +528,7 @@ module.exports = {
         options: {
           modules: {
             mode: 'local',
+            exportGlobals: true,
             localIdentName: '[path][name]__[local]--[hash:base64:5]',
             context: path.resolve(__dirname, 'src'),
             hashPrefix: 'my-custom-hash',
@@ -597,6 +598,33 @@ module.exports = {
 
               return 'local';
             },
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `exportGlobals`
+
+Type: `Boolean`
+Default: `false`
+
+Allow `css-loader` to export names from global class or id, so you can use that as local name.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            exportGlobals: true,
           },
         },
       },

@@ -27,6 +27,7 @@ describe('validate options', () => {
         { getLocalIdent: () => {} },
         { localIdentRegExp: 'page-(.*)\\.js' },
         { localIdentRegExp: /page-(.*)\.js/ },
+        { exportGlobals: true },
       ],
       failure: [
         'true',
@@ -42,6 +43,7 @@ describe('validate options', () => {
         { hashPrefix: true },
         { getLocalIdent: [] },
         { localIdentRegExp: true },
+        { exportGlobals: 'invalid' },
       ],
     },
     sourceMap: {
