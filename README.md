@@ -574,11 +574,9 @@ module.exports = {
 
 ###### `Function`
 
-Allows set different values modules.mode based on filename
+Allows set different values for the `mode` option based on a filename
 
-Possible return values:
-
-`local`, `global`, `pure`
+Possible return values - `local`, `global` and `pure`
 
 **webpack.config.js**
 
