@@ -3148,6 +3148,124 @@ Array [
 
 exports[`"modules" option should work when the "getLocalIdent" option returns "false": warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with a modules.auto equal "false" (default): errors 1`] = `Array []`;
+
+exports[`"modules" option should work with a modules.auto equal "false" (default): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".relative {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should work with a modules.auto equal "false" (default): result 1`] = `
+Array [
+  Array [
+    "./modules/mode/relative.module.css",
+    ".relative {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with a modules.auto equal "false" (default): warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with a modules.auto equal "true": errors 1`] = `Array []`;
+
+exports[`"modules" option should work with a modules.auto equal "true": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".y35Nud52-ZFXmqL6AWueX {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"relative\\": \\"y35Nud52-ZFXmqL6AWueX\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should work with a modules.auto equal "true": result 1`] = `
+Array [
+  Array [
+    "./modules/mode/relative.module.css",
+    ".y35Nud52-ZFXmqL6AWueX {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with a modules.auto equal "true": warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with a modules.auto returns "false": errors 1`] = `Array []`;
+
+exports[`"modules" option should work with a modules.auto returns "false": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".relative {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should work with a modules.auto returns "false": result 1`] = `
+Array [
+  Array [
+    "./modules/mode/relative.module.css",
+    ".relative {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with a modules.auto returns "false": warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with a modules.auto returns "true": errors 1`] = `Array []`;
+
+exports[`"modules" option should work with a modules.auto returns "true": module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".y35Nud52-ZFXmqL6AWueX {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"relative\\": \\"y35Nud52-ZFXmqL6AWueX\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should work with a modules.auto returns "true": result 1`] = `
+Array [
+  Array [
+    "./modules/mode/relative.module.css",
+    ".y35Nud52-ZFXmqL6AWueX {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with a modules.auto returns "true": warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with case \`animation\` (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with case \`animation\` (\`modules\` value is \`false)\`: module 1`] = `

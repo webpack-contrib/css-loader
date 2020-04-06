@@ -97,8 +97,6 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
 }
 
 function shouldUseModulesPlugins(modules, resourcePath) {
-  const defaultModulePathRegExp = /\.modules\.\w+$/i;
-
   if (typeof modules === 'undefined') {
     return false;
   }
@@ -112,7 +110,7 @@ function shouldUseModulesPlugins(modules, resourcePath) {
   }
 
   if (typeof modules.auto === 'boolean') {
-    return modules.auto ? defaultModulePathRegExp.test(resourcePath) : false;
+    return modules.auto ? /\.module\.\w+$/i.test(resourcePath) : false;
   }
 
   if (modules.auto instanceof RegExp) {

@@ -1,4 +1,4 @@
-import relative from './relative.modules.css';
+import relative from './relative.module.css';
 
 __export__ = relative;
 

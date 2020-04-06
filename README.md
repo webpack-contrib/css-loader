@@ -527,7 +527,6 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: {
-            test: false,
             mode: 'local',
             exportGlobals: true,
             localIdentName: '[path][name]__[local]--[hash:base64:5]',
@@ -552,7 +551,7 @@ Allows auto enable css modules based on filename.
 
 Possible values:
 
-- `true` - enable css modules for all files for which `/\.modules\.\w+$/i.test(filename)` return true
+- `true` - enable css modules for all files for which `/\.module\.\w+$/i.test(filename)` return true
 - `false` - disable css modules
 
 **webpack.config.js**
@@ -566,7 +565,7 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: {
-            // All files for which /\.modules\.\w+$/i.test(filename) return true
+            // All files for which /\.module\.\w+$/i.test(filename) return true
             auto: true,
           },
         },
