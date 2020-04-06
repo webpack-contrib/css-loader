@@ -36,6 +36,16 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
+            "auto": {
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
             "mode": {
               "anyOf": [
                 {

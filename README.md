@@ -540,6 +540,66 @@ module.exports = {
 };
 ```
 
+##### `auto`
+
+Type: `Boolean|RegExp`
+Default: `'undefined'`
+
+Allows auto enable css modules based on filename.
+
+###### `Boolean`
+
+Possible values:
+
+- `true` - enable css modules for all files for which `/\.module\.\w+$/i.test(filename)` return true
+- `false` - disable css modules
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            // All files for which /\.module\.\w+$/i.test(filename) return true
+            auto: true,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+###### `RegExp`
+
+Enable css modules for files based on filename and satisfying `/youRegExp/.test(filename)` regex.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            // All files for which /youRegExp/i.test(filename) return true
+            auto: /youRegExp/i,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
 ##### `mode`
 
 Type: `String|Function`
