@@ -1,0 +1,9 @@
+@import "./imported-by-scss.css";
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+.scss {
+  font: 100% $font-stack;
+  color: $primary-color;
+}

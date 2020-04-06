@@ -565,7 +565,6 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: {
-            // All files for which /\.module\.\w+$/i.test(filename) return true
             auto: true,
           },
         },
@@ -577,7 +576,7 @@ module.exports = {
 
 ###### `RegExp`
 
-Enable css modules for files based on filename and satisfying `/youRegExp/.test(filename)` regex.
+Enable css modules for files based on a filename and satisfying your regex.
 
 **webpack.config.js**
 
@@ -590,8 +589,7 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: {
-            // All files for which /youRegExp/i.test(filename) return true
-            auto: /youRegExp/i,
+            auto: /\.custom-module\.\w+$/i,
           },
         },
       },
@@ -609,9 +607,7 @@ Setup `mode` option. You can omit the value when you want `local` mode.
 
 ###### `String`
 
-Possible values:
-
-`local`, `global`, `pure`
+Possible values - `local`, `global`, and `pure`.
 
 **webpack.config.js**
 
@@ -637,7 +633,7 @@ module.exports = {
 
 Allows set different values for the `mode` option based on a filename
 
-Possible return values - `local`, `global` and `pure`
+Possible return values - `local`, `global`, and `pure`.
 
 **webpack.config.js**
 
@@ -650,9 +646,13 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: {
-            // Callback must return "local", "global" or "pure"
-            mode: (filename) => {
-              if (/global.css$/i.test(filename)) {
+            // Callback must return "local", "global", or "pure" values
+            mode: (resourcePath) => {
+              if (/pure.css$/i.test(resourcePath)) {
+                return 'pure';
+              }
+
+              if (/global.css$/i.test(resourcePath)) {
                 return 'global';
               }
 
@@ -1060,21 +1060,30 @@ module.exports = {
   module: {
     rules: [
       {
-        // For pure CSS (without CSS modules)
-        test: /\.css$/i,
-        exclude: /\.module\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
         // For CSS modules
-        test: /\.module\.css$/i,
+        // For pure CSS - /\.css$/i,
+        // For Sass/SCSS - /\.((c|sa|sc)ss)$/i,
+        // For Less - /\.((c|le)ss)$/i,
+        test: /\.((c|sa|sc)ss)$/i,
         use: [
           'style-loader',
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              importLoaders: 2,
+              // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
+              modules: { auto: true },
             },
+          },
+          {
+            loader: 'postcss-loader',
+            options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+          },
+          // Can be `less-loader`
+          // The `test` property should be `\.less/i`
+          {
+            test: /\.s[ac]ss$/i,
+            loader: 'sass-loader',
           },
         ],
       },

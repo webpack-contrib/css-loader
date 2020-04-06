@@ -2,6 +2,8 @@ import path from 'path';
 
 import { version } from 'webpack';
 
+import postcssPresetEnv from 'postcss-preset-env';
+
 import {
   compile,
   getCompiler,
@@ -349,6 +351,56 @@ describe('loader', () => {
     const compiler = getCompiler('./invisible-space.js');
     const stats = await compile(compiler);
 
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it.only('should work with the "modules.auto" option and the "importLoaders" option', async () => {
+    const compiler = getCompiler(
+      './integration/index.js',
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.((c|sa|sc)ss)$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                  options: {
+                    importLoaders: 1,
+                    // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
+                    modules: { auto: true },
+                  },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                },
+                // Can be `less-loader`
+                // The `test` property should be `\.less/i`
+                {
+                  test: /\.s[ac]ss$/i,
+                  loader: 'sass-loader',
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+              loader: 'url-loader',
+              options: {
+                limit: 8192,
+              },
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
