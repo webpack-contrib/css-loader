@@ -7,14 +7,15 @@ exports[`"localsConvention" option should work when not specified: module 1`] = 
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.jHKqWGMvMrGp5RVPtApZ8 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"my-btn-info_is-disabled\\": \\"value\\",
 	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
-	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\",
+	\\"foo_bar\\": \\"jHKqWGMvMrGp5RVPtApZ8\\"
 };
 module.exports = exports;
 "
@@ -39,6 +40,10 @@ Array [
 a {
   color: yellow;
 }
+
+.jHKqWGMvMrGp5RVPtApZ8 {
+  color: red;
+}
 ",
     "",
   ],
@@ -54,14 +59,15 @@ exports[`"localsConvention" option should work with a value equal to "asIs": mod
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.jHKqWGMvMrGp5RVPtApZ8 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"my-btn-info_is-disabled\\": \\"value\\",
 	\\"btn-info_is-disabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
-	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\",
+	\\"foo_bar\\": \\"jHKqWGMvMrGp5RVPtApZ8\\"
 };
 module.exports = exports;
 "
@@ -86,6 +92,10 @@ Array [
 a {
   color: yellow;
 }
+
+.jHKqWGMvMrGp5RVPtApZ8 {
+  color: red;
+}
 ",
     "",
   ],
@@ -101,7 +111,7 @@ exports[`"localsConvention" option should work with a value equal to "camelCase"
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.jHKqWGMvMrGp5RVPtApZ8 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
@@ -111,7 +121,9 @@ exports.locals = {
 	\\"btnInfoIsDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"btnInfoIsDisabled1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
-	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\",
+	\\"foo_bar\\": \\"jHKqWGMvMrGp5RVPtApZ8\\",
+	\\"fooBar\\": \\"jHKqWGMvMrGp5RVPtApZ8\\"
 };
 module.exports = exports;
 "
@@ -136,6 +148,10 @@ Array [
 a {
   color: yellow;
 }
+
+.jHKqWGMvMrGp5RVPtApZ8 {
+  color: red;
+}
 ",
     "",
   ],
@@ -151,14 +167,15 @@ exports[`"localsConvention" option should work with a value equal to "camelCaseO
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.jHKqWGMvMrGp5RVPtApZ8 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"myBtnInfoIsDisabled\\": \\"value\\",
 	\\"btnInfoIsDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btnInfoIsDisabled1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
-	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\",
+	\\"fooBar\\": \\"jHKqWGMvMrGp5RVPtApZ8\\"
 };
 module.exports = exports;
 "
@@ -183,6 +200,10 @@ Array [
 a {
   color: yellow;
 }
+
+.jHKqWGMvMrGp5RVPtApZ8 {
+  color: red;
+}
 ",
     "",
   ],
@@ -198,7 +219,7 @@ exports[`"localsConvention" option should work with a value equal to "dashes": m
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.jHKqWGMvMrGp5RVPtApZ8 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
@@ -209,7 +230,7 @@ exports.locals = {
 	\\"btn--info_is-disabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"btnInfo_isDisabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
 	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\",
-
+	\\"foo_bar\\": \\"jHKqWGMvMrGp5RVPtApZ8\\"
 };
 module.exports = exports;
 "
@@ -234,6 +255,10 @@ Array [
 a {
   color: yellow;
 }
+
+.jHKqWGMvMrGp5RVPtApZ8 {
+  color: red;
+}
 ",
     "",
   ],
@@ -249,14 +274,15 @@ exports[`"localsConvention" option should work with a value equal to "dashesOnly
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".erBXHZCN_thRYfCnk-aH8 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._2YsQE-S0o0NRXfC6XNApz2 {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3gGBcJHZU3seQVP5aq7Ksq {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.jHKqWGMvMrGp5RVPtApZ8 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"foo\\": \\"bar\\",
 	\\"myBtnInfo_isDisabled\\": \\"value\\",
 	\\"btnInfo_isDisabled\\": \\"erBXHZCN_thRYfCnk-aH8\\",
 	\\"btnInfo_isDisabled_1\\": \\"_2YsQE-S0o0NRXfC6XNApz2\\",
-	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\"
+	\\"simple\\": \\"_3gGBcJHZU3seQVP5aq7Ksq\\",
+	\\"foo_bar\\": \\"jHKqWGMvMrGp5RVPtApZ8\\"
 };
 module.exports = exports;
 "
@@ -280,6 +306,10 @@ Array [
 
 a {
   color: yellow;
+}
+
+.jHKqWGMvMrGp5RVPtApZ8 {
+  color: red;
 }
 ",
     "",
