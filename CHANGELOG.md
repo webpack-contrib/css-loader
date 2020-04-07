@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.5.1](https://github.com/webpack-contrib/css-loader/compare/v3.5.0...v3.5.1) (2020-04-07)
+
+
+### Bug Fixes
+
+* don't generate an invalid code for `locals` ([#1072](https://github.com/webpack-contrib/css-loader/issues/1072)) ([866b84a](https://github.com/webpack-contrib/css-loader/commit/866b84acd7fd47651f741ca1e6cf7081c2bbe357))
+
 ## [3.5.0](https://github.com/webpack-contrib/css-loader/compare/v3.4.2...v3.5.0) (2020-04-06)
 
 
