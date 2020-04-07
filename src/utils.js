@@ -348,49 +348,47 @@ function getExportCode(
   let code = '';
   let localsCode = '';
 
-  const addExportToLocalsCode = (name, value, index) => {
-    const isLastItem = index === exports.length - 1;
+  const addExportToLocalsCode = (name, value) => {
+    if (localsCode) {
+      localsCode += `,\n`;
+    }
 
-    localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}${
-      isLastItem ? '' : ',\n'
-    }`;
+    localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
   };
 
-  for (const [index, item] of exports.entries()) {
-    const { name, value } = item;
-
+  for (const { name, value } of exports) {
     switch (localsConvention) {
       case 'camelCase': {
-        addExportToLocalsCode(name, value, index);
+        addExportToLocalsCode(name, value);
 
         const modifiedName = camelCase(name);
 
         if (modifiedName !== name) {
-          addExportToLocalsCode(modifiedName, value, index);
+          addExportToLocalsCode(modifiedName, value);
         }
         break;
       }
       case 'camelCaseOnly': {
-        addExportToLocalsCode(camelCase(name), value, index);
+        addExportToLocalsCode(camelCase(name), value);
         break;
       }
       case 'dashes': {
         addExportToLocalsCode(name, value);
 
-        const modifiedName = dashesCamelCase(name, index);
+        const modifiedName = dashesCamelCase(name);
 
         if (modifiedName !== name) {
-          addExportToLocalsCode(modifiedName, value, index);
+          addExportToLocalsCode(modifiedName, value);
         }
         break;
       }
       case 'dashesOnly': {
-        addExportToLocalsCode(dashesCamelCase(name), value, index);
+        addExportToLocalsCode(dashesCamelCase(name), value);
         break;
       }
       case 'asIs':
       default:
-        addExportToLocalsCode(name, value, index);
+        addExportToLocalsCode(name, value);
         break;
     }
   }
