@@ -409,7 +409,7 @@ describe('loader', () => {
 
   it('should have same "contenthash" with "css-loader" and without source maps', async () => {
     const compiler = getCompiler(
-      './contenthash/basic-css.js',
+      './source-map/basic.js',
       {},
       {
         output: {
@@ -434,22 +434,17 @@ describe('loader', () => {
       }
     );
     const stats = await compile(compiler);
-    const isWebpack5 = version[0] === '5';
 
-    expect(
-      stats.compilation.assets[
-        isWebpack5
-          ? 'main.fd612b1d69f7c1e6ba5f.bundle.js'
-          : 'main.7d23eae418a6571797ac.bundle.js'
-      ]
-    ).toBeDefined();
+    expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
+      'module'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should have same "contenthash" with "css-loader" and with source maps', async () => {
     const compiler = getCompiler(
-      './contenthash/basic-css.js',
+      './source-map/basic.js',
       {},
       {
         output: {
@@ -474,22 +469,17 @@ describe('loader', () => {
       }
     );
     const stats = await compile(compiler);
-    const isWebpack5 = version[0] === '5';
 
-    expect(
-      stats.compilation.assets[
-        isWebpack5
-          ? 'main.4e80ca040390d63ea450.bundle.js'
-          : 'main.5cb87cbcc122bf7fffd7.bundle.js'
-      ]
-    ).toBeDefined();
+    expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
+      'module'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should have same "contenthash" with "postcss-loader" and without source maps', async () => {
     const compiler = getCompiler(
-      './contenthash/basic-postcss.js',
+      './source-map/basic-postcss.js',
       {},
       {
         output: {
@@ -524,22 +514,17 @@ describe('loader', () => {
       }
     );
     const stats = await compile(compiler);
-    const isWebpack5 = version[0] === '5';
 
     expect(
-      stats.compilation.assets[
-        isWebpack5
-          ? 'main.47a6533d9b651ffbecad.bundle.js'
-          : 'main.f5cb4d0dd19d4911e054.bundle.js'
-      ]
-    ).toBeDefined();
+      getModuleSource('./source-map/basic.postcss.css', stats)
+    ).toMatchSnapshot('module');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should have same "contenthash" with "postcss-loader" and with source maps', async () => {
     const compiler = getCompiler(
-      './contenthash/basic-postcss.js',
+      './source-map/basic-postcss.js',
       {},
       {
         output: {
@@ -574,22 +559,17 @@ describe('loader', () => {
       }
     );
     const stats = await compile(compiler);
-    const isWebpack5 = version[0] === '5';
 
     expect(
-      stats.compilation.assets[
-        isWebpack5
-          ? 'main.0a16c4c25cba08ab696a.bundle.js'
-          : 'main.6668dc2ef887b6b04748.bundle.js'
-      ]
-    ).toBeDefined();
+      getModuleSource('./source-map/basic.postcss.css', stats)
+    ).toMatchSnapshot('module');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should have same "contenthash" with "sass-loader" and without source maps', async () => {
     const compiler = getCompiler(
-      './contenthash/basic-sass.js',
+      './source-map/basic-scss.js',
       {},
       {
         output: {
@@ -632,28 +612,23 @@ describe('loader', () => {
       }
     );
     const stats = await compile(compiler);
-    const isWebpack5 = version[0] === '5';
 
-    expect(
-      stats.compilation.assets[
-        isWebpack5
-          ? 'main.f3d743a96cdd6e368436.bundle.js'
-          : 'main.8a3656011c59a5950f16.bundle.js'
-      ]
-    ).toBeDefined();
+    expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
+      'module'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should have same "contenthash" with "sass-loader" and with source maps', async () => {
     const compiler = getCompiler(
-      './contenthash/basic-sass.js',
+      './source-map/basic-scss.js',
       {},
       {
         output: {
           path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].[contenthash].bundle.js',
-          chunkFilename: '[name].[contenthash].chunk.js',
+          filename: '[name].bundle.js',
+          chunkFilename: '[name].chunk.js',
           publicPath: '/webpack/public/path/',
         },
         module: {
@@ -690,15 +665,13 @@ describe('loader', () => {
       }
     );
     const stats = await compile(compiler);
-    const isWebpack5 = version[0] === '5';
 
-    expect(
-      stats.compilation.assets[
-        isWebpack5
-          ? 'main.021e49d811fb525fefec.bundle.js'
-          : 'main.4d3725d232198f3e836e.bundle.js'
-      ]
-    ).toBeDefined();
+    expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
+      'module'
+    );
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
