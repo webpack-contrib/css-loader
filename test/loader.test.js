@@ -542,7 +542,6 @@ describe('loader', () => {
                   loader: path.resolve(__dirname, '../src'),
                   options: {
                     sourceMap: true,
-                    importLoaders: 1,
                   },
                 },
                 {
@@ -587,7 +586,6 @@ describe('loader', () => {
                   loader: path.resolve(__dirname, '../src'),
                   options: {
                     sourceMap: false,
-                    importLoaders: 1,
                   },
                 },
                 {

@@ -19,6 +19,7 @@ import {
   getImportCode,
   getModuleCode,
   getModulesPlugins,
+  normalizeSourceMap,
   shouldUseModulesPlugins,
 } from './utils';
 
@@ -86,7 +87,7 @@ export default function loader(content, map, meta) {
       map: options.sourceMap
         ? {
             // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-            prev: sourceMap && map ? map : null,
+            prev: sourceMap && map ? normalizeSourceMap(map) : null,
             inline: false,
             annotation: false,
           }
