@@ -37,6 +37,30 @@ exports[`loader issue #1033: result 1`] = `Object {}`;
 
 exports[`loader issue #1033: warnings 1`] = `Array []`;
 
+exports[`loader should have same "contenthash" with "css-loader" and with source maps: errors 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "css-loader" and with source maps: warnings 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "css-loader" and without source maps: errors 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "css-loader" and without source maps: warnings 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "postcss-loader" and with source maps: errors 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "postcss-loader" and with source maps: warnings 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "postcss-loader" and without source maps: errors 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "postcss-loader" and without source maps: warnings 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "sass-loader" and with source maps: errors 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "sass-loader" and with source maps: warnings 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "sass-loader" and without source maps: errors 1`] = `Array []`;
+
+exports[`loader should have same "contenthash" with "sass-loader" and without source maps: warnings 1`] = `Array []`;
+
 exports[`loader should reuse \`ast\` from "postcss-loader": errors 1`] = `Array []`;
 
 exports[`loader should reuse \`ast\` from "postcss-loader": module 1`] = `
