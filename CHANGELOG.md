@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.5.2](https://github.com/webpack-contrib/css-loader/compare/v3.5.1...v3.5.2) (2020-04-10)
+
+
+### Bug Fixes
+
+* schema for the `modules.auto` option ([#1075](https://github.com/webpack-contrib/css-loader/issues/1075)) ([8c9ffe7](https://github.com/webpack-contrib/css-loader/commit/8c9ffe7c6df11232b63173c757baa71ed36f6145))
+
 ### [3.5.1](https://github.com/webpack-contrib/css-loader/compare/v3.5.0...v3.5.1) (2020-04-07)
 
 
