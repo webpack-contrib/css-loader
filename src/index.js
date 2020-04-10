@@ -136,7 +136,8 @@ export default function loader(content, map, meta) {
         apiImports,
         urlReplacements,
         icssReplacements,
-        esModule
+        esModule,
+        this
       );
       const exportCode = getExportCode(
         exports,

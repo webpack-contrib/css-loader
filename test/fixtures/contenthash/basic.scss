@@ -1,9 +1,0 @@
-$var: red;
-
-a {
-  color: $var;
-
-  &:hover {
-    color: $var;
-  }
-}

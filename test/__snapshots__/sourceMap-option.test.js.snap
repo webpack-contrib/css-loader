@@ -197,7 +197,7 @@ exports[`"sourceMap" option false should not generate source maps when source ma
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
+exports.push([module.id, \\"body {\\\\n  background: coral;\\\\n}\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
 // Exports
 module.exports = exports;
 "
@@ -208,6 +208,10 @@ Array [
   Array [
     "./source-map/basic.scss",
     "body {
+  background: coral;
+}
+
+body {
   font: 100% Helvetica, sans-serif;
   color: #333;
 }",
@@ -293,6 +297,704 @@ Array [
 `;
 
 exports[`"sourceMap" option not specified should not generate source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader" and with source maps: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader" and with source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader" and with source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader" and without source maps: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader" and without source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader" and without source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: module 1`] = `
+Object {
+  "main.44feaad4705782814aa3.bundle.js": ConcatSource {
+    "children": Array [
+      RawSource {
+        "_value": "/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = \\"/webpack/public/path/\\";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = \\"./source-map/basic.js\\");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ \\"./source-map/basic.css\\":
+/*!******************************!*\\\\
+  !*** ./source-map/basic.css ***!
+  \\\\******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ \\"./source-map/basic.js\\":
+/*!*****************************!*\\\\
+  !*** ./source-map/basic.js ***!
+  \\\\*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _basic_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basic.css */ \\"./source-map/basic.css\\");
+/* harmony import */ var _basic_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_basic_css__WEBPACK_IMPORTED_MODULE_0__);
+
+
+__export__ = _basic_css__WEBPACK_IMPORTED_MODULE_0___default.a;
+
+/* harmony default export */ __webpack_exports__[\\"default\\"] = (_basic_css__WEBPACK_IMPORTED_MODULE_0___default.a);
+
+
+/***/ })
+
+/******/ });",
+      },
+      "
+//# sourceMappingURL=main.44feaad4705782814aa3.bundle.js.map",
+    ],
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.44feaad4705782814aa3.bundle.js",
+  },
+  "main.44feaad4705782814aa3.bundle.js.map": RawSource {
+    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///webpack/bootstrap\\",\\"webpack:///./source-map/basic.css\\",\\"webpack:///./source-map/basic.js\\"],\\"names\\":[],\\"mappings\\":\\";QAAA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;QAEA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;;;QAGA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA,0CAA0C,gCAAgC;QAC1E;QACA;;QAEA;QACA;QACA;QACA,wDAAwD,kBAAkB;QAC1E;QACA,iDAAiD,cAAc;QAC/D;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA,yCAAyC,iCAAiC;QAC1E,gHAAgH,mBAAmB,EAAE;QACrI;QACA;;QAEA;QACA;QACA;QACA,2BAA2B,0BAA0B,EAAE;QACvD,iCAAiC,eAAe;QAChD;QACA;QACA;;QAEA;QACA,sDAAsD,+DAA+D;;QAErH;QACA;;;QAGA;QACA;;;;;;;;;;;;AClFA,uC;;;;;;;;;;;;ACAA;AAAA;AAAA;AAA8B;;AAE9B,aAAa,iDAAG;;AAED,gHAAG,EAAC\\",\\"file\\":\\"main.44feaad4705782814aa3.bundle.js\\",\\"sourcesContent\\":[\\" \\\\t// The module cache\\\\n \\\\tvar installedModules = {};\\\\n\\\\n \\\\t// The require function\\\\n \\\\tfunction __webpack_require__(moduleId) {\\\\n\\\\n \\\\t\\\\t// Check if module is in cache\\\\n \\\\t\\\\tif(installedModules[moduleId]) {\\\\n \\\\t\\\\t\\\\treturn installedModules[moduleId].exports;\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\t// Create a new module (and put it into the cache)\\\\n \\\\t\\\\tvar module = installedModules[moduleId] = {\\\\n \\\\t\\\\t\\\\ti: moduleId,\\\\n \\\\t\\\\t\\\\tl: false,\\\\n \\\\t\\\\t\\\\texports: {}\\\\n \\\\t\\\\t};\\\\n\\\\n \\\\t\\\\t// Execute the module function\\\\n \\\\t\\\\tmodules[moduleId].call(module.exports, module, module.exports, __webpack_require__);\\\\n\\\\n \\\\t\\\\t// Flag the module as loaded\\\\n \\\\t\\\\tmodule.l = true;\\\\n\\\\n \\\\t\\\\t// Return the exports of the module\\\\n \\\\t\\\\treturn module.exports;\\\\n \\\\t}\\\\n\\\\n\\\\n \\\\t// expose the modules object (__webpack_modules__)\\\\n \\\\t__webpack_require__.m = modules;\\\\n\\\\n \\\\t// expose the module cache\\\\n \\\\t__webpack_require__.c = installedModules;\\\\n\\\\n \\\\t// define getter function for harmony exports\\\\n \\\\t__webpack_require__.d = function(exports, name, getter) {\\\\n \\\\t\\\\tif(!__webpack_require__.o(exports, name)) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, name, { enumerable: true, get: getter });\\\\n \\\\t\\\\t}\\\\n \\\\t};\\\\n\\\\n \\\\t// define __esModule on exports\\\\n \\\\t__webpack_require__.r = function(exports) {\\\\n \\\\t\\\\tif(typeof Symbol !== 'undefined' && Symbol.toStringTag) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\tObject.defineProperty(exports, '__esModule', { value: true });\\\\n \\\\t};\\\\n\\\\n \\\\t// create a fake namespace object\\\\n \\\\t// mode & 1: value is a module id, require it\\\\n \\\\t// mode & 2: merge all properties of value into the ns\\\\n \\\\t// mode & 4: return value when already ns object\\\\n \\\\t// mode & 8|1: behave like require\\\\n \\\\t__webpack_require__.t = function(value, mode) {\\\\n \\\\t\\\\tif(mode & 1) value = __webpack_require__(value);\\\\n \\\\t\\\\tif(mode & 8) return value;\\\\n \\\\t\\\\tif((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;\\\\n \\\\t\\\\tvar ns = Object.create(null);\\\\n \\\\t\\\\t__webpack_require__.r(ns);\\\\n \\\\t\\\\tObject.defineProperty(ns, 'default', { enumerable: true, value: value });\\\\n \\\\t\\\\tif(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));\\\\n \\\\t\\\\treturn ns;\\\\n \\\\t};\\\\n\\\\n \\\\t// getDefaultExport function for compatibility with non-harmony modules\\\\n \\\\t__webpack_require__.n = function(module) {\\\\n \\\\t\\\\tvar getter = module && module.__esModule ?\\\\n \\\\t\\\\t\\\\tfunction getDefault() { return module['default']; } :\\\\n \\\\t\\\\t\\\\tfunction getModuleExports() { return module; };\\\\n \\\\t\\\\t__webpack_require__.d(getter, 'a', getter);\\\\n \\\\t\\\\treturn getter;\\\\n \\\\t};\\\\n\\\\n \\\\t// Object.prototype.hasOwnProperty.call\\\\n \\\\t__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };\\\\n\\\\n \\\\t// __webpack_public_path__\\\\n \\\\t__webpack_require__.p = \\\\\\"/webpack/public/path/\\\\\\";\\\\n\\\\n\\\\n \\\\t// Load entry module and return exports\\\\n \\\\treturn __webpack_require__(__webpack_require__.s = \\\\\\"./source-map/basic.js\\\\\\");\\\\n\\",\\"// extracted by mini-css-extract-plugin\\",\\"import css from './basic.css';\\\\n\\\\n__export__ = css;\\\\n\\\\nexport default css;\\\\n\\"],\\"sourceRoot\\":\\"\\"}",
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.44feaad4705782814aa3.bundle.js.map",
+  },
+  "main.css": ConcatSource {
+    "children": Array [
+      RawSource {
+        "_value": ".nested {
+  color: blue;
+}
+
+.class {
+  color: red;
+}
+
+",
+      },
+      "
+/*# sourceMappingURL=main.css.map*/",
+    ],
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css",
+  },
+  "main.css.map": RawSource {
+    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///nested.css\\",\\"webpack:///basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,WAAW;AACb;;ACAA;EACE,UAAU;AACZ\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\".nested {\\\\n  color: blue;\\\\n}\\\\n\\",\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}",
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css.map",
+  },
+}
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: module 2`] = `"// extracted by mini-css-extract-plugin"`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and with source maps: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and with source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.postcss.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(true);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAKA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"file\\":\\"basic.postcss.css\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"]}]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and with source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and without source maps: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and without source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.postcss.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and without source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: module 1`] = `
+Object {
+  "main.7a589a7f7e1183114dc2.bundle.js": ConcatSource {
+    "children": Array [
+      RawSource {
+        "_value": "/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = \\"/webpack/public/path/\\";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = \\"./source-map/basic-postcss.js\\");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ \\"./source-map/basic-postcss.js\\":
+/*!*************************************!*\\\\
+  !*** ./source-map/basic-postcss.js ***!
+  \\\\*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _basic_postcss_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basic.postcss.css */ \\"./source-map/basic.postcss.css\\");
+/* harmony import */ var _basic_postcss_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_basic_postcss_css__WEBPACK_IMPORTED_MODULE_0__);
+
+
+__export__ = _basic_postcss_css__WEBPACK_IMPORTED_MODULE_0___default.a;
+
+/* harmony default export */ __webpack_exports__[\\"default\\"] = (_basic_postcss_css__WEBPACK_IMPORTED_MODULE_0___default.a);
+
+
+/***/ }),
+
+/***/ \\"./source-map/basic.postcss.css\\":
+/*!**************************************!*\\\\
+  !*** ./source-map/basic.postcss.css ***!
+  \\\\**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ })
+
+/******/ });",
+      },
+      "
+//# sourceMappingURL=main.7a589a7f7e1183114dc2.bundle.js.map",
+    ],
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.7a589a7f7e1183114dc2.bundle.js",
+  },
+  "main.7a589a7f7e1183114dc2.bundle.js.map": RawSource {
+    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///webpack/bootstrap\\",\\"webpack:///./source-map/basic-postcss.js\\",\\"webpack:///./source-map/basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\";QAAA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;QAEA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;;;QAGA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA,0CAA0C,gCAAgC;QAC1E;QACA;;QAEA;QACA;QACA;QACA,wDAAwD,kBAAkB;QAC1E;QACA,iDAAiD,cAAc;QAC/D;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA,yCAAyC,iCAAiC;QAC1E,gHAAgH,mBAAmB,EAAE;QACrI;QACA;;QAEA;QACA;QACA;QACA,2BAA2B,0BAA0B,EAAE;QACvD,iCAAiC,eAAe;QAChD;QACA;QACA;;QAEA;QACA,sDAAsD,+DAA+D;;QAErH;QACA;;;QAGA;QACA;;;;;;;;;;;;;AClFA;AAAA;AAAA;AAAsC;;AAEtC,aAAa,yDAAG;;AAED,wHAAG,EAAC;;;;;;;;;;;;ACJnB,uC\\",\\"file\\":\\"main.7a589a7f7e1183114dc2.bundle.js\\",\\"sourcesContent\\":[\\" \\\\t// The module cache\\\\n \\\\tvar installedModules = {};\\\\n\\\\n \\\\t// The require function\\\\n \\\\tfunction __webpack_require__(moduleId) {\\\\n\\\\n \\\\t\\\\t// Check if module is in cache\\\\n \\\\t\\\\tif(installedModules[moduleId]) {\\\\n \\\\t\\\\t\\\\treturn installedModules[moduleId].exports;\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\t// Create a new module (and put it into the cache)\\\\n \\\\t\\\\tvar module = installedModules[moduleId] = {\\\\n \\\\t\\\\t\\\\ti: moduleId,\\\\n \\\\t\\\\t\\\\tl: false,\\\\n \\\\t\\\\t\\\\texports: {}\\\\n \\\\t\\\\t};\\\\n\\\\n \\\\t\\\\t// Execute the module function\\\\n \\\\t\\\\tmodules[moduleId].call(module.exports, module, module.exports, __webpack_require__);\\\\n\\\\n \\\\t\\\\t// Flag the module as loaded\\\\n \\\\t\\\\tmodule.l = true;\\\\n\\\\n \\\\t\\\\t// Return the exports of the module\\\\n \\\\t\\\\treturn module.exports;\\\\n \\\\t}\\\\n\\\\n\\\\n \\\\t// expose the modules object (__webpack_modules__)\\\\n \\\\t__webpack_require__.m = modules;\\\\n\\\\n \\\\t// expose the module cache\\\\n \\\\t__webpack_require__.c = installedModules;\\\\n\\\\n \\\\t// define getter function for harmony exports\\\\n \\\\t__webpack_require__.d = function(exports, name, getter) {\\\\n \\\\t\\\\tif(!__webpack_require__.o(exports, name)) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, name, { enumerable: true, get: getter });\\\\n \\\\t\\\\t}\\\\n \\\\t};\\\\n\\\\n \\\\t// define __esModule on exports\\\\n \\\\t__webpack_require__.r = function(exports) {\\\\n \\\\t\\\\tif(typeof Symbol !== 'undefined' && Symbol.toStringTag) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\tObject.defineProperty(exports, '__esModule', { value: true });\\\\n \\\\t};\\\\n\\\\n \\\\t// create a fake namespace object\\\\n \\\\t// mode & 1: value is a module id, require it\\\\n \\\\t// mode & 2: merge all properties of value into the ns\\\\n \\\\t// mode & 4: return value when already ns object\\\\n \\\\t// mode & 8|1: behave like require\\\\n \\\\t__webpack_require__.t = function(value, mode) {\\\\n \\\\t\\\\tif(mode & 1) value = __webpack_require__(value);\\\\n \\\\t\\\\tif(mode & 8) return value;\\\\n \\\\t\\\\tif((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;\\\\n \\\\t\\\\tvar ns = Object.create(null);\\\\n \\\\t\\\\t__webpack_require__.r(ns);\\\\n \\\\t\\\\tObject.defineProperty(ns, 'default', { enumerable: true, value: value });\\\\n \\\\t\\\\tif(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));\\\\n \\\\t\\\\treturn ns;\\\\n \\\\t};\\\\n\\\\n \\\\t// getDefaultExport function for compatibility with non-harmony modules\\\\n \\\\t__webpack_require__.n = function(module) {\\\\n \\\\t\\\\tvar getter = module && module.__esModule ?\\\\n \\\\t\\\\t\\\\tfunction getDefault() { return module['default']; } :\\\\n \\\\t\\\\t\\\\tfunction getModuleExports() { return module; };\\\\n \\\\t\\\\t__webpack_require__.d(getter, 'a', getter);\\\\n \\\\t\\\\treturn getter;\\\\n \\\\t};\\\\n\\\\n \\\\t// Object.prototype.hasOwnProperty.call\\\\n \\\\t__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };\\\\n\\\\n \\\\t// __webpack_public_path__\\\\n \\\\t__webpack_require__.p = \\\\\\"/webpack/public/path/\\\\\\";\\\\n\\\\n\\\\n \\\\t// Load entry module and return exports\\\\n \\\\treturn __webpack_require__(__webpack_require__.s = \\\\\\"./source-map/basic-postcss.js\\\\\\");\\\\n\\",\\"import css from './basic.postcss.css';\\\\n\\\\n__export__ = css;\\\\n\\\\nexport default css;\\\\n\\",\\"// extracted by mini-css-extract-plugin\\"],\\"sourceRoot\\":\\"\\"}",
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.7a589a7f7e1183114dc2.bundle.js.map",
+  },
+  "main.css": ConcatSource {
+    "children": Array [
+      RawSource {
+        "_value": ".nested {
+  color: blue;
+}
+
+:root {
+  --fontSize: 1rem;
+  --mainColor: rgba(18,52,86,0.47059);
+  --secondaryColor: rgba(102, 51, 153, 0.9);
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow: hidden auto;
+}
+
+@media (max-width: 50rem) {
+  body {
+    color: rgba(18,52,86,0.47059);
+    color: var(--mainColor);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    font-size: 1rem;
+    font-size: var(--fontSize);
+    line-height: calc(1rem * 1.5);
+    line-height: calc(var(--fontSize) * 1.5);
+    word-wrap: break-word;
+    padding-left: calc(1rem / 2 + 1px);
+    padding-right: calc(1rem / 2 + 1px);
+    padding-left: calc(var(--fontSize) / 2 + 1px);
+    padding-right: calc(var(--fontSize) / 2 + 1px);
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  color: rgba(0, 0, 255, 0.9)
+}
+
+a:hover {
+   color: #639;
+ }
+
+",
+      },
+      "
+/*# sourceMappingURL=main.css.map*/",
+    ],
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css",
+  },
+  "main.css.map": RawSource {
+    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///nested.postcss.css\\",\\"webpack:///basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,WAAW;AACb;;ACGA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\".nested {\\\\n  color: blue;\\\\n}\\\\n\\",\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}",
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css.map",
+  },
+}
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: module 2`] = `"// extracted by mini-css-extract-plugin"`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader" and with source maps: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader" and with source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+exports.push([module.id, \\"body {\\\\n  background: coral;\\\\n}\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./nested/nested.scss\\",\\"basic.scss\\",\\"./basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,iBAAA;ACCF;;ACGA;EACE,gCAAA;EACA,WAJc;ADIhB\\",\\"file\\":\\"basic.scss\\",\\"sourcesContent\\":[\\"body {\\\\n  background: coral;\\\\n}\\\\n\\",\\"body {\\\\n  background: coral;\\\\n}\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\",\\"@import \\\\\\"./nested/nested\\\\\\";\\\\n\\\\n$font-stack:    Helvetica, sans-serif;\\\\n$primary-color: #333;\\\\n\\\\nbody {\\\\n  font: 100% $font-stack;\\\\n  color: $primary-color;\\\\n}\\\\n\\"]}]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader" and with source maps: result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.scss",
+    "body {
+  background: coral;
+}
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}",
+    "",
+    Object {
+      "file": "basic.scss",
+      "mappings": "AAAA;EACE,iBAAA;ACCF;;ACGA;EACE,gCAAA;EACA,WAJc;ADIhB",
+      "names": Array [],
+      "sources": Array [
+        "./nested/nested.scss",
+        "basic.scss",
+        "./basic.scss",
+      ],
+      "sourcesContent": Array [
+        "body {
+  background: coral;
+}
+",
+        "body {
+  background: coral;
+}
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}",
+        "@import \\"./nested/nested\\";
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader" and with source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader" and without source maps: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader" and without source maps: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\"body {\\\\n  background: coral;\\\\n}\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader" and without source maps: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: module 1`] = `
+Object {
+  "main.17b8db17c2cac5999ebf.bundle.js": ConcatSource {
+    "children": Array [
+      RawSource {
+        "_value": "/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = \\"/webpack/public/path/\\";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = \\"./source-map/basic-scss.js\\");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ \\"./source-map/basic-scss.js\\":
+/*!**********************************!*\\\\
+  !*** ./source-map/basic-scss.js ***!
+  \\\\**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _basic_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basic.scss */ \\"./source-map/basic.scss\\");
+/* harmony import */ var _basic_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_basic_scss__WEBPACK_IMPORTED_MODULE_0__);
+
+
+__export__ = _basic_scss__WEBPACK_IMPORTED_MODULE_0___default.a;
+
+/* harmony default export */ __webpack_exports__[\\"default\\"] = (_basic_scss__WEBPACK_IMPORTED_MODULE_0___default.a);
+
+
+/***/ }),
+
+/***/ \\"./source-map/basic.scss\\":
+/*!*******************************!*\\\\
+  !*** ./source-map/basic.scss ***!
+  \\\\*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ })
+
+/******/ });",
+      },
+      "
+//# sourceMappingURL=main.17b8db17c2cac5999ebf.bundle.js.map",
+    ],
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.17b8db17c2cac5999ebf.bundle.js",
+  },
+  "main.17b8db17c2cac5999ebf.bundle.js.map": RawSource {
+    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///webpack/bootstrap\\",\\"webpack:///./source-map/basic-scss.js\\",\\"webpack:///./source-map/basic.scss\\"],\\"names\\":[],\\"mappings\\":\\";QAAA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;QAEA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;;;QAGA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA,0CAA0C,gCAAgC;QAC1E;QACA;;QAEA;QACA;QACA;QACA,wDAAwD,kBAAkB;QAC1E;QACA,iDAAiD,cAAc;QAC/D;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA,yCAAyC,iCAAiC;QAC1E,gHAAgH,mBAAmB,EAAE;QACrI;QACA;;QAEA;QACA;QACA;QACA,2BAA2B,0BAA0B,EAAE;QACvD,iCAAiC,eAAe;QAChD;QACA;QACA;;QAEA;QACA,sDAAsD,+DAA+D;;QAErH;QACA;;;QAGA;QACA;;;;;;;;;;;;;AClFA;AAAA;AAAA;AAA+B;;AAE/B,aAAa,kDAAG;;AAED,iHAAG,EAAC;;;;;;;;;;;;ACJnB,uC\\",\\"file\\":\\"main.17b8db17c2cac5999ebf.bundle.js\\",\\"sourcesContent\\":[\\" \\\\t// The module cache\\\\n \\\\tvar installedModules = {};\\\\n\\\\n \\\\t// The require function\\\\n \\\\tfunction __webpack_require__(moduleId) {\\\\n\\\\n \\\\t\\\\t// Check if module is in cache\\\\n \\\\t\\\\tif(installedModules[moduleId]) {\\\\n \\\\t\\\\t\\\\treturn installedModules[moduleId].exports;\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\t// Create a new module (and put it into the cache)\\\\n \\\\t\\\\tvar module = installedModules[moduleId] = {\\\\n \\\\t\\\\t\\\\ti: moduleId,\\\\n \\\\t\\\\t\\\\tl: false,\\\\n \\\\t\\\\t\\\\texports: {}\\\\n \\\\t\\\\t};\\\\n\\\\n \\\\t\\\\t// Execute the module function\\\\n \\\\t\\\\tmodules[moduleId].call(module.exports, module, module.exports, __webpack_require__);\\\\n\\\\n \\\\t\\\\t// Flag the module as loaded\\\\n \\\\t\\\\tmodule.l = true;\\\\n\\\\n \\\\t\\\\t// Return the exports of the module\\\\n \\\\t\\\\treturn module.exports;\\\\n \\\\t}\\\\n\\\\n\\\\n \\\\t// expose the modules object (__webpack_modules__)\\\\n \\\\t__webpack_require__.m = modules;\\\\n\\\\n \\\\t// expose the module cache\\\\n \\\\t__webpack_require__.c = installedModules;\\\\n\\\\n \\\\t// define getter function for harmony exports\\\\n \\\\t__webpack_require__.d = function(exports, name, getter) {\\\\n \\\\t\\\\tif(!__webpack_require__.o(exports, name)) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, name, { enumerable: true, get: getter });\\\\n \\\\t\\\\t}\\\\n \\\\t};\\\\n\\\\n \\\\t// define __esModule on exports\\\\n \\\\t__webpack_require__.r = function(exports) {\\\\n \\\\t\\\\tif(typeof Symbol !== 'undefined' && Symbol.toStringTag) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\tObject.defineProperty(exports, '__esModule', { value: true });\\\\n \\\\t};\\\\n\\\\n \\\\t// create a fake namespace object\\\\n \\\\t// mode & 1: value is a module id, require it\\\\n \\\\t// mode & 2: merge all properties of value into the ns\\\\n \\\\t// mode & 4: return value when already ns object\\\\n \\\\t// mode & 8|1: behave like require\\\\n \\\\t__webpack_require__.t = function(value, mode) {\\\\n \\\\t\\\\tif(mode & 1) value = __webpack_require__(value);\\\\n \\\\t\\\\tif(mode & 8) return value;\\\\n \\\\t\\\\tif((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;\\\\n \\\\t\\\\tvar ns = Object.create(null);\\\\n \\\\t\\\\t__webpack_require__.r(ns);\\\\n \\\\t\\\\tObject.defineProperty(ns, 'default', { enumerable: true, value: value });\\\\n \\\\t\\\\tif(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));\\\\n \\\\t\\\\treturn ns;\\\\n \\\\t};\\\\n\\\\n \\\\t// getDefaultExport function for compatibility with non-harmony modules\\\\n \\\\t__webpack_require__.n = function(module) {\\\\n \\\\t\\\\tvar getter = module && module.__esModule ?\\\\n \\\\t\\\\t\\\\tfunction getDefault() { return module['default']; } :\\\\n \\\\t\\\\t\\\\tfunction getModuleExports() { return module; };\\\\n \\\\t\\\\t__webpack_require__.d(getter, 'a', getter);\\\\n \\\\t\\\\treturn getter;\\\\n \\\\t};\\\\n\\\\n \\\\t// Object.prototype.hasOwnProperty.call\\\\n \\\\t__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };\\\\n\\\\n \\\\t// __webpack_public_path__\\\\n \\\\t__webpack_require__.p = \\\\\\"/webpack/public/path/\\\\\\";\\\\n\\\\n\\\\n \\\\t// Load entry module and return exports\\\\n \\\\treturn __webpack_require__(__webpack_require__.s = \\\\\\"./source-map/basic-scss.js\\\\\\");\\\\n\\",\\"import css from './basic.scss';\\\\n\\\\n__export__ = css;\\\\n\\\\nexport default css;\\\\n\\",\\"// extracted by mini-css-extract-plugin\\"],\\"sourceRoot\\":\\"\\"}",
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.17b8db17c2cac5999ebf.bundle.js.map",
+  },
+  "main.css": ConcatSource {
+    "children": Array [
+      RawSource {
+        "_value": "body {
+  background: coral;
+}
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+",
+      },
+      "
+/*# sourceMappingURL=main.css.map*/",
+    ],
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css",
+  },
+  "main.css.map": RawSource {
+    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///nested/nested.scss\\",\\"webpack:///basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE;ACCF;;AAGA;EACE;EACA,WAJc;AAIhB,C\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\"body {\\\\n  background: coral;\\\\n}\\\\n\\",\\"body {\\\\n  background: coral;\\\\n}\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\"],\\"sourceRoot\\":\\"\\"}",
+    "emitted": true,
+    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css.map",
+  },
+}
+`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: module 2`] = `"// extracted by mini-css-extract-plugin"`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: warnings 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: errors 1`] = `Array []`;
 
