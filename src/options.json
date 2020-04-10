@@ -39,7 +39,7 @@
             "auto": {
               "anyOf": [
                 {
-                  "type": "object"
+                  "instanceof": "RegExp"
                 },
                 {
                   "type": "boolean"
