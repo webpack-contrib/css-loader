@@ -9,6 +9,7 @@ import {
   getExecutedCode,
   getModuleSource,
   getWarnings,
+  readAsset,
 } from './helpers/index';
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -775,7 +776,7 @@ describe('"sourceMap" option', () => {
         },
         plugins: [
           new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: 'main.css',
           }),
         ],
         module: {
@@ -798,7 +799,10 @@ describe('"sourceMap" option', () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.assets).toMatchSnapshot('module');
+    expect(readAsset('main.css', compiler, stats)).toMatchSnapshot('module');
+    expect(readAsset('main.css.map', compiler, stats)).toMatchSnapshot(
+      'module'
+    );
     expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
       'module'
     );
@@ -820,7 +824,7 @@ describe('"sourceMap" option', () => {
         },
         plugins: [
           new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: 'main.css',
           }),
         ],
         module: {
@@ -861,7 +865,10 @@ describe('"sourceMap" option', () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.assets).toMatchSnapshot('module');
+    expect(readAsset('main.css', compiler, stats)).toMatchSnapshot('module');
+    expect(readAsset('main.css.map', compiler, stats)).toMatchSnapshot(
+      'module'
+    );
     expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
       'module'
     );
@@ -883,7 +890,7 @@ describe('"sourceMap" option', () => {
         },
         plugins: [
           new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: 'main.css',
           }),
         ],
         module: {
@@ -916,7 +923,10 @@ describe('"sourceMap" option', () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.assets).toMatchSnapshot('module');
+    expect(readAsset('main.css', compiler, stats)).toMatchSnapshot('module');
+    expect(readAsset('main.css.map', compiler, stats)).toMatchSnapshot(
+      'module'
+    );
     expect(
       getModuleSource('./source-map/basic.postcss.css', stats)
     ).toMatchSnapshot('module');

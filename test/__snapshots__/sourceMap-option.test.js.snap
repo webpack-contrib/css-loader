@@ -335,146 +335,7 @@ exports[`"sourceMap" option should use forward slash in url with "css-loader" an
 exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: module 1`] = `
-Object {
-  "main.bundle.js": ConcatSource {
-    "children": Array [
-      RawSource {
-        "_value": "/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = \\"/webpack/public/path/\\";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = \\"./source-map/basic.js\\");
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ \\"./source-map/basic.css\\":
-/*!******************************!*\\\\
-  !*** ./source-map/basic.css ***!
-  \\\\******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ \\"./source-map/basic.js\\":
-/*!*****************************!*\\\\
-  !*** ./source-map/basic.js ***!
-  \\\\*****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-\\"use strict\\";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _basic_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basic.css */ \\"./source-map/basic.css\\");
-/* harmony import */ var _basic_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_basic_css__WEBPACK_IMPORTED_MODULE_0__);
-
-
-__export__ = _basic_css__WEBPACK_IMPORTED_MODULE_0___default.a;
-
-/* harmony default export */ __webpack_exports__[\\"default\\"] = (_basic_css__WEBPACK_IMPORTED_MODULE_0___default.a);
-
-
-/***/ })
-
-/******/ });",
-      },
-      "
-//# sourceMappingURL=main.bundle.js.map",
-    ],
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.bundle.js",
-  },
-  "main.bundle.js.map": RawSource {
-    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///webpack/bootstrap\\",\\"webpack:///./source-map/basic.css\\",\\"webpack:///./source-map/basic.js\\"],\\"names\\":[],\\"mappings\\":\\";QAAA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;QAEA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;;;QAGA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA,0CAA0C,gCAAgC;QAC1E;QACA;;QAEA;QACA;QACA;QACA,wDAAwD,kBAAkB;QAC1E;QACA,iDAAiD,cAAc;QAC/D;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA,yCAAyC,iCAAiC;QAC1E,gHAAgH,mBAAmB,EAAE;QACrI;QACA;;QAEA;QACA;QACA;QACA,2BAA2B,0BAA0B,EAAE;QACvD,iCAAiC,eAAe;QAChD;QACA;QACA;;QAEA;QACA,sDAAsD,+DAA+D;;QAErH;QACA;;;QAGA;QACA;;;;;;;;;;;;AClFA,uC;;;;;;;;;;;;ACAA;AAAA;AAAA;AAA8B;;AAE9B,aAAa,iDAAG;;AAED,gHAAG,EAAC\\",\\"file\\":\\"main.bundle.js\\",\\"sourcesContent\\":[\\" \\\\t// The module cache\\\\n \\\\tvar installedModules = {};\\\\n\\\\n \\\\t// The require function\\\\n \\\\tfunction __webpack_require__(moduleId) {\\\\n\\\\n \\\\t\\\\t// Check if module is in cache\\\\n \\\\t\\\\tif(installedModules[moduleId]) {\\\\n \\\\t\\\\t\\\\treturn installedModules[moduleId].exports;\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\t// Create a new module (and put it into the cache)\\\\n \\\\t\\\\tvar module = installedModules[moduleId] = {\\\\n \\\\t\\\\t\\\\ti: moduleId,\\\\n \\\\t\\\\t\\\\tl: false,\\\\n \\\\t\\\\t\\\\texports: {}\\\\n \\\\t\\\\t};\\\\n\\\\n \\\\t\\\\t// Execute the module function\\\\n \\\\t\\\\tmodules[moduleId].call(module.exports, module, module.exports, __webpack_require__);\\\\n\\\\n \\\\t\\\\t// Flag the module as loaded\\\\n \\\\t\\\\tmodule.l = true;\\\\n\\\\n \\\\t\\\\t// Return the exports of the module\\\\n \\\\t\\\\treturn module.exports;\\\\n \\\\t}\\\\n\\\\n\\\\n \\\\t// expose the modules object (__webpack_modules__)\\\\n \\\\t__webpack_require__.m = modules;\\\\n\\\\n \\\\t// expose the module cache\\\\n \\\\t__webpack_require__.c = installedModules;\\\\n\\\\n \\\\t// define getter function for harmony exports\\\\n \\\\t__webpack_require__.d = function(exports, name, getter) {\\\\n \\\\t\\\\tif(!__webpack_require__.o(exports, name)) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, name, { enumerable: true, get: getter });\\\\n \\\\t\\\\t}\\\\n \\\\t};\\\\n\\\\n \\\\t// define __esModule on exports\\\\n \\\\t__webpack_require__.r = function(exports) {\\\\n \\\\t\\\\tif(typeof Symbol !== 'undefined' && Symbol.toStringTag) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\tObject.defineProperty(exports, '__esModule', { value: true });\\\\n \\\\t};\\\\n\\\\n \\\\t// create a fake namespace object\\\\n \\\\t// mode & 1: value is a module id, require it\\\\n \\\\t// mode & 2: merge all properties of value into the ns\\\\n \\\\t// mode & 4: return value when already ns object\\\\n \\\\t// mode & 8|1: behave like require\\\\n \\\\t__webpack_require__.t = function(value, mode) {\\\\n \\\\t\\\\tif(mode & 1) value = __webpack_require__(value);\\\\n \\\\t\\\\tif(mode & 8) return value;\\\\n \\\\t\\\\tif((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;\\\\n \\\\t\\\\tvar ns = Object.create(null);\\\\n \\\\t\\\\t__webpack_require__.r(ns);\\\\n \\\\t\\\\tObject.defineProperty(ns, 'default', { enumerable: true, value: value });\\\\n \\\\t\\\\tif(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));\\\\n \\\\t\\\\treturn ns;\\\\n \\\\t};\\\\n\\\\n \\\\t// getDefaultExport function for compatibility with non-harmony modules\\\\n \\\\t__webpack_require__.n = function(module) {\\\\n \\\\t\\\\tvar getter = module && module.__esModule ?\\\\n \\\\t\\\\t\\\\tfunction getDefault() { return module['default']; } :\\\\n \\\\t\\\\t\\\\tfunction getModuleExports() { return module; };\\\\n \\\\t\\\\t__webpack_require__.d(getter, 'a', getter);\\\\n \\\\t\\\\treturn getter;\\\\n \\\\t};\\\\n\\\\n \\\\t// Object.prototype.hasOwnProperty.call\\\\n \\\\t__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };\\\\n\\\\n \\\\t// __webpack_public_path__\\\\n \\\\t__webpack_require__.p = \\\\\\"/webpack/public/path/\\\\\\";\\\\n\\\\n\\\\n \\\\t// Load entry module and return exports\\\\n \\\\treturn __webpack_require__(__webpack_require__.s = \\\\\\"./source-map/basic.js\\\\\\");\\\\n\\",\\"// extracted by mini-css-extract-plugin\\",\\"import css from './basic.css';\\\\n\\\\n__export__ = css;\\\\n\\\\nexport default css;\\\\n\\"],\\"sourceRoot\\":\\"\\"}",
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.bundle.js.map",
-  },
-  "main.css": ConcatSource {
-    "children": Array [
-      RawSource {
-        "_value": ".nested {
+".nested {
   color: blue;
 }
 
@@ -482,23 +343,13 @@ __export__ = _basic_css__WEBPACK_IMPORTED_MODULE_0___default.a;
   color: red;
 }
 
-",
-      },
-      "
-/*# sourceMappingURL=main.css.map*/",
-    ],
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css",
-  },
-  "main.css.map": RawSource {
-    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///nested.css\\",\\"webpack:///basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,WAAW;AACb;;ACAA;EACE,UAAU;AACZ\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\".nested {\\\\n  color: blue;\\\\n}\\\\n\\",\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}",
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css.map",
-  },
-}
+
+/*# sourceMappingURL=main.css.map*/"
 `;
 
-exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: module 2`] = `"// extracted by mini-css-extract-plugin"`;
+exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: module 2`] = `"{\\"version\\":3,\\"sources\\":[\\"webpack:///nested.css\\",\\"webpack:///basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,WAAW;AACb;;ACAA;EACE,UAAU;AACZ\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\".nested {\\\\n  color: blue;\\\\n}\\\\n\\",\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}"`;
+
+exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: module 3`] = `"// extracted by mini-css-extract-plugin"`;
 
 exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: warnings 1`] = `Array []`;
 
@@ -539,146 +390,7 @@ exports[`"sourceMap" option should use forward slash in url with "postcss-loader
 exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: module 1`] = `
-Object {
-  "main.bundle.js": ConcatSource {
-    "children": Array [
-      RawSource {
-        "_value": "/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = \\"/webpack/public/path/\\";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = \\"./source-map/basic-postcss.js\\");
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ \\"./source-map/basic-postcss.js\\":
-/*!*************************************!*\\\\
-  !*** ./source-map/basic-postcss.js ***!
-  \\\\*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-\\"use strict\\";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _basic_postcss_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basic.postcss.css */ \\"./source-map/basic.postcss.css\\");
-/* harmony import */ var _basic_postcss_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_basic_postcss_css__WEBPACK_IMPORTED_MODULE_0__);
-
-
-__export__ = _basic_postcss_css__WEBPACK_IMPORTED_MODULE_0___default.a;
-
-/* harmony default export */ __webpack_exports__[\\"default\\"] = (_basic_postcss_css__WEBPACK_IMPORTED_MODULE_0___default.a);
-
-
-/***/ }),
-
-/***/ \\"./source-map/basic.postcss.css\\":
-/*!**************************************!*\\\\
-  !*** ./source-map/basic.postcss.css ***!
-  \\\\**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ })
-
-/******/ });",
-      },
-      "
-//# sourceMappingURL=main.bundle.js.map",
-    ],
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.bundle.js",
-  },
-  "main.bundle.js.map": RawSource {
-    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///webpack/bootstrap\\",\\"webpack:///./source-map/basic-postcss.js\\",\\"webpack:///./source-map/basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\";QAAA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;QAEA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;;;QAGA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA,0CAA0C,gCAAgC;QAC1E;QACA;;QAEA;QACA;QACA;QACA,wDAAwD,kBAAkB;QAC1E;QACA,iDAAiD,cAAc;QAC/D;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA,yCAAyC,iCAAiC;QAC1E,gHAAgH,mBAAmB,EAAE;QACrI;QACA;;QAEA;QACA;QACA;QACA,2BAA2B,0BAA0B,EAAE;QACvD,iCAAiC,eAAe;QAChD;QACA;QACA;;QAEA;QACA,sDAAsD,+DAA+D;;QAErH;QACA;;;QAGA;QACA;;;;;;;;;;;;;AClFA;AAAA;AAAA;AAAsC;;AAEtC,aAAa,yDAAG;;AAED,wHAAG,EAAC;;;;;;;;;;;;ACJnB,uC\\",\\"file\\":\\"main.bundle.js\\",\\"sourcesContent\\":[\\" \\\\t// The module cache\\\\n \\\\tvar installedModules = {};\\\\n\\\\n \\\\t// The require function\\\\n \\\\tfunction __webpack_require__(moduleId) {\\\\n\\\\n \\\\t\\\\t// Check if module is in cache\\\\n \\\\t\\\\tif(installedModules[moduleId]) {\\\\n \\\\t\\\\t\\\\treturn installedModules[moduleId].exports;\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\t// Create a new module (and put it into the cache)\\\\n \\\\t\\\\tvar module = installedModules[moduleId] = {\\\\n \\\\t\\\\t\\\\ti: moduleId,\\\\n \\\\t\\\\t\\\\tl: false,\\\\n \\\\t\\\\t\\\\texports: {}\\\\n \\\\t\\\\t};\\\\n\\\\n \\\\t\\\\t// Execute the module function\\\\n \\\\t\\\\tmodules[moduleId].call(module.exports, module, module.exports, __webpack_require__);\\\\n\\\\n \\\\t\\\\t// Flag the module as loaded\\\\n \\\\t\\\\tmodule.l = true;\\\\n\\\\n \\\\t\\\\t// Return the exports of the module\\\\n \\\\t\\\\treturn module.exports;\\\\n \\\\t}\\\\n\\\\n\\\\n \\\\t// expose the modules object (__webpack_modules__)\\\\n \\\\t__webpack_require__.m = modules;\\\\n\\\\n \\\\t// expose the module cache\\\\n \\\\t__webpack_require__.c = installedModules;\\\\n\\\\n \\\\t// define getter function for harmony exports\\\\n \\\\t__webpack_require__.d = function(exports, name, getter) {\\\\n \\\\t\\\\tif(!__webpack_require__.o(exports, name)) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, name, { enumerable: true, get: getter });\\\\n \\\\t\\\\t}\\\\n \\\\t};\\\\n\\\\n \\\\t// define __esModule on exports\\\\n \\\\t__webpack_require__.r = function(exports) {\\\\n \\\\t\\\\tif(typeof Symbol !== 'undefined' && Symbol.toStringTag) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\tObject.defineProperty(exports, '__esModule', { value: true });\\\\n \\\\t};\\\\n\\\\n \\\\t// create a fake namespace object\\\\n \\\\t// mode & 1: value is a module id, require it\\\\n \\\\t// mode & 2: merge all properties of value into the ns\\\\n \\\\t// mode & 4: return value when already ns object\\\\n \\\\t// mode & 8|1: behave like require\\\\n \\\\t__webpack_require__.t = function(value, mode) {\\\\n \\\\t\\\\tif(mode & 1) value = __webpack_require__(value);\\\\n \\\\t\\\\tif(mode & 8) return value;\\\\n \\\\t\\\\tif((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;\\\\n \\\\t\\\\tvar ns = Object.create(null);\\\\n \\\\t\\\\t__webpack_require__.r(ns);\\\\n \\\\t\\\\tObject.defineProperty(ns, 'default', { enumerable: true, value: value });\\\\n \\\\t\\\\tif(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));\\\\n \\\\t\\\\treturn ns;\\\\n \\\\t};\\\\n\\\\n \\\\t// getDefaultExport function for compatibility with non-harmony modules\\\\n \\\\t__webpack_require__.n = function(module) {\\\\n \\\\t\\\\tvar getter = module && module.__esModule ?\\\\n \\\\t\\\\t\\\\tfunction getDefault() { return module['default']; } :\\\\n \\\\t\\\\t\\\\tfunction getModuleExports() { return module; };\\\\n \\\\t\\\\t__webpack_require__.d(getter, 'a', getter);\\\\n \\\\t\\\\treturn getter;\\\\n \\\\t};\\\\n\\\\n \\\\t// Object.prototype.hasOwnProperty.call\\\\n \\\\t__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };\\\\n\\\\n \\\\t// __webpack_public_path__\\\\n \\\\t__webpack_require__.p = \\\\\\"/webpack/public/path/\\\\\\";\\\\n\\\\n\\\\n \\\\t// Load entry module and return exports\\\\n \\\\treturn __webpack_require__(__webpack_require__.s = \\\\\\"./source-map/basic-postcss.js\\\\\\");\\\\n\\",\\"import css from './basic.postcss.css';\\\\n\\\\n__export__ = css;\\\\n\\\\nexport default css;\\\\n\\",\\"// extracted by mini-css-extract-plugin\\"],\\"sourceRoot\\":\\"\\"}",
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.bundle.js.map",
-  },
-  "main.css": ConcatSource {
-    "children": Array [
-      RawSource {
-        "_value": ".nested {
+".nested {
   color: blue;
 }
 
@@ -724,23 +436,13 @@ a:hover {
    color: #639;
  }
 
-",
-      },
-      "
-/*# sourceMappingURL=main.css.map*/",
-    ],
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css",
-  },
-  "main.css.map": RawSource {
-    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///nested.postcss.css\\",\\"webpack:///basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,WAAW;AACb;;ACGA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\".nested {\\\\n  color: blue;\\\\n}\\\\n\\",\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}",
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css.map",
-  },
-}
+
+/*# sourceMappingURL=main.css.map*/"
 `;
 
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: module 2`] = `"// extracted by mini-css-extract-plugin"`;
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: module 2`] = `"{\\"version\\":3,\\"sources\\":[\\"webpack:///nested.postcss.css\\",\\"webpack:///basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,WAAW;AACb;;ACGA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\".nested {\\\\n  color: blue;\\\\n}\\\\n\\",\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}"`;
+
+exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: module 3`] = `"// extracted by mini-css-extract-plugin"`;
 
 exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: warnings 1`] = `Array []`;
 
@@ -829,146 +531,7 @@ exports[`"sourceMap" option should use forward slash in url with "sass-loader" a
 exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: module 1`] = `
-Object {
-  "main.bundle.js": ConcatSource {
-    "children": Array [
-      RawSource {
-        "_value": "/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = \\"/webpack/public/path/\\";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = \\"./source-map/basic-scss.js\\");
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ \\"./source-map/basic-scss.js\\":
-/*!**********************************!*\\\\
-  !*** ./source-map/basic-scss.js ***!
-  \\\\**********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-\\"use strict\\";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _basic_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basic.scss */ \\"./source-map/basic.scss\\");
-/* harmony import */ var _basic_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_basic_scss__WEBPACK_IMPORTED_MODULE_0__);
-
-
-__export__ = _basic_scss__WEBPACK_IMPORTED_MODULE_0___default.a;
-
-/* harmony default export */ __webpack_exports__[\\"default\\"] = (_basic_scss__WEBPACK_IMPORTED_MODULE_0___default.a);
-
-
-/***/ }),
-
-/***/ \\"./source-map/basic.scss\\":
-/*!*******************************!*\\\\
-  !*** ./source-map/basic.scss ***!
-  \\\\*******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ })
-
-/******/ });",
-      },
-      "
-//# sourceMappingURL=main.bundle.js.map",
-    ],
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.bundle.js",
-  },
-  "main.bundle.js.map": RawSource {
-    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///webpack/bootstrap\\",\\"webpack:///./source-map/basic-scss.js\\",\\"webpack:///./source-map/basic.scss\\"],\\"names\\":[],\\"mappings\\":\\";QAAA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;QAEA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;;;QAGA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA,0CAA0C,gCAAgC;QAC1E;QACA;;QAEA;QACA;QACA;QACA,wDAAwD,kBAAkB;QAC1E;QACA,iDAAiD,cAAc;QAC/D;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA,yCAAyC,iCAAiC;QAC1E,gHAAgH,mBAAmB,EAAE;QACrI;QACA;;QAEA;QACA;QACA;QACA,2BAA2B,0BAA0B,EAAE;QACvD,iCAAiC,eAAe;QAChD;QACA;QACA;;QAEA;QACA,sDAAsD,+DAA+D;;QAErH;QACA;;;QAGA;QACA;;;;;;;;;;;;;AClFA;AAAA;AAAA;AAA+B;;AAE/B,aAAa,kDAAG;;AAED,iHAAG,EAAC;;;;;;;;;;;;ACJnB,uC\\",\\"file\\":\\"main.bundle.js\\",\\"sourcesContent\\":[\\" \\\\t// The module cache\\\\n \\\\tvar installedModules = {};\\\\n\\\\n \\\\t// The require function\\\\n \\\\tfunction __webpack_require__(moduleId) {\\\\n\\\\n \\\\t\\\\t// Check if module is in cache\\\\n \\\\t\\\\tif(installedModules[moduleId]) {\\\\n \\\\t\\\\t\\\\treturn installedModules[moduleId].exports;\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\t// Create a new module (and put it into the cache)\\\\n \\\\t\\\\tvar module = installedModules[moduleId] = {\\\\n \\\\t\\\\t\\\\ti: moduleId,\\\\n \\\\t\\\\t\\\\tl: false,\\\\n \\\\t\\\\t\\\\texports: {}\\\\n \\\\t\\\\t};\\\\n\\\\n \\\\t\\\\t// Execute the module function\\\\n \\\\t\\\\tmodules[moduleId].call(module.exports, module, module.exports, __webpack_require__);\\\\n\\\\n \\\\t\\\\t// Flag the module as loaded\\\\n \\\\t\\\\tmodule.l = true;\\\\n\\\\n \\\\t\\\\t// Return the exports of the module\\\\n \\\\t\\\\treturn module.exports;\\\\n \\\\t}\\\\n\\\\n\\\\n \\\\t// expose the modules object (__webpack_modules__)\\\\n \\\\t__webpack_require__.m = modules;\\\\n\\\\n \\\\t// expose the module cache\\\\n \\\\t__webpack_require__.c = installedModules;\\\\n\\\\n \\\\t// define getter function for harmony exports\\\\n \\\\t__webpack_require__.d = function(exports, name, getter) {\\\\n \\\\t\\\\tif(!__webpack_require__.o(exports, name)) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, name, { enumerable: true, get: getter });\\\\n \\\\t\\\\t}\\\\n \\\\t};\\\\n\\\\n \\\\t// define __esModule on exports\\\\n \\\\t__webpack_require__.r = function(exports) {\\\\n \\\\t\\\\tif(typeof Symbol !== 'undefined' && Symbol.toStringTag) {\\\\n \\\\t\\\\t\\\\tObject.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });\\\\n \\\\t\\\\t}\\\\n \\\\t\\\\tObject.defineProperty(exports, '__esModule', { value: true });\\\\n \\\\t};\\\\n\\\\n \\\\t// create a fake namespace object\\\\n \\\\t// mode & 1: value is a module id, require it\\\\n \\\\t// mode & 2: merge all properties of value into the ns\\\\n \\\\t// mode & 4: return value when already ns object\\\\n \\\\t// mode & 8|1: behave like require\\\\n \\\\t__webpack_require__.t = function(value, mode) {\\\\n \\\\t\\\\tif(mode & 1) value = __webpack_require__(value);\\\\n \\\\t\\\\tif(mode & 8) return value;\\\\n \\\\t\\\\tif((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;\\\\n \\\\t\\\\tvar ns = Object.create(null);\\\\n \\\\t\\\\t__webpack_require__.r(ns);\\\\n \\\\t\\\\tObject.defineProperty(ns, 'default', { enumerable: true, value: value });\\\\n \\\\t\\\\tif(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));\\\\n \\\\t\\\\treturn ns;\\\\n \\\\t};\\\\n\\\\n \\\\t// getDefaultExport function for compatibility with non-harmony modules\\\\n \\\\t__webpack_require__.n = function(module) {\\\\n \\\\t\\\\tvar getter = module && module.__esModule ?\\\\n \\\\t\\\\t\\\\tfunction getDefault() { return module['default']; } :\\\\n \\\\t\\\\t\\\\tfunction getModuleExports() { return module; };\\\\n \\\\t\\\\t__webpack_require__.d(getter, 'a', getter);\\\\n \\\\t\\\\treturn getter;\\\\n \\\\t};\\\\n\\\\n \\\\t// Object.prototype.hasOwnProperty.call\\\\n \\\\t__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };\\\\n\\\\n \\\\t// __webpack_public_path__\\\\n \\\\t__webpack_require__.p = \\\\\\"/webpack/public/path/\\\\\\";\\\\n\\\\n\\\\n \\\\t// Load entry module and return exports\\\\n \\\\treturn __webpack_require__(__webpack_require__.s = \\\\\\"./source-map/basic-scss.js\\\\\\");\\\\n\\",\\"import css from './basic.scss';\\\\n\\\\n__export__ = css;\\\\n\\\\nexport default css;\\\\n\\",\\"// extracted by mini-css-extract-plugin\\"],\\"sourceRoot\\":\\"\\"}",
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.bundle.js.map",
-  },
-  "main.css": ConcatSource {
-    "children": Array [
-      RawSource {
-        "_value": "body {
+"body {
   background: coral;
 }
 
@@ -976,23 +539,13 @@ body {
   font: 100% Helvetica, sans-serif;
   color: #333;
 }
-",
-      },
-      "
-/*# sourceMappingURL=main.css.map*/",
-    ],
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css",
-  },
-  "main.css.map": RawSource {
-    "_value": "{\\"version\\":3,\\"sources\\":[\\"webpack:///nested/nested.scss\\",\\"webpack:///basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE;ACCF;;AAGA;EACE;EACA,WAJc;AAIhB,C\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\"body {\\\\n  background: coral;\\\\n}\\\\n\\",\\"body {\\\\n  background: coral;\\\\n}\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\"],\\"sourceRoot\\":\\"\\"}",
-    "emitted": true,
-    "existsAt": "/media/veracrypt1/IdeaProjects/css-loader/outputs/main.css.map",
-  },
-}
+
+/*# sourceMappingURL=main.css.map*/"
 `;
 
-exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: module 2`] = `"// extracted by mini-css-extract-plugin"`;
+exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: module 2`] = `"{\\"version\\":3,\\"sources\\":[\\"webpack:///nested/nested.scss\\",\\"webpack:///basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE;ACCF;;AAGA;EACE;EACA,WAJc;AAIhB,C\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\"body {\\\\n  background: coral;\\\\n}\\\\n\\",\\"body {\\\\n  background: coral;\\\\n}\\\\n\\\\nbody {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\"],\\"sourceRoot\\":\\"\\"}"`;
+
+exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: module 3`] = `"// extracted by mini-css-extract-plugin"`;
 
 exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: warnings 1`] = `Array []`;
 
