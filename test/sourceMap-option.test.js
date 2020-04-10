@@ -501,8 +501,8 @@ describe('"sourceMap" option', () => {
       {
         output: {
           path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].[contenthash].bundle.js',
-          chunkFilename: '[name].[contenthash].chunk.js',
+          filename: '[name].bundle.js',
+          chunkFilename: '[name].chunk.js',
           publicPath: '/webpack/public/path/',
         },
         module: {
@@ -536,8 +536,8 @@ describe('"sourceMap" option', () => {
       {
         output: {
           path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].[contenthash].bundle.js',
-          chunkFilename: '[name].[contenthash].chunk.js',
+          filename: '[name].bundle.js',
+          chunkFilename: '[name].chunk.js',
           publicPath: '/webpack/public/path/',
         },
         module: {
@@ -571,8 +571,8 @@ describe('"sourceMap" option', () => {
       {
         output: {
           path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].[contenthash].bundle.js',
-          chunkFilename: '[name].[contenthash].chunk.js',
+          filename: '[name].bundle.js',
+          chunkFilename: '[name].chunk.js',
           publicPath: '/webpack/public/path/',
         },
         module: {
@@ -616,8 +616,8 @@ describe('"sourceMap" option', () => {
       {
         output: {
           path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].[contenthash].bundle.js',
-          chunkFilename: '[name].[contenthash].chunk.js',
+          filename: '[name].bundle.js',
+          chunkFilename: '[name].chunk.js',
           publicPath: '/webpack/public/path/',
         },
         module: {
@@ -660,8 +660,8 @@ describe('"sourceMap" option', () => {
       {
         output: {
           path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].[contenthash].bundle.js',
-          chunkFilename: '[name].[contenthash].chunk.js',
+          filename: '[name].bundle.js',
+          chunkFilename: '[name].chunk.js',
           publicPath: '/webpack/public/path/',
         },
         module: {
@@ -769,8 +769,8 @@ describe('"sourceMap" option', () => {
         devtool: 'source-map',
         output: {
           path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].[contenthash].bundle.js',
-          chunkFilename: '[name].[contenthash].chunk.js',
+          filename: '[name].bundle.js',
+          chunkFilename: '[name].chunk.js',
           publicPath: '/webpack/public/path/',
         },
         plugins: [
@@ -814,8 +814,8 @@ describe('"sourceMap" option', () => {
         devtool: 'source-map',
         output: {
           path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].[contenthash].bundle.js',
-          chunkFilename: '[name].[contenthash].chunk.js',
+          filename: '[name].bundle.js',
+          chunkFilename: '[name].chunk.js',
           publicPath: '/webpack/public/path/',
         },
         plugins: [
@@ -877,8 +877,8 @@ describe('"sourceMap" option', () => {
         devtool: 'source-map',
         output: {
           path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].[contenthash].bundle.js',
-          chunkFilename: '[name].[contenthash].chunk.js',
+          filename: '[name].bundle.js',
+          chunkFilename: '[name].chunk.js',
           publicPath: '/webpack/public/path/',
         },
         plugins: [
