@@ -199,19 +199,20 @@ function normalizeSourceMap(map, loaderContext) {
   // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
 
   if (newMap.file) {
-    newMap.file = normalizePath(newMap.file);
+    delete newMap.file;
   }
 
   if (newMap.sourceRoot) {
-    newMap.sourceRoot = normalizePath(newMap.sourceRoot);
+    newMap.sourceRoot = makeRelativePath(
+      loaderContext.rootContext,
+      normalizePath(newMap.sourceRoot)
+    );
   }
 
   if (newMap.sources) {
     newMap.sources = newMap.sources.map((source) =>
-      makeRelativePath(loaderContext.context, normalizePath(source))
+      makeRelativePath(loaderContext.rootContext, normalizePath(source))
     );
-
-    // newMap.sources = Array.from(new Set(newMap.sources));
   }
 
   return newMap;

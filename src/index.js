@@ -82,7 +82,7 @@ export default function loader(content, map, meta) {
   postcss(plugins)
     .process(content, {
       from: this.remainingRequest.split('!').pop(),
-      to: this.currentRequest.split('!').pop(),
+      to: null,
       map: options.sourceMap
         ? {
             // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
