@@ -13,7 +13,9 @@ import extractImports from 'postcss-modules-extract-imports';
 import modulesScope from 'postcss-modules-scope';
 import camelCase from 'camelcase';
 
+const WINDOWS_ABS_PATH_REGEXP = /^[a-zA-Z]:[\\/]/;
 const SEGMENTS_SPLIT_REGEXP = /([|!])/;
+const WINDOWS_PATH_SEPARATOR_REGEXP = /\\/g;
 const whitespace = '[\\x20\\t\\r\\n\\f]';
 const unescapeRegExp = new RegExp(
   `\\\\([\\da-f]{1,6}${whitespace}?|(${whitespace})|.)`,
@@ -360,6 +362,24 @@ function absoluteToRequest(context, maybeAbsolutePath) {
     resource = path.posix.relative(context, resource);
     if (!resource.startsWith('../')) {
       resource = `./${resource}`;
+    }
+    return querySplitPos === -1
+      ? resource
+      : resource + maybeAbsolutePath.slice(querySplitPos);
+  }
+
+  if (WINDOWS_ABS_PATH_REGEXP.test(maybeAbsolutePath)) {
+    const querySplitPos = maybeAbsolutePath.indexOf('?');
+    let resource =
+      querySplitPos === -1
+        ? maybeAbsolutePath
+        : maybeAbsolutePath.slice(0, querySplitPos);
+    resource = path.win32.relative(context, resource);
+    if (!WINDOWS_ABS_PATH_REGEXP.test(resource)) {
+      resource = resource.replace(WINDOWS_PATH_SEPARATOR_REGEXP, '/');
+      if (!resource.startsWith('../')) {
+        resource = `./${resource}`;
+      }
     }
     return querySplitPos === -1
       ? resource
