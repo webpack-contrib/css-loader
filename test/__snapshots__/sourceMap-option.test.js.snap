@@ -303,7 +303,7 @@ var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ide
 exports = ___CSS_LOADER_API_IMPORT___(true);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -349,182 +349,6 @@ exports[`"sourceMap" option should use forward slash in url with "css-loader", s
 
 exports[`"sourceMap" option should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin: warnings 1`] = `Array []`;
 
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and with source maps: errors 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and with source maps: module 1`] = `
-"// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.postcss.css\\");
-exports = ___CSS_LOADER_API_IMPORT___(true);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-// Module
-exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./test/fixtures/source-map/basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAKA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"]}]);
-// Exports
-module.exports = exports;
-"
-`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and with source maps: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and without source maps: errors 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and without source maps: module 1`] = `
-"// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.postcss.css\\");
-exports = ___CSS_LOADER_API_IMPORT___(false);
-exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-// Module
-exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\"]);
-// Exports
-module.exports = exports;
-"
-`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader" and without source maps: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: errors 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: module 1`] = `
-".nested {
-  color: blue;
-}
-
-:root {
-  --fontSize: 1rem;
-  --mainColor: rgba(18,52,86,0.47059);
-  --secondaryColor: rgba(102, 51, 153, 0.9);
-}
-
-html {
-  overflow-x: hidden;
-  overflow-y: auto;
-  overflow: hidden auto;
-}
-
-@media (max-width: 50rem) {
-  body {
-    color: rgba(18,52,86,0.47059);
-    color: var(--mainColor);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-    font-size: 1rem;
-    font-size: var(--fontSize);
-    line-height: calc(1rem * 1.5);
-    line-height: calc(var(--fontSize) * 1.5);
-    word-wrap: break-word;
-    padding-left: calc(1rem / 2 + 1px);
-    padding-right: calc(1rem / 2 + 1px);
-    padding-left: calc(var(--fontSize) / 2 + 1px);
-    padding-right: calc(var(--fontSize) / 2 + 1px);
-  }
-}
-
-h1,h2,h3,h4,h5,h6 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-a {
-  color: rgba(0, 0, 255, 0.9)
-}
-
-a:hover {
-   color: #639;
- }
-
-
-/*# sourceMappingURL=main.css.map*/"
-`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: module 2`] = `"{\\"version\\":3,\\"sources\\":[\\"webpack:///test/fixtures/source-map/nested/nested.postcss.css\\",\\"webpack:///test/fixtures/source-map/basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,WAAW;AACb;;ACGA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\".nested {\\\\n  color: blue;\\\\n}\\\\n\\",\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}"`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: module 3`] = `"// extracted by mini-css-extract-plugin"`;
-
-exports[`"sourceMap" option should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader" and with source maps: errors 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader" and with source maps: module 1`] = `
-"// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-exports = ___CSS_LOADER_API_IMPORT___(true);
-// Module
-exports.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./source-map/basic.scss\\",\\"./test/fixtures/source-map/basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAGA;EACE,gCAAA;EACA,WAJc;ACEhB\\",\\"sourcesContent\\":[\\"$font-stack:    Helvetica, sans-serif;\\\\n$primary-color: #333;\\\\n\\\\nbody {\\\\n  font: 100% $font-stack;\\\\n  color: $primary-color;\\\\n}\\\\n\\",\\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\"]}]);
-// Exports
-module.exports = exports;
-"
-`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader" and with source maps: result 1`] = `
-Array [
-  Array [
-    "./source-map/basic.scss",
-    "body {
-  font: 100% Helvetica, sans-serif;
-  color: #333;
-}",
-    "",
-    Object {
-      "mappings": "AAGA;EACE,gCAAA;EACA,WAJc;ACEhB",
-      "names": Array [],
-      "sources": Array [
-        "./source-map/basic.scss",
-        "./test/fixtures/source-map/basic.scss",
-      ],
-      "sourcesContent": Array [
-        "$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
-
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-}
-",
-        "body {
-  font: 100% Helvetica, sans-serif;
-  color: #333;
-}",
-      ],
-      "version": 3,
-    },
-  ],
-]
-`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader" and with source maps: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader" and without source maps: errors 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader" and without source maps: module 1`] = `
-"// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
-// Exports
-module.exports = exports;
-"
-`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader" and without source maps: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: errors 1`] = `Array []`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: module 1`] = `
-"body {
-  font: 100% Helvetica, sans-serif;
-  color: #333;
-}
-
-/*# sourceMappingURL=main.css.map*/"
-`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: module 2`] = `"{\\"version\\":3,\\"sources\\":[\\"webpack:///source-map/basic.scss\\",\\"webpack:///test/fixtures/source-map/basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAGA;EACE;EACA,WAJc;ACEhB,C\\",\\"file\\":\\"main.css\\",\\"sourcesContent\\":[\\"$font-stack:    Helvetica, sans-serif;\\\\n$primary-color: #333;\\\\n\\\\nbody {\\\\n  font: 100% $font-stack;\\\\n  color: $primary-color;\\\\n}\\\\n\\",\\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\"],\\"sourceRoot\\":\\"\\"}"`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: module 3`] = `"// extracted by mini-css-extract-plugin"`;
-
-exports[`"sourceMap" option should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin: warnings 1`] = `Array []`;
-
 exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: module 1`] = `
@@ -534,7 +358,7 @@ var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ide
 exports = ___CSS_LOADER_API_IMPORT___(true);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -553,7 +377,7 @@ Array [
       "mappings": "AAAA;EACE,WAAW;AACb",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/nested/nested.css",
+        "test/fixtures/source-map/nested/nested.css",
       ],
       "sourcesContent": Array [
         ".nested {
@@ -575,7 +399,7 @@ Array [
       "mappings": "AAEA;EACE,UAAU;AACZ",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/basic.css",
+        "test/fixtures/source-map/basic.css",
       ],
       "sourcesContent": Array [
         "@import \\"./nested/nested.css\\";
@@ -602,7 +426,7 @@ var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ide
 exports = ___CSS_LOADER_API_IMPORT___(true);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -621,7 +445,7 @@ Array [
       "mappings": "AAAA;EACE,WAAW;AACb",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/nested/nested.css",
+        "test/fixtures/source-map/nested/nested.css",
       ],
       "sourcesContent": Array [
         ".nested {
@@ -643,7 +467,7 @@ Array [
       "mappings": "AAEA;EACE,UAAU;AACZ",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/basic.css",
+        "test/fixtures/source-map/basic.css",
       ],
       "sourcesContent": Array [
         "@import \\"./nested/nested.css\\";
@@ -670,7 +494,7 @@ var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ide
 exports = ___CSS_LOADER_API_IMPORT___(true);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -689,7 +513,7 @@ Array [
       "mappings": "AAAA;EACE,WAAW;AACb",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/nested/nested.css",
+        "test/fixtures/source-map/nested/nested.css",
       ],
       "sourcesContent": Array [
         ".nested {
@@ -711,7 +535,7 @@ Array [
       "mappings": "AAEA;EACE,UAAU;AACZ",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/basic.css",
+        "test/fixtures/source-map/basic.css",
       ],
       "sourcesContent": Array [
         ".class {
@@ -736,7 +560,7 @@ var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ide
 exports = ___CSS_LOADER_API_IMPORT___(true);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./test/fixtures/source-map/basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAKA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"test/fixtures/source-map/basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAKA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -755,7 +579,7 @@ Array [
       "mappings": "AAAA;EACE,WAAW;AACb",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/nested/nested.postcss.css",
+        "test/fixtures/source-map/nested/nested.postcss.css",
       ],
       "sourcesContent": Array [
         ".nested {
@@ -815,7 +639,7 @@ a:hover {
       "mappings": "AAKA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/basic.postcss.css",
+        "test/fixtures/source-map/basic.postcss.css",
       ],
       "sourcesContent": Array [
         "@import \\"./nested/nested.postcss.css\\";
@@ -874,7 +698,7 @@ var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ide
 exports = ___CSS_LOADER_API_IMPORT___(true);
 exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
-exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"./test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
 module.exports = exports;
 "
@@ -893,7 +717,7 @@ Array [
       "mappings": "AAAA;EACE,WAAW;AACb",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/nested/nested.css",
+        "test/fixtures/source-map/nested/nested.css",
       ],
       "sourcesContent": Array [
         ".nested {
@@ -915,7 +739,7 @@ Array [
       "mappings": "AAEA;EACE,UAAU;AACZ",
       "names": Array [],
       "sources": Array [
-        "./test/fixtures/source-map/basic.css",
+        "test/fixtures/source-map/basic.css",
       ],
       "sourcesContent": Array [
         "@import \\"./nested/nested.css\\";

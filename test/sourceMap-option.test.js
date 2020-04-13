@@ -565,202 +565,202 @@ describe('"sourceMap" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should use forward slash in url with "postcss-loader" and without source maps', async () => {
-    const compiler = getCompiler(
-      './source-map/basic-postcss.js',
-      {},
-      {
-        output: {
-          path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].bundle.js',
-          chunkFilename: '[name].chunk.js',
-          publicPath: '/webpack/public/path/',
-        },
-        module: {
-          rules: [
-            {
-              test: /\.css$/i,
-              rules: [
-                {
-                  loader: path.resolve(__dirname, '../src'),
-                  options: {
-                    sourceMap: false,
-                    importLoaders: 1,
-                  },
-                },
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    plugins: () => [postcssPresetEnv({ stage: 0 })],
-                    sourceMap: false,
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      }
-    );
-    const stats = await compile(compiler);
+  // it('should use forward slash in url with "postcss-loader" and without source maps', async () => {
+  //   const compiler = getCompiler(
+  //     './source-map/basic-postcss.js',
+  //     {},
+  //     {
+  //       output: {
+  //         path: path.resolve(__dirname, '../outputs'),
+  //         filename: '[name].bundle.js',
+  //         chunkFilename: '[name].chunk.js',
+  //         publicPath: '/webpack/public/path/',
+  //       },
+  //       module: {
+  //         rules: [
+  //           {
+  //             test: /\.css$/i,
+  //             rules: [
+  //               {
+  //                 loader: path.resolve(__dirname, '../src'),
+  //                 options: {
+  //                   sourceMap: false,
+  //                   importLoaders: 1,
+  //                 },
+  //               },
+  //               {
+  //                 loader: 'postcss-loader',
+  //                 options: {
+  //                   plugins: () => [postcssPresetEnv({ stage: 0 })],
+  //                   sourceMap: false,
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //         ],
+  //       },
+  //     }
+  //   );
+  //   const stats = await compile(compiler);
+  //
+  //   expect(
+  //     getModuleSource('./source-map/basic.postcss.css', stats)
+  //   ).toMatchSnapshot('module');
+  //   expect(getWarnings(stats)).toMatchSnapshot('warnings');
+  //   expect(getErrors(stats)).toMatchSnapshot('errors');
+  // });
 
-    expect(
-      getModuleSource('./source-map/basic.postcss.css', stats)
-    ).toMatchSnapshot('module');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
+  // it('should use forward slash in url with "postcss-loader" and with source maps', async () => {
+  //   const compiler = getCompiler(
+  //     './source-map/basic-postcss.js',
+  //     {},
+  //     {
+  //       output: {
+  //         path: path.resolve(__dirname, '../outputs'),
+  //         filename: '[name].bundle.js',
+  //         chunkFilename: '[name].chunk.js',
+  //         publicPath: '/webpack/public/path/',
+  //       },
+  //       module: {
+  //         rules: [
+  //           {
+  //             test: /\.css$/i,
+  //             rules: [
+  //               {
+  //                 loader: path.resolve(__dirname, '../src'),
+  //                 options: {
+  //                   sourceMap: true,
+  //                 },
+  //               },
+  //               {
+  //                 loader: 'postcss-loader',
+  //                 options: {
+  //                   plugins: () => [postcssPresetEnv({ stage: 0 })],
+  //                   sourceMap: true,
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //         ],
+  //       },
+  //     }
+  //   );
+  //   const stats = await compile(compiler);
+  //
+  //   expect(
+  //     getModuleSource('./source-map/basic.postcss.css', stats)
+  //   ).toMatchSnapshot('module');
+  //   expect(getWarnings(stats)).toMatchSnapshot('warnings');
+  //   expect(getErrors(stats)).toMatchSnapshot('errors');
+  // });
 
-  it('should use forward slash in url with "postcss-loader" and with source maps', async () => {
-    const compiler = getCompiler(
-      './source-map/basic-postcss.js',
-      {},
-      {
-        output: {
-          path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].bundle.js',
-          chunkFilename: '[name].chunk.js',
-          publicPath: '/webpack/public/path/',
-        },
-        module: {
-          rules: [
-            {
-              test: /\.css$/i,
-              rules: [
-                {
-                  loader: path.resolve(__dirname, '../src'),
-                  options: {
-                    sourceMap: true,
-                  },
-                },
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    plugins: () => [postcssPresetEnv({ stage: 0 })],
-                    sourceMap: true,
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      }
-    );
-    const stats = await compile(compiler);
-
-    expect(
-      getModuleSource('./source-map/basic.postcss.css', stats)
-    ).toMatchSnapshot('module');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
-  it('should use forward slash in url with "sass-loader" and without source maps', async () => {
-    const compiler = getCompiler(
-      './source-map/basic-scss.js',
-      {},
-      {
-        output: {
-          path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].bundle.js',
-          chunkFilename: '[name].chunk.js',
-          publicPath: '/webpack/public/path/',
-        },
-        module: {
-          rules: [
-            {
-              test: /\.s[ca]ss$/i,
-              rules: [
-                {
-                  loader: path.resolve(__dirname, '../src'),
-                  options: {
-                    sourceMap: false,
-                  },
-                },
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    plugins: () => [postcssPresetEnv({ stage: 0 })],
-                    sourceMap: false,
-                  },
-                },
-                {
-                  loader: 'sass-loader',
-                  options: {
-                    // eslint-disable-next-line global-require
-                    implementation: require('sass'),
-                    sourceMap: false,
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      }
-    );
-    const stats = await compile(compiler);
-
-    expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
-      'module'
-    );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
-  it('should use forward slash in url with "sass-loader" and with source maps', async () => {
-    const compiler = getCompiler(
-      './source-map/basic-scss.js',
-      {},
-      {
-        output: {
-          path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].bundle.js',
-          chunkFilename: '[name].chunk.js',
-          publicPath: '/webpack/public/path/',
-        },
-        module: {
-          rules: [
-            {
-              test: /\.s[ca]ss$/i,
-              rules: [
-                {
-                  loader: path.resolve(__dirname, '../src'),
-                  options: {
-                    sourceMap: true,
-                    importLoaders: 1,
-                  },
-                },
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    plugins: () => [postcssPresetEnv({ stage: 0 })],
-                    sourceMap: true,
-                  },
-                },
-                {
-                  loader: 'sass-loader',
-                  options: {
-                    // eslint-disable-next-line global-require
-                    implementation: require('sass'),
-                    sourceMap: true,
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      }
-    );
-    const stats = await compile(compiler);
-
-    expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
-      'module'
-    );
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
-    );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
+  // it('should use forward slash in url with "sass-loader" and without source maps', async () => {
+  //   const compiler = getCompiler(
+  //     './source-map/basic-scss.js',
+  //     {},
+  //     {
+  //       output: {
+  //         path: path.resolve(__dirname, '../outputs'),
+  //         filename: '[name].bundle.js',
+  //         chunkFilename: '[name].chunk.js',
+  //         publicPath: '/webpack/public/path/',
+  //       },
+  //       module: {
+  //         rules: [
+  //           {
+  //             test: /\.s[ca]ss$/i,
+  //             rules: [
+  //               {
+  //                 loader: path.resolve(__dirname, '../src'),
+  //                 options: {
+  //                   sourceMap: false,
+  //                 },
+  //               },
+  //               {
+  //                 loader: 'postcss-loader',
+  //                 options: {
+  //                   plugins: () => [postcssPresetEnv({ stage: 0 })],
+  //                   sourceMap: false,
+  //                 },
+  //               },
+  //               {
+  //                 loader: 'sass-loader',
+  //                 options: {
+  //                   // eslint-disable-next-line global-require
+  //                   implementation: require('sass'),
+  //                   sourceMap: false,
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //         ],
+  //       },
+  //     }
+  //   );
+  //   const stats = await compile(compiler);
+  //
+  //   expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
+  //     'module'
+  //   );
+  //   expect(getWarnings(stats)).toMatchSnapshot('warnings');
+  //   expect(getErrors(stats)).toMatchSnapshot('errors');
+  // });
+  //
+  // it('should use forward slash in url with "sass-loader" and with source maps', async () => {
+  //   const compiler = getCompiler(
+  //     './source-map/basic-scss.js',
+  //     {},
+  //     {
+  //       output: {
+  //         path: path.resolve(__dirname, '../outputs'),
+  //         filename: '[name].bundle.js',
+  //         chunkFilename: '[name].chunk.js',
+  //         publicPath: '/webpack/public/path/',
+  //       },
+  //       module: {
+  //         rules: [
+  //           {
+  //             test: /\.s[ca]ss$/i,
+  //             rules: [
+  //               {
+  //                 loader: path.resolve(__dirname, '../src'),
+  //                 options: {
+  //                   sourceMap: true,
+  //                   importLoaders: 1,
+  //                 },
+  //               },
+  //               {
+  //                 loader: 'postcss-loader',
+  //                 options: {
+  //                   plugins: () => [postcssPresetEnv({ stage: 0 })],
+  //                   sourceMap: true,
+  //                 },
+  //               },
+  //               {
+  //                 loader: 'sass-loader',
+  //                 options: {
+  //                   // eslint-disable-next-line global-require
+  //                   implementation: require('sass'),
+  //                   sourceMap: true,
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //         ],
+  //       },
+  //     }
+  //   );
+  //   const stats = await compile(compiler);
+  //
+  //   expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
+  //     'module'
+  //   );
+  //   expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+  //     'result'
+  //   );
+  //   expect(getWarnings(stats)).toMatchSnapshot('warnings');
+  //   expect(getErrors(stats)).toMatchSnapshot('errors');
+  // });
 
   it('should use forward slash in url with "css-loader", source maps and MiniCssExtractPlugin', async () => {
     const compiler = getCompiler(
@@ -810,127 +810,127 @@ describe('"sourceMap" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin', async () => {
-    const compiler = getCompiler(
-      './source-map/basic-scss.js',
-      {},
-      {
-        devtool: 'source-map',
-        output: {
-          path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].bundle.js',
-          chunkFilename: '[name].chunk.js',
-          publicPath: '/webpack/public/path/',
-        },
-        plugins: [
-          new MiniCssExtractPlugin({
-            filename: 'main.css',
-          }),
-        ],
-        module: {
-          rules: [
-            {
-              test: /\.s[ca]ss$/i,
-              rules: [
-                {
-                  loader: MiniCssExtractPlugin.loader,
-                },
-                {
-                  loader: path.resolve(__dirname, '../src'),
-                  options: {
-                    sourceMap: true,
-                    importLoaders: 1,
-                  },
-                },
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    plugins: () => [postcssPresetEnv({ stage: 0 })],
-                    sourceMap: true,
-                  },
-                },
-                {
-                  loader: 'sass-loader',
-                  options: {
-                    // eslint-disable-next-line global-require
-                    implementation: require('sass'),
-                    sourceMap: true,
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      }
-    );
-    const stats = await compile(compiler);
-
-    expect(readAsset('main.css', compiler, stats)).toMatchSnapshot('module');
-    expect(readAsset('main.css.map', compiler, stats)).toMatchSnapshot(
-      'module'
-    );
-    expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
-      'module'
-    );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
-  it('should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin', async () => {
-    const compiler = getCompiler(
-      './source-map/basic-postcss.js',
-      {},
-      {
-        devtool: 'source-map',
-        output: {
-          path: path.resolve(__dirname, '../outputs'),
-          filename: '[name].bundle.js',
-          chunkFilename: '[name].chunk.js',
-          publicPath: '/webpack/public/path/',
-        },
-        plugins: [
-          new MiniCssExtractPlugin({
-            filename: 'main.css',
-          }),
-        ],
-        module: {
-          rules: [
-            {
-              test: /\.css$/i,
-              rules: [
-                {
-                  loader: MiniCssExtractPlugin.loader,
-                },
-                {
-                  loader: path.resolve(__dirname, '../src'),
-                  options: {
-                    sourceMap: true,
-                    importLoaders: 1,
-                  },
-                },
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    plugins: () => [postcssPresetEnv({ stage: 0 })],
-                    sourceMap: true,
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      }
-    );
-    const stats = await compile(compiler);
-
-    expect(readAsset('main.css', compiler, stats)).toMatchSnapshot('module');
-    expect(readAsset('main.css.map', compiler, stats)).toMatchSnapshot(
-      'module'
-    );
-    expect(
-      getModuleSource('./source-map/basic.postcss.css', stats)
-    ).toMatchSnapshot('module');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
+  // it('should use forward slash in url with "sass-loader", source maps and MiniCssExtractPlugin', async () => {
+  //   const compiler = getCompiler(
+  //     './source-map/basic-scss.js',
+  //     {},
+  //     {
+  //       devtool: 'source-map',
+  //       output: {
+  //         path: path.resolve(__dirname, '../outputs'),
+  //         filename: '[name].bundle.js',
+  //         chunkFilename: '[name].chunk.js',
+  //         publicPath: '/webpack/public/path/',
+  //       },
+  //       plugins: [
+  //         new MiniCssExtractPlugin({
+  //           filename: 'main.css',
+  //         }),
+  //       ],
+  //       module: {
+  //         rules: [
+  //           {
+  //             test: /\.s[ca]ss$/i,
+  //             rules: [
+  //               {
+  //                 loader: MiniCssExtractPlugin.loader,
+  //               },
+  //               {
+  //                 loader: path.resolve(__dirname, '../src'),
+  //                 options: {
+  //                   sourceMap: true,
+  //                   importLoaders: 1,
+  //                 },
+  //               },
+  //               {
+  //                 loader: 'postcss-loader',
+  //                 options: {
+  //                   plugins: () => [postcssPresetEnv({ stage: 0 })],
+  //                   sourceMap: true,
+  //                 },
+  //               },
+  //               {
+  //                 loader: 'sass-loader',
+  //                 options: {
+  //                   // eslint-disable-next-line global-require
+  //                   implementation: require('sass'),
+  //                   sourceMap: true,
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //         ],
+  //       },
+  //     }
+  //   );
+  //   const stats = await compile(compiler);
+  //
+  //   expect(readAsset('main.css', compiler, stats)).toMatchSnapshot('module');
+  //   expect(readAsset('main.css.map', compiler, stats)).toMatchSnapshot(
+  //     'module'
+  //   );
+  //   expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
+  //     'module'
+  //   );
+  //   expect(getWarnings(stats)).toMatchSnapshot('warnings');
+  //   expect(getErrors(stats)).toMatchSnapshot('errors');
+  // });
+  //
+  // it('should use forward slash in url with "postcss-loader", source maps and MiniCssExtractPlugin', async () => {
+  //   const compiler = getCompiler(
+  //     './source-map/basic-postcss.js',
+  //     {},
+  //     {
+  //       devtool: 'source-map',
+  //       output: {
+  //         path: path.resolve(__dirname, '../outputs'),
+  //         filename: '[name].bundle.js',
+  //         chunkFilename: '[name].chunk.js',
+  //         publicPath: '/webpack/public/path/',
+  //       },
+  //       plugins: [
+  //         new MiniCssExtractPlugin({
+  //           filename: 'main.css',
+  //         }),
+  //       ],
+  //       module: {
+  //         rules: [
+  //           {
+  //             test: /\.css$/i,
+  //             rules: [
+  //               {
+  //                 loader: MiniCssExtractPlugin.loader,
+  //               },
+  //               {
+  //                 loader: path.resolve(__dirname, '../src'),
+  //                 options: {
+  //                   sourceMap: true,
+  //                   importLoaders: 1,
+  //                 },
+  //               },
+  //               {
+  //                 loader: 'postcss-loader',
+  //                 options: {
+  //                   plugins: () => [postcssPresetEnv({ stage: 0 })],
+  //                   sourceMap: true,
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //         ],
+  //       },
+  //     }
+  //   );
+  //   const stats = await compile(compiler);
+  //
+  //   expect(readAsset('main.css', compiler, stats)).toMatchSnapshot('module');
+  //   expect(readAsset('main.css.map', compiler, stats)).toMatchSnapshot(
+  //     'module'
+  //   );
+  //   expect(
+  //     getModuleSource('./source-map/basic.postcss.css', stats)
+  //   ).toMatchSnapshot('module');
+  //   expect(getWarnings(stats)).toMatchSnapshot('warnings');
+  //   expect(getErrors(stats)).toMatchSnapshot('errors');
+  // });
 });

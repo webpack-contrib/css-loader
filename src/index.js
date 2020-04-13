@@ -82,7 +82,8 @@ export default function loader(content, map, meta) {
   postcss(plugins)
     .process(content, {
       from: this.remainingRequest.split('!').pop(),
-      to: null,
+      // eslint-disable-next-line no-undefined
+      to: undefined,
       map: options.sourceMap
         ? {
             // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
