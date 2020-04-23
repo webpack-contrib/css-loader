@@ -122,7 +122,7 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it.only('should throw error on invalid css syntax', async () => {
+  it('should throw error on invalid css syntax', async () => {
     const compiler = getCompiler('./error.js', {});
     const stats = await compile(compiler);
 
