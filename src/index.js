@@ -150,6 +150,10 @@ export default function loader(content, map, meta) {
       return callback(null, `${importCode}${moduleCode}${exportCode}`);
     })
     .catch((error) => {
+      if (error.file) {
+        this.addDependency(error.file);
+      }
+
       callback(
         error.name === 'CssSyntaxError' ? new CssSyntaxError(error) : error
       );

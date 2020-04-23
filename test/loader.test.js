@@ -122,10 +122,15 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should throw error on invalid css syntax', async () => {
-    const compiler = getCompiler('./invalid.js', {});
+  it.only('should throw error on invalid css syntax', async () => {
+    const compiler = getCompiler('./error.js', {});
     const stats = await compile(compiler);
 
+    expect(
+      stats.compilation.fileDependencies.has(
+        path.resolve('./test/fixtures/error.css')
+      )
+    ).toBe(true);
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
