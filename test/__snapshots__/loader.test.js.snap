@@ -155,6 +155,13 @@ CssSyntaxError
 ]
 `;
 
+exports[`loader should throw error on invalid css syntax: file dependencies 1`] = `
+Array [
+  "test/fixtures/error.css",
+  "test/fixtures/error.js",
+]
+`;
+
 exports[`loader should throw error on invalid css syntax: warnings 1`] = `Array []`;
 
 exports[`loader should throws error when no loader(s) for assets: errors 1`] = `

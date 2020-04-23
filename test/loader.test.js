@@ -127,10 +127,10 @@ describe('loader', () => {
     const stats = await compile(compiler);
 
     expect(
-      stats.compilation.fileDependencies.has(
-        path.resolve('./test/fixtures/error.css')
+      Array.from(stats.compilation.fileDependencies).map((fileDependency) =>
+        path.relative(process.cwd(), fileDependency)
       )
-    ).toBe(true);
+    ).toMatchSnapshot('file dependencies');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
