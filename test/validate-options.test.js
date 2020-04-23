@@ -1,5 +1,7 @@
 import { getCompiler, compile } from './helpers/index';
 
+const postcssScss = require('postcss-scss');
+
 describe('validate options', () => {
   const tests = {
     url: {
@@ -65,6 +67,10 @@ describe('validate options', () => {
     esModule: {
       success: [true, false],
       failure: ['true'],
+    },
+    syntax: {
+      success: [postcssScss, false],
+      failure: ['string'],
     },
     unknown: {
       success: [],

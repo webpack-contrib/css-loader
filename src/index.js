@@ -92,6 +92,7 @@ export default function loader(content, map, meta) {
             annotation: false,
           }
         : false,
+      syntax: options.syntax,
     })
     .then((result) => {
       for (const warning of result.warnings()) {

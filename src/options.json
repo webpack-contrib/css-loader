@@ -118,6 +118,26 @@
     "esModule": {
       "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",
       "type": "boolean"
+    },
+    "syntax": {
+      "description": "Specify which parser postcss should use",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "parse": {
+              "instanceof": "Function"
+            },
+            "stringify": {
+              "instanceof": "Function"
+            }
+          }
+        }
+      ]
     }
   },
   "type": "object"
