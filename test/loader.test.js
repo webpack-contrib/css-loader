@@ -123,9 +123,14 @@ describe('loader', () => {
   });
 
   it('should throw error on invalid css syntax', async () => {
-    const compiler = getCompiler('./invalid.js', {});
+    const compiler = getCompiler('./error.js', {});
     const stats = await compile(compiler);
 
+    expect(
+      stats.compilation.fileDependencies.has(
+        path.resolve('./test/fixtures/error.css')
+      )
+    ).toBe(true);
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });

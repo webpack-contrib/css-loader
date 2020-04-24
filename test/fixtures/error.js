@@ -1,4 +1,4 @@
-import css from './invalid.css';
+import css from './error.css';
 
 __export__ = css;
 
