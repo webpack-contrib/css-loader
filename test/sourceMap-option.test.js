@@ -45,6 +45,22 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
+    it('should generate source maps #2', async () => {
+      const compiler = getCompiler('./source-map/with-query.js', {
+        sourceMap: true,
+      });
+      const stats = await compile(compiler);
+
+      expect(
+        getModuleSource('./source-map/with-query.css?url=false', stats)
+      ).toMatchSnapshot('module');
+      expect(
+        getExecutedCode('main.bundle.js', compiler, stats)
+      ).toMatchSnapshot('result');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+
     it('should generate source maps when source maps equal to "null" from an other loader', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
