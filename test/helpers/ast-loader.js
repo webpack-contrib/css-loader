@@ -11,7 +11,10 @@ export default function astLoader(content) {
   const { spy = jest.fn() } = this.query;
 
   postcss([postcssPresetEnv({ stage: 0 })])
-    .process(content)
+    .process(content, {
+      // eslint-disable-next-line no-undefined
+      from: undefined,
+    })
     .then(({ css, map, root, messages }) => {
       const ast = {
         type: 'postcss',

@@ -151,6 +151,8 @@ export default function loader(content, map, meta) {
     })
     .catch((error) => {
       if (error.file) {
+        console.log(error.file);
+
         this.addDependency(error.file);
       }
 
