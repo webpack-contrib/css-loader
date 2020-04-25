@@ -104,8 +104,7 @@ class OneLetterCss {
       loopCount += 1;
     }
 
-    // Add prefix '_' for css-names, started with '-' or digit '\d'
-    return /^[\d-]/.test(res) ? `_${res}` : res;
+    return res;
   }
 
   getLocalIdent(context, localIdentName, localName) {
@@ -148,8 +147,11 @@ class OneLetterCss {
     // If has "local" at webpack settings
     const hasLocal = /\[local]/.test(localIdentName);
 
-    // If has - add prefix
-    return hasLocal ? `${localName}__${newRuleName}` : newRuleName;
+    // If has develop settings - add prefix
+    const res = hasLocal ? `${localName}__${newRuleName}` : newRuleName;
+
+    // Add prefix '_' for css-names, started with '-' or digit '\d'
+    return /^[\d-]/.test(res) ? `_${res}` : res;
   }
 }
 
