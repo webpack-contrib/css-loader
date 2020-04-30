@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.5.3](https://github.com/webpack-contrib/css-loader/compare/v3.5.2...v3.5.3) (2020-04-24)
+
+
+### Bug Fixes
+
+* add file from an error to file dependencies ([841423f](https://github.com/webpack-contrib/css-loader/commit/841423fca2932c18f8ac0cf0a1f0012fc0a62fb6))
+* avoid query string in source maps ([#1082](https://github.com/webpack-contrib/css-loader/issues/1082)) ([f64de13](https://github.com/webpack-contrib/css-loader/commit/f64de13f7377eff9501348cf26213212ca696913))
+
 ### [3.5.2](https://github.com/webpack-contrib/css-loader/compare/v3.5.1...v3.5.2) (2020-04-10)
 
 
