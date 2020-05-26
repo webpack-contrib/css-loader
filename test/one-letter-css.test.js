@@ -10,7 +10,7 @@ const workSets = [
       '[hash:base64:8]',
       'theme-white',
     ],
-    out: '_2zADNwsK',
+    out: 'a2zADNwsK',
   },
   {
     in: [
@@ -20,7 +20,7 @@ const workSets = [
       '[hash:base64:8]',
       'theme-blue',
     ],
-    out: 'a2zADNwsK',
+    out: 'b2zADNwsK',
   },
   {
     in: [
@@ -30,7 +30,7 @@ const workSets = [
       '[hash:base64:8]',
       'text-white',
     ],
-    out: '_2jlx459O',
+    out: 'a2jlx459O',
   },
   {
     in: [
@@ -40,7 +40,7 @@ const workSets = [
       '[hash:base64:8]',
       'text-blue',
     ],
-    out: 'a2jlx459O',
+    out: 'b2jlx459O',
   },
   // for develop case
   {
@@ -51,15 +51,16 @@ const workSets = [
       '[local]__[hash:base64:8]',
       'text-blue',
     ],
-    out: 'text-blue__a2jlx459O',
+    out: 'text-blue__b2jlx459O',
   },
 ];
 
 /* encoding test set */
 const encodingSets = [
   // [in, out]
-  // it's ok, it's a prefix, can be empty
+  // can't be empty, not use as prefix
   [0, ''],
+  // start prefix from 1
   [1, 'a'],
   [2, 'b'],
   [25, 'y'],
@@ -111,4 +112,21 @@ describe('testing work cases', () => {
       expect(MyOneLetterCss.getNamePrefix(valIn)).toEqual(valOut);
     });
   });
+});
+
+it('should check prefix when [d_-] first letter at result', () => {
+  const hashRule = '[hash:base64:1]';
+  const filePath = {
+    resourcePath: './myFilePath.css'
+  };
+  let result = '';
+
+  // check [\d_-] rule
+  for (let i = 1; i <= 53; i += 1) {
+    const className = `a${i}`;
+
+    result = MyOneLetterCss.getLocalIdent(filePath, hashRule, className);
+  }
+
+  expect(result).toEqual('__1gLgDKv5');
 });

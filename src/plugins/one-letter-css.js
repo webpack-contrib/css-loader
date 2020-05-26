@@ -125,7 +125,7 @@ class OneLetterCss {
         content: resourcePath,
       });
 
-      fileShort = { name: fileShortName, lastUsed: -1, ruleNames: {} };
+      fileShort = { name: fileShortName, lastUsed: 0, ruleNames: {} };
       files[resourcePath] = fileShort;
     }
 
@@ -150,8 +150,8 @@ class OneLetterCss {
     // If has develop settings - add prefix
     const res = hasLocal ? `${localName}__${newRuleName}` : newRuleName;
 
-    // Add prefix '_' for css-names, started with '-' or digit '\d'
-    return /^[\d-]/.test(res) ? `_${res}` : res;
+    // Add prefix '_' for css-names, started with '-', digit '\d' or '_'
+    return /^[\d_-]/.test(res) ? `_${res}` : res;
   }
 }
 
