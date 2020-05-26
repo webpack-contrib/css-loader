@@ -4,6 +4,35 @@
 
 const { interpolateName } = require('loader-utils');
 
+// Parse hash rule
+function getRule (externalRule) {
+  // default rule
+  let iRule = {
+    type: 'hash',
+    rule: 'base64',
+    hashLen: 8,
+    val: ''
+  };
+
+  iRule.val = `[${iRule.type}:${iRule.rule}:${iRule.hashLen}]`;
+
+  const matchHashRule =
+    externalRule.replace(/_/g, '').match(/^(?:\[local])*\[([a-z\d]+):([a-z\d]+):(\d+)]$/) || [];
+
+  if (matchHashRule.length >= 4) {
+    const [_, type, rule, hashLen] = matchHashRule;
+
+    iRule = {
+      type,
+      rule,
+      hashLen,
+      val: `[${type}:${rule}:${hashLen}]`
+    };
+  }
+
+  return iRule;
+}
+
 class OneLetterCss {
   constructor() {
     // Save char symbol start positions
@@ -121,7 +150,10 @@ class OneLetterCss {
       // to avoid collapse hash combination. a_ab vs aa_b
 
       // Make encoding with filepath content hash
-      const fileShortName = interpolateName(context, '[hash:base64:8]', {
+
+      const localIdentRule = getRule(localIdentName);
+
+      const fileShortName = interpolateName(context, localIdentRule.val, {
         content: resourcePath,
       });
 
@@ -153,6 +185,10 @@ class OneLetterCss {
     // Add prefix '_' for css-names, started with '-', digit '\d' or '_'
     return /^[\d_-]/.test(res) ? `_${res}` : res;
   }
+
+  getStat () {
+    return this.files;
+  };
 }
 
 module.exports = OneLetterCss;
