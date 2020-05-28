@@ -689,7 +689,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work with a modules.auto equal "false"', async () => {
+  it('should work with a modules.auto Boolean that is "false"', async () => {
     const compiler = getCompiler('./modules/mode/modules.js', {
       modules: {
         auto: false,
@@ -707,7 +707,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work with a modules.auto equal "true"', async () => {
+  it('should work with a modules.auto Boolean that is "true"', async () => {
     const compiler = getCompiler('./modules/mode/modules.js', {
       modules: {
         auto: true,
@@ -725,7 +725,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work with a modules.auto returns "true"', async () => {
+  it('should work with a modules.auto RegExp that returns "true"', async () => {
     const compiler = getCompiler('./modules/mode/modules.js', {
       modules: {
         auto: /relative.module.css$/,
@@ -743,10 +743,46 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work with a modules.auto returns "false"', async () => {
+  it('should work with a modules.auto RegExp that returns "false"', async () => {
     const compiler = getCompiler('./modules/mode/modules.js', {
       modules: {
         auto: /will no pass/,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/mode/relative.module.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with a modules.auto Function that returns "true"', async () => {
+    const compiler = getCompiler('./modules/mode/modules.js', {
+      modules: {
+        auto: (relativePath) => relativePath.endsWith('module.css'),
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/mode/relative.module.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with a modules.auto Function that returns "false"', async () => {
+    const compiler = getCompiler('./modules/mode/modules.js', {
+      modules: {
+        auto: (relativePath) => relativePath.endsWith('will no pass'),
       },
     });
     const stats = await compile(compiler);

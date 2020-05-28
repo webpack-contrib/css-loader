@@ -117,6 +117,10 @@ function shouldUseModulesPlugins(modules, resourcePath) {
     return modules.auto.test(resourcePath);
   }
 
+  if (typeof modules.auto === 'function') {
+    return modules.auto(resourcePath);
+  }
+
   return true;
 }
 

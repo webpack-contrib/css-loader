@@ -42,6 +42,9 @@
                   "instanceof": "RegExp"
                 },
                 {
+                  "instanceof": "Function"
+                },
+                {
                   "type": "boolean"
                 }
               ]
