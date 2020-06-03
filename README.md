@@ -542,7 +542,7 @@ module.exports = {
 
 ##### `auto`
 
-Type: `Boolean|RegExp`
+Type: `Boolean|RegExp|Function`
 Default: `'undefined'`
 
 Allows auto enable css modules based on filename.
@@ -576,7 +576,7 @@ module.exports = {
 
 ###### `RegExp`
 
-Enable css modules for files based on a filename and satisfying your regex.
+Enable css modules for files based on the filename satisfying your regex check.
 
 **webpack.config.js**
 
@@ -590,6 +590,30 @@ module.exports = {
         options: {
           modules: {
             auto: /\.custom-module\.\w+$/i,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+###### `Function`
+
+Enable css modules for files based on the filename satisfying your filter function check.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            auto: (resourcePath) => resourcePath.endsWith('.custom-module.css'),
           },
         },
       },
