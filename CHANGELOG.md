@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://github.com/webpack-contrib/css-loader/compare/v3.5.3...v3.6.0) (2020-06-13)
+
+
+### Features
+
+* allow `modules.auto` to be a filter function ([#1086](https://github.com/webpack-contrib/css-loader/issues/1086)) ([0902353](https://github.com/webpack-contrib/css-loader/commit/0902353c328d4d18e8ed2755fe9c83c03c53df81))
+
 ### [3.5.3](https://github.com/webpack-contrib/css-loader/compare/v3.5.2...v3.5.3) (2020-04-24)
 
 
