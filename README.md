@@ -1084,7 +1084,6 @@ module.exports = {
   module: {
     rules: [
       {
-        // For CSS modules
         // For pure CSS - /\.css$/i,
         // For Sass/SCSS - /\.((c|sa|sc)ss)$/i,
         // For Less - /\.((c|le)ss)$/i,
@@ -1106,9 +1105,7 @@ module.exports = {
             options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
           },
           // Can be `less-loader`
-          // The `test` property should be `\.less/i`
           {
-            test: /\.s[ac]ss$/i,
             loader: 'sass-loader',
           },
         ],
