@@ -65,6 +65,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
   let hasHelper = false;
 
+  let index = 0;
+
   css.walkDecls((decl) => {
     if (!needParseDecl.test(decl.value)) {
       return;
@@ -99,6 +101,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       const importKey = normalizedUrl;
       let importName = importsMap.get(importKey);
 
+      index += 1;
+
       if (!importName) {
         importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
         importsMap.set(importKey, importName);
@@ -114,6 +118,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
               url: options.urlHandler
                 ? options.urlHandler(urlToHelper)
                 : urlToHelper,
+              index,
             },
           });
 
@@ -128,6 +133,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
             url: options.urlHandler
               ? options.urlHandler(normalizedUrl)
               : normalizedUrl,
+            index,
           },
         });
       }
@@ -142,7 +148,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         result.messages.push({
           pluginName,
           type: 'url-replacement',
-          value: { replacementName, importName, hash, needQuotes },
+          value: { replacementName, importName, hash, needQuotes, index },
         });
       }
 

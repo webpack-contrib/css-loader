@@ -21,6 +21,7 @@ import {
   getModulesPlugins,
   normalizeSourceMap,
   shouldUseModulesPlugins,
+  sortByName,
 } from './utils';
 
 export default function loader(content, map, meta) {
@@ -137,11 +138,24 @@ export default function loader(content, map, meta) {
       imports.sort((a, b) => a.index - b.index);
       apiImports.sort((a, b) => a.index - b.index);
 
+      const sortedImports = sortByName(imports, [
+        'CSS_LOADER_ICSS_IMPORT',
+        'CSS_LOADER_AT_RULE_IMPORT',
+        'CSS_LOADER_GET_URL_IMPORT',
+        'CSS_LOADER_URL_IMPORT',
+        'CSS_LOADER_URL_REPLACEMENT',
+      ]);
+
       const { localsConvention } = options;
       const esModule =
         typeof options.esModule !== 'undefined' ? options.esModule : false;
 
-      const importCode = getImportCode(this, exportType, imports, esModule);
+      const importCode = getImportCode(
+        this,
+        exportType,
+        sortedImports,
+        esModule
+      );
       const moduleCode = getModuleCode(
         result,
         exportType,

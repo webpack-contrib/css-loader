@@ -442,6 +442,16 @@ async function resolveRequests(resolve, context, possibleRequests) {
     });
 }
 
+function sortByName(array, orderNames) {
+  const result = [];
+
+  for (const name of orderNames) {
+    result.push(...array.filter((i) => i.importName.includes(name)));
+  }
+
+  return result;
+}
+
 export {
   normalizeUrl,
   getFilter,
@@ -453,4 +463,5 @@ export {
   getExportCode,
   shouldUseModulesPlugins,
   resolveRequests,
+  sortByName,
 };
