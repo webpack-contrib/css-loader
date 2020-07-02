@@ -47,9 +47,18 @@ export default function loader(content, map, meta) {
   plugins.push(icssParser({ urlHandler }));
 
   if (options.import !== false && exportType === 'full') {
+    const resolver = this.getResolve({
+      mainFields: ['css', 'style', 'main', '...'],
+      mainFiles: ['index', '...'],
+      extensions: ['.css'],
+      restrictions: [/\.css$/i],
+    });
+
     plugins.push(
       importParser({
+        context: this.context,
         filter: getFilter(options.import, this.resourcePath),
+        resolver,
         urlHandler,
       })
     );
@@ -124,6 +133,9 @@ export default function loader(content, map, meta) {
             break;
         }
       }
+
+      imports.sort((a, b) => a.index - b.index);
+      apiImports.sort((a, b) => a.index - b.index);
 
       const { localsConvention } = options;
       const esModule =

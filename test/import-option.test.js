@@ -88,4 +88,16 @@ describe('"import" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should respect stype field in package.json', async () => {
+    const compiler = getCompiler('./import/issue-683.js');
+    const stats = await compile(compiler);
+
+    expect(getModuleSource('test.css', stats)).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });

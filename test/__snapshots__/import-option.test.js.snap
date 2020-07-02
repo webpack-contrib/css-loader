@@ -152,6 +152,40 @@ Array [
 
 exports[`"import" option should keep original order: warnings 1`] = `Array []`;
 
+exports[`"import" option should respect stype field in package.json: errors 1`] = `Array []`;
+
+exports[`"import" option should respect stype field in package.json: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, \\".test {\\\\n  color: coral;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"import" option should respect stype field in package.json: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./import/node_modules/issue-683/test.css",
+    ".test {
+  color: coral;
+}
+",
+    "",
+  ],
+  Array [
+    "./import/issue-683.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"import" option should respect stype field in package.json: warnings 1`] = `Array []`;
+
 exports[`"import" option should work when "Function": errors 1`] = `Array []`;
 
 exports[`"import" option should work when "Function": module 1`] = `
@@ -162,9 +196,9 @@ var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??[ide
 var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??[ident]!./query.css?foo=1&bar=1\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!./other-query.css?foo=1&bar=1#hash\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_4___ = require(\\"-!../../../src/index.js??[ident]!./relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??[ident]!../import/top-relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??[ident]!package/tilde.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??[ident]!aliasesImport/alias.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??[ident]!./top-relative.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??[ident]!./alias.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??[ident]!./url.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??[ident]!./te'st.css\\");
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
@@ -532,13 +566,13 @@ var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./test.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??[ident]!./test-media.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??[ident]!./test-other.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!package/test.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!./node_modules/package/test.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_4___ = require(\\"-!../../../src/index.js??[ident]!./query.css?foo=1&bar=1\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??[ident]!./other-query.css?foo=1&bar=1#hash\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??[ident]!./relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??[ident]!../import/top-relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??[ident]!package/tilde.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??[ident]!aliasesImport/alias.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??[ident]!./top-relative.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??[ident]!./alias.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_10___ = require(\\"-!../../../src/index.js??[ident]!./url.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_11___ = require(\\"-!../../../src/index.js??[ident]!./te'st.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_12___ = require(\\"-!../../../src/index.js??[ident]!./test test.css\\");
@@ -1337,13 +1371,13 @@ var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./test.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_1___ = require(\\"-!../../../src/index.js??[ident]!./test-media.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_2___ = require(\\"-!../../../src/index.js??[ident]!./test-other.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!package/test.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_3___ = require(\\"-!../../../src/index.js??[ident]!./node_modules/package/test.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_4___ = require(\\"-!../../../src/index.js??[ident]!./query.css?foo=1&bar=1\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_5___ = require(\\"-!../../../src/index.js??[ident]!./other-query.css?foo=1&bar=1#hash\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_6___ = require(\\"-!../../../src/index.js??[ident]!./relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??[ident]!../import/top-relative.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??[ident]!package/tilde.css\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??[ident]!aliasesImport/alias.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_7___ = require(\\"-!../../../src/index.js??[ident]!./top-relative.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_8___ = require(\\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_9___ = require(\\"-!../../../src/index.js??[ident]!./alias.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_10___ = require(\\"-!../../../src/index.js??[ident]!./url.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_11___ = require(\\"-!../../../src/index.js??[ident]!./te'st.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_12___ = require(\\"-!../../../src/index.js??[ident]!./test test.css\\");

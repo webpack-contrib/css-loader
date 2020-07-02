@@ -422,6 +422,26 @@ function getExportCode(
   return `// Exports\n${code}`;
 }
 
+async function resolveRequests(resolve, context, possibleRequests) {
+  if (possibleRequests.length === 0) {
+    return Promise.reject();
+  }
+
+  return resolve(context, possibleRequests[0])
+    .then((result) => {
+      return result;
+    })
+    .catch((error) => {
+      const [, ...tailPossibleRequests] = possibleRequests;
+
+      if (tailPossibleRequests.length === 0) {
+        throw error;
+      }
+
+      return this.resolveRequests(context, tailPossibleRequests);
+    });
+}
+
 export {
   normalizeUrl,
   getFilter,
@@ -432,4 +452,5 @@ export {
   getModuleCode,
   getExportCode,
   shouldUseModulesPlugins,
+  resolveRequests,
 };
