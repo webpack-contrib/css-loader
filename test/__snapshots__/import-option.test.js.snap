@@ -152,6 +152,88 @@ Array [
 
 exports[`"import" option should keep original order: warnings 1`] = `Array []`;
 
+exports[`"import" option should resolve absolute path: errors 1`] = `Array []`;
+
+exports[`"import" option should resolve absolute path: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./test.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\"\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"import" option should resolve absolute path: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./import/test.css",
+    ".test {
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    "./import/import-absolute.css",
+    "",
+    "",
+  ],
+]
+`;
+
+exports[`"import" option should resolve absolute path: warnings 1`] = `Array []`;
+
+exports[`"import" option should resolve server-relative url relative rootContext: errors 1`] = `Array []`;
+
+exports[`"import" option should resolve server-relative url relative rootContext: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./test.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\".class {\\\\n  a: b c d;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"import" option should resolve server-relative url relative rootContext: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./import/test.css",
+    ".test {
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./import/test.css",
+    ".test {
+  a: a;
+}
+",
+    "",
+  ],
+  Array [
+    "./import/import-server-relative-url.css",
+    ".class {
+  a: b c d;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"import" option should resolve server-relative url relative rootContext: warnings 1`] = `Array []`;
+
 exports[`"import" option should respect stype field in package.json: errors 1`] = `Array []`;
 
 exports[`"import" option should respect stype field in package.json: module 1`] = `

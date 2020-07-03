@@ -1,6 +1,6 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-import { isUrlRequest } from 'loader-utils';
+import { isUrlRequest, urlToRequest } from 'loader-utils';
 
 import { normalizeUrl, resolveRequests } from '../utils';
 
@@ -77,6 +77,13 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         return;
       }
 
+      let request;
+
+      // May be url is server-relative url, but not //example.com
+      if (url.charAt(0) === '/' && url.charAt(1) !== '/') {
+        request = urlToRequest(url, options.rootContext);
+      }
+
       const isRequestable = isUrlRequest(url);
 
       if (isRequestable) {
@@ -107,7 +114,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
       tasks.push(
         Promise.resolve(index).then(async (currentIndex) => {
-          if (isRequestable) {
+          if (isRequestable || request) {
             const importKey = url;
             let importName = importsMap.get(importKey);
 
@@ -117,10 +124,20 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
               const { resolver, context } = options;
 
+              const possibleRequest = [url];
+
+              if (request) {
+                possibleRequest.push(request);
+              }
+
               let resolvedUrl;
 
               try {
-                resolvedUrl = await resolveRequests(resolver, context, [url]);
+                resolvedUrl = await resolveRequests(
+                  resolver,
+                  context,
+                  possibleRequest
+                );
               } catch (error) {
                 throw error;
               }

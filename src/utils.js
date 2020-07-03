@@ -73,13 +73,17 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
 }
 
 function normalizeUrl(url, isStringValue) {
+  const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
+
   let normalizedUrl = url;
 
   if (isStringValue && /\\[\n]/.test(normalizedUrl)) {
     normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
   }
 
-  return urlToRequest(decodeURIComponent(unescape(normalizedUrl)));
+  return matchNativeWin32Path.test(url)
+    ? urlToRequest(url, true)
+    : urlToRequest(decodeURIComponent(unescape(normalizedUrl)));
 }
 
 function getFilter(filter, resourcePath, defaultFilter = null) {
@@ -423,10 +427,6 @@ function getExportCode(
 }
 
 async function resolveRequests(resolve, context, possibleRequests) {
-  if (possibleRequests.length === 0) {
-    return Promise.reject();
-  }
-
   return resolve(context, possibleRequests[0])
     .then((result) => {
       return result;
@@ -438,7 +438,7 @@ async function resolveRequests(resolve, context, possibleRequests) {
         throw error;
       }
 
-      return this.resolveRequests(context, tailPossibleRequests);
+      return resolveRequests(resolve, context, tailPossibleRequests);
     });
 }
 

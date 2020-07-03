@@ -58,6 +58,7 @@ export default function loader(content, map, meta) {
     plugins.push(
       importParser({
         context: this.context,
+        rootContext: this.rootContext,
         filter: getFilter(options.import, this.resourcePath),
         resolver,
         urlHandler,
