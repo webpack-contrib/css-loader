@@ -53,6 +53,7 @@ export default function loader(content, map, meta) {
       mainFiles: ['index', '...'],
       extensions: ['.css'],
       restrictions: [/\.css$/i],
+      conditionNames: ['style'],
     });
 
     plugins.push(

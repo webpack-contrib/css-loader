@@ -4,7 +4,12 @@
 */
 import path from 'path';
 
-import { stringifyRequest, urlToRequest, interpolateName } from 'loader-utils';
+import {
+  stringifyRequest,
+  urlToRequest,
+  interpolateName,
+  isUrlRequest,
+} from 'loader-utils';
 import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
 import modulesValues from 'postcss-modules-values';
@@ -18,6 +23,7 @@ const unescapeRegExp = new RegExp(
   `\\\\([\\da-f]{1,6}${whitespace}?|(${whitespace})|.)`,
   'ig'
 );
+const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
 
 function unescape(str) {
   return str.replace(unescapeRegExp, (_, escaped, escapedWhitespace) => {
@@ -72,17 +78,19 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
   ).replace(/\\\[local\\\]/gi, localName);
 }
 
-function normalizeUrl(url, isStringValue) {
-  const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
-
+function normalizeUrl(url, isStringValue, rootContext) {
   let normalizedUrl = url;
 
   if (isStringValue && /\\[\n]/.test(normalizedUrl)) {
     normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
   }
 
-  return matchNativeWin32Path.test(url)
-    ? urlToRequest(url, true)
+  if (matchNativeWin32Path.test(normalizedUrl)) {
+    return normalizedUrl;
+  }
+
+  return mayBeServerRelativeUrl(normalizedUrl)
+    ? urlToRequest(decodeURIComponent(unescape(normalizedUrl)), rootContext)
     : urlToRequest(decodeURIComponent(unescape(normalizedUrl)));
 }
 
@@ -452,6 +460,25 @@ function sortByName(array, orderNames) {
   return result;
 }
 
+/*
+ * May be url is server-relative url, but not //example.com
+ * */
+function mayBeServerRelativeUrl(url) {
+  if (url.charAt(0) === '/' && !/^\/\//.test(url)) {
+    return true;
+  }
+
+  return false;
+}
+
+function isUrlRequestable(url) {
+  if (mayBeServerRelativeUrl(url)) {
+    return true;
+  }
+
+  return isUrlRequest(url);
+}
+
 export {
   normalizeUrl,
   getFilter,
@@ -464,4 +491,5 @@ export {
   shouldUseModulesPlugins,
   resolveRequests,
   sortByName,
+  isUrlRequestable,
 };

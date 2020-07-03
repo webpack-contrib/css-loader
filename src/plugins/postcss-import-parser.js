@@ -1,8 +1,7 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-import { isUrlRequest, urlToRequest } from 'loader-utils';
 
-import { normalizeUrl, resolveRequests } from '../utils';
+import { normalizeUrl, resolveRequests, isUrlRequestable } from '../utils';
 
 const pluginName = 'postcss-import-parser';
 
@@ -77,23 +76,18 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         return;
       }
 
-      let request;
+      let normalizedUrl;
 
-      // May be url is server-relative url, but not //example.com
-      if (url.charAt(0) === '/' && url.charAt(1) !== '/') {
-        request = urlToRequest(url, options.rootContext);
-      }
-
-      const isRequestable = isUrlRequest(url);
+      const isRequestable = isUrlRequestable(url);
 
       if (isRequestable) {
-        url = normalizeUrl(url, isStringValue);
+        normalizedUrl = normalizeUrl(url, isStringValue, options.rootContext);
 
         // Empty url after normalize - `@import '\
         // \
         // \
         // ';
-        if (url.trim().length === 0) {
+        if (normalizedUrl.trim().length === 0) {
           result.warn(`Unable to find uri in "${atRule.toString()}"`, {
             node: atRule,
           });
@@ -104,7 +98,10 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
       const media = valueParser.stringify(nodes.slice(1)).trim().toLowerCase();
 
-      if (options.filter && !options.filter({ url, media })) {
+      if (
+        options.filter &&
+        !options.filter({ url: normalizedUrl || url, media })
+      ) {
         return;
       }
 
@@ -114,8 +111,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
       tasks.push(
         Promise.resolve(index).then(async (currentIndex) => {
-          if (isRequestable || request) {
-            const importKey = url;
+          if (isRequestable) {
+            const importKey = normalizedUrl;
             let importName = importsMap.get(importKey);
 
             if (!importName) {
@@ -124,20 +121,13 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
               const { resolver, context } = options;
 
-              const possibleRequest = [url];
-
-              if (request) {
-                possibleRequest.push(request);
-              }
-
               let resolvedUrl;
 
               try {
-                resolvedUrl = await resolveRequests(
-                  resolver,
-                  context,
-                  possibleRequest
-                );
+                resolvedUrl = await resolveRequests(resolver, context, [
+                  normalizedUrl,
+                  url,
+                ]);
               } catch (error) {
                 throw error;
               }
