@@ -114,6 +114,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
             pluginName,
             type: 'import',
             value: {
+              // 'CSS_LOADER_GET_URL_IMPORT'
+              order: 2,
               importName: '___CSS_LOADER_GET_URL_IMPORT___',
               url: options.urlHandler
                 ? options.urlHandler(urlToHelper)
@@ -129,6 +131,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
           pluginName,
           type: 'import',
           value: {
+            // 'CSS_LOADER_URL_IMPORT'
+            order: 3,
             importName,
             url: options.urlHandler
               ? options.urlHandler(normalizedUrl)
@@ -148,7 +152,15 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         result.messages.push({
           pluginName,
           type: 'url-replacement',
-          value: { replacementName, importName, hash, needQuotes, index },
+          value: {
+            // 'CSS_LOADER_URL_REPLACEMENT'
+            order: 4,
+            replacementName,
+            importName,
+            hash,
+            needQuotes,
+            index,
+          },
         });
       }
 

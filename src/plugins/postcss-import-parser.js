@@ -125,8 +125,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
               try {
                 resolvedUrl = await resolveRequests(resolver, context, [
-                  normalizedUrl,
-                  url,
+                  ...new Set([normalizedUrl, url]),
                 ]);
               } catch (error) {
                 throw error;
@@ -135,6 +134,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
               result.messages.push({
                 type: 'import',
                 value: {
+                  // 'CSS_LOADER_AT_RULE_IMPORT'
+                  order: 1,
                   importName,
                   url: options.urlHandler
                     ? options.urlHandler(resolvedUrl)

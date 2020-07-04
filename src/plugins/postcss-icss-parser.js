@@ -42,6 +42,8 @@ export default postcss.plugin(
         {
           type: 'import',
           value: {
+            // 'CSS_LOADER_ICSS_IMPORT'
+            order: 0,
             importName,
             url: options.urlHandler ? options.urlHandler(url) : url,
           },

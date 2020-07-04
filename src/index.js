@@ -7,6 +7,7 @@ import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
 import validateOptions from 'schema-utils';
 import { satisfies } from 'semver';
+import sortBy from 'lodash.sortby';
 
 import CssSyntaxError from './CssSyntaxError';
 import Warning from './Warning';
@@ -21,7 +22,6 @@ import {
   getModulesPlugins,
   normalizeSourceMap,
   shouldUseModulesPlugins,
-  sortByName,
 } from './utils';
 
 export default function loader(content, map, meta) {
@@ -137,16 +137,18 @@ export default function loader(content, map, meta) {
         }
       }
 
-      imports.sort((a, b) => a.index - b.index);
       apiImports.sort((a, b) => a.index - b.index);
 
-      const sortedImports = sortByName(imports, [
-        'CSS_LOADER_ICSS_IMPORT',
-        'CSS_LOADER_AT_RULE_IMPORT',
-        'CSS_LOADER_GET_URL_IMPORT',
-        'CSS_LOADER_URL_IMPORT',
-        'CSS_LOADER_URL_REPLACEMENT',
-      ]);
+      /*
+       *   Order
+       *   CSS_LOADER_ICSS_IMPORT: [],
+       *   CSS_LOADER_AT_RULE_IMPORT: [],
+       *   CSS_LOADER_GET_URL_IMPORT: [],
+       *   CSS_LOADER_URL_IMPORT: [],
+       *   CSS_LOADER_URL_REPLACEMENT: [],
+       * */
+
+      const sortedImports = sortBy(imports, ['order', 'index']);
 
       const { localsConvention } = options;
       const esModule =
