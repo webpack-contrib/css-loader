@@ -43,8 +43,20 @@ export default function loader(content, map, meta) {
   const preRequester = getPreRequester(this);
   const urlHandler = (url) =>
     stringifyRequest(this, preRequester(options.importLoaders) + url);
+  const icssResolver = this.getResolve({
+    mainFields: ['css', 'style', 'main', '...'],
+    mainFiles: ['index', '...'],
+    extensions: ['.css'],
+  });
 
-  plugins.push(icssParser({ urlHandler }));
+  plugins.push(
+    icssParser({
+      context: this.context,
+      rootContext: this.rootContext,
+      resolver: icssResolver,
+      urlHandler,
+    })
+  );
 
   if (options.import !== false && exportType === 'full') {
     const resolver = this.getResolve({
@@ -136,8 +148,6 @@ export default function loader(content, map, meta) {
         }
       }
 
-      apiImports.sort((a, b) => a.index - b.index);
-
       /*
        *   Order
        *   CSS_LOADER_ICSS_IMPORT: [],
@@ -148,6 +158,12 @@ export default function loader(content, map, meta) {
        * */
 
       imports.sort((a, b) => {
+        return (
+          (b.order < a.order) - (a.order < b.order) ||
+          (b.index < a.index) - (a.index < b.index)
+        );
+      });
+      apiImports.sort((a, b) => {
         return (
           (b.order < a.order) - (a.order < b.order) ||
           (b.index < a.index) - (a.index < b.index)

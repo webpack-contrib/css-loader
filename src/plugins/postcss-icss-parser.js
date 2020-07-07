@@ -1,8 +1,9 @@
 import postcss from 'postcss';
 import { extractICSS, replaceValueSymbols, replaceSymbols } from 'icss-utils';
-import { urlToRequest } from 'loader-utils';
 
-function makeRequestableIcssImports(icssImports) {
+import { normalizeUrl, resolveRequests, isUrlRequestable } from '../utils';
+
+function makeRequestableIcssImports(icssImports, rootContext) {
   return Object.keys(icssImports).reduce((accumulator, url) => {
     const tokensMap = icssImports[url];
     const tokens = Object.keys(tokensMap);
@@ -11,16 +12,27 @@ function makeRequestableIcssImports(icssImports) {
       return accumulator;
     }
 
-    const normalizedUrl = urlToRequest(url);
+    const isRequestable = isUrlRequestable(url);
 
-    if (!accumulator[normalizedUrl]) {
+    let normalizedUrl;
+
+    if (isRequestable) {
+      normalizedUrl = normalizeUrl(url, true, rootContext);
+    }
+
+    const key = normalizedUrl || url;
+
+    if (!accumulator[key]) {
       // eslint-disable-next-line no-param-reassign
-      accumulator[normalizedUrl] = tokensMap;
+      accumulator[key] = { url, tokenMap: tokensMap };
     } else {
       // eslint-disable-next-line no-param-reassign
-      accumulator[normalizedUrl] = {
-        ...accumulator[normalizedUrl],
-        ...tokensMap,
+      accumulator[key] = {
+        url,
+        tokenMap: {
+          ...accumulator[key],
+          ...tokensMap,
+        },
       };
     }
 
@@ -31,55 +43,106 @@ function makeRequestableIcssImports(icssImports) {
 export default postcss.plugin(
   'postcss-icss-parser',
   (options) => (css, result) => {
-    const importReplacements = Object.create(null);
-    const extractedICSS = extractICSS(css);
-    const icssImports = makeRequestableIcssImports(extractedICSS.icssImports);
-
-    for (const [importIndex, url] of Object.keys(icssImports).entries()) {
-      const importName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}___`;
-
-      result.messages.push(
-        {
-          type: 'import',
-          value: {
-            // 'CSS_LOADER_ICSS_IMPORT'
-            order: 0,
-            importName,
-            url: options.urlHandler ? options.urlHandler(url) : url,
-          },
-        },
-        {
-          type: 'api-import',
-          value: { type: 'internal', importName, dedupe: true },
-        }
+    return new Promise(async (resolve, reject) => {
+      const importReplacements = Object.create(null);
+      const extractedICSS = extractICSS(css);
+      const icssImports = makeRequestableIcssImports(
+        extractedICSS.icssImports,
+        options.rootContext
       );
 
-      const tokenMap = icssImports[url];
-      const tokens = Object.keys(tokenMap);
+      const tasks = [];
 
-      for (const [replacementIndex, token] of tokens.entries()) {
-        const replacementName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}_REPLACEMENT_${replacementIndex}___`;
-        const localName = tokenMap[token];
+      let index = 0;
 
-        importReplacements[token] = replacementName;
+      for (const [importIndex, normalizedUrl] of Object.keys(
+        icssImports
+      ).entries()) {
+        const { url } = icssImports[normalizedUrl];
 
-        result.messages.push({
-          type: 'icss-replacement',
-          value: { replacementName, importName, localName },
-        });
+        index += 1;
+
+        tasks.push(
+          Promise.resolve(index).then(async (currentIndex) => {
+            const importName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}___`;
+            const { resolver, context } = options;
+
+            let resolvedUrl;
+
+            try {
+              resolvedUrl = await resolveRequests(resolver, context, [
+                ...new Set([normalizedUrl, url]),
+              ]);
+            } catch (error) {
+              throw error;
+            }
+
+            result.messages.push(
+              {
+                type: 'import',
+                value: {
+                  // 'CSS_LOADER_ICSS_IMPORT'
+                  order: 0,
+                  importName,
+                  url: options.urlHandler
+                    ? options.urlHandler(resolvedUrl)
+                    : resolvedUrl,
+                  index: currentIndex,
+                },
+              },
+              {
+                type: 'api-import',
+                value: {
+                  // 'CSS_LOADER_ICSS_IMPORT'
+                  order: 0,
+                  type: 'internal',
+                  importName,
+                  dedupe: true,
+                  index: currentIndex,
+                },
+              }
+            );
+
+            const { tokenMap } = icssImports[normalizedUrl];
+            const tokens = Object.keys(tokenMap);
+
+            for (const [replacementIndex, token] of tokens.entries()) {
+              const replacementName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}_REPLACEMENT_${replacementIndex}___`;
+              const localName = tokenMap[token];
+
+              importReplacements[token] = replacementName;
+
+              result.messages.push({
+                type: 'icss-replacement',
+                value: { replacementName, importName, localName },
+              });
+            }
+          })
+        );
       }
-    }
 
-    if (Object.keys(importReplacements).length > 0) {
-      replaceSymbols(css, importReplacements);
-    }
+      try {
+        await Promise.all(tasks);
+      } catch (error) {
+        reject(error);
+      }
 
-    const { icssExports } = extractedICSS;
+      if (Object.keys(importReplacements).length > 0) {
+        replaceSymbols(css, importReplacements);
+      }
 
-    for (const name of Object.keys(icssExports)) {
-      const value = replaceValueSymbols(icssExports[name], importReplacements);
+      const { icssExports } = extractedICSS;
 
-      result.messages.push({ type: 'export', value: { name, value } });
-    }
+      for (const name of Object.keys(icssExports)) {
+        const value = replaceValueSymbols(
+          icssExports[name],
+          importReplacements
+        );
+
+        result.messages.push({ type: 'export', value: { name, value } });
+      }
+
+      resolve();
+    });
   }
 );

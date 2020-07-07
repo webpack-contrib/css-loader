@@ -10,7 +10,7 @@ import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??[ident
 import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??[ident]!./relative.css\\";
 import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??[ident]!./top-relative.css\\";
 import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??[ident]!aliasesComposes/alias.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??[ident]!./alias.css\\";
 // Exports
 export default {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
@@ -122,7 +122,7 @@ var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../../src/index.js??[ide
 var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../../src/index.js??[ident]!./relative.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../../src/index.js??[ident]!./top-relative.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../../src/index.js??[ident]!aliasesComposes/alias.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../../src/index.js??[ident]!./alias.css\\");
 // Exports
 module.exports = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
