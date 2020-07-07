@@ -16,3 +16,4 @@ Thumbs.db
 .vscode
 *.sublime-project
 *.sublime-workspace
+/test/fixtures/import/import-absolute.css

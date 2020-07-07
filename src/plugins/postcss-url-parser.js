@@ -65,6 +65,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
   let hasHelper = false;
 
+  let index = 0;
+
   css.walkDecls((decl) => {
     if (!needParseDecl.test(decl.value)) {
       return;
@@ -99,6 +101,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       const importKey = normalizedUrl;
       let importName = importsMap.get(importKey);
 
+      index += 1;
+
       if (!importName) {
         importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
         importsMap.set(importKey, importName);
@@ -110,10 +114,13 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
             pluginName,
             type: 'import',
             value: {
+              // 'CSS_LOADER_GET_URL_IMPORT'
+              order: 2,
               importName: '___CSS_LOADER_GET_URL_IMPORT___',
               url: options.urlHandler
                 ? options.urlHandler(urlToHelper)
                 : urlToHelper,
+              index,
             },
           });
 
@@ -124,10 +131,13 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
           pluginName,
           type: 'import',
           value: {
+            // 'CSS_LOADER_URL_IMPORT'
+            order: 3,
             importName,
             url: options.urlHandler
               ? options.urlHandler(normalizedUrl)
               : normalizedUrl,
+            index,
           },
         });
       }
@@ -142,7 +152,15 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         result.messages.push({
           pluginName,
           type: 'url-replacement',
-          value: { replacementName, importName, hash, needQuotes },
+          value: {
+            // 'CSS_LOADER_URL_REPLACEMENT'
+            order: 4,
+            replacementName,
+            importName,
+            hash,
+            needQuotes,
+            index,
+          },
         });
       }
 
