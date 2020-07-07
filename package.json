@@ -47,7 +47,6 @@
     "cssesc": "^3.0.0",
     "icss-utils": "^4.1.1",
     "loader-utils": "^1.2.3",
-    "lodash.sortby": "^4.7.0",
     "normalize-path": "^3.0.0",
     "postcss": "^7.0.32",
     "postcss-modules-extract-imports": "^2.0.0",
