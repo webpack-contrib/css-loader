@@ -30,7 +30,7 @@ function makeRequestableIcssImports(icssImports, rootContext) {
       accumulator[key] = {
         url,
         tokenMap: {
-          ...accumulator[key],
+          ...accumulator[key].tokenMap,
           ...tokensMap,
         },
       };

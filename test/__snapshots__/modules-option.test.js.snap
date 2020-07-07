@@ -1146,8 +1146,9 @@ Array [
   ],
   Array [
     "../../src/index.js?[ident]!./modules/composes/sass-file.sass",
-    "
-
+    "._2KBCbdE3L3Wax8UPzZNThX {
+  padding: 10px;
+}
 ",
     "",
   ],
@@ -1170,7 +1171,7 @@ Array [
 }
 
 ._1yWiOyfH6HuDl7TOzpnWkK {
-  color: undefined;
+  color: coral;
 }
 
 .OVj95yO5B9JEdIo3xDMtO {
@@ -1182,20 +1183,7 @@ Array [
 ]
 `;
 
-exports[`"modules" option should support resolving in composes preprocessor files with extensions: warnings 1`] = `
-Array [
-  "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
-
-Invalid value definition: v-def: red
-@value v-foo: green
-@value v-bar: white
-@value v-baz: coral
-
-.sassClass
-  padding: 10px",
-]
-`;
+exports[`"modules" option should support resolving in composes preprocessor files with extensions: warnings 1`] = `Array []`;
 
 exports[`"modules" option should support resolving in composes: errors 1`] = `Array []`;
 
@@ -1457,6 +1445,15 @@ a {
 `;
 
 exports[`"modules" option should support resolving in composes: warnings 1`] = `Array []`;
+
+exports[`"modules" option should throw error when unresolved import: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: Can't resolve 'unresolved' in '/test/fixtures/modules/unresolved'",
+]
+`;
+
+exports[`"modules" option should throw error when unresolved import: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work and correctly replace escaped symbols: errors 1`] = `Array []`;
 

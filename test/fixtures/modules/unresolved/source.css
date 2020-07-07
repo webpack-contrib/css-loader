@@ -1,0 +1,6 @@
+@value foo from 'unresolved';
+
+.className {
+  color: foo;
+}
+
