@@ -328,6 +328,28 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it('should support resolving in composes preprocessor files with extensions', async () => {
+    const compiler = getCompiler(
+      './modules/composes/composes-preprocessors.js',
+      {
+        modules: {
+          mode: 'local',
+          exportGlobals: true,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/composes/composes-preprocessors.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
   it('issue #286', async () => {
     const compiler = getCompiler(
       './modules/issue-286/source.js',
