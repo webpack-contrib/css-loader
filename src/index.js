@@ -7,7 +7,6 @@ import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
 import validateOptions from 'schema-utils';
 import { satisfies } from 'semver';
-import sortBy from 'lodash.sortby';
 
 import CssSyntaxError from './CssSyntaxError';
 import Warning from './Warning';
@@ -148,18 +147,18 @@ export default function loader(content, map, meta) {
        *   CSS_LOADER_URL_REPLACEMENT: [],
        * */
 
-      const sortedImports = sortBy(imports, ['order', 'index']);
+      imports.sort((a, b) => {
+        return (
+          (b.order < a.order) - (a.order < b.order) ||
+          (b.index < a.index) - (a.index < b.index)
+        );
+      });
 
       const { localsConvention } = options;
       const esModule =
         typeof options.esModule !== 'undefined' ? options.esModule : false;
 
-      const importCode = getImportCode(
-        this,
-        exportType,
-        sortedImports,
-        esModule
-      );
+      const importCode = getImportCode(this, exportType, imports, esModule);
       const moduleCode = getModuleCode(
         result,
         exportType,
