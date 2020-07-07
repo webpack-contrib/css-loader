@@ -1042,6 +1042,116 @@ Array [
 
 exports[`"modules" option should should work with two leading underscore: warnings 1`] = `Array []`;
 
+exports[`"modules" option should support resolving in composes preprocessor files with extensions: errors 1`] = `Array []`;
+
+exports[`"modules" option should support resolving in composes preprocessor files with extensions: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../src/index.js??[ident]!./values.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../../src/index.js??[ident]!./less-file.less\\");
+var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../../src/index.js??[ident]!./scss-file.scss\\");
+var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../../src/index.js??[ident]!./sass-file.sass\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
+exports.i(___CSS_LOADER_ICSS_IMPORT_2___, \\"\\", true);
+exports.i(___CSS_LOADER_ICSS_IMPORT_3___, \\"\\", true);
+// Module
+exports.push([module.id, \\".globalClassName {\\\\n  color: orange;\\\\n}\\\\n\\\\n._2vZioV5tEV-AlqaI8c_mtN {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n.YX1POP6L7ESwR7pdtyRna {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-foo\\"] + \\";\\\\n}\\\\n\\\\n._1578mz8iEiOG2qNa19R11c {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"v-bar\\"] + \\";\\\\n}\\\\n\\\\n._1yWiOyfH6HuDl7TOzpnWkK {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"v-baz\\"] + \\";\\\\n}\\\\n\\\\n.OVj95yO5B9JEdIo3xDMtO {\\\\n  background: #000;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
+	\\"v-foo\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-foo\\"] + \\"\\",
+	\\"v-bar\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"v-bar\\"] + \\"\\",
+	\\"v-baz\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"v-baz\\"] + \\"\\",
+	\\"globalClassName\\": \\"globalClassName\\",
+	\\"ghi\\": \\"_2vZioV5tEV-AlqaI8c_mtN\\",
+	\\"class\\": \\"YX1POP6L7ESwR7pdtyRna \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"lessClass\\"] + \\"\\",
+	\\"other\\": \\"_1578mz8iEiOG2qNa19R11c \\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"scssClass\\"] + \\"\\",
+	\\"last\\": \\"_1yWiOyfH6HuDl7TOzpnWkK \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"sassClass\\"] + \\"\\",
+	\\"otherClassName\\": \\"OVj95yO5B9JEdIo3xDMtO globalClassName\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should support resolving in composes preprocessor files with extensions: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/values.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/less-file.less",
+    "._3lZeyjNxPePITWh1xVieTf {
+  padding: 5px;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/scss-file.scss",
+    "._228B9eI0iy8oD-AJowJJdF {
+  padding: 15px;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/sass-file.sass",
+    "
+
+",
+    "",
+  ],
+  Array [
+    "./modules/composes/composes-preprocessors.css",
+    ".globalClassName {
+  color: orange;
+}
+
+._2vZioV5tEV-AlqaI8c_mtN {
+  color: red;
+}
+
+.YX1POP6L7ESwR7pdtyRna {
+  color: green;
+}
+
+._1578mz8iEiOG2qNa19R11c {
+  color: white;
+}
+
+._1yWiOyfH6HuDl7TOzpnWkK {
+  color: undefined;
+}
+
+.OVj95yO5B9JEdIo3xDMtO {
+  background: #000;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should support resolving in composes preprocessor files with extensions: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+Invalid value definition: v-def: red
+@value v-foo: green
+@value v-bar: white
+@value v-baz: coral
+
+.sassClass
+  padding: 10px",
+]
+`;
+
 exports[`"modules" option should support resolving in composes: errors 1`] = `Array []`;
 
 exports[`"modules" option should support resolving in composes: module 1`] = `
