@@ -234,9 +234,45 @@ Array [
 
 exports[`"import" option should resolve server-relative url relative rootContext: warnings 1`] = `Array []`;
 
-exports[`"import" option should respect stype field in package.json: errors 1`] = `Array []`;
+exports[`"import" option should respect conditionNames: errors 1`] = `Array []`;
 
-exports[`"import" option should respect stype field in package.json: module 1`] = `
+exports[`"import" option should respect conditionNames: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./node_modules/package-with-exports/style.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"import" option should respect conditionNames: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./import/node_modules/package-with-exports/style.css",
+    ".load-me {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    "./import/import-conditionNames.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"import" option should respect conditionNames: warnings 1`] = `Array []`;
+
+exports[`"import" option should respect style field in package.json: errors 1`] = `Array []`;
+
+exports[`"import" option should respect style field in package.json: module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../../src/runtime/api.js\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
@@ -247,7 +283,7 @@ module.exports = exports;
 "
 `;
 
-exports[`"import" option should respect stype field in package.json: result 1`] = `
+exports[`"import" option should respect style field in package.json: result 1`] = `
 Array [
   Array [
     "../../src/index.js?[ident]!./import/node_modules/issue-683/test.css",
@@ -266,7 +302,7 @@ Array [
 ]
 `;
 
-exports[`"import" option should respect stype field in package.json: warnings 1`] = `Array []`;
+exports[`"import" option should respect style field in package.json: warnings 1`] = `Array []`;
 
 exports[`"import" option should work when "Function": errors 1`] = `Array []`;
 
