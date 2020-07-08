@@ -1,4 +1,4 @@
-@value foo from 'unresolved';
+@value foo from '//exammple.com/unresolved.css';
 
 .className {
   color: foo;

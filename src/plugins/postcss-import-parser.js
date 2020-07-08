@@ -137,9 +137,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
                   // 'CSS_LOADER_AT_RULE_IMPORT'
                   order: 1,
                   importName,
-                  url: options.urlHandler
-                    ? options.urlHandler(resolvedUrl)
-                    : resolvedUrl,
+                  url: options.urlHandler(resolvedUrl),
                   index: currentIndex,
                 },
               });

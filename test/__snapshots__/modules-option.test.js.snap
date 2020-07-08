@@ -1433,7 +1433,7 @@ exports[`"modules" option should support resolving in composes: warnings 1`] = `
 exports[`"modules" option should throw error when unresolved import: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: Can't resolve 'unresolved' in '/test/fixtures/modules/unresolved'",
+Error: Can't resolve '//exammple.com/unresolved.css' in '/test/fixtures/modules/unresolved'",
 ]
 `;
 
