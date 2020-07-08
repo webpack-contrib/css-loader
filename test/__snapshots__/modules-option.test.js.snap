@@ -668,6 +668,51 @@ Array [
 
 exports[`"modules" option should keep order: warnings 1`] = `Array []`;
 
+exports[`"modules" option should resolve package from node_modules with and without tilde: errors 1`] = `Array []`;
+
+exports[`"modules" option should resolve package from node_modules with and without tilde: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../src/index.js??[ident]!../node_modules/test/index.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../../src/index.js??[ident]!../node_modules/test/index.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+exports.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
+// Module
+exports.push([module.id, \\"._1AcMgd5TrMMVc761JDuYuc {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"foo\\"] + \\";\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"bar\\"] + \\";\\\\n}\\\\n\\\\n\\", \\"\\"]);
+// Exports
+exports.locals = {
+	\\"foo\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"foo\\"] + \\"\\",
+	\\"bar\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"bar\\"] + \\"\\",
+	\\"className\\": \\"_1AcMgd5TrMMVc761JDuYuc\\"
+};
+module.exports = exports;
+"
+`;
+
+exports[`"modules" option should resolve package from node_modules with and without tilde: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./modules/node_modules/test/index.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/issue-914/source.css",
+    "._1AcMgd5TrMMVc761JDuYuc {
+  color: red;
+  background: green;
+}
+
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should resolve package from node_modules with and without tilde: warnings 1`] = `Array []`;
+
 exports[`"modules" option should should work with two leading hyphens: errors 1`] = `Array []`;
 
 exports[`"modules" option should should work with two leading hyphens: module 1`] = `
@@ -1050,25 +1095,21 @@ var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../../src/runtime/api.js\\");
 var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../src/index.js??[ident]!./values.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../../src/index.js??[ident]!./less-file.less\\");
 var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../../src/index.js??[ident]!./scss-file.scss\\");
-var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../../src/index.js??[ident]!./sass-file.sass\\");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 exports.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
 exports.i(___CSS_LOADER_ICSS_IMPORT_2___, \\"\\", true);
-exports.i(___CSS_LOADER_ICSS_IMPORT_3___, \\"\\", true);
 // Module
-exports.push([module.id, \\".globalClassName {\\\\n  color: orange;\\\\n}\\\\n\\\\n._2vZioV5tEV-AlqaI8c_mtN {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n.YX1POP6L7ESwR7pdtyRna {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-foo\\"] + \\";\\\\n}\\\\n\\\\n._1578mz8iEiOG2qNa19R11c {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"v-bar\\"] + \\";\\\\n}\\\\n\\\\n._1yWiOyfH6HuDl7TOzpnWkK {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"v-baz\\"] + \\";\\\\n}\\\\n\\\\n.OVj95yO5B9JEdIo3xDMtO {\\\\n  background: #000;\\\\n}\\\\n\\", \\"\\"]);
+exports.push([module.id, \\".globalClassName {\\\\n  color: orange;\\\\n}\\\\n\\\\n._2vZioV5tEV-AlqaI8c_mtN {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n.YX1POP6L7ESwR7pdtyRna {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-foo\\"] + \\";\\\\n}\\\\n\\\\n._1578mz8iEiOG2qNa19R11c {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"v-bar\\"] + \\";\\\\n}\\\\n\\\\n.OVj95yO5B9JEdIo3xDMtO {\\\\n  background: #000;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 exports.locals = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
 	\\"v-foo\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-foo\\"] + \\"\\",
 	\\"v-bar\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"v-bar\\"] + \\"\\",
-	\\"v-baz\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"v-baz\\"] + \\"\\",
 	\\"globalClassName\\": \\"globalClassName\\",
 	\\"ghi\\": \\"_2vZioV5tEV-AlqaI8c_mtN\\",
 	\\"class\\": \\"YX1POP6L7ESwR7pdtyRna \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"lessClass\\"] + \\"\\",
 	\\"other\\": \\"_1578mz8iEiOG2qNa19R11c \\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"scssClass\\"] + \\"\\",
-	\\"last\\": \\"_1yWiOyfH6HuDl7TOzpnWkK \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"sassClass\\"] + \\"\\",
 	\\"otherClassName\\": \\"OVj95yO5B9JEdIo3xDMtO globalClassName\\"
 };
 module.exports = exports;
@@ -1100,13 +1141,6 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/sass-file.sass",
-    "
-
-",
-    "",
-  ],
-  Array [
     "./modules/composes/composes-preprocessors.css",
     ".globalClassName {
   color: orange;
@@ -1124,10 +1158,6 @@ Array [
   color: white;
 }
 
-._1yWiOyfH6HuDl7TOzpnWkK {
-  color: undefined;
-}
-
 .OVj95yO5B9JEdIo3xDMtO {
   background: #000;
 }
@@ -1137,20 +1167,7 @@ Array [
 ]
 `;
 
-exports[`"modules" option should support resolving in composes preprocessor files with extensions: warnings 1`] = `
-Array [
-  "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
-
-Invalid value definition: v-def: red
-@value v-foo: green
-@value v-bar: white
-@value v-baz: coral
-
-.sassClass
-  padding: 10px",
-]
-`;
+exports[`"modules" option should support resolving in composes preprocessor files with extensions: warnings 1`] = `Array []`;
 
 exports[`"modules" option should support resolving in composes: errors 1`] = `Array []`;
 
@@ -1163,7 +1180,7 @@ var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../../src/index.js??[ide
 var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../../src/index.js??[ident]!./relative.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../../src/index.js??[ident]!./top-relative.css\\");
 var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../../src/index.js??[ident]!aliasesComposes/alias.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../../src/index.js??[ident]!./alias.css\\");
 var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../../src/index.js??[ident]!./test-other.css\\");
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"../../url/img.png\\");
@@ -1412,6 +1429,15 @@ a {
 `;
 
 exports[`"modules" option should support resolving in composes: warnings 1`] = `Array []`;
+
+exports[`"modules" option should throw error when unresolved import: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: Can't resolve '//exammple.com/unresolved.css' in '/test/fixtures/modules/unresolved'",
+]
+`;
+
+exports[`"modules" option should throw error when unresolved import: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work and correctly replace escaped symbols: errors 1`] = `Array []`;
 

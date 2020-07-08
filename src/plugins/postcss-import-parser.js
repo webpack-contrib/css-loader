@@ -137,9 +137,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
                   // 'CSS_LOADER_AT_RULE_IMPORT'
                   order: 1,
                   importName,
-                  url: options.urlHandler
-                    ? options.urlHandler(resolvedUrl)
-                    : resolvedUrl,
+                  url: options.urlHandler(resolvedUrl),
                   index: currentIndex,
                 },
               });
@@ -148,6 +146,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
             result.messages.push({
               type: 'api-import',
               value: {
+                // 'CSS_LOADER_AT_RULE_IMPORT'
+                order: 1,
                 type: 'internal',
                 importName,
                 media,
@@ -161,7 +161,14 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
           result.messages.push({
             pluginName,
             type: 'api-import',
-            value: { type: 'external', url, media, index: currentIndex },
+            value: {
+              // 'CSS_LOADER_AT_RULE_IMPORT'
+              order: 1,
+              type: 'external',
+              url,
+              media,
+              index: currentIndex,
+            },
           });
         })
       );

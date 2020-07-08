@@ -818,4 +818,30 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should resolve package from node_modules with and without tilde', async () => {
+    const compiler = getCompiler('./modules/issue-914/source.js', {
+      modules: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/issue-914/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should throw error when unresolved import', async () => {
+    const compiler = getCompiler('./modules/unresolved/source.js', {
+      modules: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
+  });
 });

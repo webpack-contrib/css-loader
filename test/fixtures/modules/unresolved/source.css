@@ -1,0 +1,6 @@
+@value foo from '//exammple.com/unresolved.css';
+
+.className {
+  color: foo;
+}
+

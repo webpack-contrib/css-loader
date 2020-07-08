@@ -152,4 +152,12 @@ describe('"import" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should emit warning when unresolved import', async () => {
+    const compiler = getCompiler('./import/unresolved.js');
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
+  });
 });

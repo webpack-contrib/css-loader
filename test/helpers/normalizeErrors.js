@@ -16,8 +16,14 @@ function removeCWD(str) {
     .replace(new RegExp(cwd, 'g'), '');
 }
 
-export default (errors) => {
-  return errors.map((error) =>
-    removeCWD(error.toString().split('\n').slice(0, 12).join('\n'))
-  );
+export default (errors, shortError) => {
+  return errors.map((error) => {
+    let errorMessage = error.toString();
+
+    if (shortError) {
+      errorMessage = errorMessage.split('\n').slice(0, 2).join('\n');
+    }
+
+    return removeCWD(errorMessage.split('\n').slice(0, 12).join('\n'));
+  });
 };
