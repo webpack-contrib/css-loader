@@ -46,7 +46,6 @@ export default function loader(content, map, meta) {
   const icssResolver = this.getResolve({
     mainFields: ['css', 'style', 'main', '...'],
     mainFiles: ['index', '...'],
-    extensions: [],
   });
 
   plugins.push(
