@@ -13,7 +13,7 @@ function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
 
-function walkUrls(parsed, callback) {
+async function walkUrls(parsed, callback) {
   parsed.walk((node) => {
     if (node.type !== 'function') {
       return;
@@ -59,118 +59,129 @@ function walkUrls(parsed, callback) {
   });
 }
 
+async function test() {
+  return true;
+}
+
 export default postcss.plugin(pluginName, (options) => (css, result) => {
-  const importsMap = new Map();
-  const replacementsMap = new Map();
+  return new Promise(async (resolve, reject) => {
+    const importsMap = new Map();
+    const replacementsMap = new Map();
 
-  let hasHelper = false;
+    let hasHelper = false;
 
-  let index = 0;
+    let index = 0;
 
-  css.walkDecls((decl) => {
-    if (!needParseDecl.test(decl.value)) {
-      return;
-    }
-
-    const parsed = valueParser(decl.value);
-
-    walkUrls(parsed, (node, url, needQuotes, isStringValue) => {
-      // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
-      if (url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
-        result.warn(
-          `Unable to find uri in '${decl ? decl.toString() : decl.value}'`,
-          { node: decl }
-        );
-
+    css.walkDecls(async (decl) => {
+      if (!needParseDecl.test(decl.value)) {
         return;
       }
 
-      if (options.filter && !options.filter(url)) {
-        return;
-      }
+      const parsed = valueParser(decl.value);
 
-      const splittedUrl = url.split(/(\?)?#/);
-      const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
-      const hash =
-        singleQuery || hashValue
-          ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
-          : '';
+      await walkUrls(parsed, async (node, url, needQuotes, isStringValue) => {
+        // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
+        if (url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
+          result.warn(
+            `Unable to find uri in '${decl ? decl.toString() : decl.value}'`,
+            { node: decl }
+          );
 
-      const normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
+          return;
+        }
 
-      const importKey = normalizedUrl;
-      let importName = importsMap.get(importKey);
+        if (options.filter && !options.filter(url)) {
+          return;
+        }
 
-      index += 1;
+        const splittedUrl = url.split(/(\?)?#/);
+        const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
+        const hash =
+          singleQuery || hashValue
+            ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
+            : '';
 
-      if (!importName) {
-        importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
-        importsMap.set(importKey, importName);
+        const normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
 
-        if (!hasHelper) {
-          const urlToHelper = require.resolve('../runtime/getUrl.js');
+        const importKey = normalizedUrl;
+        let importName = importsMap.get(importKey);
+
+        index += 1;
+
+        if (!importName) {
+          importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
+          importsMap.set(importKey, importName);
+
+          if (!hasHelper) {
+            const urlToHelper = require.resolve('../runtime/getUrl.js');
+
+            result.messages.push({
+              pluginName,
+              type: 'import',
+              value: {
+                // 'CSS_LOADER_GET_URL_IMPORT'
+                order: 2,
+                importName: '___CSS_LOADER_GET_URL_IMPORT___',
+                url: options.urlHandler
+                  ? options.urlHandler(urlToHelper)
+                  : urlToHelper,
+                index,
+              },
+            });
+
+            hasHelper = true;
+          }
+
+
+          // await test();
 
           result.messages.push({
             pluginName,
             type: 'import',
             value: {
-              // 'CSS_LOADER_GET_URL_IMPORT'
-              order: 2,
-              importName: '___CSS_LOADER_GET_URL_IMPORT___',
+              // 'CSS_LOADER_URL_IMPORT'
+              order: 3,
+              importName,
               url: options.urlHandler
-                ? options.urlHandler(urlToHelper)
-                : urlToHelper,
+                ? options.urlHandler(normalizedUrl)
+                : normalizedUrl,
               index,
             },
           });
-
-          hasHelper = true;
         }
 
-        result.messages.push({
-          pluginName,
-          type: 'import',
-          value: {
-            // 'CSS_LOADER_URL_IMPORT'
-            order: 3,
-            importName,
-            url: options.urlHandler
-              ? options.urlHandler(normalizedUrl)
-              : normalizedUrl,
-            index,
-          },
-        });
-      }
+        const replacementKey = JSON.stringify({ importKey, hash, needQuotes });
+        let replacementName = replacementsMap.get(replacementKey);
 
-      const replacementKey = JSON.stringify({ importKey, hash, needQuotes });
-      let replacementName = replacementsMap.get(replacementKey);
+        if (!replacementName) {
+          replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacementsMap.size}___`;
+          replacementsMap.set(replacementKey, replacementName);
 
-      if (!replacementName) {
-        replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacementsMap.size}___`;
-        replacementsMap.set(replacementKey, replacementName);
+          result.messages.push({
+            pluginName,
+            type: 'url-replacement',
+            value: {
+              // 'CSS_LOADER_URL_REPLACEMENT'
+              order: 4,
+              replacementName,
+              importName,
+              hash,
+              needQuotes,
+              index,
+            },
+          });
+        }
 
-        result.messages.push({
-          pluginName,
-          type: 'url-replacement',
-          value: {
-            // 'CSS_LOADER_URL_REPLACEMENT'
-            order: 4,
-            replacementName,
-            importName,
-            hash,
-            needQuotes,
-            index,
-          },
-        });
-      }
+        // eslint-disable-next-line no-param-reassign
+        node.type = 'word';
+        // eslint-disable-next-line no-param-reassign
+        node.value = replacementName;
+      });
 
       // eslint-disable-next-line no-param-reassign
-      node.type = 'word';
-      // eslint-disable-next-line no-param-reassign
-      node.value = replacementName;
+      decl.value = parsed.toString();
     });
 
-    // eslint-disable-next-line no-param-reassign
-    decl.value = parsed.toString();
+    resolve();
   });
 });

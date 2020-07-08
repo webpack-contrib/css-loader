@@ -8,7 +8,7 @@ import {
 } from './helpers/index';
 
 describe('"url" option', () => {
-  it('should work when not specified', async () => {
+  it.only('should work when not specified', async () => {
     const compiler = getCompiler('./url/url.js');
     const stats = await compile(compiler);
 

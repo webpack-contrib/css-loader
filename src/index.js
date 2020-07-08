@@ -84,11 +84,20 @@ export default function loader(content, map, meta) {
   }
 
   if (options.url !== false && exportType === 'full') {
+    const urlResolver = this.getResolve({
+      mainFields: [],
+      mainFiles: [],
+      extensions: [],
+    });
+
     plugins.push(
       urlParser({
+        context: this.context,
+        rootContext: this.rootContext,
         filter: getFilter(options.url, this.resourcePath, (value) =>
           isUrlRequest(value)
         ),
+        resolver: urlResolver,
         urlHandler: (url) => stringifyRequest(this, url),
       })
     );
