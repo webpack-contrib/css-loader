@@ -1,7 +1,6 @@
 @value v-def from './values.css';
 @value v-foo from './less-file.less';
 @value v-bar from './scss-file.scss';
-@value v-baz from './sass-file.sass';
 
 :global(.globalClassName) {
   color: orange;
@@ -19,11 +18,6 @@
 .other {
   color: v-bar;
   composes: scssClass from "scss-file.scss";
-}
-
-.last {
-  color: v-baz;
-  composes: sassClass from "sass-file.sass";
 }
 
 .otherClassName {

@@ -20,7 +20,7 @@ function makeRequestableIcssImports(icssImports, rootContext) {
       normalizedUrl = normalizeUrl(url, true, rootContext);
     }
 
-    const key = normalizedUrl || url;
+    const key = typeof normalizedUrl !== 'undefined' ? normalizedUrl : url;
 
     if (!accumulator[key]) {
       // eslint-disable-next-line no-param-reassign
