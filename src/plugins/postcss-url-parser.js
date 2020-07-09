@@ -1,5 +1,6 @@
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
+import { promisify } from 'util';
 
 import { normalizeUrl } from '../utils';
 
@@ -9,11 +10,15 @@ const isUrlFunc = /url/i;
 const isImageSetFunc = /^(?:-webkit-)?image-set$/i;
 const needParseDecl = /(?:url|(?:-webkit-)?image-set)\(/i;
 
+const walkUrlsAsync = promisify(walkUrls);
+
 function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
 
 async function walkUrls(parsed, callback) {
+  const result = [];
+
   parsed.walk((node) => {
     if (node.type !== 'function') {
       return;
@@ -24,7 +29,12 @@ async function walkUrls(parsed, callback) {
       const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
       const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
 
-      callback(getNodeFromUrlFunc(node), url, false, isStringValue);
+      result.push({
+        node: getNodeFromUrlFunc(node),
+        url,
+        needQuotes: false,
+        isStringValue,
+      });
 
       // Do not traverse inside `url`
       // eslint-disable-next-line consistent-return
@@ -37,18 +47,27 @@ async function walkUrls(parsed, callback) {
 
         if (type === 'function' && isUrlFunc.test(value)) {
           const { nodes } = nNode;
-
           const isStringValue =
             nodes.length !== 0 && nodes[0].type === 'string';
           const url = isStringValue
             ? nodes[0].value
             : valueParser.stringify(nodes);
 
-          callback(getNodeFromUrlFunc(nNode), url, false, isStringValue);
+          result.push({
+            node: getNodeFromUrlFunc(nNode),
+            url,
+            needQuotes: false,
+            isStringValue,
+          });
         }
 
         if (type === 'string') {
-          callback(nNode, value, true, true);
+          result.push({
+            node: nNode,
+            url: value,
+            needQuotes: true,
+            isStringValue: true,
+          });
         }
       }
 
@@ -57,6 +76,16 @@ async function walkUrls(parsed, callback) {
       return false;
     }
   });
+
+  if (result.length === 0) {
+    const error = new Error(`No results`);
+
+    callback(error);
+
+    return;
+  }
+
+  callback(null, result);
 }
 
 async function test() {
@@ -72,6 +101,8 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
     let index = 0;
 
+    const tasks = [];
+
     css.walkDecls(async (decl) => {
       if (!needParseDecl.test(decl.value)) {
         return;
@@ -79,7 +110,17 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
       const parsed = valueParser(decl.value);
 
-      await walkUrls(parsed, async (node, url, needQuotes, isStringValue) => {
+      let parsedResults;
+
+      try {
+        parsedResults = await walkUrlsAsync(parsed);
+      } catch (error) {
+        return;
+      }
+
+      for (const parsedResult of parsedResults) {
+        const { node, url, needQuotes, isStringValue } = parsedResult;
+
         // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
         if (url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
           result.warn(
@@ -103,85 +144,96 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
         const normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
 
-        const importKey = normalizedUrl;
-        let importName = importsMap.get(importKey);
+        tasks.push(
+          Promise.resolve().then(() => {
+            const importKey = normalizedUrl;
+            let importName = importsMap.get(importKey);
 
-        index += 1;
+            if (!importName) {
+              importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
+              importsMap.set(importKey, importName);
 
-        if (!importName) {
-          importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
-          importsMap.set(importKey, importName);
+              if (!hasHelper) {
+                const urlToHelper = require.resolve('../runtime/getUrl.js');
 
-          if (!hasHelper) {
-            const urlToHelper = require.resolve('../runtime/getUrl.js');
+                result.messages.push({
+                  pluginName,
+                  type: 'import',
+                  value: {
+                    // 'CSS_LOADER_GET_URL_IMPORT'
+                    order: 2,
+                    importName: '___CSS_LOADER_GET_URL_IMPORT___',
+                    url: options.urlHandler
+                      ? options.urlHandler(urlToHelper)
+                      : urlToHelper,
+                    index,
+                  },
+                });
 
-            result.messages.push({
-              pluginName,
-              type: 'import',
-              value: {
-                // 'CSS_LOADER_GET_URL_IMPORT'
-                order: 2,
-                importName: '___CSS_LOADER_GET_URL_IMPORT___',
-                url: options.urlHandler
-                  ? options.urlHandler(urlToHelper)
-                  : urlToHelper,
-                index,
-              },
-            });
+                hasHelper = true;
+              }
 
-            hasHelper = true;
-          }
+              // await test();
 
+              result.messages.push({
+                pluginName,
+                type: 'import',
+                value: {
+                  // 'CSS_LOADER_URL_IMPORT'
+                  order: 3,
+                  importName,
+                  url: options.urlHandler
+                    ? options.urlHandler(normalizedUrl)
+                    : normalizedUrl,
+                  index,
+                },
+              });
+            }
 
-          // await test();
-
-          result.messages.push({
-            pluginName,
-            type: 'import',
-            value: {
-              // 'CSS_LOADER_URL_IMPORT'
-              order: 3,
-              importName,
-              url: options.urlHandler
-                ? options.urlHandler(normalizedUrl)
-                : normalizedUrl,
-              index,
-            },
-          });
-        }
-
-        const replacementKey = JSON.stringify({ importKey, hash, needQuotes });
-        let replacementName = replacementsMap.get(replacementKey);
-
-        if (!replacementName) {
-          replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacementsMap.size}___`;
-          replacementsMap.set(replacementKey, replacementName);
-
-          result.messages.push({
-            pluginName,
-            type: 'url-replacement',
-            value: {
-              // 'CSS_LOADER_URL_REPLACEMENT'
-              order: 4,
-              replacementName,
-              importName,
+            const replacementKey = JSON.stringify({
+              importKey,
               hash,
               needQuotes,
-              index,
-            },
-          });
-        }
+            });
+            let replacementName = replacementsMap.get(replacementKey);
 
-        // eslint-disable-next-line no-param-reassign
-        node.type = 'word';
-        // eslint-disable-next-line no-param-reassign
-        node.value = replacementName;
-      });
+            if (!replacementName) {
+              replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacementsMap.size}___`;
+              replacementsMap.set(replacementKey, replacementName);
+
+              result.messages.push({
+                pluginName,
+                type: 'url-replacement',
+                value: {
+                  // 'CSS_LOADER_URL_REPLACEMENT'
+                  order: 4,
+                  replacementName,
+                  importName,
+                  hash,
+                  needQuotes,
+                  index,
+                },
+              });
+            }
+
+            // eslint-disable-next-line no-param-reassign
+            node.type = 'word';
+            // eslint-disable-next-line no-param-reassign
+            node.value = replacementName;
+          })
+        );
+      }
+
+      try {
+        await Promise.all(tasks);
+      } catch (error) {
+        reject(error);
+      }
 
       // eslint-disable-next-line no-param-reassign
       decl.value = parsed.toString();
-    });
 
-    resolve();
+      resolve();
+    });
   });
 });
