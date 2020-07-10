@@ -111,182 +111,175 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       resolve();
     }
 
-    const tasksDecl = [];
+    for await (const decl of decls) {
+      await (async () => {
+        const parsed = valueParser(decl.value);
 
-    for (const decl of decls) {
-      tasksDecl.push(
-        Promise.resolve().then(async () => {
-          const parsed = valueParser(decl.value);
+        let parsedResults;
 
-          let parsedResults;
+        try {
+          parsedResults = await walkUrlsAsync(parsed);
+        } catch (error) {
+          return;
+        }
 
-          try {
-            parsedResults = await walkUrlsAsync(parsed);
-          } catch (error) {
-            return;
-          }
+        if (parsedResults.length === 0) {
+          return;
+        }
 
-          if (parsedResults.length === 0) {
-            return;
-          }
+        const tasks = [];
 
-          const tasks = [];
+        for (const parsedResult of parsedResults) {
+          control.index += 1;
 
-          for (const parsedResult of parsedResults) {
-            control.index += 1;
+          tasks.push(
+            Promise.resolve(control.index).then(async (currentIndex) => {
+              const { node, url, needQuotes, isStringValue } = parsedResult;
 
-            tasks.push(
-              Promise.resolve(control.index).then(async (currentIndex) => {
-                const { node, url, needQuotes, isStringValue } = parsedResult;
+              // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
+              if (url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
+                result.warn(
+                  `Unable to find uri in '${
+                    decl ? decl.toString() : decl.value
+                  }'`,
+                  { node: decl }
+                );
 
-                // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
-                if (url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
-                  result.warn(
-                    `Unable to find uri in '${
-                      decl ? decl.toString() : decl.value
-                    }'`,
-                    { node: decl }
-                  );
+                return;
+              }
 
-                  return;
-                }
+              if (options.filter && !options.filter(url)) {
+                return;
+              }
 
-                if (options.filter && !options.filter(url)) {
-                  return;
-                }
+              const splittedUrl = url.split(/(\?)?#/);
+              const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
+              const hash =
+                singleQuery || hashValue
+                  ? `${singleQuery ? '?' : ''}${
+                      hashValue ? `#${hashValue}` : ''
+                    }`
+                  : '';
 
-                const splittedUrl = url.split(/(\?)?#/);
-                const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
-                const hash =
-                  singleQuery || hashValue
-                    ? `${singleQuery ? '?' : ''}${
-                        hashValue ? `#${hashValue}` : ''
-                      }`
-                    : '';
+              let normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
 
-                let normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
+              let preUrl = '';
+              const queryParts = normalizedUrl.split('!');
 
-                let preUrl = '';
-                const queryParts = normalizedUrl.split('!');
+              if (queryParts.length > 1) {
+                normalizedUrl = queryParts.pop();
+                preUrl = queryParts.join('!');
+              }
 
-                if (queryParts.length > 1) {
-                  normalizedUrl = queryParts.pop();
-                  preUrl = queryParts.join('!');
-                }
+              const importKey = normalizedUrl;
+              let importName = importsMap.get(importKey);
 
-                const importKey = normalizedUrl;
-                let importName = importsMap.get(importKey);
+              let needAddImportMessage = false;
 
-                let needAddImportMessage = false;
+              if (!importName) {
+                importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
+                importsMap.set(importKey, importName);
 
-                if (!importName) {
-                  importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
-                  importsMap.set(importKey, importName);
+                needAddImportMessage = true;
+              }
 
-                  needAddImportMessage = true;
-                }
+              const replacementKey = JSON.stringify({
+                importKey,
+                hash,
+                needQuotes,
+              });
+              let replacementName = replacementsMap.get(replacementKey);
 
-                const replacementKey = JSON.stringify({
-                  importKey,
-                  hash,
-                  needQuotes,
+              if (!replacementName) {
+                replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacementsMap.size}___`;
+                replacementsMap.set(replacementKey, replacementName);
+
+                result.messages.push({
+                  pluginName,
+                  type: 'url-replacement',
+                  value: {
+                    // 'CSS_LOADER_URL_REPLACEMENT'
+                    order: 4,
+                    replacementName,
+                    importName,
+                    hash,
+                    needQuotes,
+                    index: currentIndex,
+                  },
                 });
-                let replacementName = replacementsMap.get(replacementKey);
+              }
 
-                if (!replacementName) {
-                  replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacementsMap.size}___`;
-                  replacementsMap.set(replacementKey, replacementName);
-
-                  result.messages.push({
-                    pluginName,
-                    type: 'url-replacement',
-                    value: {
-                      // 'CSS_LOADER_URL_REPLACEMENT'
-                      order: 4,
-                      replacementName,
-                      importName,
-                      hash,
-                      needQuotes,
-                      index: currentIndex,
-                    },
-                  });
-                }
-
-                if (needAddImportMessage) {
-                  if (!control.hasHelper) {
-                    const urlToHelper = require.resolve('../runtime/getUrl.js');
-
-                    result.messages.push({
-                      pluginName,
-                      type: 'import',
-                      value: {
-                        // 'CSS_LOADER_GET_URL_IMPORT'
-                        order: 2,
-                        importName: '___CSS_LOADER_GET_URL_IMPORT___',
-                        url: options.urlHandler
-                          ? options.urlHandler(urlToHelper)
-                          : urlToHelper,
-                        index: currentIndex,
-                      },
-                    });
-
-                    control.hasHelper = true;
-                  }
-
-                  const { resolver, context } = options;
-
-                  let resolvedUrl;
-
-                  try {
-                    resolvedUrl = await resolveRequests(resolver, context, [
-                      ...new Set([normalizedUrl, url]),
-                    ]);
-                  } catch (error) {
-                    throw error;
-                  }
-
-                  if (preUrl) {
-                    resolvedUrl = `${preUrl}!${resolvedUrl}`;
-                  }
+              if (needAddImportMessage) {
+                if (!control.hasHelper) {
+                  const urlToHelper = require.resolve('../runtime/getUrl.js');
 
                   result.messages.push({
                     pluginName,
                     type: 'import',
                     value: {
-                      // 'CSS_LOADER_URL_IMPORT'
-                      order: 3,
-                      importName,
+                      // 'CSS_LOADER_GET_URL_IMPORT'
+                      order: 2,
+                      importName: '___CSS_LOADER_GET_URL_IMPORT___',
                       url: options.urlHandler
-                        ? options.urlHandler(resolvedUrl)
-                        : resolvedUrl,
+                        ? options.urlHandler(urlToHelper)
+                        : urlToHelper,
                       index: currentIndex,
                     },
                   });
+
+                  control.hasHelper = true;
                 }
 
-                // eslint-disable-next-line no-param-reassign
-                node.type = 'word';
-                // eslint-disable-next-line no-param-reassign
-                node.value = replacementName;
-              })
-            );
-          }
+                const { resolver, context } = options;
 
-          try {
-            await Promise.all(tasks);
-          } catch (error) {
-            reject(error);
-          }
+                let resolvedUrl;
 
-          // eslint-disable-next-line no-param-reassign
-          decl.value = parsed.toString();
-        })
-      );
+                try {
+                  resolvedUrl = await resolveRequests(resolver, context, [
+                    ...new Set([normalizedUrl, url]),
+                  ]);
+                } catch (error) {
+                  throw error;
+                }
+
+                if (preUrl) {
+                  resolvedUrl = `${preUrl}!${resolvedUrl}`;
+                }
+
+                result.messages.push({
+                  pluginName,
+                  type: 'import',
+                  value: {
+                    // 'CSS_LOADER_URL_IMPORT'
+                    order: 3,
+                    importName,
+                    url: options.urlHandler
+                      ? options.urlHandler(resolvedUrl)
+                      : resolvedUrl,
+                    index: currentIndex,
+                  },
+                });
+              }
+
+              // eslint-disable-next-line no-param-reassign
+              node.type = 'word';
+              // eslint-disable-next-line no-param-reassign
+              node.value = replacementName;
+            })
+          );
+        }
+
+        try {
+          await Promise.all(tasks);
+        } catch (error) {
+          reject(error);
+        }
+
+        // eslint-disable-next-line no-param-reassign
+        decl.value = parsed.toString();
+      })();
     }
 
-    Promise.all(tasksDecl).then(
-      () => resolve(),
-      (error) => reject(error)
-    );
+    resolve();
   });
 });

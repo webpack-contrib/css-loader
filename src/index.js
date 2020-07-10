@@ -87,7 +87,6 @@ export default function loader(content, map, meta) {
     const urlResolver = this.getResolve({
       mainFields: [],
       mainFiles: [],
-      extensions: [],
     });
 
     plugins.push(
