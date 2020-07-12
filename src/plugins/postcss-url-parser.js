@@ -11,275 +11,274 @@ const isUrlFunc = /url/i;
 const isImageSetFunc = /^(?:-webkit-)?image-set$/i;
 const needParseDecl = /(?:url|(?:-webkit-)?image-set)\(/i;
 
-const walkUrlsAsync = promisify(walkUrls);
-const walkDeclsAsync = promisify(walkDecls);
+const walkCssAsync = promisify(walkCss);
 
 function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
 
-async function walkUrls(parsed, callback) {
-  const result = [];
+function ruleValidate(rule, decl, result, options) {
+  // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
+  if (rule.url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
+    result.warn(
+      `Unable to find uri in '${decl ? decl.toString() : decl.value}'`,
+      { node: decl }
+    );
 
-  parsed.walk((node) => {
-    if (node.type !== 'function') {
-      return;
-    }
+    return false;
+  }
 
-    if (isUrlFunc.test(node.value)) {
-      const { nodes } = node;
-      const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
-      const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
+  if (options.filter && !options.filter(rule.url)) {
+    return false;
+  }
 
-      result.push({
-        node: getNodeFromUrlFunc(node),
-        url,
-        needQuotes: false,
-        isStringValue,
-      });
-
-      // Do not traverse inside `url`
-      // eslint-disable-next-line consistent-return
-      return false;
-    }
-
-    if (isImageSetFunc.test(node.value)) {
-      for (const nNode of node.nodes) {
-        const { type, value } = nNode;
-
-        if (type === 'function' && isUrlFunc.test(value)) {
-          const { nodes } = nNode;
-          const isStringValue =
-            nodes.length !== 0 && nodes[0].type === 'string';
-          const url = isStringValue
-            ? nodes[0].value
-            : valueParser.stringify(nodes);
-
-          result.push({
-            node: getNodeFromUrlFunc(nNode),
-            url,
-            needQuotes: false,
-            isStringValue,
-          });
-        }
-
-        if (type === 'string') {
-          result.push({
-            node: nNode,
-            url: value,
-            needQuotes: true,
-            isStringValue: true,
-          });
-        }
-      }
-
-      // Do not traverse inside `image-set`
-      // eslint-disable-next-line consistent-return
-      return false;
-    }
-  });
-
-  callback(null, result);
+  return true;
 }
 
-function walkDecls(css, callback) {
-  const result = [];
+function walkCss(css, result, options, callback) {
+  const accumulator = [];
 
   css.walkDecls((decl) => {
     if (!needParseDecl.test(decl.value)) {
       return;
     }
 
-    result.push(decl);
+    const parsed = valueParser(decl.value);
+
+    parsed.walk((node) => {
+      if (node.type !== 'function') {
+        return;
+      }
+
+      if (isUrlFunc.test(node.value)) {
+        const { nodes } = node;
+        const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
+        const url = isStringValue
+          ? nodes[0].value
+          : valueParser.stringify(nodes);
+
+        const rule = {
+          node: getNodeFromUrlFunc(node),
+          url,
+          needQuotes: false,
+          isStringValue,
+        };
+
+        if (ruleValidate(rule, decl, result, options)) {
+          accumulator.push({
+            decl,
+            rule,
+            parsed,
+          });
+        }
+
+        // Do not traverse inside `url`
+        // eslint-disable-next-line consistent-return
+        return false;
+      }
+
+      if (isImageSetFunc.test(node.value)) {
+        for (const nNode of node.nodes) {
+          const { type, value } = nNode;
+
+          if (type === 'function' && isUrlFunc.test(value)) {
+            const { nodes } = nNode;
+            const isStringValue =
+              nodes.length !== 0 && nodes[0].type === 'string';
+            const url = isStringValue
+              ? nodes[0].value
+              : valueParser.stringify(nodes);
+
+            const rule = {
+              node: getNodeFromUrlFunc(nNode),
+              url,
+              needQuotes: false,
+              isStringValue,
+            };
+
+            if (ruleValidate(rule, decl, result, options)) {
+              accumulator.push({
+                decl,
+                rule,
+                parsed,
+              });
+            }
+          }
+
+          if (type === 'string') {
+            const rule = {
+              node: nNode,
+              url: value,
+              needQuotes: true,
+              isStringValue: true,
+            };
+
+            if (ruleValidate(rule, decl, result, options)) {
+              accumulator.push({
+                decl,
+                rule,
+                parsed,
+              });
+            }
+          }
+        }
+
+        // Do not traverse inside `image-set`
+        // eslint-disable-next-line consistent-return
+        return false;
+      }
+    });
   });
 
-  callback(null, result);
+  callback(null, accumulator);
 }
 
 export default postcss.plugin(pluginName, (options) => (css, result) => {
   return new Promise(async (resolve, reject) => {
     const importsMap = new Map();
     const replacementsMap = new Map();
-    const control = {
-      index: 0,
-      hasHelper: false,
-    };
+    const urlToHelper = require.resolve('../runtime/getUrl.js');
 
-    const decls = await walkDeclsAsync(css);
+    let parsedResults;
 
-    if (decls.length === 0) {
+    try {
+      parsedResults = await walkCssAsync(css, result, options);
+    } catch (error) {
+      reject(error);
+    }
+
+    if (parsedResults.length === 0) {
       resolve();
+
+      return;
     }
 
-    for await (const decl of decls) {
-      await (async () => {
-        const parsed = valueParser(decl.value);
+    const tasks = [];
 
-        let parsedResults;
+    let index = 0;
+    let hasHelper = false;
 
-        try {
-          parsedResults = await walkUrlsAsync(parsed);
-        } catch (error) {
-          return;
-        }
+    for (const parsedResult of parsedResults) {
+      index += 1;
 
-        if (parsedResults.length === 0) {
-          return;
-        }
+      if (!hasHelper) {
+        result.messages.push({
+          pluginName,
+          type: 'import',
+          value: {
+            // 'CSS_LOADER_GET_URL_IMPORT'
+            order: 2,
+            importName: '___CSS_LOADER_GET_URL_IMPORT___',
+            url: options.urlHandler
+              ? options.urlHandler(urlToHelper)
+              : urlToHelper,
+            index,
+          },
+        });
 
-        const tasks = [];
+        hasHelper = true;
+      }
 
-        for (const parsedResult of parsedResults) {
-          control.index += 1;
+      const { decl, rule } = parsedResult;
+      const { node, url, needQuotes, isStringValue } = rule;
+      const splittedUrl = url.split(/(\?)?#/);
+      const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
+      const hash =
+        singleQuery || hashValue
+          ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
+          : '';
 
-          tasks.push(
-            Promise.resolve(control.index).then(async (currentIndex) => {
-              const { node, url, needQuotes, isStringValue } = parsedResult;
+      let normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
 
-              // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
-              if (url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
-                result.warn(
-                  `Unable to find uri in '${
-                    decl ? decl.toString() : decl.value
-                  }'`,
-                  { node: decl }
-                );
+      let prefixSuffix = '';
 
-                return;
-              }
+      const queryParts = normalizedUrl.split('!');
 
-              if (options.filter && !options.filter(url)) {
-                return;
-              }
+      if (queryParts.length > 1) {
+        normalizedUrl = queryParts.pop();
+        prefixSuffix = queryParts.join('!');
+      }
 
-              const splittedUrl = url.split(/(\?)?#/);
-              const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
-              const hash =
-                singleQuery || hashValue
-                  ? `${singleQuery ? '?' : ''}${
-                      hashValue ? `#${hashValue}` : ''
-                    }`
-                  : '';
+      const importKey = normalizedUrl;
 
-              let normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
+      let importName = importsMap.get(importKey);
 
-              let preUrl = '';
-              const queryParts = normalizedUrl.split('!');
+      if (!importName) {
+        importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
+        importsMap.set(importKey, importName);
 
-              if (queryParts.length > 1) {
-                normalizedUrl = queryParts.pop();
-                preUrl = queryParts.join('!');
-              }
+        tasks.push(
+          Promise.resolve(index).then(async (currentIndex) => {
+            const { resolver, context } = options;
 
-              const importKey = normalizedUrl;
-              let importName = importsMap.get(importKey);
+            let resolvedUrl;
 
-              let needAddImportMessage = false;
+            try {
+              resolvedUrl = await resolveRequests(resolver, context, [
+                ...new Set([normalizedUrl, url]),
+              ]);
+            } catch (error) {
+              throw error;
+            }
 
-              if (!importName) {
-                importName = `___CSS_LOADER_URL_IMPORT_${importsMap.size}___`;
-                importsMap.set(importKey, importName);
+            if (prefixSuffix) {
+              resolvedUrl = `${prefixSuffix}!${resolvedUrl}`;
+            }
 
-                needAddImportMessage = true;
-              }
+            result.messages.push({
+              pluginName,
+              type: 'import',
+              value: {
+                // 'CSS_LOADER_URL_IMPORT'
+                order: 3,
+                importName,
+                url: options.urlHandler
+                  ? options.urlHandler(resolvedUrl)
+                  : resolvedUrl,
+                index: currentIndex,
+              },
+            });
+          })
+        );
+      }
 
-              const replacementKey = JSON.stringify({
-                importKey,
-                hash,
-                needQuotes,
-              });
-              let replacementName = replacementsMap.get(replacementKey);
+      const replacementKey = JSON.stringify({
+        importKey,
+        hash,
+        needQuotes,
+      });
+      let replacementName = replacementsMap.get(replacementKey);
 
-              if (!replacementName) {
-                replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacementsMap.size}___`;
-                replacementsMap.set(replacementKey, replacementName);
+      if (!replacementName) {
+        replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacementsMap.size}___`;
+        replacementsMap.set(replacementKey, replacementName);
 
-                result.messages.push({
-                  pluginName,
-                  type: 'url-replacement',
-                  value: {
-                    // 'CSS_LOADER_URL_REPLACEMENT'
-                    order: 4,
-                    replacementName,
-                    importName,
-                    hash,
-                    needQuotes,
-                    index: currentIndex,
-                  },
-                });
-              }
+        result.messages.push({
+          pluginName,
+          type: 'url-replacement',
+          value: {
+            // 'CSS_LOADER_URL_REPLACEMENT'
+            order: 4,
+            replacementName,
+            importName,
+            hash,
+            needQuotes,
+            index,
+          },
+        });
+      }
 
-              if (needAddImportMessage) {
-                if (!control.hasHelper) {
-                  const urlToHelper = require.resolve('../runtime/getUrl.js');
-
-                  result.messages.push({
-                    pluginName,
-                    type: 'import',
-                    value: {
-                      // 'CSS_LOADER_GET_URL_IMPORT'
-                      order: 2,
-                      importName: '___CSS_LOADER_GET_URL_IMPORT___',
-                      url: options.urlHandler
-                        ? options.urlHandler(urlToHelper)
-                        : urlToHelper,
-                      index: currentIndex,
-                    },
-                  });
-
-                  control.hasHelper = true;
-                }
-
-                const { resolver, context } = options;
-
-                let resolvedUrl;
-
-                try {
-                  resolvedUrl = await resolveRequests(resolver, context, [
-                    ...new Set([normalizedUrl, url]),
-                  ]);
-                } catch (error) {
-                  throw error;
-                }
-
-                if (preUrl) {
-                  resolvedUrl = `${preUrl}!${resolvedUrl}`;
-                }
-
-                result.messages.push({
-                  pluginName,
-                  type: 'import',
-                  value: {
-                    // 'CSS_LOADER_URL_IMPORT'
-                    order: 3,
-                    importName,
-                    url: options.urlHandler
-                      ? options.urlHandler(resolvedUrl)
-                      : resolvedUrl,
-                    index: currentIndex,
-                  },
-                });
-              }
-
-              // eslint-disable-next-line no-param-reassign
-              node.type = 'word';
-              // eslint-disable-next-line no-param-reassign
-              node.value = replacementName;
-            })
-          );
-        }
-
-        try {
-          await Promise.all(tasks);
-        } catch (error) {
-          reject(error);
-        }
-
-        // eslint-disable-next-line no-param-reassign
-        decl.value = parsed.toString();
-      })();
+      // eslint-disable-next-line no-param-reassign
+      node.type = 'word';
+      // eslint-disable-next-line no-param-reassign
+      node.value = replacementName;
+      // eslint-disable-next-line no-param-reassign
+      decl.value = parsedResult.parsed.toString();
     }
 
-    resolve();
+    Promise.all(tasks).then(
+      () => resolve(),
+      (error) => reject(error)
+    );
   });
 });

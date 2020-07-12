@@ -85,8 +85,8 @@ export default function loader(content, map, meta) {
 
   if (options.url !== false && exportType === 'full') {
     const urlResolver = this.getResolve({
-      mainFields: [],
-      mainFiles: [],
+      mainFields: ['asset'],
+      conditionNames: ['asset'],
     });
 
     plugins.push(
