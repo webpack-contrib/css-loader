@@ -1121,6 +1121,39 @@ module.exports = {
 };
 ```
 
+### Resolve unresolved urls using an alias
+
+**index.css**
+
+```css
+.class {
+  background: url(/assets/unresolved/img.png);
+}
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  resolve: {
+    alias: {
+      '/assets/unresolved/img.png': path.resolve(
+        __dirname,
+        'assets/real-path-to-img/img.png'
+      ),
+    },
+  },
+};
+```
+
 ## Contributing
 
 Please take a moment to read our contributing guidelines if you haven't yet done so.
