@@ -109,16 +109,16 @@ module.exports = {
 
 ## Options
 
-|                    Name                     |            Type             | Default  | Description                                                            |
-| :-----------------------------------------: | :-------------------------: | :------: | :--------------------------------------------------------------------- |
-|              **[`url`](#url)**              |    `{Boolean\|Function}`    |  `true`  | Enables/Disables `url`/`image-set` functions handling                  |
-|           **[`import`](#import)**           |    `{Boolean\|Function}`    |  `true`  | Enables/Disables `@import` at-rules handling                           |
-|          **[`modules`](#modules)**          | `{Boolean\|String\|Object}` | `false`  | Enables/Disables CSS Modules and their configuration                   |
-|        **[`sourceMap`](#sourcemap)**        |         `{Boolean}`         | `false`  | Enables/Disables generation of source maps                             |
-|    **[`importLoaders`](#importloaders)**    |         `{Number}`          |   `0`    | Enables/Disables or setups number of loaders applied before CSS loader |
-| **[`localsConvention`](#localsconvention)** |         `{String}`          | `'asIs'` | Style of exported classnames                                           |
-|       **[`onlyLocals`](#onlylocals)**       |         `{Boolean}`         | `false`  | Export only locals                                                     |
-|         **[`esModule`](#esmodule)**         |         `{Boolean}`         | `false`  | Use ES modules syntax                                                  |
+|                    Name                     |            Type             |      Default       | Description                                                            |
+| :-----------------------------------------: | :-------------------------: | :----------------: | :--------------------------------------------------------------------- |
+|              **[`url`](#url)**              |    `{Boolean\|Function}`    |       `true`       | Enables/Disables `url`/`image-set` functions handling                  |
+|           **[`import`](#import)**           |    `{Boolean\|Function}`    |       `true`       | Enables/Disables `@import` at-rules handling                           |
+|          **[`modules`](#modules)**          | `{Boolean\|String\|Object}` |      `false`       | Enables/Disables CSS Modules and their configuration                   |
+|        **[`sourceMap`](#sourcemap)**        |         `{Boolean}`         | `compiler.devtool` | Enables/Disables generation of source maps                             |
+|    **[`importLoaders`](#importloaders)**    |         `{Number}`          |        `0`         | Enables/Disables or setups number of loaders applied before CSS loader |
+| **[`localsConvention`](#localsconvention)** |         `{String}`          |      `'asIs'`      | Style of exported classnames                                           |
+|       **[`onlyLocals`](#onlylocals)**       |         `{Boolean}`         |      `false`       | Export only locals                                                     |
+|         **[`esModule`](#esmodule)**         |         `{Boolean}`         |      `false`       | Use ES modules syntax                                                  |
 
 ### `url`
 
@@ -869,13 +869,9 @@ module.exports = {
 ### `sourceMap`
 
 Type: `Boolean`
-Default: `false`
+Default: depends on the `compiler.devtool` value
 
-Enables/Disables generation of source maps.
-
-To include source maps set the `sourceMap` option.
-
-They are not enabled by default because they expose a runtime overhead and increase in bundle size (JS source maps do not).
+By default generation of source maps depends on the [`devtool`](https://webpack.js.org/configuration/devtool/) option. All values enable source map generation except `eval` and `false` value.
 
 **webpack.config.js**
 
