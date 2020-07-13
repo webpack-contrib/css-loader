@@ -32,7 +32,8 @@ export default function loader(content, map, meta) {
   });
 
   const callback = this.async();
-  const sourceMap = options.sourceMap || false;
+  const sourceMap =
+    typeof options.sourceMap === 'boolean' ? options.sourceMap : this.sourceMap;
   const plugins = [];
 
   const exportType = options.onlyLocals ? 'locals' : 'full';
