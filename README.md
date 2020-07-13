@@ -125,7 +125,7 @@ Type: `Boolean|Function`
 Default: `true`
 
 Enables/Disables `url`/`image-set` functions handling.
-Control `url()` resolving. Absolute URLs and root-relative URLs are not resolving.
+Control `url()` resolving.
 
 Examples resolutions:
 

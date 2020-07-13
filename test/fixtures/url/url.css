@@ -182,8 +182,8 @@ b {
   background: url('img-simple.png');
 }
 
-.not-resolved {
-  background: url('/img-simple.png');
+.root-relative {
+  background: url('/url/img-simple.png');
 }
 
 .above-below {

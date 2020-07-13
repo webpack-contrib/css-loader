@@ -188,7 +188,11 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
           ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
           : '';
 
-      let normalizedUrl = normalizeUrl(urlWithoutHash, isStringValue);
+      let normalizedUrl = normalizeUrl(
+        urlWithoutHash,
+        isStringValue,
+        options.rootContext
+      );
 
       let prefixSuffix = '';
 
