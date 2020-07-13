@@ -40,7 +40,7 @@
     "dist"
   ],
   "peerDependencies": {
-    "webpack": "^4.0.0 || ^5.0.0"
+    "webpack": "^4.27.0 || ^5.0.0"
   },
   "dependencies": {
     "camelcase": "^6.0.0",
