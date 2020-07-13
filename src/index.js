@@ -35,27 +35,28 @@ export default function loader(content, map, meta) {
   const sourceMap = options.sourceMap || false;
   const plugins = [];
 
-  if (shouldUseModulesPlugins(options.modules, this.resourcePath)) {
-    plugins.push(...getModulesPlugins(options, this));
-  }
-
   const exportType = options.onlyLocals ? 'locals' : 'full';
   const preRequester = getPreRequester(this);
   const urlHandler = (url) =>
     stringifyRequest(this, preRequester(options.importLoaders) + url);
-  const icssResolver = this.getResolve({
-    mainFields: ['css', 'style', 'main', '...'],
-    mainFiles: ['index', '...'],
-  });
 
-  plugins.push(
-    icssParser({
-      context: this.context,
-      rootContext: this.rootContext,
-      resolver: icssResolver,
-      urlHandler,
-    })
-  );
+  if (shouldUseModulesPlugins(options.modules, this.resourcePath)) {
+    plugins.push(...getModulesPlugins(options, this));
+
+    const icssResolver = this.getResolve({
+      mainFields: ['css', 'style', 'main', '...'],
+      mainFiles: ['index', '...'],
+    });
+
+    plugins.push(
+      icssParser({
+        context: this.context,
+        rootContext: this.rootContext,
+        resolver: icssResolver,
+        urlHandler,
+      })
+    );
+  }
 
   if (options.import !== false && exportType === 'full') {
     const resolver = this.getResolve({
