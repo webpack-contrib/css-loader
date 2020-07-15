@@ -293,7 +293,7 @@ function getModuleCode(
   esModule
 ) {
   if (exportType !== 'full') {
-    return '';
+    return 'var ___CSS_LOADER_EXPORT___ = {};\n';
   }
 
   const { css, map } = result;
@@ -303,18 +303,18 @@ function getModuleCode(
   let beforeCode = '';
 
   beforeCode += esModule
-    ? `var exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`
-    : `exports = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
+    ? `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`
+    : `___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
 
   for (const item of apiImports) {
     const { type, media, dedupe } = item;
 
     beforeCode +=
       type === 'internal'
-        ? `exports.i(${item.importName}${
+        ? `___CSS_LOADER_EXPORT___.i(${item.importName}${
             media ? `, ${JSON.stringify(media)}` : dedupe ? ', ""' : ''
           }${dedupe ? ', true' : ''});\n`
-        : `exports.push([module.id, ${JSON.stringify(
+        : `___CSS_LOADER_EXPORT___.push([module.id, ${JSON.stringify(
             `@import url(${item.url});`
           )}${media ? `, ${JSON.stringify(media)}` : ''}]);\n`;
   }
@@ -345,7 +345,7 @@ function getModuleCode(
     );
   }
 
-  return `${beforeCode}// Module\nexports.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
+  return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
 }
 
 function dashesCamelCase(str) {
@@ -412,24 +412,19 @@ function getExportCode(
   for (const replacement of icssReplacements) {
     const { replacementName, importName, localName } = replacement;
 
-    localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
-      exportType === 'locals'
-        ? `" + ${importName}[${JSON.stringify(localName)}] + "`
-        : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+    localsCode = localsCode.replace(
+      new RegExp(replacementName, 'g'),
+      () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
     );
   }
 
-  if (exportType === 'locals') {
-    code += `${esModule ? 'export default' : 'module.exports ='} ${
-      localsCode ? `{\n${localsCode}\n}` : '{}'
-    };\n`;
-  } else {
-    if (localsCode) {
-      code += `exports.locals = {\n${localsCode}\n};\n`;
-    }
-
-    code += `${esModule ? 'export default' : 'module.exports ='} exports;\n`;
+  if (localsCode) {
+    code += `___CSS_LOADER_EXPORT___.locals = {\n${localsCode}\n};\n`;
   }
+
+  code += `${
+    esModule ? 'export default' : 'module.exports ='
+  } ___CSS_LOADER_EXPORT___;\n`;
 
   return `// Exports\n${code}`;
 }
