@@ -100,4 +100,87 @@ describe('"esModule" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should work with "exportNamed" option', async () => {
+    const compiler = getCompiler('./es-module/named/base/index.js', {
+      esModule: true,
+      modules: {
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./es-module/named/base/index.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with "exportNamed" option with nested import', async () => {
+    const compiler = getCompiler('./es-module/named/nested/index.js', {
+      esModule: true,
+      modules: {
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./es-module/named/nested/index.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work js template with "exportNamed" option', async () => {
+    const compiler = getCompiler('./es-module/named/template/index.js', {
+      esModule: true,
+      modules: {
+        localIdentName: '[local]',
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./es-module/named/template/index.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should emit error when class has unsupported name', async () => {
+    const compiler = getCompiler('./es-module/named/broken/index.js', {
+      esModule: true,
+      modules: {
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
+  });
+
+  it('should emit error when exportNamed true && esModule false', async () => {
+    const compiler = getCompiler('./es-module/named/base/index.js', {
+      esModule: false,
+      modules: {
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });

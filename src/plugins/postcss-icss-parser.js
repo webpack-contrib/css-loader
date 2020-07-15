@@ -83,6 +83,7 @@ export default postcss.plugin(
                 value: {
                   // 'CSS_LOADER_ICSS_IMPORT'
                   order: 0,
+                  icss: true,
                   importName,
                   url: options.urlHandler(resolvedUrl),
                   index: currentIndex,
