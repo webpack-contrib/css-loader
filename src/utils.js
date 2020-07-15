@@ -136,14 +136,16 @@ function shouldUseModulesPlugins(modules, resourcePath) {
   return true;
 }
 
-function getModulesPlugins(options, loaderContext) {
+function getModulesOptions(options, loaderContext) {
   let modulesOptions = {
     mode: 'local',
-    exportGlobals: false,
     localIdentName: '[hash:base64]',
+    // eslint-disable-next-line no-undefined
+    localIdentRegExp: undefined,
+    localsConvention: 'asIs',
     getLocalIdent,
     hashPrefix: '',
-    localIdentRegExp: null,
+    exportGlobals: false,
   };
 
   if (
@@ -153,13 +155,17 @@ function getModulesPlugins(options, loaderContext) {
     modulesOptions.mode =
       typeof options.modules === 'string' ? options.modules : 'local';
   } else {
-    modulesOptions = Object.assign({}, modulesOptions, options.modules);
+    modulesOptions = { ...modulesOptions, ...options.modules };
   }
 
   if (typeof modulesOptions.mode === 'function') {
     modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
   }
 
+  return modulesOptions;
+}
+
+function getModulesPlugins(modulesOptions, loaderContext) {
   let plugins = [];
 
   try {
@@ -357,9 +363,9 @@ function dashesCamelCase(str) {
 function getExportCode(
   exports,
   exportType,
-  localsConvention,
   icssReplacements,
-  esModule
+  esModule,
+  modulesOptions
 ) {
   let code = '';
   let localsCode = '';
@@ -373,7 +379,7 @@ function getExportCode(
   };
 
   for (const { name, value } of exports) {
-    switch (localsConvention) {
+    switch (modulesOptions.localsConvention) {
       case 'camelCase': {
         addExportToLocalsCode(name, value);
 
@@ -467,6 +473,7 @@ function isUrlRequestable(url) {
 export {
   normalizeUrl,
   getFilter,
+  getModulesOptions,
   getModulesPlugins,
   normalizeSourceMap,
   getPreRequester,

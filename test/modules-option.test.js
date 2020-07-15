@@ -13,7 +13,7 @@ import {
 const testCasesPath = path.join(__dirname, 'fixtures/modules/tests-cases');
 const testCases = fs.readdirSync(testCasesPath);
 
-jest.setTimeout(30000);
+jest.setTimeout(60000);
 
 describe('"modules" option', () => {
   [
@@ -843,5 +843,115 @@ describe('"modules" option', () => {
 
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats, true)).toMatchSnapshot('errors');
+  });
+
+  it('should work and respect the "localConvention" option with the "asIs" value', async () => {
+    const compiler = getCompiler(
+      './modules/localsConvention/localsConvention.js',
+      {
+        modules: {
+          mode: 'local',
+          localsConvention: 'asIs',
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/localsConvention/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work and respect the "localConvention" option with the "camelCase" value', async () => {
+    const compiler = getCompiler(
+      './modules/localsConvention/localsConvention.js',
+      {
+        modules: {
+          mode: 'local',
+          localsConvention: 'camelCase',
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/localsConvention/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work and respect the "localConvention" option with the "camelCaseOnly" value', async () => {
+    const compiler = getCompiler(
+      './modules/localsConvention/localsConvention.js',
+      {
+        modules: {
+          mode: 'local',
+          localsConvention: 'camelCaseOnly',
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/localsConvention/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work and respect the "localConvention" option with the "dashes" value', async () => {
+    const compiler = getCompiler(
+      './modules/localsConvention/localsConvention.js',
+      {
+        modules: {
+          mode: 'local',
+          localsConvention: 'dashes',
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/localsConvention/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work and respect the "localConvention" option with the "dashesOnly" value', async () => {
+    const compiler = getCompiler(
+      './modules/localsConvention/localsConvention.js',
+      {
+        modules: {
+          mode: 'local',
+          localsConvention: 'dashesOnly',
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/localsConvention/localsConvention.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

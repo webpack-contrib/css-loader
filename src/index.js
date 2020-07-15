@@ -13,6 +13,7 @@ import Warning from './Warning';
 import schema from './options.json';
 import { icssParser, importParser, urlParser } from './plugins';
 import {
+  getModulesOptions,
   getPreRequester,
   getExportCode,
   getFilter,
@@ -31,7 +32,6 @@ export default function loader(content, map, meta) {
     baseDataPath: 'options',
   });
 
-  const callback = this.async();
   const sourceMap =
     typeof options.sourceMap === 'boolean' ? options.sourceMap : this.sourceMap;
   const plugins = [];
@@ -41,8 +41,12 @@ export default function loader(content, map, meta) {
   const urlHandler = (url) =>
     stringifyRequest(this, preRequester(options.importLoaders) + url);
 
+  let modulesOptions;
+
   if (shouldUseModulesPlugins(options.modules, this.resourcePath)) {
-    plugins.push(...getModulesPlugins(options, this));
+    modulesOptions = getModulesOptions(options, this);
+
+    plugins.push(...getModulesPlugins(modulesOptions, this));
 
     const icssResolver = this.getResolve({
       mainFields: ['css', 'style', 'main', '...'],
@@ -103,6 +107,8 @@ export default function loader(content, map, meta) {
       content = ast.root;
     }
   }
+
+  const callback = this.async();
 
   postcss(plugins)
     .process(content, {
@@ -171,7 +177,6 @@ export default function loader(content, map, meta) {
         );
       });
 
-      const { localsConvention } = options;
       const esModule =
         typeof options.esModule !== 'undefined' ? options.esModule : false;
 
@@ -188,9 +193,9 @@ export default function loader(content, map, meta) {
       const exportCode = getExportCode(
         exports,
         exportType,
-        localsConvention,
         icssReplacements,
-        esModule
+        esModule,
+        modulesOptions
       );
 
       return callback(null, `${importCode}${moduleCode}${exportCode}`);

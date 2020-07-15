@@ -75,6 +75,16 @@
                 }
               ]
             },
+            "localsConvention": {
+              "description": "Style of exported classnames (https://github.com/webpack-contrib/css-loader#localsconvention).",
+              "enum": [
+                "asIs",
+                "camelCase",
+                "camelCaseOnly",
+                "dashes",
+                "dashesOnly"
+              ]
+            },
             "context": {
               "type": "string"
             },
@@ -109,10 +119,6 @@
           "type": "integer"
         }
       ]
-    },
-    "localsConvention": {
-      "description": "Style of exported classnames (https://github.com/webpack-contrib/css-loader#localsconvention).",
-      "enum": ["asIs", "camelCase", "camelCaseOnly", "dashes", "dashesOnly"]
     },
     "onlyLocals": {
       "description": "Export only locals (https://github.com/webpack-contrib/css-loader#onlylocals).",

@@ -32,6 +32,11 @@ describe('validate options', () => {
         { auto: false },
         { auto: /custom-regex/ },
         { auto: () => true },
+        { localsConvention: 'asIs' },
+        { localsConvention: 'camelCase' },
+        { localsConvention: 'camelCaseOnly' },
+        { localsConvention: 'dashes' },
+        { localsConvention: 'dashesOnly' },
       ],
       failure: [
         'true',
@@ -49,15 +54,12 @@ describe('validate options', () => {
         { localIdentRegExp: true },
         { exportGlobals: 'invalid' },
         { auto: 'invalid' },
+        { localsConvention: 'unknown' },
       ],
     },
     sourceMap: {
       success: [true, false],
       failure: ['true'],
-    },
-    localsConvention: {
-      success: ['camelCase', 'camelCaseOnly', 'dashes', 'dashesOnly'],
-      failure: ['unknown'],
     },
     importLoaders: {
       success: [false, 0, 1, 2],
