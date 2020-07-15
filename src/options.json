@@ -121,6 +121,10 @@
     "esModule": {
       "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",
       "type": "boolean"
+    },
+    "exportNamed": {
+      "description": "Use the named export ES modules.",
+      "type": "boolean"
     }
   },
   "type": "object"

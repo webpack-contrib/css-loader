@@ -71,6 +71,10 @@ describe('validate options', () => {
       success: [true, false],
       failure: ['true'],
     },
+    exportNamed: {
+      success: [true, false],
+      failure: ['true'],
+    },
     unknown: {
       success: [],
       failure: [1, true, false, 'test', /test/, [], {}, { foo: 'bar' }],
@@ -92,7 +96,14 @@ describe('validate options', () => {
     it(`should ${
       type === 'success' ? 'successfully validate' : 'throw an error on'
     } the "${key}" option with "${stringifyValue(value)}" value`, async () => {
-      const compiler = getCompiler('simple.js', { [key]: value });
+      const options = { [key]: value };
+
+      if (key === 'exportNamed') {
+        options.esModule = true;
+      }
+
+      const compiler = getCompiler('simple.js', options);
+
       let stats;
 
       try {

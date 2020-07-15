@@ -119,6 +119,7 @@ module.exports = {
 | **[`localsConvention`](#localsconvention)** |         `{String}`          |      `'asIs'`      | Style of exported classnames                                           |
 |       **[`onlyLocals`](#onlylocals)**       |         `{Boolean}`         |      `false`       | Export only locals                                                     |
 |         **[`esModule`](#esmodule)**         |         `{Boolean}`         |      `false`       | Use ES modules syntax                                                  |
+|      **[`exportNamed`](#exportNamed)**      |         `{Boolean}`         |      `false`       | Use ES modules named export                                            |
 
 ### `url`
 
@@ -1028,6 +1029,55 @@ module.exports = {
         loader: 'css-loader',
         options: {
           esModule: true,
+        },
+      },
+    ],
+  },
+};
+```
+
+### `exportNamed`
+
+Type: `Boolean`
+Default: `false`
+
+Enable/disable ES modules named export for css classes.
+Names of exported classes are converted to camelCase.
+
+**styles.css**
+
+```css
+.foo-baz {
+  color: red;
+}
+.bar {
+  color: blue;
+}
+```
+
+**index.js**
+
+```js
+import { fooBaz, bar } from './styles.css';
+
+console.log(fooBaz, bar);
+```
+
+You can enable a ES module named export using:
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          esModule: true,
+          modules: true,
+          exportNamed: true,
         },
       },
     ],

@@ -171,11 +171,33 @@ export default function loader(content, map, meta) {
         );
       });
 
-      const { localsConvention } = options;
+      const exportNamed =
+        typeof options.exportNamed !== 'undefined'
+          ? options.exportNamed
+          : false;
+
+      const { localsConvention } = exportNamed
+        ? { localsConvention: 'camelCaseOnly' }
+        : options;
+
       const esModule =
         typeof options.esModule !== 'undefined' ? options.esModule : false;
 
-      const importCode = getImportCode(this, exportType, imports, esModule);
+      if (Boolean(exportNamed) && Boolean(exportNamed) !== Boolean(esModule)) {
+        this.emitError(
+          new Error(
+            '`Options.exportNamed` can not use without `options.esModule`'
+          )
+        );
+      }
+
+      const importCode = getImportCode(
+        this,
+        exportType,
+        imports,
+        esModule,
+        exportNamed
+      );
       const moduleCode = getModuleCode(
         result,
         exportType,
@@ -183,14 +205,16 @@ export default function loader(content, map, meta) {
         apiImports,
         urlReplacements,
         icssReplacements,
-        esModule
+        esModule,
+        exportNamed
       );
       const exportCode = getExportCode(
         exports,
         exportType,
         localsConvention,
         icssReplacements,
-        esModule
+        esModule,
+        exportNamed
       );
 
       return callback(null, `${importCode}${moduleCode}${exportCode}`);
