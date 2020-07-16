@@ -11,6 +11,8 @@ import {
   getWarnings,
 } from './helpers/index';
 
+jest.setTimeout(10000);
+
 describe('"sourceMap" option', () => {
   describe('not specified', () => {
     it('should not generate source maps', async () => {

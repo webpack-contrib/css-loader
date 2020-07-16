@@ -319,7 +319,7 @@ function getModuleCode(
 
   beforeCode += esModule
     ? `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`
-    : `___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
+    : `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
 
   for (const item of apiImports) {
     const { type, media, dedupe } = item;

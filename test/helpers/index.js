@@ -8,7 +8,6 @@ import getWarnings from './getWarnings';
 import normalizeErrors from './normalizeErrors';
 import readAsset from './readAsset';
 import readsAssets from './readAssets';
-import runInJsDom from './runInJsDom';
 
 export {
   compile,
@@ -21,5 +20,4 @@ export {
   normalizeErrors,
   readAsset,
   readsAssets,
-  runInJsDom,
 };
