@@ -414,8 +414,8 @@ a {
   background: url(\\"/webpack/public/path/img'() img.png\\");
 
   background-image: image-set(
-    
-    
+
+
     url(\\"/webpack/public/path/img'''img.png\\") 2x,
     url(\\"/webpack/public/path/img'img.png\\") 3x,
     url(\\"/webpack/public/path/img(img.png\\") 4x,
@@ -1782,8 +1782,8 @@ a {
   background: url(\\"/webpack/public/path/img'() img.png\\");
 
   background-image: image-set(
-    
-    
+
+
     url(\\"/webpack/public/path/img'''img.png\\") 2x,
     url(\\"/webpack/public/path/img'img.png\\") 3x,
     url(\\"/webpack/public/path/img(img.png\\") 4x,
