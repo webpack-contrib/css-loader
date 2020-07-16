@@ -1066,10 +1066,10 @@ module.exports = {
 Type: `Boolean`
 Default: `false`
 
-By default, `css-loader` generates JS modules that use the CommonJS modules syntax.
+By default, `css-loader` generates JS modules that use the ES modules syntax.
 There are some cases in which using ES modules is beneficial, like in the case of [module concatenation](https://webpack.js.org/plugins/module-concatenation-plugin/) and [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
-You can enable a ES module syntax using:
+You can enable a CommonJS modules syntax using:
 
 **webpack.config.js**
 
@@ -1081,7 +1081,7 @@ module.exports = {
         test: /\.css$/i,
         loader: 'css-loader',
         options: {
-          esModule: true,
+          esModule: false,
         },
       },
     ],

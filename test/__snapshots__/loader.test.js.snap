@@ -381,6 +381,76 @@ exports[`loader should work with ModuleConcatenationPlugin: errors 1`] = `Array 
 
 exports[`loader should work with ModuleConcatenationPlugin: warnings 1`] = `Array []`;
 
+exports[`loader should work with commonjs-css-loader + commonjs-mini-css-extract-plugin: css 1`] = `
+".some-class {
+  color: red;
+}
+
+"
+`;
+
+exports[`loader should work with commonjs-css-loader + commonjs-mini-css-extract-plugin: errors 1`] = `Array []`;
+
+exports[`loader should work with commonjs-css-loader + commonjs-mini-css-extract-plugin: result 1`] = `Object {}`;
+
+exports[`loader should work with commonjs-css-loader + commonjs-mini-css-extract-plugin: warnings 1`] = `Array []`;
+
+exports[`loader should work with commonjs-css-loader + commonjs-style-loader: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.some-class {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work with commonjs-css-loader + commonjs-style-loader: errors 1`] = `Array []`;
+
+exports[`loader should work with commonjs-css-loader + commonjs-style-loader: warnings 1`] = `Array []`;
+
+exports[`loader should work with commonjs-css-loader + esModule-mini-css-extract-plugin: css 1`] = `
+".some-class {
+  color: red;
+}
+
+"
+`;
+
+exports[`loader should work with commonjs-css-loader + esModule-mini-css-extract-plugin: errors 1`] = `Array []`;
+
+exports[`loader should work with commonjs-css-loader + esModule-mini-css-extract-plugin: result 1`] = `Object {}`;
+
+exports[`loader should work with commonjs-css-loader + esModule-mini-css-extract-plugin: warnings 1`] = `Array []`;
+
+exports[`loader should work with commonjs-css-loader + esModule-style-loader: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.some-class {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work with commonjs-css-loader + esModule-style-loader: errors 1`] = `Array []`;
+
+exports[`loader should work with commonjs-css-loader + esModule-style-loader: warnings 1`] = `Array []`;
+
 exports[`loader should work with empty css: errors 1`] = `Array []`;
 
 exports[`loader should work with empty css: module 1`] = `
@@ -578,6 +648,76 @@ a[href=\\"\\" i] {
 `;
 
 exports[`loader should work with empty options: warnings 1`] = `Array []`;
+
+exports[`loader should work with esModule-css-loader + commonjs-mini-css-extract-plugin: css 1`] = `
+".some-class {
+  color: red;
+}
+
+"
+`;
+
+exports[`loader should work with esModule-css-loader + commonjs-mini-css-extract-plugin: errors 1`] = `Array []`;
+
+exports[`loader should work with esModule-css-loader + commonjs-mini-css-extract-plugin: result 1`] = `Object {}`;
+
+exports[`loader should work with esModule-css-loader + commonjs-mini-css-extract-plugin: warnings 1`] = `Array []`;
+
+exports[`loader should work with esModule-css-loader + commonjs-style-loader: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.some-class {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work with esModule-css-loader + commonjs-style-loader: errors 1`] = `Array []`;
+
+exports[`loader should work with esModule-css-loader + commonjs-style-loader: warnings 1`] = `Array []`;
+
+exports[`loader should work with esModule-css-loader + esModule-mini-css-extract-plugin: css 1`] = `
+".some-class {
+  color: red;
+}
+
+"
+`;
+
+exports[`loader should work with esModule-css-loader + esModule-mini-css-extract-plugin: errors 1`] = `Array []`;
+
+exports[`loader should work with esModule-css-loader + esModule-mini-css-extract-plugin: result 1`] = `Object {}`;
+
+exports[`loader should work with esModule-css-loader + esModule-mini-css-extract-plugin: warnings 1`] = `Array []`;
+
+exports[`loader should work with esModule-css-loader + esModule-style-loader: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.some-class {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work with esModule-css-loader + esModule-style-loader: errors 1`] = `Array []`;
+
+exports[`loader should work with esModule-css-loader + esModule-style-loader: warnings 1`] = `Array []`;
 
 exports[`loader should work with the "modules.auto" option and the "importLoaders" option: errors 1`] = `Array []`;
 
