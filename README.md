@@ -756,7 +756,7 @@ module.exports = {
 };
 ```
 
-### `localsConvention`
+##### `localsConvention`
 
 Type: `String`
 Default: `'asIs'`
