@@ -358,7 +358,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_9___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_9___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\\\\n@import url(\\\\\\"test.css\\\\\\");\\\\n@IMPORT url(test.css);\\\\n@import URL(test.css);\\\\n@import url(test.css );\\\\n@import url( test.css);\\\\n@import url( test.css );\\\\n@import url(\\\\n  test.css\\\\n);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import \\\\\\"test.css\\\\\\";\\\\n@import 'test.css';\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import url(test.css) screen and (orientation:landscape);\\\\n@import url(test.css) SCREEN AND (ORIENTATION: LANDSCAPE);\\\\n@import url(test.css)screen and (orientation:landscape);\\\\n@import url(test.css)  screen and (orientation:landscape);\\\\n@import url(~package/test.css);\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@import url(./test.css);\\\\n\\\\n@import './te\\\\\\\\\\\\nst.css';\\\\n@import './te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css';\\\\n@import url('./te\\\\\\\\\\\\nst.css');\\\\n@import url('./te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css');\\\\n@import './test test.css';\\\\n@import url('./test test.css');\\\\n@import './test\\\\\\\\ test.css';\\\\n@import url('./test\\\\\\\\ test.css');\\\\n@import './test%20test.css';\\\\n@import url('./test%20test.css');\\\\n@import './\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import './t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import url(./test\\\\\\\\ test.css);\\\\n@import url(./t\\\\\\\\65st%20test.css);\\\\n@import url('./t\\\\\\\\65st%20test.css');\\\\n@import url(\\\\\\"./t\\\\\\\\65st%20test.css\\\\\\");\\\\n@import \\\\\\"./t\\\\\\\\65st%20test.css\\\\\\";\\\\n@import './t\\\\\\\\65st%20test.css';\\\\n@import url(                 test.css                      );\\\\n@import nourl(test.css);\\\\n/* TODO need fix */\\\\n/*@import '\\\\\\\\*/\\\\n/*\\\\\\\\*/\\\\n/*\\\\\\\\*/\\\\n/*';*/\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\\\\n@import url(\\\\\\"test.css\\\\\\");\\\\n@IMPORT url(test.css);\\\\n@import URL(test.css);\\\\n@import url(test.css );\\\\n@import url( test.css);\\\\n@import url( test.css );\\\\n@import url(\\\\n  test.css\\\\n);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import \\\\\\"test.css\\\\\\";\\\\n@import 'test.css';\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import url(test.css) screen and (orientation:landscape);\\\\n@import url(test.css) SCREEN AND (ORIENTATION: LANDSCAPE);\\\\n@import url(test.css)screen and (orientation:landscape);\\\\n@import url(test.css)  screen and (orientation:landscape);\\\\n@import url(~package/test.css);\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@import url(./test.css);\\\\n\\\\n@import './te\\\\\\\\\\\\nst.css';\\\\n@import './te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css';\\\\n@import url('./te\\\\\\\\\\\\nst.css');\\\\n@import url('./te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css');\\\\n@import './test test.css';\\\\n@import url('./test test.css');\\\\n@import './test\\\\\\\\ test.css';\\\\n@import url('./test\\\\\\\\ test.css');\\\\n@import './test%20test.css';\\\\n@import url('./test%20test.css');\\\\n@import './\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import './t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import url(./test\\\\\\\\ test.css);\\\\n@import url(./t\\\\\\\\65st%20test.css);\\\\n@import url('./t\\\\\\\\65st%20test.css');\\\\n@import url(\\\\\\"./t\\\\\\\\65st%20test.css\\\\\\");\\\\n@import \\\\\\"./t\\\\\\\\65st%20test.css\\\\\\";\\\\n@import './t\\\\\\\\65st%20test.css';\\\\n@import url(                 test.css                      );\\\\n@import nourl(test.css);\\\\n@import '\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\n';\\\\n\\", \\"\\"]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 "
@@ -612,11 +612,10 @@ st.css');
 @import './t\\\\65st%20test.css';
 @import url(                 test.css                      );
 @import nourl(test.css);
-/* TODO need fix */
-/*@import '\\\\*/
-/*\\\\*/
-/*\\\\*/
-/*';*/
+@import '\\\\
+\\\\
+\\\\
+';
 ",
     "",
   ],
@@ -629,6 +628,13 @@ Array [
 Warning
 
 (105:1) Unable to find uri in \\"@import nourl(test.css)\\"",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(106:1) Unable to find uri in \\"@import '\\\\
+\\\\
+\\\\
+'\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
@@ -771,7 +777,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n@import nourl(test.css);\\\\n/* TODO need fix */\\\\n/*@import '\\\\\\\\*/\\\\n/*\\\\\\\\*/\\\\n/*\\\\\\\\*/\\\\n/*';*/\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n@import nourl(test.css);\\\\n@import '\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\n';\\\\n\\", \\"\\"]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 "
@@ -1279,11 +1285,10 @@ Array [
   background: url(/webpack/public/path/img.png);
 }
 @import nourl(test.css);
-/* TODO need fix */
-/*@import '\\\\*/
-/*\\\\*/
-/*\\\\*/
-/*';*/
+@import '\\\\
+\\\\
+\\\\
+';
 ",
     "",
   ],
@@ -1296,6 +1301,13 @@ Array [
 Warning
 
 (105:1) Unable to find uri in \\"@import nourl(test.css)\\"",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(106:1) Unable to find uri in \\"@import '\\\\
+\\\\
+\\\\
+'\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
@@ -1362,7 +1374,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./img.png\\");
 ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\\\\n@import url(\\\\\\"test.css\\\\\\");\\\\n@IMPORT url(test.css);\\\\n@import URL(test.css);\\\\n@import url(test.css );\\\\n@import url( test.css);\\\\n@import url( test.css );\\\\n@import url(\\\\n  test.css\\\\n);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import \\\\\\"test.css\\\\\\";\\\\n@import 'test.css';\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import url(test.css) screen and (orientation:landscape);\\\\n@import url(test.css) SCREEN AND (ORIENTATION: LANDSCAPE);\\\\n@import url(test.css)screen and (orientation:landscape);\\\\n@import url(test.css)  screen and (orientation:landscape);\\\\n@import url(test-media.css) screen and (orientation:landscape);\\\\n@import url(test-other.css) (min-width: 100px);\\\\n@import url(http://example.com/style.css);\\\\n@import url(http://example.com/style.css);\\\\n@import url(http://example.com/style.css#hash);\\\\n@import url(http://example.com/style.css?#hash);\\\\n@import url(http://example.com/style.css?foo=bar#hash);\\\\n@import url(http://example.com/other-style.css) screen and (orientation:landscape);\\\\n@import url(http://example.com/other-style.css) screen and (orientation:landscape);\\\\n@import url(\\\\\\"//example.com/style.css\\\\\\");\\\\n@import url(~package/test.css);\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n@import url('query.css?foo=1&bar=1');\\\\n@import url('other-query.css?foo=1&bar=1#hash');\\\\n@import url('other-query.css?foo=1&bar=1#hash') screen and (orientation:landscape);\\\\n@import url('https://fonts.googleapis.com/css?family=Roboto');\\\\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');\\\\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto');\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n@import url('./relative.css');\\\\n@import url('../import/top-relative.css');\\\\n@import url(~package/tilde.css);\\\\n@import url(~aliasesImport/alias.css);\\\\n@import url('./url.css');\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@import url(./test.css);\\\\n\\\\n@import './te\\\\\\\\\\\\nst.css';\\\\n@import './te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css';\\\\n@import url('./te\\\\\\\\\\\\nst.css');\\\\n@import url('./te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css');\\\\n\\\\n@import \\\\\\"./te'st.css\\\\\\";\\\\n@import url(\\\\\\"./te'st.css\\\\\\");\\\\n@import './te\\\\\\\\'st.css';\\\\n@import url('./te\\\\\\\\'st.css');\\\\n@import './test test.css';\\\\n@import url('./test test.css');\\\\n@import './test\\\\\\\\ test.css';\\\\n@import url('./test\\\\\\\\ test.css');\\\\n@import './test%20test.css';\\\\n@import url('./test%20test.css');\\\\n@import './\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import './t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import url(./test\\\\\\\\ test.css);\\\\n@import url(./t\\\\\\\\65st%20test.css);\\\\n@import url('./t\\\\\\\\65st%20test.css');\\\\n@import url(\\\\\\"./t\\\\\\\\65st%20test.css\\\\\\");\\\\n@import \\\\\\"./t\\\\\\\\65st%20test.css\\\\\\";\\\\n@import './t\\\\\\\\65st%20test.css';\\\\n@import url(                 test.css                      );\\\\n@import nourl(test.css);\\\\n/* TODO need fix */\\\\n/*@import '\\\\\\\\*/\\\\n/*\\\\\\\\*/\\\\n/*\\\\\\\\*/\\\\n/*';*/\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\\\\n@import url(\\\\\\"test.css\\\\\\");\\\\n@IMPORT url(test.css);\\\\n@import URL(test.css);\\\\n@import url(test.css );\\\\n@import url( test.css);\\\\n@import url( test.css );\\\\n@import url(\\\\n  test.css\\\\n);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import \\\\\\"test.css\\\\\\";\\\\n@import 'test.css';\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import url(test.css) screen and (orientation:landscape);\\\\n@import url(test.css) SCREEN AND (ORIENTATION: LANDSCAPE);\\\\n@import url(test.css)screen and (orientation:landscape);\\\\n@import url(test.css)  screen and (orientation:landscape);\\\\n@import url(test-media.css) screen and (orientation:landscape);\\\\n@import url(test-other.css) (min-width: 100px);\\\\n@import url(http://example.com/style.css);\\\\n@import url(http://example.com/style.css);\\\\n@import url(http://example.com/style.css#hash);\\\\n@import url(http://example.com/style.css?#hash);\\\\n@import url(http://example.com/style.css?foo=bar#hash);\\\\n@import url(http://example.com/other-style.css) screen and (orientation:landscape);\\\\n@import url(http://example.com/other-style.css) screen and (orientation:landscape);\\\\n@import url(\\\\\\"//example.com/style.css\\\\\\");\\\\n@import url(~package/test.css);\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n@import url('query.css?foo=1&bar=1');\\\\n@import url('other-query.css?foo=1&bar=1#hash');\\\\n@import url('other-query.css?foo=1&bar=1#hash') screen and (orientation:landscape);\\\\n@import url('https://fonts.googleapis.com/css?family=Roboto');\\\\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');\\\\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto');\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n@import url('./relative.css');\\\\n@import url('../import/top-relative.css');\\\\n@import url(~package/tilde.css);\\\\n@import url(~aliasesImport/alias.css);\\\\n@import url('./url.css');\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@import url(./test.css);\\\\n\\\\n@import './te\\\\\\\\\\\\nst.css';\\\\n@import './te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css';\\\\n@import url('./te\\\\\\\\\\\\nst.css');\\\\n@import url('./te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css');\\\\n\\\\n@import \\\\\\"./te'st.css\\\\\\";\\\\n@import url(\\\\\\"./te'st.css\\\\\\");\\\\n@import './te\\\\\\\\'st.css';\\\\n@import url('./te\\\\\\\\'st.css');\\\\n@import './test test.css';\\\\n@import url('./test test.css');\\\\n@import './test\\\\\\\\ test.css';\\\\n@import url('./test\\\\\\\\ test.css');\\\\n@import './test%20test.css';\\\\n@import url('./test%20test.css');\\\\n@import './\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import './t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import url(./test\\\\\\\\ test.css);\\\\n@import url(./t\\\\\\\\65st%20test.css);\\\\n@import url('./t\\\\\\\\65st%20test.css');\\\\n@import url(\\\\\\"./t\\\\\\\\65st%20test.css\\\\\\");\\\\n@import \\\\\\"./t\\\\\\\\65st%20test.css\\\\\\";\\\\n@import './t\\\\\\\\65st%20test.css';\\\\n@import url(                 test.css                      );\\\\n@import nourl(test.css);\\\\n@import '\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\n';\\\\n\\", \\"\\"]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 "
@@ -1477,11 +1489,10 @@ st.css');
 @import './t\\\\65st%20test.css';
 @import url(                 test.css                      );
 @import nourl(test.css);
-/* TODO need fix */
-/*@import '\\\\*/
-/*\\\\*/
-/*\\\\*/
-/*';*/
+@import '\\\\
+\\\\
+\\\\
+';
 ",
     "",
   ],
@@ -1576,7 +1587,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_12___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n@import nourl(test.css);\\\\n/* TODO need fix */\\\\n/*@import '\\\\\\\\*/\\\\n/*\\\\\\\\*/\\\\n/*\\\\\\\\*/\\\\n/*';*/\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n@import nourl(test.css);\\\\n@import '\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\n';\\\\n\\", \\"\\"]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 "
@@ -2084,11 +2095,10 @@ Array [
   background: url(/webpack/public/path/img.png);
 }
 @import nourl(test.css);
-/* TODO need fix */
-/*@import '\\\\*/
-/*\\\\*/
-/*\\\\*/
-/*';*/
+@import '\\\\
+\\\\
+\\\\
+';
 ",
     "",
   ],
@@ -2101,6 +2111,13 @@ Array [
 Warning
 
 (105:1) Unable to find uri in \\"@import nourl(test.css)\\"",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(106:1) Unable to find uri in \\"@import '\\\\
+\\\\
+\\\\
+'\\"",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
 Warning
 
