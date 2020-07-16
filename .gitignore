@@ -17,3 +17,4 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 /test/fixtures/import/import-absolute.css
+/test/fixtures/url/url-absolute.css

@@ -314,7 +314,6 @@ function getModuleCode(
 
   const { css, map } = result;
   const sourceMapValue = sourceMap && map ? `,${map}` : '';
-
   let code = JSON.stringify(css);
   let beforeCode = '';
 

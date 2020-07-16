@@ -125,7 +125,7 @@ Type: `Boolean|Function`
 Default: `true`
 
 Enables/Disables `url`/`image-set` functions handling.
-Control `url()` resolving. Absolute URLs and root-relative URLs are not resolving.
+Control `url()` resolving. Absolute URLs are not resolving.
 
 Examples resolutions:
 
@@ -1170,6 +1170,39 @@ module.exports = {
         },
       },
     ],
+  },
+};
+```
+
+### Resolve unresolved URLs using an alias
+
+**index.css**
+
+```css
+.class {
+  background: url(/assets/unresolved/img.png);
+}
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  resolve: {
+    alias: {
+      '/assets/unresolved/img.png': path.resolve(
+        __dirname,
+        'assets/real-path-to-img/img.png'
+      ),
+    },
   },
 };
 ```

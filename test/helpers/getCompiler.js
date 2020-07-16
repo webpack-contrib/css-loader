@@ -41,6 +41,7 @@ export default (fixture, loaderOptions = {}, config = {}) => {
           __dirname,
           '../fixtures/modules/composes'
         ),
+        '/img.png': path.resolve(__dirname, '../fixtures/url/img.png'),
       },
     },
     optimization: {
