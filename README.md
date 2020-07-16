@@ -125,7 +125,7 @@ Type: `Boolean|Function`
 Default: `true`
 
 Enables/Disables `url`/`image-set` functions handling.
-Control `url()` resolving.
+Control `url()` resolving. Absolute URLs are not resolving.
 
 Examples resolutions:
 
@@ -1121,7 +1121,7 @@ module.exports = {
 };
 ```
 
-### Resolve unresolved urls using an alias
+### Resolve unresolved URLs using an alias
 
 **index.css**
 
