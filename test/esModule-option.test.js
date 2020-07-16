@@ -101,7 +101,7 @@ describe('"esModule" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work with "exportNamed" option', async () => {
+  it('should work with "namedExport" option', async () => {
     const compiler = getCompiler('./es-module/named/base/index.js', {
       esModule: true,
       modules: {
@@ -120,7 +120,7 @@ describe('"esModule" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work with "exportNamed" option with nested import', async () => {
+  it('should work with "namedExport" option with nested import', async () => {
     const compiler = getCompiler('./es-module/named/nested/index.js', {
       esModule: true,
       modules: {
@@ -139,7 +139,7 @@ describe('"esModule" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work js template with "exportNamed" option', async () => {
+  it('should work js template with "namedExport" option', async () => {
     const compiler = getCompiler('./es-module/named/template/index.js', {
       esModule: true,
       modules: {
@@ -172,7 +172,7 @@ describe('"esModule" option', () => {
     expect(getErrors(stats, true)).toMatchSnapshot('errors');
   });
 
-  it('should emit error when exportNamed true && esModule false', async () => {
+  it('should emit error when namedExport true && esModule false', async () => {
     const compiler = getCompiler('./es-module/named/base/index.js', {
       esModule: false,
       modules: {

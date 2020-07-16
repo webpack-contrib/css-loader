@@ -9,16 +9,16 @@ File was processed with these loaders:",
 
 exports[`"esModule" option should emit error when class has unsupported name: warnings 1`] = `Array []`;
 
-exports[`"esModule" option should emit error when exportNamed true && esModule false: errors 1`] = `
+exports[`"esModule" option should emit error when namedExport true && esModule false: errors 1`] = `
 Array [
   "ModuleError: Module Error (from \`replaced original path\`):
 \`Options.module.namedExport\` cannot be used without \`options.esModule\`",
 ]
 `;
 
-exports[`"esModule" option should work js template with "exportNamed" option: errors 1`] = `Array []`;
+exports[`"esModule" option should work js template with "namedExport" option: errors 1`] = `Array []`;
 
-exports[`"esModule" option should work js template with "exportNamed" option: module 1`] = `
+exports[`"esModule" option should work js template with "namedExport" option: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
@@ -33,7 +33,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"esModule" option should work js template with "exportNamed" option: result 1`] = `
+exports[`"esModule" option should work js template with "namedExport" option: result 1`] = `
 Object {
   "css": Array [
     Array [
@@ -61,7 +61,7 @@ Object {
 }
 `;
 
-exports[`"esModule" option should work js template with "exportNamed" option: warnings 1`] = `Array []`;
+exports[`"esModule" option should work js template with "namedExport" option: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work when not specified: errors 1`] = `Array []`;
 
@@ -109,25 +109,25 @@ Array [
 
 exports[`"esModule" option should work when not specified: warnings 1`] = `Array []`;
 
-exports[`"esModule" option should work with "exportNamed" option with nested import: errors 1`] = `Array []`;
+exports[`"esModule" option should work with "namedExport" option with nested import: errors 1`] = `Array []`;
 
-exports[`"esModule" option should work with "exportNamed" option with nested import: module 1`] = `
+exports[`"esModule" option should work with "namedExport" option with nested import: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../src/index.js??[ident]!../../../modules/composes/values.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".qwCT06AE1ZDvQtiz0EQJ8 {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".lOpALu8t_iv2-GccTMbIq {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export const vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
-export const ghi = \\"qwCT06AE1ZDvQtiz0EQJ8\\";
+export const ghi = \\"lOpALu8t_iv2-GccTMbIq\\";
 
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"esModule" option should work with "exportNamed" option with nested import: result 1`] = `
+exports[`"esModule" option should work with "namedExport" option with nested import: result 1`] = `
 Array [
   Array [
     "../../src/index.js?[ident]!./modules/composes/values.css",
@@ -137,7 +137,7 @@ Array [
   ],
   Array [
     "./es-module/named/nested/index.css",
-    ".qwCT06AE1ZDvQtiz0EQJ8 {
+    ".lOpALu8t_iv2-GccTMbIq {
   color: red;
 }
 ",
@@ -146,28 +146,28 @@ Array [
 ]
 `;
 
-exports[`"esModule" option should work with "exportNamed" option with nested import: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with "namedExport" option with nested import: warnings 1`] = `Array []`;
 
-exports[`"esModule" option should work with "exportNamed" option: errors 1`] = `Array []`;
+exports[`"esModule" option should work with "namedExport" option: errors 1`] = `Array []`;
 
-exports[`"esModule" option should work with "exportNamed" option: module 1`] = `
+exports[`"esModule" option should work with "namedExport" option: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._1Cb_30DnkF22nebwtzVBFY {\\\\n  color: red;\\\\n}\\\\n\\\\n.bar {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".jSf5EjnYI1bvqKHBrOPz6 {\\\\n  color: red;\\\\n}\\\\n\\\\n.bar {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const barBaz = \\"_1Cb_30DnkF22nebwtzVBFY\\";
+export const barBaz = \\"jSf5EjnYI1bvqKHBrOPz6\\";
 
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"esModule" option should work with "exportNamed" option: result 1`] = `
+exports[`"esModule" option should work with "namedExport" option: result 1`] = `
 Array [
   Array [
     "./es-module/named/base/index.css",
-    "._1Cb_30DnkF22nebwtzVBFY {
+    ".jSf5EjnYI1bvqKHBrOPz6 {
   color: red;
 }
 
@@ -180,7 +180,7 @@ Array [
 ]
 `;
 
-exports[`"esModule" option should work with "exportNamed" option: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with "namedExport" option: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "false": errors 1`] = `Array []`;
 

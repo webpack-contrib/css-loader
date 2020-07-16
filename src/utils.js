@@ -146,6 +146,7 @@ function getModulesOptions(options, loaderContext) {
     getLocalIdent,
     hashPrefix: '',
     exportGlobals: false,
+    namedExport: false,
   };
 
   if (
@@ -269,7 +270,7 @@ function getImportCode(
   exportType,
   imports,
   esModule,
-  namedExport
+  modulesOptions
 ) {
   let code = '';
 
@@ -288,7 +289,7 @@ function getImportCode(
     const { importName, url, icss } = item;
 
     code += esModule
-      ? icss && namedExport
+      ? icss && modulesOptions.namedExport
         ? `import ${importName}, * as ${importName}_NAMED___ from ${url};\n`
         : `import ${importName} from ${url};\n`
       : `var ${importName} = require(${url});\n`;
@@ -305,7 +306,7 @@ function getModuleCode(
   urlReplacements,
   icssReplacements,
   esModule,
-  namedExport
+  modulesOptions
 ) {
   if (exportType !== 'full') {
     return 'var ___CSS_LOADER_EXPORT___ = {};\n';
@@ -355,7 +356,7 @@ function getModuleCode(
     const { replacementName, importName, localName } = replacement;
 
     code = code.replace(new RegExp(replacementName, 'g'), () =>
-      namedExport
+      modulesOptions.namedExport
         ? `" + ${importName}_NAMED___[${JSON.stringify(
             camelCase(localName)
           )}] + "`
@@ -377,8 +378,7 @@ function getExportCode(
   exportType,
   icssReplacements,
   esModule,
-  modulesOptions,
-  namedExport
+  modulesOptions
 ) {
   let code = '';
   let localsCode = '';
@@ -391,8 +391,10 @@ function getExportCode(
 
     localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
 
-    if (namedExport) {
-      namedCode += `export const ${name} = ${JSON.stringify(value)};\n`;
+    if (modulesOptions.namedExport) {
+      namedCode += `export const ${camelCase(name)} = ${JSON.stringify(
+        value
+      )};\n`;
     }
   };
 
@@ -441,7 +443,7 @@ function getExportCode(
       () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
     );
 
-    if (namedExport) {
+    if (modulesOptions.namedExport) {
       namedCode = namedCode.replace(
         new RegExp(replacementName, 'g'),
         () =>
