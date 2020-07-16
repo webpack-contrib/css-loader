@@ -146,6 +146,7 @@ function getModulesOptions(options, loaderContext) {
     getLocalIdent,
     hashPrefix: '',
     exportGlobals: false,
+    namedExport: false,
   };
 
   if (
@@ -264,7 +265,13 @@ function getPreRequester({ loaders, loaderIndex }) {
   };
 }
 
-function getImportCode(loaderContext, exportType, imports, esModule) {
+function getImportCode(
+  loaderContext,
+  exportType,
+  imports,
+  esModule,
+  modulesOptions
+) {
   let code = '';
 
   if (exportType === 'full') {
@@ -279,10 +286,12 @@ function getImportCode(loaderContext, exportType, imports, esModule) {
   }
 
   for (const item of imports) {
-    const { importName, url } = item;
+    const { importName, url, icss } = item;
 
     code += esModule
-      ? `import ${importName} from ${url};\n`
+      ? icss && modulesOptions.namedExport
+        ? `import ${importName}, * as ${importName}_NAMED___ from ${url};\n`
+        : `import ${importName} from ${url};\n`
       : `var ${importName} = require(${url});\n`;
   }
 
@@ -296,7 +305,8 @@ function getModuleCode(
   apiImports,
   urlReplacements,
   icssReplacements,
-  esModule
+  esModule,
+  modulesOptions
 ) {
   if (exportType !== 'full') {
     return 'var ___CSS_LOADER_EXPORT___ = {};\n';
@@ -345,9 +355,12 @@ function getModuleCode(
   for (const replacement of icssReplacements) {
     const { replacementName, importName, localName } = replacement;
 
-    code = code.replace(
-      new RegExp(replacementName, 'g'),
-      () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+    code = code.replace(new RegExp(replacementName, 'g'), () =>
+      modulesOptions.namedExport
+        ? `" + ${importName}_NAMED___[${JSON.stringify(
+            camelCase(localName)
+          )}] + "`
+        : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
     );
   }
 
@@ -369,6 +382,7 @@ function getExportCode(
 ) {
   let code = '';
   let localsCode = '';
+  let namedCode = '';
 
   const addExportToLocalsCode = (name, value) => {
     if (localsCode) {
@@ -376,6 +390,12 @@ function getExportCode(
     }
 
     localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
+
+    if (modulesOptions.namedExport) {
+      namedCode += `export const ${camelCase(name)} = ${JSON.stringify(
+        value
+      )};\n`;
+    }
   };
 
   for (const { name, value } of exports) {
@@ -422,10 +442,22 @@ function getExportCode(
       new RegExp(replacementName, 'g'),
       () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
     );
+
+    if (modulesOptions.namedExport) {
+      namedCode = namedCode.replace(
+        new RegExp(replacementName, 'g'),
+        () =>
+          `" + ${importName}_NAMED___[${JSON.stringify(
+            camelCase(localName)
+          )}] + "`
+      );
+    }
   }
 
   if (localsCode) {
-    code += `___CSS_LOADER_EXPORT___.locals = {\n${localsCode}\n};\n`;
+    code += namedCode
+      ? `${namedCode}\n`
+      : `___CSS_LOADER_EXPORT___.locals = {\n${localsCode}\n};\n`;
   }
 
   code += `${

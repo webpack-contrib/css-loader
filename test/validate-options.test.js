@@ -37,6 +37,8 @@ describe('validate options', () => {
         { localsConvention: 'camelCaseOnly' },
         { localsConvention: 'dashes' },
         { localsConvention: 'dashesOnly' },
+        { namedExport: true },
+        { namedExport: false },
       ],
       failure: [
         'true',
@@ -55,6 +57,7 @@ describe('validate options', () => {
         { exportGlobals: 'invalid' },
         { auto: 'invalid' },
         { localsConvention: 'unknown' },
+        { namedExport: 'invalid' },
       ],
     },
     sourceMap: {
@@ -94,7 +97,18 @@ describe('validate options', () => {
     it(`should ${
       type === 'success' ? 'successfully validate' : 'throw an error on'
     } the "${key}" option with "${stringifyValue(value)}" value`, async () => {
-      const compiler = getCompiler('simple.js', { [key]: value });
+      const options = { [key]: value };
+
+      if (
+        key === 'modules' &&
+        typeof value === 'object' &&
+        value.namedExport === true
+      ) {
+        options.esModule = true;
+      }
+
+      const compiler = getCompiler('simple.js', options);
+
       let stats;
 
       try {

@@ -1,0 +1,5 @@
+@value v-def from '../../../modules/composes/values.css';
+
+.ghi {
+  color: v-def;
+}

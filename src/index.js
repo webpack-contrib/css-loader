@@ -41,10 +41,21 @@ export default function loader(content, map, meta) {
   const urlHandler = (url) =>
     stringifyRequest(this, preRequester(options.importLoaders) + url);
 
+  const esModule =
+    typeof options.esModule !== 'undefined' ? options.esModule : false;
+
   let modulesOptions;
 
   if (shouldUseModulesPlugins(options.modules, this.resourcePath)) {
     modulesOptions = getModulesOptions(options, this);
+
+    if (modulesOptions.namedExport === true && esModule === false) {
+      this.emitError(
+        new Error(
+          '`Options.module.namedExport` cannot be used without `options.esModule`'
+        )
+      );
+    }
 
     plugins.push(...getModulesPlugins(modulesOptions, this));
 
@@ -177,10 +188,13 @@ export default function loader(content, map, meta) {
         );
       });
 
-      const esModule =
-        typeof options.esModule !== 'undefined' ? options.esModule : false;
-
-      const importCode = getImportCode(this, exportType, imports, esModule);
+      const importCode = getImportCode(
+        this,
+        exportType,
+        imports,
+        esModule,
+        modulesOptions
+      );
       const moduleCode = getModuleCode(
         result,
         exportType,
@@ -188,7 +202,8 @@ export default function loader(content, map, meta) {
         apiImports,
         urlReplacements,
         icssReplacements,
-        esModule
+        esModule,
+        modulesOptions
       );
       const exportCode = getExportCode(
         exports,
