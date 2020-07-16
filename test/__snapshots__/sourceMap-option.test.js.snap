@@ -481,14 +481,14 @@ exports[`"sourceMap" option true should generate source maps when source maps is
 
 exports[`"sourceMap" option true should generate source maps when source maps is valid and is set sourceRoot: module 1`] = `
 "// Imports
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./nested/nested.css\\");
-___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"/fixtures/source-map/basic.css\\",\\"basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;ECCE,UAAU;AACZ\\",\\"file\\":\\"basic.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\",\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
 // Exports
-module.exports = ___CSS_LOADER_EXPORT___;
+export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
