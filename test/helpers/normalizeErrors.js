@@ -5,6 +5,17 @@ function removeCWD(str) {
   let cwd = process.cwd();
 
   if (isWin) {
+    if (str.split('\n').length > 3) {
+      // @import '\
+      // \
+      // \
+      // ';
+
+      return stripAnsi(str)
+        .replace(/\(from .*?\)/, '(from `replaced original path`)')
+        .replace(new RegExp(cwd, 'g'), '');
+    }
+
     // eslint-disable-next-line no-param-reassign
     str = str.replace(/\\/g, '/');
     // eslint-disable-next-line no-param-reassign

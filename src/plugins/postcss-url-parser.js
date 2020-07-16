@@ -20,10 +20,7 @@ function getNodeFromUrlFunc(node) {
 function ruleValidate(rule, decl, result, options) {
   // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
   if (rule.url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
-    result.warn(
-      `Unable to find uri in '${decl ? decl.toString() : decl.value}'`,
-      { node: decl }
-    );
+    result.warn(`Unable to find uri in '${decl.toString()}'`, { node: decl });
 
     return false;
   }
@@ -139,13 +136,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
     const replacementsMap = new Map();
     const urlToHelper = require.resolve('../runtime/getUrl.js');
 
-    let parsedResults;
-
-    try {
-      parsedResults = await walkCssAsync(css, result, options);
-    } catch (error) {
-      reject(error);
-    }
+    const parsedResults = await walkCssAsync(css, result, options);
 
     if (parsedResults.length === 0) {
       resolve();
@@ -169,9 +160,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
             // 'CSS_LOADER_GET_URL_IMPORT'
             order: 2,
             importName: '___CSS_LOADER_GET_URL_IMPORT___',
-            url: options.urlHandler
-              ? options.urlHandler(urlToHelper)
-              : urlToHelper,
+            url: options.urlHandler(urlToHelper),
             index,
           },
         });
@@ -236,9 +225,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
                 // 'CSS_LOADER_URL_IMPORT'
                 order: 3,
                 importName,
-                url: options.urlHandler
-                  ? options.urlHandler(resolvedUrl)
-                  : resolvedUrl,
+                url: options.urlHandler(resolvedUrl),
                 index: currentIndex,
               },
             });
