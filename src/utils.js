@@ -108,6 +108,14 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
   };
 }
 
+function shouldUseImportPlugin(options, exportType) {
+  return options.import !== false && exportType === 'full';
+}
+
+function shouldUseURLPlugin(options, exportType) {
+  return options.url !== false && exportType === 'full';
+}
+
 function shouldUseModulesPlugins(modules, resourcePath) {
   if (typeof modules === 'undefined') {
     return false;
@@ -505,6 +513,9 @@ function sortImports(a, b) {
 }
 
 export {
+  shouldUseModulesPlugins,
+  shouldUseImportPlugin,
+  shouldUseURLPlugin,
   normalizeUrl,
   getFilter,
   getModulesOptions,
@@ -514,7 +525,6 @@ export {
   getImportCode,
   getModuleCode,
   getExportCode,
-  shouldUseModulesPlugins,
   resolveRequests,
   isUrlRequestable,
   sortImports,

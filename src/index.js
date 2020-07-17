@@ -13,6 +13,9 @@ import Warning from './Warning';
 import schema from './options.json';
 import { icssParser, importParser, urlParser } from './plugins';
 import {
+  shouldUseModulesPlugins,
+  shouldUseImportPlugin,
+  shouldUseURLPlugin,
   getModulesOptions,
   getPreRequester,
   getExportCode,
@@ -21,7 +24,6 @@ import {
   getModuleCode,
   getModulesPlugins,
   normalizeSourceMap,
-  shouldUseModulesPlugins,
   isUrlRequestable,
   sortImports,
 } from './utils';
@@ -72,7 +74,7 @@ export default function loader(content, map, meta) {
     );
   }
 
-  if (options.import !== false && exportType === 'full') {
+  if (shouldUseImportPlugin(options, exportType)) {
     const resolver = this.getResolve({
       mainFields: ['css', 'style', 'main', '...'],
       mainFiles: ['index', '...'],
@@ -92,7 +94,7 @@ export default function loader(content, map, meta) {
     );
   }
 
-  if (options.url !== false && exportType === 'full') {
+  if (shouldUseURLPlugin(options, exportType)) {
     const urlResolver = this.getResolve({
       mainFields: ['asset'],
       conditionNames: ['asset'],
