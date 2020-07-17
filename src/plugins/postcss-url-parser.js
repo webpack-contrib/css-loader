@@ -11,8 +11,6 @@ const isUrlFunc = /url/i;
 const isImageSetFunc = /^(?:-webkit-)?image-set$/i;
 const needParseDecl = /(?:url|(?:-webkit-)?image-set)\(/i;
 
-const walkCssAsync = promisify(walkCss);
-
 function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
@@ -126,8 +124,10 @@ function walkCss(css, result, options, callback) {
   callback(null, accumulator);
 }
 
+const asyncWalkCss = promisify(walkCss);
+
 export default postcss.plugin(pluginName, (options) => async (css, result) => {
-  const parsedResults = await walkCssAsync(css, result, options);
+  const parsedResults = await asyncWalkCss(css, result, options);
 
   if (parsedResults.length === 0) {
     return Promise.resolve();
