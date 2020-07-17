@@ -1,3 +1,5 @@
+import { promisify } from 'util';
+
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
@@ -5,12 +7,8 @@ import { normalizeUrl, resolveRequests, isUrlRequestable } from '../utils';
 
 const pluginName = 'postcss-import-parser';
 
-export default postcss.plugin(pluginName, (options) => (css, result) => {
-  const imports = new Map();
-  const tasks = [];
-
-  // A counter is used instead of an index in callback css.walkAtRules because we mutate AST (atRule.remove())
-  let index = 0;
+function walkAtRules(css, result, options, callback) {
+  const accumulator = [];
 
   css.walkAtRules(/^import$/i, (atRule) => {
     // Convert only top-level @import
@@ -28,13 +26,13 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       return;
     }
 
-    const { nodes } = valueParser(atRule.params);
+    const { nodes: paramsNodes } = valueParser(atRule.params);
 
     // No nodes - `@import ;`
     // Invalid type - `@import foo-bar;`
     if (
-      nodes.length === 0 ||
-      (nodes[0].type !== 'string' && nodes[0].type !== 'function')
+      paramsNodes.length === 0 ||
+      (paramsNodes[0].type !== 'string' && paramsNodes[0].type !== 'function')
     ) {
       result.warn(`Unable to find uri in "${atRule.toString()}"`, {
         node: atRule,
@@ -46,12 +44,12 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
     let isStringValue;
     let url;
 
-    if (nodes[0].type === 'string') {
+    if (paramsNodes[0].type === 'string') {
       isStringValue = true;
-      url = nodes[0].value;
-    } else if (nodes[0].type === 'function') {
+      url = paramsNodes[0].value;
+    } else if (paramsNodes[0].type === 'function') {
       // Invalid function - `@import nourl(test.css);`
-      if (nodes[0].value.toLowerCase() !== 'url') {
+      if (paramsNodes[0].value.toLowerCase() !== 'url') {
         result.warn(`Unable to find uri in "${atRule.toString()}"`, {
           node: atRule,
         });
@@ -60,10 +58,11 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       }
 
       isStringValue =
-        nodes[0].nodes.length !== 0 && nodes[0].nodes[0].type === 'string';
+        paramsNodes[0].nodes.length !== 0 &&
+        paramsNodes[0].nodes[0].type === 'string';
       url = isStringValue
-        ? nodes[0].nodes[0].value
-        : valueParser.stringify(nodes[0].nodes);
+        ? paramsNodes[0].nodes[0].value
+        : valueParser.stringify(paramsNodes[0].nodes);
     }
 
     // Empty url - `@import "";` or `@import url();`
@@ -74,6 +73,35 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
 
       return;
     }
+
+    accumulator.push({
+      atRule,
+      url,
+      isStringValue,
+      mediaNodes: paramsNodes.slice(1),
+    });
+  });
+
+  callback(null, accumulator);
+}
+
+const asyncWalkAtRules = promisify(walkAtRules);
+
+export default postcss.plugin(pluginName, (options) => async (css, result) => {
+  const parsedResults = await asyncWalkAtRules(css, result, options);
+
+  if (parsedResults.length === 0) {
+    return Promise.resolve();
+  }
+
+  const imports = new Map();
+  const tasks = [];
+
+  // A counter is used instead of an index in callback css.walkAtRules because we mutate AST (atRule.remove())
+  let index = 0;
+
+  for (const parsedResult of parsedResults) {
+    const { atRule, url, isStringValue, mediaNodes } = parsedResult;
 
     let normalizedUrl;
 
@@ -91,22 +119,28 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
           node: atRule,
         });
 
-        return;
+        // eslint-disable-next-line no-continue
+        continue;
       }
     }
 
-    const media = valueParser.stringify(nodes.slice(1)).trim().toLowerCase();
+    let media;
+
+    if (mediaNodes.length > 0) {
+      media = valueParser.stringify(mediaNodes).trim().toLowerCase();
+    }
 
     if (
       options.filter &&
       !options.filter({ url: normalizedUrl || url, media })
     ) {
-      return;
+      // eslint-disable-next-line no-continue
+      continue;
     }
 
-    atRule.remove();
-
     index += 1;
+
+    atRule.remove();
 
     tasks.push(
       Promise.resolve(index).then(async (currentIndex) => {
@@ -168,7 +202,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
         });
       })
     );
-  });
+  }
 
   return Promise.all(tasks);
 });
