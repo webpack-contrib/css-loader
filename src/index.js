@@ -23,6 +23,7 @@ import {
   normalizeSourceMap,
   shouldUseModulesPlugins,
   isUrlRequestable,
+  sortImports,
 } from './utils';
 
 export default function loader(content, map, meta) {
@@ -33,8 +34,6 @@ export default function loader(content, map, meta) {
     baseDataPath: 'options',
   });
 
-  const sourceMap =
-    typeof options.sourceMap === 'boolean' ? options.sourceMap : this.sourceMap;
   const plugins = [];
 
   const exportType = options.onlyLocals ? 'locals' : 'full';
@@ -128,16 +127,18 @@ export default function loader(content, map, meta) {
     }
   }
 
+  const sourceMap =
+    typeof options.sourceMap === 'boolean' ? options.sourceMap : this.sourceMap;
   const callback = this.async();
 
   postcss(plugins)
     .process(content, {
       from: this.resourcePath,
       to: this.resourcePath,
-      map: options.sourceMap
+      map: sourceMap
         ? {
             // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-            prev: sourceMap && map ? normalizeSourceMap(map) : null,
+            prev: map ? normalizeSourceMap(map) : null,
             inline: false,
             annotation: false,
           }
@@ -175,27 +176,8 @@ export default function loader(content, map, meta) {
         }
       }
 
-      /*
-       *   Order
-       *   CSS_LOADER_ICSS_IMPORT: [],
-       *   CSS_LOADER_AT_RULE_IMPORT: [],
-       *   CSS_LOADER_GET_URL_IMPORT: [],
-       *   CSS_LOADER_URL_IMPORT: [],
-       *   CSS_LOADER_URL_REPLACEMENT: [],
-       * */
-
-      imports.sort((a, b) => {
-        return (
-          (b.order < a.order) - (a.order < b.order) ||
-          (b.index < a.index) - (a.index < b.index)
-        );
-      });
-      apiImports.sort((a, b) => {
-        return (
-          (b.order < a.order) - (a.order < b.order) ||
-          (b.index < a.index) - (a.index < b.index)
-        );
-      });
+      imports.sort(sortImports);
+      apiImports.sort(sortImports);
 
       const importCode = getImportCode(
         this,
