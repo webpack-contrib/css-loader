@@ -137,4 +137,30 @@ describe('api', () => {
 
     expect(m.toString()).toMatchSnapshot();
   });
+
+  it('should import modules with dedupe', () => {
+    const m = api();
+
+    const m1 = [null, 'body { b: 1; }', ''];
+    const m2 = ['./module2', 'body { b: 2; }', ''];
+    const m3 = ['./module3', '.button { b: 3; }', ''];
+
+    m.i([m1], '', true);
+    m.i([m2], '', true);
+    m.i([m3], '', true);
+    m.i([m3], '', true);
+    m.i([m3], '', true);
+
+    expect(m.toString()).toMatchSnapshot();
+    expect(m.length).toBe(3);
+  });
+
+  it('should import modules when module string', () => {
+    const m = api();
+
+    m.i('.button { b: 2; }');
+    m.i('');
+
+    expect(m.toString()).toMatchSnapshot();
+  });
 });
