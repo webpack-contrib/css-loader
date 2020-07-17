@@ -277,7 +277,7 @@ describe('loader', () => {
     const stats = await compile(compiler);
 
     if (stats.compilation.modules.size) {
-      expect(stats.compilation.modules.size).toBe(11);
+      expect(stats.compilation.modules.size).toBe(10);
     } else {
       expect(stats.compilation.modules.length).toBe(6);
     }
@@ -310,7 +310,7 @@ describe('loader', () => {
     const stats = await compile(compiler);
 
     if (stats.compilation.modules.size) {
-      expect(stats.compilation.modules.size).toBe(10);
+      expect(stats.compilation.modules.size).toBe(9);
     } else {
       expect(stats.compilation.modules.length).toBe(6);
     }

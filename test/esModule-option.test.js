@@ -1,3 +1,7 @@
+import path from 'path';
+
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
 import {
   compile,
   getCompiler,
@@ -5,6 +9,7 @@ import {
   getExecutedCode,
   getModuleSource,
   getWarnings,
+  readAsset,
 } from './helpers/index';
 
 describe('"esModule" option', () => {
@@ -158,6 +163,139 @@ describe('"esModule" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  const styleLoaderTests = [
+    {
+      localLoaderMode: 'commonjs',
+      extractLoaderMode: 'commonjs',
+    },
+    {
+      localLoaderMode: 'esModule',
+      extractLoaderMode: 'esModule',
+    },
+    {
+      localLoaderMode: 'commonjs',
+      extractLoaderMode: 'esModule',
+    },
+    {
+      localLoaderMode: 'esModule',
+      extractLoaderMode: 'commonjs',
+    },
+  ];
+
+  for (const test of styleLoaderTests) {
+    it(`should work with ${test.localLoaderMode} css-loader + ${test.extractLoaderMode} style-loader`, async () => {
+      const compiler = getCompiler(
+        './es-module/template/index.js',
+        {},
+        {
+          output: {
+            path: path.resolve(__dirname, './outputs'),
+            filename: '[name].bundle.js',
+            chunkFilename: '[name].chunk.js',
+            publicPath: '/webpack/public/path/',
+            libraryTarget: 'commonjs2',
+          },
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                use: [
+                  {
+                    loader: 'style-loader',
+                    options: {
+                      esModule: test.extractLoaderMode === 'esModule',
+                    },
+                  },
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: {
+                      esModule: test.localLoaderMode === 'esModule',
+                      modules: true,
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      // eslint-disable-next-line no-eval
+      const result = eval(readAsset('main.bundle.js', compiler, stats));
+
+      expect(result.default || result).toMatchSnapshot('result');
+
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+  }
+
+  const miniCssExtractPluginTests = [
+    {
+      localLoaderMode: 'commonjs',
+      extractLoaderMode: 'commonjs',
+    },
+    {
+      localLoaderMode: 'esModule',
+      extractLoaderMode: 'esModule',
+    },
+    {
+      localLoaderMode: 'commonjs',
+      extractLoaderMode: 'esModule',
+    },
+    {
+      localLoaderMode: 'esModule',
+      extractLoaderMode: 'commonjs',
+    },
+  ];
+
+  for (const test of miniCssExtractPluginTests) {
+    it(`should work with ${test.localLoaderMode} css-loader + ${test.extractLoaderMode} mini-css-extract-plugin`, async () => {
+      const compiler = getCompiler(
+        './es-module/template/index.js',
+        {},
+        {
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                use: [
+                  {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                      esModule: test.extractLoaderMode === 'esModule',
+                    },
+                  },
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: {
+                      esModule: test.localLoaderMode === 'esModule',
+                      modules: true,
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          plugins: [
+            new MiniCssExtractPlugin({
+              filename: '[name].css',
+              chunkFilename: '[id].css',
+            }),
+          ],
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(
+        getExecutedCode('main.bundle.js', compiler, stats)
+      ).toMatchSnapshot('result');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+  }
 
   it('should emit error when class has unsupported name', async () => {
     const compiler = getCompiler('./es-module/named/broken/index.js', {

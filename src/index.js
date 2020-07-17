@@ -43,7 +43,7 @@ export default function loader(content, map, meta) {
     stringifyRequest(this, preRequester(options.importLoaders) + url);
 
   const esModule =
-    typeof options.esModule !== 'undefined' ? options.esModule : false;
+    typeof options.esModule !== 'undefined' ? options.esModule : true;
 
   let modulesOptions;
 
