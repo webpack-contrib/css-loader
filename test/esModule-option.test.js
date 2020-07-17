@@ -184,11 +184,18 @@ describe('"esModule" option', () => {
   ];
 
   for (const test of styleLoaderTests) {
-    it(`should work with ${test.localLoaderMode}-css-loader + ${test.extractLoaderMode}-style-loader`, async () => {
+    it(`should work with ${test.localLoaderMode} css-loader + ${test.extractLoaderMode} style-loader`, async () => {
       const compiler = getCompiler(
         './es-module/template/index.js',
         {},
         {
+          output: {
+            path: path.resolve(__dirname, './outputs'),
+            filename: '[name].bundle.js',
+            chunkFilename: '[name].chunk.js',
+            publicPath: '/webpack/public/path/',
+            libraryTarget: 'commonjs2',
+          },
           module: {
             rules: [
               {
@@ -215,10 +222,10 @@ describe('"esModule" option', () => {
       );
       const stats = await compile(compiler);
 
-      expect(
-        // eslint-disable-next-line no-eval
-        eval(readAsset('main.bundle.js', compiler, stats))
-      ).toMatchSnapshot('result');
+      // eslint-disable-next-line no-eval
+      const result = eval(readAsset('main.bundle.js', compiler, stats));
+
+      expect(result.default || result).toMatchSnapshot('result');
 
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
@@ -245,7 +252,7 @@ describe('"esModule" option', () => {
   ];
 
   for (const test of miniCssExtractPluginTests) {
-    it(`should work with ${test.localLoaderMode}-css-loader + ${test.extractLoaderMode}-mini-css-extract-plugin`, async () => {
+    it(`should work with ${test.localLoaderMode} css-loader + ${test.extractLoaderMode} mini-css-extract-plugin`, async () => {
       const compiler = getCompiler(
         './es-module/template/index.js',
         {},

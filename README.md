@@ -1064,7 +1064,7 @@ module.exports = {
 ### `esModule`
 
 Type: `Boolean`
-Default: `false`
+Default: `true`
 
 By default, `css-loader` generates JS modules that use the ES modules syntax.
 There are some cases in which using ES modules is beneficial, like in the case of [module concatenation](https://webpack.js.org/plugins/module-concatenation-plugin/) and [tree shaking](https://webpack.js.org/guides/tree-shaking/).

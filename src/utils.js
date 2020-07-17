@@ -315,11 +315,7 @@ function getModuleCode(
   const { css, map } = result;
   const sourceMapValue = sourceMap && map ? `,${map}` : '';
   let code = JSON.stringify(css);
-  let beforeCode = '';
-
-  beforeCode += esModule
-    ? `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`
-    : `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
+  let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
 
   for (const item of apiImports) {
     const { type, media, dedupe } = item;
