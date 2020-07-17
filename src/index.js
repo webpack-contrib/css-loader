@@ -37,10 +37,8 @@ export default function loader(content, map, meta) {
   const plugins = [];
 
   const exportType = options.onlyLocals ? 'locals' : 'full';
-  const preRequester = getPreRequester(this);
   const urlHandler = (url) =>
-    stringifyRequest(this, preRequester(options.importLoaders) + url);
-
+    stringifyRequest(this, getPreRequester(this)(options.importLoaders) + url);
   const esModule =
     typeof options.esModule !== 'undefined' ? options.esModule : true;
 
