@@ -166,6 +166,14 @@ function getModulesOptions(rawOptions, loaderContext) {
     modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
   }
 
+  if (modulesOptions.namedExport === true && rawOptions.esModule === false) {
+    loaderContext.emitError(
+      new Error(
+        '`Options.module.namedExport` cannot be used without `options.esModule`'
+      )
+    );
+  }
+
   return modulesOptions;
 }
 

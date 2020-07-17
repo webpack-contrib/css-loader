@@ -42,22 +42,13 @@ export default function loader(content, map, meta) {
     stringifyRequest(this, getPreRequester(this)(options.importLoaders) + url);
 
   if (shouldUseModulesPlugins(options)) {
-    if (options.modules.namedExport === true && options.esModule === false) {
-      this.emitError(
-        new Error(
-          '`Options.module.namedExport` cannot be used without `options.esModule`'
-        )
-      );
-    }
-
-    plugins.push(...getModulesPlugins(options, this));
-
     const icssResolver = this.getResolve({
       mainFields: ['css', 'style', 'main', '...'],
       mainFiles: ['index', '...'],
     });
 
     plugins.push(
+      ...getModulesPlugins(options, this),
       icssParser({
         context: this.context,
         rootContext: this.rootContext,
