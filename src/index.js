@@ -42,6 +42,8 @@ export default function loader(content, map, meta) {
   const urlHandler = (url) =>
     stringifyRequest(this, preRequester(options.importLoaders) + url);
 
+  const callback = this.async();
+
   const esModule =
     typeof options.esModule !== 'undefined' ? options.esModule : true;
 
@@ -51,11 +53,27 @@ export default function loader(content, map, meta) {
     modulesOptions = getModulesOptions(options, this);
 
     if (modulesOptions.namedExport === true && esModule === false) {
-      this.emitError(
+      callback(
         new Error(
           '`Options.module.namedExport` cannot be used without `options.esModule`'
         )
       );
+
+      return;
+    }
+
+    if (
+      modulesOptions.namedExport === true &&
+      modulesOptions.localsConvention !== 'asIs' &&
+      modulesOptions.localsConvention !== 'camelCaseOnly'
+    ) {
+      callback(
+        new Error(
+          'When `namedExport` is enabled class names are always converted to camelCase. Remove the `localsConvention` option from the webpack.config or set it to `asIs` / `camelCaseOnly`'
+        )
+      );
+
+      return;
     }
 
     plugins.push(...getModulesPlugins(modulesOptions, this));
@@ -127,8 +145,6 @@ export default function loader(content, map, meta) {
       content = ast.root;
     }
   }
-
-  const callback = this.async();
 
   postcss(plugins)
     .process(content, {

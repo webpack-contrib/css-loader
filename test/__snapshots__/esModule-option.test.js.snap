@@ -11,10 +11,20 @@ exports[`"esModule" option should emit error when class has unsupported name: wa
 
 exports[`"esModule" option should emit error when namedExport true && esModule false: errors 1`] = `
 Array [
-  "ModuleError: Module Error (from \`replaced original path\`):
-\`Options.module.namedExport\` cannot be used without \`options.esModule\`",
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: \`Options.module.namedExport\` cannot be used without \`options.esModule\`
+    at Object.loader (/src/index.js:57:9)",
 ]
 `;
+
+exports[`"esModule" option should emit error when namedExport true && localsConvention invalid: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: When \`namedExport\` is enabled class names are always converted to camelCase. Remove the \`localsConvention\` option from the webpack.config or set it to \`asIs\` / \`camelCaseOnly\`",
+]
+`;
+
+exports[`"esModule" option should emit error when namedExport true && localsConvention invalid: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work js template with "namedExport" option: errors 1`] = `Array []`;
 

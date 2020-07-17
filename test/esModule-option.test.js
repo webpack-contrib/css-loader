@@ -321,4 +321,18 @@ describe('"esModule" option', () => {
 
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should emit error when namedExport true && localsConvention invalid', async () => {
+    const compiler = getCompiler('./es-module/named/broken/index.js', {
+      esModule: true,
+      modules: {
+        namedExport: true,
+        localsConvention: 'dashes',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
+  });
 });

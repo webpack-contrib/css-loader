@@ -766,6 +766,9 @@ Style of exported classnames.
 
 By default, the exported JSON keys mirror the class names (i.e `asIs` value).
 
+When `namedExport` is enabled, the `localsConvention` option is ignored.
+Do not use these options together.
+
 |         Name          |    Type    | Description                                                                                      |
 | :-------------------: | :--------: | :----------------------------------------------------------------------------------------------- |
 |     **`'asIs'`**      | `{String}` | Class names will be exported as is.                                                              |
@@ -923,6 +926,9 @@ Default: `false`
 
 Enable/disable ES modules named export for css classes.
 Names of exported classes are converted to camelCase.
+
+When `namedExport` is enabled, the `localsConvention` option is ignored.
+Do not use these options together.
 
 > i It is not allowed to use JavaScript reserved words in css class names
 
