@@ -13,6 +13,7 @@ import Warning from './Warning';
 import schema from './options.json';
 import { icssParser, importParser, urlParser } from './plugins';
 import {
+  normalizeOptions,
   shouldUseModulesPlugins,
   shouldUseImportPlugin,
   shouldUseURLPlugin,
@@ -29,27 +30,24 @@ import {
 } from './utils';
 
 export default function loader(content, map, meta) {
-  const options = getOptions(this);
+  const rawOptions = getOptions(this);
 
-  validateOptions(schema, options, {
+  validateOptions(schema, rawOptions, {
     name: 'CSS Loader',
     baseDataPath: 'options',
   });
 
   const plugins = [];
-
-  const exportType = options.onlyLocals ? 'locals' : 'full';
+  const options = normalizeOptions(rawOptions, this);
   const urlHandler = (url) =>
     stringifyRequest(this, getPreRequester(this)(options.importLoaders) + url);
-  const esModule =
-    typeof options.esModule !== 'undefined' ? options.esModule : true;
 
   let modulesOptions;
 
   if (shouldUseModulesPlugins(options.modules, this.resourcePath)) {
     modulesOptions = getModulesOptions(options, this);
 
-    if (modulesOptions.namedExport === true && esModule === false) {
+    if (modulesOptions.namedExport === true && options.esModule === false) {
       this.emitError(
         new Error(
           '`Options.module.namedExport` cannot be used without `options.esModule`'
@@ -74,7 +72,7 @@ export default function loader(content, map, meta) {
     );
   }
 
-  if (shouldUseImportPlugin(options, exportType)) {
+  if (shouldUseImportPlugin(options)) {
     const resolver = this.getResolve({
       mainFields: ['css', 'style', 'main', '...'],
       mainFiles: ['index', '...'],
@@ -94,7 +92,7 @@ export default function loader(content, map, meta) {
     );
   }
 
-  if (shouldUseURLPlugin(options, exportType)) {
+  if (shouldUseURLPlugin(options)) {
     const urlResolver = this.getResolve({
       mainFields: ['asset'],
       conditionNames: ['asset'],
@@ -181,26 +179,25 @@ export default function loader(content, map, meta) {
 
       const importCode = getImportCode(
         this,
-        exportType,
+        options.onlyLocals,
         imports,
-        esModule,
+        options.esModule,
         modulesOptions
       );
       const moduleCode = getModuleCode(
         result,
-        exportType,
+        options.onlyLocals,
         sourceMap,
         apiImports,
         urlReplacements,
         icssReplacements,
-        esModule,
+        options.esModule,
         modulesOptions
       );
       const exportCode = getExportCode(
         exports,
-        exportType,
         icssReplacements,
-        esModule,
+        options.esModule,
         modulesOptions
       );
 

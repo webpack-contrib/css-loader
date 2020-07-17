@@ -108,12 +108,24 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
   };
 }
 
-function shouldUseImportPlugin(options, exportType) {
-  return options.import !== false && exportType === 'full';
+function normalizeOptions(rawOptions, loaderContext) {
+  return {
+    ...rawOptions,
+    onlyLocals:
+      typeof rawOptions.onlyLocals !== 'undefined'
+        ? rawOptions.onlyLocals
+        : false,
+    esModule:
+      typeof rawOptions.esModule === 'undefined' ? true : rawOptions.esModule,
+  };
 }
 
-function shouldUseURLPlugin(options, exportType) {
-  return options.url !== false && exportType === 'full';
+function shouldUseImportPlugin(options) {
+  return options.import !== false && options.onlyLocals === false;
+}
+
+function shouldUseURLPlugin(options) {
+  return options.url !== false && options.onlyLocals === false;
 }
 
 function shouldUseModulesPlugins(modules, resourcePath) {
@@ -275,14 +287,14 @@ function getPreRequester({ loaders, loaderIndex }) {
 
 function getImportCode(
   loaderContext,
-  exportType,
+  onlyLocals,
   imports,
   esModule,
   modulesOptions
 ) {
   let code = '';
 
-  if (exportType === 'full') {
+  if (onlyLocals === false) {
     const apiUrl = stringifyRequest(
       loaderContext,
       require.resolve('./runtime/api')
@@ -308,7 +320,7 @@ function getImportCode(
 
 function getModuleCode(
   result,
-  exportType,
+  onlyLocals,
   sourceMap,
   apiImports,
   urlReplacements,
@@ -316,7 +328,7 @@ function getModuleCode(
   esModule,
   modulesOptions
 ) {
-  if (exportType !== 'full') {
+  if (onlyLocals === true) {
     return 'var ___CSS_LOADER_EXPORT___ = {};\n';
   }
 
@@ -376,13 +388,7 @@ function dashesCamelCase(str) {
   );
 }
 
-function getExportCode(
-  exports,
-  exportType,
-  icssReplacements,
-  esModule,
-  modulesOptions
-) {
+function getExportCode(exports, icssReplacements, esModule, modulesOptions) {
   let code = '';
   let localsCode = '';
   let namedCode = '';
@@ -513,6 +519,7 @@ function sortImports(a, b) {
 }
 
 export {
+  normalizeOptions,
   shouldUseModulesPlugins,
   shouldUseImportPlugin,
   shouldUseURLPlugin,
