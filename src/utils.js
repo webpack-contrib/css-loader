@@ -111,6 +111,12 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
 function normalizeOptions(rawOptions, loaderContext) {
   return {
     ...rawOptions,
+    url: typeof rawOptions.url === 'undefined' ? true : rawOptions.url,
+    import: typeof rawOptions.import === 'undefined' ? true : rawOptions.import,
+    sourceMap:
+      typeof rawOptions.sourceMap === 'boolean'
+        ? rawOptions.sourceMap
+        : loaderContext.sourceMap,
     onlyLocals:
       typeof rawOptions.onlyLocals !== 'undefined'
         ? rawOptions.onlyLocals
@@ -121,11 +127,27 @@ function normalizeOptions(rawOptions, loaderContext) {
 }
 
 function shouldUseImportPlugin(options) {
-  return options.import !== false && options.onlyLocals === false;
+  if (options.onlyLocals) {
+    return false;
+  }
+
+  if (typeof options.import === 'boolean') {
+    return options.import;
+  }
+
+  return true;
 }
 
 function shouldUseURLPlugin(options) {
-  return options.url !== false && options.onlyLocals === false;
+  if (options.onlyLocals) {
+    return false;
+  }
+
+  if (typeof options.url === 'boolean') {
+    return options.url;
+  }
+
+  return true;
 }
 
 function shouldUseModulesPlugins(modules, resourcePath) {

@@ -125,15 +125,13 @@ export default function loader(content, map, meta) {
     }
   }
 
-  const sourceMap =
-    typeof options.sourceMap === 'boolean' ? options.sourceMap : this.sourceMap;
   const callback = this.async();
 
   postcss(plugins)
     .process(content, {
       from: this.resourcePath,
       to: this.resourcePath,
-      map: sourceMap
+      map: options.sourceMap
         ? {
             // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
             prev: map ? normalizeSourceMap(map) : null,
@@ -187,7 +185,7 @@ export default function loader(content, map, meta) {
       const moduleCode = getModuleCode(
         result,
         options.onlyLocals,
-        sourceMap,
+        options.sourceMap,
         apiImports,
         urlReplacements,
         icssReplacements,
