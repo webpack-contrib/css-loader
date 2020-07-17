@@ -750,7 +750,7 @@ describe('"modules" option', () => {
   it('should work with a modules.auto RegExp that returns "true"', async () => {
     const compiler = getCompiler('./modules/mode/modules.js', {
       modules: {
-        auto: /relative.module.css$/,
+        auto: /relative\.module\.css$/,
       },
     });
     const stats = await compile(compiler);

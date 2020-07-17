@@ -17,7 +17,6 @@ import {
   shouldUseModulesPlugins,
   shouldUseImportPlugin,
   shouldUseURLPlugin,
-  getModulesOptions,
   getPreRequester,
   getExportCode,
   getFilter,
@@ -42,12 +41,8 @@ export default function loader(content, map, meta) {
   const urlHandler = (url) =>
     stringifyRequest(this, getPreRequester(this)(options.importLoaders) + url);
 
-  let modulesOptions;
-
-  if (shouldUseModulesPlugins(options.modules, this.resourcePath)) {
-    modulesOptions = getModulesOptions(options, this);
-
-    if (modulesOptions.namedExport === true && options.esModule === false) {
+  if (shouldUseModulesPlugins(options)) {
+    if (options.modules.namedExport === true && options.esModule === false) {
       this.emitError(
         new Error(
           '`Options.module.namedExport` cannot be used without `options.esModule`'
@@ -55,7 +50,7 @@ export default function loader(content, map, meta) {
       );
     }
 
-    plugins.push(...getModulesPlugins(modulesOptions, this));
+    plugins.push(...getModulesPlugins(options, this));
 
     const icssResolver = this.getResolve({
       mainFields: ['css', 'style', 'main', '...'],
@@ -175,29 +170,15 @@ export default function loader(content, map, meta) {
       imports.sort(sortImports);
       apiImports.sort(sortImports);
 
-      const importCode = getImportCode(
-        this,
-        options.onlyLocals,
-        imports,
-        options.esModule,
-        modulesOptions
-      );
+      const importCode = getImportCode(this, imports, options);
       const moduleCode = getModuleCode(
         result,
-        options.onlyLocals,
-        options.sourceMap,
         apiImports,
         urlReplacements,
         icssReplacements,
-        options.esModule,
-        modulesOptions
+        options
       );
-      const exportCode = getExportCode(
-        exports,
-        icssReplacements,
-        options.esModule,
-        modulesOptions
-      );
+      const exportCode = getExportCode(exports, icssReplacements, options);
 
       return callback(null, `${importCode}${moduleCode}${exportCode}`);
     })
