@@ -172,10 +172,9 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       const { node, url, needQuotes, isStringValue } = rule;
       const splittedUrl = url.split(/(\?)?#/);
       const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
-      const hash =
-        singleQuery || hashValue
-          ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
-          : '';
+
+      let hash = singleQuery ? '?' : '';
+      hash += hashValue ? `#${hashValue}` : '';
 
       let normalizedUrl = normalizeUrl(
         urlWithoutHash,

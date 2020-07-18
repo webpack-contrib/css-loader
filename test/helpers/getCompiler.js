@@ -35,6 +35,10 @@ export default (fixture, loaderOptions = {}, config = {}) => {
     },
     resolve: {
       alias: {
+        aliasesPackage: path.resolve(
+          __dirname,
+          '../fixtures/import/node_modules/package/tilde.css'
+        ),
         aliasesImg: path.resolve(__dirname, '../fixtures/url'),
         aliasesImport: path.resolve(__dirname, '../fixtures/import'),
         aliasesComposes: path.resolve(

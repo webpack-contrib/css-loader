@@ -50,7 +50,7 @@ export default postcss.plugin(pluginName, (options) => (css, result) => {
       if (nodes[0].type === 'string') {
         isStringValue = true;
         url = nodes[0].value;
-      } else if (nodes[0].type === 'function') {
+      } else {
         // Invalid function - `@import nourl(test.css);`
         if (nodes[0].value.toLowerCase() !== 'url') {
           result.warn(`Unable to find uri in "${atRule.toString()}"`, {

@@ -26,7 +26,7 @@ import {
 } from './utils';
 
 export default function loader(content, map, meta) {
-  const options = getOptions(this) || {};
+  const options = getOptions(this);
 
   validateOptions(schema, options, {
     name: 'CSS Loader',
