@@ -37,13 +37,13 @@ export default async function loader(content, map, meta) {
 
   const plugins = [];
   const options = normalizeOptions(rawOptions, this);
-  const urlHandler = (url) =>
-    stringifyRequest(this, getPreRequester(this)(options.importLoaders) + url);
 
   if (shouldUseModulesPlugins(options)) {
     const icssResolver = this.getResolve({
       mainFields: ['css', 'style', 'main', '...'],
       mainFiles: ['index', '...'],
+      extensions: [],
+      conditionNames: ['style'],
     });
 
     plugins.push(
@@ -52,7 +52,11 @@ export default async function loader(content, map, meta) {
         context: this.context,
         rootContext: this.rootContext,
         resolver: icssResolver,
-        urlHandler,
+        urlHandler: (url) =>
+          stringifyRequest(
+            this,
+            getPreRequester(this)(options.importLoaders) + url
+          ),
       })
     );
   }
@@ -72,7 +76,11 @@ export default async function loader(content, map, meta) {
         rootContext: this.rootContext,
         filter: getFilter(options.import, this.resourcePath),
         resolver,
-        urlHandler,
+        urlHandler: (url) =>
+          stringifyRequest(
+            this,
+            getPreRequester(this)(options.importLoaders) + url
+          ),
       })
     );
   }
