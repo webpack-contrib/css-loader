@@ -3,7 +3,12 @@ import { promisify } from 'util';
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
-import { normalizeUrl, resolveRequests, isUrlRequestable } from '../utils';
+import {
+  normalizeUrl,
+  resolveRequests,
+  isUrlRequestable,
+  requestify,
+} from '../utils';
 
 const pluginName = 'postcss-import-parser';
 
@@ -97,18 +102,23 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
   const imports = new Map();
   const tasks = [];
 
-  // A counter is used instead of an index in callback css.walkAtRules because we mutate AST (atRule.remove())
-  let index = 0;
-
   for (const parsedResult of parsedResults) {
     const { atRule, url, isStringValue, mediaNodes } = parsedResult;
 
-    let normalizedUrl;
+    let normalizedUrl = url;
+    let prefix = '';
 
-    const isRequestable = isUrlRequestable(url);
+    const queryParts = normalizedUrl.split('!');
+
+    if (queryParts.length > 1) {
+      normalizedUrl = queryParts.pop();
+      prefix = queryParts.join('!');
+    }
+
+    const isRequestable = isUrlRequestable(normalizedUrl);
 
     if (isRequestable) {
-      normalizedUrl = normalizeUrl(url, isStringValue, options.rootContext);
+      normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
 
       // Empty url after normalize - `@import '\
       // \
@@ -130,79 +140,71 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
       media = valueParser.stringify(mediaNodes).trim().toLowerCase();
     }
 
-    if (
-      options.filter &&
-      !options.filter({ url: normalizedUrl || url, media })
-    ) {
+    if (options.filter && !options.filter({ url: normalizedUrl, media })) {
       // eslint-disable-next-line no-continue
       continue;
     }
 
-    index += 1;
-
     atRule.remove();
 
-    tasks.push(
-      Promise.resolve(index).then(async (currentIndex) => {
-        if (isRequestable) {
-          const importKey = normalizedUrl;
-          let importName = imports.get(importKey);
+    if (isRequestable) {
+      const request = requestify(normalizedUrl, options.rootContext);
+      const doResolve = async () => {
+        const { resolver, context } = options;
+        const resolvedUrl = await resolveRequests(resolver, context, [
+          ...new Set([request, normalizedUrl]),
+        ]);
 
-          if (!importName) {
-            importName = `___CSS_LOADER_AT_RULE_IMPORT_${imports.size}___`;
-            imports.set(importKey, importName);
+        return { url: resolvedUrl, media, prefix, isRequestable };
+      };
 
-            const { resolver, context } = options;
-
-            let resolvedUrl;
-
-            try {
-              resolvedUrl = await resolveRequests(resolver, context, [
-                ...new Set([normalizedUrl, url]),
-              ]);
-            } catch (error) {
-              throw error;
-            }
-
-            result.messages.push({
-              type: 'import',
-              value: {
-                order: 1,
-                importName,
-                url: options.urlHandler(resolvedUrl),
-                index: currentIndex,
-              },
-            });
-          }
-
-          result.messages.push({
-            type: 'api-import',
-            value: {
-              order: 1,
-              type: 'internal',
-              importName,
-              media,
-              index: currentIndex,
-            },
-          });
-
-          return;
-        }
-
-        result.messages.push({
-          pluginName,
-          type: 'api-import',
-          value: {
-            order: 1,
-            type: 'external',
-            url,
-            media,
-            index: currentIndex,
-          },
-        });
-      })
-    );
+      tasks.push(doResolve());
+    } else {
+      tasks.push({ url, media, prefix, isRequestable });
+    }
   }
 
-  return Promise.all(tasks);
+  const results = await Promise.all(tasks);
+
+  for (let index = 0; index <= results.length - 1; index++) {
+    const { url, isRequestable, media } = results[index];
+
+    if (isRequestable) {
+      const { prefix } = results[index];
+      const newUrl = prefix ? `${prefix}!${url}` : url;
+      const importKey = prefix ? newUrl : url;
+      let importName = imports.get(importKey);
+
+      if (!importName) {
+        importName = `___CSS_LOADER_AT_RULE_IMPORT_${imports.size}___`;
+        imports.set(importKey, importName);
+
+        result.messages.push({
+          type: 'import',
+          value: {
+            order: 1,
+            importName,
+            url: options.urlHandler(newUrl),
+            index,
+          },
+        });
+      }
+
+      result.messages.push({
+        type: 'api-import',
+        value: { order: 1, type: 'internal', importName, media, index },
+      });
+
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
+    result.messages.push({
+      pluginName,
+      type: 'api-import',
+      value: { order: 1, type: 'external', url, media, index },
+    });
+  }
+
+  return Promise.resolve();
 });

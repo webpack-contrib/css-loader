@@ -3,7 +3,12 @@ import { promisify } from 'util';
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
-import { normalizeUrl, resolveRequests } from '../utils';
+import {
+  normalizeUrl,
+  requestify,
+  resolveRequests,
+  isUrlRequestable,
+} from '../utils';
 
 const pluginName = 'postcss-url-parser';
 
@@ -15,15 +20,11 @@ function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
 
-function shouldHandleRule(rule, decl, result, options) {
+function shouldHandleRule(rule, decl, result) {
   // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
   if (rule.url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
     result.warn(`Unable to find uri in '${decl.toString()}'`, { node: decl });
 
-    return false;
-  }
-
-  if (options.filter && !options.filter(rule.url)) {
     return false;
   }
 
@@ -59,7 +60,7 @@ function walkCss(css, result, options, callback) {
           isStringValue,
         };
 
-        if (shouldHandleRule(rule, decl, result, options)) {
+        if (shouldHandleRule(rule, decl, result)) {
           accumulator.push({
             decl,
             rule,
@@ -89,7 +90,7 @@ function walkCss(css, result, options, callback) {
               isStringValue,
             };
 
-            if (shouldHandleRule(rule, decl, result, options)) {
+            if (shouldHandleRule(rule, decl, result)) {
               accumulator.push({
                 decl,
                 rule,
@@ -104,7 +105,7 @@ function walkCss(css, result, options, callback) {
               isStringValue: true,
             };
 
-            if (shouldHandleRule(rule, decl, result, options)) {
+            if (shouldHandleRule(rule, decl, result)) {
               accumulator.push({
                 decl,
                 rule,
@@ -137,88 +138,93 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
   const imports = new Map();
   const replacements = new Map();
 
-  let index = 0;
-
-  result.messages.push({
-    pluginName,
-    type: 'import',
-    value: {
-      order: 2,
-      importName: '___CSS_LOADER_GET_URL_IMPORT___',
-      url: options.urlHandler(require.resolve('../runtime/getUrl.js')),
-      index,
-    },
-  });
+  let hasUrlImportHelper = false;
 
   for (const parsedResult of parsedResults) {
-    index += 1;
+    const { url, isStringValue } = parsedResult.rule;
 
-    const { decl, rule } = parsedResult;
-    const { node, url, needQuotes, isStringValue } = rule;
-    const splittedUrl = url.split(/(\?)?#/);
-    const [urlWithoutHash, singleQuery, hashValue] = splittedUrl;
-    const hash =
-      singleQuery || hashValue
-        ? `${singleQuery ? '?' : ''}${hashValue ? `#${hashValue}` : ''}`
-        : '';
-
-    let normalizedUrl = normalizeUrl(
-      urlWithoutHash,
-      isStringValue,
-      options.rootContext
-    );
-
-    let prefixSuffix = '';
+    let normalizedUrl = url;
+    let prefix = '';
 
     const queryParts = normalizedUrl.split('!');
 
     if (queryParts.length > 1) {
       normalizedUrl = queryParts.pop();
-      prefixSuffix = queryParts.join('!');
+      prefix = queryParts.join('!');
     }
 
-    const importKey = normalizedUrl;
+    normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
 
+    if (!isUrlRequestable(normalizedUrl)) {
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
+    if (!options.filter(normalizedUrl)) {
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
+    if (!hasUrlImportHelper) {
+      result.messages.push({
+        pluginName,
+        type: 'import',
+        value: {
+          order: 2,
+          importName: '___CSS_LOADER_GET_URL_IMPORT___',
+          url: options.urlHandler(require.resolve('../runtime/getUrl.js')),
+          index: 1,
+        },
+      });
+
+      hasUrlImportHelper = true;
+    }
+
+    const splittedUrl = normalizedUrl.split(/(\?)?#/);
+    const [pathname, query, hashOrQuery] = splittedUrl;
+    const hash =
+      query || hashOrQuery
+        ? `${query ? '?' : ''}${hashOrQuery ? `#${hashOrQuery}` : ''}`
+        : '';
+    const request = requestify(pathname, options.rootContext);
+    const doResolve = async () => {
+      const { resolver, context } = options;
+      const resolvedUrl = await resolveRequests(resolver, context, [
+        ...new Set([request, normalizedUrl]),
+      ]);
+
+      return { url: resolvedUrl, prefix, hash, parsedResult };
+    };
+
+    tasks.push(doResolve());
+  }
+
+  const results = await Promise.all(tasks);
+
+  for (let index = 0; index <= results.length - 1; index++) {
+    const {
+      url,
+      prefix,
+      hash,
+      parsedResult: { decl, rule, parsed },
+    } = results[index];
+    const newUrl = prefix ? `${prefix}!${url}` : url;
+    const importKey = newUrl;
     let importName = imports.get(importKey);
 
     if (!importName) {
       importName = `___CSS_LOADER_URL_IMPORT_${imports.size}___`;
       imports.set(importKey, importName);
 
-      tasks.push(
-        Promise.resolve(index).then(async (currentIndex) => {
-          const { resolver, context } = options;
-
-          let resolvedUrl;
-
-          try {
-            resolvedUrl = await resolveRequests(resolver, context, [
-              ...new Set([normalizedUrl, url]),
-            ]);
-          } catch (error) {
-            throw error;
-          }
-
-          if (prefixSuffix) {
-            resolvedUrl = `${prefixSuffix}!${resolvedUrl}`;
-          }
-
-          result.messages.push({
-            pluginName,
-            type: 'import',
-            value: {
-              order: 3,
-              importName,
-              url: options.urlHandler(resolvedUrl),
-              index: currentIndex,
-            },
-          });
-        })
-      );
+      result.messages.push({
+        pluginName,
+        type: 'import',
+        value: { importName, url: options.urlHandler(newUrl), index, order: 3 },
+      });
     }
 
-    const replacementKey = JSON.stringify({ importKey, hash, needQuotes });
-
+    const { needQuotes } = rule;
+    const replacementKey = JSON.stringify({ newUrl, hash, needQuotes });
     let replacementName = replacements.get(replacementKey);
 
     if (!replacementName) {
@@ -229,23 +235,24 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
         pluginName,
         type: 'url-replacement',
         value: {
-          order: 4,
           replacementName,
           importName,
           hash,
           needQuotes,
           index,
+          order: 4,
         },
       });
     }
 
     // eslint-disable-next-line no-param-reassign
-    node.type = 'word';
+    rule.node.type = 'word';
     // eslint-disable-next-line no-param-reassign
-    node.value = replacementName;
+    rule.node.value = replacementName;
+
     // eslint-disable-next-line no-param-reassign
-    decl.value = parsedResult.parsed.toString();
+    decl.value = parsed.toString();
   }
 
-  return Promise.all(tasks);
+  return Promise.resolve();
 });

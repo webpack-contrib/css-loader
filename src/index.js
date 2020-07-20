@@ -24,7 +24,6 @@ import {
   getModuleCode,
   getModulesPlugins,
   normalizeSourceMap,
-  isUrlRequestable,
   sortImports,
 } from './utils';
 
@@ -82,15 +81,14 @@ export default function loader(content, map, meta) {
     const urlResolver = this.getResolve({
       mainFields: ['asset'],
       conditionNames: ['asset'],
+      extensions: [],
     });
 
     plugins.push(
       urlParser({
         context: this.context,
         rootContext: this.rootContext,
-        filter: getFilter(options.url, this.resourcePath, (value) =>
-          isUrlRequestable(value)
-        ),
+        filter: getFilter(options.url, this.resourcePath),
         resolver: urlResolver,
         urlHandler: (url) => stringifyRequest(this, url),
       })

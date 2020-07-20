@@ -1,7 +1,12 @@
 import postcss from 'postcss';
 import { extractICSS, replaceValueSymbols, replaceSymbols } from 'icss-utils';
 
-import { normalizeUrl, resolveRequests, isUrlRequestable } from '../utils';
+import {
+  normalizeUrl,
+  resolveRequests,
+  isUrlRequestable,
+  requestify,
+} from '../utils';
 
 function makeRequestableIcssImports(icssImports, rootContext) {
   return Object.keys(icssImports).reduce((accumulator, url) => {
@@ -17,7 +22,7 @@ function makeRequestableIcssImports(icssImports, rootContext) {
     let normalizedUrl;
 
     if (isRequestable) {
-      normalizedUrl = normalizeUrl(url, true, rootContext);
+      normalizedUrl = requestify(normalizeUrl(url, true), rootContext);
     }
 
     const key = typeof normalizedUrl !== 'undefined' ? normalizedUrl : url;

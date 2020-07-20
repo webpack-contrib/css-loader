@@ -78,28 +78,28 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
   ).replace(/\\\[local\\\]/gi, localName);
 }
 
-function normalizeUrl(url, isStringValue, rootContext) {
+function normalizeUrl(url, isStringValue) {
   let normalizedUrl = url;
 
   if (isStringValue && /\\[\n]/.test(normalizedUrl)) {
     normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
   }
 
-  if (matchNativeWin32Path.test(normalizedUrl)) {
-    return normalizedUrl;
-  }
-
-  return mayBeServerRelativeUrl(normalizedUrl)
-    ? urlToRequest(decodeURIComponent(unescape(normalizedUrl)), rootContext)
-    : urlToRequest(decodeURIComponent(unescape(normalizedUrl)));
+  return decodeURIComponent(unescape(normalizedUrl));
 }
 
-function getFilter(filter, resourcePath, defaultFilter = null) {
-  return (item) => {
-    if (defaultFilter && !defaultFilter(item)) {
-      return false;
-    }
+function requestify(url, rootContext) {
+  if (matchNativeWin32Path.test(url)) {
+    return url;
+  }
 
+  return mayBeServerRelativeUrl(url)
+    ? urlToRequest(url, rootContext)
+    : urlToRequest(url);
+}
+
+function getFilter(filter, resourcePath) {
+  return (item) => {
     if (typeof filter === 'function') {
       return filter(item, resourcePath);
     }
@@ -557,6 +557,7 @@ export {
   shouldUseImportPlugin,
   shouldUseURLPlugin,
   normalizeUrl,
+  requestify,
   getFilter,
   getModulesOptions,
   getModulesPlugins,
