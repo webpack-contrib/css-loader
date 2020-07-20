@@ -579,6 +579,23 @@ a[href=\\"\\" i] {
 
 exports[`loader should work with empty options: warnings 1`] = `Array []`;
 
+exports[`loader should work with none AST metadata: errors 1`] = `Array []`;
+
+exports[`loader should work with none AST metadata: result 1`] = `
+Array [
+  Array [
+    "./simple.css",
+    ".some-class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader should work with none AST metadata: warnings 1`] = `Array []`;
+
 exports[`loader should work with the "modules.auto" option and the "importLoaders" option: errors 1`] = `Array []`;
 
 exports[`loader should work with the "modules.auto" option and the "importLoaders" option: result 1`] = `

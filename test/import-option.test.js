@@ -153,6 +153,20 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it('should work resolve order: local -> node_modules -> alias', async () => {
+    const compiler = getCompiler('./import/import-order.js');
+    const stats = await compile(compiler);
+
+    expect(getModuleSource('./import/import-order.css', stats)).toMatchSnapshot(
+      'module'
+    );
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
   it('should emit warning when unresolved import', async () => {
     const compiler = getCompiler('./import/unresolved.js');
     const stats = await compile(compiler);

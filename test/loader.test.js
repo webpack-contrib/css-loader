@@ -411,4 +411,35 @@ describe('loader', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should work with none AST metadata', async () => {
+    const compiler = getCompiler(
+      './simple.js',
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, '../src'),
+                },
+                {
+                  loader: path.resolve(__dirname, '../test/helpers/preLoader'),
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });
