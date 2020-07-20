@@ -52,7 +52,7 @@ function walkAtRules(css, result, options, callback) {
     if (paramsNodes[0].type === 'string') {
       isStringValue = true;
       url = paramsNodes[0].value;
-    } else if (paramsNodes[0].type === 'function') {
+    } else {
       // Invalid function - `@import nourl(test.css);`
       if (paramsNodes[0].value.toLowerCase() !== 'url') {
         result.warn(`Unable to find uri in "${atRule.toString()}"`, {

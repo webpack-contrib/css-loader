@@ -182,10 +182,10 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
 
     const splittedUrl = normalizedUrl.split(/(\?)?#/);
     const [pathname, query, hashOrQuery] = splittedUrl;
-    const hash =
-      query || hashOrQuery
-        ? `${query ? '?' : ''}${hashOrQuery ? `#${hashOrQuery}` : ''}`
-        : '';
+
+    let hash = query ? '?' : '';
+    hash += hashOrQuery ? `#${hashOrQuery}` : '';
+
     const request = requestify(pathname, options.rootContext);
     const doResolve = async () => {
       const { resolver, context } = options;
