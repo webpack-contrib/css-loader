@@ -64,6 +64,11 @@
   composes: imported-alias from '~aliasesComposes/alias.css';
 }
 
+.alias-duplicate {
+  color: gainsboro;
+  composes: imported-alias from './alias.css';
+}
+
 .primary-selector {
   color: v-primary;
 }

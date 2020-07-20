@@ -674,16 +674,14 @@ exports[`"modules" option should resolve package from node_modules with and with
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!../node_modules/test/index.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!../node_modules/test/index.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._28d41yD0DOcLHrf-73cR_T {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"foo\\"] + \\";\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"bar\\"] + \\";\\\\n}\\\\n\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._28d41yD0DOcLHrf-73cR_T {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"foo\\"] + \\";\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"bar\\"] + \\";\\\\n}\\\\n\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"foo\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"foo\\"] + \\"\\",
-	\\"bar\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"bar\\"] + \\"\\",
+	\\"bar\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"bar\\"] + \\"\\",
 	\\"className\\": \\"_28d41yD0DOcLHrf-73cR_T\\"
 };
 export default ___CSS_LOADER_EXPORT___;
@@ -1195,7 +1193,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"(min-width: 100px)\\");
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".ZMSNr6C99iaw7MLxUwdOS {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1cqCGpe9NYyq1QK9ZJTYjq {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3cHSwCzSNQhvVVhVTyibk1 {\\\\n  display: block;\\\\n}\\\\n\\\\n._28PrYQvhzTO0O4lvyG5iwt {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._1YVkrayEq847Hvjkn6elMG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._1A0MRQaJb1W2zo0ExJmTey {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._2gPPIkO_Lu5fwukCZxWJsA {\\\\n  color: red;\\\\n}\\\\n\\\\n._1ntRnCT1g_332UHHQLWV4u {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.PRo72l3_2-Pu9fLkregtf {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1sQ5csZq_9qTD0wGuDmbDa {\\\\n  color: gray;\\\\n}\\\\n\\\\n.bGTjQvOucAI2Dc78tA03a {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._3XhFlbnqfhWt5Gl1ls644u {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n._18Ri--KL30T1TsLGKyHGW0 {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  .sajWdDCURRi5VDXsBRZRB {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  .sajWdDCURRi5VDXsBRZRB {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._1J8pOCxWpCPJVfTW869be3 {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._7OGZqSQKbtb4U2k2NYW7g {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".ZMSNr6C99iaw7MLxUwdOS {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1cqCGpe9NYyq1QK9ZJTYjq {\\\\n  color: blue;\\\\n}\\\\n\\\\n._3cHSwCzSNQhvVVhVTyibk1 {\\\\n  display: block;\\\\n}\\\\n\\\\n._28PrYQvhzTO0O4lvyG5iwt {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._1YVkrayEq847Hvjkn6elMG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._1A0MRQaJb1W2zo0ExJmTey {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._2gPPIkO_Lu5fwukCZxWJsA {\\\\n  color: red;\\\\n}\\\\n\\\\n._1ntRnCT1g_332UHHQLWV4u {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.PRo72l3_2-Pu9fLkregtf {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1sQ5csZq_9qTD0wGuDmbDa {\\\\n  color: gray;\\\\n}\\\\n\\\\n.bGTjQvOucAI2Dc78tA03a {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ePUJjxsN-hrrw37ng5eNH {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._3XhFlbnqfhWt5Gl1ls644u {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n._18Ri--KL30T1TsLGKyHGW0 {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  .sajWdDCURRi5VDXsBRZRB {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  .sajWdDCURRi5VDXsBRZRB {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._1J8pOCxWpCPJVfTW869be3 {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._7OGZqSQKbtb4U2k2NYW7g {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
@@ -1237,6 +1235,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"top-relative\\": \\"PRo72l3_2-Pu9fLkregtf \\" + ___CSS_LOADER_ICSS_IMPORT_4___.locals[\\"imported-relative\\"] + \\"\\",
 	\\"module\\": \\"_1sQ5csZq_9qTD0wGuDmbDa \\" + ___CSS_LOADER_ICSS_IMPORT_5___.locals[\\"imported-module\\"] + \\"\\",
 	\\"alias\\": \\"bGTjQvOucAI2Dc78tA03a \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
+	\\"alias-duplicate\\": \\"_2ePUJjxsN-hrrw37ng5eNH \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_3XhFlbnqfhWt5Gl1ls644u\\",
 	\\"black-selector\\": \\"_18Ri--KL30T1TsLGKyHGW0\\",
 	\\"header\\": \\"sajWdDCURRi5VDXsBRZRB\\",
@@ -1356,6 +1355,10 @@ Array [
   color: gainsboro;
 }
 
+._2ePUJjxsN-hrrw37ng5eNH {
+  color: gainsboro;
+}
+
 ._3XhFlbnqfhWt5Gl1ls644u {
   color: #BF4040;
 }
@@ -1433,7 +1436,7 @@ exports[`"modules" option should support resolving in composes: warnings 1`] = `
 exports[`"modules" option should throw error when unresolved import: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: Can't resolve '//exammple.com/unresolved.css' in '/test/fixtures/modules/unresolved'",
+Error: Can't resolve './//exammple.com/unresolved.css' in '/test/fixtures/modules/unresolved'",
 ]
 `;
 
