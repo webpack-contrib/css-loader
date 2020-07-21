@@ -865,7 +865,7 @@ describe('"modules" option', () => {
       {
         modules: {
           mode: 'local',
-          localsConvention: 'asIs',
+          exportLocalsConvention: 'asIs',
         },
       }
     );
@@ -887,7 +887,7 @@ describe('"modules" option', () => {
       {
         modules: {
           mode: 'local',
-          localsConvention: 'camelCase',
+          exportLocalsConvention: 'camelCase',
         },
       }
     );
@@ -909,7 +909,7 @@ describe('"modules" option', () => {
       {
         modules: {
           mode: 'local',
-          localsConvention: 'camelCaseOnly',
+          exportLocalsConvention: 'camelCaseOnly',
         },
       }
     );
@@ -931,7 +931,7 @@ describe('"modules" option', () => {
       {
         modules: {
           mode: 'local',
-          localsConvention: 'dashes',
+          exportLocalsConvention: 'dashes',
         },
       }
     );
@@ -953,7 +953,7 @@ describe('"modules" option', () => {
       {
         modules: {
           mode: 'local',
-          localsConvention: 'dashesOnly',
+          exportLocalsConvention: 'dashesOnly',
         },
       }
     );
