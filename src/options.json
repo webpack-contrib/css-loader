@@ -104,6 +104,10 @@
             "namedExport": {
               "description": "Use the named export ES modules.",
               "type": "boolean"
+            },
+            "exportOnlyLocals": {
+              "description": "Export only locals (https://github.com/webpack-contrib/css-loader#exportonlylocals).",
+              "type": "boolean"
             }
           }
         }
@@ -123,10 +127,6 @@
           "type": "integer"
         }
       ]
-    },
-    "onlyLocals": {
-      "description": "Export only locals (https://github.com/webpack-contrib/css-loader#onlylocals).",
-      "type": "boolean"
     },
     "esModule": {
       "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",

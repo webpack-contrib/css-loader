@@ -39,6 +39,8 @@ describe('validate options', () => {
         { localsConvention: 'dashesOnly' },
         { namedExport: true },
         { namedExport: false },
+        { exportOnlyLocals: true },
+        { exportOnlyLocals: false },
       ],
       failure: [
         'true',
@@ -58,6 +60,7 @@ describe('validate options', () => {
         { auto: 'invalid' },
         { localsConvention: 'unknown' },
         { namedExport: 'invalid' },
+        { exportOnlyLocals: 'invalid' },
       ],
     },
     sourceMap: {
@@ -67,10 +70,6 @@ describe('validate options', () => {
     importLoaders: {
       success: [false, 0, 1, 2],
       failure: ['1', 2.5],
-    },
-    onlyLocals: {
-      success: [true, false],
-      failure: ['true'],
     },
     esModule: {
       success: [true, false],
