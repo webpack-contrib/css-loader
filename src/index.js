@@ -13,7 +13,10 @@ import Warning from './Warning';
 import schema from './options.json';
 import { icssParser, importParser, urlParser } from './plugins';
 import {
-  getModulesOptions,
+  normalizeOptions,
+  shouldUseModulesPlugins,
+  shouldUseImportPlugin,
+  shouldUseURLPlugin,
   getPreRequester,
   getExportCode,
   getFilter,
@@ -21,61 +24,44 @@ import {
   getModuleCode,
   getModulesPlugins,
   normalizeSourceMap,
-  shouldUseModulesPlugins,
-  isUrlRequestable,
+  sortImports,
 } from './utils';
 
-export default function loader(content, map, meta) {
-  const options = getOptions(this);
+export default async function loader(content, map, meta) {
+  const rawOptions = getOptions(this);
 
-  validateOptions(schema, options, {
+  validateOptions(schema, rawOptions, {
     name: 'CSS Loader',
     baseDataPath: 'options',
   });
 
-  const sourceMap =
-    typeof options.sourceMap === 'boolean' ? options.sourceMap : this.sourceMap;
   const plugins = [];
+  const options = normalizeOptions(rawOptions, this);
 
-  const exportType = options.onlyLocals ? 'locals' : 'full';
-  const preRequester = getPreRequester(this);
-  const urlHandler = (url) =>
-    stringifyRequest(this, preRequester(options.importLoaders) + url);
-
-  const esModule =
-    typeof options.esModule !== 'undefined' ? options.esModule : true;
-
-  let modulesOptions;
-
-  if (shouldUseModulesPlugins(options.modules, this.resourcePath)) {
-    modulesOptions = getModulesOptions(options, this);
-
-    if (modulesOptions.namedExport === true && esModule === false) {
-      this.emitError(
-        new Error(
-          '`Options.module.namedExport` cannot be used without `options.esModule`'
-        )
-      );
-    }
-
-    plugins.push(...getModulesPlugins(modulesOptions, this));
-
+  if (shouldUseModulesPlugins(options)) {
     const icssResolver = this.getResolve({
       mainFields: ['css', 'style', 'main', '...'],
       mainFiles: ['index', '...'],
+      extensions: [],
+      conditionNames: ['style'],
     });
 
     plugins.push(
+      ...getModulesPlugins(options, this),
       icssParser({
         context: this.context,
         rootContext: this.rootContext,
         resolver: icssResolver,
-        urlHandler,
+        urlHandler: (url) =>
+          stringifyRequest(
+            this,
+            getPreRequester(this)(options.importLoaders) + url
+          ),
       })
     );
   }
 
-  if (options.import !== false && exportType === 'full') {
+  if (shouldUseImportPlugin(options)) {
     const resolver = this.getResolve({
       mainFields: ['css', 'style', 'main', '...'],
       mainFiles: ['index', '...'],
@@ -90,24 +76,27 @@ export default function loader(content, map, meta) {
         rootContext: this.rootContext,
         filter: getFilter(options.import, this.resourcePath),
         resolver,
-        urlHandler,
+        urlHandler: (url) =>
+          stringifyRequest(
+            this,
+            getPreRequester(this)(options.importLoaders) + url
+          ),
       })
     );
   }
 
-  if (options.url !== false && exportType === 'full') {
+  if (shouldUseURLPlugin(options)) {
     const urlResolver = this.getResolve({
       mainFields: ['asset'],
       conditionNames: ['asset'],
+      extensions: [],
     });
 
     plugins.push(
       urlParser({
         context: this.context,
         rootContext: this.rootContext,
-        filter: getFilter(options.url, this.resourcePath, (value) =>
-          isUrlRequestable(value)
-        ),
+        filter: getFilter(options.url, this.resourcePath),
         resolver: urlResolver,
         urlHandler: (url) => stringifyRequest(this, url),
       })
@@ -130,107 +119,76 @@ export default function loader(content, map, meta) {
 
   const callback = this.async();
 
-  postcss(plugins)
-    .process(content, {
+  let result;
+
+  try {
+    result = await postcss(plugins).process(content, {
       from: this.resourcePath,
       to: this.resourcePath,
       map: options.sourceMap
         ? {
             // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-            prev: sourceMap && map ? normalizeSourceMap(map) : null,
+            prev: map ? normalizeSourceMap(map) : null,
             inline: false,
             annotation: false,
           }
         : false,
-    })
-    .then((result) => {
-      for (const warning of result.warnings()) {
-        this.emitWarning(new Warning(warning));
-      }
-
-      const imports = [];
-      const apiImports = [];
-      const urlReplacements = [];
-      const icssReplacements = [];
-      const exports = [];
-
-      for (const message of result.messages) {
-        // eslint-disable-next-line default-case
-        switch (message.type) {
-          case 'import':
-            imports.push(message.value);
-            break;
-          case 'api-import':
-            apiImports.push(message.value);
-            break;
-          case 'url-replacement':
-            urlReplacements.push(message.value);
-            break;
-          case 'icss-replacement':
-            icssReplacements.push(message.value);
-            break;
-          case 'export':
-            exports.push(message.value);
-            break;
-        }
-      }
-
-      /*
-       *   Order
-       *   CSS_LOADER_ICSS_IMPORT: [],
-       *   CSS_LOADER_AT_RULE_IMPORT: [],
-       *   CSS_LOADER_GET_URL_IMPORT: [],
-       *   CSS_LOADER_URL_IMPORT: [],
-       *   CSS_LOADER_URL_REPLACEMENT: [],
-       * */
-
-      imports.sort((a, b) => {
-        return (
-          (b.order < a.order) - (a.order < b.order) ||
-          (b.index < a.index) - (a.index < b.index)
-        );
-      });
-      apiImports.sort((a, b) => {
-        return (
-          (b.order < a.order) - (a.order < b.order) ||
-          (b.index < a.index) - (a.index < b.index)
-        );
-      });
-
-      const importCode = getImportCode(
-        this,
-        exportType,
-        imports,
-        esModule,
-        modulesOptions
-      );
-      const moduleCode = getModuleCode(
-        result,
-        exportType,
-        sourceMap,
-        apiImports,
-        urlReplacements,
-        icssReplacements,
-        esModule,
-        modulesOptions
-      );
-      const exportCode = getExportCode(
-        exports,
-        exportType,
-        icssReplacements,
-        esModule,
-        modulesOptions
-      );
-
-      return callback(null, `${importCode}${moduleCode}${exportCode}`);
-    })
-    .catch((error) => {
-      if (error.file) {
-        this.addDependency(error.file);
-      }
-
-      callback(
-        error.name === 'CssSyntaxError' ? new CssSyntaxError(error) : error
-      );
     });
+  } catch (error) {
+    if (error.file) {
+      this.addDependency(error.file);
+    }
+
+    callback(
+      error.name === 'CssSyntaxError' ? new CssSyntaxError(error) : error
+    );
+
+    return;
+  }
+
+  for (const warning of result.warnings()) {
+    this.emitWarning(new Warning(warning));
+  }
+
+  const imports = [];
+  const apiImports = [];
+  const urlReplacements = [];
+  const icssReplacements = [];
+  const exports = [];
+
+  for (const message of result.messages) {
+    // eslint-disable-next-line default-case
+    switch (message.type) {
+      case 'import':
+        imports.push(message.value);
+        break;
+      case 'api-import':
+        apiImports.push(message.value);
+        break;
+      case 'url-replacement':
+        urlReplacements.push(message.value);
+        break;
+      case 'icss-replacement':
+        icssReplacements.push(message.value);
+        break;
+      case 'export':
+        exports.push(message.value);
+        break;
+    }
+  }
+
+  imports.sort(sortImports);
+  apiImports.sort(sortImports);
+
+  const importCode = getImportCode(this, imports, options);
+  const moduleCode = getModuleCode(
+    result,
+    apiImports,
+    urlReplacements,
+    icssReplacements,
+    options
+  );
+  const exportCode = getExportCode(exports, icssReplacements, options);
+
+  callback(null, `${importCode}${moduleCode}${exportCode}`);
 }

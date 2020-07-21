@@ -1,147 +1,95 @@
 import postcss from 'postcss';
 import { extractICSS, replaceValueSymbols, replaceSymbols } from 'icss-utils';
 
-import { normalizeUrl, resolveRequests, isUrlRequestable } from '../utils';
-
-function makeRequestableIcssImports(icssImports, rootContext) {
-  return Object.keys(icssImports).reduce((accumulator, url) => {
-    const tokensMap = icssImports[url];
-    const tokens = Object.keys(tokensMap);
-
-    if (tokens.length === 0) {
-      return accumulator;
-    }
-
-    const isRequestable = isUrlRequestable(url);
-
-    let normalizedUrl;
-
-    if (isRequestable) {
-      normalizedUrl = normalizeUrl(url, true, rootContext);
-    }
-
-    const key = typeof normalizedUrl !== 'undefined' ? normalizedUrl : url;
-
-    if (!accumulator[key]) {
-      // eslint-disable-next-line no-param-reassign
-      accumulator[key] = { url, tokenMap: tokensMap };
-    } else {
-      // eslint-disable-next-line no-param-reassign
-      accumulator[key] = {
-        url,
-        tokenMap: {
-          ...accumulator[key].tokenMap,
-          ...tokensMap,
-        },
-      };
-    }
-
-    return accumulator;
-  }, {});
-}
+import { normalizeUrl, resolveRequests, requestify } from '../utils';
 
 export default postcss.plugin(
   'postcss-icss-parser',
-  (options) => (css, result) => {
-    return new Promise(async (resolve, reject) => {
-      const importReplacements = Object.create(null);
-      const extractedICSS = extractICSS(css);
-      const icssImports = makeRequestableIcssImports(
-        extractedICSS.icssImports,
-        options.rootContext
-      );
+  (options) => async (css, result) => {
+    const importReplacements = Object.create(null);
+    const { icssImports, icssExports } = extractICSS(css);
+    const imports = new Map();
+    const tasks = [];
 
-      const tasks = [];
+    // eslint-disable-next-line guard-for-in
+    for (const url in icssImports) {
+      const tokens = icssImports[url];
 
-      let index = 0;
+      if (Object.keys(tokens).length === 0) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
 
-      for (const [importIndex, normalizedUrl] of Object.keys(
-        icssImports
-      ).entries()) {
-        const { url } = icssImports[normalizedUrl];
+      const request = requestify(normalizeUrl(url, true), options.rootContext);
+      const doResolve = async () => {
+        const { resolver, context } = options;
+        const resolvedUrl = await resolveRequests(resolver, context, [
+          ...new Set([url, request]),
+        ]);
 
-        index += 1;
+        return { url: resolvedUrl, tokens };
+      };
 
-        tasks.push(
-          Promise.resolve(index).then(async (currentIndex) => {
-            const importName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}___`;
-            const { resolver, context } = options;
+      tasks.push(doResolve());
+    }
 
-            let resolvedUrl;
+    const results = await Promise.all(tasks);
 
-            try {
-              resolvedUrl = await resolveRequests(resolver, context, [
-                ...new Set([normalizedUrl, url]),
-              ]);
-            } catch (error) {
-              throw error;
-            }
+    for (let index = 0; index <= results.length - 1; index++) {
+      const { url, tokens } = results[index];
 
-            result.messages.push(
-              {
-                type: 'import',
-                value: {
-                  // 'CSS_LOADER_ICSS_IMPORT'
-                  order: 0,
-                  icss: true,
-                  importName,
-                  url: options.urlHandler(resolvedUrl),
-                  index: currentIndex,
-                },
-              },
-              {
-                type: 'api-import',
-                value: {
-                  // 'CSS_LOADER_ICSS_IMPORT'
-                  order: 0,
-                  type: 'internal',
-                  importName,
-                  dedupe: true,
-                  index: currentIndex,
-                },
-              }
-            );
+      const importKey = url;
+      let importName = imports.get(importKey);
 
-            const { tokenMap } = icssImports[normalizedUrl];
-            const tokens = Object.keys(tokenMap);
+      if (!importName) {
+        importName = `___CSS_LOADER_ICSS_IMPORT_${imports.size}___`;
+        imports.set(importKey, importName);
 
-            for (const [replacementIndex, token] of tokens.entries()) {
-              const replacementName = `___CSS_LOADER_ICSS_IMPORT_${importIndex}_REPLACEMENT_${replacementIndex}___`;
-              const localName = tokenMap[token];
-
-              importReplacements[token] = replacementName;
-
-              result.messages.push({
-                type: 'icss-replacement',
-                value: { replacementName, importName, localName },
-              });
-            }
-          })
+        result.messages.push(
+          {
+            type: 'import',
+            value: {
+              importName,
+              url: options.urlHandler(url),
+              icss: true,
+              order: 0,
+              index,
+            },
+          },
+          {
+            type: 'api-import',
+            value: {
+              type: 'internal',
+              importName,
+              dedupe: true,
+              order: 0,
+              index,
+            },
+          }
         );
       }
 
-      try {
-        await Promise.all(tasks);
-      } catch (error) {
-        reject(error);
+      for (const [replacementIndex, token] of Object.keys(tokens).entries()) {
+        const replacementName = `___CSS_LOADER_ICSS_IMPORT_${index}_REPLACEMENT_${replacementIndex}___`;
+        const localName = tokens[token];
+
+        importReplacements[token] = replacementName;
+
+        result.messages.push({
+          type: 'icss-replacement',
+          value: { replacementName, importName, localName },
+        });
       }
+    }
 
-      if (Object.keys(importReplacements).length > 0) {
-        replaceSymbols(css, importReplacements);
-      }
+    if (Object.keys(importReplacements).length > 0) {
+      replaceSymbols(css, importReplacements);
+    }
 
-      const { icssExports } = extractedICSS;
+    for (const name of Object.keys(icssExports)) {
+      const value = replaceValueSymbols(icssExports[name], importReplacements);
 
-      for (const name of Object.keys(icssExports)) {
-        const value = replaceValueSymbols(
-          icssExports[name],
-          importReplacements
-        );
-
-        result.messages.push({ type: 'export', value: { name, value } });
-      }
-
-      resolve();
-    });
+      result.messages.push({ type: 'export', value: { name, value } });
+    }
   }
 );

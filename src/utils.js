@@ -78,28 +78,24 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
   ).replace(/\\\[local\\\]/gi, localName);
 }
 
-function normalizeUrl(url, isStringValue, rootContext) {
+function normalizeUrl(url, isStringValue) {
   let normalizedUrl = url;
 
   if (isStringValue && /\\[\n]/.test(normalizedUrl)) {
     normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
   }
 
-  if (matchNativeWin32Path.test(normalizedUrl)) {
-    return normalizedUrl;
-  }
-
-  return mayBeServerRelativeUrl(normalizedUrl)
-    ? urlToRequest(decodeURIComponent(unescape(normalizedUrl)), rootContext)
-    : urlToRequest(decodeURIComponent(unescape(normalizedUrl)));
+  return decodeURIComponent(unescape(normalizedUrl));
 }
 
-function getFilter(filter, resourcePath, defaultFilter = null) {
-  return (item) => {
-    if (defaultFilter && !defaultFilter(item)) {
-      return false;
-    }
+function requestify(url, rootContext) {
+  return mayBeServerRelativeUrl(url)
+    ? urlToRequest(url, rootContext)
+    : urlToRequest(url);
+}
 
+function getFilter(filter, resourcePath) {
+  return (item) => {
     if (typeof filter === 'function') {
       return filter(item, resourcePath);
     }
@@ -108,35 +104,15 @@ function getFilter(filter, resourcePath, defaultFilter = null) {
   };
 }
 
-function shouldUseModulesPlugins(modules, resourcePath) {
-  if (typeof modules === 'undefined') {
+function getModulesOptions(rawOptions, loaderContext) {
+  if (typeof rawOptions.modules === 'undefined') {
     return false;
   }
 
-  if (typeof modules === 'boolean') {
-    return modules;
+  if (typeof rawOptions.modules === 'boolean' && rawOptions.modules === false) {
+    return false;
   }
 
-  if (typeof modules === 'string') {
-    return true;
-  }
-
-  if (typeof modules.auto === 'boolean') {
-    return modules.auto ? /\.module\.\w+$/i.test(resourcePath) : false;
-  }
-
-  if (modules.auto instanceof RegExp) {
-    return modules.auto.test(resourcePath);
-  }
-
-  if (typeof modules.auto === 'function') {
-    return modules.auto(resourcePath);
-  }
-
-  return true;
-}
-
-function getModulesOptions(options, loaderContext) {
   let modulesOptions = {
     mode: 'local',
     localIdentName: '[hash:base64]',
@@ -150,59 +126,141 @@ function getModulesOptions(options, loaderContext) {
   };
 
   if (
-    typeof options.modules === 'boolean' ||
-    typeof options.modules === 'string'
+    typeof rawOptions.modules === 'boolean' ||
+    typeof rawOptions.modules === 'string'
   ) {
     modulesOptions.mode =
-      typeof options.modules === 'string' ? options.modules : 'local';
+      typeof rawOptions.modules === 'string' ? rawOptions.modules : 'local';
   } else {
-    modulesOptions = { ...modulesOptions, ...options.modules };
+    const { resourcePath } = loaderContext;
+
+    if (typeof rawOptions.modules.auto === 'boolean') {
+      const isModules =
+        rawOptions.modules.auto && /\.module\.\w+$/i.test(resourcePath);
+
+      if (!isModules) {
+        return false;
+      }
+    } else if (rawOptions.modules.auto instanceof RegExp) {
+      const isModules = rawOptions.modules.auto.test(resourcePath);
+
+      if (!isModules) {
+        return false;
+      }
+    } else if (typeof rawOptions.modules.auto === 'function') {
+      const isModule = rawOptions.modules.auto(resourcePath);
+
+      if (!isModule) {
+        return false;
+      }
+    }
+
+    modulesOptions = { ...modulesOptions, ...rawOptions.modules };
   }
 
   if (typeof modulesOptions.mode === 'function') {
     modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
   }
 
+  if (modulesOptions.namedExport === true && rawOptions.esModule === false) {
+    loaderContext.emitError(
+      new Error(
+        '`Options.module.namedExport` cannot be used without `options.esModule`'
+      )
+    );
+  }
+
   return modulesOptions;
 }
 
-function getModulesPlugins(modulesOptions, loaderContext) {
+function normalizeOptions(rawOptions, loaderContext) {
+  return {
+    url: typeof rawOptions.url === 'undefined' ? true : rawOptions.url,
+    import: typeof rawOptions.import === 'undefined' ? true : rawOptions.import,
+    modules: getModulesOptions(rawOptions, loaderContext),
+    sourceMap:
+      typeof rawOptions.sourceMap === 'boolean'
+        ? rawOptions.sourceMap
+        : loaderContext.sourceMap,
+    importLoaders: rawOptions.importLoaders,
+    onlyLocals:
+      typeof rawOptions.onlyLocals !== 'undefined'
+        ? rawOptions.onlyLocals
+        : false,
+    esModule:
+      typeof rawOptions.esModule === 'undefined' ? true : rawOptions.esModule,
+  };
+}
+
+function shouldUseImportPlugin(options) {
+  if (options.onlyLocals) {
+    return false;
+  }
+
+  if (typeof options.import === 'boolean') {
+    return options.import;
+  }
+
+  return true;
+}
+
+function shouldUseURLPlugin(options) {
+  if (options.onlyLocals) {
+    return false;
+  }
+
+  if (typeof options.url === 'boolean') {
+    return options.url;
+  }
+
+  return true;
+}
+
+function shouldUseModulesPlugins(options) {
+  return Boolean(options.modules);
+}
+
+function getModulesPlugins(options, loaderContext) {
   let plugins = [];
 
   try {
     plugins = [
       modulesValues,
-      localByDefault({ mode: modulesOptions.mode }),
+      localByDefault({ mode: options.modules.mode }),
       extractImports(),
       modulesScope({
         generateScopedName: function generateScopedName(exportName) {
-          let localIdent = modulesOptions.getLocalIdent(
-            loaderContext,
-            modulesOptions.localIdentName,
-            exportName,
-            {
-              context: modulesOptions.context,
-              hashPrefix: modulesOptions.hashPrefix,
-              regExp: modulesOptions.localIdentRegExp,
-            }
-          );
+          let localIdent;
+
+          if (options.modules.getLocalIdent) {
+            localIdent = options.modules.getLocalIdent(
+              loaderContext,
+              options.modules.localIdentName,
+              exportName,
+              {
+                context: options.modules.context,
+                hashPrefix: options.modules.hashPrefix,
+                regExp: options.modules.localIdentRegExp,
+              }
+            );
+          }
 
           if (!localIdent) {
             localIdent = getLocalIdent(
               loaderContext,
-              modulesOptions.localIdentName,
+              options.modules.localIdentName,
               exportName,
               {
-                context: modulesOptions.context,
-                hashPrefix: modulesOptions.hashPrefix,
-                regExp: modulesOptions.localIdentRegExp,
+                context: options.modules.context,
+                hashPrefix: options.modules.hashPrefix,
+                regExp: options.modules.localIdentRegExp,
               }
             );
           }
 
           return localIdent;
         },
-        exportGlobals: modulesOptions.exportGlobals,
+        exportGlobals: options.modules.exportGlobals,
       }),
     ];
   } catch (error) {
@@ -265,22 +323,16 @@ function getPreRequester({ loaders, loaderIndex }) {
   };
 }
 
-function getImportCode(
-  loaderContext,
-  exportType,
-  imports,
-  esModule,
-  modulesOptions
-) {
+function getImportCode(loaderContext, imports, options) {
   let code = '';
 
-  if (exportType === 'full') {
+  if (options.onlyLocals !== true) {
     const apiUrl = stringifyRequest(
       loaderContext,
       require.resolve('./runtime/api')
     );
 
-    code += esModule
+    code += options.esModule
       ? `import ___CSS_LOADER_API_IMPORT___ from ${apiUrl};\n`
       : `var ___CSS_LOADER_API_IMPORT___ = require(${apiUrl});\n`;
   }
@@ -288,8 +340,8 @@ function getImportCode(
   for (const item of imports) {
     const { importName, url, icss } = item;
 
-    code += esModule
-      ? icss && modulesOptions.namedExport
+    code += options.esModule
+      ? icss && options.modules.namedExport
         ? `import ${importName}, * as ${importName}_NAMED___ from ${url};\n`
         : `import ${importName} from ${url};\n`
       : `var ${importName} = require(${url});\n`;
@@ -300,22 +352,19 @@ function getImportCode(
 
 function getModuleCode(
   result,
-  exportType,
-  sourceMap,
   apiImports,
   urlReplacements,
   icssReplacements,
-  esModule,
-  modulesOptions
+  options
 ) {
-  if (exportType !== 'full') {
+  if (options.onlyLocals === true) {
     return 'var ___CSS_LOADER_EXPORT___ = {};\n';
   }
 
   const { css, map } = result;
-  const sourceMapValue = sourceMap && map ? `,${map}` : '';
+  const sourceMapValue = options.sourceMap && map ? `,${map}` : '';
   let code = JSON.stringify(css);
-  let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${sourceMap});\n`;
+  let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${options.sourceMap});\n`;
 
   for (const item of apiImports) {
     const { type, media, dedupe } = item;
@@ -351,7 +400,7 @@ function getModuleCode(
     const { replacementName, importName, localName } = replacement;
 
     code = code.replace(new RegExp(replacementName, 'g'), () =>
-      modulesOptions.namedExport
+      options.modules.namedExport
         ? `" + ${importName}_NAMED___[${JSON.stringify(
             camelCase(localName)
           )}] + "`
@@ -368,13 +417,7 @@ function dashesCamelCase(str) {
   );
 }
 
-function getExportCode(
-  exports,
-  exportType,
-  icssReplacements,
-  esModule,
-  modulesOptions
-) {
+function getExportCode(exports, icssReplacements, options) {
   let code = '';
   let localsCode = '';
   let namedCode = '';
@@ -386,7 +429,7 @@ function getExportCode(
 
     localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
 
-    if (modulesOptions.namedExport) {
+    if (options.modules.namedExport) {
       namedCode += `export const ${camelCase(name)} = ${JSON.stringify(
         value
       )};\n`;
@@ -394,7 +437,7 @@ function getExportCode(
   };
 
   for (const { name, value } of exports) {
-    switch (modulesOptions.localsConvention) {
+    switch (options.modules.localsConvention) {
       case 'camelCase': {
         addExportToLocalsCode(name, value);
 
@@ -438,7 +481,7 @@ function getExportCode(
       () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
     );
 
-    if (modulesOptions.namedExport) {
+    if (options.modules.namedExport) {
       namedCode = namedCode.replace(
         new RegExp(replacementName, 'g'),
         () =>
@@ -456,7 +499,7 @@ function getExportCode(
   }
 
   code += `${
-    esModule ? 'export default' : 'module.exports ='
+    options.esModule ? 'export default' : 'module.exports ='
   } ___CSS_LOADER_EXPORT___;\n`;
 
   return `// Exports\n${code}`;
@@ -490,6 +533,10 @@ function mayBeServerRelativeUrl(url) {
 }
 
 function isUrlRequestable(url) {
+  if (matchNativeWin32Path.test(url)) {
+    return false;
+  }
+
   if (mayBeServerRelativeUrl(url)) {
     return true;
   }
@@ -497,8 +544,20 @@ function isUrlRequestable(url) {
   return isUrlRequest(url);
 }
 
+function sortImports(a, b) {
+  return (
+    (b.order < a.order) - (a.order < b.order) ||
+    (b.index < a.index) - (a.index < b.index)
+  );
+}
+
 export {
+  normalizeOptions,
+  shouldUseModulesPlugins,
+  shouldUseImportPlugin,
+  shouldUseURLPlugin,
   normalizeUrl,
+  requestify,
   getFilter,
   getModulesOptions,
   getModulesPlugins,
@@ -507,7 +566,7 @@ export {
   getImportCode,
   getModuleCode,
   getExportCode,
-  shouldUseModulesPlugins,
   resolveRequests,
   isUrlRequestable,
+  sortImports,
 };

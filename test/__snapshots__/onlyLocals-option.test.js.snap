@@ -53,6 +53,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"top-relative\\": \\"_top-relative \\" + ___CSS_LOADER_ICSS_IMPORT_4___.locals[\\"imported-relative\\"] + \\"\\",
 	\\"module\\": \\"_module \\" + ___CSS_LOADER_ICSS_IMPORT_5___.locals[\\"imported-module\\"] + \\"\\",
 	\\"alias\\": \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
+	\\"alias-duplicate\\": \\"_alias-duplicate \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_primary-selector\\",
 	\\"black-selector\\": \\"_black-selector\\",
 	\\"header\\": \\"_header\\",
@@ -67,6 +68,7 @@ exports[`"onlyLocals" option should work with the "esModule" option: result 1`] 
 Object {
   "locals": Object {
     "alias": "_alias _imported-alias",
+    "alias-duplicate": "_alias-duplicate _imported-alias",
     "black-selector": "_black-selector",
     "class": "_class",
     "foo": "_foo",
@@ -169,6 +171,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"top-relative\\": \\"_top-relative \\" + ___CSS_LOADER_ICSS_IMPORT_4___.locals[\\"imported-relative\\"] + \\"\\",
 	\\"module\\": \\"_module \\" + ___CSS_LOADER_ICSS_IMPORT_5___.locals[\\"imported-module\\"] + \\"\\",
 	\\"alias\\": \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
+	\\"alias-duplicate\\": \\"_alias-duplicate \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_primary-selector\\",
 	\\"black-selector\\": \\"_black-selector\\",
 	\\"header\\": \\"_header\\",
@@ -183,6 +186,7 @@ exports[`"onlyLocals" option should work: result 1`] = `
 Object {
   "locals": Object {
     "alias": "_alias _imported-alias",
+    "alias-duplicate": "_alias-duplicate _imported-alias",
     "black-selector": "_black-selector",
     "class": "_class",
     "foo": "_foo",
