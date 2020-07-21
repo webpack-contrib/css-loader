@@ -634,7 +634,7 @@ exports[`loader should work with the "modules.auto" option and the "importLoader
   color: #333;
 }
 /* CSS modules */
-._3ZewTmcU5fqs585BjdQt_0 {
+._1IwxFskZk1cbjNkH0QoBiv {
   overflow-x: hidden;
   overflow-y: auto;
   overflow: hidden auto;
@@ -651,7 +651,7 @@ exports[`loader should work with the "modules.auto" option and the "importLoader
   overflow-y: auto;
   overflow: hidden auto;
 }
-.irHrhsl3WEJVKUxOmS7dC {
+._2on1B_I_5ZLmD6I3yY37jX {
   color: #333;
   overflow-x: hidden;
   overflow-y: auto;

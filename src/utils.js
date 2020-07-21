@@ -49,15 +49,19 @@ function unescape(str) {
 const filenameReservedRegex = /[<>:"/\\|?*\x00-\x1F]/g;
 // eslint-disable-next-line no-control-regex
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
-const reRelativePath = /^\.+/;
 
-function getLocalIdent(loaderContext, localIdentName, localName, options) {
+function defaultGetLocalIdent(
+  loaderContext,
+  localIdentName,
+  localName,
+  options
+) {
   const request = normalizePath(
     path.relative(options.context, loaderContext.resourcePath)
   );
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${options.hashPrefix + request}+${unescape(localName)}`;
+  options.content = `${options.hashPrefix + request}\x00${unescape(localName)}`;
 
   // Using `[path]` placeholder outputs `/` we need escape their
   // Also directories can contains invalid characters for css we need escape their too
@@ -67,10 +71,9 @@ function getLocalIdent(loaderContext, localIdentName, localName, options) {
       .replace(/^((-?[0-9])|--)/, '_$1')
       .replace(filenameReservedRegex, '-')
       .replace(reControlChars, '-')
-      .replace(reRelativePath, '-')
       .replace(/\./g, '-'),
     { isIdentifier: true }
-  ).replace(/\\\[local\\\]/gi, localName);
+  ).replace(/\\\[local\\]/gi, localName);
 }
 
 function normalizeUrl(url, isStringValue) {
@@ -126,7 +129,7 @@ function getModulesOptions(rawOptions, loaderContext) {
     localIdentHashPrefix: '',
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
-    getLocalIdent,
+    getLocalIdent: defaultGetLocalIdent,
     namedExport: false,
     exportLocalsConvention: 'asIs',
     exportOnlyLocals: false,
@@ -224,39 +227,48 @@ function shouldUseModulesPlugins(options) {
 }
 
 function getModulesPlugins(options, loaderContext) {
+  const {
+    mode,
+    getLocalIdent,
+    localIdentName,
+    localIdentContext,
+    localIdentHashPrefix,
+    localIdentRegExp,
+  } = options.modules;
+
   let plugins = [];
 
   try {
     plugins = [
       modulesValues,
-      localByDefault({ mode: options.modules.mode }),
+      localByDefault({ mode }),
       extractImports(),
       modulesScope({
-        generateScopedName: function generateScopedName(exportName) {
+        generateScopedName(exportName) {
           let localIdent;
 
-          if (options.modules.getLocalIdent) {
-            localIdent = options.modules.getLocalIdent(
+          if (getLocalIdent) {
+            localIdent = getLocalIdent(
               loaderContext,
-              options.modules.localIdentName,
+              localIdentName,
               exportName,
               {
-                context: options.modules.localIdentContext,
-                hashPrefix: options.modules.localIdentHashPrefix,
-                regExp: options.modules.localIdentRegExp,
+                context: localIdentContext,
+                hashPrefix: localIdentHashPrefix,
+                regExp: localIdentRegExp,
               }
             );
           }
 
           if (!localIdent) {
-            localIdent = getLocalIdent(
+            localIdent = defaultGetLocalIdent(
               loaderContext,
               options.modules.localIdentName,
               exportName,
               {
-                context: options.modules.localIdentContext,
-                hashPrefix: options.modules.localIdentHashPrefix,
-                regExp: options.modules.localIdentRegExp,
+                context: localIdentContext,
+                hashPrefix: localIdentHashPrefix,
+                regExp: localIdentRegExp,
               }
             );
           }
