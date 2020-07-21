@@ -1,6 +1,3 @@
-import path from 'path';
-import fs from 'fs';
-
 import {
   compile,
   getCompiler,
@@ -63,29 +60,6 @@ describe('"url" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource('./url/url.css', stats)).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
-    );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
-  it('should resolve absolute path', async () => {
-    // Create the file with absolute path
-    const fileDirectory = path.resolve(__dirname, 'fixtures', 'url');
-    const file = path.resolve(fileDirectory, 'url-absolute.css');
-    const absoluteUrlpath = path.resolve(fileDirectory, 'img.png');
-
-    const code = `\n.background {background: url(${absoluteUrlpath}); }`;
-
-    fs.writeFileSync(file, code);
-
-    const compiler = getCompiler('./url/url-absolute.js');
-    const stats = await compile(compiler);
-
-    expect(getModuleSource('./url/url-absolute.css', stats)).toMatchSnapshot(
-      'module'
-    );
     expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
       'result'
     );

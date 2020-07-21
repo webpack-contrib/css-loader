@@ -89,10 +89,6 @@ function normalizeUrl(url, isStringValue) {
 }
 
 function requestify(url, rootContext) {
-  if (matchNativeWin32Path.test(url)) {
-    return url;
-  }
-
   return mayBeServerRelativeUrl(url)
     ? urlToRequest(url, rootContext)
     : urlToRequest(url);
@@ -537,6 +533,10 @@ function mayBeServerRelativeUrl(url) {
 }
 
 function isUrlRequestable(url) {
+  if (matchNativeWin32Path.test(url)) {
+    return false;
+  }
+
   if (mayBeServerRelativeUrl(url)) {
     return true;
   }

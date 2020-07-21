@@ -115,18 +115,10 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
       prefix = queryParts.join('!');
     }
 
-    // eslint-disable-next-line no-console
-    console.log(parsedResult);
-    // eslint-disable-next-line no-console
-    console.log(normalizedUrl);
-
     const isRequestable = isUrlRequestable(normalizedUrl);
 
     if (isRequestable) {
       normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
-
-      // eslint-disable-next-line no-console
-      console.log(normalizedUrl);
 
       // Empty url after normalize - `@import '\
       // \
@@ -157,10 +149,6 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
 
     if (isRequestable) {
       const request = requestify(normalizedUrl, options.rootContext);
-
-      // eslint-disable-next-line no-console
-      console.log(request);
-
       const doResolve = async () => {
         const { resolver, context } = options;
         const resolvedUrl = await resolveRequests(resolver, context, [
