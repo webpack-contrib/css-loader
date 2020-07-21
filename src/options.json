@@ -63,18 +63,22 @@
               "type": "boolean"
             },
             "localIdentName": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
-            "context": {
-              "type": "string"
+            "localIdentContext": {
+              "type": "string",
+              "minLength": 1
             },
             "localIdentHashPrefix": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "localIdentRegExp": {
               "anyOf": [
                 {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 },
                 {
                   "instanceof": "RegExp"

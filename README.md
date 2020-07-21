@@ -726,7 +726,7 @@ module.exports = {
 Type: `String`
 Default: `'[hash:base64]'`
 
-You can configure the generated ident with the `localIdentName` query parameter.
+You can configure the generated ident with the `localIdentName` option.
 See [loader-utils's documentation](https://github.com/webpack/loader-utils#interpolatename) for more information on options.
 
 Recommendations:
@@ -807,13 +807,12 @@ module.exports = {
 };
 ```
 
-##### `context`
+##### `localIdentContext`
 
 Type: `String`
-Default: `undefined`
+Default: `compiler.context`
 
 Allow to redefine basic loader context for local ident name.
-By default we use `rootContext` of loader.
 
 **webpack.config.js**
 

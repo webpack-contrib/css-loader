@@ -99,7 +99,7 @@ describe('"modules" option', () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[name]--[local]--[hash:base64:5]',
-        context: path.resolve(__dirname),
+        localIdentContext: path.resolve(__dirname),
       },
     });
     const stats = await compile(compiler);
@@ -118,7 +118,7 @@ describe('"modules" option', () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[hash:base64:8]',
-        context: path.resolve(__dirname),
+        localIdentContext: path.resolve(__dirname),
       },
     });
     const stats = await compile(compiler);
@@ -137,7 +137,7 @@ describe('"modules" option', () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[path][name]__[local]',
-        context: path.resolve(__dirname),
+        localIdentContext: path.resolve(__dirname),
       },
     });
     const stats = await compile(compiler);
@@ -241,7 +241,7 @@ describe('"modules" option', () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentRegExp: 'regExp',
-        context: 'context',
+        localIdentContext: 'context',
         localIdentHashPrefix: 'hash',
         getLocalIdent(loaderContext, localIdentName, localName, options) {
           expect(loaderContext).toBeDefined();
@@ -275,7 +275,7 @@ describe('"modules" option', () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         getLocalIdent(loaderContext, localIdentName, localName, options) {
-          expect(options.context).toBeUndefined();
+          expect(options.context).toBeDefined();
 
           return 'foo';
         },
