@@ -65,6 +65,12 @@
             "localIdentName": {
               "type": "string"
             },
+            "context": {
+              "type": "string"
+            },
+            "localIdentHashPrefix": {
+              "type": "string"
+            },
             "localIdentRegExp": {
               "anyOf": [
                 {
@@ -72,6 +78,16 @@
                 },
                 {
                   "instanceof": "RegExp"
+                }
+              ]
+            },
+            "getLocalIdent": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "instanceof": "Function"
                 }
               ]
             },
@@ -83,22 +99,6 @@
                 "camelCaseOnly",
                 "dashes",
                 "dashesOnly"
-              ]
-            },
-            "context": {
-              "type": "string"
-            },
-            "hashPrefix": {
-              "type": "string"
-            },
-            "getLocalIdent": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "instanceof": "Function"
-                }
               ]
             },
             "namedExport": {

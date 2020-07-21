@@ -126,11 +126,11 @@ function getModulesOptions(rawOptions, loaderContext) {
     auto: true,
     mode: 'local',
     localIdentName: '[hash:base64]',
+    localIdentHashPrefix: '',
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
     localsConvention: 'asIs',
     getLocalIdent,
-    hashPrefix: '',
     exportGlobals: false,
     namedExport: false,
     exportOnlyLocals: false,
@@ -246,7 +246,7 @@ function getModulesPlugins(options, loaderContext) {
               exportName,
               {
                 context: options.modules.context,
-                hashPrefix: options.modules.hashPrefix,
+                hashPrefix: options.modules.localIdentHashPrefix,
                 regExp: options.modules.localIdentRegExp,
               }
             );
@@ -259,7 +259,7 @@ function getModulesPlugins(options, loaderContext) {
               exportName,
               {
                 context: options.modules.context,
-                hashPrefix: options.modules.hashPrefix,
+                hashPrefix: options.modules.localIdentHashPrefix,
                 regExp: options.modules.localIdentRegExp,
               }
             );

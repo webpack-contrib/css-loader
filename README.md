@@ -528,12 +528,13 @@ module.exports = {
         options: {
           modules: {
             mode: 'local',
+            auto: true,
             exportGlobals: true,
             localIdentName: '[path][name]__[local]--[hash:base64:5]',
-            localsConvention: 'camelCase',
             context: path.resolve(__dirname, 'src'),
-            hashPrefix: 'my-custom-hash',
+            localIdentHashPrefix: 'my-custom-hash',
             namedExport: true,
+            localsConvention: 'camelCase',
             exportOnlyLocals: false,
           },
         },
@@ -834,7 +835,7 @@ module.exports = {
 };
 ```
 
-##### `hashPrefix`
+##### `localIdentHashPrefix`
 
 Type: `String`
 Default: `undefined`
@@ -852,7 +853,7 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: {
-            hashPrefix: 'hash',
+            localIdentHashPrefix: 'hash',
           },
         },
       },
