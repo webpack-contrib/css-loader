@@ -52,13 +52,8 @@ const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
 const reRelativePath = /^\.+/;
 
 function getLocalIdent(loaderContext, localIdentName, localName, options) {
-  if (!options.context) {
-    // eslint-disable-next-line no-param-reassign
-    options.context = loaderContext.rootContext;
-  }
-
   const request = normalizePath(
-    path.relative(options.context || '', loaderContext.resourcePath)
+    path.relative(options.context, loaderContext.resourcePath)
   );
 
   // eslint-disable-next-line no-param-reassign
@@ -125,13 +120,14 @@ function getModulesOptions(rawOptions, loaderContext) {
   let modulesOptions = {
     auto: true,
     mode: 'local',
+    exportGlobals: false,
     localIdentName: '[hash:base64]',
+    localIdentContext: loaderContext.rootContext,
     localIdentHashPrefix: '',
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
-    localsConvention: 'asIs',
     getLocalIdent,
-    exportGlobals: false,
+    localsConvention: 'asIs',
     namedExport: false,
     exportOnlyLocals: false,
   };
@@ -245,7 +241,7 @@ function getModulesPlugins(options, loaderContext) {
               options.modules.localIdentName,
               exportName,
               {
-                context: options.modules.context,
+                context: options.modules.localIdentContext,
                 hashPrefix: options.modules.localIdentHashPrefix,
                 regExp: options.modules.localIdentRegExp,
               }
@@ -258,7 +254,7 @@ function getModulesPlugins(options, loaderContext) {
               options.modules.localIdentName,
               exportName,
               {
-                context: options.modules.context,
+                context: options.modules.localIdentContext,
                 hashPrefix: options.modules.localIdentHashPrefix,
                 regExp: options.modules.localIdentRegExp,
               }
