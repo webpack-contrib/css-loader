@@ -167,7 +167,7 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should emit warning when unresolved import', async () => {
+  it.only('should emit warning when unresolved import', async () => {
     const compiler = getCompiler('./import/unresolved.js');
     const stats = await compile(compiler);
 
