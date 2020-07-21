@@ -321,8 +321,11 @@ describe('loader', () => {
 
   it('issue #1033', async () => {
     const compiler = getCompiler('./modules/issue-1033/issue-1033.js', {
-      modules: { mode: 'local', localIdentName: '_[local]' },
-      onlyLocals: true,
+      modules: {
+        mode: 'local',
+        localIdentName: '_[local]',
+        exportOnlyLocals: true,
+      },
     });
     const stats = await compile(compiler);
 

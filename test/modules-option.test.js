@@ -954,4 +954,45 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should work and respect the "exportOnlyLocals" option', async () => {
+    const compiler = getCompiler('./modules/composes/composes.js', {
+      modules: {
+        mode: 'local',
+        localIdentName: '_[local]',
+        exportOnlyLocals: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/composes/composes.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work and respect the "exportOnlyLocals" option with the "esModule" option', async () => {
+    const compiler = getCompiler('./modules/composes/composes.js', {
+      modules: {
+        mode: 'local',
+        localIdentName: '_[local]',
+        exportOnlyLocals: true,
+      },
+      esModule: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/composes/composes.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });

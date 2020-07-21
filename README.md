@@ -116,7 +116,6 @@ module.exports = {
 |       **[`modules`](#modules)**       | `{Boolean\|String\|Object}` |      `false`       | Enables/Disables CSS Modules and their configuration                   |
 |     **[`sourceMap`](#sourcemap)**     |         `{Boolean}`         | `compiler.devtool` | Enables/Disables generation of source maps                             |
 | **[`importLoaders`](#importloaders)** |         `{Number}`          |        `0`         | Enables/Disables or setups number of loaders applied before CSS loader |
-|    **[`onlyLocals`](#onlylocals)**    |         `{Boolean}`         |      `false`       | Export only locals                                                     |
 |      **[`esModule`](#esmodule)**      |         `{Boolean}`         |      `false`       | Use ES modules syntax                                                  |
 
 ### `url`
@@ -535,6 +534,7 @@ module.exports = {
             context: path.resolve(__dirname, 'src'),
             hashPrefix: 'my-custom-hash',
             namedExport: true,
+            exportOnlyLocals: false,
           },
         },
       },
@@ -968,6 +968,37 @@ module.exports = {
 };
 ```
 
+### `exportOnlyLocals`
+
+Type: `Boolean`
+Default: `false`
+
+Export only locals.
+
+**Useful** when you use **css modules** for pre-rendering (for example SSR).
+For pre-rendering with `mini-css-extract-plugin` you should use this option instead of `style-loader!css-loader` **in the pre-rendering bundle**.
+It doesn't embed CSS but only exports the identifier mappings.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            exportOnlyLocals: true,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
 ### `sourceMap`
 
 Type: `Boolean`
@@ -1031,35 +1062,6 @@ module.exports = {
 ```
 
 This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
-
-### `onlyLocals`
-
-Type: `Boolean`
-Default: `false`
-
-Export only locals.
-
-**Useful** when you use **css modules** for pre-rendering (for example SSR).
-For pre-rendering with `mini-css-extract-plugin` you should use this option instead of `style-loader!css-loader` **in the pre-rendering bundle**.
-It doesn't embed CSS but only exports the identifier mappings.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: 'css-loader',
-        options: {
-          onlyLocals: true,
-        },
-      },
-    ],
-  },
-};
-```
 
 ### `esModule`
 

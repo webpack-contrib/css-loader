@@ -123,6 +123,7 @@ function getModulesOptions(rawOptions, loaderContext) {
     hashPrefix: '',
     exportGlobals: false,
     namedExport: false,
+    exportOnlyLocals: false,
   };
 
   if (
@@ -183,17 +184,13 @@ function normalizeOptions(rawOptions, loaderContext) {
         ? rawOptions.sourceMap
         : loaderContext.sourceMap,
     importLoaders: rawOptions.importLoaders,
-    onlyLocals:
-      typeof rawOptions.onlyLocals !== 'undefined'
-        ? rawOptions.onlyLocals
-        : false,
     esModule:
       typeof rawOptions.esModule === 'undefined' ? true : rawOptions.esModule,
   };
 }
 
 function shouldUseImportPlugin(options) {
-  if (options.onlyLocals) {
+  if (options.modules.exportOnlyLocals) {
     return false;
   }
 
@@ -205,7 +202,7 @@ function shouldUseImportPlugin(options) {
 }
 
 function shouldUseURLPlugin(options) {
-  if (options.onlyLocals) {
+  if (options.modules.exportOnlyLocals) {
     return false;
   }
 
@@ -326,7 +323,7 @@ function getPreRequester({ loaders, loaderIndex }) {
 function getImportCode(loaderContext, imports, options) {
   let code = '';
 
-  if (options.onlyLocals !== true) {
+  if (options.modules.exportOnlyLocals !== true) {
     const apiUrl = stringifyRequest(
       loaderContext,
       require.resolve('./runtime/api')
@@ -357,7 +354,7 @@ function getModuleCode(
   icssReplacements,
   options
 ) {
-  if (options.onlyLocals === true) {
+  if (options.modules.exportOnlyLocals === true) {
     return 'var ___CSS_LOADER_EXPORT___ = {};\n';
   }
 
