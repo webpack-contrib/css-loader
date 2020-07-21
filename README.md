@@ -284,7 +284,7 @@ module.exports = {
 ### `modules`
 
 Type: `Boolean|String|Object`
-Default: `false`
+Default: based on filename, `true` for all files matching `/\.module\.\w+$/i.test(filename)` regular expression, more information you can read [here](https://github.com/webpack-contrib/css-loader#auto)
 
 Enables/Disables CSS Modules and their configuration.
 
@@ -546,7 +546,7 @@ module.exports = {
 ##### `auto`
 
 Type: `Boolean|RegExp|Function`
-Default: `'undefined'`
+Default: `'true'`
 
 Allows auto enable css modules based on filename.
 
@@ -968,7 +968,7 @@ module.exports = {
 };
 ```
 
-### `exportOnlyLocals`
+##### `exportOnlyLocals`
 
 Type: `Boolean`
 Default: `false`
