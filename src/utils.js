@@ -104,16 +104,26 @@ function getFilter(filter, resourcePath) {
   };
 }
 
-function getModulesOptions(rawOptions, loaderContext) {
-  if (typeof rawOptions.modules === 'undefined') {
-    return false;
-  }
+const moduleRegExp = /\.module\.\w+$/i;
 
-  if (typeof rawOptions.modules === 'boolean' && rawOptions.modules === false) {
+function getModulesOptions(rawOptions, loaderContext) {
+  const { resourcePath } = loaderContext;
+
+  if (typeof rawOptions.modules === 'undefined') {
+    const isModules = moduleRegExp.test(resourcePath);
+
+    if (!isModules) {
+      return false;
+    }
+  } else if (
+    typeof rawOptions.modules === 'boolean' &&
+    rawOptions.modules === false
+  ) {
     return false;
   }
 
   let modulesOptions = {
+    auto: true,
     mode: 'local',
     localIdentName: '[hash:base64]',
     // eslint-disable-next-line no-undefined
@@ -133,30 +143,30 @@ function getModulesOptions(rawOptions, loaderContext) {
     modulesOptions.mode =
       typeof rawOptions.modules === 'string' ? rawOptions.modules : 'local';
   } else {
-    const { resourcePath } = loaderContext;
+    if (rawOptions.modules) {
+      if (typeof rawOptions.modules.auto === 'boolean') {
+        const isModules =
+          rawOptions.modules.auto && moduleRegExp.test(resourcePath);
 
-    if (typeof rawOptions.modules.auto === 'boolean') {
-      const isModules =
-        rawOptions.modules.auto && /\.module\.\w+$/i.test(resourcePath);
+        if (!isModules) {
+          return false;
+        }
+      } else if (rawOptions.modules.auto instanceof RegExp) {
+        const isModules = rawOptions.modules.auto.test(resourcePath);
 
-      if (!isModules) {
-        return false;
-      }
-    } else if (rawOptions.modules.auto instanceof RegExp) {
-      const isModules = rawOptions.modules.auto.test(resourcePath);
+        if (!isModules) {
+          return false;
+        }
+      } else if (typeof rawOptions.modules.auto === 'function') {
+        const isModule = rawOptions.modules.auto(resourcePath);
 
-      if (!isModules) {
-        return false;
-      }
-    } else if (typeof rawOptions.modules.auto === 'function') {
-      const isModule = rawOptions.modules.auto(resourcePath);
-
-      if (!isModule) {
-        return false;
+        if (!isModule) {
+          return false;
+        }
       }
     }
 
-    modulesOptions = { ...modulesOptions, ...rawOptions.modules };
+    modulesOptions = { ...modulesOptions, ...(rawOptions.modules || {}) };
   }
 
   if (typeof modulesOptions.mode === 'function') {
