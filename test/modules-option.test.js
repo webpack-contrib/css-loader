@@ -156,7 +156,7 @@ describe('"modules" option', () => {
     const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
       modules: {
         localIdentName: '[local]--[hash]',
-        hashPrefix: 'x',
+        localIdentHashPrefix: 'x',
       },
     });
     const stats = await compile(compiler);
@@ -242,7 +242,7 @@ describe('"modules" option', () => {
       modules: {
         localIdentRegExp: 'regExp',
         context: 'context',
-        hashPrefix: 'hash',
+        localIdentHashPrefix: 'hash',
         getLocalIdent(loaderContext, localIdentName, localName, options) {
           expect(loaderContext).toBeDefined();
           expect(typeof localIdentName).toBe('string');
