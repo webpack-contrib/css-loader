@@ -132,7 +132,7 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should resolve absolute path', async () => {
+  it.only('should resolve absolute path', async () => {
     // Create the file with absolute path
     const fileDirectory = path.resolve(__dirname, 'fixtures', 'import');
     const file = path.resolve(fileDirectory, 'import-absolute.css');
@@ -167,7 +167,7 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it.only('should emit warning when unresolved import', async () => {
+  it('should emit warning when unresolved import', async () => {
     const compiler = getCompiler('./import/unresolved.js');
     const stats = await compile(compiler);
 
