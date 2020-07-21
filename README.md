@@ -546,7 +546,7 @@ module.exports = {
 ##### `auto`
 
 Type: `Boolean|RegExp|Function`
-Default: `'undefined'`
+Default: `'true'`
 
 Allows auto enable css modules based on filename.
 
@@ -968,7 +968,7 @@ module.exports = {
 };
 ```
 
-### `exportOnlyLocals`
+##### `exportOnlyLocals`
 
 Type: `Boolean`
 Default: `false`
