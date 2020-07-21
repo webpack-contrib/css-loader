@@ -127,8 +127,8 @@ function getModulesOptions(rawOptions, loaderContext) {
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
     getLocalIdent,
-    localsConvention: 'asIs',
     namedExport: false,
+    exportLocalsConvention: 'asIs',
     exportOnlyLocals: false,
   };
 
@@ -440,7 +440,7 @@ function getExportCode(exports, icssReplacements, options) {
   };
 
   for (const { name, value } of exports) {
-    switch (options.modules.localsConvention) {
+    switch (options.modules.exportLocalsConvention) {
       case 'camelCase': {
         addExportToLocalsCode(name, value);
 

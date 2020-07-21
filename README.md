@@ -534,7 +534,7 @@ module.exports = {
             context: path.resolve(__dirname, 'src'),
             localIdentHashPrefix: 'my-custom-hash',
             namedExport: true,
-            localsConvention: 'camelCase',
+            exportLocalsConvention: 'camelCase',
             exportOnlyLocals: false,
           },
         },
@@ -758,55 +758,6 @@ module.exports = {
 };
 ```
 
-##### `localsConvention`
-
-Type: `String`
-Default: `'asIs'`
-
-Style of exported classnames.
-
-By default, the exported JSON keys mirror the class names (i.e `asIs` value).
-
-|         Name          |    Type    | Description                                                                                      |
-| :-------------------: | :--------: | :----------------------------------------------------------------------------------------------- |
-|     **`'asIs'`**      | `{String}` | Class names will be exported as is.                                                              |
-|   **`'camelCase'`**   | `{String}` | Class names will be camelized, the original class name will not to be removed from the locals    |
-| **`'camelCaseOnly'`** | `{String}` | Class names will be camelized, the original class name will be removed from the locals           |
-|    **`'dashes'`**     | `{String}` | Only dashes in class names will be camelized                                                     |
-|  **`'dashesOnly'`**   | `{String}` | Dashes in class names will be camelized, the original class name will be removed from the locals |
-
-**file.css**
-
-```css
-.class-name {
-}
-```
-
-**file.js**
-
-```js
-import { className } from 'file.css';
-```
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: 'css-loader',
-        options: {
-          mode: 'local',
-          localsConvention: 'camelCase',
-        },
-      },
-    ],
-  },
-};
-```
-
 ##### `localIdentContext`
 
 Type: `String`
@@ -861,6 +812,31 @@ module.exports = {
 };
 ```
 
+##### `localIdentRegExp`
+
+Type: `String|RegExp`
+Default: `undefined`
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            localIdentRegExp: /page-(.*)\.css/i,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
 ##### `getLocalIdent`
 
 Type: `Function`
@@ -883,31 +859,6 @@ module.exports = {
             getLocalIdent: (context, localIdentName, localName, options) => {
               return 'whatever_random_class_name';
             },
-          },
-        },
-      },
-    ],
-  },
-};
-```
-
-##### `localIdentRegExp`
-
-Type: `String|RegExp`
-Default: `undefined`
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: 'css-loader',
-        options: {
-          modules: {
-            localIdentRegExp: /page-(.*)\.css/i,
           },
         },
       },
@@ -961,6 +912,55 @@ module.exports = {
           modules: {
             namedExport: true,
           },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `exportlocalsConvention`
+
+Type: `String`
+Default: `'asIs'`
+
+Style of exported class names.
+
+By default, the exported JSON keys mirror the class names (i.e `asIs` value).
+
+|         Name          |    Type    | Description                                                                                      |
+| :-------------------: | :--------: | :----------------------------------------------------------------------------------------------- |
+|     **`'asIs'`**      | `{String}` | Class names will be exported as is.                                                              |
+|   **`'camelCase'`**   | `{String}` | Class names will be camelized, the original class name will not to be removed from the locals    |
+| **`'camelCaseOnly'`** | `{String}` | Class names will be camelized, the original class name will be removed from the locals           |
+|    **`'dashes'`**     | `{String}` | Only dashes in class names will be camelized                                                     |
+|  **`'dashesOnly'`**   | `{String}` | Dashes in class names will be camelized, the original class name will be removed from the locals |
+
+**file.css**
+
+```css
+.class-name {
+}
+```
+
+**file.js**
+
+```js
+import { className } from 'file.css';
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          mode: 'local',
+          localsConvention: 'camelCase',
         },
       },
     ],
