@@ -93,9 +93,9 @@ function requestify(url, rootContext) {
 }
 
 function getFilter(filter, resourcePath) {
-  return (item) => {
+  return (...args) => {
     if (typeof filter === 'function') {
-      return filter(item, resourcePath);
+      return filter(...args, resourcePath);
     }
 
     return true;

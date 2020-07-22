@@ -52,11 +52,17 @@ describe('"import" option', () => {
 
   it('should work when "Function"', async () => {
     const compiler = getCompiler('./import/import.js', {
-      import: (parsedImport, resourcePath) => {
-        expect(typeof resourcePath === 'string').toBe(true);
+      import: (url, media, resourcePath) => {
+        expect(url).toBeDefined();
+
+        if (url === 'test-nested-media.css') {
+          expect(media).toBeDefined();
+        }
+
+        expect(resourcePath).toBeDefined();
 
         // Don't handle `test.css`
-        if (parsedImport.url.includes('test.css')) {
+        if (url.includes('test.css')) {
           return false;
         }
 
