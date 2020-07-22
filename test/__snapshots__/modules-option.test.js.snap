@@ -1433,14 +1433,14 @@ a {
 
 exports[`"modules" option should support resolving in composes: warnings 1`] = `Array []`;
 
-exports[`"modules" option should throw error when unresolved import: errors 1`] = `
+exports[`"modules" option should throw an error on unresolved import: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: Can't resolve './//exammple.com/unresolved.css' in '/test/fixtures/modules/unresolved'",
+Error: Can't resolve './unresolved.css' in '/test/fixtures/modules/unresolved'",
 ]
 `;
 
-exports[`"modules" option should throw error when unresolved import: warnings 1`] = `Array []`;
+exports[`"modules" option should throw an error on unresolved import: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work and correctly replace escaped symbols: errors 1`] = `Array []`;
 
