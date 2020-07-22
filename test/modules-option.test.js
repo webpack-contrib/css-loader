@@ -1072,7 +1072,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
   });
 
   it('should throw an error when the "namedExport" is enabled and the "exportLocalsConvention" options has not "camelCaseOnly" value', async () => {
