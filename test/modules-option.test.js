@@ -1009,4 +1009,23 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it.skip('should escape classnames in the "getLocalIdent" option', async () => {
+    const compiler = getCompiler('./modules/getLocalIdent/source.js', {
+      modules: {
+        getLocalIdent: (ctx, localIdentName, localName) =>
+          `${localName}?*.hey#foo`,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/getLocalIdent/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });

@@ -46,9 +46,13 @@ function unescape(str) {
 }
 
 // eslint-disable-next-line no-control-regex
-const filenameReservedRegex = /[<>:"/\\|?*\x00-\x1F]/g;
+const filenameReservedRegex = /[<>:"/\\|?*]/g;
 // eslint-disable-next-line no-control-regex
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
+
+function escapeLocalIdentName(name) {
+  return cssesc(name, { isIdentifier: true });
+}
 
 function defaultGetLocalIdent(
   loaderContext,
@@ -65,14 +69,13 @@ function defaultGetLocalIdent(
 
   // Using `[path]` placeholder outputs `/` we need escape their
   // Also directories can contains invalid characters for css we need escape their too
-  return cssesc(
+  return escapeLocalIdentName(
     interpolateName(loaderContext, localIdentName, options)
       // For `[hash]` placeholder
       .replace(/^((-?[0-9])|--)/, '_$1')
       .replace(filenameReservedRegex, '-')
       .replace(reControlChars, '-')
-      .replace(/\./g, '-'),
-    { isIdentifier: true }
+      .replace(/\./g, '-')
   ).replace(/\\\[local\\]/gi, localName);
 }
 
