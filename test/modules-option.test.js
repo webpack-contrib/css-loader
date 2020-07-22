@@ -293,25 +293,6 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work when the "getLocalIdent" option returns "false"', async () => {
-    const compiler = getCompiler('./modules/localIdentName/localIdentName.js', {
-      modules: {
-        localIdentName: '[local]',
-        getLocalIdent: () => false,
-      },
-    });
-    const stats = await compile(compiler);
-
-    expect(
-      getModuleSource('./modules/localIdentName/localIdentName.css', stats)
-    ).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
-    );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
   it('should support resolving in composes', async () => {
     const compiler = getCompiler('./modules/composes/composes.js', {
       modules: true,
@@ -1003,6 +984,20 @@ describe('"modules" option', () => {
     expect(
       getModuleSource('./modules/composes/composes.css', stats)
     ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with an empty object value', async () => {
+    const compiler = getCompiler('./modules/pure/pure.js', { modules: {} });
+    const stats = await compile(compiler);
+
+    expect(getModuleSource('./modules/pure/pure.css', stats)).toMatchSnapshot(
+      'module'
+    );
     expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
       'result'
     );

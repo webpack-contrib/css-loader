@@ -24,7 +24,10 @@ describe('validate options', () => {
         { localIdentName: '[path][name]__[local]--[hash:base64:5]' },
         { localIdentContext: 'context' },
         { localIdentHashPrefix: 'hash' },
-        { getLocalIdent: () => {} },
+        {
+          getLocalIdent: (loaderContext, localIdentName, localName) =>
+            localName,
+        },
         { localIdentRegExp: 'page-(.*)\\.js' },
         { localIdentRegExp: /page-(.*)\.js/ },
         { exportGlobals: true },

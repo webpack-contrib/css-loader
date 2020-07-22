@@ -86,14 +86,7 @@
               ]
             },
             "getLocalIdent": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "instanceof": "Function"
-                }
-              ]
+              "instanceof": "Function"
             },
             "namedExport": {
               "description": "Use the named export ES modules.",

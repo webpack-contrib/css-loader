@@ -70,15 +70,7 @@ exports[`validate options should throw an error on the "modules" option with "{"
 
 exports[`validate options should throw an error on the "modules" option with "{"getLocalIdent":[]}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
- - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { auto?, mode?, exportGlobals?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
-   Details:
-    * options.modules.getLocalIdent should be one of these:
-      boolean | function
-      Details:
-       * options.modules.getLocalIdent should be a boolean.
-       * options.modules.getLocalIdent should be an instance of function."
+ - options.modules.getLocalIdent should be an instance of function."
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"localIdentContext":true}" value 1`] = `
