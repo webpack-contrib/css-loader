@@ -549,7 +549,7 @@ module.exports = {
 Type: `Boolean|RegExp|Function`
 Default: `'true'`
 
-Allows auto enable css modules based on filename.
+Allows auto enable CSS modules based on filename.
 
 ###### `Boolean`
 
@@ -694,39 +694,12 @@ module.exports = {
 };
 ```
 
-##### `exportGlobals`
-
-Type: `Boolean`
-Default: `false`
-
-Allow `css-loader` to export names from global class or id, so you can use that as local name.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: 'css-loader',
-        options: {
-          modules: {
-            exportGlobals: true,
-          },
-        },
-      },
-    ],
-  },
-};
-```
-
 ##### `localIdentName`
 
 Type: `String`
 Default: `'[hash:base64]'`
 
-You can configure the generated ident with the `localIdentName` option.
+Allows to configure the generated local ident name.
 See [loader-utils's documentation](https://github.com/webpack/loader-utils#interpolatename) for more information on options.
 
 Recommendations:
@@ -763,7 +736,7 @@ module.exports = {
 Type: `String`
 Default: `compiler.context`
 
-Allow to redefine basic loader context for local ident name.
+Allows to redefine basic loader context for local ident name.
 
 **webpack.config.js**
 
@@ -790,7 +763,7 @@ module.exports = {
 Type: `String`
 Default: `undefined`
 
-Allow to add custom hash to generate more unique classes.
+Allows to add custom hash to generate more unique classes.
 
 **webpack.config.js**
 
@@ -842,7 +815,7 @@ module.exports = {
 Type: `Function`
 Default: `undefined`
 
-You can also specify the absolute path to your custom `getLocalIdent` function to generate classname based on a different schema.
+Allows to specify a function to generate the classname.
 By default we use built-in function to generate a classname.
 
 **webpack.config.js**
@@ -872,8 +845,8 @@ module.exports = {
 Type: `Boolean`
 Default: `false`
 
-Enable/disable ES modules named export for css classes.
-Names of exported classes are converted to camelCase.
+Enables/disables ES modules named export for locals.
+Names of locals are converted to camelCase.
 
 > i It is not allowed to use JavaScript reserved words in css class names
 
@@ -911,6 +884,33 @@ module.exports = {
           esModule: true,
           modules: {
             namedExport: true,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `exportGlobals`
+
+Type: `Boolean`
+Default: `false`
+
+Allow `css-loader` to export names from global class or id, so you can use that as local name.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: {
+            exportGlobals: true,
           },
         },
       },
