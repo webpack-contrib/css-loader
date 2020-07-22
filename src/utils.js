@@ -50,32 +50,29 @@ const filenameReservedRegex = /[<>:"/\\|?*]/g;
 // eslint-disable-next-line no-control-regex
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
 
-function escapeLocalIdentName(name) {
-  return cssesc(name, { isIdentifier: true });
-}
-
 function defaultGetLocalIdent(
   loaderContext,
   localIdentName,
   localName,
   options
 ) {
-  const request = normalizePath(
-    path.relative(options.context, loaderContext.resourcePath)
-  );
+  const { context, hashPrefix } = options;
+  const { resourcePath } = loaderContext;
+  const request = normalizePath(path.relative(context, resourcePath));
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${options.hashPrefix + request}\x00${unescape(localName)}`;
+  options.content = `${hashPrefix + request}\x00${unescape(localName)}`;
 
   // Using `[path]` placeholder outputs `/` we need escape their
   // Also directories can contains invalid characters for css we need escape their too
-  return escapeLocalIdentName(
+  return cssesc(
     interpolateName(loaderContext, localIdentName, options)
       // For `[hash]` placeholder
       .replace(/^((-?[0-9])|--)/, '_$1')
       .replace(filenameReservedRegex, '-')
       .replace(reControlChars, '-')
-      .replace(/\./g, '-')
+      .replace(/\./g, '-'),
+    { isIdentifier: true }
   ).replace(/\\\[local\\]/gi, localName);
 }
 
@@ -248,35 +245,11 @@ function getModulesPlugins(options, loaderContext) {
       extractImports(),
       modulesScope({
         generateScopedName(exportName) {
-          let localIdent;
-
-          if (getLocalIdent) {
-            localIdent = getLocalIdent(
-              loaderContext,
-              localIdentName,
-              exportName,
-              {
-                context: localIdentContext,
-                hashPrefix: localIdentHashPrefix,
-                regExp: localIdentRegExp,
-              }
-            );
-          }
-
-          if (!localIdent) {
-            localIdent = defaultGetLocalIdent(
-              loaderContext,
-              options.modules.localIdentName,
-              exportName,
-              {
-                context: localIdentContext,
-                hashPrefix: localIdentHashPrefix,
-                regExp: localIdentRegExp,
-              }
-            );
-          }
-
-          return localIdent;
+          return getLocalIdent(loaderContext, localIdentName, exportName, {
+            context: localIdentContext,
+            hashPrefix: localIdentHashPrefix,
+            regExp: localIdentRegExp,
+          });
         },
         exportGlobals: options.modules.exportGlobals,
       }),

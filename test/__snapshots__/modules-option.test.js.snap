@@ -3603,193 +3603,6 @@ h1 #_14PgYX9AnCgTBatBghNmOB {
 
 exports[`"modules" option should work and support "pure" mode: warnings 1`] = `Array []`;
 
-exports[`"modules" option should work when the "getLocalIdent" option returns "false": errors 1`] = `Array []`;
-
-exports[`"modules" option should work when the "getLocalIdent" option returns "false": module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".test {\\\\n  background: red;\\\\n}\\\\n\\\\n._test {\\\\n  background: blue;\\\\n}\\\\n\\\\n.className {\\\\n  background: red;\\\\n}\\\\n\\\\n#someId {\\\\n  background: green;\\\\n}\\\\n\\\\n.className .subClass {\\\\n  color: green;\\\\n}\\\\n\\\\n#someId .subClass {\\\\n  color: blue;\\\\n}\\\\n\\\\n.-a0-34a___f {\\\\n  color: red;\\\\n}\\\\n\\\\n.m_x_\\\\\\\\@ {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n.B\\\\\\\\&W\\\\\\\\? {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {\\\\n  color: aqua;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#\\\\\\\\#fake-id {\\\\n  color: antiquewhite;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#-a-b-c- {\\\\n  color: azure;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"©\\\\\\" */\\\\n#© {\\\\n  color: black;\\\\n}\\\\n\\\\n.♥ { background: lime; }\\\\n.© { background: lime; }\\\\n.“‘’” { background: lime; }\\\\n.☺☃ { background: lime; }\\\\n.⌘⌥ { background: lime; }\\\\n.𝄞♪♩♫♬ { background: lime; }\\\\n.💩 { background: lime; }\\\\n.\\\\\\\\? { background: lime; }\\\\n.\\\\\\\\@ { background: lime; }\\\\n.\\\\\\\\. { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\) { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( { background: lime; }\\\\n.\\\\\\\\31 23 { background: lime; }\\\\n.\\\\\\\\31 a2b3c { background: lime; }\\\\n.\\\\\\\\<p\\\\\\\\> { background: lime; }\\\\n.\\\\\\\\<\\\\\\\\>\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\>\\\\\\\\>\\\\\\\\<\\\\\\\\> { background: lime; }\\\\n.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\[\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\-\\\\\\\\]\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\<\\\\\\\\<\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\. { background: lime; }\\\\n.\\\\\\\\# { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\# { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\.\\\\\\\\#\\\\\\\\.\\\\\\\\# { background: lime; }\\\\n.\\\\\\\\_ { background: lime; }\\\\n.\\\\\\\\{\\\\\\\\} { background: lime; }\\\\n.\\\\\\\\#fake\\\\\\\\-id { background: lime; }\\\\n.foo\\\\\\\\.bar { background: lime; }\\\\n.\\\\\\\\3A hover { background: lime; }\\\\n.\\\\\\\\3A hover\\\\\\\\3A focus\\\\\\\\3A active { background: lime; }\\\\n.\\\\\\\\[attr\\\\\\\\=value\\\\\\\\] { background: lime; }\\\\n.f\\\\\\\\/o\\\\\\\\/o { background: lime; }\\\\n.f\\\\\\\\\\\\\\\\o\\\\\\\\\\\\\\\\o { background: lime; }\\\\n.f\\\\\\\\*o\\\\\\\\*o { background: lime; }\\\\n.f\\\\\\\\!o\\\\\\\\!o { background: lime; }\\\\n.f\\\\\\\\'o\\\\\\\\'o { background: lime; }\\\\n.f\\\\\\\\~o\\\\\\\\~o { background: lime; }\\\\n.f\\\\\\\\+o\\\\\\\\+o { background: lime; }\\\\n\\\\n.foo\\\\\\\\/bar {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\/bar\\\\\\\\/baz {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar\\\\\\\\\\\\\\\\baz {\\\\n  background: hotpink;\\\\n}\\\\n\\", \\"\\"]);
-// Exports
-___CSS_LOADER_EXPORT___.locals = {
-	\\"123\\": \\"123\\",
-	\\"test\\": \\"test\\",
-	\\"_test\\": \\"_test\\",
-	\\"className\\": \\"className\\",
-	\\"someId\\": \\"someId\\",
-	\\"subClass\\": \\"subClass\\",
-	\\"-a0-34a___f\\": \\"-a0-34a___f\\",
-	\\"m_x_@\\": \\"m_x_@\\",
-	\\"B&W?\\": \\"B&W?\\",
-	\\":\`(\\": \\":\`(\\",
-	\\"1a2b3c\\": \\"1a2b3c\\",
-	\\"#fake-id\\": \\"#fake-id\\",
-	\\"-a-b-c-\\": \\"-a-b-c-\\",
-	\\"©\\": \\"©\\",
-	\\"♥\\": \\"♥\\",
-	\\"“‘’”\\": \\"“‘’”\\",
-	\\"☺☃\\": \\"☺☃\\",
-	\\"⌘⌥\\": \\"⌘⌥\\",
-	\\"𝄞♪♩♫♬\\": \\"𝄞♪♩♫♬\\",
-	\\"💩\\": \\"💩\\",
-	\\"?\\": \\"?\\",
-	\\"@\\": \\"@\\",
-	\\".\\": \\".\\",
-	\\":)\\": \\":)\\",
-	\\"<p>\\": \\"<p>\\",
-	\\"<><<<>><>\\": \\"<><<<>><>\\",
-	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\",
-	\\"#\\": \\"#\\",
-	\\"##\\": \\"##\\",
-	\\"#.#.#\\": \\"#.#.#\\",
-	\\"_\\": \\"_\\",
-	\\"{}\\": \\"{}\\",
-	\\"foo.bar\\": \\"foo.bar\\",
-	\\":hover\\": \\":hover\\",
-	\\":hover:focus:active\\": \\":hover:focus:active\\",
-	\\"[attr=value]\\": \\"[attr=value]\\",
-	\\"f/o/o\\": \\"f/o/o\\",
-	\\"f\\\\\\\\o\\\\\\\\o\\": \\"f\\\\\\\\o\\\\\\\\o\\",
-	\\"f*o*o\\": \\"f*o*o\\",
-	\\"f!o!o\\": \\"f!o!o\\",
-	\\"f'o'o\\": \\"f'o'o\\",
-	\\"f~o~o\\": \\"f~o~o\\",
-	\\"f+o+o\\": \\"f+o+o\\",
-	\\"foo/bar\\": \\"foo/bar\\",
-	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar\\",
-	\\"foo/bar/baz\\": \\"foo/bar/baz\\",
-	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz\\"
-};
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"modules" option should work when the "getLocalIdent" option returns "false": result 1`] = `
-Array [
-  Array [
-    "./modules/localIdentName/localIdentName.css",
-    ".test {
-  background: red;
-}
-
-._test {
-  background: blue;
-}
-
-.className {
-  background: red;
-}
-
-#someId {
-  background: green;
-}
-
-.className .subClass {
-  color: green;
-}
-
-#someId .subClass {
-  color: blue;
-}
-
-.-a0-34a___f {
-  color: red;
-}
-
-.m_x_\\\\@ {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.B\\\\&W\\\\? {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* matches elements with class=\\":\`(\\" */
-.\\\\3A \\\\\`\\\\( {
-  color: aqua;
-}
-
-/* matches elements with class=\\"1a2b3c\\" */
-.\\\\31 a2b3c {
-  color: aliceblue;
-}
-
-/* matches the element with id=\\"#fake-id\\" */
-#\\\\#fake-id {
-  color: antiquewhite;
-}
-
-/* matches the element with id=\\"-a-b-c-\\" */
-#-a-b-c- {
-  color: azure;
-}
-
-/* matches the element with id=\\"©\\" */
-#© {
-  color: black;
-}
-
-.♥ { background: lime; }
-.© { background: lime; }
-.“‘’” { background: lime; }
-.☺☃ { background: lime; }
-.⌘⌥ { background: lime; }
-.𝄞♪♩♫♬ { background: lime; }
-.💩 { background: lime; }
-.\\\\? { background: lime; }
-.\\\\@ { background: lime; }
-.\\\\. { background: lime; }
-.\\\\3A \\\\) { background: lime; }
-.\\\\3A \\\\\`\\\\( { background: lime; }
-.\\\\31 23 { background: lime; }
-.\\\\31 a2b3c { background: lime; }
-.\\\\<p\\\\> { background: lime; }
-.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\> { background: lime; }
-.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\. { background: lime; }
-.\\\\# { background: lime; }
-.\\\\#\\\\# { background: lime; }
-.\\\\#\\\\.\\\\#\\\\.\\\\# { background: lime; }
-.\\\\_ { background: lime; }
-.\\\\{\\\\} { background: lime; }
-.\\\\#fake\\\\-id { background: lime; }
-.foo\\\\.bar { background: lime; }
-.\\\\3A hover { background: lime; }
-.\\\\3A hover\\\\3A focus\\\\3A active { background: lime; }
-.\\\\[attr\\\\=value\\\\] { background: lime; }
-.f\\\\/o\\\\/o { background: lime; }
-.f\\\\\\\\o\\\\\\\\o { background: lime; }
-.f\\\\*o\\\\*o { background: lime; }
-.f\\\\!o\\\\!o { background: lime; }
-.f\\\\'o\\\\'o { background: lime; }
-.f\\\\~o\\\\~o { background: lime; }
-.f\\\\+o\\\\+o { background: lime; }
-
-.foo\\\\/bar {
-  background: hotpink;
-}
-
-.foo\\\\\\\\bar {
-  background: hotpink;
-}
-
-.foo\\\\/bar\\\\/baz {
-  background: hotpink;
-}
-
-.foo\\\\\\\\bar\\\\\\\\baz {
-  background: hotpink;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`"modules" option should work when the "getLocalIdent" option returns "false": warnings 1`] = `Array []`;
-
 exports[`"modules" option should work with a modules.auto Function that returns "false": errors 1`] = `Array []`;
 
 exports[`"modules" option should work with a modules.auto Function that returns "false": module 1`] = `
@@ -3907,6 +3720,87 @@ Array [
 `;
 
 exports[`"modules" option should work with a modules.auto RegExp that returns "true": warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with an empty object value: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with an empty object value: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._1u_NtoKhpaUNZX7yiJVIiY {\\\\n  color: red;\\\\n}\\\\n\\\\nh1 .UCShdZTu4s3n7oXJOhzrK {\\\\n  color: green;\\\\n}\\\\n\\\\n._3mfZHE9XqYBUx_E24Rn3UG h1 {\\\\n  color: blue;\\\\n}\\\\n\\\\n.CvML8FKPF660KwN3nSNSe h1 ._2Qqlcv7vRMswReW-DKC_IZ {\\\\n  color: red;\\\\n}\\\\n\\\\n#_2xp6Er0qRUlWxHQh1ROAc1 {\\\\n  color: red;\\\\n}\\\\n\\\\nh1 #_14PgYX9AnCgTBatBghNmOB {\\\\n  color: green;\\\\n}\\\\n\\\\n#_2SOsIDB25B_Yrw86eby8OG h1 {\\\\n  color: blue;\\\\n}\\\\n\\\\n#_1LkHG2nV0HloeZOXYEK8cH h1 #_e3BBhro5bf0ZsgUTOLnT {\\\\n  color: red;\\\\n}\\\\n\\\\n._39A31JnHJWqKuTZf-fX3Vt .bar .TGSef9fpByYTb8vhFGgJZ {\\\\n  color: white;\\\\n}\\\\n\\\\n._1KJPrddvuAKs2XObDlRWOx ._19kxTSs8JMPxGQiFY45wzD .ioThrUUaohmyS5xZAilPn {\\\\n  color: black;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"foo\\": \\"_1u_NtoKhpaUNZX7yiJVIiY\\",
+	\\"foo-1\\": \\"UCShdZTu4s3n7oXJOhzrK\\",
+	\\"foo-2\\": \\"_3mfZHE9XqYBUx_E24Rn3UG\\",
+	\\"foo-3\\": \\"CvML8FKPF660KwN3nSNSe\\",
+	\\"foo-4\\": \\"_2Qqlcv7vRMswReW-DKC_IZ\\",
+	\\"foo-5\\": \\"_2xp6Er0qRUlWxHQh1ROAc1\\",
+	\\"foo-6\\": \\"_14PgYX9AnCgTBatBghNmOB\\",
+	\\"foo-7\\": \\"_2SOsIDB25B_Yrw86eby8OG\\",
+	\\"foo-8\\": \\"_1LkHG2nV0HloeZOXYEK8cH\\",
+	\\"foo-9\\": \\"_e3BBhro5bf0ZsgUTOLnT\\",
+	\\"bar-1\\": \\"_39A31JnHJWqKuTZf-fX3Vt\\",
+	\\"bar-2\\": \\"TGSef9fpByYTb8vhFGgJZ\\",
+	\\"baz-3\\": \\"_1KJPrddvuAKs2XObDlRWOx\\",
+	\\"baz\\": \\"_19kxTSs8JMPxGQiFY45wzD\\",
+	\\"bar-4\\": \\"ioThrUUaohmyS5xZAilPn\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with an empty object value: result 1`] = `
+Array [
+  Array [
+    "./modules/pure/pure.css",
+    "._1u_NtoKhpaUNZX7yiJVIiY {
+  color: red;
+}
+
+h1 .UCShdZTu4s3n7oXJOhzrK {
+  color: green;
+}
+
+._3mfZHE9XqYBUx_E24Rn3UG h1 {
+  color: blue;
+}
+
+.CvML8FKPF660KwN3nSNSe h1 ._2Qqlcv7vRMswReW-DKC_IZ {
+  color: red;
+}
+
+#_2xp6Er0qRUlWxHQh1ROAc1 {
+  color: red;
+}
+
+h1 #_14PgYX9AnCgTBatBghNmOB {
+  color: green;
+}
+
+#_2SOsIDB25B_Yrw86eby8OG h1 {
+  color: blue;
+}
+
+#_1LkHG2nV0HloeZOXYEK8cH h1 #_e3BBhro5bf0ZsgUTOLnT {
+  color: red;
+}
+
+._39A31JnHJWqKuTZf-fX3Vt .bar .TGSef9fpByYTb8vhFGgJZ {
+  color: white;
+}
+
+._1KJPrddvuAKs2XObDlRWOx ._19kxTSs8JMPxGQiFY45wzD .ioThrUUaohmyS5xZAilPn {
+  color: black;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with an empty object value: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with case \`animation\` (\`modules\` value is \`false)\`: errors 1`] = `Array []`;
 
