@@ -140,7 +140,7 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
       media = valueParser.stringify(mediaNodes).trim().toLowerCase();
     }
 
-    if (options.filter && !options.filter({ url: normalizedUrl, media })) {
+    if (options.filter && !options.filter(normalizedUrl, media)) {
       // eslint-disable-next-line no-continue
       continue;
     }

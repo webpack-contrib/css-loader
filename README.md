@@ -262,13 +262,11 @@ module.exports = {
         test: /\.css$/i,
         loader: 'css-loader',
         options: {
-          import: (parsedImport, resourcePath) => {
-            // parsedImport.url - url of `@import`
-            // parsedImport.media - media query of `@import`
+          import: (url, media, resourcePath) => {
             // resourcePath - path to css file
 
             // Don't handle `style.css` import
-            if (parsedImport.url.includes('style.css')) {
+            if (url.includes('style.css')) {
               return false;
             }
 
