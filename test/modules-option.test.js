@@ -1004,4 +1004,101 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should work with the "namedExport" option', async () => {
+    const compiler = getCompiler('./modules/namedExport/base/index.js', {
+      modules: {
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/namedExport/base/index.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with the "namedExport" option with nested import', async () => {
+    const compiler = getCompiler('./modules/namedExport/nested/index.js', {
+      esModule: true,
+      modules: {
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/namedExport/nested/index.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work js template with "namedExport" option', async () => {
+    const compiler = getCompiler('./modules/namedExport/template/index.js', {
+      esModule: true,
+      modules: {
+        localIdentName: '[local]',
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/namedExport/template/index.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should throw an error when the "namedExport" option is "true", but the "esModule" is "false"', async () => {
+    const compiler = getCompiler('./modules/namedExport/base/index.js', {
+      esModule: false,
+      modules: {
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should throw an error when the "namedExport" is enabled and the "exportLocalsConvention" options has not "camelCaseOnly" value', async () => {
+    const compiler = getCompiler('./modules/namedExport/broken/index.js', {
+      esModule: true,
+      modules: {
+        namedExport: true,
+        exportLocalsConvention: 'dashes',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
+  });
+
+  it('should throw an error when class has unsupported name (JavaScript reserved words)', async () => {
+    const compiler = getCompiler('./modules/namedExport/broken/index.js', {
+      esModule: true,
+      modules: {
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
+  });
 });

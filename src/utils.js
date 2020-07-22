@@ -163,6 +163,13 @@ function getModulesOptions(rawOptions, loaderContext) {
           return false;
         }
       }
+
+      if (
+        rawOptions.modules.namedExport === true &&
+        typeof rawOptions.modules.exportLocalsConvention === 'undefined'
+      ) {
+        modulesOptions.exportLocalsConvention = 'camelCaseOnly';
+      }
     }
 
     modulesOptions = { ...modulesOptions, ...(rawOptions.modules || {}) };
@@ -172,12 +179,18 @@ function getModulesOptions(rawOptions, loaderContext) {
     modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
   }
 
-  if (modulesOptions.namedExport === true && rawOptions.esModule === false) {
-    loaderContext.emitError(
-      new Error(
-        '`Options.module.namedExport` cannot be used without `options.esModule`'
-      )
-    );
+  if (modulesOptions.namedExport === true) {
+    if (rawOptions.esModule === false) {
+      throw new Error(
+        'The "modules.namedExport" option requires the "esModules" option to be enabled'
+      );
+    }
+
+    if (modulesOptions.exportLocalsConvention !== 'camelCaseOnly') {
+      throw new Error(
+        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "camelCaseOnly"'
+      );
+    }
   }
 
   return modulesOptions;
@@ -411,19 +424,18 @@ function dashesCamelCase(str) {
 function getExportCode(exports, icssReplacements, options) {
   let code = '';
   let localsCode = '';
-  let namedCode = '';
 
   const addExportToLocalsCode = (name, value) => {
-    if (localsCode) {
-      localsCode += `,\n`;
-    }
-
-    localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
-
     if (options.modules.namedExport) {
-      namedCode += `export const ${camelCase(name)} = ${JSON.stringify(
+      localsCode += `export const ${camelCase(name)} = ${JSON.stringify(
         value
       )};\n`;
+    } else {
+      if (localsCode) {
+        localsCode += `,\n`;
+      }
+
+      localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
     }
   };
 
@@ -467,25 +479,18 @@ function getExportCode(exports, icssReplacements, options) {
   for (const replacement of icssReplacements) {
     const { replacementName, importName, localName } = replacement;
 
-    localsCode = localsCode.replace(
-      new RegExp(replacementName, 'g'),
-      () => `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
-    );
-
-    if (options.modules.namedExport) {
-      namedCode = namedCode.replace(
-        new RegExp(replacementName, 'g'),
-        () =>
-          `" + ${importName}_NAMED___[${JSON.stringify(
+    localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
+      options.modules.namedExport
+        ? `" + ${importName}_NAMED___[${JSON.stringify(
             camelCase(localName)
           )}] + "`
-      );
-    }
+        : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+    );
   }
 
   if (localsCode) {
-    code += namedCode
-      ? `${namedCode}\n`
+    code += options.modules.namedExport
+      ? `${localsCode}`
       : `___CSS_LOADER_EXPORT___.locals = {\n${localsCode}\n};\n`;
   }
 

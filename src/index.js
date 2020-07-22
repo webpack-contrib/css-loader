@@ -36,7 +36,17 @@ export default async function loader(content, map, meta) {
   });
 
   const plugins = [];
-  const options = normalizeOptions(rawOptions, this);
+  const callback = this.async();
+
+  let options;
+
+  try {
+    options = normalizeOptions(rawOptions, this);
+  } catch (error) {
+    callback(error);
+
+    return;
+  }
 
   if (shouldUseModulesPlugins(options)) {
     const icssResolver = this.getResolve({
@@ -116,8 +126,6 @@ export default async function loader(content, map, meta) {
       content = ast.root;
     }
   }
-
-  const callback = this.async();
 
   let result;
 
