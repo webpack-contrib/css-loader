@@ -1442,6 +1442,33 @@ Error: Can't resolve './unresolved.css' in '/test/fixtures/modules/unresolved'",
 
 exports[`"modules" option should throw an error on unresolved import: warnings 1`] = `Array []`;
 
+exports[`"modules" option should throw an error when class has unsupported name (JavaScript reserved words): errors 1`] = `
+Array [
+  "ModuleParseError: Module parse failed: Unexpected keyword 'class' (7:13)
+File was processed with these loaders:",
+]
+`;
+
+exports[`"modules" option should throw an error when class has unsupported name (JavaScript reserved words): warnings 1`] = `Array []`;
+
+exports[`"modules" option should throw an error when the "namedExport" is enabled and the "exportLocalsConvention" options has not "camelCaseOnly" value: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: The \\"modules.namedExport\\" option requires the \\"modules.exportLocalsConvention\\" option to be \\"camelCaseOnly\\"",
+]
+`;
+
+exports[`"modules" option should throw an error when the "namedExport" is enabled and the "exportLocalsConvention" options has not "camelCaseOnly" value: warnings 1`] = `Array []`;
+
+exports[`"modules" option should throw an error when the "namedExport" option is "true", but the "esModule" is "false": errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: The \\"modules.namedExport\\" option requires the \\"esModules\\" option to be enabled",
+]
+`;
+
+exports[`"modules" option should throw an error when the "namedExport" option is "true", but the "esModule" is "false": warnings 1`] = `Array []`;
+
 exports[`"modules" option should work and correctly replace escaped symbols: errors 1`] = `Array []`;
 
 exports[`"modules" option should work and correctly replace escaped symbols: module 1`] = `
@@ -3602,6 +3629,52 @@ h1 #_14PgYX9AnCgTBatBghNmOB {
 `;
 
 exports[`"modules" option should work and support "pure" mode: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work js template with "namedExport" option: errors 1`] = `Array []`;
+
+exports[`"modules" option should work js template with "namedExport" option: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".header-baz {\\\\n  color: red;\\\\n}\\\\n\\\\n.body {\\\\n  color: coral;\\\\n}\\\\n\\\\n.footer {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export const headerBaz = \\"header-baz\\";
+export const body = \\"body\\";
+export const footer = \\"footer\\";
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work js template with "namedExport" option: result 1`] = `
+Object {
+  "css": Array [
+    Array [
+      "./modules/namedExport/template/index.css",
+      ".header-baz {
+  color: red;
+}
+
+.body {
+  color: coral;
+}
+
+.footer {
+  color: blue;
+}
+",
+      "",
+    ],
+  ],
+  "html": "
+<div class=\\"header-baz\\">
+<div class=\\"body\\">
+<div class=\\"footer\\">
+",
+}
+`;
+
+exports[`"modules" option should work js template with "namedExport" option: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with a modules.auto Function that returns "false": errors 1`] = `Array []`;
 
@@ -11865,6 +11938,93 @@ Array [
 `;
 
 exports[`"modules" option should work with the "auto" when it is "true": warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with the "namedExport" option with nested import: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the "namedExport" option with nested import: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../src/index.js??[ident]!../../composes/values.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._10XHvKY7SkdmM8ZvRFtWzU {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n._1kluA9lYOATstWNhEJp14n {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) and (max-width: 1024px) {\\\\n  ._10XHvKY7SkdmM8ZvRFtWzU {\\\\n    color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export const vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
+export const vPrimary = \\"#BF4040\\";
+export const sBlack = \\"black-selector\\";
+export const mLarge = \\"(min-width: 960px)\\";
+export const header = \\"_10XHvKY7SkdmM8ZvRFtWzU\\";
+export const blackSelector = \\"_1kluA9lYOATstWNhEJp14n\\";
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with the "namedExport" option with nested import: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/values.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/namedExport/nested/index.css",
+    "._10XHvKY7SkdmM8ZvRFtWzU {
+  color: #BF4040;
+  padding: 0 10px;
+}
+
+._1kluA9lYOATstWNhEJp14n {
+  color: black;
+}
+
+@media (min-width: 960px) and (max-width: 1024px) {
+  ._10XHvKY7SkdmM8ZvRFtWzU {
+    color: red;
+    padding: 0 20px;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the "namedExport" option with nested import: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with the "namedExport" option: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the "namedExport" option: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._1DWrSJ4evr5bF-6Ojpv9nG {\\\\n  color: red;\\\\n}\\\\n\\\\n.bar {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export const barBaz = \\"_1DWrSJ4evr5bF-6Ojpv9nG\\";
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with the "namedExport" option: result 1`] = `
+Array [
+  Array [
+    "./modules/namedExport/base/index.css",
+    "._1DWrSJ4evr5bF-6Ojpv9nG {
+  color: red;
+}
+
+.bar {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the "namedExport" option: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`global\`): errors 1`] = `Array []`;
 
