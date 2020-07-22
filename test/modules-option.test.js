@@ -830,7 +830,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should throw error when unresolved import', async () => {
+  it('should throw an error on unresolved import', async () => {
     const compiler = getCompiler('./modules/unresolved/source.js', {
       modules: true,
     });

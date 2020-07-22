@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`"url" option should emit warning when unresolved import: errors 1`] = `
+exports[`"url" option should throw an error on unresolved import: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
 Error: Can't resolve 'unresolved.png' in '/test/fixtures/url'",
 ]
 `;
 
-exports[`"url" option should emit warning when unresolved import: warnings 1`] = `Array []`;
+exports[`"url" option should throw an error on unresolved import: warnings 1`] = `Array []`;
 
 exports[`"url" option should work when not specified: errors 1`] = `Array []`;
 

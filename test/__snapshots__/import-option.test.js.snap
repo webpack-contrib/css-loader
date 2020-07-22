@@ -1,14 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`"import" option should emit warning when unresolved import: errors 1`] = `
-Array [
-  "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: Can't resolve 'unresolved-file.css' in '/test/fixtures/import'",
-]
-`;
-
-exports[`"import" option should emit warning when unresolved import: warnings 1`] = `Array []`;
-
 exports[`"import" option should keep original order: errors 1`] = `Array []`;
 
 exports[`"import" option should keep original order: module 1`] = `
@@ -277,6 +268,15 @@ Array [
 `;
 
 exports[`"import" option should respect style field in package.json: warnings 1`] = `Array []`;
+
+exports[`"import" option should throw an error on unresolved import: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: Can't resolve 'unresolved-file.css' in '/test/fixtures/import'",
+]
+`;
+
+exports[`"import" option should throw an error on unresolved import: warnings 1`] = `Array []`;
 
 exports[`"import" option should work resolve order: local -> node_modules -> alias: errors 1`] = `Array []`;
 

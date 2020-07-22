@@ -67,7 +67,7 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should emit warning when unresolved import', async () => {
+  it('should throw an error on unresolved import', async () => {
     const compiler = getCompiler('./url/url-unresolved.js');
     const stats = await compile(compiler);
 
