@@ -233,15 +233,8 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
 
       result.messages.push({
         pluginName,
-        type: 'url-replacement',
-        value: {
-          replacementName,
-          importName,
-          hash,
-          needQuotes,
-          index,
-          order: 4,
-        },
+        type: 'replacement',
+        value: { type: 'url', replacementName, importName, hash, needQuotes },
       });
     }
 
