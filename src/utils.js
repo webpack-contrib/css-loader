@@ -354,13 +354,7 @@ function getImportCode(loaderContext, imports, options) {
   return code ? `// Imports\n${code}` : '';
 }
 
-function getModuleCode(
-  result,
-  apiImports,
-  icssReplacements,
-  urlReplacements,
-  options
-) {
+function getModuleCode(result, apiImports, replacements, options) {
   if (options.modules.exportOnlyLocals === true) {
     return 'var ___CSS_LOADER_EXPORT___ = {};\n';
   }
@@ -383,33 +377,35 @@ function getModuleCode(
           )}${media ? `, ${JSON.stringify(media)}` : ''}]);\n`;
   }
 
-  for (const item of urlReplacements) {
-    const { replacementName, importName, hash, needQuotes } = item;
+  for (const replacement of replacements) {
+    const { replacementName, importName, type } = replacement;
 
-    const getUrlOptions = []
-      .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
-      .concat(needQuotes ? 'needQuotes: true' : []);
-    const preparedOptions =
-      getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
+    if (type === 'url') {
+      const { hash, needQuotes } = replacement;
 
-    beforeCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
+      const getUrlOptions = []
+        .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
+        .concat(needQuotes ? 'needQuotes: true' : []);
+      const preparedOptions =
+        getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
 
-    code = code.replace(
-      new RegExp(replacementName, 'g'),
-      () => `" + ${replacementName} + "`
-    );
-  }
+      beforeCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
 
-  for (const replacement of icssReplacements) {
-    const { replacementName, importName, localName } = replacement;
+      code = code.replace(
+        new RegExp(replacementName, 'g'),
+        () => `" + ${replacementName} + "`
+      );
+    } else {
+      const { localName } = replacement;
 
-    code = code.replace(new RegExp(replacementName, 'g'), () =>
-      options.modules.namedExport
-        ? `" + ${importName}_NAMED___[${JSON.stringify(
-            camelCase(localName)
-          )}] + "`
-        : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
-    );
+      code = code.replace(new RegExp(replacementName, 'g'), () =>
+        options.modules.namedExport
+          ? `" + ${importName}_NAMED___[${JSON.stringify(
+              camelCase(localName)
+            )}] + "`
+          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+      );
+    }
   }
 
   return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
@@ -421,7 +417,7 @@ function dashesCamelCase(str) {
   );
 }
 
-function getExportCode(exports, icssReplacements, urlReplacements, options) {
+function getExportCode(exports, replacements, options) {
   let code = '';
   let localsCode = '';
 
@@ -476,25 +472,25 @@ function getExportCode(exports, icssReplacements, urlReplacements, options) {
     }
   }
 
-  for (const item of urlReplacements) {
-    const { replacementName } = item;
+  for (const replacement of replacements) {
+    const { replacementName, type } = replacement;
 
-    localsCode = localsCode.replace(
-      new RegExp(replacementName, 'g'),
-      () => `" + ${replacementName} + "`
-    );
-  }
+    if (type === 'url') {
+      localsCode = localsCode.replace(
+        new RegExp(replacementName, 'g'),
+        () => `" + ${replacementName} + "`
+      );
+    } else {
+      const { importName, localName } = replacement;
 
-  for (const replacement of icssReplacements) {
-    const { replacementName, importName, localName } = replacement;
-
-    localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
-      options.modules.namedExport
-        ? `" + ${importName}_NAMED___[${JSON.stringify(
-            camelCase(localName)
-          )}] + "`
-        : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
-    );
+      localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
+        options.modules.namedExport
+          ? `" + ${importName}_NAMED___[${JSON.stringify(
+              camelCase(localName)
+            )}] + "`
+          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+      );
+    }
   }
 
   if (localsCode) {

@@ -76,8 +76,8 @@ export default postcss.plugin(
         importReplacements[token] = replacementName;
 
         result.messages.push({
-          type: 'icss-replacement',
-          value: { replacementName, importName, localName },
+          type: 'replacement',
+          value: { type: 'icss', replacementName, importName, localName },
         });
       }
     }

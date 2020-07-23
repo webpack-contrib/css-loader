@@ -165,8 +165,7 @@ export default async function loader(content, map, meta) {
 
   const imports = [];
   const apiImports = [];
-  const urlReplacements = [];
-  const icssReplacements = [];
+  const replacements = [];
   const exports = [];
 
   for (const message of result.messages) {
@@ -178,11 +177,8 @@ export default async function loader(content, map, meta) {
       case 'api-import':
         apiImports.push(message.value);
         break;
-      case 'url-replacement':
-        urlReplacements.push(message.value);
-        break;
-      case 'icss-replacement':
-        icssReplacements.push(message.value);
+      case 'replacement':
+        replacements.push(message.value);
         break;
       case 'export':
         exports.push(message.value);
@@ -194,19 +190,8 @@ export default async function loader(content, map, meta) {
   apiImports.sort(sortImports);
 
   const importCode = getImportCode(this, imports, options);
-  const moduleCode = getModuleCode(
-    result,
-    apiImports,
-    icssReplacements,
-    urlReplacements,
-    options
-  );
-  const exportCode = getExportCode(
-    exports,
-    icssReplacements,
-    urlReplacements,
-    options
-  );
+  const moduleCode = getModuleCode(result, apiImports, replacements, options);
+  const exportCode = getExportCode(exports, replacements, options);
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);
 }
