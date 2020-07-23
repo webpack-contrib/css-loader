@@ -357,8 +357,8 @@ function getImportCode(loaderContext, imports, options) {
 function getModuleCode(
   result,
   apiImports,
-  urlReplacements,
   icssReplacements,
+  urlReplacements,
   options
 ) {
   if (options.modules.exportOnlyLocals === true) {
@@ -421,7 +421,7 @@ function dashesCamelCase(str) {
   );
 }
 
-function getExportCode(exports, icssReplacements, options) {
+function getExportCode(exports, icssReplacements, urlReplacements, options) {
   let code = '';
   let localsCode = '';
 
@@ -474,6 +474,15 @@ function getExportCode(exports, icssReplacements, options) {
         addExportToLocalsCode(name, value);
         break;
     }
+  }
+
+  for (const item of urlReplacements) {
+    const { replacementName } = item;
+
+    localsCode = localsCode.replace(
+      new RegExp(replacementName, 'g'),
+      () => `" + ${replacementName} + "`
+    );
   }
 
   for (const replacement of icssReplacements) {

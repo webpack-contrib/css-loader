@@ -1101,4 +1101,38 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats, true)).toMatchSnapshot('errors');
   });
+
+  it('should work with "url"', async () => {
+    const compiler = getCompiler('./modules/url/source.js', {
+      modules: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(getModuleSource('./modules/url/source.css', stats)).toMatchSnapshot(
+      'module'
+    );
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with "url" and "namedExport"', async () => {
+    const compiler = getCompiler('./modules/url/source.js', {
+      modules: {
+        namedExport: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getModuleSource('./modules/url/source.css', stats)).toMatchSnapshot(
+      'module'
+    );
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });

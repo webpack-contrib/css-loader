@@ -48,27 +48,10 @@ export default async function loader(content, map, meta) {
     return;
   }
 
-  if (shouldUseModulesPlugins(options)) {
-    const icssResolver = this.getResolve({
-      mainFields: ['css', 'style', 'main', '...'],
-      mainFiles: ['index', '...'],
-      extensions: [],
-      conditionNames: ['style'],
-    });
+  const needUseModulesPlugins = shouldUseModulesPlugins(options);
 
-    plugins.push(
-      ...getModulesPlugins(options, this),
-      icssParser({
-        context: this.context,
-        rootContext: this.rootContext,
-        resolver: icssResolver,
-        urlHandler: (url) =>
-          stringifyRequest(
-            this,
-            getPreRequester(this)(options.importLoaders) + url
-          ),
-      })
-    );
+  if (needUseModulesPlugins) {
+    plugins.push(...getModulesPlugins(options, this));
   }
 
   if (shouldUseImportPlugin(options)) {
@@ -109,6 +92,28 @@ export default async function loader(content, map, meta) {
         filter: getFilter(options.url, this.resourcePath),
         resolver: urlResolver,
         urlHandler: (url) => stringifyRequest(this, url),
+      })
+    );
+  }
+
+  if (needUseModulesPlugins) {
+    const icssResolver = this.getResolve({
+      mainFields: ['css', 'style', 'main', '...'],
+      mainFiles: ['index', '...'],
+      extensions: [],
+      conditionNames: ['style'],
+    });
+
+    plugins.push(
+      icssParser({
+        context: this.context,
+        rootContext: this.rootContext,
+        resolver: icssResolver,
+        urlHandler: (url) =>
+          stringifyRequest(
+            this,
+            getPreRequester(this)(options.importLoaders) + url
+          ),
       })
     );
   }
@@ -192,11 +197,16 @@ export default async function loader(content, map, meta) {
   const moduleCode = getModuleCode(
     result,
     apiImports,
-    urlReplacements,
     icssReplacements,
+    urlReplacements,
     options
   );
-  const exportCode = getExportCode(exports, icssReplacements, options);
+  const exportCode = getExportCode(
+    exports,
+    icssReplacements,
+    urlReplacements,
+    options
+  );
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);
 }
