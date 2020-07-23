@@ -20,14 +20,27 @@ export default postcss.plugin(
         continue;
       }
 
-      const request = requestify(normalizeUrl(url, true), options.rootContext);
+      let normalizedUrl = url;
+      let prefix = '';
+
+      const queryParts = normalizedUrl.split('!');
+
+      if (queryParts.length > 1) {
+        normalizedUrl = queryParts.pop();
+        prefix = queryParts.join('!');
+      }
+
+      const request = requestify(
+        normalizeUrl(normalizedUrl, true),
+        options.rootContext
+      );
       const doResolve = async () => {
         const { resolver, context } = options;
         const resolvedUrl = await resolveRequests(resolver, context, [
-          ...new Set([url, request]),
+          ...new Set([normalizedUrl, request]),
         ]);
 
-        return { url: resolvedUrl, tokens };
+        return { url: resolvedUrl, prefix, tokens };
       };
 
       tasks.push(doResolve());
@@ -36,9 +49,9 @@ export default postcss.plugin(
     const results = await Promise.all(tasks);
 
     for (let index = 0; index <= results.length - 1; index++) {
-      const { url, tokens } = results[index];
-
-      const importKey = url;
+      const { url, prefix, tokens } = results[index];
+      const newUrl = prefix ? `${prefix}!${url}` : url;
+      const importKey = newUrl;
       let importName = imports.get(importKey);
 
       if (!importName) {
@@ -50,7 +63,7 @@ export default postcss.plugin(
             type: 'import',
             value: {
               importName,
-              url: options.urlHandler(url),
+              url: options.urlHandler(newUrl),
               icss: true,
               order: 0,
               index,

@@ -154,3 +154,8 @@ a {
 .url {
   background: url(../../url/img.png);
 }
+
+.main {
+  composes: scssClass from 'sass-loader!./scss-file.scss';
+  background: red;
+}

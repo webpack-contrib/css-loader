@@ -3,6 +3,9 @@
 @value v-bar: white;
 @value v-baz: coral;
 
+$color: red;
+
 .scssClass {
+  color: $color;
   padding: 15px;
 }
