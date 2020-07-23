@@ -172,7 +172,7 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
     if (isRequestable) {
       const { prefix } = results[index];
       const newUrl = prefix ? `${prefix}!${url}` : url;
-      const importKey = prefix ? newUrl : url;
+      const importKey = newUrl;
       let importName = imports.get(importKey);
 
       if (!importName) {
