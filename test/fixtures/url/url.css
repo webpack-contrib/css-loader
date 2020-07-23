@@ -343,3 +343,7 @@ a {
   background: url("./img\'\28%29 img.png");
   background: url(./img\'\28%29\ img.png);
 }
+
+.qqq {
+  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')
+}
