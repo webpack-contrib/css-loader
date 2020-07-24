@@ -349,16 +349,15 @@ function getModuleCode(result, api, replacements, options) {
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${options.sourceMap});\n`;
 
   for (const item of api) {
-    const { type, media, dedupe } = item;
+    const { url, media, dedupe } = item;
 
-    beforeCode +=
-      type === 'internal'
-        ? `___CSS_LOADER_EXPORT___.i(${item.importName}${
-            media ? `, ${JSON.stringify(media)}` : dedupe ? ', ""' : ''
-          }${dedupe ? ', true' : ''});\n`
-        : `___CSS_LOADER_EXPORT___.push([module.id, ${JSON.stringify(
-            `@import url(${item.url});`
-          )}${media ? `, ${JSON.stringify(media)}` : ''}]);\n`;
+    beforeCode += url
+      ? `___CSS_LOADER_EXPORT___.push([module.id, ${JSON.stringify(
+          `@import url(${url});`
+        )}${media ? `, ${JSON.stringify(media)}` : ''}]);\n`
+      : `___CSS_LOADER_EXPORT___.i(${item.importName}${
+          media ? `, ${JSON.stringify(media)}` : dedupe ? ', ""' : ''
+        }${dedupe ? ', true' : ''});\n`;
   }
 
   for (const item of replacements) {

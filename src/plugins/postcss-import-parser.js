@@ -187,19 +187,13 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
         });
       }
 
-      options.api.push({
-        order: 1,
-        type: 'internal',
-        importName,
-        media,
-        index,
-      });
+      options.api.push({ order: 1, importName, media, index });
 
       // eslint-disable-next-line no-continue
       continue;
     }
 
-    options.api.push({ order: 1, type: 'external', url, media, index });
+    options.api.push({ order: 1, url, media, index });
   }
 
   return Promise.resolve();

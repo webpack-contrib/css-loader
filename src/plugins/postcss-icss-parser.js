@@ -66,13 +66,7 @@ export default postcss.plugin(
           index,
         });
 
-        options.api.push({
-          type: 'internal',
-          importName,
-          dedupe: true,
-          order: 0,
-          index,
-        });
+        options.api.push({ importName, dedupe: true, order: 0, index });
       }
 
       for (const [replacementIndex, token] of Object.keys(tokens).entries()) {
