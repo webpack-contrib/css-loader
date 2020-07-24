@@ -75,12 +75,7 @@ export default postcss.plugin(
 
         importReplacements[token] = replacementName;
 
-        options.replacements.push({
-          type: 'icss',
-          replacementName,
-          importName,
-          localName,
-        });
+        options.replacements.push({ replacementName, importName, localName });
       }
     }
 

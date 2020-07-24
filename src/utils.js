@@ -361,11 +361,18 @@ function getModuleCode(result, api, replacements, options) {
   }
 
   for (const item of replacements) {
-    const { replacementName, importName, type } = item;
+    const { replacementName, importName, localName } = item;
 
-    if (type === 'url') {
+    if (localName) {
+      code = code.replace(new RegExp(replacementName, 'g'), () =>
+        options.modules.namedExport
+          ? `" + ${importName}_NAMED___[${JSON.stringify(
+              camelCase(localName)
+            )}] + "`
+          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+      );
+    } else {
       const { hash, needQuotes } = item;
-
       const getUrlOptions = []
         .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
         .concat(needQuotes ? 'needQuotes: true' : []);
@@ -373,20 +380,9 @@ function getModuleCode(result, api, replacements, options) {
         getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
 
       beforeCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
-
       code = code.replace(
         new RegExp(replacementName, 'g'),
         () => `" + ${replacementName} + "`
-      );
-    } else {
-      const { localName } = item;
-
-      code = code.replace(new RegExp(replacementName, 'g'), () =>
-        options.modules.namedExport
-          ? `" + ${importName}_NAMED___[${JSON.stringify(
-              camelCase(localName)
-            )}] + "`
-          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
       );
     }
   }
@@ -456,15 +452,10 @@ function getExportCode(exports, replacements, options) {
   }
 
   for (const item of replacements) {
-    const { replacementName, type } = item;
+    const { replacementName, localName } = item;
 
-    if (type === 'url') {
-      localsCode = localsCode.replace(
-        new RegExp(replacementName, 'g'),
-        () => `" + ${replacementName} + "`
-      );
-    } else {
-      const { importName, localName } = item;
+    if (localName) {
+      const { importName } = item;
 
       localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
         options.modules.namedExport
@@ -472,6 +463,11 @@ function getExportCode(exports, replacements, options) {
               camelCase(localName)
             )}] + "`
           : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+      );
+    } else {
+      localsCode = localsCode.replace(
+        new RegExp(replacementName, 'g'),
+        () => `" + ${replacementName} + "`
       );
     }
   }

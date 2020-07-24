@@ -217,7 +217,6 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
       replacements.set(replacementKey, replacementName);
 
       options.replacements.push({
-        type: 'url',
         replacementName,
         importName,
         hash,
