@@ -61,11 +61,7 @@ function walkCss(css, result, options, callback) {
         };
 
         if (shouldHandleRule(rule, decl, result)) {
-          accumulator.push({
-            decl,
-            rule,
-            parsed,
-          });
+          accumulator.push({ decl, rule, parsed });
         }
 
         // Do not traverse inside `url`
@@ -91,11 +87,7 @@ function walkCss(css, result, options, callback) {
             };
 
             if (shouldHandleRule(rule, decl, result)) {
-              accumulator.push({
-                decl,
-                rule,
-                parsed,
-              });
+              accumulator.push({ decl, rule, parsed });
             }
           } else if (type === 'string') {
             const rule = {
@@ -106,11 +98,7 @@ function walkCss(css, result, options, callback) {
             };
 
             if (shouldHandleRule(rule, decl, result)) {
-              accumulator.push({
-                decl,
-                rule,
-                parsed,
-              });
+              accumulator.push({ decl, rule, parsed });
             }
           }
         }
@@ -166,15 +154,10 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
     }
 
     if (!hasUrlImportHelper) {
-      result.messages.push({
-        pluginName,
-        type: 'import',
-        value: {
-          order: 2,
-          importName: '___CSS_LOADER_GET_URL_IMPORT___',
-          url: options.urlHandler(require.resolve('../runtime/getUrl.js')),
-          index: 1,
-        },
+      options.imports.push({
+        importName: '___CSS_LOADER_GET_URL_IMPORT___',
+        url: options.urlHandler(require.resolve('../runtime/getUrl.js')),
+        index: -1,
       });
 
       hasUrlImportHelper = true;
@@ -216,10 +199,10 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
       importName = `___CSS_LOADER_URL_IMPORT_${imports.size}___`;
       imports.set(importKey, importName);
 
-      result.messages.push({
-        pluginName,
-        type: 'import',
-        value: { importName, url: options.urlHandler(newUrl), index, order: 3 },
+      options.imports.push({
+        importName,
+        url: options.urlHandler(newUrl),
+        index,
       });
     }
 
@@ -231,10 +214,11 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
       replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacements.size}___`;
       replacements.set(replacementKey, replacementName);
 
-      result.messages.push({
-        pluginName,
-        type: 'replacement',
-        value: { type: 'url', replacementName, importName, hash, needQuotes },
+      options.replacements.push({
+        replacementName,
+        importName,
+        hash,
+        needQuotes,
       });
     }
 

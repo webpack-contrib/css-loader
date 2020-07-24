@@ -24,7 +24,7 @@ import {
   getModuleCode,
   getModulesPlugins,
   normalizeSourceMap,
-  sortImports,
+  sort,
 } from './utils';
 
 export default async function loader(content, map, meta) {
@@ -48,11 +48,17 @@ export default async function loader(content, map, meta) {
     return;
   }
 
+  const replacements = [];
+  const exports = [];
+
   const needUseModulesPlugins = shouldUseModulesPlugins(options);
 
   if (needUseModulesPlugins) {
     plugins.push(...getModulesPlugins(options, this));
   }
+
+  const importPluginImports = [];
+  const importPluginApi = [];
 
   if (shouldUseImportPlugin(options)) {
     const resolver = this.getResolve({
@@ -65,6 +71,8 @@ export default async function loader(content, map, meta) {
 
     plugins.push(
       importParser({
+        imports: importPluginImports,
+        api: importPluginApi,
         context: this.context,
         rootContext: this.rootContext,
         filter: getFilter(options.import, this.resourcePath),
@@ -78,6 +86,8 @@ export default async function loader(content, map, meta) {
     );
   }
 
+  const urlPluginImports = [];
+
   if (shouldUseURLPlugin(options)) {
     const urlResolver = this.getResolve({
       mainFields: ['asset'],
@@ -87,6 +97,8 @@ export default async function loader(content, map, meta) {
 
     plugins.push(
       urlParser({
+        imports: urlPluginImports,
+        replacements,
         context: this.context,
         rootContext: this.rootContext,
         filter: getFilter(options.url, this.resourcePath),
@@ -95,6 +107,9 @@ export default async function loader(content, map, meta) {
       })
     );
   }
+
+  const icssPluginImports = [];
+  const icssPluginApi = [];
 
   if (needUseModulesPlugins) {
     const icssResolver = this.getResolve({
@@ -106,6 +121,10 @@ export default async function loader(content, map, meta) {
 
     plugins.push(
       icssParser({
+        imports: icssPluginImports,
+        api: icssPluginApi,
+        replacements,
+        exports,
         context: this.context,
         rootContext: this.rootContext,
         resolver: icssResolver,
@@ -163,34 +182,23 @@ export default async function loader(content, map, meta) {
     this.emitWarning(new Warning(warning));
   }
 
-  const imports = [];
-  const apiImports = [];
-  const replacements = [];
-  const exports = [];
+  const imports = []
+    .concat(icssPluginImports.sort(sort))
+    .concat(importPluginImports.sort(sort))
+    .concat(urlPluginImports.sort(sort));
+  const api = []
+    .concat(importPluginApi.sort(sort))
+    .concat(icssPluginApi.sort(sort));
 
-  for (const message of result.messages) {
-    // eslint-disable-next-line default-case
-    switch (message.type) {
-      case 'import':
-        imports.push(message.value);
-        break;
-      case 'api-import':
-        apiImports.push(message.value);
-        break;
-      case 'replacement':
-        replacements.push(message.value);
-        break;
-      case 'export':
-        exports.push(message.value);
-        break;
-    }
+  if (options.modules.exportOnlyLocals !== true) {
+    imports.unshift({
+      importName: '___CSS_LOADER_API_IMPORT___',
+      url: stringifyRequest(this, require.resolve('./runtime/api')),
+    });
   }
 
-  imports.sort(sortImports);
-  apiImports.sort(sortImports);
-
-  const importCode = getImportCode(this, imports, options);
-  const moduleCode = getModuleCode(result, apiImports, replacements, options);
+  const importCode = getImportCode(imports, options);
+  const moduleCode = getModuleCode(result, api, replacements, options);
   const exportCode = getExportCode(exports, replacements, options);
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);

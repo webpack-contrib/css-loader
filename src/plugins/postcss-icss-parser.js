@@ -5,7 +5,7 @@ import { normalizeUrl, resolveRequests, requestify } from '../utils';
 
 export default postcss.plugin(
   'postcss-icss-parser',
-  (options) => async (css, result) => {
+  (options) => async (css) => {
     const importReplacements = Object.create(null);
     const { icssImports, icssExports } = extractICSS(css);
     const imports = new Map();
@@ -58,28 +58,14 @@ export default postcss.plugin(
         importName = `___CSS_LOADER_ICSS_IMPORT_${imports.size}___`;
         imports.set(importKey, importName);
 
-        result.messages.push(
-          {
-            type: 'import',
-            value: {
-              importName,
-              url: options.urlHandler(newUrl),
-              icss: true,
-              order: 0,
-              index,
-            },
-          },
-          {
-            type: 'api-import',
-            value: {
-              type: 'internal',
-              importName,
-              dedupe: true,
-              order: 0,
-              index,
-            },
-          }
-        );
+        options.imports.push({
+          importName,
+          url: options.urlHandler(newUrl),
+          icss: true,
+          index,
+        });
+
+        options.api.push({ importName, dedupe: true, index });
       }
 
       for (const [replacementIndex, token] of Object.keys(tokens).entries()) {
@@ -88,10 +74,7 @@ export default postcss.plugin(
 
         importReplacements[token] = replacementName;
 
-        result.messages.push({
-          type: 'replacement',
-          value: { type: 'icss', replacementName, importName, localName },
-        });
+        options.replacements.push({ replacementName, importName, localName });
       }
     }
 
@@ -102,7 +85,7 @@ export default postcss.plugin(
     for (const name of Object.keys(icssExports)) {
       const value = replaceValueSymbols(icssExports[name], importReplacements);
 
-      result.messages.push({ type: 'export', value: { name, value } });
+      options.exports.push({ name, value });
     }
   }
 );
