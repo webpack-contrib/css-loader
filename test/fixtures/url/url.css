@@ -347,3 +347,25 @@ a {
 .qqq {
   background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')
 }
+
+.class {
+  /* Should be one import */
+  background: url('./something.png');
+  background: url('./something.png');
+
+  background: url('./something.png?foo=bar');
+  background: url('./something.png?foo=bar');
+
+  background: url('./something.png?foo=bar#hash');
+  background: url('./something.png?foo=bar#hash');
+
+  /* Should be two imports */
+  background: url('./something.png?foo=bar');
+  background: url('./something.png?bar=foo');
+
+  background: url('./something.png?foo=bar#foo');
+  background: url('./something.png?bar=foo#bar');
+
+  background: url('./something.png?foo=1&bar=2');
+  background: url('./something.png?foo=2&bar=1');
+}
