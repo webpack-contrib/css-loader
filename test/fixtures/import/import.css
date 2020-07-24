@@ -113,3 +113,33 @@ st.css');
 @import url(test.css?#hash);
 @import "test.css" supports(display: flex);
 @import "test.css" supports(display: flex) screen and (orientation:landscape);
+
+/* Should be one import and two css modules */
+
+@import url('something.css');
+@import url('something.css');
+
+/* Should be one import and two css modules */
+
+@import url('something.css?foo=bar');
+@import url('something.css?foo=bar');
+
+/* Should be one import and two css modules */
+
+@import url('something.css?foo=bar#hash');
+@import url('something.css?foo=bar#hash');
+
+/* Should be two import and two css modules */
+
+@import url('something.css?foo=bar');
+@import url('something.css?bar=foo');
+
+/* Should be two import and two css modules */
+
+@import url('something.css?foo=bar#one');
+@import url('something.css?foo=bar#two');
+
+/* Should be two import and two css modules */
+
+@import url('something.css?foo=1&bar=2');
+@import url('something.css?foo=2&bar=1');
