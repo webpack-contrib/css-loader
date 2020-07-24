@@ -179,31 +179,27 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
         importName = `___CSS_LOADER_AT_RULE_IMPORT_${imports.size}___`;
         imports.set(importKey, importName);
 
-        result.messages.push({
-          type: 'import',
-          value: {
-            order: 1,
-            importName,
-            url: options.urlHandler(newUrl),
-            index,
-          },
+        options.imports.push({
+          order: 1,
+          importName,
+          url: options.urlHandler(newUrl),
+          index,
         });
       }
 
-      result.messages.push({
-        type: 'api-import',
-        value: { order: 1, type: 'internal', importName, media, index },
+      options.api.push({
+        order: 1,
+        type: 'internal',
+        importName,
+        media,
+        index,
       });
 
       // eslint-disable-next-line no-continue
       continue;
     }
 
-    result.messages.push({
-      pluginName,
-      type: 'api-import',
-      value: { order: 1, type: 'external', url, media, index },
-    });
+    options.api.push({ order: 1, type: 'external', url, media, index });
   }
 
   return Promise.resolve();

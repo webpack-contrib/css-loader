@@ -48,6 +48,11 @@ export default async function loader(content, map, meta) {
     return;
   }
 
+  const imports = [];
+  const api = [];
+  const replacements = [];
+  const exports = [];
+
   const needUseModulesPlugins = shouldUseModulesPlugins(options);
 
   if (needUseModulesPlugins) {
@@ -65,6 +70,8 @@ export default async function loader(content, map, meta) {
 
     plugins.push(
       importParser({
+        imports,
+        api,
         context: this.context,
         rootContext: this.rootContext,
         filter: getFilter(options.import, this.resourcePath),
@@ -87,6 +94,10 @@ export default async function loader(content, map, meta) {
 
     plugins.push(
       urlParser({
+        imports,
+        api,
+        replacements,
+        exports,
         context: this.context,
         rootContext: this.rootContext,
         filter: getFilter(options.url, this.resourcePath),
@@ -106,6 +117,10 @@ export default async function loader(content, map, meta) {
 
     plugins.push(
       icssParser({
+        imports,
+        api,
+        replacements,
+        exports,
         context: this.context,
         rootContext: this.rootContext,
         resolver: icssResolver,
@@ -163,31 +178,8 @@ export default async function loader(content, map, meta) {
     this.emitWarning(new Warning(warning));
   }
 
-  const imports = [];
-  const apiImports = [];
-  const replacements = [];
-  const exports = [];
-
-  for (const message of result.messages) {
-    // eslint-disable-next-line default-case
-    switch (message.type) {
-      case 'import':
-        imports.push(message.value);
-        break;
-      case 'api-import':
-        apiImports.push(message.value);
-        break;
-      case 'replacement':
-        replacements.push(message.value);
-        break;
-      case 'export':
-        exports.push(message.value);
-        break;
-    }
-  }
-
   imports.sort(sortImports);
-  apiImports.sort(sortImports);
+  api.sort(sortImports);
 
   if (options.modules.exportOnlyLocals !== true) {
     imports.unshift({
@@ -197,7 +189,7 @@ export default async function loader(content, map, meta) {
   }
 
   const importCode = getImportCode(imports, options);
-  const moduleCode = getModuleCode(result, apiImports, replacements, options);
+  const moduleCode = getModuleCode(result, api, replacements, options);
   const exportCode = getExportCode(exports, replacements, options);
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);

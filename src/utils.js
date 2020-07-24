@@ -338,7 +338,7 @@ function getImportCode(imports, options) {
   return code ? `// Imports\n${code}` : '';
 }
 
-function getModuleCode(result, apiImports, replacements, options) {
+function getModuleCode(result, api, replacements, options) {
   if (options.modules.exportOnlyLocals === true) {
     return 'var ___CSS_LOADER_EXPORT___ = {};\n';
   }
@@ -348,7 +348,7 @@ function getModuleCode(result, apiImports, replacements, options) {
   let code = JSON.stringify(css);
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${options.sourceMap});\n`;
 
-  for (const item of apiImports) {
+  for (const item of api) {
     const { type, media, dedupe } = item;
 
     beforeCode +=
