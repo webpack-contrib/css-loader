@@ -111,3 +111,5 @@ st.css');
 @import url(test.css?foo=bar);
 @import url(test.css?foo=bar#hash);
 @import url(test.css?#hash);
+@import "test.css" supports(display: flex);
+@import "test.css" supports(display: flex) screen and (orientation:landscape);
