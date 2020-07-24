@@ -4,12 +4,7 @@
 */
 import path from 'path';
 
-import {
-  stringifyRequest,
-  urlToRequest,
-  interpolateName,
-  isUrlRequest,
-} from 'loader-utils';
+import { urlToRequest, interpolateName, isUrlRequest } from 'loader-utils';
 import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
 import modulesValues from 'postcss-modules-values';
@@ -327,19 +322,8 @@ function getPreRequester({ loaders, loaderIndex }) {
   };
 }
 
-function getImportCode(loaderContext, imports, options) {
+function getImportCode(imports, options) {
   let code = '';
-
-  if (options.modules.exportOnlyLocals !== true) {
-    const apiUrl = stringifyRequest(
-      loaderContext,
-      require.resolve('./runtime/api')
-    );
-
-    code += options.esModule
-      ? `import ___CSS_LOADER_API_IMPORT___ from ${apiUrl};\n`
-      : `var ___CSS_LOADER_API_IMPORT___ = require(${apiUrl});\n`;
-  }
 
   for (const item of imports) {
     const { importName, url, icss } = item;
@@ -377,11 +361,11 @@ function getModuleCode(result, apiImports, replacements, options) {
           )}${media ? `, ${JSON.stringify(media)}` : ''}]);\n`;
   }
 
-  for (const replacement of replacements) {
-    const { replacementName, importName, type } = replacement;
+  for (const item of replacements) {
+    const { replacementName, importName, type } = item;
 
     if (type === 'url') {
-      const { hash, needQuotes } = replacement;
+      const { hash, needQuotes } = item;
 
       const getUrlOptions = []
         .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
@@ -396,7 +380,7 @@ function getModuleCode(result, apiImports, replacements, options) {
         () => `" + ${replacementName} + "`
       );
     } else {
-      const { localName } = replacement;
+      const { localName } = item;
 
       code = code.replace(new RegExp(replacementName, 'g'), () =>
         options.modules.namedExport
@@ -472,8 +456,8 @@ function getExportCode(exports, replacements, options) {
     }
   }
 
-  for (const replacement of replacements) {
-    const { replacementName, type } = replacement;
+  for (const item of replacements) {
+    const { replacementName, type } = item;
 
     if (type === 'url') {
       localsCode = localsCode.replace(
@@ -481,7 +465,7 @@ function getExportCode(exports, replacements, options) {
         () => `" + ${replacementName} + "`
       );
     } else {
-      const { importName, localName } = replacement;
+      const { importName, localName } = item;
 
       localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
         options.modules.namedExport

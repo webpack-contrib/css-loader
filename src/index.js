@@ -189,7 +189,14 @@ export default async function loader(content, map, meta) {
   imports.sort(sortImports);
   apiImports.sort(sortImports);
 
-  const importCode = getImportCode(this, imports, options);
+  if (options.modules.exportOnlyLocals !== true) {
+    imports.unshift({
+      importName: '___CSS_LOADER_API_IMPORT___',
+      url: stringifyRequest(this, require.resolve('./runtime/api')),
+    });
+  }
+
+  const importCode = getImportCode(imports, options);
   const moduleCode = getModuleCode(result, apiImports, replacements, options);
   const exportCode = getExportCode(exports, replacements, options);
 
