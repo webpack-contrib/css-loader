@@ -524,11 +524,8 @@ function isUrlRequestable(url) {
   return isUrlRequest(url);
 }
 
-function sortImports(a, b) {
-  return (
-    (b.order < a.order) - (a.order < b.order) ||
-    (b.index < a.index) - (a.index < b.index)
-  );
+function sort(a, b) {
+  return a.index - b.index;
 }
 
 export {
@@ -548,5 +545,5 @@ export {
   getExportCode,
   resolveRequests,
   isUrlRequestable,
-  sortImports,
+  sort,
 };

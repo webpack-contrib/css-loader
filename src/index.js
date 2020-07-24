@@ -24,7 +24,7 @@ import {
   getModuleCode,
   getModulesPlugins,
   normalizeSourceMap,
-  sortImports,
+  sort,
 } from './utils';
 
 export default async function loader(content, map, meta) {
@@ -48,8 +48,6 @@ export default async function loader(content, map, meta) {
     return;
   }
 
-  const imports = [];
-  const api = [];
   const replacements = [];
   const exports = [];
 
@@ -58,6 +56,9 @@ export default async function loader(content, map, meta) {
   if (needUseModulesPlugins) {
     plugins.push(...getModulesPlugins(options, this));
   }
+
+  const importPluginImports = [];
+  const importPluginApi = [];
 
   if (shouldUseImportPlugin(options)) {
     const resolver = this.getResolve({
@@ -70,8 +71,8 @@ export default async function loader(content, map, meta) {
 
     plugins.push(
       importParser({
-        imports,
-        api,
+        imports: importPluginImports,
+        api: importPluginApi,
         context: this.context,
         rootContext: this.rootContext,
         filter: getFilter(options.import, this.resourcePath),
@@ -85,6 +86,8 @@ export default async function loader(content, map, meta) {
     );
   }
 
+  const urlPluginImports = [];
+
   if (shouldUseURLPlugin(options)) {
     const urlResolver = this.getResolve({
       mainFields: ['asset'],
@@ -94,10 +97,8 @@ export default async function loader(content, map, meta) {
 
     plugins.push(
       urlParser({
-        imports,
-        api,
+        imports: urlPluginImports,
         replacements,
-        exports,
         context: this.context,
         rootContext: this.rootContext,
         filter: getFilter(options.url, this.resourcePath),
@@ -106,6 +107,9 @@ export default async function loader(content, map, meta) {
       })
     );
   }
+
+  const icssPluginImports = [];
+  const icssPluginApi = [];
 
   if (needUseModulesPlugins) {
     const icssResolver = this.getResolve({
@@ -117,8 +121,8 @@ export default async function loader(content, map, meta) {
 
     plugins.push(
       icssParser({
-        imports,
-        api,
+        imports: icssPluginImports,
+        api: icssPluginApi,
         replacements,
         exports,
         context: this.context,
@@ -178,8 +182,13 @@ export default async function loader(content, map, meta) {
     this.emitWarning(new Warning(warning));
   }
 
-  imports.sort(sortImports);
-  api.sort(sortImports);
+  const imports = []
+    .concat(icssPluginImports.sort(sort))
+    .concat(importPluginImports.sort(sort))
+    .concat(urlPluginImports.sort(sort));
+  const api = []
+    .concat(importPluginApi.sort(sort))
+    .concat(icssPluginApi.sort(sort));
 
   if (options.modules.exportOnlyLocals !== true) {
     imports.unshift({

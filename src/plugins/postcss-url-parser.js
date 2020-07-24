@@ -155,10 +155,9 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
 
     if (!hasUrlImportHelper) {
       options.imports.push({
-        order: 2,
         importName: '___CSS_LOADER_GET_URL_IMPORT___',
         url: options.urlHandler(require.resolve('../runtime/getUrl.js')),
-        index: 1,
+        index: -1,
       });
 
       hasUrlImportHelper = true;
@@ -204,7 +203,6 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
         importName,
         url: options.urlHandler(newUrl),
         index,
-        order: 3,
       });
     }
 

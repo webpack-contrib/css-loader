@@ -62,11 +62,10 @@ export default postcss.plugin(
           importName,
           url: options.urlHandler(newUrl),
           icss: true,
-          order: 0,
           index,
         });
 
-        options.api.push({ importName, dedupe: true, order: 0, index });
+        options.api.push({ importName, dedupe: true, index });
       }
 
       for (const [replacementIndex, token] of Object.keys(tokens).entries()) {

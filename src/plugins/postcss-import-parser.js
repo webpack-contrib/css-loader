@@ -180,20 +180,19 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
         imports.set(importKey, importName);
 
         options.imports.push({
-          order: 1,
           importName,
           url: options.urlHandler(newUrl),
           index,
         });
       }
 
-      options.api.push({ order: 1, importName, media, index });
+      options.api.push({ importName, media, index });
 
       // eslint-disable-next-line no-continue
       continue;
     }
 
-    options.api.push({ order: 1, url, media, index });
+    options.api.push({ url, media, index });
   }
 
   return Promise.resolve();
