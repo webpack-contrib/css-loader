@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/webpack-contrib/css-loader/compare/v3.6.0...v4.0.0) (2020-07-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimum required `Node.js` version is `10.13.0`
+* minimum required `webpack` version is `4.27.0`
+* the `esModule` option is `true` by default
+* default value of the `sourceMap` option depends on the `devtool` option
+* `icss` plugin disable by default, you need to setup the `modules` option to enable it
+* the `modules` option is `true` by default for all files matching `/\.module\.\w+$/i.test(filename)` regular expression, `module.auto` is `true` by default
+* the `modules.context` option was renamed to the `modules.localIdentContext` option
+* default the `modules.localIdentContext` value is `compiler.context` for the `module.getLocalIdent` option
+* the `modules.hashPrefix` option was renamed to the `modules.localIdentHashPrefix` option
+* the `localsConvention` option was moved and renamed to the `modules.exportLocalsConvention` option
+* the `getLocalIndent` option should be always `Function` and should always return `String` value
+* the `onlyLocals` option was moved and renamed to the `modules.exportOnlyLocals` option
+* function arguments of the `import` option were changed, it is now `funciton(url, media, resourcePath) {}`
+* inline syntax was changed, please write `~` before the file request, i.e. rewrite `url(~!!loader!package/img.png)` to `url(!!loader!~package/img.png)`
+
+
+### Features
+
+* `@value` supports importing `url()` ([#1126](https://github.com/webpack-contrib/css-loader/issues/1126)) ([7f49a0a](https://github.com/webpack-contrib/css-loader/commit/7f49a0a6047846bb2e432558365e19d4a0dfb366))
+* improve `url()` resolving algorithm ([bc19ddd](https://github.com/webpack-contrib/css-loader/commit/bc19ddd8779dafbc2a420870a3cb841041ce9c7c))
+* named export for locals ([#1108](https://github.com/webpack-contrib/css-loader/issues/1108)) ([d139ec1](https://github.com/webpack-contrib/css-loader/commit/d139ec1d763f9944550b31f2a75183e488dd1224))
+* respected the `style` field from package.json ([#1099](https://github.com/webpack-contrib/css-loader/issues/1099)) ([edf5347](https://github.com/webpack-contrib/css-loader/commit/edf5347e4203a62e50b87248a83da198afdc6eba))
+* support `file:` protocol ([5604205](https://github.com/webpack-contrib/css-loader/commit/560420567eb0e1a635648b7f4ff0365db475384c))
+* support server relative URLs
+
+### Bug Fixes
+
+* resolution algorithm, you don't need `~` inside packages in `node_modules` ([76f1480](https://github.com/webpack-contrib/css-loader/commit/76f1480b14265369ac5dc8dbbce467cfb8e814c5))
+
+
 ## [3.6.0](https://github.com/webpack-contrib/css-loader/compare/v3.5.3...v3.6.0) (2020-06-13)
 
 
