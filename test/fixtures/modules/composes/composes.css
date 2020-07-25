@@ -159,3 +159,8 @@ a {
   composes: scssClass from 'sass-loader!./scss-file.scss';
   background: red;
 }
+
+.other-class {
+  color: yellow;
+  composes: imported-relative from 'file:/composes-directory/relative.css';
+}

@@ -1198,7 +1198,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_7___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._3dxIylSbTBEe450DFBxy5D {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._2Zsff12VKF2NbAGVE1sdzC {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.OX01CBO1Ma7xJh6yAybXq {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._3dxIylSbTBEe450DFBxy5D {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._2Zsff12VKF2NbAGVE1sdzC {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.OX01CBO1Ma7xJh6yAybXq {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\\\n._3N7iO6kKi-CfAKc4FQRWYI {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
@@ -1246,7 +1246,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"header\\": \\"_2Yk-wvfy8t_ESEwwB1Fc0y\\",
 	\\"foobarbaz\\": \\"_2PhbElc8FsODw7KMuxWJyk\\",
 	\\"url\\": \\"_1qvhWcgsRpzv9-_jaooxI0\\",
-	\\"main\\": \\"_1-QX-dLNLF1zFn-cPfLHcH \\" + ___CSS_LOADER_ICSS_IMPORT_7___.locals[\\"scssClass\\"] + \\"\\"
+	\\"main\\": \\"_1-QX-dLNLF1zFn-cPfLHcH \\" + ___CSS_LOADER_ICSS_IMPORT_7___.locals[\\"scssClass\\"] + \\"\\",
+	\\"other-class\\": \\"_3N7iO6kKi-CfAKc4FQRWYI \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"imported-relative\\"] + \\"\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -1442,6 +1443,10 @@ a {
 
 ._1-QX-dLNLF1zFn-cPfLHcH {
   background: red;
+}
+
+._3N7iO6kKi-CfAKc4FQRWYI {
+  color: yellow;
 }
 ",
     "",
@@ -2295,7 +2300,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"header\\": \\"_header\\",
 	\\"foobarbaz\\": \\"_foobarbaz\\",
 	\\"url\\": \\"_url\\",
-	\\"main\\": \\"_main \\" + ___CSS_LOADER_ICSS_IMPORT_7___.locals[\\"scssClass\\"] + \\"\\"
+	\\"main\\": \\"_main \\" + ___CSS_LOADER_ICSS_IMPORT_7___.locals[\\"scssClass\\"] + \\"\\",
+	\\"other-class\\": \\"_other-class \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"imported-relative\\"] + \\"\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -2318,6 +2324,7 @@ Object {
     "main": "_main _scssClass",
     "module": "_module _imported-module",
     "other": "_other",
+    "other-class": "_other-class _imported-relative",
     "other-other": "_other-other",
     "primary-selector": "_primary-selector",
     "relative": "_relative _imported-relative",
@@ -2416,7 +2423,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"header\\": \\"_header\\",
 	\\"foobarbaz\\": \\"_foobarbaz\\",
 	\\"url\\": \\"_url\\",
-	\\"main\\": \\"_main \\" + ___CSS_LOADER_ICSS_IMPORT_7___.locals[\\"scssClass\\"] + \\"\\"
+	\\"main\\": \\"_main \\" + ___CSS_LOADER_ICSS_IMPORT_7___.locals[\\"scssClass\\"] + \\"\\",
+	\\"other-class\\": \\"_other-class \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"imported-relative\\"] + \\"\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -2439,6 +2447,7 @@ Object {
     "main": "_main _scssClass",
     "module": "_module _imported-module",
     "other": "_other",
+    "other-class": "_other-class _imported-relative",
     "other-other": "_other-other",
     "primary-selector": "_primary-selector",
     "relative": "_relative _imported-relative",

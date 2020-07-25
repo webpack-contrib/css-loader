@@ -2,6 +2,7 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
+import { fileURLToPath } from 'url';
 import path from 'path';
 
 import { urlToRequest, interpolateName, isUrlRequest } from 'loader-utils';
@@ -82,6 +83,10 @@ function normalizeUrl(url, isStringValue) {
 }
 
 function requestify(url, rootContext) {
+  if (/^file:/i.test(url)) {
+    return fileURLToPath(url);
+  }
+
   return mayBeServerRelativeUrl(url)
     ? urlToRequest(url, rootContext)
     : urlToRequest(url);
@@ -518,6 +523,10 @@ function isUrlRequestable(url) {
   }
 
   if (mayBeServerRelativeUrl(url)) {
+    return true;
+  }
+
+  if (/^file:/i.test(url)) {
     return true;
   }
 
