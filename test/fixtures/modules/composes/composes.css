@@ -162,5 +162,5 @@ a {
 
 .other-class {
   color: yellow;
-  composes: imported-relative from 'file:/composes-directory/relative.css';
+  composes: imported-relative from 'file:/composes-relative.css';
 }

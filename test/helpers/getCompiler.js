@@ -35,16 +35,11 @@ export default (fixture, loaderOptions = {}, config = {}) => {
     },
     resolve: {
       alias: {
-        'file:/url-directory': path.resolve(__dirname, '../fixtures/url'),
-        'file:///url-directory': path.resolve(__dirname, '../fixtures/url'),
-        'file:/import-directory': path.resolve(__dirname, '../fixtures/import'),
-        'file:///import-directory': path.resolve(
+        '/my-img$': path.resolve(__dirname, '../fixtures/url/img.png'),
+        '/my-test.css': path.resolve(__dirname, '../fixtures/import/test.css'),
+        '/composes-relative.css': path.resolve(
           __dirname,
-          '../fixtures/import'
-        ),
-        'file:/composes-directory': path.resolve(
-          __dirname,
-          '../fixtures/modules/composes'
+          '../fixtures/modules/composes/relative.css'
         ),
         aliasesPackage: path.resolve(
           __dirname,
