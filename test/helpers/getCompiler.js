@@ -36,8 +36,14 @@ export default (fixture, loaderOptions = {}, config = {}) => {
     resolve: {
       alias: {
         '/url-directory': path.resolve(__dirname, '../fixtures/url'),
+        '\\url-directory': path.resolve(__dirname, '../fixtures/url'),
         '/import-directory': path.resolve(__dirname, '../fixtures/import'),
+        '\\import-directory': path.resolve(__dirname, '../fixtures/import'),
         '/composes-directory': path.resolve(
+          __dirname,
+          '../fixtures/modules/composes'
+        ),
+        '\\composes-directory': path.resolve(
           __dirname,
           '../fixtures/modules/composes'
         ),
