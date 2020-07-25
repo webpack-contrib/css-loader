@@ -370,7 +370,7 @@ a {
   background: url('./something.png?foo=2&bar=1');
 }
 
-.file-protocol{
+.file-protocol {
   background: url('file:/url-directory/img.png');
   background: url('file:///url-directory/img.png');
   background: url('file:///url-directory/img img.png');
