@@ -50,7 +50,7 @@
     "normalize-path": "^3.0.0",
     "postcss": "^7.0.32",
     "postcss-modules-extract-imports": "^2.0.0",
-    "postcss-modules-local-by-default": "^3.0.2",
+    "postcss-modules-local-by-default": "^3.0.3",
     "postcss-modules-scope": "^2.2.0",
     "postcss-modules-values": "^3.0.0",
     "postcss-value-parser": "^4.1.0",
@@ -70,7 +70,7 @@
     "del": "^5.1.0",
     "del-cli": "^3.0.1",
     "es-check": "^5.1.0",
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "file-loader": "^6.0.0",
@@ -89,7 +89,7 @@
     "strip-ansi": "^6.0.0",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
-    "webpack": "^4.43.0"
+    "webpack": "^4.44.0"
   },
   "keywords": [
     "webpack",
