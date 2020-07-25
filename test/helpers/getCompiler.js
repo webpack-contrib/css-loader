@@ -35,12 +35,6 @@ export default (fixture, loaderOptions = {}, config = {}) => {
     },
     resolve: {
       alias: {
-        '/my-img$': path.resolve(__dirname, '../fixtures/url/img.png'),
-        '/my-test.css': path.resolve(__dirname, '../fixtures/import/test.css'),
-        '/composes-relative.css': path.resolve(
-          __dirname,
-          '../fixtures/modules/composes/relative.css'
-        ),
         aliasesPackage: path.resolve(
           __dirname,
           '../fixtures/import/node_modules/package/tilde.css'
