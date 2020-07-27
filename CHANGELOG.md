@@ -19,7 +19,7 @@ All notable changes to this project will be documented in this file. See [standa
 * the `localsConvention` option was moved and renamed to the `modules.exportLocalsConvention` option
 * the `getLocalIndent` option should be always `Function` and should always return `String` value
 * the `onlyLocals` option was moved and renamed to the `modules.exportOnlyLocals` option
-* function arguments of the `import` option were changed, it is now `funciton(url, media, resourcePath) {}`
+* function arguments of the `import` option were changed, it is now `function(url, media, resourcePath) {}`
 * inline syntax was changed, please write `~` before the file request, i.e. rewrite `url(~!!loader!package/img.png)` to `url(!!loader!~package/img.png)`
 
 
