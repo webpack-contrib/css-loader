@@ -17,7 +17,8 @@ describe('ICSS', () => {
   testCases.forEach((name) => {
     it(`show work with the case "${name}"`, async () => {
       const compiler = getCompiler(`./icss/tests-cases/${name}/source.js`, {
-        modules: 'global',
+        modules: false,
+        icss: true,
       });
       const stats = await compile(compiler);
 
