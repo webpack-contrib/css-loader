@@ -73,30 +73,14 @@ function defaultGetLocalIdent(
 }
 
 function normalizeUrl(url, isStringValue) {
-  // eslint-disable-next-line no-console
-  console.log(url);
-
-  if (isStringValue && /\\[\n]/.test(url)) {
-    url = url.replace(/\\[\n]/g, '');
-  }
-
-  // eslint-disable-next-line no-console
-  console.log(url);
-  // eslint-disable-next-line no-console
-  console.log(unescape(url));
-  // eslint-disable-next-line no-console
-  console.log(decodeURIComponent(url));
-  // eslint-disable-next-line no-console
-  console.log(decodeURIComponent(unescape(url)));
-
-  if (matchNativeWin32Path.test(url)) {
-    return url;
-  }
-
   let normalizedUrl = url;
 
   if (isStringValue && /\\[\n]/.test(normalizedUrl)) {
     normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
+  }
+
+  if (matchNativeWin32Path.test(url)) {
+    return decodeURIComponent(url);
   }
 
   return decodeURIComponent(unescape(normalizedUrl));
