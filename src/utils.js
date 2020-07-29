@@ -73,6 +73,10 @@ function defaultGetLocalIdent(
 }
 
 function normalizeUrl(url, isStringValue) {
+  if (matchNativeWin32Path.test(url)) {
+    return url;
+  }
+
   let normalizedUrl = url;
 
   if (isStringValue && /\\[\n]/.test(normalizedUrl)) {
