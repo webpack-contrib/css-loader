@@ -89,8 +89,6 @@ describe('"url" option', () => {
 }
 `;
 
-    console.log(code);
-
     fs.writeFileSync(file, code);
 
     const compiler = getCompiler('./url/url-absolute.js');
