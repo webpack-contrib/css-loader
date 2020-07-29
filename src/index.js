@@ -62,11 +62,11 @@ export default async function loader(content, map, meta) {
 
   if (shouldUseImportPlugin(options)) {
     const resolver = this.getResolve({
+      conditionNames: ['style'],
+      extensions: ['.css'],
       mainFields: ['css', 'style', 'main', '...'],
       mainFiles: ['index', '...'],
-      extensions: ['.css'],
       restrictions: [/\.css$/i],
-      conditionNames: ['style'],
     });
 
     plugins.push(
@@ -90,8 +90,9 @@ export default async function loader(content, map, meta) {
 
   if (shouldUseURLPlugin(options)) {
     const urlResolver = this.getResolve({
-      mainFields: ['asset'],
       conditionNames: ['asset'],
+      mainFields: ['asset'],
+      mainFiles: [],
       extensions: [],
     });
 
@@ -113,10 +114,10 @@ export default async function loader(content, map, meta) {
 
   if (needUseModulesPlugins || options.icss) {
     const icssResolver = this.getResolve({
+      conditionNames: ['style'],
+      extensions: [],
       mainFields: ['css', 'style', 'main', '...'],
       mainFiles: ['index', '...'],
-      extensions: [],
-      conditionNames: ['style'],
     });
 
     plugins.push(
