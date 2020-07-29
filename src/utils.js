@@ -197,10 +197,12 @@ function getModulesOptions(rawOptions, loaderContext) {
 }
 
 function normalizeOptions(rawOptions, loaderContext) {
+  const modulesOptions = getModulesOptions(rawOptions, loaderContext);
   return {
     url: typeof rawOptions.url === 'undefined' ? true : rawOptions.url,
     import: typeof rawOptions.import === 'undefined' ? true : rawOptions.import,
-    modules: getModulesOptions(rawOptions, loaderContext),
+    modules: modulesOptions,
+    icss: modulesOptions ? true : rawOptions.icss,
     sourceMap:
       typeof rawOptions.sourceMap === 'boolean'
         ? rawOptions.sourceMap

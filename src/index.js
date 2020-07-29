@@ -111,7 +111,7 @@ export default async function loader(content, map, meta) {
   const icssPluginImports = [];
   const icssPluginApi = [];
 
-  if (needUseModulesPlugins) {
+  if (needUseModulesPlugins || options.icss) {
     const icssResolver = this.getResolve({
       mainFields: ['css', 'style', 'main', '...'],
       mainFiles: ['index', '...'],
