@@ -309,6 +309,37 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it('should resolve absolute path in composes', async () => {
+    // Create the file with absolute path
+    const fileDirectory = path.resolve(
+      __dirname,
+      'fixtures',
+      'modules',
+      'composes'
+    );
+    const file = path.resolve(fileDirectory, 'composes-absolute.css');
+    const absolutePath = path.resolve(fileDirectory, 'imported-simple.css');
+
+    fs.writeFileSync(
+      file,
+      `.simple { color: red; composes: imported-simple from '${absolutePath}'; }`
+    );
+
+    const compiler = getCompiler('./modules/composes/composes-absolute.js', {
+      modules: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/composes/composes-absolute.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
   it('should support resolving in composes preprocessor files with extensions', async () => {
     const compiler = getCompiler(
       './modules/composes/composes-preprocessors.js',

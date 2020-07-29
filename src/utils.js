@@ -73,6 +73,10 @@ function defaultGetLocalIdent(
 }
 
 function normalizeUrl(url, isStringValue) {
+  if (matchNativeWin32Path.test(url)) {
+    return url;
+  }
+
   let normalizedUrl = url;
 
   if (isStringValue && /\\[\n]/.test(normalizedUrl)) {
@@ -509,11 +513,6 @@ async function resolveRequests(resolve, context, possibleRequests) {
 }
 
 function isUrlRequestable(url) {
-  // Windows absolute paths
-  if (matchNativeWin32Path.test(url)) {
-    return false;
-  }
-
   // Protocol-relative URLs
   if (/^\/\//.test(url)) {
     return false;
@@ -525,7 +524,7 @@ function isUrlRequestable(url) {
   }
 
   // Absolute URLs
-  if (/^[a-z][a-z0-9+.-]*:/i.test(url)) {
+  if (/^[a-z][a-z0-9+.-]*:/i.test(url) && !matchNativeWin32Path.test(url)) {
     return false;
   }
 

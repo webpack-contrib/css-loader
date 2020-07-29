@@ -8,6 +8,9 @@ npm-debug.log*
 /local
 /reports
 /node_modules
+/test/fixtures/import/import-absolute.css
+/test/fixtures/url/url-absolute.css
+/test/fixtures/modules/composes/composes-absolute.css
 
 .DS_Store
 Thumbs.db

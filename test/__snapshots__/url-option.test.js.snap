@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"url" option should resolve absolute path: errors 1`] = `Array []`;
+
+exports[`"url" option should resolve absolute path: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
+import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n.background {background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"); }\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"url" option should resolve absolute path: result 1`] = `
+Array [
+  Array [
+    "./url/url-absolute.css",
+    "
+.background {background: url(/webpack/public/path/img.png); }",
+    "",
+  ],
+]
+`;
+
+exports[`"url" option should resolve absolute path: warnings 1`] = `Array []`;
+
 exports[`"url" option should throw an error on unresolved import: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
