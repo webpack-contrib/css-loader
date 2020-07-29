@@ -28,6 +28,10 @@ function shouldHandleRule(rule, decl, result) {
     return false;
   }
 
+  if (!isUrlRequestable(rule.url)) {
+    return false;
+  }
+
   return true;
 }
 
@@ -142,11 +146,6 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
     }
 
     normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
-
-    if (!isUrlRequestable(normalizedUrl)) {
-      // eslint-disable-next-line no-continue
-      continue;
-    }
 
     if (!options.filter(normalizedUrl)) {
       // eslint-disable-next-line no-continue
