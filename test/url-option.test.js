@@ -84,9 +84,9 @@ describe('"url" option', () => {
   background: url(${absolutePath.replace(/e/g, '%65')});
 }
 
-.background-other {
+/*.background-other {
   background: url('${absolutePath.replace(/e/g, '\\\ne')}');
-}
+}*/
 `;
 
     fs.writeFileSync(file, code);
