@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/webpack-contrib/css-loader/compare/v4.0.0...v4.1.0) (2020-07-29)
+
+
+### Features
+
+* add `icss` option ([#1140](https://github.com/webpack-contrib/css-loader/issues/1140)) ([a8ec7da](https://github.com/webpack-contrib/css-loader/commit/a8ec7da42234e0b2eb061d2a920669940bcbdf05))
+* support absolute paths ([f9ba0ce](https://github.com/webpack-contrib/css-loader/commit/f9ba0ce11789770c4c9220478e9c98dbd432a5d6))
+
+
+### Bug Fixes
+
+* do not crash with `data` URLs ([#1142](https://github.com/webpack-contrib/css-loader/issues/1142)) ([91bc64b](https://github.com/webpack-contrib/css-loader/commit/91bc64b81abfeffd174639a8fdf2366412c11426))
+* performance ([#1144](https://github.com/webpack-contrib/css-loader/issues/1144)) ([4f1baa2](https://github.com/webpack-contrib/css-loader/commit/4f1baa211eb27b0b281ba9f262fa12e8aaefc0ba))
+
 ## [4.0.0](https://github.com/webpack-contrib/css-loader/compare/v3.6.0...v4.0.0) (2020-07-25)
 
 
