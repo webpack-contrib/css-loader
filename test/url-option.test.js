@@ -75,8 +75,10 @@ describe('"url" option', () => {
     const fileDirectory = path.resolve(__dirname, 'fixtures', 'url');
     const file = path.resolve(fileDirectory, 'url-absolute.css');
     const absolutePath = path.resolve(fileDirectory, 'img.png');
-
-    const code = `\n.background {background: url(${absolutePath}); }`;
+    const code = `\n.background { background: url(${absolutePath}); } .escaped { background: url(${absolutePath.replace(
+      /e/g,
+      '%65'
+    )}); }`;
 
     fs.writeFileSync(file, code);
 
