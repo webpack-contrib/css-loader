@@ -80,7 +80,16 @@ function normalizeUrl(url, isStringValue) {
   }
 
   if (matchNativeWin32Path.test(url)) {
-    return decodeURIComponent(url);
+    // eslint-disable-next-line no-console
+    console.log(url);
+    // eslint-disable-next-line no-console
+    console.log(normalizedUrl);
+    // eslint-disable-next-line no-console
+    console.log(unescape(normalizedUrl));
+    // eslint-disable-next-line no-console
+    console.log(decodeURIComponent(normalizedUrl));
+
+    return decodeURIComponent(normalizedUrl);
   }
 
   return decodeURIComponent(unescape(normalizedUrl));
