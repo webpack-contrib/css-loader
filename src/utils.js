@@ -5,7 +5,7 @@
 import { fileURLToPath } from 'url';
 import path from 'path';
 
-import { urlToRequest, interpolateName, isUrlRequest } from 'loader-utils';
+import { urlToRequest, interpolateName } from 'loader-utils';
 import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
 import modulesValues from 'postcss-modules-values';
@@ -87,7 +87,7 @@ function requestify(url, rootContext) {
     return fileURLToPath(url);
   }
 
-  return mayBeServerRelativeUrl(url)
+  return url.charAt(0) === '/'
     ? urlToRequest(url, rootContext)
     : urlToRequest(url);
 }
@@ -506,31 +506,33 @@ async function resolveRequests(resolve, context, possibleRequests) {
     });
 }
 
-/*
- * May be url is server-relative url, but not //example.com
- * */
-function mayBeServerRelativeUrl(url) {
-  if (url.charAt(0) === '/' && !/^\/\//.test(url)) {
-    return true;
-  }
-
-  return false;
-}
-
 function isUrlRequestable(url) {
+  // Windows absolute paths
   if (matchNativeWin32Path.test(url)) {
     return false;
   }
 
-  if (mayBeServerRelativeUrl(url)) {
-    return true;
+  // Protocol-relative URLs
+  if (/^\/\//.test(url)) {
+    return false;
   }
 
+  // `file:` protocol
   if (/^file:/i.test(url)) {
     return true;
   }
 
-  return isUrlRequest(url);
+  // Absolute URLs
+  if (/^[a-z][a-z0-9+.-]*:/i.test(url)) {
+    return false;
+  }
+
+  // `#` URLs
+  if (/^#/.test(url)) {
+    return false;
+  }
+
+  return true;
 }
 
 function sort(a, b) {
