@@ -73,14 +73,14 @@ function defaultGetLocalIdent(
 }
 
 function normalizeUrl(url, isStringValue) {
-  if (matchNativeWin32Path.test(url)) {
-    return url;
-  }
-
   let normalizedUrl = url;
 
   if (isStringValue && /\\[\n]/.test(normalizedUrl)) {
     normalizedUrl = normalizedUrl.replace(/\\[\n]/g, '');
+  }
+
+  if (matchNativeWin32Path.test(url)) {
+    return decodeURIComponent(normalizedUrl);
   }
 
   return decodeURIComponent(unescape(normalizedUrl));
