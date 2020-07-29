@@ -511,7 +511,7 @@ async function resolveRequests(resolve, context, possibleRequests) {
 function isUrlRequestable(url) {
   // Windows absolute paths
   if (matchNativeWin32Path.test(url)) {
-    return false;
+    return true;
   }
 
   // Protocol-relative URLs
