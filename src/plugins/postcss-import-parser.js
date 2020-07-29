@@ -108,16 +108,16 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
     let normalizedUrl = url;
     let prefix = '';
 
-    const queryParts = normalizedUrl.split('!');
-
-    if (queryParts.length > 1) {
-      normalizedUrl = queryParts.pop();
-      prefix = queryParts.join('!');
-    }
-
     const isRequestable = isUrlRequestable(normalizedUrl);
 
     if (isRequestable) {
+      const queryParts = normalizedUrl.split('!');
+
+      if (queryParts.length > 1) {
+        normalizedUrl = queryParts.pop();
+        prefix = queryParts.join('!');
+      }
+
       normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
 
       // Empty url after normalize - `@import '\
@@ -149,16 +149,17 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
 
     if (isRequestable) {
       const request = requestify(normalizedUrl, options.rootContext);
-      const doResolve = async () => {
-        const { resolver, context } = options;
-        const resolvedUrl = await resolveRequests(resolver, context, [
-          ...new Set([request, normalizedUrl]),
-        ]);
 
-        return { url: resolvedUrl, media, prefix, isRequestable };
-      };
+      tasks.push(
+        (async () => {
+          const { resolver, context } = options;
+          const resolvedUrl = await resolveRequests(resolver, context, [
+            ...new Set([request, normalizedUrl]),
+          ]);
 
-      tasks.push(doResolve());
+          return { url: resolvedUrl, media, prefix, isRequestable };
+        })()
+      );
     } else {
       tasks.push({ url, media, prefix, isRequestable });
     }

@@ -169,16 +169,17 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
     hash += hashOrQuery ? `#${hashOrQuery}` : '';
 
     const request = requestify(pathname, options.rootContext);
-    const doResolve = async () => {
-      const { resolver, context } = options;
-      const resolvedUrl = await resolveRequests(resolver, context, [
-        ...new Set([request, normalizedUrl]),
-      ]);
 
-      return { url: resolvedUrl, prefix, hash, parsedResult };
-    };
+    tasks.push(
+      (async () => {
+        const { resolver, context } = options;
+        const resolvedUrl = await resolveRequests(resolver, context, [
+          ...new Set([request, normalizedUrl]),
+        ]);
 
-    tasks.push(doResolve());
+        return { url: resolvedUrl, prefix, hash, parsedResult };
+      })()
+    );
   }
 
   const results = await Promise.all(tasks);
@@ -229,6 +230,8 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
     // eslint-disable-next-line no-param-reassign
     decl.value = parsed.toString();
   }
+
+  console.timeEnd('URL');
 
   return Promise.resolve();
 });
