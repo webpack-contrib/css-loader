@@ -231,7 +231,5 @@ export default postcss.plugin(pluginName, (options) => async (css, result) => {
     decl.value = parsed.toString();
   }
 
-  console.timeEnd('URL');
-
   return Promise.resolve();
 });
