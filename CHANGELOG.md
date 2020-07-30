@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.1](https://github.com/webpack-contrib/css-loader/compare/v4.1.0...v4.1.1) (2020-07-30)
+
+
+### Bug Fixes
+
+* remove unnecessary `console` call ([#1148](https://github.com/webpack-contrib/css-loader/issues/1148)) ([b1b90ca](https://github.com/webpack-contrib/css-loader/commit/b1b90caaea8eb045177749729340c7906454a84b))
+
 ## [4.1.0](https://github.com/webpack-contrib/css-loader/compare/v4.0.0...v4.1.0) (2020-07-29)
 
 
