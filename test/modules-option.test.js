@@ -1174,12 +1174,12 @@ describe('"modules" option', () => {
   const icssTestCases = fs.readdirSync(icssTestCasesPath);
 
   icssTestCases.forEach((name) => {
-    it(`show work with the "type" option, case "${name}"`, async () => {
+    it(`show work with the "compileType" option, case "${name}"`, async () => {
       const compiler = getCompiler(
         `./modules/icss/tests-cases/${name}/source.js`,
         {
           modules: {
-            type: 'icss',
+            compileType: 'icss',
           },
         }
       );
@@ -1196,7 +1196,7 @@ describe('"modules" option', () => {
     });
   });
 
-  it('show work with the "type" option and warn about the "icss" option deprecation', async () => {
+  it('show work and warn about the "icss" option deprecation', async () => {
     const compiler = getCompiler(
       './modules/icss/tests-cases/import/source.js',
       {
@@ -1215,12 +1215,12 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('show work with the "type" and "exportOnlyLocals" options', async () => {
+  it('show work with the "compileType" and "exportOnlyLocals" options', async () => {
     const compiler = getCompiler(
       './modules/icss/tests-cases/import/source.js',
       {
         modules: {
-          type: 'icss',
+          compileType: 'icss',
           exportOnlyLocals: true,
         },
       }
@@ -1237,12 +1237,12 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('show work with the "type" and "namedExport" options', async () => {
+  it('show work with the "compileType" and "namedExport" options', async () => {
     const compiler = getCompiler(
       './modules/icss/tests-cases/import/source.js',
       {
         modules: {
-          type: 'icss',
+          compileType: 'icss',
           namedExport: true,
         },
       }
@@ -1259,10 +1259,10 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('show work with the "type" option using the "module" value', async () => {
+  it('show work with the "compileType" option using the "module" value', async () => {
     const compiler = getCompiler('./modules/composes/composes.js', {
       modules: {
-        type: 'module',
+        compileType: 'module',
       },
     });
     const stats = await compile(compiler);

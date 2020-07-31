@@ -525,7 +525,7 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: {
-            type: 'module',
+            compileType: 'module',
             mode: 'local',
             auto: true,
             exportGlobals: true,
@@ -543,12 +543,13 @@ module.exports = {
 };
 ```
 
-##### `type`
+##### `compileType`
 
 Type: `'module' | 'icss'`
 Default: `'module'`
 
 Controls the level of compilation applied to the input styles.
+
 The `module` handles `class` and `id` scoping and `@value` values.
 The `icss` will only compile the low level `Interoperable CSS` format for declaring `:import` and `:export` dependencies between CSS and other languages.
 
@@ -565,7 +566,7 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: {
-            type: 'icss',
+            compileType: 'icss',
           },
         },
       },

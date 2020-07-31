@@ -36,7 +36,7 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "type": {
+            "compileType": {
               "description": "Controls the extent to which css-loader will process module code (https://github.com/webpack-contrib/css-loader#type)",
               "enum": ["module", "icss"]
             },

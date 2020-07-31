@@ -125,7 +125,7 @@ function getModulesOptions(rawOptions, loaderContext) {
   }
 
   let modulesOptions = {
-    type: rawOptions.icss ? 'icss' : 'module',
+    compileType: rawOptions.icss ? 'icss' : 'module',
     auto: true,
     mode: 'local',
     exportGlobals: false,
@@ -205,7 +205,7 @@ function normalizeOptions(rawOptions, loaderContext) {
   if (rawOptions.icss) {
     loaderContext.emitWarning(
       new Error(
-        'The "icss" option is deprecated, use "modules.type: "icss"" instead'
+        'The "icss" option is deprecated, use "modules.compileType: "icss"" instead'
       )
     );
   }
@@ -253,11 +253,11 @@ function shouldUseURLPlugin(options) {
 }
 
 function shouldUseModulesPlugins(options) {
-  return options.modules.type === 'module';
+  return options.modules.compileType === 'module';
 }
 
 function shouldUseIcssPlugin(options) {
-  return options.icss === true || options.modules;
+  return options.icss === true || Boolean(options.modules);
 }
 
 function getModulesPlugins(options, loaderContext) {
