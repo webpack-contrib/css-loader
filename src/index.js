@@ -52,6 +52,8 @@ export default async function loader(content, map, meta) {
   const exports = [];
 
   const needUseModulesPlugins = shouldUseModulesPlugins(options);
+  const needICSSPlugin =
+    needUseModulesPlugins || options.icss || options.modules.type === 'icss';
 
   if (needUseModulesPlugins) {
     plugins.push(...getModulesPlugins(options, this));
@@ -112,7 +114,7 @@ export default async function loader(content, map, meta) {
   const icssPluginImports = [];
   const icssPluginApi = [];
 
-  if (needUseModulesPlugins || options.icss) {
+  if (needICSSPlugin) {
     const icssResolver = this.getResolve({
       conditionNames: ['style'],
       extensions: [],

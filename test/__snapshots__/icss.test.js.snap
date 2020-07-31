@@ -117,7 +117,7 @@ exports[`ICSS show work with the case "export": module 1`] = `
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".other {\\\\n  a: a;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"_test\\": \\"_test\\"
@@ -130,7 +130,9 @@ exports[`ICSS show work with the case "export": result 1`] = `
 Array [
   Array [
     "./icss/tests-cases/export/source.css",
-    "
+    ".other {
+  a: a;
+}
 ",
     "",
   ],
@@ -168,6 +170,35 @@ Array [
 `;
 
 exports[`ICSS show work with the case "export-reserved-keywords": warnings 1`] = `Array []`;
+
+exports[`ICSS show work with the case "exports-only": errors 1`] = `Array []`;
+
+exports[`ICSS show work with the case "exports-only": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_test\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`ICSS show work with the case "exports-only": result 1`] = `
+Array [
+  Array [
+    "./icss/tests-cases/exports-only/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`ICSS show work with the case "exports-only": warnings 1`] = `Array []`;
 
 exports[`ICSS show work with the case "import": errors 1`] = `Array []`;
 
@@ -311,3 +342,25 @@ Array [
 `;
 
 exports[`ICSS show work with the case "multiple-keys-values-in-export": warnings 1`] = `Array []`;
+
+exports[`ICSS work with exports only: errors 1`] = `Array []`;
+
+exports[`ICSS work with exports only: module 1`] = `
+"var ___CSS_LOADER_EXPORT___ = {};
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_test\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`ICSS work with exports only: result 1`] = `
+Object {
+  "locals": Object {
+    "_test": "_test",
+  },
+}
+`;
+
+exports[`ICSS work with exports only: warnings 1`] = `Array []`;

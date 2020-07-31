@@ -127,6 +127,7 @@ function getModulesOptions(rawOptions, loaderContext) {
   let modulesOptions = {
     auto: true,
     mode: 'local',
+    type: rawOptions.icss ? 'icss' : 'full',
     exportGlobals: false,
     localIdentName: '[hash:base64]',
     localIdentContext: loaderContext.rootContext,
@@ -147,6 +148,12 @@ function getModulesOptions(rawOptions, loaderContext) {
       typeof rawOptions.modules === 'string' ? rawOptions.modules : 'local';
   } else {
     if (rawOptions.modules) {
+      if ('icss' in rawOptions && rawOptions.modules.type) {
+        throw new Error(
+          'The "modules.type" option cannot be set with "options.icss", remove the `icss` option and just use `type`'
+        );
+      }
+
       if (typeof rawOptions.modules.auto === 'boolean') {
         const isModules =
           rawOptions.modules.auto && moduleRegExp.test(resourcePath);
@@ -202,11 +209,19 @@ function getModulesOptions(rawOptions, loaderContext) {
 
 function normalizeOptions(rawOptions, loaderContext) {
   const modulesOptions = getModulesOptions(rawOptions, loaderContext);
+
+  if ('icss' in rawOptions) {
+    loaderContext.emitWarning(
+      new Error(
+        'The `icss` option is deprecated, use modules.type: "icss" instead'
+      )
+    );
+  }
+
   return {
     url: typeof rawOptions.url === 'undefined' ? true : rawOptions.url,
     import: typeof rawOptions.import === 'undefined' ? true : rawOptions.import,
     modules: modulesOptions,
-    icss: modulesOptions ? true : rawOptions.icss,
     sourceMap:
       typeof rawOptions.sourceMap === 'boolean'
         ? rawOptions.sourceMap
@@ -242,6 +257,9 @@ function shouldUseURLPlugin(options) {
 }
 
 function shouldUseModulesPlugins(options) {
+  if (options.modules && options.modules.type === 'icss') {
+    return false;
+  }
   return Boolean(options.modules);
 }
 
