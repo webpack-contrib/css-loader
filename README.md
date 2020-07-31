@@ -525,6 +525,7 @@ module.exports = {
         loader: 'css-loader',
         options: {
           modules: {
+            type: 'modules',
             mode: 'local',
             auto: true,
             exportGlobals: true,
