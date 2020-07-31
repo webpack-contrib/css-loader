@@ -125,6 +125,7 @@ function getModulesOptions(rawOptions, loaderContext) {
   }
 
   let modulesOptions = {
+    type: rawOptions.icss ? 'icss' : 'modules',
     auto: true,
     mode: 'local',
     exportGlobals: false,
@@ -201,12 +202,22 @@ function getModulesOptions(rawOptions, loaderContext) {
 }
 
 function normalizeOptions(rawOptions, loaderContext) {
+  if (rawOptions.icss) {
+    loaderContext.emitWarning(
+      new Error(
+        'The "icss" option is deprecated, use "modules.type: "icss"" instead'
+      )
+    );
+  }
+
   const modulesOptions = getModulesOptions(rawOptions, loaderContext);
+
   return {
     url: typeof rawOptions.url === 'undefined' ? true : rawOptions.url,
     import: typeof rawOptions.import === 'undefined' ? true : rawOptions.import,
     modules: modulesOptions,
-    icss: modulesOptions ? true : rawOptions.icss,
+    // TODO remove in the next major release
+    icss: typeof rawOptions.icss === 'undefined' ? false : rawOptions.icss,
     sourceMap:
       typeof rawOptions.sourceMap === 'boolean'
         ? rawOptions.sourceMap
@@ -242,7 +253,11 @@ function shouldUseURLPlugin(options) {
 }
 
 function shouldUseModulesPlugins(options) {
-  return Boolean(options.modules);
+  return options.modules.type === 'modules';
+}
+
+function shouldUseIcssPlugin(options) {
+  return options.icss === true || options.modules;
 }
 
 function getModulesPlugins(options, loaderContext) {
@@ -545,6 +560,7 @@ export {
   shouldUseModulesPlugins,
   shouldUseImportPlugin,
   shouldUseURLPlugin,
+  shouldUseIcssPlugin,
   normalizeUrl,
   requestify,
   getFilter,

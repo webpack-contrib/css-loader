@@ -1166,4 +1166,96 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  const icssTestCasesPath = path.join(
+    __dirname,
+    'fixtures/modules/icss/tests-cases'
+  );
+  const icssTestCases = fs.readdirSync(icssTestCasesPath);
+
+  icssTestCases.forEach((name) => {
+    it(`show work with the "type" option, case "${name}"`, async () => {
+      const compiler = getCompiler(
+        `./modules/icss/tests-cases/${name}/source.js`,
+        {
+          modules: {
+            type: 'icss',
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(
+        getModuleSource(`./modules/icss/tests-cases/${name}/source.css`, stats)
+      ).toMatchSnapshot('module');
+      expect(
+        getExecutedCode('main.bundle.js', compiler, stats)
+      ).toMatchSnapshot('result');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+  });
+
+  it('show work with the "type" option and warn about the "icss" option deprecation', async () => {
+    const compiler = getCompiler(
+      './modules/icss/tests-cases/import/source.js',
+      {
+        icss: true,
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/icss/tests-cases/import/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('show work with the "type" and "exportOnlyLocals" options', async () => {
+    const compiler = getCompiler(
+      './modules/icss/tests-cases/import/source.js',
+      {
+        modules: {
+          type: 'icss',
+          exportOnlyLocals: true,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/icss/tests-cases/import/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('show work with the "type" and "namedExport" options', async () => {
+    const compiler = getCompiler(
+      './modules/icss/tests-cases/import/source.js',
+      {
+        modules: {
+          type: 'icss',
+          namedExport: true,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/icss/tests-cases/import/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });
