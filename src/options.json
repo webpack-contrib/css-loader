@@ -38,7 +38,7 @@
           "properties": {
             "type": {
               "description": "Controls the extent to which css-loader will process module code (https://github.com/webpack-contrib/css-loader#type)",
-              "enum": ["modules", "icss"]
+              "enum": ["module", "icss"]
             },
             "auto": {
               "description": "Allows auto enable CSS modules based on filename (https://github.com/webpack-contrib/css-loader#auto).",

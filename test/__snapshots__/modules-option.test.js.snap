@@ -12412,6 +12412,287 @@ The \\"icss\\" option is deprecated, use \\"modules.type: \\"icss\\"\\" instead"
 ]
 `;
 
+exports[`"modules" option show work with the "type" option using the "module" value: errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "type" option using the "module" value: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./something.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??[ident]!./imported-simple.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??[ident]!./relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??[ident]!./top-relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??[ident]!./alias.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??[ident]!./scss-file.scss\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./test-other.css\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
+import ___CSS_LOADER_URL_IMPORT_0___ from \\"../../url/img.png\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"(min-width: 100px)\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_2___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_3___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_4___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_5___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_7___, \\"\\", true);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._3dxIylSbTBEe450DFBxy5D {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._2Zsff12VKF2NbAGVE1sdzC {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.OX01CBO1Ma7xJh6yAybXq {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
+	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\"\\",
+	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\"\\",
+	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\"\\",
+	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\"\\",
+	\\"v-foo\\": \\"blue\\",
+	\\"v-bar\\": \\"block\\",
+	\\"v-primary\\": \\"#BF4040\\",
+	\\"s-black\\": \\"black-selector\\",
+	\\"m-large\\": \\"(min-width: 960px)\\",
+	\\"v-ident\\": \\"validIdent\\",
+	\\"v-pre-defined-ident\\": \\"left\\",
+	\\"v-string\\": \\"'content'\\",
+	\\"v-string-1\\": \\"''\\",
+	\\"v-url\\": \\"url(https://www.exammple.com/images/my-background.png)\\",
+	\\"v-url-1\\": \\"url('https://www.exammple.com/images/my-background.png')\\",
+	\\"v-url-2\\": \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\",
+	\\"v-integer\\": \\"100\\",
+	\\"v-integer-1\\": \\"-100\\",
+	\\"v-integer-2\\": \\"+100\\",
+	\\"v-number\\": \\".60\\",
+	\\"v-number-1\\": \\"-456.8\\",
+	\\"v-number-2\\": \\"-3.4e-2\\",
+	\\"v-dimension\\": \\"12px\\",
+	\\"v-percentage\\": \\"100%\\",
+	\\"v-hex\\": \\"#fff\\",
+	\\"v-function\\": \\"rgb(0,0,0)\\",
+	\\"v-unicode-range\\": \\"U+0025-00FF\\",
+	\\"ghi\\": \\"_2ZmR2b3YBVn0i8sme-abcC\\",
+	\\"class\\": \\"_3dxIylSbTBEe450DFBxy5D\\",
+	\\"other\\": \\"EcQSwQce4PuQ5vNAybT9N\\",
+	\\"other-other\\": \\"hTH4alr_d-S0jPncN6ib3\\",
+	\\"green\\": \\"_7sobwviowI6_CZkzLjYZG\\",
+	\\"foo\\": \\"YpDepip9R1BGGAy-rGgvc\\",
+	\\"simple\\": \\"_3dfrN27nghAjb3tcT6R_Ov \\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"imported-simple\\"] + \\"\\",
+	\\"relative\\": \\"_3aPunKIij5oyAtcB6y9-Xm \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"imported-relative\\"] + \\"\\",
+	\\"top-relative\\": \\"_3Qp0o615k38gm2l4OVRknw \\" + ___CSS_LOADER_ICSS_IMPORT_4___.locals[\\"imported-relative\\"] + \\"\\",
+	\\"module\\": \\"_2Zsff12VKF2NbAGVE1sdzC \\" + ___CSS_LOADER_ICSS_IMPORT_5___.locals[\\"imported-module\\"] + \\"\\",
+	\\"alias\\": \\"_3itMfHbLQSSkBisENyA8TF \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
+	\\"alias-duplicate\\": \\"_2ChGydqcGYRLzAo3_Iomr2 \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
+	\\"primary-selector\\": \\"_1ai7yu9kkZ_8JwK0EMbe6U\\",
+	\\"black-selector\\": \\"OX01CBO1Ma7xJh6yAybXq\\",
+	\\"header\\": \\"_2Yk-wvfy8t_ESEwwB1Fc0y\\",
+	\\"foobarbaz\\": \\"_2PhbElc8FsODw7KMuxWJyk\\",
+	\\"url\\": \\"_1qvhWcgsRpzv9-_jaooxI0\\",
+	\\"main\\": \\"_1-QX-dLNLF1zFn-cPfLHcH \\" + ___CSS_LOADER_ICSS_IMPORT_7___.locals[\\"scssClass\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work with the "type" option using the "module" value: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/test-other.css",
+    "._24axXNO_oC23T0D0YAz-0Y {
+  d: d;
+}
+",
+    "(min-width: 100px)",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/values.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/something.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/imported-simple.css",
+    "._1LcKtmpK51ikm2OTXu6tSg {
+  display: block;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/relative.css",
+    "._1bYd-W6Pwrt_8yXpE4FBEu {
+  display: inline;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/top-relative.css",
+    "._2RvZm_IQCQC3YXopKglSUM {
+  display: flex;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/issue-861/node_modules/package/style.css",
+    "._2212NWEpBgAjfmZAD6jJwU {
+  display: inline-block;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/alias.css",
+    ".gASNE59vLxrkyu1XPoUrX {
+  display: table;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js?[ident]!./modules/composes/scss-file.scss",
+    "._14lUoCryZnM4Rrkm49iWuC {
+  color: red;
+  padding: 15px;
+}",
+    "",
+  ],
+  Array [
+    "./modules/composes/composes.css",
+    "._2ZmR2b3YBVn0i8sme-abcC {
+  color: red;
+}
+
+._3dxIylSbTBEe450DFBxy5D {
+  color: blue;
+}
+
+.EcQSwQce4PuQ5vNAybT9N {
+  display: block;
+}
+
+.hTH4alr_d-S0jPncN6ib3 {
+  width: 2112moon;
+}
+
+._7sobwviowI6_CZkzLjYZG {
+  color: green;
+}
+
+.YpDepip9R1BGGAy-rGgvc {
+  prop: red;
+  duplicate: green;
+}
+
+._3dfrN27nghAjb3tcT6R_Ov {
+  color: red;
+}
+
+._3aPunKIij5oyAtcB6y9-Xm {
+  color: yellow;
+}
+
+._3Qp0o615k38gm2l4OVRknw {
+  color: gray;
+}
+
+._2Zsff12VKF2NbAGVE1sdzC {
+  color: gray;
+}
+
+._3itMfHbLQSSkBisENyA8TF {
+  color: gainsboro;
+}
+
+._2ChGydqcGYRLzAo3_Iomr2 {
+  color: gainsboro;
+}
+
+._1ai7yu9kkZ_8JwK0EMbe6U {
+  color: #BF4040;
+}
+
+.OX01CBO1Ma7xJh6yAybXq {
+  color: black;
+}
+
+@media (min-width: 960px) {
+  ._2Yk-wvfy8t_ESEwwB1Fc0y {
+    padding: 0 20px;
+  }
+}
+
+.white {
+  color: white;
+}
+
+@media (min-width: 320px) {
+  ._2Yk-wvfy8t_ESEwwB1Fc0y {
+    padding: 20px 20px;
+  }
+}
+@value v-comment: /* comment */;
+
+._2PhbElc8FsODw7KMuxWJyk {
+  v-ident: validIdent;
+  v-pre-defined-ident: left;
+  v-string: 'content';
+  v-string-1: '';
+  v-url: url(https://www.exammple.com/images/my-background.png);
+  v-url-1: url('https://www.exammple.com/images/my-background.png');
+  v-url-2: url(\\"https://www.exammple.com/images/my-background.png\\");
+  v-integer: 100;
+  v-integer-1: -100;
+  v-integer-2: +100;
+  v-number: .60;
+  v-number-1: -456.8;
+  v-number-2: -3.4e-2;
+  v-dimension: 12px;
+  v-percentage: 100%;
+  v-hex: #fff;
+  v-comment: v-comment 10px v-comment;
+  v-function: rgb(0,0,0);
+  v-unicode-range: U+0025-00FF;
+  mutliple: #fff .60 100%;
+}
+
+
+a {
+  content: 'content';
+}
+
+@supports (content: 'content') {
+  a {
+    content: 'content';
+  }
+}
+
+[class~='content'] {
+  color:green;
+}
+
+._1qvhWcgsRpzv9-_jaooxI0 {
+  background: url(/webpack/public/path/img.png);
+}
+
+._1-QX-dLNLF1zFn-cPfLHcH {
+  background: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work with the "type" option using the "module" value: warnings 1`] = `Array []`;
+
 exports[`"modules" option show work with the "type" option, case "duplicate-export": errors 1`] = `Array []`;
 
 exports[`"modules" option show work with the "type" option, case "duplicate-export": module 1`] = `

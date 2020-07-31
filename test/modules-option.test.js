@@ -1258,4 +1258,22 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('show work with the "type" option using the "module" value', async () => {
+    const compiler = getCompiler('./modules/composes/composes.js', {
+      modules: {
+        type: 'module',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/composes/composes.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });

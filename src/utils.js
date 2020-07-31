@@ -125,7 +125,7 @@ function getModulesOptions(rawOptions, loaderContext) {
   }
 
   let modulesOptions = {
-    type: rawOptions.icss ? 'icss' : 'modules',
+    type: rawOptions.icss ? 'icss' : 'module',
     auto: true,
     mode: 'local',
     exportGlobals: false,
@@ -253,7 +253,7 @@ function shouldUseURLPlugin(options) {
 }
 
 function shouldUseModulesPlugins(options) {
-  return options.modules.type === 'modules';
+  return options.modules.type === 'module';
 }
 
 function shouldUseIcssPlugin(options) {
