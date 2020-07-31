@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/webpack-contrib/css-loader/compare/v4.1.1...v4.2.0) (2020-07-31)
+
+
+### Features
+
+* add `module.type` option, the `icss` option is deprecated ([#1150](https://github.com/webpack-contrib/css-loader/issues/1150)) ([68f72af](https://github.com/webpack-contrib/css-loader/commit/68f72af2a09111f74dcacbf7af019fe7eb40cb6c))
+
 ### [4.1.1](https://github.com/webpack-contrib/css-loader/compare/v4.1.0...v4.1.1) (2020-07-30)
 
 
