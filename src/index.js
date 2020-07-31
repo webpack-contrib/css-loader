@@ -17,6 +17,7 @@ import {
   shouldUseModulesPlugins,
   shouldUseImportPlugin,
   shouldUseURLPlugin,
+  shouldUseIcssPlugin,
   getPreRequester,
   getExportCode,
   getFilter,
@@ -51,9 +52,7 @@ export default async function loader(content, map, meta) {
   const replacements = [];
   const exports = [];
 
-  const needUseModulesPlugins = shouldUseModulesPlugins(options);
-
-  if (needUseModulesPlugins) {
+  if (shouldUseModulesPlugins(options)) {
     plugins.push(...getModulesPlugins(options, this));
   }
 
@@ -112,7 +111,7 @@ export default async function loader(content, map, meta) {
   const icssPluginImports = [];
   const icssPluginApi = [];
 
-  if (needUseModulesPlugins || options.icss) {
+  if (shouldUseIcssPlugin(options)) {
     const icssResolver = this.getResolve({
       conditionNames: ['style'],
       extensions: [],
