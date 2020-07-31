@@ -535,6 +535,7 @@ module.exports = {
             namedExport: true,
             exportLocalsConvention: 'camelCase',
             exportOnlyLocals: false,
+            type: 'full',
           },
         },
       },
@@ -1001,14 +1002,16 @@ module.exports = {
 };
 ```
 
-### `icss`
+##### `type`
 
-Type: Boolean Default: `true` if `modules` are enabled, false otherwise
+Type: `'full' | 'icss'`
+Default: `'full'`
 
-Enables/disables handling of the low level "Interoperable CSS" format for declaring
-import and export dependencies between CSS and other languages. ICSS enables
-CSS Module support, and is enabled automatically when `modules` are enabled. It
-can also be enabled independently to allow other loaders to handle processing CSS modules.
+Controls the level of compilation applied to the input styles. `'full'` handles class and id scoping and
+`@value` values. `'icss'` will only compile the low level "Interoperable CSS" format for declaring
+import and export dependencies between CSS and other languages. ICSS underpins
+CSS Module support, and provides a low level syntax for other tools to
+implement CSS-module variations of their own.
 
 **webpack.config.js**
 
