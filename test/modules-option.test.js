@@ -1001,7 +1001,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work and respect the "exportOnlyLocals" option with the "esModule" option', async () => {
+  it('should work with "exportOnlyLocals" and "esModule" with "true" value options', async () => {
     const compiler = getCompiler('./modules/composes/composes.js', {
       modules: {
         mode: 'local',
@@ -1009,6 +1009,27 @@ describe('"modules" option', () => {
         exportOnlyLocals: true,
       },
       esModule: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/composes/composes.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with "exportOnlyLocals" and "esModule" with "false" value options', async () => {
+    const compiler = getCompiler('./modules/composes/composes.js', {
+      modules: {
+        mode: 'local',
+        localIdentName: '_[local]',
+        exportOnlyLocals: true,
+      },
+      esModule: false,
     });
     const stats = await compile(compiler);
 
@@ -1133,9 +1154,33 @@ describe('"modules" option', () => {
     expect(getErrors(stats, true)).toMatchSnapshot('errors');
   });
 
-  it('should work with "url"', async () => {
+  it('should work with "exportOnlyLocals" and "namedExport" option', async () => {
+    const compiler = getCompiler('./modules/composes/composes-named.js', {
+      modules: {
+        mode: 'local',
+        localIdentName: '_[local]',
+        namedExport: true,
+        exportOnlyLocals: true,
+      },
+      esModule: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/composes/composes.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with "url" and "namedExport"', async () => {
     const compiler = getCompiler('./modules/url/source.js', {
-      modules: true,
+      modules: {
+        namedExport: true,
+      },
     });
     const stats = await compile(compiler);
 
@@ -1149,11 +1194,9 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work with "url" and "namedExport"', async () => {
+  it('should work with "url"', async () => {
     const compiler = getCompiler('./modules/url/source.js', {
-      modules: {
-        namedExport: true,
-      },
+      modules: true,
     });
     const stats = await compile(compiler);
 
