@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.1](https://github.com/webpack-contrib/css-loader/compare/v4.2.0...v4.2.1) (2020-08-06)
+
+
+### Bug Fixes
+
+* regression with the `exportOnlyLocals` option, now `locals` are not exported under the `locals` name, it was big regression, we apologize for that ([24c0a12](https://github.com/webpack-contrib/css-loader/commit/24c0a122d1396c08326a24f6184f5da09cf52ccc))
+
 ## [4.2.0](https://github.com/webpack-contrib/css-loader/compare/v4.1.1...v4.2.0) (2020-07-31)
 
 
