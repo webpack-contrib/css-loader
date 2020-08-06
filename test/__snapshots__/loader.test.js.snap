@@ -28,9 +28,10 @@ exports[`loader issue #1033 (2): warnings 1`] = `Array []`;
 exports[`loader issue #1033: errors 1`] = `Array []`;
 
 exports[`loader issue #1033: module 1`] = `
-"var ___CSS_LOADER_EXPORT___ = {};
-// Exports
-export default ___CSS_LOADER_EXPORT___;
+"// Exports
+export default {
+
+};
 "
 `;
 
