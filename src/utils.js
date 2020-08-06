@@ -483,13 +483,17 @@ function getExportCode(exports, replacements, options) {
     if (localName) {
       const { importName } = item;
 
-      localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
-        options.modules.namedExport
-          ? `" + ${importName}_NAMED___[${JSON.stringify(
-              camelCase(localName)
-            )}] + "`
-          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
-      );
+      localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () => {
+        if (options.modules.namedExport) {
+          return `" + ${importName}_NAMED___[${JSON.stringify(
+            camelCase(localName)
+          )}] + "`;
+        } else if (options.modules.exportOnlyLocals) {
+          return `" + ${importName}[${JSON.stringify(localName)}] + "`;
+        } 
+          return `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
+        
+      });
     } else {
       localsCode = localsCode.replace(
         new RegExp(replacementName, 'g'),
@@ -499,9 +503,13 @@ function getExportCode(exports, replacements, options) {
   }
 
   if (localsCode) {
-    code += options.modules.namedExport
-      ? `${localsCode}`
-      : `___CSS_LOADER_EXPORT___.locals = {\n${localsCode}\n};\n`;
+    if (options.modules.namedExport) {
+      code += `${localsCode}`;
+    } else if (options.modules.exportOnlyLocals) {
+      code += `___CSS_LOADER_EXPORT___ = {\n${localsCode}\n};\n`;
+    } else {
+      code += `___CSS_LOADER_EXPORT___.locals = {\n${localsCode}\n};\n`;
+    }
   }
 
   code += `${
