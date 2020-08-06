@@ -509,13 +509,11 @@ function getExportCode(exports, replacements, options) {
   }
 
   if (options.modules.exportOnlyLocals) {
-    if (options.modules.namedExport) {
-      code += localsCode;
-    } else {
-      code += `${
-        options.esModule ? 'export default' : 'module.exports ='
-      } {\n${localsCode}\n};\n`;
-    }
+    code += options.modules.namedExport
+      ? localsCode
+      : `${
+          options.esModule ? 'export default' : 'module.exports ='
+        } {\n${localsCode}\n};\n`;
 
     return code;
   }
