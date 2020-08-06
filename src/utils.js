@@ -354,11 +354,17 @@ function getImportCode(imports, options) {
   for (const item of imports) {
     const { importName, url, icss } = item;
 
-    code += options.esModule
-      ? icss && options.modules.namedExport
-        ? `import ${importName}, * as ${importName}_NAMED___ from ${url};\n`
-        : `import ${importName} from ${url};\n`
-      : `var ${importName} = require(${url});\n`;
+    if (options.esModule) {
+      if (icss && options.modules.namedExport) {
+        code += `import ${
+          options.modules.exportOnlyLocals ? '' : `${importName}, `
+        }* as ${importName}_NAMED___ from ${url};\n`;
+      } else {
+        code += `import ${importName} from ${url};\n`;
+      }
+    } else {
+      code += `var ${importName} = require(${url});\n`;
+    }
   }
 
   return code ? `// Imports\n${code}` : '';
@@ -366,7 +372,7 @@ function getImportCode(imports, options) {
 
 function getModuleCode(result, api, replacements, options) {
   if (options.modules.exportOnlyLocals === true) {
-    return 'var ___CSS_LOADER_EXPORT___ = {};\n';
+    return '';
   }
 
   const { css, map } = result;
@@ -423,7 +429,7 @@ function dashesCamelCase(str) {
 }
 
 function getExportCode(exports, replacements, options) {
-  let code = '';
+  let code = '// Exports\n';
   let localsCode = '';
 
   const addExportToLocalsCode = (name, value) => {
@@ -483,13 +489,17 @@ function getExportCode(exports, replacements, options) {
     if (localName) {
       const { importName } = item;
 
-      localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () =>
-        options.modules.namedExport
-          ? `" + ${importName}_NAMED___[${JSON.stringify(
-              camelCase(localName)
-            )}] + "`
-          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
-      );
+      localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () => {
+        if (options.modules.namedExport) {
+          return `" + ${importName}_NAMED___[${JSON.stringify(
+            camelCase(localName)
+          )}] + "`;
+        } else if (options.modules.exportOnlyLocals) {
+          return `" + ${importName}[${JSON.stringify(localName)}] + "`;
+        }
+
+        return `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
+      });
     } else {
       localsCode = localsCode.replace(
         new RegExp(replacementName, 'g'),
@@ -498,9 +508,21 @@ function getExportCode(exports, replacements, options) {
     }
   }
 
+  if (options.modules.exportOnlyLocals) {
+    if (options.modules.namedExport) {
+      code += localsCode;
+    } else {
+      code += `${
+        options.esModule ? 'export default' : 'module.exports ='
+      } {\n${localsCode}\n};\n`;
+    }
+
+    return code;
+  }
+
   if (localsCode) {
     code += options.modules.namedExport
-      ? `${localsCode}`
+      ? localsCode
       : `___CSS_LOADER_EXPORT___.locals = {\n${localsCode}\n};\n`;
   }
 
@@ -508,7 +530,7 @@ function getExportCode(exports, replacements, options) {
     options.esModule ? 'export default' : 'module.exports ='
   } ___CSS_LOADER_EXPORT___;\n`;
 
-  return `// Exports\n${code}`;
+  return code;
 }
 
 async function resolveRequests(resolve, context, possibleRequests) {
