@@ -18,7 +18,7 @@
   color: v-def;
 }
 
-.class {
+.my-class {
   color: v-foo;
 }
 
@@ -54,7 +54,7 @@
   composes: imported-relative from './top-relative.css';
 }
 
-.module {
+.my-module {
   color: gray;
   composes: imported-module from '../issue-861/node_modules/package/style.css';
 }
