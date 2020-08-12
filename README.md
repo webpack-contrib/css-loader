@@ -1438,7 +1438,7 @@ $colorBackground: red;
 ```scss
 @import "variables.scss";
 .componentClass {
-	background-color: $colorBackground;
+  background-color: $colorBackground;
 }
 ```
 
