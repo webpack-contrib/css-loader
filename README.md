@@ -1316,7 +1316,7 @@ Using SCSS variables in JavaScript
 ```javascript
 import svars from 'variables.scss';
 
-ctx.fillStyle = `${svars.variableA}`;
+ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
 
 ```
 
@@ -1471,7 +1471,7 @@ export default Component;
 // somewhere in canvas drawing code
 
 const ctx = mountsGlCanvas.current.getContext('2d', {alpha: false});
-ctx.fillStyle = `${svars.variableA}`;
+ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
 ```
 
 ## Contributing
