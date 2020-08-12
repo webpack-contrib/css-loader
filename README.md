@@ -1244,12 +1244,13 @@ module.exports = {
 ```
 
 
-### Using `Interoperable CSS` features only 
+### Using `Interoperable CSS` features only
 
 The following setup is an example of allowing `Interoperable CSS` features such as `:import` and `:export` without using modules by setting `compileType` option.
 
+**webpack.config.js**
 
-```javascript
+```js
 module.exports = {
   module: {
     rules: [
@@ -1291,13 +1292,12 @@ module.exports = {
             options: {
               sourceMap: true
             }
-          }
-        ]
+          },
+        ],
       },
       // --------
       // ...
-    ]
-  }
+  },
 };
 ```
 
@@ -1313,11 +1313,9 @@ Using SCSS variables in JavaScript
 
 **app.js**
 
-```javascript
+```js
 import svars from 'variables.scss';
-
 ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
-
 ```
 
 ### Using SCSS variables for both CSS modules and JavaScript if variables are defined in non-module files
@@ -1337,7 +1335,7 @@ module.exports = {
       // SCSS GENERAL
       {
         test: /\.scss$/,
-        exclude: /\.module\.(scss)$/,
+        exclude: /\.module\.scss$/,
         use: [
           {
             loader: 'style-loader',
@@ -1370,8 +1368,8 @@ module.exports = {
             options: {
               sourceMap: true
             }
-          }
-        ]
+          },
+        ],
       },
       // --------
       // SCSS MODULES
@@ -1414,13 +1412,12 @@ module.exports = {
             options: {
               sourceMap: true
             }
-          }
-        ]
+          },
+        ],
       },
       // --------
       // ...
-    ]
-  }
+  },
 };
 ```
 
@@ -1436,7 +1433,7 @@ $colorBackground: red;
 **Component.module.scss**
 
 ```scss
-@import "variables.scss";
+@import 'variables.scss';
 .componentClass {
   background-color: $colorBackground;
 }
