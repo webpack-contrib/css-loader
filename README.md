@@ -1243,7 +1243,6 @@ module.exports = {
 };
 ```
 
-
 ### Using `Interoperable CSS` features only
 
 The following setup is an example of allowing `Interoperable CSS` features such as `:import` and `:export` without using modules by setting `compileType` option.
