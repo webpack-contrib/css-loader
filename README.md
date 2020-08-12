@@ -1243,6 +1243,237 @@ module.exports = {
 };
 ```
 
+
+### Using `Interoperable CSS` features only 
+
+The following setup is an example of allowing `Interoperable CSS` features such as `:import` and `:export` without using modules by setting `compileType` option.
+
+
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      // ...
+      // --------
+      // SCSS
+      {
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {}
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 3,
+              sourceMap: true,
+              modules: {
+                compileType: 'icss'
+              }
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      // --------
+      // ...
+    ]
+  }
+};
+```
+
+Using SCSS variables in JavaScript
+
+**variables.scss**
+
+```scss
+:export {
+  colorBackgroundCanvas: red;
+}
+```
+
+**app.js**
+
+```javascript
+import svars from 'variables.scss';
+
+ctx.fillStyle = `${svars.variableA}`;
+
+```
+
+### Using SCSS variables for both CSS modules and JavaScript if variables are defined in non-module files
+
+The following setup is an example of allowing `Interoperable CSS` features such as `:import` and `:export` without using modules (by setting `compileType` option) together with synchronizing variable values between CSS and Javascript.
+
+Assume case where one wants some canvas drawing to be the same color (set by color name) as HTML background (set by class name).
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      // ...
+      // --------
+      // SCSS GENERAL
+      {
+        test: /\.scss$/,
+        exclude: /\.module\.(scss)$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {}
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 3,
+              sourceMap: true,
+              modules: {
+                compileType: 'icss'
+              }
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      // --------
+      // SCSS MODULES
+      {
+        test: /\.module\.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {}
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 3,
+              sourceMap: true,
+              modules: {
+                compileType: 'module',
+                mode: 'local',
+                exportGlobals: false,
+                namedExport: false,
+                exportLocalsConvention: 'asIs',
+                exportOnlyLocals: false
+              }
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      // --------
+      // ...
+    ]
+  }
+};
+```
+
+**variables.scss**
+
+```scss
+$colorBackground: red;
+:export {
+  colorBackgroundCanvas: $colorBackground;
+}
+```
+
+**Component.module.scss**
+
+```scss
+@import "variables.scss";
+.componentClass {
+	background-color: $colorBackground;
+}
+```
+
+**Component.jsx**
+
+```javascript
+'use strict';
+
+import svars from 'variables.scss';
+import styles from 'Component.module.scss';
+import React, {useRef, useEffect} from 'react';
+
+const Component = () => {
+  const mountsGlCanvas = useRef();
+  useEffect(() => {
+    console.log('Hi there!');
+    return () => {
+      console.log('Bye!');
+    };
+  }, []);
+  return (
+    <div className={styles.componentClass}>
+      <canvas ref={mountsGlCanvas}/>
+    </div>
+  );
+};
+
+export default Component;
+
+// somewhere in canvas drawing code
+
+const ctx = mountsGlCanvas.current.getContext('2d', {alpha: false});
+ctx.fillStyle = `${svars.variableA}`;
+```
+
 ## Contributing
 
 Please take a moment to read our contributing guidelines if you haven't yet done so.
