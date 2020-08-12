@@ -1441,33 +1441,17 @@ $colorBackground: red;
 
 **Component.jsx**
 
-```javascript
-'use strict';
-
+```jsx
 import svars from 'variables.scss';
 import styles from 'Component.module.scss';
-import React, {useRef, useEffect} from 'react';
 
-const Component = () => {
-  const mountsGlCanvas = useRef();
-  useEffect(() => {
-    console.log('Hi there!');
-    return () => {
-      console.log('Bye!');
-    };
-  }, []);
-  return (
-    <div className={styles.componentClass}>
-      <canvas ref={mountsGlCanvas}/>
-    </div>
-  );
-};
+// render DOM with CSS modules class name
+// <div className={styles.componentClass}>
+//   <canvas ref={mountsCanvas}/>
+// </div>
 
-export default Component;
-
-// somewhere in canvas drawing code
-
-const ctx = mountsGlCanvas.current.getContext('2d', {alpha: false});
+// somewhere in JavaScript canvas drawing code use the variable directly
+// const ctx = mountsCanvas.current.getContext('2d',{alpha: false});
 ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
 ```
 
