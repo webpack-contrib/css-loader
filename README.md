@@ -1261,8 +1261,7 @@ module.exports = {
         exclude: /\.module\.scss$/,
         use: [
           {
-            loader: 'style-loader',
-            options: {}
+            loader: 'style-loader'
           },
           {
             loader: 'css-loader',
@@ -1337,8 +1336,7 @@ module.exports = {
         exclude: /\.module\.scss$/,
         use: [
           {
-            loader: 'style-loader',
-            options: {}
+            loader: 'style-loader'
           },
           {
             loader: 'css-loader',
@@ -1348,18 +1346,6 @@ module.exports = {
               modules: {
                 compileType: 'icss'
               }
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'resolve-url-loader',
-            options: {
-              sourceMap: true
             }
           },
           {
@@ -1376,8 +1362,7 @@ module.exports = {
         test: /\.module\.scss$/,
         use: [
           {
-            loader: 'style-loader',
-            options: {}
+            loader: 'style-loader'
           },
           {
             loader: 'css-loader',
@@ -1385,25 +1370,8 @@ module.exports = {
               importLoaders: 3,
               sourceMap: true,
               modules: {
-                compileType: 'module',
-                mode: 'local',
-                exportGlobals: false,
-                namedExport: false,
-                exportLocalsConvention: 'asIs',
-                exportOnlyLocals: false
+                compileType: 'module'
               }
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'resolve-url-loader',
-            options: {
-              sourceMap: true
             }
           },
           {
