@@ -1266,30 +1266,14 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 3,
-              sourceMap: true,
+              importLoaders: 1,
               modules: {
                 compileType: 'icss'
               }
             }
           },
           {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'resolve-url-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
+            loader: 'sass-loader'
           },
         ],
       },
@@ -1341,18 +1325,14 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 3,
-              sourceMap: true,
+              importLoaders: 1,
               modules: {
                 compileType: 'icss'
               }
             }
           },
           {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
+            loader: 'sass-loader'
           },
         ],
       },
@@ -1367,18 +1347,14 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 3,
-              sourceMap: true,
+              importLoaders: 1,
               modules: {
                 compileType: 'module'
               }
             }
           },
           {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
+            loader: 'sass-loader'
           },
         ],
       },
