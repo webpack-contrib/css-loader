@@ -1243,68 +1243,12 @@ module.exports = {
 };
 ```
 
-### Using `Interoperable CSS` features only
+### Separating `Interoperable CSS`-only and `CSS Module` features
 
-The following setup is an example of allowing `Interoperable CSS` features such as `:import` and `:export` without using modules by setting `compileType` option.
+The following setup is an example of allowing `Interoperable CSS` features only (such as `:import` and `:export`) without using further `CSS Module` functionality by setting `compileType` option for all files that do not match `*.module.scss` naming convention. This is for reference as having `ICSS` features applied to all files was default `css-loader` behavior before v4.  
+Meanwhile all files matching `*.module.scss` are treated as `CSS Modules` in this example.
 
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      // ...
-      // --------
-      // SCSS
-      {
-        test: /\.scss$/,
-        exclude: /\.module\.scss$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: {
-                compileType: 'icss'
-              }
-            }
-          },
-          {
-            loader: 'sass-loader'
-          },
-        ],
-      },
-      // --------
-      // ...
-  },
-};
-```
-
-Using SCSS variables in JavaScript
-
-**variables.scss**
-
-```scss
-:export {
-  colorBackgroundCanvas: red;
-}
-```
-
-**app.js**
-
-```js
-import svars from 'variables.scss';
-ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
-```
-
-### Using SCSS variables for both CSS modules and JavaScript if variables are defined in non-module files
-
-The following setup is an example of allowing `Interoperable CSS` features such as `:import` and `:export` without using modules (by setting `compileType` option) together with synchronizing variable values between CSS and Javascript.
-
-Assume case where one wants some canvas drawing to be the same color (set by color name) as HTML background (set by class name).
+An example case is assumed where a project requires canvas drawing variables to be synchronized with CSS - canvas drawing uses the same color (set by color name in JavaScript) as HTML background (set by class name in CSS).
 
 **webpack.config.js**
 
@@ -1314,7 +1258,7 @@ module.exports = {
     rules: [
       // ...
       // --------
-      // SCSS GENERAL
+      // SCSS ALL EXCEPT MODULES
       {
         test: /\.scss$/,
         exclude: /\.module\.scss$/,
@@ -1366,6 +1310,8 @@ module.exports = {
 
 **variables.scss**
 
+File treated as `ICSS`-only.
+
 ```scss
 $colorBackground: red;
 :export {
@@ -1374,6 +1320,8 @@ $colorBackground: red;
 ```
 
 **Component.module.scss**
+
+File treated as `CSS Module`.
 
 ```scss
 @import 'variables.scss';
@@ -1384,16 +1332,18 @@ $colorBackground: red;
 
 **Component.jsx**
 
+Using both `CSS Module` functionality as well as SCSS variables directly in JavaScript.
+
 ```jsx
 import svars from 'variables.scss';
 import styles from 'Component.module.scss';
 
-// render DOM with CSS modules class name
+// Render DOM with CSS modules class name
 // <div className={styles.componentClass}>
 //   <canvas ref={mountsCanvas}/>
 // </div>
 
-// somewhere in JavaScript canvas drawing code use the variable directly
+// Somewhere in JavaScript canvas drawing code use the variable directly
 // const ctx = mountsCanvas.current.getContext('2d',{alpha: false});
 ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
 ```
