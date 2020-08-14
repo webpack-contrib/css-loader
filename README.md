@@ -1243,6 +1243,111 @@ module.exports = {
 };
 ```
 
+### Separating `Interoperable CSS`-only and `CSS Module` features
+
+The following setup is an example of allowing `Interoperable CSS` features only (such as `:import` and `:export`) without using further `CSS Module` functionality by setting `compileType` option for all files that do not match `*.module.scss` naming convention. This is for reference as having `ICSS` features applied to all files was default `css-loader` behavior before v4.  
+Meanwhile all files matching `*.module.scss` are treated as `CSS Modules` in this example.
+
+An example case is assumed where a project requires canvas drawing variables to be synchronized with CSS - canvas drawing uses the same color (set by color name in JavaScript) as HTML background (set by class name in CSS).
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      // ...
+      // --------
+      // SCSS ALL EXCEPT MODULES
+      {
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                compileType: 'icss'
+              }
+            }
+          },
+          {
+            loader: 'sass-loader'
+          },
+        ],
+      },
+      // --------
+      // SCSS MODULES
+      {
+        test: /\.module\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                compileType: 'module'
+              }
+            }
+          },
+          {
+            loader: 'sass-loader'
+          },
+        ],
+      },
+      // --------
+      // ...
+  },
+};
+```
+
+**variables.scss**
+
+File treated as `ICSS`-only.
+
+```scss
+$colorBackground: red;
+:export {
+  colorBackgroundCanvas: $colorBackground;
+}
+```
+
+**Component.module.scss**
+
+File treated as `CSS Module`.
+
+```scss
+@import 'variables.scss';
+.componentClass {
+  background-color: $colorBackground;
+}
+```
+
+**Component.jsx**
+
+Using both `CSS Module` functionality as well as SCSS variables directly in JavaScript.
+
+```jsx
+import svars from 'variables.scss';
+import styles from 'Component.module.scss';
+
+// Render DOM with CSS modules class name
+// <div className={styles.componentClass}>
+//   <canvas ref={mountsCanvas}/>
+// </div>
+
+// Somewhere in JavaScript canvas drawing code use the variable directly
+// const ctx = mountsCanvas.current.getContext('2d',{alpha: false});
+ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
+```
+
 ## Contributing
 
 Please take a moment to read our contributing guidelines if you haven't yet done so.
