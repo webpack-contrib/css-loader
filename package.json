@@ -76,6 +76,7 @@
     "file-loader": "^6.0.0",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
+    "less-loader": "^6.2.0",
     "lint-staged": "^10.2.11",
     "memfs": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
@@ -88,6 +89,8 @@
     "standard-version": "^8.0.2",
     "strip-ansi": "^6.0.0",
     "style-loader": "^1.2.1",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.2",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.0"
   },

@@ -2,6 +2,8 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
+import path from 'path';
+
 import { getOptions, stringifyRequest } from 'loader-utils';
 import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
@@ -26,6 +28,7 @@ import {
   getModulesPlugins,
   normalizeSourceMap,
   sort,
+  getSourceMapRelativePath,
 } from './utils';
 
 export default async function loader(content, map, meta) {
@@ -151,6 +154,14 @@ export default async function loader(content, map, meta) {
     }
   }
 
+  const sourceMap = map ? normalizeSourceMap(map) : null;
+
+  if (sourceMap) {
+    sourceMap.sources = sourceMap.sources.map((src) =>
+      getSourceMapRelativePath(src, path.dirname(this.resourcePath))
+    );
+  }
+
   let result;
 
   try {
@@ -160,7 +171,7 @@ export default async function loader(content, map, meta) {
       map: options.sourceMap
         ? {
             // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-            prev: map ? normalizeSourceMap(map) : null,
+            prev: sourceMap,
             inline: false,
             annotation: false,
           }
@@ -198,7 +209,14 @@ export default async function loader(content, map, meta) {
   }
 
   const importCode = getImportCode(imports, options);
-  const moduleCode = getModuleCode(result, api, replacements, options);
+  const moduleCode = getModuleCode(
+    result,
+    api,
+    replacements,
+    options,
+    this.resourcePath,
+    this.rootContext
+  );
   const exportCode = getExportCode(exports, replacements, options);
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);

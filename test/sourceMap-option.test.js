@@ -147,6 +147,13 @@ describe('"sourceMap" option', () => {
     });
 
     it('should generate source maps when source maps is valid and string from an other loader', async () => {
+      const absolutePath = path.resolve(
+        __dirname,
+        'fixtures',
+        'source-map',
+        'basic.css'
+      );
+
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
@@ -167,13 +174,14 @@ describe('"sourceMap" option', () => {
                     ),
                     options: {
                       sourceMap: JSON.stringify({
-                        foo: 'bar',
                         version: 3,
-                        sources: ['basic.css'],
+                        sources: [absolutePath],
                         names: [],
-                        mappings: 'AAAA;EACE,UAAU;AACZ',
-                        file: 'basic.css',
-                        sourcesContent: ['.class {\n  color: red;\n}\n'],
+                        mappings: 'AAAA,6BAA6B;;AAE7B;EACE,UAAU;AACZ',
+                        file: absolutePath,
+                        sourcesContent: [
+                          '@import "./nested/nested.css";\n\n.class {\n  color: red;\n}\n',
+                        ],
                       }),
                     },
                   },
@@ -196,6 +204,11 @@ describe('"sourceMap" option', () => {
     });
 
     it('should generate source maps when source maps is valid and is set sourceRoot', async () => {
+      const absoluteSourceRoot = path.resolve(
+        __dirname,
+        'fixtures',
+        'source-map'
+      );
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
@@ -219,11 +232,13 @@ describe('"sourceMap" option', () => {
                         foo: 'bar',
                         version: 3,
                         sources: ['basic.css'],
-                        sourceRoot: '/fixtures/source-map',
+                        sourceRoot: absoluteSourceRoot,
                         names: [],
-                        mappings: 'AAAA;EACE,UAAU;AACZ',
+                        mappings: 'AAAA,6BAA6B;;AAE7B;EACE,UAAU;AACZ',
                         file: 'basic.css',
-                        sourcesContent: ['.class {\n  color: red;\n}\n'],
+                        sourcesContent: [
+                          '@import "./nested/nested.css";\n\n.class {\n  color: red;\n}\n',
+                        ],
                       }),
                     },
                   },
@@ -319,13 +334,95 @@ describe('"sourceMap" option', () => {
     //   );
     //   const stats = await compile(compiler);
     //
-    //   expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot('module');
-    //   expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-    //     'result'
+    //   expect(getModuleSource('./source-map/basic.scss', stats)).toMatchSnapshot(
+    //     'module'
     //   );
+    //   expect(
+    //     getExecutedCode('main.bundle.js', compiler, stats)
+    //   ).toMatchSnapshot('result');
     //   expect(getWarnings(stats)).toMatchSnapshot('warnings');
     //   expect(getErrors(stats)).toMatchSnapshot('errors');
     // });
+
+    it('should generate source maps when source maps is valid from an other loader (`less-loader`)', async () => {
+      const compiler = getCompiler(
+        './source-map/basic-less.js',
+        {},
+        {
+          module: {
+            rules: [
+              {
+                test: /\.less$/i,
+                use: [
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: {
+                      sourceMap: true,
+                    },
+                  },
+                  {
+                    loader: 'less-loader',
+                    options: {
+                      sourceMap: true,
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(getModuleSource('./source-map/base.less', stats)).toMatchSnapshot(
+        'module'
+      );
+      expect(
+        getExecutedCode('main.bundle.js', compiler, stats)
+      ).toMatchSnapshot('result');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+
+    it('should generate source maps when source maps is valid from an other loader (`stylus-loader`)', async () => {
+      const compiler = getCompiler(
+        './source-map/basic-styl.js',
+        {},
+        {
+          module: {
+            rules: [
+              {
+                test: /\.styl$/i,
+                use: [
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: {
+                      sourceMap: true,
+                    },
+                  },
+                  {
+                    loader: 'stylus-loader',
+                    options: {
+                      sourceMap: true,
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(getModuleSource('./source-map/base.styl', stats)).toMatchSnapshot(
+        'module'
+      );
+      expect(
+        getExecutedCode('main.bundle.js', compiler, stats)
+      ).toMatchSnapshot('result');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
   });
 
   describe('false', () => {

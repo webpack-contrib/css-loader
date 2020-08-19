@@ -308,15 +308,21 @@ function normalizeSourceMap(map) {
   // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
 
   if (newMap.file) {
-    newMap.file = normalizePath(newMap.file);
+    delete newMap.file;
   }
 
+  const { sourceRoot } = newMap;
+
   if (newMap.sourceRoot) {
-    newMap.sourceRoot = normalizePath(newMap.sourceRoot);
+    delete newMap.sourceRoot;
   }
 
   if (newMap.sources) {
-    newMap.sources = newMap.sources.map((source) => normalizePath(source));
+    newMap.sources = newMap.sources.map((source) => {
+      return !sourceRoot
+        ? normalizePath(source)
+        : normalizePath(path.resolve(sourceRoot, source));
+    });
   }
 
   return newMap;
@@ -370,13 +376,61 @@ function getImportCode(imports, options) {
   return code ? `// Imports\n${code}` : '';
 }
 
-function getModuleCode(result, api, replacements, options) {
+function getSourceMapRelativePath(file, from) {
+  if (file.indexOf('<') === 0) return file;
+  if (/^\w+:\/\//.test(file)) return file;
+
+  const result = path.relative(from, file);
+
+  if (path.sep === '\\') {
+    return result.replace(/\\/g, '/');
+  }
+
+  return result;
+}
+
+function getSourceMapContextifyPath(file, to, rootContext) {
+  if (file.indexOf('<') === 0) return file;
+  if (/^\w+:\/\//.test(file)) return file;
+
+  if (typeof to === 'undefined') return file;
+
+  const dirname = path.dirname(to);
+
+  const result = path.resolve(dirname, file);
+
+  let contextifyPath;
+
+  if (path.sep === '\\') {
+    contextifyPath = path.relative(rootContext, result).replace(/\\/g, '/');
+  } else {
+    contextifyPath = path.relative(rootContext, result);
+  }
+
+  return `webpack:///${contextifyPath}`;
+}
+
+function getModuleCode(result, api, replacements, options, to, rootContext) {
   if (options.modules.exportOnlyLocals === true) {
     return '';
   }
 
   const { css, map } = result;
-  const sourceMapValue = options.sourceMap && map ? `,${map}` : '';
+
+  const sourceMap = map ? JSON.parse(map.toString()) : null;
+
+  if (sourceMap) {
+    if (typeof sourceMap.file !== 'undefined') {
+      delete sourceMap.file;
+    }
+
+    sourceMap.sources = sourceMap.sources.map((src) =>
+      getSourceMapContextifyPath(src, to, rootContext)
+    );
+  }
+
+  const sourceMapValue =
+    options.sourceMap && sourceMap ? `,${JSON.stringify(sourceMap)}` : '';
   let code = JSON.stringify(css);
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${options.sourceMap});\n`;
 
@@ -594,4 +648,5 @@ export {
   resolveRequests,
   isUrlRequestable,
   sort,
+  getSourceMapRelativePath,
 };
