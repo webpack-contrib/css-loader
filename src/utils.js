@@ -6,7 +6,6 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 
 import { urlToRequest, interpolateName } from 'loader-utils';
-import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
 import modulesValues from 'postcss-modules-values';
 import localByDefault from 'postcss-modules-local-by-default';
@@ -39,6 +38,10 @@ function unescape(str) {
         String.fromCharCode((high >> 10) | 0xd800, (high & 0x3ff) | 0xdc00);
     /* eslint-enable line-comment-position */
   });
+}
+
+function normalizePath(file) {
+  return path.sep === '\\' ? file.replace(/\\/g, '/') : file;
 }
 
 // eslint-disable-next-line no-control-regex
@@ -376,61 +379,46 @@ function getImportCode(imports, options) {
   return code ? `// Imports\n${code}` : '';
 }
 
-function getSourceMapRelativePath(file, from) {
-  if (file.indexOf('<') === 0) return file;
-  if (/^\w+:\/\//.test(file)) return file;
-
-  const result = path.relative(from, file);
-
-  if (path.sep === '\\') {
-    return result.replace(/\\/g, '/');
+function getSourceMapRelativePath(file, resourcePath) {
+  if (file.indexOf('<') === 0) {
+    return file;
   }
 
-  return result;
+  if (/^\w+:\/\//.test(file)) {
+    return file;
+  }
+
+  const dirname = path.dirname(resourcePath);
+
+  return normalizePath(path.relative(dirname, file));
 }
 
-function getSourceMapContextifyPath(file, to, rootContext) {
-  if (file.indexOf('<') === 0) return file;
-  if (/^\w+:\/\//.test(file)) return file;
+function getSourceMapContextifyPath(file, resourcePath, rootContext) {
+  if (file.indexOf('<') === 0) {
+    return file;
+  }
 
-  if (typeof to === 'undefined') return file;
+  if (/^\w+:\/\//.test(file)) {
+    return file;
+  }
 
-  const dirname = path.dirname(to);
+  const dirname = path.dirname(resourcePath);
 
   const result = path.resolve(dirname, file);
 
-  let contextifyPath;
-
-  if (path.sep === '\\') {
-    contextifyPath = path.relative(rootContext, result).replace(/\\/g, '/');
-  } else {
-    contextifyPath = path.relative(rootContext, result);
-  }
+  const contextifyPath = normalizePath(path.relative(rootContext, result));
 
   return `webpack:///${contextifyPath}`;
 }
 
-function getModuleCode(result, api, replacements, options, to, rootContext) {
+function getModuleCode(result, api, replacements, options, map) {
   if (options.modules.exportOnlyLocals === true) {
     return '';
   }
 
-  const { css, map } = result;
-
-  const sourceMap = map ? JSON.parse(map.toString()) : null;
-
-  if (sourceMap) {
-    if (typeof sourceMap.file !== 'undefined') {
-      delete sourceMap.file;
-    }
-
-    sourceMap.sources = sourceMap.sources.map((src) =>
-      getSourceMapContextifyPath(src, to, rootContext)
-    );
-  }
-
+  const { css } = result;
   const sourceMapValue =
-    options.sourceMap && sourceMap ? `,${JSON.stringify(sourceMap)}` : '';
+    options.sourceMap && map ? `,${JSON.stringify(map)}` : '';
   let code = JSON.stringify(css);
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${options.sourceMap});\n`;
 
@@ -649,4 +637,5 @@ export {
   isUrlRequestable,
   sort,
   getSourceMapRelativePath,
+  getSourceMapContextifyPath,
 };

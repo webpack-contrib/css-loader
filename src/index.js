@@ -2,8 +2,6 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import path from 'path';
-
 import { getOptions, stringifyRequest } from 'loader-utils';
 import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
@@ -29,6 +27,7 @@ import {
   normalizeSourceMap,
   sort,
   getSourceMapRelativePath,
+  getSourceMapContextifyPath,
 } from './utils';
 
 export default async function loader(content, map, meta) {
@@ -158,7 +157,7 @@ export default async function loader(content, map, meta) {
 
   if (sourceMap) {
     sourceMap.sources = sourceMap.sources.map((src) =>
-      getSourceMapRelativePath(src, path.dirname(this.resourcePath))
+      getSourceMapRelativePath(src, this.resourcePath)
     );
   }
 
@@ -193,6 +192,18 @@ export default async function loader(content, map, meta) {
     this.emitWarning(new Warning(warning));
   }
 
+  const resultMap = result.map ? JSON.parse(result.map.toString()) : null;
+
+  if (resultMap) {
+    if (typeof resultMap.file !== 'undefined') {
+      delete resultMap.file;
+    }
+
+    resultMap.sources = resultMap.sources.map((src) =>
+      getSourceMapContextifyPath(src, this.resourcePath, this.rootContext)
+    );
+  }
+
   const imports = []
     .concat(icssPluginImports.sort(sort))
     .concat(importPluginImports.sort(sort))
@@ -214,8 +225,7 @@ export default async function loader(content, map, meta) {
     api,
     replacements,
     options,
-    this.resourcePath,
-    this.rootContext
+    resultMap
   );
   const exportCode = getExportCode(exports, replacements, options);
 
