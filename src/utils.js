@@ -6,7 +6,6 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 
 import { urlToRequest, interpolateName } from 'loader-utils';
-import normalizePath from 'normalize-path';
 import cssesc from 'cssesc';
 import modulesValues from 'postcss-modules-values';
 import localByDefault from 'postcss-modules-local-by-default';
@@ -39,6 +38,10 @@ function unescape(str) {
         String.fromCharCode((high >> 10) | 0xd800, (high & 0x3ff) | 0xdc00);
     /* eslint-enable line-comment-position */
   });
+}
+
+function normalizePath(file) {
+  return path.sep === '\\' ? file.replace(/\\/g, '/') : file;
 }
 
 // eslint-disable-next-line no-control-regex
@@ -295,7 +298,7 @@ function getModulesPlugins(options, loaderContext) {
   return plugins;
 }
 
-function normalizeSourceMap(map) {
+function normalizeSourceMap(map, resourcePath) {
   let newMap = map;
 
   // Some loader emit source map as string
@@ -308,15 +311,33 @@ function normalizeSourceMap(map) {
   // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
 
   if (newMap.file) {
-    newMap.file = normalizePath(newMap.file);
+    delete newMap.file;
   }
 
+  const { sourceRoot } = newMap;
+
   if (newMap.sourceRoot) {
-    newMap.sourceRoot = normalizePath(newMap.sourceRoot);
+    delete newMap.sourceRoot;
   }
 
   if (newMap.sources) {
-    newMap.sources = newMap.sources.map((source) => normalizePath(source));
+    newMap.sources = newMap.sources.map((source) => {
+      if (source.indexOf('<') === 0) {
+        return source;
+      }
+
+      if (/^\w+:\/\//.test(source)) {
+        return source;
+      }
+
+      const absoluteSource = !sourceRoot
+        ? source
+        : path.resolve(sourceRoot, source);
+
+      const resourceDirname = path.dirname(resourcePath);
+
+      return normalizePath(path.relative(resourceDirname, absoluteSource));
+    });
   }
 
   return newMap;
@@ -370,14 +391,46 @@ function getImportCode(imports, options) {
   return code ? `// Imports\n${code}` : '';
 }
 
-function getModuleCode(result, api, replacements, options) {
+function normalizeSourceMapForRuntime(map, loaderContext) {
+  const resultMap = map ? map.toJSON() : null;
+
+  if (resultMap) {
+    if (typeof resultMap.file !== 'undefined') {
+      delete resultMap.file;
+    }
+
+    resultMap.sources = resultMap.sources.map((source) => {
+      if (source.indexOf('<') === 0) {
+        return source;
+      }
+
+      if (/^\w+:\/\//.test(source)) {
+        return source;
+      }
+
+      const resourceDirname = path.dirname(loaderContext.resourcePath);
+      const absoluteSource = path.resolve(resourceDirname, source);
+      const contextifyPath = normalizePath(
+        path.relative(loaderContext.rootContext, absoluteSource)
+      );
+
+      return `webpack:///${contextifyPath}`;
+    });
+  }
+
+  return JSON.stringify(resultMap);
+}
+
+function getModuleCode(result, api, replacements, options, loaderContext) {
   if (options.modules.exportOnlyLocals === true) {
     return '';
   }
 
-  const { css, map } = result;
-  const sourceMapValue = options.sourceMap && map ? `,${map}` : '';
-  let code = JSON.stringify(css);
+  const sourceMapValue = options.sourceMap
+    ? `,${normalizeSourceMapForRuntime(result.map, loaderContext)}`
+    : '';
+
+  let code = JSON.stringify(result.css);
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${options.sourceMap});\n`;
 
   for (const item of api) {

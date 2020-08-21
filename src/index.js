@@ -151,16 +151,17 @@ export default async function loader(content, map, meta) {
     }
   }
 
+  const { resourcePath } = this;
+
   let result;
 
   try {
     result = await postcss(plugins).process(content, {
-      from: this.resourcePath,
-      to: this.resourcePath,
+      from: resourcePath,
+      to: resourcePath,
       map: options.sourceMap
         ? {
-            // Some loaders (example `"postcss-loader": "1.x.x"`) always generates source map, we should remove it
-            prev: map ? normalizeSourceMap(map) : null,
+            prev: map ? normalizeSourceMap(map, resourcePath) : null,
             inline: false,
             annotation: false,
           }
@@ -198,7 +199,7 @@ export default async function loader(content, map, meta) {
   }
 
   const importCode = getImportCode(imports, options);
-  const moduleCode = getModuleCode(result, api, replacements, options);
+  const moduleCode = getModuleCode(result, api, replacements, options, this);
   const exportCode = getExportCode(exports, replacements, options);
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);
