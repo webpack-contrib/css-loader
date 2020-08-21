@@ -415,8 +415,8 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
-          ? 'main.1486d6842beed772ed7b.bundle.js'
-          : 'main.6edc30724d77c84b9674.bundle.js'
+          ? 'main.cabb8b11618498ace9bd.bundle.js'
+          : 'main.6bf096b30a7d4c501d5b.bundle.js'
       );
       expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
         'module'
@@ -517,8 +517,8 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
-          ? 'main.65d6a11b49507d66bf3b.css'
-          : 'main.994a357f71e1a515446a.css'
+          ? 'main.93ca7a8226bf6b9e8275.css'
+          : 'main.7232fe75dbf29c350324.css'
       );
       expect(readAsset(chunkName, compiler, stats)).toMatchSnapshot(
         'extracted css'
