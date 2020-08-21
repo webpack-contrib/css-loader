@@ -793,6 +793,52 @@ a {
 
 exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): warnings 1`] = `Array []`;
 
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack:///source-map/basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAGA;EACE,gCAAA;EACA,WAJc;AAEhB\\",\\"sourcesContent\\":[\\"$font-stack:    Helvetica, sans-serif;\\\\n$primary-color: #333;\\\\n\\\\nbody {\\\\n  font: 100% $font-stack;\\\\n  color: $primary-color;\\\\n}\\\\n\\"]}]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): result 1`] = `
+Array [
+  Array [
+    "./source-map/basic.scss",
+    "body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}",
+    "",
+    Object {
+      "mappings": "AAGA;EACE,gCAAA;EACA,WAJc;AAEhB",
+      "names": Array [],
+      "sources": Array [
+        "webpack:///source-map/basic.scss",
+      ],
+      "sourcesContent": Array [
+        "$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`sass-loader\`): warnings 1`] = `Array []`;
+
 exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`stylus-loader\`): errors 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`stylus-loader\`): module 1`] = `

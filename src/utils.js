@@ -298,7 +298,7 @@ function getModulesPlugins(options, loaderContext) {
   return plugins;
 }
 
-function normalizeSourceMap(map) {
+function normalizeSourceMap(map, resourcePath) {
   let newMap = map;
 
   // Some loader emit source map as string
@@ -322,9 +322,21 @@ function normalizeSourceMap(map) {
 
   if (newMap.sources) {
     newMap.sources = newMap.sources.map((source) => {
-      return !sourceRoot
-        ? normalizePath(source)
-        : normalizePath(path.resolve(sourceRoot, source));
+      if (source.indexOf('<') === 0) {
+        return source;
+      }
+
+      if (/^\w+:\/\//.test(source)) {
+        return source;
+      }
+
+      const absoluteSource = !sourceRoot
+        ? source
+        : path.resolve(sourceRoot, source);
+
+      const resourceDirname = path.dirname(resourcePath);
+
+      return normalizePath(path.relative(resourceDirname, absoluteSource));
     });
   }
 
@@ -379,47 +391,46 @@ function getImportCode(imports, options) {
   return code ? `// Imports\n${code}` : '';
 }
 
-function getSourceMapRelativePath(file, resourcePath) {
-  if (file.indexOf('<') === 0) {
-    return file;
+function normalizeSourceMapForRuntime(map, loaderContext) {
+  const resultMap = map ? map.toJSON() : null;
+
+  if (resultMap) {
+    if (typeof resultMap.file !== 'undefined') {
+      delete resultMap.file;
+    }
+
+    resultMap.sources = resultMap.sources.map((source) => {
+      if (source.indexOf('<') === 0) {
+        return source;
+      }
+
+      if (/^\w+:\/\//.test(source)) {
+        return source;
+      }
+
+      const resourceDirname = path.dirname(loaderContext.resourcePath);
+      const absoluteSource = path.resolve(resourceDirname, source);
+      const contextifyPath = normalizePath(
+        path.relative(loaderContext.rootContext, absoluteSource)
+      );
+
+      return `webpack:///${contextifyPath}`;
+    });
   }
 
-  if (/^\w+:\/\//.test(file)) {
-    return file;
-  }
-
-  const dirname = path.dirname(resourcePath);
-
-  return normalizePath(path.relative(dirname, file));
+  return JSON.stringify(resultMap);
 }
 
-function getSourceMapContextifyPath(file, resourcePath, rootContext) {
-  if (file.indexOf('<') === 0) {
-    return file;
-  }
-
-  if (/^\w+:\/\//.test(file)) {
-    return file;
-  }
-
-  const dirname = path.dirname(resourcePath);
-
-  const result = path.resolve(dirname, file);
-
-  const contextifyPath = normalizePath(path.relative(rootContext, result));
-
-  return `webpack:///${contextifyPath}`;
-}
-
-function getModuleCode(result, api, replacements, options, map) {
+function getModuleCode(result, api, replacements, options, loaderContext) {
   if (options.modules.exportOnlyLocals === true) {
     return '';
   }
 
-  const { css } = result;
-  const sourceMapValue =
-    options.sourceMap && map ? `,${JSON.stringify(map)}` : '';
-  let code = JSON.stringify(css);
+  const sourceMapValue = options.sourceMap
+    ? `,${normalizeSourceMapForRuntime(result.map, loaderContext)}`
+    : '';
+
+  let code = JSON.stringify(result.css);
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${options.sourceMap});\n`;
 
   for (const item of api) {
@@ -636,6 +647,4 @@ export {
   resolveRequests,
   isUrlRequestable,
   sort,
-  getSourceMapRelativePath,
-  getSourceMapContextifyPath,
 };
