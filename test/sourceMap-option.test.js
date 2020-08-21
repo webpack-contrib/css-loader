@@ -384,14 +384,18 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should generate source maps and do not change "[contenthash]" on different platform', async () => {
+    it.only('should generate source maps and do not change "[contenthash]" on different platform', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
         {
           devtool: 'source-map',
+          // webpack@4 has bug
+          // It uses readableIdentifier to generate the sources, which uses the RequestShortener,
+          // which has some problems with paths that are 2 folders above the context
+          context: path.resolve(__dirname, '..'),
           output: {
-            path: path.resolve(__dirname, '../outputs'),
+            path: path.resolve(__dirname, './outputs'),
             filename: '[name].[contenthash].bundle.js',
             chunkFilename: '[name].[contenthash].chunk.js',
             publicPath: '/webpack/public/path/',
@@ -418,12 +422,12 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
-          ? 'main.cabb8b11618498ace9bd.bundle.js'
-          : 'main.6bf096b30a7d4c501d5b.bundle.js'
+          ? 'main.b58b73eca7517a2128fd.bundle.js'
+          : 'main.1e45307f085c8aadaf4c.bundle.js'
       );
-      expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
-        'module'
-      );
+      expect(
+        getModuleSource('fixtures/source-map/basic.css', stats)
+      ).toMatchSnapshot('module');
       expect(getExecutedCode(chunkName, compiler, stats)).toMatchSnapshot(
         'result'
       );
