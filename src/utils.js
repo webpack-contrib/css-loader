@@ -301,6 +301,9 @@ function getModulesPlugins(options, loaderContext) {
 function normalizeSourceMap(map, resourcePath) {
   let newMap = map;
 
+  // eslint-disable-next-line no-console
+  console.log(map);
+
   // Some loader emit source map as string
   // Strip any JSON XSSI avoidance prefix from the string (as documented in the source maps specification), and then parse the string as JSON.
   if (typeof newMap === 'string') {
