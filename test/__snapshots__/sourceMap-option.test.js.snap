@@ -196,6 +196,229 @@ exports[`"sourceMap" option true should generate source maps #2: warnings 1`] = 
 
 exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: errors 1`] = `Array []`;
 
+exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: js source map 1`] = `
+Object {
+  "file": "main.6bf096b30a7d4c501d5b.bundle.js",
+  "mappings": ";QAAA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;QAEA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;;;QAGA;QACA;;QAEA;QACA;;QAEA;QACA;QACA;QACA,0CAA0C,gCAAgC;QAC1E;QACA;;QAEA;QACA;QACA;QACA,wDAAwD,kBAAkB;QAC1E;QACA,iDAAiD,cAAc;QAC/D;;QAEA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA,yCAAyC,iCAAiC;QAC1E,gHAAgH,mBAAmB,EAAE;QACrI;QACA;;QAEA;QACA;QACA;QACA,2BAA2B,0BAA0B,EAAE;QACvD,iCAAiC,eAAe;QAChD;QACA;QACA;;QAEA;QACA,sDAAsD,+DAA+D;;QAErH;QACA;;;QAGA;QACA;;;;;;;;;;;;;AClFA;AAAA;AAAA;AAAA;AACyE;AACzE,8BAA8B,0DAA2B;AACzD;AACA,8BAA8B,QAAS,YAAY,gBAAgB,GAAG,SAAS,6FAA6F,UAAU,kCAAkC,gBAAgB,GAAG,KAAK;AAChP;AACe,sFAAuB,EAAC;;;;;;;;;;;;ACNvC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;AAEA;AACA;AACA;AACA;;AAEA;AACA,yBAAyB,QAAQ,EAAE,EAAE,SAAS;AAC9C;;AAEA;AACA,KAAK;AACL;;AAEA;AACA;AACA;AACA;AACA;AACA;AACA;;AAEA;;AAEA;AACA,qBAAqB,iBAAiB;AACtC;AACA;;AAEA;AACA;AACA;AACA;AACA;;AAEA,mBAAmB,oBAAoB;AACvC;;AAEA;AACA;AACA;AACA;;AAEA;AACA;AACA;AACA,SAAS;AACT,uBAAuB,WAAW,OAAO,QAAQ;AACjD;AACA;;AAEA;AACA;AACA;;AAEA;AACA;;AAEA;AACA;AACA;AACA;;AAEA;AACA;AACA;;AAEA;AACA;AACA;AACA,mCAAmC,4BAA4B,EAAE,OAAO;AACxE;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;AACA;AACA;AACA,uDAAuD,cAAc,SAAS,OAAO;;AAErF,gBAAgB,KAAK;AACrB;;;;;;;;;;;;;AC9FA;AAAA;AAAA;AAAA;AAAA;AACsE;AACsC;AAC5G,8BAA8B,0DAA2B;AACzD,0BAA0B,qFAAiC;AAC3D;AACA,8BAA8B,QAAS,WAAW,eAAe,GAAG,SAAS,qFAAqF,UAAU,yDAAyD,YAAY,eAAe,GAAG,KAAK;AACxQ;AACe,sFAAuB,EAAC;;;;;;;;;;;;;ACRvC;AAAA;AAA8B;;AAE9B,aAAa,kDAAG;;AAED,iHAAG,EAAC",
+  "names": Array [],
+  "sourceRoot": "",
+  "sources": Array [
+    "webpack:///webpack/bootstrap",
+    "webpack:///./source-map/nested/nested.css",
+    "webpack:////home/evilebottnawi/IdeaProjects/css-loader/src/runtime/api.js",
+    "webpack:///./source-map/basic.css",
+    "webpack:///./source-map/basic.js",
+  ],
+  "sourcesContent": Array [
+    " 	// The module cache
+ 	var installedModules = {};
+
+ 	// The require function
+ 	function __webpack_require__(moduleId) {
+
+ 		// Check if module is in cache
+ 		if(installedModules[moduleId]) {
+ 			return installedModules[moduleId].exports;
+ 		}
+ 		// Create a new module (and put it into the cache)
+ 		var module = installedModules[moduleId] = {
+ 			i: moduleId,
+ 			l: false,
+ 			exports: {}
+ 		};
+
+ 		// Execute the module function
+ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+ 		// Flag the module as loaded
+ 		module.l = true;
+
+ 		// Return the exports of the module
+ 		return module.exports;
+ 	}
+
+
+ 	// expose the modules object (__webpack_modules__)
+ 	__webpack_require__.m = modules;
+
+ 	// expose the module cache
+ 	__webpack_require__.c = installedModules;
+
+ 	// define getter function for harmony exports
+ 	__webpack_require__.d = function(exports, name, getter) {
+ 		if(!__webpack_require__.o(exports, name)) {
+ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+ 		}
+ 	};
+
+ 	// define __esModule on exports
+ 	__webpack_require__.r = function(exports) {
+ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+ 		}
+ 		Object.defineProperty(exports, '__esModule', { value: true });
+ 	};
+
+ 	// create a fake namespace object
+ 	// mode & 1: value is a module id, require it
+ 	// mode & 2: merge all properties of value into the ns
+ 	// mode & 4: return value when already ns object
+ 	// mode & 8|1: behave like require
+ 	__webpack_require__.t = function(value, mode) {
+ 		if(mode & 1) value = __webpack_require__(value);
+ 		if(mode & 8) return value;
+ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+ 		var ns = Object.create(null);
+ 		__webpack_require__.r(ns);
+ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+ 		return ns;
+ 	};
+
+ 	// getDefaultExport function for compatibility with non-harmony modules
+ 	__webpack_require__.n = function(module) {
+ 		var getter = module && module.__esModule ?
+ 			function getDefault() { return module['default']; } :
+ 			function getModuleExports() { return module; };
+ 		__webpack_require__.d(getter, 'a', getter);
+ 		return getter;
+ 	};
+
+ 	// Object.prototype.hasOwnProperty.call
+ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+ 	// __webpack_public_path__
+ 	__webpack_require__.p = \\"/webpack/public/path/\\";
+
+
+ 	// Load entry module and return exports
+ 	return __webpack_require__(__webpack_require__.s = \\"./source-map/basic.js\\");
+",
+    "// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".nested {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/nested/nested.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,WAAW;AACb\\",\\"sourcesContent\\":[\\".nested {\\\\n  color: blue;\\\\n}\\\\n\\"]}]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+",
+    "/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (useSourceMap) {
+  const list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map((item) => {
+      const content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return \`@media \${item[2]} {\${content}}\`;
+      }
+
+      return content;
+    }).join('');
+  };
+
+  // import a list of modules into the list
+  // eslint-disable-next-line func-names
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    const alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (let i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        const id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (let i = 0; i < modules.length; i++) {
+      const item = [].concat(modules[i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = \`\${mediaQuery} and \${item[2]}\`;
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  const content = item[1] || '';
+  // eslint-disable-next-line prefer-destructuring
+  const cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    const sourceMapping = toComment(cssMapping);
+    const sourceURLs = cssMapping.sources.map(
+      (source) => \`/*# sourceURL=\${cssMapping.sourceRoot || ''}\${source} */\`
+    );
+
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\\\\n');
+  }
+
+  return [content].join('\\\\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  const base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  const data = \`sourceMappingURL=data:application/json;charset=utf-8;base64,\${base64}\`;
+
+  return \`/*# \${data} */\`;
+}
+",
+    "// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ref--4-rules-0!./nested/nested.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+",
+    "import css from './basic.css';
+
+__export__ = css;
+
+export default css;
+",
+  ],
+  "version": 3,
+}
+`;
+
 exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
@@ -209,56 +432,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: result 1`] = `
-Array [
-  Array [
-    "../../src/index.js?[ident]!./source-map/nested/nested.css",
-    ".nested {
-  color: blue;
-}
-",
-    "",
-    Object {
-      "mappings": "AAAA;EACE,WAAW;AACb",
-      "names": Array [],
-      "sources": Array [
-        "webpack://source-map/nested/nested.css",
-      ],
-      "sourcesContent": Array [
-        ".nested {
-  color: blue;
-}
-",
-      ],
-      "version": 3,
-    },
-  ],
-  Array [
-    "./source-map/basic.css",
-    ".class {
-  color: red;
-}
-",
-    "",
-    Object {
-      "mappings": "AAEA;EACE,UAAU;AACZ",
-      "names": Array [],
-      "sources": Array [
-        "webpack://source-map/basic.css",
-      ],
-      "sourcesContent": Array [
-        "@import \\"./nested/nested.css\\";
-
-.class {
-  color: red;
-}
-",
-      ],
-      "version": 3,
-    },
-  ],
-]
-`;
+exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: result 1`] = `Object {}`;
 
 exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: warnings 1`] = `Array []`;
 

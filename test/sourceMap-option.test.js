@@ -389,6 +389,7 @@ describe('"sourceMap" option', () => {
         './source-map/basic.js',
         {},
         {
+          devtool: 'source-map',
           output: {
             path: path.resolve(__dirname, '../outputs'),
             filename: '[name].[contenthash].bundle.js',
@@ -411,7 +412,9 @@ describe('"sourceMap" option', () => {
         }
       );
       const stats = await compile(compiler);
-      const [chunkName] = Object.keys(stats.compilation.assets);
+      const chunkName = Object.keys(
+        stats.compilation.assets
+      ).find((assetName) => /\.js$/.test(assetName));
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
@@ -424,6 +427,9 @@ describe('"sourceMap" option', () => {
       expect(getExecutedCode(chunkName, compiler, stats)).toMatchSnapshot(
         'result'
       );
+      expect(
+        JSON.parse(readAsset(`${chunkName}.map`, compiler, stats))
+      ).toMatchSnapshot('js source map');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
@@ -513,7 +519,7 @@ describe('"sourceMap" option', () => {
       const stats = await compile(compiler);
       const chunkName = Object.keys(
         stats.compilation.assets
-      ).find((assetName) => /\.css/.test(assetName));
+      ).find((assetName) => /\.css$/.test(assetName));
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
