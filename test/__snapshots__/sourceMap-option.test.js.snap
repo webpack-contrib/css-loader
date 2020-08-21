@@ -194,6 +194,160 @@ Array [
 
 exports[`"sourceMap" option true should generate source maps #2: warnings 1`] = `Array []`;
 
+exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack:///source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+    Object {
+      "mappings": "AAAA;EACE,WAAW;AACb",
+      "names": Array [],
+      "sources": Array [
+        "webpack:///source-map/nested/nested.css",
+      ],
+      "sourcesContent": Array [
+        ".nested {
+  color: blue;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "mappings": "AAEA;EACE,UAAU;AACZ",
+      "names": Array [],
+      "sources": Array [
+        "webpack:///source-map/basic.css",
+      ],
+      "sourcesContent": Array [
+        "@import \\"./nested/nested.css\\";
+
+.class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: extracted css 1`] = `
+".nested {
+  color: blue;
+}
+
+.class {
+  color: red;
+}
+
+
+/*# sourceMappingURL=main.994a357f71e1a515446a.css.map*/"
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: source map 1`] = `
+Object {
+  "file": "main.994a357f71e1a515446a.css",
+  "mappings": "AAAA;EACE,WAAW;AACb;;ACAA;EACE,UAAU;AACZ",
+  "names": Array [],
+  "sourceRoot": "",
+  "sources": Array [
+    "webpack:////source-map/nested/nested.css",
+    "webpack:////source-map/basic.css",
+  ],
+  "sourcesContent": Array [
+    ".nested {
+  color: blue;
+}
+",
+    "@import \\"./nested/nested.css\\";
+
+.class {
+  color: red;
+}
+",
+  ],
+  "version": 3,
+}
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted: extracted css 1`] = `
+".nested {
+  color: blue;
+}
+
+.class {
+  color: red;
+}
+
+
+/*# sourceMappingURL=main.css.map*/"
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted: source map 1`] = `
+Object {
+  "file": "main.css",
+  "mappings": "AAAA;EACE,WAAW;AACb;;ACAA;EACE,UAAU;AACZ",
+  "names": Array [],
+  "sourceRoot": "",
+  "sources": Array [
+    "webpack:////source-map/nested/nested.css",
+    "webpack:////source-map/basic.css",
+  ],
+  "sourcesContent": Array [
+    ".nested {
+  color: blue;
+}
+",
+    "@import \\"./nested/nested.css\\";
+
+.class {
+  color: red;
+}
+",
+  ],
+  "version": 3,
+}
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted: warnings 1`] = `Array []`;
+
 exports[`"sourceMap" option true should generate source maps when previous loader does not generate source maps: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps when previous loader does not generate source maps: module 1`] = `

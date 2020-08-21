@@ -1,6 +1,8 @@
 import path from 'path';
 
+import webpack from 'webpack';
 import postcssPresetEnv from 'postcss-preset-env';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import {
   compile,
@@ -9,6 +11,7 @@ import {
   getExecutedCode,
   getModuleSource,
   getWarnings,
+  readAsset,
 } from './helpers/index';
 
 jest.setTimeout(10000);
@@ -377,6 +380,152 @@ describe('"sourceMap" option', () => {
       expect(
         getExecutedCode('main.bundle.js', compiler, stats)
       ).toMatchSnapshot('result');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+
+    it('should generate source maps and do not change "[contenthash]" on different platform', async () => {
+      const compiler = getCompiler(
+        './source-map/basic.js',
+        {},
+        {
+          output: {
+            path: path.resolve(__dirname, '../outputs'),
+            filename: '[name].[contenthash].bundle.js',
+            chunkFilename: '[name].[contenthash].chunk.js',
+            publicPath: '/webpack/public/path/',
+          },
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                rules: [
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: { sourceMap: true },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+      const [chunkName] = Object.keys(stats.compilation.assets);
+
+      expect(chunkName).toBe(
+        webpack.version[0] === '5'
+          ? 'main.1486d6842beed772ed7b.bundle.js'
+          : 'main.6edc30724d77c84b9674.bundle.js'
+      );
+      expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
+        'module'
+      );
+      expect(getExecutedCode(chunkName, compiler, stats)).toMatchSnapshot(
+        'result'
+      );
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+
+    it('should generate source maps when css was extracted', async () => {
+      const compiler = getCompiler(
+        './source-map/basic.js',
+        {},
+        {
+          devtool: 'source-map',
+          output: {
+            path: path.resolve(__dirname, '../outputs'),
+            filename: '[name].bundle.js',
+            chunkFilename: '[name].chunk.js',
+            publicPath: '/webpack/public/path/',
+          },
+          plugins: [
+            new MiniCssExtractPlugin({
+              filename: '[name].css',
+            }),
+          ],
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                rules: [
+                  {
+                    loader: MiniCssExtractPlugin.loader,
+                  },
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: { sourceMap: true },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(readAsset('main.css', compiler, stats)).toMatchSnapshot(
+        'extracted css'
+      );
+      expect(
+        JSON.parse(readAsset('main.css.map', compiler, stats))
+      ).toMatchSnapshot('source map');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+
+    it('should generate source maps when css was extracted and do not change "[contenthash]" on different platform', async () => {
+      const compiler = getCompiler(
+        './source-map/basic.js',
+        {},
+        {
+          devtool: 'source-map',
+          output: {
+            path: path.resolve(__dirname, '../outputs'),
+            filename: '[name].bundle.js',
+            chunkFilename: '[name].chunk.js',
+            publicPath: '/webpack/public/path/',
+          },
+          plugins: [
+            new MiniCssExtractPlugin({
+              filename: '[name].[contenthash].css',
+            }),
+          ],
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                rules: [
+                  {
+                    loader: MiniCssExtractPlugin.loader,
+                  },
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: { sourceMap: true },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+      const chunkName = Object.keys(
+        stats.compilation.assets
+      ).find((assetName) => /\.css/.test(assetName));
+
+      expect(chunkName).toBe(
+        webpack.version[0] === '5'
+          ? 'main.65d6a11b49507d66bf3b.css'
+          : 'main.994a357f71e1a515446a.css'
+      );
+      expect(readAsset(chunkName, compiler, stats)).toMatchSnapshot(
+        'extracted css'
+      );
+      expect(
+        JSON.parse(readAsset(`${chunkName}.map`, compiler, stats))
+      ).toMatchSnapshot('source map');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
