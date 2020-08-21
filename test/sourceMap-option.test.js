@@ -302,7 +302,6 @@ describe('"sourceMap" option', () => {
     });
 
     it.only('should generate source maps when source maps is valid from an other loader (`sass-loader`)', async () => {
-      // eslint-disable-next-line
       require('fs').writeFileSync(
         path.resolve(__dirname, '../node_modules/sass-loader/dist/index.js'),
         `
@@ -352,6 +351,13 @@ function loader(content) {
 
   const callback = this.async();
   const render = (0, _utils.getRenderFunctionFromSassImplementation)(implementation);
+
+  console.log(sassOptions);
+
+  sassOptions.sourceMap = _path.default.resolve(process.cwd(), 'sass.css.map')
+
+  console.log(sassOptions);
+
   render(sassOptions, (error, result) => {
     if (error) {
       // There are situations when the \`file\` property do not exist
@@ -365,7 +371,6 @@ function loader(content) {
     }
 
     if (result.map) {
-      console.log(result.map.toString());
       // eslint-disable-next-line no-param-reassign
       result.map = JSON.parse(result.map); // result.map.file is an optional property that provides the output filename.
       // Since we don't know the final filename in the webpack build chain yet, it makes no sense to have it.
