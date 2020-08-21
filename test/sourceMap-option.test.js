@@ -518,6 +518,13 @@ describe('"sourceMap" option', () => {
         stats.compilation.assets
       ).find((assetName) => /\.css$/.test(assetName));
 
+      const sourceMap = JSON.parse(
+        readAsset(`${chunkName}.map`, compiler, stats)
+      );
+
+      // eslint-disable-next-line no-console
+      console.log(sourceMap);
+
       expect(chunkName).toBe(
         webpack.version[0] === '5'
           ? 'main.93ca7a8226bf6b9e8275.css'
@@ -532,13 +539,6 @@ describe('"sourceMap" option', () => {
           '=$1.xxxxxxxxxxxxxxxxxxxx.css.map'
         )
       ).toMatchSnapshot('extracted css');
-
-      const sourceMap = JSON.parse(
-        readAsset(`${chunkName}.map`, compiler, stats)
-      );
-
-      // eslint-disable-next-line no-console
-      console.log(sourceMap);
 
       sourceMap.file = sourceMap.file.replace(
         /^(.+?)\..+?\.css$/,
