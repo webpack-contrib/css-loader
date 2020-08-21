@@ -354,7 +354,10 @@ function loader(content) {
 
   console.log(sassOptions);
 
-  sassOptions.outFile = this.resourcePath;
+  delete sassOptions.sourceMap;
+  delete sassOptions.sourceMapRoot;
+
+  sassOptions.outFile = _path.default.resolve(this.rootContext, 'file.css');
   sassOptions.sourceMap = true;
   sassOptions.sourceMapRoot = this.rootContext;
 
