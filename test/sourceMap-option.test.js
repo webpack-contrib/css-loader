@@ -427,9 +427,6 @@ describe('"sourceMap" option', () => {
       expect(getExecutedCode(chunkName, compiler, stats)).toMatchSnapshot(
         'result'
       );
-      expect(
-        JSON.parse(readAsset(`${chunkName}.map`, compiler, stats))
-      ).toMatchSnapshot('js source map');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
@@ -521,17 +518,31 @@ describe('"sourceMap" option', () => {
         stats.compilation.assets
       ).find((assetName) => /\.css$/.test(assetName));
 
-      // expect(chunkName).toBe(
-      //   webpack.version[0] === '5'
-      //     ? 'main.93ca7a8226bf6b9e8275.css'
-      //     : 'main.7232fe75dbf29c350324.css'
-      // );
-      // expect(readAsset(chunkName, compiler, stats)).toMatchSnapshot(
-      //   'extracted css'
-      // );
+      expect(chunkName).toBe(
+        webpack.version[0] === '5'
+          ? 'main.93ca7a8226bf6b9e8275.css'
+          : 'main.7232fe75dbf29c350324.css'
+      );
+
+      const extractedCSS = readAsset(chunkName, compiler, stats);
+
       expect(
-        JSON.parse(readAsset(`${chunkName}.map`, compiler, stats))
-      ).toMatchSnapshot('source map');
+        extractedCSS.replace(
+          /=(.+?)\..+?\.css\.map/,
+          '=$1.xxxxxxxxxxxxxxxxxxxx.css.map'
+        )
+      ).toMatchSnapshot('extracted css');
+
+      const sourceMap = JSON.parse(
+        readAsset(`${chunkName}.map`, compiler, stats)
+      );
+
+      sourceMap.file = sourceMap.file.replace(
+        /^(.+?)\..+?\.css$/,
+        '$1.xxxxxxxxxxxxxxxxxxxx.css'
+      );
+
+      expect(sourceMap).toMatchSnapshot('source map');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
