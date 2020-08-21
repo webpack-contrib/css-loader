@@ -262,6 +262,49 @@ Array [
 
 exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: warnings 1`] = `Array []`;
 
+exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: extracted css 1`] = `
+".nested {
+  color: blue;
+}
+
+.class {
+  color: red;
+}
+
+
+/*# sourceMappingURL=main.xxxxxxxxxxxxxxxxxxxx.css.map*/"
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: source map 1`] = `
+Object {
+  "file": "main.xxxxxxxxxxxxxxxxxxxx.css",
+  "mappings": "AAAA;EACE,WAAW;AACb;;ACAA;EACE,UAAU;AACZ",
+  "names": Array [],
+  "sourceRoot": "",
+  "sources": Array [
+    "webpack:///test/fixtures/source-map/nested/nested.css",
+    "webpack:///test/fixtures/source-map/basic.css",
+  ],
+  "sourcesContent": Array [
+    ".nested {
+  color: blue;
+}
+",
+    "@import \\"./nested/nested.css\\";
+
+.class {
+  color: red;
+}
+",
+  ],
+  "version": 3,
+}
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: warnings 1`] = `Array []`;
+
 exports[`"sourceMap" option true should generate source maps when css was extracted: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps when css was extracted: extracted css 1`] = `

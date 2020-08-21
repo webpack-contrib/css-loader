@@ -482,12 +482,16 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it.skip('should generate source maps when css was extracted and do not change "[contenthash]" on different platform', async () => {
+    it('should generate source maps when css was extracted and do not change "[contenthash]" on different platform', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
         {
           devtool: 'source-map',
+          // webpack@4 has bug
+          // It uses readableIdentifier to generate the sources, which uses the RequestShortener,
+          // which has some problems with paths that are 2 folders above the context
+          context: path.resolve(__dirname, '..'),
           output: {
             path: path.resolve(__dirname, '../outputs'),
             filename: '[name].bundle.js',
@@ -526,8 +530,8 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
-          ? 'main.93ca7a8226bf6b9e8275.css'
-          : 'main.7232fe75dbf29c350324.css'
+          ? 'main.8189c1c4f956dd69079a.css'
+          : 'main.6aa45a5434fd0e992559.css'
       );
 
       expect(
