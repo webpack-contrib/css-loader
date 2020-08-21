@@ -371,6 +371,7 @@ function loader(content) {
     }
 
     if (result.map) {
+      console.log(result.map.toString())
       // eslint-disable-next-line no-param-reassign
       result.map = JSON.parse(result.map); // result.map.file is an optional property that provides the output filename.
       // Since we don't know the final filename in the webpack build chain yet, it makes no sense to have it.
