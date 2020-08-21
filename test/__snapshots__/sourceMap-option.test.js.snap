@@ -7,7 +7,7 @@ exports[`"sourceMap" option true should generate source maps when source maps is
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack:///source-map/basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAGA;EACE,gCAAA;EACA,WAJc;AAEhB\\",\\"sourcesContent\\":[\\"$font-stack:    Helvetica, sans-serif;\\\\n$primary-color: #333;\\\\n\\\\nbody {\\\\n  font: 100% $font-stack;\\\\n  color: $primary-color;\\\\n}\\\\n\\"]}]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack:///basic.scss\\",\\"webpack:///source-map/basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAGA;EACE,gCAAA;EACA,WAJc;ACEhB\\",\\"sourcesContent\\":[\\"$font-stack:    Helvetica, sans-serif;\\\\n$primary-color: #333;\\\\n\\\\nbody {\\\\n  font: 100% $font-stack;\\\\n  color: $primary-color;\\\\n}\\\\n\\",\\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\"]}]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -23,9 +23,10 @@ Array [
 }",
     "",
     Object {
-      "mappings": "AAGA;EACE,gCAAA;EACA,WAJc;AAEhB",
+      "mappings": "AAGA;EACE,gCAAA;EACA,WAJc;ACEhB",
       "names": Array [],
       "sources": Array [
+        "webpack:///basic.scss",
         "webpack:///source-map/basic.scss",
       ],
       "sourcesContent": Array [
@@ -37,6 +38,10 @@ body {
   color: $primary-color;
 }
 ",
+        "body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}",
       ],
       "version": 3,
     },

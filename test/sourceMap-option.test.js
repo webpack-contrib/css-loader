@@ -354,7 +354,9 @@ function loader(content) {
 
   console.log(sassOptions);
 
+  sassOptions.outFile = this.resourcePath;
   sassOptions.sourceMap = true;
+  sassOptions.sourceMapRoot = this.rootContext;
 
   console.log(sassOptions);
 
@@ -382,9 +384,9 @@ function loader(content) {
       // @see https://github.com/webpack-contrib/sass-loader/issues/366#issuecomment-279460722
       // eslint-disable-next-line no-param-reassign
 
-      result.map.sourceRoot = _path.default.normalize(result.map.sourceRoot); // eslint-disable-next-line no-param-reassign
+      result.map.sourceRoot = result.map.sourceRoot; // eslint-disable-next-line no-param-reassign
 
-      result.map.sources = result.map.sources.map(_path.default.normalize);
+      result.map.sources = _path.default.normalize;
     }
 
     result.stats.includedFiles.forEach(includedFile => {
