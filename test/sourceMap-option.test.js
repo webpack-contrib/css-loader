@@ -384,7 +384,7 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it.only('should generate source maps and do not change "[contenthash]" on different platform', async () => {
+    it('should generate source maps and do not change "[contenthash]" on different platform', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
