@@ -357,9 +357,8 @@ function loader(content) {
   delete sassOptions.sourceMap;
   delete sassOptions.sourceMapRoot;
 
-  sassOptions.outFile = _path.default.resolve(this.rootContext, 'file.css');
   sassOptions.sourceMap = true;
-  sassOptions.sourceMapRoot = this.rootContext;
+  sassOptions.outFile = _path.default.join(this.rootContext, 'style.css.map');
 
   console.log(sassOptions);
 
@@ -387,9 +386,9 @@ function loader(content) {
       // @see https://github.com/webpack-contrib/sass-loader/issues/366#issuecomment-279460722
       // eslint-disable-next-line no-param-reassign
 
-      result.map.sourceRoot = _path.default.normalize(result.map.sourceRoot); // eslint-disable-next-line no-param-reassign
+      delete result.map.sourceRoot;
 
-      result.map.sources = result.map.sources.map(_path.default.normalize);
+      result.map.sources = result.map.sources.map((source) => _path.default.resolve(this.rootContext, source));
     }
 
     result.stats.includedFiles.forEach(includedFile => {
