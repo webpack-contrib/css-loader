@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: errors 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when previous loader does not generate source maps: errors 1`] = `Array []`;
 
-exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: module 1`] = `
+exports[`"sourceMap" option false should not generate source maps when previous loader does not generate source maps: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
@@ -15,7 +15,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: result 1`] = `
+exports[`"sourceMap" option false should not generate source maps when previous loader does not generate source maps: result 1`] = `
 Array [
   Array [
     "../../src/index.js?[ident]!./source-map/nested/nested.css",
@@ -36,11 +36,11 @@ Array [
 ]
 `;
 
-exports[`"sourceMap" option false should not generate source maps when source maps equal to "null" from an other loader: warnings 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when previous loader does not generate source maps: warnings 1`] = `Array []`;
 
-exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: errors 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when previous loader generates source maps: errors 1`] = `Array []`;
 
-exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: module 1`] = `
+exports[`"sourceMap" option false should not generate source maps when previous loader generates source maps: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
@@ -53,7 +53,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: result 1`] = `
+exports[`"sourceMap" option false should not generate source maps when previous loader generates source maps: result 1`] = `
 Array [
   Array [
     "../../src/index.js?[ident]!./source-map/nested/nested.css",
@@ -74,149 +74,7 @@ Array [
 ]
 `;
 
-exports[`"sourceMap" option false should not generate source maps when source maps equal to "undefined" from an other loader: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: errors 1`] = `Array []`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
-// Exports
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: result 1`] = `
-Array [
-  Array [
-    "../../src/index.js?[ident]!./source-map/nested/nested.css",
-    ".nested {
-  color: blue;
-}
-",
-    "",
-  ],
-  Array [
-    "./source-map/basic.css",
-    ".class {
-  color: red;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid and string from an other loader: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): errors 1`] = `Array []`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.postcss.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\"]);
-// Exports
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): result 1`] = `
-Array [
-  Array [
-    "../../src/index.js?[ident]!./source-map/nested/nested.postcss.css",
-    ".nested {
-  color: blue;
-}
-",
-    "",
-  ],
-  Array [
-    "./source-map/basic.postcss.css",
-    ":root {
-  --fontSize: 1rem;
-  --mainColor: rgba(18,52,86,0.47059);
-  --secondaryColor: rgba(102, 51, 153, 0.9);
-}
-
-html {
-  overflow-x: hidden;
-  overflow-y: auto;
-  overflow: hidden auto;
-}
-
-@media (max-width: 50rem) {
-  body {
-    color: rgba(18,52,86,0.47059);
-    color: var(--mainColor);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-    font-size: 1rem;
-    font-size: var(--fontSize);
-    line-height: calc(1rem * 1.5);
-    line-height: calc(var(--fontSize) * 1.5);
-    word-wrap: break-word;
-    padding-left: calc(1rem / 2 + 1px);
-    padding-right: calc(1rem / 2 + 1px);
-    padding-left: calc(var(--fontSize) / 2 + 1px);
-    padding-right: calc(var(--fontSize) / 2 + 1px);
-  }
-}
-
-h1,h2,h3,h4,h5,h6 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-a {
-  color: rgba(0, 0, 255, 0.9)
-}
-
-a:hover {
-   color: #639;
- }
-",
-    "",
-  ],
-]
-`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`postcss-loader\`): warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): errors 1`] = `Array []`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
-// Exports
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): result 1`] = `
-Array [
-  Array [
-    "./source-map/basic.scss",
-    "body {
-  font: 100% Helvetica, sans-serif;
-  color: #333;
-}",
-    "",
-  ],
-]
-`;
-
-exports[`"sourceMap" option false should not generate source maps when source maps is valid from an other loader (\`sass-loader\`): warnings 1`] = `Array []`;
+exports[`"sourceMap" option false should not generate source maps when previous loader generates source maps: warnings 1`] = `Array []`;
 
 exports[`"sourceMap" option false should not generate source maps: errors 1`] = `Array []`;
 
@@ -336,9 +194,9 @@ Array [
 
 exports[`"sourceMap" option true should generate source maps #2: warnings 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: errors 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when previous loader does not generate source maps: errors 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: module 1`] = `
+exports[`"sourceMap" option true should generate source maps when previous loader does not generate source maps: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
@@ -351,7 +209,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: result 1`] = `
+exports[`"sourceMap" option true should generate source maps when previous loader does not generate source maps: result 1`] = `
 Array [
   Array [
     "../../src/index.js?[ident]!./source-map/nested/nested.css",
@@ -402,215 +260,11 @@ Array [
 ]
 `;
 
-exports[`"sourceMap" option true should generate source maps when source maps equal to "null" from an other loader: warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when previous loader does not generate source maps: warnings 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: errors 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("less-loader"): errors 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack:///source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
-// Exports
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: result 1`] = `
-Array [
-  Array [
-    "../../src/index.js?[ident]!./source-map/nested/nested.css",
-    ".nested {
-  color: blue;
-}
-",
-    "",
-    Object {
-      "mappings": "AAAA;EACE,WAAW;AACb",
-      "names": Array [],
-      "sources": Array [
-        "webpack:///source-map/nested/nested.css",
-      ],
-      "sourcesContent": Array [
-        ".nested {
-  color: blue;
-}
-",
-      ],
-      "version": 3,
-    },
-  ],
-  Array [
-    "./source-map/basic.css",
-    ".class {
-  color: red;
-}
-",
-    "",
-    Object {
-      "mappings": "AAEA;EACE,UAAU;AACZ",
-      "names": Array [],
-      "sources": Array [
-        "webpack:///source-map/basic.css",
-      ],
-      "sourcesContent": Array [
-        "@import \\"./nested/nested.css\\";
-
-.class {
-  color: red;
-}
-",
-      ],
-      "version": 3,
-    },
-  ],
-]
-`;
-
-exports[`"sourceMap" option true should generate source maps when source maps equal to "undefined" from an other loader: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid and is set sourceRoot: errors 1`] = `Array []`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid and is set sourceRoot: module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack:///source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
-// Exports
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid and is set sourceRoot: result 1`] = `
-Array [
-  Array [
-    "../../src/index.js?[ident]!./source-map/nested/nested.css",
-    ".nested {
-  color: blue;
-}
-",
-    "",
-    Object {
-      "mappings": "AAAA;EACE,WAAW;AACb",
-      "names": Array [],
-      "sources": Array [
-        "webpack:///source-map/nested/nested.css",
-      ],
-      "sourcesContent": Array [
-        ".nested {
-  color: blue;
-}
-",
-      ],
-      "version": 3,
-    },
-  ],
-  Array [
-    "./source-map/basic.css",
-    ".class {
-  color: red;
-}
-",
-    "",
-    Object {
-      "mappings": "AAEA;EACE,UAAU;AACZ",
-      "names": Array [],
-      "sources": Array [
-        "webpack:///source-map/basic.css",
-      ],
-      "sourcesContent": Array [
-        "@import \\"./nested/nested.css\\";
-
-.class {
-  color: red;
-}
-",
-      ],
-      "version": 3,
-    },
-  ],
-]
-`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid and is set sourceRoot: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: errors 1`] = `Array []`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack:///source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
-// Exports
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: result 1`] = `
-Array [
-  Array [
-    "../../src/index.js?[ident]!./source-map/nested/nested.css",
-    ".nested {
-  color: blue;
-}
-",
-    "",
-    Object {
-      "mappings": "AAAA;EACE,WAAW;AACb",
-      "names": Array [],
-      "sources": Array [
-        "webpack:///source-map/nested/nested.css",
-      ],
-      "sourcesContent": Array [
-        ".nested {
-  color: blue;
-}
-",
-      ],
-      "version": 3,
-    },
-  ],
-  Array [
-    "./source-map/basic.css",
-    ".class {
-  color: red;
-}
-",
-    "",
-    Object {
-      "mappings": "AAEA;EACE,UAAU;AACZ",
-      "names": Array [],
-      "sources": Array [
-        "webpack:///source-map/basic.css",
-      ],
-      "sourcesContent": Array [
-        "@import \\"./nested/nested.css\\";
-
-.class {
-  color: red;
-}
-",
-      ],
-      "version": 3,
-    },
-  ],
-]
-`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid and string from an other loader: warnings 1`] = `Array []`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`less-loader\`): errors 1`] = `Array []`;
-
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`less-loader\`): module 1`] = `
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("less-loader"): module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
@@ -621,7 +275,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`less-loader\`): result 1`] = `
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("less-loader"): result 1`] = `
 Array [
   Array [
     "./source-map/base.less",
@@ -653,11 +307,11 @@ body {
 ]
 `;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`less-loader\`): warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("less-loader"): warnings 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): errors 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("postcss-loader"): errors 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): module 1`] = `
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("postcss-loader"): module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.postcss.css\\";
@@ -670,7 +324,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): result 1`] = `
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("postcss-loader"): result 1`] = `
 Array [
   Array [
     "../../src/index.js?[ident]!./source-map/nested/nested.postcss.css",
@@ -791,11 +445,11 @@ a {
 ]
 `;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`postcss-loader\`): warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("postcss-loader"): warnings 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`stylus-loader\`): errors 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("stylus-loader"): errors 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`stylus-loader\`): module 1`] = `
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("stylus-loader"): module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
@@ -806,7 +460,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`stylus-loader\`): result 1`] = `
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("stylus-loader"): result 1`] = `
 Array [
   Array [
     "./source-map/base.styl",
@@ -839,7 +493,143 @@ body #logo {
 ]
 `;
 
-exports[`"sourceMap" option true should generate source maps when source maps is valid from an other loader (\`stylus-loader\`): warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("stylus-loader"): warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps with "sourceRoot": errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps with "sourceRoot": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack:///source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps with "sourceRoot": result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+    Object {
+      "mappings": "AAAA;EACE,WAAW;AACb",
+      "names": Array [],
+      "sources": Array [
+        "webpack:///source-map/nested/nested.css",
+      ],
+      "sourcesContent": Array [
+        ".nested {
+  color: blue;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "mappings": "AAEA;EACE,UAAU;AACZ",
+      "names": Array [],
+      "sources": Array [
+        "webpack:///source-map/basic.css",
+      ],
+      "sourcesContent": Array [
+        "@import \\"./nested/nested.css\\";
+
+.class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps with "sourceRoot": warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps without "sourceRoot": errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps without "sourceRoot": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack:///source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"]}]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps without "sourceRoot": result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./source-map/nested/nested.css",
+    ".nested {
+  color: blue;
+}
+",
+    "",
+    Object {
+      "mappings": "AAAA;EACE,WAAW;AACb",
+      "names": Array [],
+      "sources": Array [
+        "webpack:///source-map/nested/nested.css",
+      ],
+      "sourcesContent": Array [
+        ".nested {
+  color: blue;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+  Array [
+    "./source-map/basic.css",
+    ".class {
+  color: red;
+}
+",
+    "",
+    Object {
+      "mappings": "AAEA;EACE,UAAU;AACZ",
+      "names": Array [],
+      "sources": Array [
+        "webpack:///source-map/basic.css",
+      ],
+      "sourcesContent": Array [
+        "@import \\"./nested/nested.css\\";
+
+.class {
+  color: red;
+}
+",
+      ],
+      "version": 3,
+    },
+  ],
+]
+`;
+
+exports[`"sourceMap" option true should generate source maps when previous loader generates source maps without "sourceRoot": warnings 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps: errors 1`] = `Array []`;
 
