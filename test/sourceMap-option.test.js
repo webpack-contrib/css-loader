@@ -354,7 +354,7 @@ function loader(content) {
 
   console.log(sassOptions);
 
-  sassOptions.sourceMap = _path.default.resolve(process.cwd(), 'sass.css.map')
+  sassOptions.sourceMap = true;
 
   console.log(sassOptions);
 
