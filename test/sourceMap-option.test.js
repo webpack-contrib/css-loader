@@ -527,20 +527,9 @@ describe('"sourceMap" option', () => {
       ).find((assetName) => /\.css$/.test(assetName));
 
       const extractedCSS = readAsset(chunkName, compiler, stats);
-      const sourceMap = JSON.parse(
-        readAsset(`${chunkName}.map`, compiler, stats)
-      );
 
       // eslint-disable-next-line no-console
-      console.log(extractedCSS);
-      // eslint-disable-next-line no-console
-      console.log(sourceMap);
-
-      expect(chunkName).toBe(
-        webpack.version[0] === '5'
-          ? 'main.8189c1c4f956dd69079a.css'
-          : 'main.6aa45a5434fd0e992559.css'
-      );
+      console.log(chunkName);
 
       expect(
         extractedCSS.replace(
@@ -548,6 +537,10 @@ describe('"sourceMap" option', () => {
           '=$1.xxxxxxxxxxxxxxxxxxxx.css.map'
         )
       ).toMatchSnapshot('extracted css');
+
+      const sourceMap = JSON.parse(
+        readAsset(`${chunkName}.map`, compiler, stats)
+      );
 
       sourceMap.file = sourceMap.file.replace(
         /^(.+?)\..+?\.css$/,
