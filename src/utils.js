@@ -414,7 +414,7 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
         path.relative(loaderContext.rootContext, absoluteSource)
       );
 
-      return `webpack:///${contextifyPath}`;
+      return `webpack://${contextifyPath}`;
     });
   }
 

@@ -14,7 +14,7 @@ export default (code) => {
 
   // eslint-disable-next-line no-underscore-dangle
   module._compile(
-    `let __export__;${code};module.exports = __export__;`,
+    `let __export__;${code};\nmodule.exports = __export__;`,
     resource
   );
 
