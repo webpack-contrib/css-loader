@@ -478,7 +478,7 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it('should generate source maps when css was extracted and do not change "[contenthash]" on different platform', async () => {
+    it.skip('should generate source maps when css was extracted and do not change "[contenthash]" on different platform', async () => {
       const compiler = getCompiler(
         './source-map/basic.js',
         {},
@@ -519,9 +519,6 @@ describe('"sourceMap" option', () => {
       ).find((assetName) => /\.css$/.test(assetName));
 
       const extractedCSS = readAsset(chunkName, compiler, stats);
-
-      // eslint-disable-next-line no-console
-      console.log(extractedCSS);
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
