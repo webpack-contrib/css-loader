@@ -546,6 +546,9 @@ describe('"sourceMap" option', () => {
         /^(.+?)\..+?\.css$/,
         '$1.xxxxxxxxxxxxxxxxxxxx.css'
       );
+      sourceMap.sources = sourceMap.sources.map((source) =>
+        source.replace('css-loader', '')
+      );
 
       expect(sourceMap).toMatchSnapshot('source map');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
