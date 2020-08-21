@@ -537,6 +537,9 @@ describe('"sourceMap" option', () => {
         readAsset(`${chunkName}.map`, compiler, stats)
       );
 
+      // eslint-disable-next-line no-console
+      console.log(sourceMap);
+
       sourceMap.file = sourceMap.file.replace(
         /^(.+?)\..+?\.css$/,
         '$1.xxxxxxxxxxxxxxxxxxxx.css'
