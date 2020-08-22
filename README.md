@@ -951,7 +951,7 @@ module.exports = {
 };
 ```
 
-##### `exportlocalsConvention`
+##### `exportLocalsConvention`
 
 Type: `String`
 Default: based on the `modules.namedExport` option value, if `true` - `camelCaseOnly`, otherwise `asIs`
