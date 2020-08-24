@@ -28,23 +28,14 @@ exports[`validate options should throw an error on the "import" option with "tru
     * options.import should be an instance of function."
 `;
 
-exports[`validate options should throw an error on the "importLoaders" option with "1" value 1`] = `
-"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
- - options.importLoaders should be one of these:
-   boolean | integer
-   -> Enables/Disables or setups number of loaders applied before CSS loader (https://github.com/webpack-contrib/css-loader#importloaders).
-   Details:
-    * options.importLoaders should be a boolean.
-    * options.importLoaders should be a integer."
-`;
-
 exports[`validate options should throw an error on the "importLoaders" option with "2.5" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.importLoaders should be one of these:
-   boolean | integer
+   boolean | string | integer
    -> Enables/Disables or setups number of loaders applied before CSS loader (https://github.com/webpack-contrib/css-loader#importloaders).
    Details:
     * options.importLoaders should be a boolean.
+    * options.importLoaders should be a string.
     * options.importLoaders should be a integer."
 `;
 
