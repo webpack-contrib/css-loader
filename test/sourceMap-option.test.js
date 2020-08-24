@@ -499,7 +499,7 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
-          ? 'main.b58b73eca7517a2128fd.bundle.js'
+          ? 'main.f8a941345941e8190135.bundle.js'
           : 'main.bad4e3fa71e9f3e4c073.bundle.js'
       );
       expect(
@@ -607,8 +607,11 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         // TODO still buggy on webpack@4
-        webpack.version[0] === '5' ? 'main.8189c1c4f956dd69079a.css' : chunkName
+        webpack.version[0] === '5' ? 'main.208dafd9be3442f7a927.css' : chunkName
       );
+
+      // eslint-disable-next-line no-console
+      console.log(chunkName);
 
       expect(
         extractedCSS.replace(
