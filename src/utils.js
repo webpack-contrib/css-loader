@@ -298,6 +298,25 @@ function getModulesPlugins(options, loaderContext) {
   return plugins;
 }
 
+const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
+const ABSOLUTE_SCHEME = /^[a-z0-9+\-.]+:/i;
+
+function getURLType(source) {
+  if (source[0] === '/') {
+    if (source[1] === '/') {
+      return 'scheme-relative';
+    }
+
+    return 'path-absolute';
+  }
+
+  if (IS_NATIVE_WIN32_PATH.test(source)) {
+    return 'path-absolute';
+  }
+
+  return ABSOLUTE_SCHEME.test(source) ? 'absolute' : 'path-relative';
+}
+
 function normalizeSourceMap(map, resourcePath) {
   let newMap = map;
 
@@ -307,36 +326,34 @@ function normalizeSourceMap(map, resourcePath) {
     newMap = JSON.parse(newMap);
   }
 
-  // Source maps should use forward slash because it is URLs (https://github.com/mozilla/source-map/issues/91)
-  // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
-
-  if (newMap.file) {
-    delete newMap.file;
-  }
+  delete newMap.file;
 
   const { sourceRoot } = newMap;
 
-  if (newMap.sourceRoot) {
-    delete newMap.sourceRoot;
-  }
+  delete newMap.sourceRoot;
 
   if (newMap.sources) {
+    // Source maps should use forward slash because it is URLs (https://github.com/mozilla/source-map/issues/91)
+    // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
     newMap.sources = newMap.sources.map((source) => {
+      // Non-standard syntax from `postcss`
       if (source.indexOf('<') === 0) {
         return source;
       }
 
-      if (/^\w+:\/\//.test(source)) {
-        return source;
+      const sourceType = getURLType(source);
+
+      // Do no touch `scheme-relative` and `absolute` URLs
+      if (sourceType === 'path-relative' || sourceType === 'path-absolute') {
+        const absoluteSource =
+          sourceType === 'path-relative' && sourceRoot
+            ? path.resolve(sourceRoot, normalizePath(source))
+            : normalizePath(source);
+
+        return path.relative(path.dirname(resourcePath), absoluteSource);
       }
 
-      const absoluteSource = !sourceRoot
-        ? source
-        : path.resolve(sourceRoot, source);
-
-      const resourceDirname = path.dirname(resourcePath);
-
-      return normalizePath(path.relative(resourceDirname, absoluteSource));
+      return source;
     });
   }
 
@@ -395,16 +412,19 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
   const resultMap = map ? map.toJSON() : null;
 
   if (resultMap) {
-    if (typeof resultMap.file !== 'undefined') {
-      delete resultMap.file;
-    }
+    delete resultMap.file;
+
+    resultMap.sourceRoot = '';
 
     resultMap.sources = resultMap.sources.map((source) => {
+      // Non-standard syntax from `postcss`
       if (source.indexOf('<') === 0) {
         return source;
       }
 
-      if (/^\w+:\/\//.test(source)) {
+      const sourceType = getURLType(source);
+
+      if (sourceType !== 'path-relative') {
         return source;
       }
 

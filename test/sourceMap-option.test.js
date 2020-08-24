@@ -164,6 +164,83 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
+    it('should generate source maps when previous loader generates different source in source maps', async () => {
+      const absoluteSourceRoot = path.resolve(
+        __dirname,
+        'fixtures',
+        'source-map'
+      );
+      const absolutePath = path.resolve(absoluteSourceRoot, 'basic-1.css');
+      const relativePath = path.relative(
+        absoluteSourceRoot,
+        path.resolve(__dirname, 'fixtures', 'source-map', 'basic-2.css')
+      );
+
+      const compiler = getCompiler(
+        './source-map/basic.js',
+        {},
+        {
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                use: [
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: { sourceMap: true },
+                  },
+                  {
+                    loader: path.resolve(
+                      __dirname,
+                      './fixtures/source-map-loader.js'
+                    ),
+                    options: {
+                      sourceMap: JSON.stringify({
+                        version: 3,
+                        sourceRoot: absoluteSourceRoot,
+                        sources: [
+                          // Absolute path
+                          absolutePath,
+                          // Relative path
+                          relativePath,
+                          // Absolute URL
+                          'https://example.com/foo.css',
+                          // Scheme-relative URL,
+                          '//example.com/foo.css',
+                          // Non-standard postcss syntax
+                          `</foo/bar/baz.css`,
+                        ],
+                        names: [],
+                        mappings: 'AAAA,6BAA6B;;AAE7B;EACE,UAAU;AACZ',
+                        file: absolutePath,
+                        sourcesContent: [
+                          '@import "./nested/nested.css";\n\n.class {\n  color: red;\n}\n',
+                          'a { color: red; }',
+                          'a { color: green; }',
+                          'a { color: blue; }',
+                          'a { color: azure; }',
+                        ],
+                      }),
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(getModuleSource('./source-map/basic.css', stats)).toMatchSnapshot(
+        'module'
+      );
+      expect(
+        getExecutedCode('main.bundle.js', compiler, stats)
+      ).toMatchSnapshot('result');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+
     it('should generate source maps when previous loader generates source maps with "sourceRoot"', async () => {
       const absoluteSourceRoot = path.resolve(
         __dirname,
@@ -423,7 +500,7 @@ describe('"sourceMap" option', () => {
       expect(chunkName).toBe(
         webpack.version[0] === '5'
           ? 'main.b58b73eca7517a2128fd.bundle.js'
-          : 'main.1e45307f085c8aadaf4c.bundle.js'
+          : 'main.bad4e3fa71e9f3e4c073.bundle.js'
       );
       expect(
         getModuleSource('fixtures/source-map/basic.css', stats)
