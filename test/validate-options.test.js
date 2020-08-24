@@ -78,8 +78,8 @@ describe('validate options', () => {
       failure: ['true'],
     },
     importLoaders: {
-      success: [false, 0, 1, 2],
-      failure: ['1', 2.5],
+      success: [false, 0, 1, 2, '1'],
+      failure: [2.5],
     },
     esModule: {
       success: [true, false],

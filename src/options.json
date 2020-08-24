@@ -137,6 +137,9 @@
           "type": "boolean"
         },
         {
+          "type": "string"
+        },
+        {
           "type": "integer"
         }
       ]
