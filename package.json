@@ -84,7 +84,7 @@
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.0",
     "sass": "^1.26.10",
-    "sass-loader": "next",
+    "sass-loader": "^10.0.0-rc.0",
     "standard-version": "^9.0.0",
     "strip-ansi": "^6.0.0",
     "style-loader": "^1.2.1",
