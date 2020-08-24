@@ -339,7 +339,7 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    it.skip('should generate source maps when previous loader generates source maps ("sass-loader")', async () => {
+    it('should generate source maps when previous loader generates source maps ("sass-loader")', async () => {
       const compiler = getCompiler(
         './source-map/basic-scss.js',
         {},
