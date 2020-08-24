@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const getUrl = require('../../src/runtime/getUrl');
 
 describe('escape', () => {
