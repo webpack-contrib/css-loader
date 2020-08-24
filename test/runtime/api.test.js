@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const api = require('../../src/runtime/api');
 
 describe('api', () => {
