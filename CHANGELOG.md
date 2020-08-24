@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.2](https://github.com/webpack-contrib/css-loader/compare/v4.2.1...v4.2.2) (2020-08-24)
+
+
+### Bug Fixes
+
+* source maps generation, source from source maps are now relative to `compiler.context` and use `webpack://` protocol ([#1169](https://github.com/webpack-contrib/css-loader/issues/1169)) ([fb5c53d](https://github.com/webpack-contrib/css-loader/commit/fb5c53d80b10ee698762238bb7b122aec8c5048d))
+
 ### [4.2.1](https://github.com/webpack-contrib/css-loader/compare/v4.2.0...v4.2.1) (2020-08-06)
 
 
