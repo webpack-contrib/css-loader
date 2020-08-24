@@ -610,9 +610,6 @@ describe('"sourceMap" option', () => {
         webpack.version[0] === '5' ? 'main.208dafd9be3442f7a927.css' : chunkName
       );
 
-      // eslint-disable-next-line no-console
-      console.log(chunkName);
-
       expect(
         extractedCSS.replace(
           /=(.+?)\..+?\.css\.map/,
