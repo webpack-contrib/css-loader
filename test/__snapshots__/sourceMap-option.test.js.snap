@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"sourceMap" option false should generate source maps when css was extracted: errors 1`] = `Array []`;
+
+exports[`"sourceMap" option false should generate source maps when css was extracted: extracted css 1`] = `
+".nested {
+  color: blue;
+}
+
+.class {
+  color: red;
+}
+
+"
+`;
+
+exports[`"sourceMap" option false should generate source maps when css was extracted: warnings 1`] = `Array []`;
+
 exports[`"sourceMap" option false should not generate source maps when previous loader does not generate source maps: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option false should not generate source maps when previous loader does not generate source maps: module 1`] = `
