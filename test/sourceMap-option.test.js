@@ -742,5 +742,48 @@ describe('"sourceMap" option', () => {
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
+
+    it('should generate source maps when css was extracted', async () => {
+      const compiler = getCompiler(
+        './source-map/basic.js',
+        {},
+        {
+          output: {
+            path: path.resolve(__dirname, '../outputs'),
+            filename: '[name].bundle.js',
+            chunkFilename: '[name].chunk.js',
+            publicPath: '/webpack/public/path/',
+          },
+          plugins: [
+            new MiniCssExtractPlugin({
+              filename: '[name].css',
+            }),
+          ],
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                rules: [
+                  {
+                    loader: MiniCssExtractPlugin.loader,
+                  },
+                  {
+                    loader: path.resolve(__dirname, '../src'),
+                    options: { sourceMap: false },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(readAsset('main.css', compiler, stats)).toMatchSnapshot(
+        'extracted css'
+      );
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
   });
 });
