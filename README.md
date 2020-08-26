@@ -1356,7 +1356,7 @@ as a classname position at file, with filepath `hash:base64:8`, to have strong s
 **webpack.config.js**
 
 ```js
-const { OneLetterCss } = require('css-loader/plugins');
+const { HashLenSuggest, OneLetterCss } = require('css-loader/plugins');
 const MyOneLetterCss = new OneLetterCss();
 
 const cssHashLen = 8;

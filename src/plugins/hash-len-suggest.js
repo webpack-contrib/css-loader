@@ -1,29 +1,4 @@
-/* eslint-disable no-console */
-
-/*
-at webpack settings:
-const cssHashLen = 8
-...
-{
-    loader: 'css-loader',
-    options: {
-        modules: {
-            localIdentName: `[hash:base64:${cssHashLen}]`,
-            getLocalIdent: MyOneLetterCss.getLocalIdent
-        }
-    }
-}
-...
-plugins: [
-        ...plugins,
-        new HashLenSuggest({
-            instance: MyOneLetterCss,
-            selectedHashLen: cssHashLen
-        })
-    ]
-*/
-
-class HashLenSuggest {
+export default class HashLenSuggest {
   constructor({ instance, selectedHashLen }) {
     this.instance = instance;
     this.selectedHashLen = selectedHashLen;
@@ -33,7 +8,8 @@ class HashLenSuggest {
     compiler.plugin('done', this.run);
   }
 
-  static collectHashLen(data) {
+  run() {
+    const data = this.instance.getStat();
     const matchLen = {};
     const base = {};
 
@@ -51,16 +27,11 @@ class HashLenSuggest {
       }
     });
 
-    return matchLen;
-  }
-
-  run() {
-    const { instance, selectedHashLen } = this;
-    const matchLen = HashLenSuggest.collectHashLen(instance.getStat());
-
     console.log();
     console.log('Suggest Minify Plugin');
     console.log('Matched length (len: number):', matchLen);
+
+    const { selectedHashLen } = this;
 
     if (matchLen[selectedHashLen]) {
       console.log(
@@ -83,5 +54,3 @@ class HashLenSuggest {
     }
   }
 }
-
-module.exports = HashLenSuggest;
