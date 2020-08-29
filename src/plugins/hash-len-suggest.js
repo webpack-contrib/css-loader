@@ -1,15 +1,20 @@
+const PLUGIN_NAME = 'Hash length suggest';
+
 export default class HashLenSuggest {
   constructor({ instance, selectedHashLen }) {
     this.instance = instance;
     this.selectedHashLen = selectedHashLen;
+    this.logger = null;
   }
 
   apply(compiler) {
     compiler.plugin('done', this.run);
+
+    this.logger = compiler.getInfrastructureLogger(PLUGIN_NAME);
   }
 
   run() {
-    const data = this.instance.getStat();
+    let data = this.instance.getStat();
     const matchLen = {};
     const base = {};
 
@@ -27,30 +32,28 @@ export default class HashLenSuggest {
       }
     });
 
-    console.log();
-    console.log('Suggest Minify Plugin');
-    console.log('Matched length (len: number):', matchLen);
+    data = null;
 
-    const { selectedHashLen } = this;
+    const { logger, selectedHashLen } = this;
+
+    logger.log('Suggest Minify Plugin');
+    logger.log('Matched length (len: number):', matchLen);
 
     if (matchLen[selectedHashLen]) {
-      console.log(
+      logger.log(
         `🚫 You can't use selected hash length (${selectedHashLen}). Increase the hash length.`
       );
-      console.log();
       process.exit(1);
     } else {
-      console.log(`Selected hash length (${selectedHashLen}) is OK.`);
+      logger.log(`Selected hash length (${selectedHashLen}) is OK.`);
 
       if (!matchLen[selectedHashLen - 1]) {
-        console.log(
+        logger.log(
           `🎉 You can decrease the hash length (${selectedHashLen} -> ${
             selectedHashLen - 1
           }).`
         );
       }
-
-      console.log();
     }
   }
 }

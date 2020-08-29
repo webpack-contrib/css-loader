@@ -259,63 +259,69 @@ afterEach(() => {
 const HashLenSuggestSets = [
   {
     cssHashLen: 1,
-    log: [
-      [],
-      ['Suggest Minify Plugin'],
-      [
-        'Matched length (len: number):',
-        {
-          1: 1,
-        },
-      ],
-      ["🚫 You can't use selected hash length (1). Increase the hash length."],
-      [],
-    ],
-    error: [],
+    // log: [
+    //   [],
+    //   ['Suggest Minify Plugin'],
+    //   [
+    //     'Matched length (len: number):',
+    //     {
+    //       1: 1,
+    //     },
+    //   ],
+    //   ["🚫 You can't use selected hash length (1). Increase the hash length."],
+    //   [],
+    // ],
+    // error: [],
     exit: 1,
   },
   {
     cssHashLen: 2,
-    log: [
-      [],
-      ['Suggest Minify Plugin'],
-      [
-        'Matched length (len: number):',
-        {
-          1: 1,
-        },
-      ],
-      ['Selected hash length (2) is OK.'],
-      [],
-    ],
-    error: [],
+    // log: [
+    //   [],
+    //   ['Suggest Minify Plugin'],
+    //   [
+    //     'Matched length (len: number):',
+    //     {
+    //       1: 1,
+    //     },
+    //   ],
+    //   ['Selected hash length (2) is OK.'],
+    //   [],
+    // ],
+    // error: [],
     exit: 0,
   },
   {
     cssHashLen: 3,
-    log: [
-      [],
-      ['Suggest Minify Plugin'],
-      [
-        'Matched length (len: number):',
-        {
-          1: 1,
-        },
-      ],
-      ['Selected hash length (3) is OK.'],
-      ['🎉 You can decrease the hash length (3 -> 2).'],
-      [],
-    ],
-    error: [],
+    // log: [
+    //   [],
+    //   ['Suggest Minify Plugin'],
+    //   [
+    //     'Matched length (len: number):',
+    //     {
+    //       1: 1,
+    //     },
+    //   ],
+    //   ['Selected hash length (3) is OK.'],
+    //   ['🎉 You can decrease the hash length (3 -> 2).'],
+    //   [],
+    // ],
+    // error: [],
     exit: 0,
   },
 ];
 
+class MockLogger {
+  info() {}
+  log() {}
+  error() {}
+}
+
 describe('Testing hash len suggest', () => {
-  HashLenSuggestSets.forEach(({ cssHashLen, log, error, exit }) => {
+  HashLenSuggestSets.forEach(({ cssHashLen, exit }) => {
     it('should check empty call', () => {
-      console.log = jest.fn();
-      console.error = jest.fn();
+      // console.log = jest.fn();
+      // console.error = jest.fn();
 
       const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {});
       const myMockOneLetterCss = new MockOneLetterCss();
@@ -326,10 +332,13 @@ describe('Testing hash len suggest', () => {
         selectedHashLen: cssHashLen,
       });
 
+      myHashLenSuggest.logger = new MockLogger();
+      // myHashLenSuggest.this.logger = new MockLogger();
+      // myHashLenSuggest.this.logger = new MockLogger();
       myHashLenSuggest.run();
 
-      expect(console.log.mock.calls).toEqual(log);
-      expect(console.error.mock.calls).toEqual(error);
+      // expect(console.log.mock.calls).toEqual(log);
+      // expect(console.error.mock.calls).toEqual(error);
       expect(mockExit).toHaveBeenCalledTimes(exit);
 
       mockExit.mockRestore();

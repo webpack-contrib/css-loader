@@ -1,10 +1,10 @@
 const { interpolateName } = require('loader-utils');
 
 /**
- * Заменяем css-классы на 64-битный префикс по номеру позиции в файле + хеш от пути файла
+ * Change css-classes to 64-bit prefix (by class position at file) + hash postfix (by file path)
  */
 
-// Парсим кодирующую строку, или берем дефолтные значения
+// Parse encoding string, or get default values
 const getRule = (externalRule) => {
   let iRule = {
     type: 'hash',
@@ -36,7 +36,7 @@ const getRule = (externalRule) => {
 
 export default class OneLetterCssClasses {
   constructor() {
-    // Сохраняем начальные точки из таблицы
+    // Save separators points from ascii-table
     this.a = 'a'.charCodeAt(0);
     this.A = 'A'.charCodeAt(0);
     this.zero = '0'.charCodeAt(0);
@@ -70,14 +70,12 @@ export default class OneLetterCssClasses {
     } = this;
 
     if (!n) {
-      console.error(`!n, n=${n}`);
-
+      // console.error(`!n, n=${n}`);
       return '';
     }
 
     if (n > encoderSize) {
-      console.error(`n > ${encoderSize}, n=${n}`);
-
+      // console.error(`n > ${encoderSize}, n=${n}`);
       return '';
     }
 
@@ -101,7 +99,7 @@ export default class OneLetterCssClasses {
     return '-';
   }
 
-  /** Кодируем класс по позиции в списке, 0 - а, 1 - b, итп */
+  /** Encode classname by position at file, 0 - а, 1 - b, etc */
   getNamePrefix(num) {
     const { maxLoop, encoderSize } = this;
 
@@ -113,28 +111,29 @@ export default class OneLetterCssClasses {
     let n = num;
     let res = '';
 
-    // Немного усовеншенственный енкодер. В найденых простейших пропускаются комбинации
-    // Ходим в цикле, делим на кодирующий размер (64)
-    // Например, с 1 по 64 - 1 проход, с 65 по 4096 (64*64) - 2 прохода цикла, итд
+    // Divide at loop for 64
+    // For example, from 1 to 64 - 1 step, from 65 to 4096 (64*64) - 2 steps, etc
     while (n && loopCount < maxLoop) {
-      // Остаток от деления, будем его кодировать от 1 до 64.
+      // Remainder of division, for 1-64 encode
       let tail = n % encoderSize;
       const origTail = tail;
 
-      // Проверка граничных значений n === encoderSize. 64 % 64 = 0, а кодировать будем 64
+      // Check limits, n === encoderSize. 64 % 64 = 0, but encoding for 64
       if (tail === 0) {
         tail = encoderSize;
       }
 
-      // Берем результат кодирования, добавляем в строку
+      // Concat encoding result
       res = this.getSingleSymbol(tail) + res;
 
-      // Проверяем, нужно ли уходить на новый цикл
+      // Check for new loop
       if (Math.floor((n - 1) / encoderSize)) {
-        // Находим кол-во разрядов для след. цикла кодирования.
+        // Find the number of bits for next encoding cycle
         n = (n - origTail) / encoderSize;
 
-        // На граничном значении (64) уйдем на новый круг, -1 чтобы этого избежать (это мы уже закодировали в текущем проходе)
+        // At limit value (64), go to a new circle,
+        // -1 to avoid (we have already encoded this)
+        //
         if (origTail === 0) {
           n -= 1;
         }
@@ -149,22 +148,21 @@ export default class OneLetterCssClasses {
   }
 
   /**
-   * Переопределяем ф-ию хеширования класса.
-   * Т.к. обработка на этапе сборки, то файлы разные, отсюда меньше выхлопа
+   * Make hash
    */
   getLocalIdentWithFileHash(context, localIdentName, localName) {
     const { resourcePath } = context;
     const { files, rootPathLen } = this;
 
-    // Чтобы убрать разницу стендов - оставляем только значимый кусок пути файла
+    // To fix difference between stands, work with file path from project root
     const resPath = resourcePath.substr(rootPathLen);
 
-    // Файл уже в списке, берем его новое имя
+    // Filename at list, take his name
     let fileShort = files[resPath];
 
-    // Файла нет в списке, генерируем новое имя, и сохраняем
+    // Filename not at list, generate new name, save
     if (!fileShort) {
-      // парсим переданное правило
+      // parse encoding rule
       const localIdentRule = getRule(localIdentName);
 
       const fileShortName = interpolateName(context, localIdentRule.val, {
@@ -175,33 +173,37 @@ export default class OneLetterCssClasses {
       files[resPath] = fileShort;
     }
 
-    // Берем сгенерированное имя правило, если такое уже было в текущем файле
+    // Take rulename, if exists at current file
     let newRuleName = fileShort.ruleNames[localName];
 
-    // Если его не было - генерируем новое, и сохраняем
+    // If rulename not exist - generate new, and save
     if (!newRuleName) {
-      // Увеличиваем счетчик правила для текущего файла
+      // Increase rules count
       fileShort.lastUsed += 1;
 
-      // Генерируем новое имя правила
+      // Generate new rulename
       newRuleName = this.getNamePrefix(fileShort.lastUsed) + fileShort.name;
 
-      // сохраняем
+      // Save rulename
       fileShort.ruleNames[localName] = newRuleName;
     }
 
-    // Проверяем, есть ли в веб-паке настройки, что нам нужны оригинальные имена классов
+    // Check encoding settings for local development (save original rulenames)
     const hasLocal = /\[local]/.test(localIdentName);
 
-    // Если develop-настройка есть - добавляем префикс
+    // If develop mode - add prefix
     const res = hasLocal ? `${localName}__${newRuleName}` : newRuleName;
 
-    // Добавляем префикс '_' для классов, начинающихся с '-', цифры '\d'
-    // или '_' (для исключения коллизий, т.к. символ участвует в кодировании)
+    // Add prefix '_' for classes with '-' or digit '\d'
+    // or '_' (for fix collision)
     return /^[\d_-]/.test(res) ? `_${res}` : res;
   }
 
   getStat() {
-    return this.files;
+    const stat = { ...this.files };
+
+    this.files = {};
+
+    return stat;
   }
 }
