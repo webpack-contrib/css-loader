@@ -99,7 +99,7 @@ export default class OneLetterCssClasses {
     return '-';
   }
 
-  /** Encode classname by position at file, 0 - а, 1 - b, etc */
+  /** Encode classname by position at file, 0 - a, 1 - b, etc */
   getNamePrefix(num) {
     const { maxLoop, encoderSize } = this;
 

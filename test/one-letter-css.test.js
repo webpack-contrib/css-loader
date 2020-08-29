@@ -2,7 +2,6 @@ import { HashLenSuggest, OneLetterCss } from '../src/plugins';
 
 const rootPath = process.cwd();
 
-/* Набор для webpack использования */
 const workSets = [
   {
     in: [
@@ -44,7 +43,7 @@ const workSets = [
     ],
     out: ['b1IcJDB21'],
   },
-  // для разработки, develop mode
+  // develop mode
   {
     in: [
       {
@@ -79,13 +78,13 @@ const workSets = [
   },
 ];
 
-/* Набор для пограничных случаев */
+/* Corner cases */
 const encodingSets = [
   // [in, out]
-  // при нуле нет результата, пустой префикс. его не используем, чтобы не было коллизии
-  // между 1ым значением ('' + '0aabb' = '_0aabb') и 53им ('_' + '0aabb' = '_0aabb')
+  // at zero value we have no result, empty prefix. cant use them (collisions)
+  // between 1st value ('' + '0aabb' = '_0aabb') & 53n value ('_' + '0aabb' = '_0aabb')
   [0, ''],
-  // это префикс для хеша, первое значение берем с 1
+  // hash prefix, 1st value
   [1, 'a'],
   [2, 'b'],
   [25, 'y'],
@@ -203,7 +202,7 @@ it('should check prefix when [d-] first letter at result', () => {
   };
   let result = '';
 
-  // перебираем, пока не дойдём до символов, требующих экранирования [\d_-]
+  // look for symbols, needed for prefix
   for (let i = 1; i <= 53; i += 1) {
     const className = `a${i}`;
 
@@ -216,8 +215,8 @@ it('should check prefix when [d-] first letter at result', () => {
 
   expect(result).toEqual('__2');
 
-  // при изменении алгоритма прогнать тест на коллизии
-  // ищем коллизии (в первом миллионе - чисто :)
+  // when change algorithm, we need check values for collisions
+  // looking for collisions (check 1st 1kk values)
   // const hashes = {};
   //
   // for (let i = 1; i <= 1000000; i += 1) {
