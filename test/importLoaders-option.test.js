@@ -25,7 +25,11 @@ describe('"importLoaders" option', () => {
                 { loader: path.resolve(__dirname, '../src') },
                 {
                   loader: 'postcss-loader',
-                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
                 },
               ],
             },
@@ -61,7 +65,11 @@ describe('"importLoaders" option', () => {
                 },
                 {
                   loader: 'postcss-loader',
-                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
                 },
               ],
             },
@@ -111,7 +119,11 @@ describe('"importLoaders" option', () => {
                 },
                 {
                   loader: 'postcss-loader',
-                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
                 },
               ],
             },
@@ -147,7 +159,11 @@ describe('"importLoaders" option', () => {
                 },
                 {
                   loader: 'postcss-loader',
-                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
                 },
               ],
             },
@@ -183,7 +199,11 @@ describe('"importLoaders" option', () => {
                 },
                 {
                   loader: 'postcss-loader',
-                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
                 },
               ],
             },

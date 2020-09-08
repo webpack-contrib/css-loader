@@ -317,7 +317,9 @@ describe('"sourceMap" option', () => {
                   {
                     loader: 'postcss-loader',
                     options: {
-                      plugins: () => [postcssPresetEnv({ stage: 0 })],
+                      postcssOptions: {
+                        plugins: [postcssPresetEnv({ stage: 0 })],
+                      },
                       sourceMap: true,
                     },
                   },
