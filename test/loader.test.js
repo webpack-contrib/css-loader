@@ -385,7 +385,11 @@ describe('loader', () => {
                 },
                 {
                   loader: 'postcss-loader',
-                  options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
                 },
                 // Can be `less-loader`
                 // The `test` property should be `\.less/i`
