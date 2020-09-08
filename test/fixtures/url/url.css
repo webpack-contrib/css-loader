@@ -301,7 +301,12 @@ a {
   background: url("./img img.png");
 }
 
+/* Comment */
+
 .class.class.class {
+  background: url('./img\
+(img.png');
+  background: url('./img\(img.png');
   background: url('./img\
 (img.png');
   background: url('./img\
