@@ -1,6 +1,3 @@
-import { promisify } from 'util';
-
-import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
 
 import {
@@ -10,20 +7,20 @@ import {
   isUrlRequestable,
 } from '../utils';
 
-const pluginName = 'postcss-url-parser';
-
 const isUrlFunc = /url/i;
 const isImageSetFunc = /^(?:-webkit-)?image-set$/i;
-const needParseDecl = /(?:url|(?:-webkit-)?image-set)\(/i;
+const needParseDeclaration = /(?:url|(?:-webkit-)?image-set)\(/i;
 
 function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
 
-function shouldHandleRule(rule, decl, result) {
+function shouldHandleRule(rule, declaration, result) {
   // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
   if (rule.url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
-    result.warn(`Unable to find uri in '${decl.toString()}'`, { node: decl });
+    result.warn(`Unable to find uri in '${declaration.toString()}'`, {
+      node: declaration,
+    });
 
     return false;
   }
@@ -35,201 +32,214 @@ function shouldHandleRule(rule, decl, result) {
   return true;
 }
 
-function walkCss(css, result, options, callback) {
-  const accumulator = [];
+const plugin = (options = {}) => {
+  return {
+    postcssPlugin: 'postcss-url-parser',
+    prepare(result) {
+      const declarationParsedResults = [];
 
-  css.walkDecls((decl) => {
-    if (!needParseDecl.test(decl.value)) {
-      return;
-    }
-
-    const parsed = valueParser(decl.value);
-
-    parsed.walk((node) => {
-      if (node.type !== 'function') {
-        return;
-      }
-
-      if (isUrlFunc.test(node.value)) {
-        const { nodes } = node;
-        const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
-        const url = isStringValue
-          ? nodes[0].value
-          : valueParser.stringify(nodes);
-
-        const rule = {
-          node: getNodeFromUrlFunc(node),
-          url,
-          needQuotes: false,
-          isStringValue,
-        };
-
-        if (shouldHandleRule(rule, decl, result)) {
-          accumulator.push({ decl, rule, parsed });
-        }
-
-        // Do not traverse inside `url`
-        // eslint-disable-next-line consistent-return
-        return false;
-      } else if (isImageSetFunc.test(node.value)) {
-        for (const nNode of node.nodes) {
-          const { type, value } = nNode;
-
-          if (type === 'function' && isUrlFunc.test(value)) {
-            const { nodes } = nNode;
-            const isStringValue =
-              nodes.length !== 0 && nodes[0].type === 'string';
-            const url = isStringValue
-              ? nodes[0].value
-              : valueParser.stringify(nodes);
-
-            const rule = {
-              node: getNodeFromUrlFunc(nNode),
-              url,
-              needQuotes: false,
-              isStringValue,
-            };
-
-            if (shouldHandleRule(rule, decl, result)) {
-              accumulator.push({ decl, rule, parsed });
-            }
-          } else if (type === 'string') {
-            const rule = {
-              node: nNode,
-              url: value,
-              needQuotes: true,
-              isStringValue: true,
-            };
-
-            if (shouldHandleRule(rule, decl, result)) {
-              accumulator.push({ decl, rule, parsed });
-            }
+      return {
+        async Declaration(declaration) {
+          if (!needParseDeclaration.test(declaration.value)) {
+            return;
           }
-        }
 
-        // Do not traverse inside `image-set`
-        // eslint-disable-next-line consistent-return
-        return false;
-      }
-    });
-  });
+          const parsed = valueParser(declaration.value);
 
-  callback(null, accumulator);
-}
+          parsed.walk((valueNode) => {
+            if (valueNode.type !== 'function') {
+              return;
+            }
 
-const asyncWalkCss = promisify(walkCss);
+            if (isUrlFunc.test(valueNode.value)) {
+              const { nodes } = valueNode;
+              const isStringValue =
+                nodes.length !== 0 && nodes[0].type === 'string';
+              const url = isStringValue
+                ? nodes[0].value
+                : valueParser.stringify(nodes);
 
-export default postcss.plugin(pluginName, (options) => async (css, result) => {
-  const parsedResults = await asyncWalkCss(css, result, options);
+              const rule = {
+                node: getNodeFromUrlFunc(valueNode),
+                url,
+                needQuotes: false,
+                isStringValue,
+              };
 
-  if (parsedResults.length === 0) {
-    return Promise.resolve();
-  }
+              if (shouldHandleRule(rule, declaration, result)) {
+                declarationParsedResults.push({ declaration, rule, parsed });
+              }
 
-  const tasks = [];
-  const imports = new Map();
-  const replacements = new Map();
+              // Do not traverse inside `url`
+              // eslint-disable-next-line consistent-return
+              return false;
+            } else if (isImageSetFunc.test(valueNode.value)) {
+              for (const nNode of valueNode.nodes) {
+                const { type, value } = nNode;
 
-  let hasUrlImportHelper = false;
+                if (type === 'function' && isUrlFunc.test(value)) {
+                  const { nodes } = nNode;
+                  const isStringValue =
+                    nodes.length !== 0 && nodes[0].type === 'string';
+                  const url = isStringValue
+                    ? nodes[0].value
+                    : valueParser.stringify(nodes);
 
-  for (const parsedResult of parsedResults) {
-    const { url, isStringValue } = parsedResult.rule;
+                  const rule = {
+                    node: getNodeFromUrlFunc(nNode),
+                    url,
+                    needQuotes: false,
+                    isStringValue,
+                  };
 
-    let normalizedUrl = url;
-    let prefix = '';
+                  if (shouldHandleRule(rule, declaration, result)) {
+                    declarationParsedResults.push({
+                      declaration,
+                      rule,
+                      parsed,
+                    });
+                  }
+                } else if (type === 'string') {
+                  const rule = {
+                    node: nNode,
+                    url: value,
+                    needQuotes: true,
+                    isStringValue: true,
+                  };
 
-    const queryParts = normalizedUrl.split('!');
+                  if (shouldHandleRule(rule, declaration, result)) {
+                    declarationParsedResults.push({
+                      declaration,
+                      rule,
+                      parsed,
+                    });
+                  }
+                }
+              }
 
-    if (queryParts.length > 1) {
-      normalizedUrl = queryParts.pop();
-      prefix = queryParts.join('!');
-    }
+              // Do not traverse inside `image-set`
+              // eslint-disable-next-line consistent-return
+              return false;
+            }
+          });
+        },
+        async RootExit() {
+          if (declarationParsedResults.length === 0) {
+            return;
+          }
 
-    normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
+          const tasks = [];
+          const imports = new Map();
+          const replacements = new Map();
 
-    if (!options.filter(normalizedUrl)) {
-      // eslint-disable-next-line no-continue
-      continue;
-    }
+          let hasUrlImportHelper = false;
 
-    if (!hasUrlImportHelper) {
-      options.imports.push({
-        importName: '___CSS_LOADER_GET_URL_IMPORT___',
-        url: options.urlHandler(require.resolve('../runtime/getUrl.js')),
-        index: -1,
-      });
+          for (const parsedResult of declarationParsedResults) {
+            const { url, isStringValue } = parsedResult.rule;
 
-      hasUrlImportHelper = true;
-    }
+            let normalizedUrl = url;
+            let prefix = '';
 
-    const splittedUrl = normalizedUrl.split(/(\?)?#/);
-    const [pathname, query, hashOrQuery] = splittedUrl;
+            const queryParts = normalizedUrl.split('!');
 
-    let hash = query ? '?' : '';
-    hash += hashOrQuery ? `#${hashOrQuery}` : '';
+            if (queryParts.length > 1) {
+              normalizedUrl = queryParts.pop();
+              prefix = queryParts.join('!');
+            }
 
-    const request = requestify(pathname, options.rootContext);
+            normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
 
-    tasks.push(
-      (async () => {
-        const { resolver, context } = options;
-        const resolvedUrl = await resolveRequests(resolver, context, [
-          ...new Set([request, normalizedUrl]),
-        ]);
+            if (!options.filter(normalizedUrl)) {
+              // eslint-disable-next-line no-continue
+              continue;
+            }
 
-        return { url: resolvedUrl, prefix, hash, parsedResult };
-      })()
-    );
-  }
+            if (!hasUrlImportHelper) {
+              options.imports.push({
+                importName: '___CSS_LOADER_GET_URL_IMPORT___',
+                url: options.urlHandler(
+                  require.resolve('../runtime/getUrl.js')
+                ),
+                index: -1,
+              });
 
-  const results = await Promise.all(tasks);
+              hasUrlImportHelper = true;
+            }
 
-  for (let index = 0; index <= results.length - 1; index++) {
-    const {
-      url,
-      prefix,
-      hash,
-      parsedResult: { decl, rule, parsed },
-    } = results[index];
-    const newUrl = prefix ? `${prefix}!${url}` : url;
-    const importKey = newUrl;
-    let importName = imports.get(importKey);
+            const splittedUrl = normalizedUrl.split(/(\?)?#/);
+            const [pathname, query, hashOrQuery] = splittedUrl;
 
-    if (!importName) {
-      importName = `___CSS_LOADER_URL_IMPORT_${imports.size}___`;
-      imports.set(importKey, importName);
+            let hash = query ? '?' : '';
+            hash += hashOrQuery ? `#${hashOrQuery}` : '';
 
-      options.imports.push({
-        importName,
-        url: options.urlHandler(newUrl),
-        index,
-      });
-    }
+            const request = requestify(pathname, options.rootContext);
 
-    const { needQuotes } = rule;
-    const replacementKey = JSON.stringify({ newUrl, hash, needQuotes });
-    let replacementName = replacements.get(replacementKey);
+            tasks.push(
+              (async () => {
+                const { resolver, context } = options;
+                const resolvedUrl = await resolveRequests(resolver, context, [
+                  ...new Set([request, normalizedUrl]),
+                ]);
 
-    if (!replacementName) {
-      replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacements.size}___`;
-      replacements.set(replacementKey, replacementName);
+                return { url: resolvedUrl, prefix, hash, parsedResult };
+              })()
+            );
+          }
 
-      options.replacements.push({
-        replacementName,
-        importName,
-        hash,
-        needQuotes,
-      });
-    }
+          const results = await Promise.all(tasks);
 
-    // eslint-disable-next-line no-param-reassign
-    rule.node.type = 'word';
-    // eslint-disable-next-line no-param-reassign
-    rule.node.value = replacementName;
+          for (let index = 0; index <= results.length - 1; index++) {
+            const {
+              url,
+              prefix,
+              hash,
+              parsedResult: { declaration, rule, parsed },
+            } = results[index];
+            const newUrl = prefix ? `${prefix}!${url}` : url;
+            const importKey = newUrl;
+            let importName = imports.get(importKey);
 
-    // eslint-disable-next-line no-param-reassign
-    decl.value = parsed.toString();
-  }
+            if (!importName) {
+              importName = `___CSS_LOADER_URL_IMPORT_${imports.size}___`;
+              imports.set(importKey, importName);
 
-  return Promise.resolve();
-});
+              options.imports.push({
+                importName,
+                url: options.urlHandler(newUrl),
+                index,
+              });
+            }
+
+            const { needQuotes } = rule;
+            const replacementKey = JSON.stringify({ newUrl, hash, needQuotes });
+            let replacementName = replacements.get(replacementKey);
+
+            if (!replacementName) {
+              replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacements.size}___`;
+              replacements.set(replacementKey, replacementName);
+
+              options.replacements.push({
+                replacementName,
+                importName,
+                hash,
+                needQuotes,
+              });
+            }
+
+            // eslint-disable-next-line no-param-reassign
+            rule.node.type = 'word';
+            // eslint-disable-next-line no-param-reassign
+            rule.node.value = replacementName;
+
+            // eslint-disable-next-line no-param-reassign
+            declaration.value = parsed.toString();
+          }
+        },
+      };
+    },
+  };
+};
+
+plugin.postcss = true;
+
+export default plugin;
