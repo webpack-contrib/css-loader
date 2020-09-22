@@ -219,8 +219,6 @@ function normalizeOptions(rawOptions, loaderContext) {
     url: typeof rawOptions.url === 'undefined' ? true : rawOptions.url,
     import: typeof rawOptions.import === 'undefined' ? true : rawOptions.import,
     modules: modulesOptions,
-    // TODO remove in the next major release
-    icss: typeof rawOptions.icss === 'undefined' ? false : rawOptions.icss,
     sourceMap:
       typeof rawOptions.sourceMap === 'boolean'
         ? rawOptions.sourceMap

@@ -10,10 +10,6 @@ describe('validate options', () => {
       success: [true, false, () => {}],
       failure: ['true'],
     },
-    icss: {
-      success: [true, false],
-      failure: ['true', 1],
-    },
     modules: {
       success: [
         true,
