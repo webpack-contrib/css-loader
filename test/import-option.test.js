@@ -177,10 +177,11 @@ describe('"import" option', () => {
     // Create the file with absolute path
     const fileDirectory = path.resolve(__dirname, 'fixtures', 'import');
     const file = path.resolve(fileDirectory, 'import-file-protocol.css');
-    const absolutePath = path.resolve(fileDirectory, 'test.css');
-    const protocol = path.sep === '/' ? 'file://' : 'file:///';
+    const absolutePath = path
+      .resolve(fileDirectory, 'test.css')
+      .replace(/\\/g, '/');
 
-    fs.writeFileSync(file, `@import "${protocol}${absolutePath}";`);
+    fs.writeFileSync(file, `@import "file://${absolutePath}";`);
 
     const compiler = getCompiler('./import/import-file-protocol.js');
     const stats = await compile(compiler);

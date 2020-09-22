@@ -108,19 +108,20 @@ describe('"url" option', () => {
     // Create the file with absolute path
     const fileDirectory = path.resolve(__dirname, 'fixtures', 'url');
     const file = path.resolve(fileDirectory, 'url-file-protocol.css');
-    const absolutePath = path.resolve(fileDirectory, 'img.png');
-    const protocol = path.sep === '/' ? 'file://' : 'file:///';
+    const absolutePath = path
+      .resolve(fileDirectory, 'img.png')
+      .replace(/\\/g, '/');
     const code = `
 .background {
-  background: url(${protocol}${absolutePath});
+  background: url(file://${absolutePath});
 }
 
 .background-other {
-  background: url(${protocol}${absolutePath.replace(/e/g, '%65')});
+  background: url(file://${absolutePath.replace(/e/g, '%65')});
 }
 
 .background-other {
-  background: url('${protocol}${absolutePath.replace(/e/g, '\\\ne')}');
+  background: url('file://${absolutePath.replace(/e/g, '\\\ne')}');
 }
 `;
 
