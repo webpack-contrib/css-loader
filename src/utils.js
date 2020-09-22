@@ -109,15 +109,21 @@ function getFilter(filter, resourcePath) {
   };
 }
 
-const moduleRegExp = /\.module\.\w+$/i;
+const moduleRegExp = /\.module(s)?\.\w+$/i;
+const icssRegExp = /\.icss\.\w+$/i;
 
 function getModulesOptions(rawOptions, loaderContext) {
   const { resourcePath } = loaderContext;
+  let isIcss;
 
   if (typeof rawOptions.modules === 'undefined') {
     const isModules = moduleRegExp.test(resourcePath);
 
     if (!isModules) {
+      isIcss = icssRegExp.test(resourcePath);
+    }
+
+    if (!isModules && !isIcss) {
       return false;
     }
   } else if (
@@ -128,7 +134,7 @@ function getModulesOptions(rawOptions, loaderContext) {
   }
 
   let modulesOptions = {
-    compileType: rawOptions.icss ? 'icss' : 'module',
+    compileType: isIcss ? 'icss' : 'module',
     auto: true,
     mode: 'local',
     exportGlobals: false,
@@ -205,14 +211,6 @@ function getModulesOptions(rawOptions, loaderContext) {
 }
 
 function normalizeOptions(rawOptions, loaderContext) {
-  if (rawOptions.icss) {
-    loaderContext.emitWarning(
-      new Error(
-        'The "icss" option is deprecated, use "modules.compileType: "icss"" instead'
-      )
-    );
-  }
-
   const modulesOptions = getModulesOptions(rawOptions, loaderContext);
 
   return {
