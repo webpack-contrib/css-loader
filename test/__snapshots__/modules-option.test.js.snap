@@ -12227,37 +12227,6 @@ Array [
 
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: warnings 1`] = `Array []`;
 
-exports[`"modules" option should work with the "auto" by default fith "modules" filename: errors 1`] = `Array []`;
-
-exports[`"modules" option should work with the "auto" by default fith "modules" filename: module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".af0LbFVUmIAO7cXelO_aA {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
-// Exports
-___CSS_LOADER_EXPORT___.locals = {
-	\\"relative\\": \\"af0LbFVUmIAO7cXelO_aA\\"
-};
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"modules" option should work with the "auto" by default fith "modules" filename: result 1`] = `
-Array [
-  Array [
-    "./modules/mode/relative.modules.css",
-    ".af0LbFVUmIAO7cXelO_aA {
-  color: red;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`"modules" option should work with the "auto" by default fith "modules" filename: warnings 1`] = `Array []`;
-
 exports[`"modules" option should work with the "auto" by default for icss: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with the "auto" by default for icss: module 1`] = `
@@ -12296,6 +12265,37 @@ Array [
 `;
 
 exports[`"modules" option should work with the "auto" by default for icss: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with the "auto" by default with "modules" filename: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the "auto" by default with "modules" filename: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".af0LbFVUmIAO7cXelO_aA {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"relative\\": \\"af0LbFVUmIAO7cXelO_aA\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with the "auto" by default with "modules" filename: result 1`] = `
+Array [
+  Array [
+    "./modules/mode/relative.modules.css",
+    ".af0LbFVUmIAO7cXelO_aA {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the "auto" by default with "modules" filename: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with the "auto" by default: errors 1`] = `Array []`;
 

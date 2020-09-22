@@ -737,7 +737,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('should work with the "auto" by default fith "modules" filename', async () => {
+  it('should work with the "auto" by default with "modules" filename', async () => {
     const compiler = getCompiler('./modules/mode/modules-2.js');
     const stats = await compile(compiler);
 

@@ -119,10 +119,12 @@ function getModulesOptions(rawOptions, loaderContext) {
   if (typeof rawOptions.modules === 'undefined') {
     const isModules = moduleRegExp.test(resourcePath);
 
-    isIcss = icssRegExp.test(resourcePath);
+    if (!isModules) {
+      isIcss = icssRegExp.test(resourcePath);
 
-    if (!isModules && !isIcss) {
-      return false;
+      if (!isIcss) {
+        return false;
+      }
     }
   } else if (
     typeof rawOptions.modules === 'boolean' &&
