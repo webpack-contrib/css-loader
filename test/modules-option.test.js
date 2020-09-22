@@ -657,6 +657,28 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it('issue #1191 - fallback to default getLocalIdent', async () => {
+    const compiler = getCompiler('./modules/issue-1191/issue-1191.js', {
+      modules: {
+        getLocalIdent: (ctx, localIdentName, localName) =>
+          ctx.resourcePath.includes('custom') ? `custom-${localName}` : null,
+        localIdentName: '[local]',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/issue-1191/issue-1191.css', stats)
+    ).toMatchSnapshot('module');
+
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
   it('should work with the `exportGlobals` option (the `mode` option is `global`)', async () => {
     const compiler = getCompiler(
       './modules/exportGlobals-global/exportGlobals.js',

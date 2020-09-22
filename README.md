@@ -848,6 +848,8 @@ Default: `undefined`
 
 Allows to specify a function to generate the classname.
 By default we use built-in function to generate a classname.
+If the custom function returns `null` or `undefined`, we fall back to the
+built-in function to generate the classname.
 
 **webpack.config.js**
 
@@ -1245,7 +1247,7 @@ module.exports = {
 
 ### Separating `Interoperable CSS`-only and `CSS Module` features
 
-The following setup is an example of allowing `Interoperable CSS` features only (such as `:import` and `:export`) without using further `CSS Module` functionality by setting `compileType` option for all files that do not match `*.module.scss` naming convention. This is for reference as having `ICSS` features applied to all files was default `css-loader` behavior before v4.  
+The following setup is an example of allowing `Interoperable CSS` features only (such as `:import` and `:export`) without using further `CSS Module` functionality by setting `compileType` option for all files that do not match `*.module.scss` naming convention. This is for reference as having `ICSS` features applied to all files was default `css-loader` behavior before v4.
 Meanwhile all files matching `*.module.scss` are treated as `CSS Modules` in this example.
 
 An example case is assumed where a project requires canvas drawing variables to be synchronized with CSS - canvas drawing uses the same color (set by color name in JavaScript) as HTML background (set by class name in CSS).
