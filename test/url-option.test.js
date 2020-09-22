@@ -104,6 +104,42 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it('should resolve "file" protocol path', async () => {
+    // Create the file with absolute path
+    const fileDirectory = path.resolve(__dirname, 'fixtures', 'url');
+    const file = path.resolve(fileDirectory, 'url-file-protocol.css');
+    const absolutePath = path
+      .resolve(fileDirectory, 'img.png')
+      .replace(/\\/g, '/');
+    const code = `
+.background {
+  background: url(file://${absolutePath});
+}
+
+.background-other {
+  background: url(file://${absolutePath.replace(/e/g, '%65')});
+}
+
+.background-other {
+  background: url('file://${absolutePath.replace(/e/g, '\\\ne')}');
+}
+`;
+
+    fs.writeFileSync(file, code);
+
+    const compiler = getCompiler('./url/url-file-protocol.js');
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./url/url-file-protocol.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
   it('should throw an error on unresolved import', async () => {
     const compiler = getCompiler('./url/url-unresolved.js');
     const stats = await compile(compiler);

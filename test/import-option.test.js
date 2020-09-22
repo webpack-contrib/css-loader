@@ -173,6 +173,29 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it('should resolve "file" protocol', async () => {
+    // Create the file with absolute path
+    const fileDirectory = path.resolve(__dirname, 'fixtures', 'import');
+    const file = path.resolve(fileDirectory, 'import-file-protocol.css');
+    const absolutePath = path
+      .resolve(fileDirectory, 'test.css')
+      .replace(/\\/g, '/');
+
+    fs.writeFileSync(file, `@import "file://${absolutePath}";`);
+
+    const compiler = getCompiler('./import/import-file-protocol.js');
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./import/import-file-protocol.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
   it('should throw an error on unresolved import', async () => {
     const compiler = getCompiler('./import/unresolved.js');
     const stats = await compile(compiler);

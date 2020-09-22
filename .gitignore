@@ -11,6 +11,8 @@ npm-debug.log*
 /test/fixtures/import/import-absolute.css
 /test/fixtures/url/url-absolute.css
 /test/fixtures/modules/composes/composes-absolute.css
+/test/fixtures/import/import-file-protocol.css
+/test/fixtures/url/url-file-protocol.css
 
 .DS_Store
 Thumbs.db
