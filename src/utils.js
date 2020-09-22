@@ -121,10 +121,10 @@ function getModulesOptions(rawOptions, loaderContext) {
 
     if (!isModules) {
       isIcss = icssRegExp.test(resourcePath);
+    }
 
-      if (!isIcss) {
-        return false;
-      }
+    if (!isModules && !isIcss) {
+      return false;
     }
   } else if (
     typeof rawOptions.modules === 'boolean' &&
