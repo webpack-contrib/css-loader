@@ -737,6 +737,34 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it('should work with the "auto" by default fith "modules" filename', async () => {
+    const compiler = getCompiler('./modules/mode/modules-2.js');
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/mode/relative.modules.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with the "auto" by default for icss', async () => {
+    const compiler = getCompiler('./modules/mode/icss/icss.js');
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/mode/icss/relative.icss.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
   it('should work with the "auto" when it is "false"', async () => {
     const compiler = getCompiler('./modules/mode/modules.js', {
       modules: {
