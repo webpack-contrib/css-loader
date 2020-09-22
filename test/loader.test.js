@@ -138,7 +138,7 @@ describe('loader', () => {
   it('should reuse `ast` from "postcss-loader"', async () => {
     const spy = jest.fn();
     const compiler = getCompiler(
-      './postcss-present-env/source.js',
+      './autoprefixer/autoprefixer.js',
       {},
       {
         module: {
@@ -170,7 +170,7 @@ describe('loader', () => {
     expect(spy).toHaveBeenCalledTimes(1);
 
     expect(
-      getModuleSource('./postcss-present-env/source.css', stats)
+      getModuleSource('./autoprefixer/autoprefixer.css', stats)
     ).toMatchSnapshot('module');
     expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
       'result'

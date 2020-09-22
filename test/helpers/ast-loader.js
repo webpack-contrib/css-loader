@@ -1,5 +1,5 @@
 import postcss from 'postcss';
-import postcssPresetEnv from 'postcss-preset-env';
+import autoprefixer from 'autoprefixer';
 import postcssPkg from 'postcss/package.json';
 import semver from 'semver';
 
@@ -10,7 +10,7 @@ export default function astLoader(content) {
 
   const { spy = jest.fn() } = this.query;
 
-  postcss([postcssPresetEnv({ stage: 0 })])
+  postcss([autoprefixer()])
     .process(content, {
       // eslint-disable-next-line no-undefined
       from: undefined,

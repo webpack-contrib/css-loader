@@ -1,0 +1,13 @@
+::placeholder {
+    color: gray;
+}
+
+.image {
+    background-image: url('./img1x.png');
+}
+
+@media (min-resolution: 2dppx) {
+    .image {
+        background-image: url('./img2x.png');
+    }
+}
