@@ -122,10 +122,6 @@
         }
       ]
     },
-    "icss": {
-      "description": "Enables/Disables handling the CSS module interoperable import/export format ((https://github.com/webpack-contrib/css-loader#icss)",
-      "type": "boolean"
-    },
     "sourceMap": {
       "description": "Enables/Disables generation of source maps (https://github.com/webpack-contrib/css-loader#sourcemap).",
       "type": "boolean"

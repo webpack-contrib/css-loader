@@ -1239,25 +1239,6 @@ describe('"modules" option', () => {
     });
   });
 
-  it('show work and warn about the "icss" option deprecation', async () => {
-    const compiler = getCompiler(
-      './modules/icss/tests-cases/import/source.js',
-      {
-        icss: true,
-      }
-    );
-    const stats = await compile(compiler);
-
-    expect(
-      getModuleSource('./modules/icss/tests-cases/import/source.css', stats)
-    ).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
-    );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
-
   it('show work with the "compileType" and "exportOnlyLocals" options', async () => {
     const compiler = getCompiler(
       './modules/icss/tests-cases/import/source.js',
