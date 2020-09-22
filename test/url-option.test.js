@@ -109,17 +109,18 @@ describe('"url" option', () => {
     const fileDirectory = path.resolve(__dirname, 'fixtures', 'url');
     const file = path.resolve(fileDirectory, 'url-file-protocol.css');
     const absolutePath = path.resolve(fileDirectory, 'img.png');
+    const protocol = path.sep === '/' ? 'file://' : 'file:///';
     const code = `
 .background {
-  background: url(${absolutePath});
+  background: url(${protocol}${absolutePath});
 }
 
 .background-other {
-  background: url(${absolutePath.replace(/e/g, '%65')});
+  background: url(${protocol}${absolutePath.replace(/e/g, '%65')});
 }
 
 .background-other {
-  background: url('${absolutePath.replace(/e/g, '\\\ne')}');
+  background: url('${protocol}${absolutePath.replace(/e/g, '\\\ne')}');
 }
 `;
 
