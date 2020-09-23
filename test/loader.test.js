@@ -132,7 +132,7 @@ describe('loader', () => {
       )
     ).toBe(true);
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats, false, 'postcss')).toMatchSnapshot('errors');
   });
 
   it('should reuse `ast` from "postcss-loader"', async () => {
@@ -360,7 +360,7 @@ describe('loader', () => {
     const stats = await compile(compiler);
 
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats, false, 'postcss')).toMatchSnapshot('errors');
   });
 
   it('should work with the "modules.auto" option and the "importLoaders" option', async () => {
