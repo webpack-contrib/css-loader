@@ -848,7 +848,7 @@ Default: `undefined`
 
 Allows to specify a function to generate the classname.
 By default we use built-in function to generate a classname.
-If the custom function returns `null` or `undefined`, we fall back to the
+If the custom function returns `null` or `undefined`, we fallback to the
 built-in function to generate the classname.
 
 **webpack.config.js**
