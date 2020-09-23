@@ -131,7 +131,7 @@ Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
 CssSyntaxError
 
-(1:8) Unknown word
+(1:8) /test/fixtures/invisible-space.css Unknown word
 
 > 1 | a {    color: red;    }
     |        ^
@@ -146,7 +146,7 @@ Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
 CssSyntaxError
 
-(2:3) Unknown word
+(2:3) /test/fixtures/error.css Unknown word
 
   1 | .some {
 > 2 |   invalid css;

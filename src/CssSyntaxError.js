@@ -2,7 +2,7 @@ export default class CssSyntaxError extends Error {
   constructor(error) {
     super(error);
 
-    const { reason, line, column } = error;
+    const { reason, line, column, file } = error;
 
     this.name = 'CssSyntaxError';
 
@@ -14,6 +14,7 @@ export default class CssSyntaxError extends Error {
       this.message += `(${line}:${column}) `;
     }
 
+    this.message += file ? `${file} ` : '<css input> ';
     this.message += `${reason}`;
 
     const code = error.showSourceCode();
