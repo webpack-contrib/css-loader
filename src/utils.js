@@ -296,7 +296,7 @@ function getModulesPlugins(options, loaderContext) {
 
           // A null/undefined value signals that we should invoke the default
           // getLocalIdent method.
-          if (localIdent == null && getLocalIdent !== defaultGetLocalIdent) {
+          if (localIdent == null) {
             localIdent = defaultGetLocalIdent(
               loaderContext,
               localIdentName,
