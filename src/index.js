@@ -157,6 +157,7 @@ export default async function loader(content, map, meta) {
 
   try {
     result = await postcss(plugins).process(content, {
+      hideNothingWarning: true,
       from: resourcePath,
       to: resourcePath,
       map: options.sourceMap
