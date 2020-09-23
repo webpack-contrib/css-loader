@@ -449,4 +449,28 @@ describe('loader', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  // TODO unskip after updating postcss to 8 version
+  it.skip('should not generate console.warn when plugins disabled and hideNothingWarning is "true"', async () => {
+    jest.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const compiler = getCompiler('./empty.js', {
+      import: false,
+      url: false,
+    });
+    const stats = await compile(compiler);
+
+    // eslint-disable-next-line no-console
+    expect(console.warn).not.toHaveBeenCalledWith(
+      'You did not set any plugins, parser, or stringifier. ' +
+        'Right now, PostCSS does nothing. Pick plugins for your case ' +
+        'on https://www.postcss.parts/ and use them in postcss.config.js.'
+    );
+    expect(getModuleSource('./empty.css', stats)).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });
