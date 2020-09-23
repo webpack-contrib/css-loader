@@ -281,11 +281,32 @@ function getModulesPlugins(options, loaderContext) {
       extractImports(),
       modulesScope({
         generateScopedName(exportName) {
-          return getLocalIdent(loaderContext, localIdentName, exportName, {
-            context: localIdentContext,
-            hashPrefix: localIdentHashPrefix,
-            regExp: localIdentRegExp,
-          });
+          let localIdent = getLocalIdent(
+            loaderContext,
+            localIdentName,
+            exportName,
+            {
+              context: localIdentContext,
+              hashPrefix: localIdentHashPrefix,
+              regExp: localIdentRegExp,
+            }
+          );
+
+          // A null/undefined value signals that we should invoke the default
+          // getLocalIdent method.
+          if (localIdent == null) {
+            localIdent = defaultGetLocalIdent(
+              loaderContext,
+              localIdentName,
+              exportName,
+              {
+                context: localIdentContext,
+                hashPrefix: localIdentHashPrefix,
+                regExp: localIdentRegExp,
+              }
+            );
+          }
+          return localIdent;
         },
         exportGlobals: options.modules.exportGlobals,
       }),

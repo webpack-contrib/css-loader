@@ -487,6 +487,49 @@ exports[`"modules" option issue #1063: result 1`] = `
 
 exports[`"modules" option issue #1063: warnings 1`] = `Array []`;
 
+exports[`"modules" option issue #1191 - fallback to default getLocalIdent: errors 1`] = `Array []`;
+
+exports[`"modules" option issue #1191 - fallback to default getLocalIdent: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".some-class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"some-class\\": \\"some-class\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option issue #1191 - fallback to default getLocalIdent: result 1`] = `
+Object {
+  "css1": Array [
+    Array [
+      "./modules/issue-1191/issue-1191.css",
+      ".some-class {
+  color: red;
+}
+",
+      "",
+    ],
+  ],
+  "css2": Array [
+    Array [
+      "./modules/issue-1191/issue-1191-custom.css",
+      ".custom-some-class {
+  color: red;
+}
+",
+      "",
+    ],
+  ],
+}
+`;
+
+exports[`"modules" option issue #1191 - fallback to default getLocalIdent: warnings 1`] = `Array []`;
+
 exports[`"modules" option should avoid unnecessary "require": errors 1`] = `Array []`;
 
 exports[`"modules" option should avoid unnecessary "require": module 1`] = `
