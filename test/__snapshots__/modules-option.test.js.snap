@@ -142,7 +142,7 @@ exports[`"modules" option issue #966 - values in selectors aren't escaped proper
 exports[`"modules" option issue #966 - values in selectors aren't escaped properly: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"._7-foo-class {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\--bar-class {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\--baz-class {\\\\n  color: red;\\\\n}\\\\n\\\\n.fooBaz-class-continuation {\\\\n  color: red;\\\\n}\\\\n\\\\n.some.class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
