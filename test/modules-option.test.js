@@ -1391,19 +1391,12 @@ describe('"modules" option', () => {
   });
 
   it('should emit warning when localIdentName is emoji', async () => {
-    jest.spyOn(console, 'warn').mockImplementation(() => {});
-
     const compiler = getCompiler('./modules/pure/pure.js', {
       modules: {
         localIdentName: '[emoji:0]',
       },
     });
     const stats = await compile(compiler);
-
-    // eslint-disable-next-line no-console
-    expect(console.warn).toHaveBeenCalledWith(
-      'Emoji is deprecated and will be removed in next major release.'
-    );
 
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');

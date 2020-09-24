@@ -211,8 +211,7 @@ function getModulesOptions(rawOptions, loaderContext) {
   }
 
   if (/\[emoji(?::(\d+))?\]/i.test(modulesOptions.localIdentName)) {
-    // eslint-disable-next-line no-console
-    console.warn(
+    loaderContext.emitWarning(
       'Emoji is deprecated and will be removed in next major release.'
     );
   }
