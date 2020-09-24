@@ -491,6 +491,45 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it("issue #966 - values in selectors aren't escaped properly", async () => {
+    const compiler = getCompiler('./modules/issue-966/issue-966.js', {
+      modules: {
+        getLocalIdent: (loaderContext, localIdentName, localName) => {
+          if (localName === 'foo-class') {
+            return `7-${localName}`;
+          }
+
+          if (localName === 'bar-class') {
+            return `>-${localName}`;
+          }
+
+          if (localName === 'baz-class') {
+            return `\u0000-${localName}`;
+          }
+
+          if (localName === 'fooBaz-class') {
+            return `${localName}.continuation`;
+          }
+
+          return null;
+        },
+        localIdentName: '[local]',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/issue-966/issue-966.css', stats)
+    ).toMatchSnapshot('module');
+
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
   it('issue #967', async () => {
     const compiler = getCompiler('./modules/issue-967/path-placeholder.js', {
       modules: {
