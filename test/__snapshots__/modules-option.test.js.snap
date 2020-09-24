@@ -699,6 +699,15 @@ Array [
 
 exports[`"modules" option should dedupe same modules in one module (issue #1037): warnings 1`] = `Array []`;
 
+exports[`"modules" option should emit warning when localIdentName is emoji: errors 1`] = `Array []`;
+
+exports[`"modules" option should emit warning when localIdentName is emoji: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+(Emitted value instead of an instance of Error) Emoji is deprecated and will be removed in next major release.",
+]
+`;
+
 exports[`"modules" option should keep order: errors 1`] = `Array []`;
 
 exports[`"modules" option should keep order: module 1`] = `

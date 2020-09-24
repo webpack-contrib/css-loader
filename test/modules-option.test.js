@@ -1389,4 +1389,16 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should emit warning when localIdentName is emoji', async () => {
+    const compiler = getCompiler('./modules/pure/pure.js', {
+      modules: {
+        localIdentName: '[emoji:0]',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });
