@@ -2,7 +2,10 @@
  * @jest-environment jsdom
  */
 
+/* eslint-disable func-names */
+
 const api = require('../../src/runtime/api');
+const cssWithMappingToString = require('../../src/runtime/cssWithMappingToString');
 
 describe('api', () => {
   beforeAll(() => {
@@ -24,7 +27,9 @@ describe('api', () => {
   });
 
   it('should toString a single module', () => {
-    const m = api();
+    const m = api(function (i) {
+      return i[1];
+    });
 
     m.push([1, 'body { a: 1; }', '']);
 
@@ -32,7 +37,9 @@ describe('api', () => {
   });
 
   it('should toString multiple modules', () => {
-    const m = api();
+    const m = api(function (i) {
+      return i[1];
+    });
 
     m.push([2, 'body { b: 2; }', '']);
     m.push([1, 'body { a: 1; }', '']);
@@ -41,7 +48,9 @@ describe('api', () => {
   });
 
   it('should toString with media query', () => {
-    const m = api();
+    const m = api(function (i) {
+      return i[1];
+    });
 
     const m1 = [1, 'body { a: 1; }', 'screen'];
     const m2 = [2, 'body { b: 2; }', ''];
@@ -57,7 +66,9 @@ describe('api', () => {
   });
 
   it('should import modules', () => {
-    const m = api();
+    const m = api(function (i) {
+      return i[1];
+    });
     const m1 = [1, 'body { a: 1; }', '(orientation:landscape)'];
     const m2 = [2, 'body { b: 2; }', ''];
     const m3 = [3, 'body { c: 3; }', ''];
@@ -73,7 +84,9 @@ describe('api', () => {
   });
 
   it('should import named modules', () => {
-    const m = api();
+    const m = api(function (i) {
+      return i[1];
+    });
     const m1 = ['./module1', 'body { a: 1; }', 'screen'];
     const m2 = ['./module2', 'body { b: 2; }', ''];
     const m3 = ['./module3', 'body { c: 3; }', ''];
@@ -88,7 +101,7 @@ describe('api', () => {
   });
 
   it('should toString with source mapping', () => {
-    const m = api(true);
+    const m = api(cssWithMappingToString);
 
     m.push([
       1,
@@ -106,7 +119,7 @@ describe('api', () => {
   });
 
   it('should toString with a source map without "sourceRoot"', () => {
-    const m = api(true);
+    const m = api(cssWithMappingToString);
 
     m.push([
       1,
@@ -125,7 +138,7 @@ describe('api', () => {
   it('should toString without source mapping if btoa not available', () => {
     global.btoa = null;
 
-    const m = api(true);
+    const m = api(cssWithMappingToString);
 
     m.push([
       1,
@@ -143,7 +156,9 @@ describe('api', () => {
   });
 
   it('should import modules with dedupe', () => {
-    const m = api();
+    const m = api(function (i) {
+      return i[1];
+    });
 
     const m1 = [null, 'body { b: 1; }', ''];
     const m2 = ['./module2', 'body { b: 2; }', ''];
@@ -160,7 +175,9 @@ describe('api', () => {
   });
 
   it('should import modules when module string', () => {
-    const m = api();
+    const m = api(function (i) {
+      return i[1];
+    });
 
     m.i('.button { b: 2; }');
     m.i('');
@@ -168,3 +185,4 @@ describe('api', () => {
     expect(m.toString()).toMatchSnapshot();
   });
 });
+/* eslint-enable func-names */
