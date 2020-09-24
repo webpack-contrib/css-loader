@@ -172,8 +172,9 @@ exports[`"sourceMap" option true should generate source maps #2: errors 1`] = `A
 
 exports[`"sourceMap" option true should generate source maps #2: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".foo {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/with-query.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\".foo {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
 // Exports
@@ -215,9 +216,10 @@ exports[`"sourceMap" option true should generate source maps and do not change "
 
 exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://test/fixtures/source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
@@ -371,9 +373,10 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader does not generate source maps: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
@@ -441,9 +444,10 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates different source in source maps: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/basic-1.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
@@ -511,8 +515,9 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("less-loader"): module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/base.less\\"],\\"names\\":[],\\"mappings\\":\\"AAGA;EACE,gCAAA;EACA,WAAA;AAFF\\",\\"sourcesContent\\":[\\"@font-stack:    Helvetica, sans-serif;\\\\n@primary-color: #333;\\\\n\\\\nbody {\\\\n  font: 100% @font-stack;\\\\n  color: @primary-color;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
 // Exports
@@ -559,9 +564,10 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("postcss-loader"): module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.postcss.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n   color: #639;\\\\n }\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/basic.postcss.css\\"],\\"names\\":[],\\"mappings\\":\\"AAKA;EACE,gBAAgB;EAChB,mCAAsB;EACtB,yCAA4C;AAC9C;;AAEA;EACE,kBAAqB;EAArB,gBAAqB;EAArB,qBAAqB;AACvB;;AAEA;EACE;IACE,6BAAuB;IAAvB,uBAAuB;IACvB,iGAAsB;IACtB,eAA0B;IAA1B,0BAA0B;IAC1B,6BAAwC;IAAxC,wCAAwC;IACxC,qBAAyB;IACzB,kCAA+C;IAA/C,mCAA+C;IAA/C,6CAA+C;IAA/C,8CAA+C;EACjD;AACF;;AAEA;EACE,aAAe;EAAf,gBAAe;AACjB;;AAEA;EACE;AAKF;;AAHA;GACG,WAAoB;CACtB\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.postcss.css\\\\\\";\\\\n\\\\n@custom-media --viewport-medium (width <= 50rem);\\\\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\\\\n\\\\n:root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: #12345678;\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (--viewport-medium) {\\\\n  body {\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    overflow-wrap: break-word;\\\\n    padding-inline: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\n:--heading {\\\\n  margin-block: 0;\\\\n}\\\\n\\\\na {\\\\n  color: rgb(0 0 100% / 90%);\\\\n\\\\n&:hover {\\\\n   color: rebeccapurple;\\\\n }\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
@@ -699,8 +705,9 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("sass-loader"): module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/basic.scss\\"],\\"names\\":[],\\"mappings\\":\\"AAGA;EACE,gCAAA;EACA,WAJc;AAEhB\\",\\"sourcesContent\\":[\\"$font-stack:    Helvetica, sans-serif;\\\\n$primary-color: #333;\\\\n\\\\nbody {\\\\n  font: 100% $font-stack;\\\\n  color: $primary-color;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
 // Exports
@@ -746,8 +753,9 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("stylus-loader"): module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 14px/1.5 Helvetica, arial, sans-serif;\\\\n}\\\\nbody #logo {\\\\n  border-radius: 5px;\\\\n}\\\\n/*# sourceMappingURL=test/fixtures/source-map/base.css.map */\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/base.styl\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,2CAAwB;AAC1B;AAAE;EACE,kBAAe;AAEnB;AACA,4DAA4D\\",\\"sourcesContent\\":[\\"body {\\\\n  font: 14px/1.5 Helvetica, arial, sans-serif;\\\\n  #logo {\\\\n    border-radius: 5px;\\\\n  }\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
 // Exports
@@ -795,9 +803,10 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps with "sourceRoot": module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
@@ -865,9 +874,10 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps without "sourceRoot": module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
@@ -935,9 +945,10 @@ exports[`"sourceMap" option true should generate source maps: errors 1`] = `Arra
 
 exports[`"sourceMap" option true should generate source maps: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(true);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/basic.css\\"],\\"names\\":[],\\"mappings\\":\\"AAEA;EACE,UAAU;AACZ\\",\\"sourcesContent\\":[\\"@import \\\\\\"./nested/nested.css\\\\\\";\\\\n\\\\n.class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);

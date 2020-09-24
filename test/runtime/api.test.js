@@ -3,6 +3,7 @@
  */
 
 const api = require('../../src/runtime/api');
+const cssWithMappingToString = require('../../src/runtime/cssWithMappingToString');
 
 describe('api', () => {
   beforeAll(() => {
@@ -88,7 +89,7 @@ describe('api', () => {
   });
 
   it('should toString with source mapping', () => {
-    const m = api(true);
+    const m = api(cssWithMappingToString);
 
     m.push([
       1,
@@ -106,7 +107,7 @@ describe('api', () => {
   });
 
   it('should toString with a source map without "sourceRoot"', () => {
-    const m = api(true);
+    const m = api(cssWithMappingToString);
 
     m.push([
       1,
@@ -125,7 +126,7 @@ describe('api', () => {
   it('should toString without source mapping if btoa not available', () => {
     global.btoa = null;
 
-    const m = api(true);
+    const m = api(cssWithMappingToString);
 
     m.push([
       1,

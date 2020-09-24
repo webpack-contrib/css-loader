@@ -197,6 +197,16 @@ export default async function loader(content, map, meta) {
       importName: '___CSS_LOADER_API_IMPORT___',
       url: stringifyRequest(this, require.resolve('./runtime/api')),
     });
+
+    if (options.sourceMap) {
+      imports.unshift({
+        importName: '___CSS_LOADER_API_SOURCEMAP_IMPORT___',
+        url: stringifyRequest(
+          this,
+          require.resolve('./runtime/cssWithMappingToString')
+        ),
+      });
+    }
   }
 
   const importCode = getImportCode(imports, options);
