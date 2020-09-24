@@ -10,17 +10,13 @@ module.exports = function (cssWithMappingToString) {
   // return the list of modules as css string
   list.toString = function toString() {
     return this.map((item) => {
-      const [, source, , cssMapping] = item;
       let content;
 
-      if (!cssMapping) {
-        content = source;
+      if (typeof cssWithMappingToString !== 'undefined') {
+        content = cssWithMappingToString(item);
       } else {
-        content =
-          typeof cssWithMappingToString === 'function' &&
-          typeof btoa === 'function'
-            ? cssWithMappingToString(item)
-            : [source].join('\n');
+        // eslint-disable-next-line prefer-destructuring
+        content = item[1];
       }
 
       if (item[2]) {
