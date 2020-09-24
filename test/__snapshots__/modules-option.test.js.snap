@@ -137,6 +137,58 @@ Array [
 
 exports[`"modules" option issue #861: warnings 1`] = `Array []`;
 
+exports[`"modules" option issue #966 - values in selectors aren't escaped properly: errors 1`] = `Array []`;
+
+exports[`"modules" option issue #966 - values in selectors aren't escaped properly: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._7-foo-class {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\--bar-class {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\--baz-class {\\\\n  color: red;\\\\n}\\\\n\\\\n.fooBaz-class-continuation {\\\\n  color: red;\\\\n}\\\\n\\\\n.some.class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"foo-class\\": \\"_7-foo-class\\",
+	\\"bar-class\\": \\"--bar-class\\",
+	\\"baz-class\\": \\"--baz-class\\",
+	\\"fooBaz-class\\": \\"fooBaz-class-continuation\\",
+	\\"some\\": \\"some\\",
+	\\"class\\": \\"class\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option issue #966 - values in selectors aren't escaped properly: result 1`] = `
+Array [
+  Array [
+    "./modules/issue-966/issue-966.css",
+    "._7-foo-class {
+  color: red;
+}
+
+.\\\\--bar-class {
+  color: red;
+}
+
+.\\\\--baz-class {
+  color: red;
+}
+
+.fooBaz-class-continuation {
+  color: red;
+}
+
+.some.class {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option issue #966 - values in selectors aren't escaped properly: warnings 1`] = `Array []`;
+
 exports[`"modules" option issue #966: errors 1`] = `Array []`;
 
 exports[`"modules" option issue #966: module 1`] = `
@@ -144,10 +196,10 @@ exports[`"modules" option issue #966: module 1`] = `
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".button.hey {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".button-hey {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"button\\": \\"button.hey\\"
+	\\"button\\": \\"button-hey\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -157,7 +209,7 @@ exports[`"modules" option issue #966: result 1`] = `
 Array [
   Array [
     "./modules/issue-966/button.css",
-    ".button.hey {
+    ".button-hey {
   color: red;
 }
 ",

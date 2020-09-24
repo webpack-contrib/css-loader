@@ -49,6 +49,18 @@ const filenameReservedRegex = /[<>:"/\\|?*]/g;
 // eslint-disable-next-line no-control-regex
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
 
+function escapeLocalident(localident) {
+  return cssesc(
+    localident
+      // For `[hash]` placeholder
+      .replace(/^((-?[0-9])|--)/, '_$1')
+      .replace(filenameReservedRegex, '-')
+      .replace(reControlChars, '-')
+      .replace(/\./g, '-'),
+    { isIdentifier: true }
+  );
+}
+
 function defaultGetLocalIdent(
   loaderContext,
   localIdentName,
@@ -60,19 +72,9 @@ function defaultGetLocalIdent(
   const request = normalizePath(path.relative(context, resourcePath));
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${hashPrefix + request}\x00${unescape(localName)}`;
+  options.content = `${hashPrefix + request}\x00${localName}`;
 
-  // Using `[path]` placeholder outputs `/` we need escape their
-  // Also directories can contains invalid characters for css we need escape their too
-  return cssesc(
-    interpolateName(loaderContext, localIdentName, options)
-      // For `[hash]` placeholder
-      .replace(/^((-?[0-9])|--)/, '_$1')
-      .replace(filenameReservedRegex, '-')
-      .replace(reControlChars, '-')
-      .replace(/\./g, '-'),
-    { isIdentifier: true }
-  ).replace(/\\\[local\\]/gi, localName);
+  return interpolateName(loaderContext, localIdentName, options);
 }
 
 function normalizeUrl(url, isStringValue) {
@@ -143,7 +145,8 @@ function getModulesOptions(rawOptions, loaderContext) {
     localIdentHashPrefix: '',
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
-    getLocalIdent: defaultGetLocalIdent,
+    // eslint-disable-next-line no-undefined
+    getLocalIdent: undefined,
     namedExport: false,
     exportLocalsConvention: 'asIs',
     exportOnlyLocals: false,
@@ -281,24 +284,13 @@ function getModulesPlugins(options, loaderContext) {
       extractImports(),
       modulesScope({
         generateScopedName(exportName) {
-          let localIdent = getLocalIdent(
-            loaderContext,
-            localIdentName,
-            exportName,
-            {
-              context: localIdentContext,
-              hashPrefix: localIdentHashPrefix,
-              regExp: localIdentRegExp,
-            }
-          );
+          let localIdent;
 
-          // A null/undefined value signals that we should invoke the default
-          // getLocalIdent method.
-          if (localIdent == null) {
-            localIdent = defaultGetLocalIdent(
+          if (typeof getLocalIdent !== 'undefined') {
+            localIdent = getLocalIdent(
               loaderContext,
               localIdentName,
-              exportName,
+              unescape(exportName),
               {
                 context: localIdentContext,
                 hashPrefix: localIdentHashPrefix,
@@ -306,7 +298,28 @@ function getModulesPlugins(options, loaderContext) {
               }
             );
           }
-          return localIdent;
+
+          // A null/undefined value signals that we should invoke the default
+          // getLocalIdent method.
+          if (typeof localIdent === 'undefined' || localIdent === null) {
+            localIdent = defaultGetLocalIdent(
+              loaderContext,
+              localIdentName,
+              unescape(exportName),
+              {
+                context: localIdentContext,
+                hashPrefix: localIdentHashPrefix,
+                regExp: localIdentRegExp,
+              }
+            );
+
+            return escapeLocalident(localIdent).replace(
+              /\\\[local\\]/gi,
+              exportName
+            );
+          }
+
+          return escapeLocalident(localIdent);
         },
         exportGlobals: options.modules.exportGlobals,
       }),
