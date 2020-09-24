@@ -501,8 +501,8 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
-          ? 'main.12154f5ea9bb58c63a84.bundle.js'
-          : 'main.59edca009f48cf67e50e.bundle.js'
+          ? 'main.02755d36ce181558963d.bundle.js'
+          : 'main.535d928b9abb27709302.bundle.js'
       );
       expect(
         getModuleSource('fixtures/source-map/basic.css', stats)

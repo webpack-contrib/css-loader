@@ -7,7 +7,7 @@ exports[`"importLoaders" option should work when not specified: module 1`] = `
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js!./imported.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js!./other-imported.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___();
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
@@ -58,7 +58,7 @@ exports[`"importLoaders" option should work with a value equal to ""1"" ("postcs
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___();
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
@@ -109,7 +109,7 @@ exports[`"importLoaders" option should work with a value equal to "0" (\`postcss
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___();
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
@@ -160,7 +160,7 @@ exports[`"importLoaders" option should work with a value equal to "1" ("postcss-
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___();
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
@@ -211,7 +211,7 @@ exports[`"importLoaders" option should work with a value equal to "1" (no loader
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___();
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
@@ -262,7 +262,7 @@ exports[`"importLoaders" option should work with a value equal to "2" ("postcss-
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___();
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module

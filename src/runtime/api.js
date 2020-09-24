@@ -10,14 +10,7 @@ module.exports = function (cssWithMappingToString) {
   // return the list of modules as css string
   list.toString = function toString() {
     return this.map((item) => {
-      let content;
-
-      if (typeof cssWithMappingToString !== 'undefined') {
-        content = cssWithMappingToString(item);
-      } else {
-        // eslint-disable-next-line prefer-destructuring
-        content = item[1];
-      }
+      const content = cssWithMappingToString(item);
 
       if (item[2]) {
         return `@media ${item[2]} {${content}}`;

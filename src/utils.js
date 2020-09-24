@@ -486,7 +486,9 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
   let code = JSON.stringify(result.css);
 
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${
-    options.sourceMap ? '___CSS_LOADER_API_SOURCEMAP_IMPORT___' : ''
+    options.sourceMap
+      ? '___CSS_LOADER_API_SOURCEMAP_IMPORT___'
+      : 'function(i){return i[1]}'
   });\n`;
 
   for (const item of api) {
