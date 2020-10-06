@@ -501,7 +501,7 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
-          ? 'main.02755d36ce181558963d.bundle.js'
+          ? 'main.3106b4f9bed946cac826.bundle.js'
           : 'main.535d928b9abb27709302.bundle.js'
       );
       expect(

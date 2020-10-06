@@ -757,7 +757,7 @@ import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWit
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 14px/1.5 Helvetica, arial, sans-serif;\\\\n}\\\\nbody #logo {\\\\n  border-radius: 5px;\\\\n}\\\\n/*# sourceMappingURL=test/fixtures/source-map/base.css.map */\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/base.styl\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,2CAAwB;AAC1B;AAAE;EACE,kBAAe;AAEnB;AACA,4DAA4D\\",\\"sourcesContent\\":[\\"body {\\\\n  font: 14px/1.5 Helvetica, arial, sans-serif;\\\\n  #logo {\\\\n    border-radius: 5px;\\\\n  }\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 14px/1.5 Helvetica, arial, sans-serif;\\\\n}\\\\nbody #logo {\\\\n  border-radius: 5px;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://source-map/base.styl\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,2CAAwB;AAC1B;AAAE;EACE,kBAAe;AAEnB\\",\\"sourcesContent\\":[\\"body {\\\\n  font: 14px/1.5 Helvetica, arial, sans-serif;\\\\n  #logo {\\\\n    border-radius: 5px;\\\\n  }\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -773,10 +773,10 @@ Array [
 body #logo {
   border-radius: 5px;
 }
-/*# sourceMappingURL=test/fixtures/source-map/base.css.map */",
+",
     "",
     Object {
-      "mappings": "AAAA;EACE,2CAAwB;AAC1B;AAAE;EACE,kBAAe;AAEnB;AACA,4DAA4D",
+      "mappings": "AAAA;EACE,2CAAwB;AAC1B;AAAE;EACE,kBAAe;AAEnB",
       "names": Array [],
       "sourceRoot": "",
       "sources": Array [

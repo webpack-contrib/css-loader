@@ -5,7 +5,7 @@
 import { getOptions, stringifyRequest } from 'loader-utils';
 import postcss from 'postcss';
 import postcssPkg from 'postcss/package.json';
-import validateOptions from 'schema-utils';
+import { validate } from 'schema-utils';
 import { satisfies } from 'semver';
 
 import CssSyntaxError from './CssSyntaxError';
@@ -31,7 +31,7 @@ import {
 export default async function loader(content, map, meta) {
   const rawOptions = getOptions(this);
 
-  validateOptions(schema, rawOptions, {
+  validate(schema, rawOptions, {
     name: 'CSS Loader',
     baseDataPath: 'options',
   });
