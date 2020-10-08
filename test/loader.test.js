@@ -450,8 +450,7 @@ describe('loader', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  // TODO unskip after updating postcss to 8 version
-  it.skip('should not generate console.warn when plugins disabled and hideNothingWarning is "true"', async () => {
+  it('should not generate console.warn when plugins disabled and hideNothingWarning is "true"', async () => {
     jest.spyOn(console, 'warn').mockImplementation(() => {});
 
     const compiler = getCompiler('./empty.js', {

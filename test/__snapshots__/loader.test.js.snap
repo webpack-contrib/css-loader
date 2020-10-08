@@ -39,6 +39,31 @@ exports[`loader issue #1033: result 1`] = `Object {}`;
 
 exports[`loader issue #1033: warnings 1`] = `Array []`;
 
+exports[`loader should not generate console.warn when plugins disabled and hideNothingWarning is "true": errors 1`] = `Array []`;
+
+exports[`loader should not generate console.warn when plugins disabled and hideNothingWarning is "true": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should not generate console.warn when plugins disabled and hideNothingWarning is "true": result 1`] = `
+Array [
+  Array [
+    "./empty.css",
+    "",
+    "",
+  ],
+]
+`;
+
+exports[`loader should not generate console.warn when plugins disabled and hideNothingWarning is "true": warnings 1`] = `Array []`;
+
 exports[`loader should reuse \`ast\` from "postcss-loader": errors 1`] = `Array []`;
 
 exports[`loader should reuse \`ast\` from "postcss-loader": module 1`] = `
