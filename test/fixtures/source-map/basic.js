@@ -1,5 +1,5 @@
-import * as css from './basic.css';
+import css from './basic.css';
 
-__export__ = css.default;
+__export__ = css;
 
-export default css.default;
+export default css;
