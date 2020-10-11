@@ -1340,7 +1340,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_7___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1Tjau9FSqr5WLTBHaIm1rH {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1kgUMo7v00lYmyGBHv2COz {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.OX01CBO1Ma7xJh6yAybXq {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1Tjau9FSqr5WLTBHaIm1rH {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1kgUMo7v00lYmyGBHv2COz {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.OX01CBO1Ma7xJh6yAybXq {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment:  /* comment */ 10px  /* comment */;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
@@ -1369,6 +1369,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_2ZmR2b3YBVn0i8sme-abcC\\",
@@ -1538,7 +1539,6 @@ Array [
     padding: 20px 20px;
   }
 }
-@value v-comment: /* comment */;
 
 ._2PhbElc8FsODw7KMuxWJyk {
   v-ident: validIdent;
@@ -1557,7 +1557,7 @@ Array [
   v-dimension: 12px;
   v-percentage: 100%;
   v-hex: #fff;
-  v-comment: v-comment 10px v-comment;
+  v-comment:  /* comment */ 10px  /* comment */;
   v-function: rgb(0,0,0);
   v-unicode-range: U+0025-00FF;
   mutliple: #fff .60 100%;
@@ -2417,6 +2417,7 @@ export default {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_ghi\\",
@@ -2466,6 +2467,7 @@ Object {
   "top-relative": "_top-relative _imported-relative",
   "url": "_url",
   "v-bar": "block",
+  "v-comment": " /* comment */",
   "v-def": "red",
   "v-dimension": "12px",
   "v-foo": "blue",
@@ -3757,6 +3759,7 @@ module.exports = {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_ghi\\",
@@ -3806,6 +3809,7 @@ Object {
   "top-relative": "_top-relative _imported-relative",
   "url": "_url",
   "v-bar": "block",
+  "v-comment": " /* comment */",
   "v-def": "red",
   "v-dimension": "12px",
   "v-foo": "blue",
@@ -3874,6 +3878,7 @@ export default {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_ghi\\",
@@ -3923,6 +3928,7 @@ Object {
   "top-relative": "_top-relative _imported-relative",
   "url": "_url",
   "v-bar": "block",
+  "v-comment": " /* comment */",
   "v-def": "red",
   "v-dimension": "12px",
   "v-foo": "blue",
@@ -3990,6 +3996,7 @@ export const vNumber2 = \\"-3.4e-2\\";
 export const vDimension = \\"12px\\";
 export const vPercentage = \\"100%\\";
 export const vHex = \\"#fff\\";
+export const vComment = \\" /* comment */\\";
 export const vFunction = \\"rgb(0,0,0)\\";
 export const vUnicodeRange = \\"U+0025-00FF\\";
 export const ghi = \\"_ghi\\";
@@ -4038,6 +4045,7 @@ Object {
   "topRelative": "_top-relative _imported-relative",
   "url": "_url",
   "vBar": "block",
+  "vComment": " /* comment */",
   "vDef": "red",
   "vDimension": "12px",
   "vFoo": "blue",
@@ -4072,15 +4080,12 @@ exports[`"modules" option should work with "url" and "namedExport": module 1`] =
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../src/index.js??[ident]!./shared.css\\";
-import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url('./img.png');\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const vUrl = \\"url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")\\";
+export const vUrl = \\"url('./img.png')\\";
 export const vUrlOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\"\\";
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -4097,11 +4102,11 @@ Array [
   Array [
     "./modules/url/source.css",
     "a {
-  background: url(/webpack/public/path/img.png);
+  background: url('./img.png');
 }
 
 body {
-  background: url(/webpack/public/path/img.png);
+  background: url('./img.png');
 }
 ",
     "",
@@ -4117,16 +4122,13 @@ exports[`"modules" option should work with "url": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./shared.css\\";
-import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-url-other\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url('./img.png');\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-url-other\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"v-url\\": \\"url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")\\",
+	\\"v-url\\": \\"url('./img.png')\\",
 	\\"v-url-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-url-other\\"] + \\"\\"
 };
 export default ___CSS_LOADER_EXPORT___;
@@ -4144,11 +4146,11 @@ Array [
   Array [
     "./modules/url/source.css",
     "a {
-  background: url(/webpack/public/path/img.png);
+  background: url('./img.png');
 }
 
 body {
-  background: url(/webpack/public/path/img.png);
+  background: url('./img.png');
 }
 ",
     "",
@@ -12788,7 +12790,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_7___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1Tjau9FSqr5WLTBHaIm1rH {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1kgUMo7v00lYmyGBHv2COz {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.OX01CBO1Ma7xJh6yAybXq {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1Tjau9FSqr5WLTBHaIm1rH {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1kgUMo7v00lYmyGBHv2COz {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.OX01CBO1Ma7xJh6yAybXq {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment:  /* comment */ 10px  /* comment */;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
@@ -12817,6 +12819,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_2ZmR2b3YBVn0i8sme-abcC\\",
@@ -12986,7 +12989,6 @@ Array [
     padding: 20px 20px;
   }
 }
-@value v-comment: /* comment */;
 
 ._2PhbElc8FsODw7KMuxWJyk {
   v-ident: validIdent;
@@ -13005,7 +13007,7 @@ Array [
   v-dimension: 12px;
   v-percentage: 100%;
   v-hex: #fff;
-  v-comment: v-comment 10px v-comment;
+  v-comment:  /* comment */ 10px  /* comment */;
   v-function: rgb(0,0,0);
   v-unicode-range: U+0025-00FF;
   mutliple: #fff .60 100%;

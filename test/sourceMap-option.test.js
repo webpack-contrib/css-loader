@@ -501,7 +501,7 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         webpack.version[0] === '5'
-          ? 'main.3106b4f9bed946cac826.bundle.js'
+          ? 'main.032545707adff30494d4.bundle.js'
           : 'main.535d928b9abb27709302.bundle.js'
       );
       expect(
@@ -516,7 +516,7 @@ describe('"sourceMap" option', () => {
 
     it('should generate source maps when css was extracted', async () => {
       const compiler = getCompiler(
-        './source-map/basic.js',
+        './source-map/extract.js',
         {},
         {
           devtool: 'source-map',
@@ -563,7 +563,7 @@ describe('"sourceMap" option', () => {
 
     it('should generate source maps when css was extracted and do not change "[contenthash]" on different platform', async () => {
       const compiler = getCompiler(
-        './source-map/basic.js',
+        './source-map/extract.js',
         {},
         {
           devtool: 'source-map',
@@ -747,7 +747,7 @@ describe('"sourceMap" option', () => {
 
     it('should generate source maps when css was extracted', async () => {
       const compiler = getCompiler(
-        './source-map/basic.js',
+        './source-map/extract.js',
         {},
         {
           output: {
