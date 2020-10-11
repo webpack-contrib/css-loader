@@ -56,35 +56,6 @@ export default async function loader(content, map, meta) {
     plugins.push(...getModulesPlugins(options, this));
   }
 
-  const icssPluginImports = [];
-  const icssPluginApi = [];
-
-  if (shouldUseIcssPlugin(options)) {
-    const icssResolver = this.getResolve({
-      conditionNames: ['style'],
-      extensions: [],
-      mainFields: ['css', 'style', 'main', '...'],
-      mainFiles: ['index', '...'],
-    });
-
-    plugins.push(
-      icssParser({
-        imports: icssPluginImports,
-        api: icssPluginApi,
-        replacements,
-        exports,
-        context: this.context,
-        rootContext: this.rootContext,
-        resolver: icssResolver,
-        urlHandler: (url) =>
-          stringifyRequest(
-            this,
-            getPreRequester(this)(options.importLoaders) + url
-          ),
-      })
-    );
-  }
-
   const importPluginImports = [];
   const importPluginApi = [];
 
@@ -133,6 +104,35 @@ export default async function loader(content, map, meta) {
         filter: getFilter(options.url, this.resourcePath),
         resolver: urlResolver,
         urlHandler: (url) => stringifyRequest(this, url),
+      })
+    );
+  }
+
+  const icssPluginImports = [];
+  const icssPluginApi = [];
+
+  if (shouldUseIcssPlugin(options)) {
+    const icssResolver = this.getResolve({
+      conditionNames: ['style'],
+      extensions: [],
+      mainFields: ['css', 'style', 'main', '...'],
+      mainFiles: ['index', '...'],
+    });
+
+    plugins.push(
+      icssParser({
+        imports: icssPluginImports,
+        api: icssPluginApi,
+        replacements,
+        exports,
+        context: this.context,
+        rootContext: this.rootContext,
+        resolver: icssResolver,
+        urlHandler: (url) =>
+          stringifyRequest(
+            this,
+            getPreRequester(this)(options.importLoaders) + url
+          ),
       })
     );
   }

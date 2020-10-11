@@ -4080,7 +4080,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const vUrl = \\"url('./img.png')\\";
+export const vUrl = \\"url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")\\";
 export const vUrlOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\"\\";
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -4101,7 +4101,7 @@ Array [
 }
 
 body {
-  background: url('./img.png');
+  background: url(/webpack/public/path/img.png);
 }
 ",
     "",
@@ -4126,7 +4126,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 ___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-url-other\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"v-url\\": \\"url('./img.png')\\",
+	\\"v-url\\": \\"url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")\\",
 	\\"v-url-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-url-other\\"] + \\"\\"
 };
 export default ___CSS_LOADER_EXPORT___;
@@ -4148,7 +4148,7 @@ Array [
 }
 
 body {
-  background: url('./img.png');
+  background: url(/webpack/public/path/img.png);
 }
 ",
     "",
