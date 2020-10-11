@@ -1340,18 +1340,18 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_7___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1Tjau9FSqr5WLTBHaIm1rH {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1kgUMo7v00lYmyGBHv2COz {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.OX01CBO1Ma7xJh6yAybXq {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1Tjau9FSqr5WLTBHaIm1rH {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1kgUMo7v00lYmyGBHv2COz {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n._2pfxL2stdPF7x4NoxsVN2v {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n._1nUtyABnlmA1G7TBLQ9v19 {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment:  /* comment */ 10px  /* comment */;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
 	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\"\\",
-	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\"\\",
+	\\"s-white\\": \\"_1nUtyABnlmA1G7TBLQ9v19\\",
 	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\"\\",
 	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\"\\",
 	\\"v-foo\\": \\"blue\\",
 	\\"v-bar\\": \\"block\\",
 	\\"v-primary\\": \\"#BF4040\\",
-	\\"s-black\\": \\"black-selector\\",
+	\\"s-black\\": \\"_2pfxL2stdPF7x4NoxsVN2v\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
 	\\"v-ident\\": \\"validIdent\\",
 	\\"v-pre-defined-ident\\": \\"left\\",
@@ -1369,6 +1369,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_2ZmR2b3YBVn0i8sme-abcC\\",
@@ -1384,7 +1385,6 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"alias\\": \\"_3itMfHbLQSSkBisENyA8TF \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
 	\\"alias-duplicate\\": \\"_2ChGydqcGYRLzAo3_Iomr2 \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_1ai7yu9kkZ_8JwK0EMbe6U\\",
-	\\"black-selector\\": \\"OX01CBO1Ma7xJh6yAybXq\\",
 	\\"header\\": \\"_2Yk-wvfy8t_ESEwwB1Fc0y\\",
 	\\"foobarbaz\\": \\"_2PhbElc8FsODw7KMuxWJyk\\",
 	\\"url\\": \\"_1qvhWcgsRpzv9-_jaooxI0\\",
@@ -1519,7 +1519,7 @@ Array [
   color: #BF4040;
 }
 
-.OX01CBO1Ma7xJh6yAybXq {
+._2pfxL2stdPF7x4NoxsVN2v {
   color: black;
 }
 
@@ -1529,7 +1529,7 @@ Array [
   }
 }
 
-.white {
+._1nUtyABnlmA1G7TBLQ9v19 {
   color: white;
 }
 
@@ -1538,7 +1538,6 @@ Array [
     padding: 20px 20px;
   }
 }
-@value v-comment: /* comment */;
 
 ._2PhbElc8FsODw7KMuxWJyk {
   v-ident: validIdent;
@@ -1557,7 +1556,7 @@ Array [
   v-dimension: 12px;
   v-percentage: 100%;
   v-hex: #fff;
-  v-comment: v-comment 10px v-comment;
+  v-comment:  /* comment */ 10px  /* comment */;
   v-function: rgb(0,0,0);
   v-unicode-range: U+0025-00FF;
   mutliple: #fff .60 100%;
@@ -2393,13 +2392,13 @@ import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??[ident
 export default {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
 	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-other\\"] + \\"\\",
-	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"s-white\\"] + \\"\\",
+	\\"s-white\\": \\"_s-white\\",
 	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"m-small\\"] + \\"\\",
 	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___[\\"v-something\\"] + \\"\\",
 	\\"v-foo\\": \\"blue\\",
 	\\"v-bar\\": \\"block\\",
 	\\"v-primary\\": \\"#BF4040\\",
-	\\"s-black\\": \\"black-selector\\",
+	\\"s-black\\": \\"_s-black\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
 	\\"v-ident\\": \\"validIdent\\",
 	\\"v-pre-defined-ident\\": \\"left\\",
@@ -2417,6 +2416,7 @@ export default {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_ghi\\",
@@ -2432,7 +2432,6 @@ export default {
 	\\"alias\\": \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6___[\\"imported-alias\\"] + \\"\\",
 	\\"alias-duplicate\\": \\"_alias-duplicate \\" + ___CSS_LOADER_ICSS_IMPORT_6___[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_primary-selector\\",
-	\\"black-selector\\": \\"_black-selector\\",
 	\\"header\\": \\"_header\\",
 	\\"foobarbaz\\": \\"_foobarbaz\\",
 	\\"url\\": \\"_url\\",
@@ -2445,7 +2444,6 @@ exports[`"modules" option should work and respect the "exportOnlyLocals" option:
 Object {
   "alias": "_alias _imported-alias",
   "alias-duplicate": "_alias-duplicate _imported-alias",
-  "black-selector": "_black-selector",
   "foo": "_foo",
   "foobarbaz": "_foobarbaz",
   "ghi": "_ghi",
@@ -2460,12 +2458,13 @@ Object {
   "other-other": "_other-other",
   "primary-selector": "_primary-selector",
   "relative": "_relative _imported-relative",
-  "s-black": "black-selector",
-  "s-white": "white",
+  "s-black": "_s-black",
+  "s-white": "_s-white",
   "simple": "_simple _imported-simple",
   "top-relative": "_top-relative _imported-relative",
   "url": "_url",
   "v-bar": "block",
+  "v-comment": " /* comment */",
   "v-def": "red",
   "v-dimension": "12px",
   "v-foo": "blue",
@@ -3733,13 +3732,13 @@ var ___CSS_LOADER_ICSS_IMPORT_7___ = require(\\"-!../../../../src/index.js??[ide
 module.exports = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
 	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-other\\"] + \\"\\",
-	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"s-white\\"] + \\"\\",
+	\\"s-white\\": \\"_s-white\\",
 	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"m-small\\"] + \\"\\",
 	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___[\\"v-something\\"] + \\"\\",
 	\\"v-foo\\": \\"blue\\",
 	\\"v-bar\\": \\"block\\",
 	\\"v-primary\\": \\"#BF4040\\",
-	\\"s-black\\": \\"black-selector\\",
+	\\"s-black\\": \\"_s-black\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
 	\\"v-ident\\": \\"validIdent\\",
 	\\"v-pre-defined-ident\\": \\"left\\",
@@ -3757,6 +3756,7 @@ module.exports = {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_ghi\\",
@@ -3772,7 +3772,6 @@ module.exports = {
 	\\"alias\\": \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6___[\\"imported-alias\\"] + \\"\\",
 	\\"alias-duplicate\\": \\"_alias-duplicate \\" + ___CSS_LOADER_ICSS_IMPORT_6___[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_primary-selector\\",
-	\\"black-selector\\": \\"_black-selector\\",
 	\\"header\\": \\"_header\\",
 	\\"foobarbaz\\": \\"_foobarbaz\\",
 	\\"url\\": \\"_url\\",
@@ -3785,7 +3784,6 @@ exports[`"modules" option should work with "exportOnlyLocals" and "esModule" wit
 Object {
   "alias": "_alias _imported-alias",
   "alias-duplicate": "_alias-duplicate _imported-alias",
-  "black-selector": "_black-selector",
   "foo": "_foo",
   "foobarbaz": "_foobarbaz",
   "ghi": "_ghi",
@@ -3800,12 +3798,13 @@ Object {
   "other-other": "_other-other",
   "primary-selector": "_primary-selector",
   "relative": "_relative _imported-relative",
-  "s-black": "black-selector",
-  "s-white": "white",
+  "s-black": "_s-black",
+  "s-white": "_s-white",
   "simple": "_simple _imported-simple",
   "top-relative": "_top-relative _imported-relative",
   "url": "_url",
   "v-bar": "block",
+  "v-comment": " /* comment */",
   "v-def": "red",
   "v-dimension": "12px",
   "v-foo": "blue",
@@ -3850,13 +3849,13 @@ import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??[ident
 export default {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
 	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-other\\"] + \\"\\",
-	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"s-white\\"] + \\"\\",
+	\\"s-white\\": \\"_s-white\\",
 	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"m-small\\"] + \\"\\",
 	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___[\\"v-something\\"] + \\"\\",
 	\\"v-foo\\": \\"blue\\",
 	\\"v-bar\\": \\"block\\",
 	\\"v-primary\\": \\"#BF4040\\",
-	\\"s-black\\": \\"black-selector\\",
+	\\"s-black\\": \\"_s-black\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
 	\\"v-ident\\": \\"validIdent\\",
 	\\"v-pre-defined-ident\\": \\"left\\",
@@ -3874,6 +3873,7 @@ export default {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_ghi\\",
@@ -3889,7 +3889,6 @@ export default {
 	\\"alias\\": \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6___[\\"imported-alias\\"] + \\"\\",
 	\\"alias-duplicate\\": \\"_alias-duplicate \\" + ___CSS_LOADER_ICSS_IMPORT_6___[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_primary-selector\\",
-	\\"black-selector\\": \\"_black-selector\\",
 	\\"header\\": \\"_header\\",
 	\\"foobarbaz\\": \\"_foobarbaz\\",
 	\\"url\\": \\"_url\\",
@@ -3902,7 +3901,6 @@ exports[`"modules" option should work with "exportOnlyLocals" and "esModule" wit
 Object {
   "alias": "_alias _imported-alias",
   "alias-duplicate": "_alias-duplicate _imported-alias",
-  "black-selector": "_black-selector",
   "foo": "_foo",
   "foobarbaz": "_foobarbaz",
   "ghi": "_ghi",
@@ -3917,12 +3915,13 @@ Object {
   "other-other": "_other-other",
   "primary-selector": "_primary-selector",
   "relative": "_relative _imported-relative",
-  "s-black": "black-selector",
-  "s-white": "white",
+  "s-black": "_s-black",
+  "s-white": "_s-white",
   "simple": "_simple _imported-simple",
   "top-relative": "_top-relative _imported-relative",
   "url": "_url",
   "v-bar": "block",
+  "v-comment": " /* comment */",
   "v-def": "red",
   "v-dimension": "12px",
   "v-foo": "blue",
@@ -3966,13 +3965,13 @@ import * as ___CSS_LOADER_ICSS_IMPORT_7____NAMED___ from \\"-!../../../../src/in
 // Exports
 export const vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
 export const vOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\"\\";
-export const sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
+export const sWhite = \\"_s-white\\";
 export const mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
 export const vSomething = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\"\\";
 export const vFoo = \\"blue\\";
 export const vBar = \\"block\\";
 export const vPrimary = \\"#BF4040\\";
-export const sBlack = \\"black-selector\\";
+export const sBlack = \\"_s-black\\";
 export const mLarge = \\"(min-width: 960px)\\";
 export const vIdent = \\"validIdent\\";
 export const vPreDefinedIdent = \\"left\\";
@@ -3990,6 +3989,7 @@ export const vNumber2 = \\"-3.4e-2\\";
 export const vDimension = \\"12px\\";
 export const vPercentage = \\"100%\\";
 export const vHex = \\"#fff\\";
+export const vComment = \\" /* comment */\\";
 export const vFunction = \\"rgb(0,0,0)\\";
 export const vUnicodeRange = \\"U+0025-00FF\\";
 export const ghi = \\"_ghi\\";
@@ -4005,7 +4005,6 @@ export const myModule = \\"_my-module \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED
 export const alias = \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
 export const aliasDuplicate = \\"_alias-duplicate \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
 export const primarySelector = \\"_primary-selector\\";
-export const blackSelector = \\"_black-selector\\";
 export const header = \\"_header\\";
 export const foobarbaz = \\"_foobarbaz\\";
 export const url = \\"_url\\";
@@ -4017,7 +4016,6 @@ exports[`"modules" option should work with "exportOnlyLocals" and "namedExport" 
 Object {
   "alias": "_alias _imported-alias",
   "aliasDuplicate": "_alias-duplicate _imported-alias",
-  "blackSelector": "_black-selector",
   "foo": "_foo",
   "foobarbaz": "_foobarbaz",
   "ghi": "_ghi",
@@ -4032,12 +4030,13 @@ Object {
   "otherOther": "_other-other",
   "primarySelector": "_primary-selector",
   "relative": "_relative _imported-relative",
-  "sBlack": "black-selector",
-  "sWhite": "white",
+  "sBlack": "_s-black",
+  "sWhite": "_s-white",
   "simple": "_simple _imported-simple",
   "topRelative": "_top-relative _imported-relative",
   "url": "_url",
   "vBar": "block",
+  "vComment": " /* comment */",
   "vDef": "red",
   "vDimension": "12px",
   "vFoo": "blue",
@@ -4072,15 +4071,12 @@ exports[`"modules" option should work with "url" and "namedExport": module 1`] =
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../src/index.js??[ident]!./shared.css\\";
-import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url('./img.png');\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const vUrl = \\"url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")\\";
+export const vUrl = \\"url('./img.png')\\";
 export const vUrlOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\"\\";
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -4097,11 +4093,11 @@ Array [
   Array [
     "./modules/url/source.css",
     "a {
-  background: url(/webpack/public/path/img.png);
+  background: url('./img.png');
 }
 
 body {
-  background: url(/webpack/public/path/img.png);
+  background: url('./img.png');
 }
 ",
     "",
@@ -4117,16 +4113,13 @@ exports[`"modules" option should work with "url": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./shared.css\\";
-import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-url-other\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url('./img.png');\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-url-other\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"v-url\\": \\"url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")\\",
+	\\"v-url\\": \\"url('./img.png')\\",
 	\\"v-url-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-url-other\\"] + \\"\\"
 };
 export default ___CSS_LOADER_EXPORT___;
@@ -4144,11 +4137,11 @@ Array [
   Array [
     "./modules/url/source.css",
     "a {
-  background: url(/webpack/public/path/img.png);
+  background: url('./img.png');
 }
 
 body {
-  background: url(/webpack/public/path/img.png);
+  background: url('./img.png');
 }
 ",
     "",
@@ -11969,14 +11962,13 @@ exports[`"modules" option should work with case \`values-10\` (\`modules\` value
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._2V2JI3y5T05ezX1wZCEeFE {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n._2JrNINv1dS7I0I24kQC9cl {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2V2JI3y5T05ezX1wZCEeFE {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._2V2JI3y5T05ezX1wZCEeFE {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n._1-Yj6viWXQ0gFjdSwGLcT1 {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2V2JI3y5T05ezX1wZCEeFE {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-primary\\": \\"#BF4040\\",
-	\\"s-black\\": \\"black-selector\\",
+	\\"s-black\\": \\"_1-Yj6viWXQ0gFjdSwGLcT1\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
-	\\"header\\": \\"_2V2JI3y5T05ezX1wZCEeFE\\",
-	\\"black-selector\\": \\"_2JrNINv1dS7I0I24kQC9cl\\"
+	\\"header\\": \\"_2V2JI3y5T05ezX1wZCEeFE\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -11991,7 +11983,7 @@ Array [
   padding: 0 10px;
 }
 
-._2JrNINv1dS7I0I24kQC9cl {
+._1-Yj6viWXQ0gFjdSwGLcT1 {
   color: black;
 }
 
@@ -12059,14 +12051,13 @@ exports[`"modules" option should work with case \`values-10\` (\`modules\` value
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._header {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n._black-selector {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._header {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._header {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n._s-black {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._header {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-primary\\": \\"#BF4040\\",
-	\\"s-black\\": \\"black-selector\\",
+	\\"s-black\\": \\"_s-black\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
-	\\"header\\": \\"_header\\",
-	\\"black-selector\\": \\"_black-selector\\"
+	\\"header\\": \\"_header\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -12081,7 +12072,7 @@ Array [
   padding: 0 10px;
 }
 
-._black-selector {
+._s-black {
   color: black;
 }
 
@@ -12105,14 +12096,13 @@ exports[`"modules" option should work with case \`values-10\` (\`modules\` value
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._2V2JI3y5T05ezX1wZCEeFE {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n._2JrNINv1dS7I0I24kQC9cl {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2V2JI3y5T05ezX1wZCEeFE {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._2V2JI3y5T05ezX1wZCEeFE {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n._1-Yj6viWXQ0gFjdSwGLcT1 {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2V2JI3y5T05ezX1wZCEeFE {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-primary\\": \\"#BF4040\\",
-	\\"s-black\\": \\"black-selector\\",
+	\\"s-black\\": \\"_1-Yj6viWXQ0gFjdSwGLcT1\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
-	\\"header\\": \\"_2V2JI3y5T05ezX1wZCEeFE\\",
-	\\"black-selector\\": \\"_2JrNINv1dS7I0I24kQC9cl\\"
+	\\"header\\": \\"_2V2JI3y5T05ezX1wZCEeFE\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -12127,7 +12117,7 @@ Array [
   padding: 0 10px;
 }
 
-._2JrNINv1dS7I0I24kQC9cl {
+._1-Yj6viWXQ0gFjdSwGLcT1 {
   color: black;
 }
 
@@ -12500,14 +12490,13 @@ import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._10XHvKY7SkdmM8ZvRFtWzU {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n._1kluA9lYOATstWNhEJp14n {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) and (max-width: 1024px) {\\\\n  ._10XHvKY7SkdmM8ZvRFtWzU {\\\\n    color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._10XHvKY7SkdmM8ZvRFtWzU {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n.kIwEqc80q--Oj-hUqcFsO {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) and (max-width: 1024px) {\\\\n  ._10XHvKY7SkdmM8ZvRFtWzU {\\\\n    color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export const vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
 export const vPrimary = \\"#BF4040\\";
-export const sBlack = \\"black-selector\\";
+export const sBlack = \\"kIwEqc80q--Oj-hUqcFsO\\";
 export const mLarge = \\"(min-width: 960px)\\";
 export const header = \\"_10XHvKY7SkdmM8ZvRFtWzU\\";
-export const blackSelector = \\"_1kluA9lYOATstWNhEJp14n\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -12527,7 +12516,7 @@ Array [
   padding: 0 10px;
 }
 
-._1kluA9lYOATstWNhEJp14n {
+.kIwEqc80q--Oj-hUqcFsO {
   color: black;
 }
 
@@ -12788,18 +12777,18 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_7___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1Tjau9FSqr5WLTBHaIm1rH {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1kgUMo7v00lYmyGBHv2COz {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.OX01CBO1Ma7xJh6yAybXq {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n@value v-comment: /* comment */;\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment: v-comment 10px v-comment;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._2ZmR2b3YBVn0i8sme-abcC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n}\\\\n\\\\n._1Tjau9FSqr5WLTBHaIm1rH {\\\\n  color: blue;\\\\n}\\\\n\\\\n.EcQSwQce4PuQ5vNAybT9N {\\\\n  display: block;\\\\n}\\\\n\\\\n.hTH4alr_d-S0jPncN6ib3 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\";\\\\n}\\\\n\\\\n._7sobwviowI6_CZkzLjYZG {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n.YpDepip9R1BGGAy-rGgvc {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\";\\\\n}\\\\n\\\\n._3dfrN27nghAjb3tcT6R_Ov {\\\\n  color: red;\\\\n}\\\\n\\\\n._3aPunKIij5oyAtcB6y9-Xm {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._3Qp0o615k38gm2l4OVRknw {\\\\n  color: gray;\\\\n}\\\\n\\\\n._1kgUMo7v00lYmyGBHv2COz {\\\\n  color: gray;\\\\n}\\\\n\\\\n._3itMfHbLQSSkBisENyA8TF {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._2ChGydqcGYRLzAo3_Iomr2 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n._1ai7yu9kkZ_8JwK0EMbe6U {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n._2pfxL2stdPF7x4NoxsVN2v {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n._1nUtyABnlmA1G7TBLQ9v19 {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\" {\\\\n  ._2Yk-wvfy8t_ESEwwB1Fc0y {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\\\n._2PhbElc8FsODw7KMuxWJyk {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment:  /* comment */ 10px  /* comment */;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n._1qvhWcgsRpzv9-_jaooxI0 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n._1-QX-dLNLF1zFn-cPfLHcH {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
 	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\"\\",
-	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\"\\",
+	\\"s-white\\": \\"_1nUtyABnlmA1G7TBLQ9v19\\",
 	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\"\\",
 	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\"\\",
 	\\"v-foo\\": \\"blue\\",
 	\\"v-bar\\": \\"block\\",
 	\\"v-primary\\": \\"#BF4040\\",
-	\\"s-black\\": \\"black-selector\\",
+	\\"s-black\\": \\"_2pfxL2stdPF7x4NoxsVN2v\\",
 	\\"m-large\\": \\"(min-width: 960px)\\",
 	\\"v-ident\\": \\"validIdent\\",
 	\\"v-pre-defined-ident\\": \\"left\\",
@@ -12817,6 +12806,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"v-dimension\\": \\"12px\\",
 	\\"v-percentage\\": \\"100%\\",
 	\\"v-hex\\": \\"#fff\\",
+	\\"v-comment\\": \\" /* comment */\\",
 	\\"v-function\\": \\"rgb(0,0,0)\\",
 	\\"v-unicode-range\\": \\"U+0025-00FF\\",
 	\\"ghi\\": \\"_2ZmR2b3YBVn0i8sme-abcC\\",
@@ -12832,7 +12822,6 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"alias\\": \\"_3itMfHbLQSSkBisENyA8TF \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
 	\\"alias-duplicate\\": \\"_2ChGydqcGYRLzAo3_Iomr2 \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
 	\\"primary-selector\\": \\"_1ai7yu9kkZ_8JwK0EMbe6U\\",
-	\\"black-selector\\": \\"OX01CBO1Ma7xJh6yAybXq\\",
 	\\"header\\": \\"_2Yk-wvfy8t_ESEwwB1Fc0y\\",
 	\\"foobarbaz\\": \\"_2PhbElc8FsODw7KMuxWJyk\\",
 	\\"url\\": \\"_1qvhWcgsRpzv9-_jaooxI0\\",
@@ -12967,7 +12956,7 @@ Array [
   color: #BF4040;
 }
 
-.OX01CBO1Ma7xJh6yAybXq {
+._2pfxL2stdPF7x4NoxsVN2v {
   color: black;
 }
 
@@ -12977,7 +12966,7 @@ Array [
   }
 }
 
-.white {
+._1nUtyABnlmA1G7TBLQ9v19 {
   color: white;
 }
 
@@ -12986,7 +12975,6 @@ Array [
     padding: 20px 20px;
   }
 }
-@value v-comment: /* comment */;
 
 ._2PhbElc8FsODw7KMuxWJyk {
   v-ident: validIdent;
@@ -13005,7 +12993,7 @@ Array [
   v-dimension: 12px;
   v-percentage: 100%;
   v-hex: #fff;
-  v-comment: v-comment 10px v-comment;
+  v-comment:  /* comment */ 10px  /* comment */;
   v-function: rgb(0,0,0);
   v-unicode-range: U+0025-00FF;
   mutliple: #fff .60 100%;
