@@ -39,7 +39,7 @@ const plugin = (options = {}) => {
       const declarationParsedResults = [];
 
       return {
-        async Declaration(declaration) {
+        Declaration(declaration) {
           if (!needParseDeclaration.test(declaration.value)) {
             return;
           }
