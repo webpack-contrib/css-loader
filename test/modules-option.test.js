@@ -1254,7 +1254,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
   });
 
   it('should throw an error when the "namedExport" option is "true", but the "esModule" is "false"', async () => {

@@ -1632,10 +1632,7 @@ exports[`"modules" option should throw an error when the "namedExport" option is
 exports[`"modules" option should throw error with composes when the "namedExport" is enabled and "exportLocalsConvention" options has invalid value: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The \\"modules.namedExport\\" option requires the \\"modules.exportLocalsConvention\\" option to be \\"camelCaseOnly\\" or \\"dashesOnly\\"
-    at getModulesOptions (/src/utils.js:218:13)
-    at normalizeOptions (/src/utils.js:234:26)
-    at Object.loader (/src/index.js:45:15)",
+Error: The \\"modules.namedExport\\" option requires the \\"modules.exportLocalsConvention\\" option to be \\"camelCaseOnly\\" or \\"dashesOnly\\"",
 ]
 `;
 
