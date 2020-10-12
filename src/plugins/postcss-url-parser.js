@@ -36,7 +36,7 @@ const plugin = (options = {}) => {
   return {
     postcssPlugin: 'postcss-url-parser',
     prepare(result) {
-      const declarationParsedResults = [];
+      const parsedResults = [];
 
       return {
         Declaration(declaration) {
@@ -67,7 +67,7 @@ const plugin = (options = {}) => {
               };
 
               if (shouldHandleRule(rule, declaration, result)) {
-                declarationParsedResults.push({ declaration, rule, parsed });
+                parsedResults.push({ declaration, rule, parsed });
               }
 
               // Do not traverse inside `url`
@@ -93,7 +93,7 @@ const plugin = (options = {}) => {
                   };
 
                   if (shouldHandleRule(rule, declaration, result)) {
-                    declarationParsedResults.push({
+                    parsedResults.push({
                       declaration,
                       rule,
                       parsed,
@@ -108,7 +108,7 @@ const plugin = (options = {}) => {
                   };
 
                   if (shouldHandleRule(rule, declaration, result)) {
-                    declarationParsedResults.push({
+                    parsedResults.push({
                       declaration,
                       rule,
                       parsed,
@@ -124,7 +124,7 @@ const plugin = (options = {}) => {
           });
         },
         async OnceExit() {
-          if (declarationParsedResults.length === 0) {
+          if (parsedResults.length === 0) {
             return;
           }
 
@@ -134,7 +134,7 @@ const plugin = (options = {}) => {
 
           let hasUrlImportHelper = false;
 
-          for (const parsedResult of declarationParsedResults) {
+          for (const parsedResult of parsedResults) {
             const { url, isStringValue } = parsedResult.rule;
 
             let normalizedUrl = url;

@@ -11,7 +11,7 @@ const plugin = (options = {}) => {
   return {
     postcssPlugin: 'postcss-import-parser',
     prepare(result) {
-      const atRuleParsedResults = [];
+      const parsedResults = [];
 
       return {
         AtRule: {
@@ -80,7 +80,7 @@ const plugin = (options = {}) => {
               return;
             }
 
-            atRuleParsedResults.push({
+            parsedResults.push({
               atRule,
               url,
               isStringValue,
@@ -89,14 +89,14 @@ const plugin = (options = {}) => {
           },
         },
         async OnceExit() {
-          if (atRuleParsedResults.length === 0) {
+          if (parsedResults.length === 0) {
             return;
           }
 
           const imports = new Map();
           const tasks = [];
 
-          for (const parsedResult of atRuleParsedResults) {
+          for (const parsedResult of parsedResults) {
             const { atRule, url, isStringValue, mediaNodes } = parsedResult;
 
             let normalizedUrl = url;
