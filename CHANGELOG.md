@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/webpack-contrib/css-loader/compare/v4.3.0...v5.0.0) (2020-10-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate on PostCSS 8
+* runtime doesn't contain source maps code without `sourceMap: true`
+* returned value from the `getLocalIdent` escapes by default, the `exportName` value is always unescaped
+* Auto enable icss modules for all files for which `/\.icss\.\w+$/i` (the `modules.compileType` option is `icss`)
+* `[emoji]` placeholder was deprecated
+* `icss` option was removed (it was deprecated previously)
+
+### Features
+
+* allow named exports to have underscores in names ([#1209](https://github.com/webpack-contrib/css-loader/issues/1209)) ([747d62b](https://github.com/webpack-contrib/css-loader/commit/747d62b75a878d8881f4819b96297667dc689b8f))
+* hide warning when you don't need handle `url()`/`@import` ([#1195](https://github.com/webpack-contrib/css-loader/issues/1195)) ([dd52931](https://github.com/webpack-contrib/css-loader/commit/dd52931150ed42f122d9017642437c26cc1b2422))
+* improve error message  ([52412f6](https://github.com/webpack-contrib/css-loader/commit/52412f6d5a54745ee37a4a67f038455c26ba5772))
+* reduce runtime ([9f974be](https://github.com/webpack-contrib/css-loader/commit/9f974be81f5942d3afaf783529677bd541952fa3))
+* add fallback if custom getLocalIdent returns `null`/`undefined` ([#1193](https://github.com/webpack-contrib/css-loader/issues/1193)) ([0f95841](https://github.com/webpack-contrib/css-loader/commit/0f9584135e63f9f354043e7f414e0c1aad0edc6e))
+
 ## [4.3.0](https://github.com/webpack-contrib/css-loader/compare/v4.2.2...v4.3.0) (2020-09-08)
 
 
