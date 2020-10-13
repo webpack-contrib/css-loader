@@ -1203,6 +1203,60 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
+  it('should work when the "namedExport" is enabled and the "exportLocalsConvention" options has "dashesOnly" value', async () => {
+    const compiler = getCompiler('./modules/namedExport/dashesOnly/index.js', {
+      modules: {
+        localIdentName: '[local]',
+        namedExport: true,
+        exportLocalsConvention: 'dashesOnly',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/namedExport/dashesOnly/index.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
+  });
+
+  it('should work with composes when the "namedExport" is enabled and "exportLocalsConvention" options has "dashesOnly" value', async () => {
+    const compiler = getCompiler('./modules/namedExport/composes/composes.js', {
+      modules: {
+        localIdentName: '_[local]',
+        namedExport: true,
+        exportLocalsConvention: 'dashesOnly',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/namedExport/composes/composes.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should throw error with composes when the "namedExport" is enabled and "exportLocalsConvention" options has invalid value', async () => {
+    const compiler = getCompiler('./modules/namedExport/composes/composes.js', {
+      modules: {
+        localIdentName: '_[local]',
+        namedExport: true,
+        exportLocalsConvention: 'dashes',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats, true)).toMatchSnapshot('errors');
+  });
+
   it('should throw an error when the "namedExport" option is "true", but the "esModule" is "false"', async () => {
     const compiler = getCompiler('./modules/namedExport/base/index.js', {
       esModule: false,

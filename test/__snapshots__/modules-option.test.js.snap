@@ -1614,7 +1614,7 @@ exports[`"modules" option should throw an error when class has unsupported name 
 exports[`"modules" option should throw an error when the "namedExport" is enabled and the "exportLocalsConvention" options has not "camelCaseOnly" value: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The \\"modules.namedExport\\" option requires the \\"modules.exportLocalsConvention\\" option to be \\"camelCaseOnly\\"",
+Error: The \\"modules.namedExport\\" option requires the \\"modules.exportLocalsConvention\\" option to be \\"camelCaseOnly\\" or \\"dashesOnly\\"",
 ]
 `;
 
@@ -1628,6 +1628,15 @@ Error: The \\"modules.namedExport\\" option requires the \\"esModules\\" option 
 `;
 
 exports[`"modules" option should throw an error when the "namedExport" option is "true", but the "esModule" is "false": warnings 1`] = `Array []`;
+
+exports[`"modules" option should throw error with composes when the "namedExport" is enabled and "exportLocalsConvention" options has invalid value: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: The \\"modules.namedExport\\" option requires the \\"modules.exportLocalsConvention\\" option to be \\"camelCaseOnly\\" or \\"dashesOnly\\"",
+]
+`;
+
+exports[`"modules" option should throw error with composes when the "namedExport" is enabled and "exportLocalsConvention" options has invalid value: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work and correctly replace escaped symbols: errors 1`] = `Array []`;
 
@@ -3718,6 +3727,39 @@ Object {
 `;
 
 exports[`"modules" option should work js template with "namedExport" option: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work when the "namedExport" is enabled and the "exportLocalsConvention" options has "dashesOnly" value: errors 1`] = `Array []`;
+
+exports[`"modules" option should work when the "namedExport" is enabled and the "exportLocalsConvention" options has "dashesOnly" value: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".foo_barBaz {\\\\n  color: red;\\\\n}\\\\n\\\\n.bar {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export const foo_barBaz = \\"foo_barBaz\\";
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work when the "namedExport" is enabled and the "exportLocalsConvention" options has "dashesOnly" value: result 1`] = `
+Array [
+  Array [
+    "./modules/namedExport/dashesOnly/index.css",
+    ".foo_barBaz {
+  color: red;
+}
+
+.bar {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work when the "namedExport" is enabled and the "exportLocalsConvention" options has "dashesOnly" value: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "false" value options: errors 1`] = `Array []`;
 
@@ -12151,6 +12193,67 @@ Array [
 `;
 
 exports[`"modules" option should work with case \`values-10\` (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with composes when the "namedExport" is enabled and "exportLocalsConvention" options has "dashesOnly" value: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with composes when the "namedExport" is enabled and "exportLocalsConvention" options has "dashesOnly" value: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../src/index.js??[ident]!./values.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._ghi {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def\\"] + \\";\\\\n}\\\\n\\\\n._my-class {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\";\\\\n}\\\\n\\\\n._other {\\\\n  display: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\";\\\\n}\\\\n\\\\n._other-other {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def\\"] + \\";\\\\n}\\\\n\\\\n._green {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_otherOther\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export const v_def = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def\\"] + \\"\\";
+export const v_otherOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_otherOther\\"] + \\"\\";
+export const sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
+export const mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
+export const ghi = \\"_ghi\\";
+export const myClass = \\"_my-class\\";
+export const other = \\"_other\\";
+export const otherOther = \\"_other-other\\";
+export const green = \\"_green\\";
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with composes when the "namedExport" is enabled and "exportLocalsConvention" options has "dashesOnly" value: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./modules/namedExport/composes/values.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/namedExport/composes/composes.css",
+    "._ghi {
+  color: red;
+}
+
+._my-class {
+  color: white;
+}
+
+._other {
+  display: (min-width: 320px);
+}
+
+._other-other {
+  width: red;
+}
+
+._green {
+  color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with composes when the "namedExport" is enabled and "exportLocalsConvention" options has "dashesOnly" value: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: errors 1`] = `Array []`;
 

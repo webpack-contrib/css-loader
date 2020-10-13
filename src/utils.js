@@ -111,6 +111,14 @@ function getFilter(filter, resourcePath) {
   };
 }
 
+function getValidLocalName(localName, exportLocalsConvention) {
+  if (exportLocalsConvention === 'dashesOnly') {
+    return dashesCamelCase(localName);
+  }
+
+  return camelCase(localName);
+}
+
 const moduleRegExp = /\.module(s)?\.\w+$/i;
 const icssRegExp = /\.icss\.\w+$/i;
 
@@ -203,9 +211,12 @@ function getModulesOptions(rawOptions, loaderContext) {
       );
     }
 
-    if (modulesOptions.exportLocalsConvention !== 'camelCaseOnly') {
+    if (
+      modulesOptions.exportLocalsConvention !== 'camelCaseOnly' &&
+      modulesOptions.exportLocalsConvention !== 'dashesOnly'
+    ) {
       throw new Error(
-        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "camelCaseOnly"'
+        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "camelCaseOnly" or "dashesOnly"'
       );
     }
   }
@@ -516,7 +527,10 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
       code = code.replace(new RegExp(replacementName, 'g'), () =>
         options.modules.namedExport
           ? `" + ${importName}_NAMED___[${JSON.stringify(
-              camelCase(localName)
+              getValidLocalName(
+                localName,
+                options.modules.exportLocalsConvention
+              )
             )}] + "`
           : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
       );
@@ -551,9 +565,7 @@ function getExportCode(exports, replacements, options) {
 
   const addExportToLocalsCode = (name, value) => {
     if (options.modules.namedExport) {
-      localsCode += `export const ${camelCase(name)} = ${JSON.stringify(
-        value
-      )};\n`;
+      localsCode += `export const ${name} = ${JSON.stringify(value)};\n`;
     } else {
       if (localsCode) {
         localsCode += `,\n`;
@@ -609,7 +621,7 @@ function getExportCode(exports, replacements, options) {
       localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () => {
         if (options.modules.namedExport) {
           return `" + ${importName}_NAMED___[${JSON.stringify(
-            camelCase(localName)
+            getValidLocalName(localName, options.modules.exportLocalsConvention)
           )}] + "`;
         } else if (options.modules.exportOnlyLocals) {
           return `" + ${importName}[${JSON.stringify(localName)}] + "`;
