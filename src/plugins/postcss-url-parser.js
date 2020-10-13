@@ -15,12 +15,10 @@ function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
 
-function shouldHandleRule(rule, declaration, result) {
+function shouldHandleRule(rule, node, result) {
   // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
   if (rule.url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
-    result.warn(`Unable to find uri in '${declaration.toString()}'`, {
-      node: declaration,
-    });
+    result.warn(`Unable to find uri in '${node.toString()}'`, { node });
 
     return false;
   }
@@ -32,99 +30,100 @@ function shouldHandleRule(rule, declaration, result) {
   return true;
 }
 
+function visitor(result, parsedResults, node, key) {
+  if (!needParseDeclaration.test(node[key])) {
+    return;
+  }
+
+  const parsed = valueParser(node[key]);
+
+  parsed.walk((valueNode) => {
+    if (valueNode.type !== 'function') {
+      return;
+    }
+
+    if (isUrlFunc.test(valueNode.value)) {
+      const { nodes } = valueNode;
+      const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
+      const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
+
+      const rule = {
+        node: getNodeFromUrlFunc(valueNode),
+        url,
+        needQuotes: false,
+        isStringValue,
+      };
+
+      if (shouldHandleRule(rule, node, result)) {
+        parsedResults.push({ node, rule, parsed });
+      }
+
+      // Do not traverse inside `url`
+      // eslint-disable-next-line consistent-return
+      return false;
+    } else if (isImageSetFunc.test(valueNode.value)) {
+      for (const nNode of valueNode.nodes) {
+        const { type, value } = nNode;
+
+        if (type === 'function' && isUrlFunc.test(value)) {
+          const { nodes } = nNode;
+          const isStringValue =
+            nodes.length !== 0 && nodes[0].type === 'string';
+          const url = isStringValue
+            ? nodes[0].value
+            : valueParser.stringify(nodes);
+
+          const rule = {
+            node: getNodeFromUrlFunc(nNode),
+            url,
+            needQuotes: false,
+            isStringValue,
+          };
+
+          if (shouldHandleRule(rule, node, result)) {
+            parsedResults.push({
+              node,
+              rule,
+              parsed,
+            });
+          }
+        } else if (type === 'string') {
+          const rule = {
+            node: nNode,
+            url: value,
+            needQuotes: true,
+            isStringValue: true,
+          };
+
+          if (shouldHandleRule(rule, node, result)) {
+            parsedResults.push({
+              node,
+              rule,
+              parsed,
+            });
+          }
+        }
+      }
+
+      // Do not traverse inside `image-set`
+      // eslint-disable-next-line consistent-return
+      return false;
+    }
+  });
+}
+
 const plugin = (options = {}) => {
   return {
     postcssPlugin: 'postcss-url-parser',
     prepare(result) {
-      const declarationParsedResults = [];
+      const parsedResults = [];
 
       return {
-        async Declaration(declaration) {
-          if (!needParseDeclaration.test(declaration.value)) {
-            return;
-          }
-
-          const parsed = valueParser(declaration.value);
-
-          parsed.walk((valueNode) => {
-            if (valueNode.type !== 'function') {
-              return;
-            }
-
-            if (isUrlFunc.test(valueNode.value)) {
-              const { nodes } = valueNode;
-              const isStringValue =
-                nodes.length !== 0 && nodes[0].type === 'string';
-              const url = isStringValue
-                ? nodes[0].value
-                : valueParser.stringify(nodes);
-
-              const rule = {
-                node: getNodeFromUrlFunc(valueNode),
-                url,
-                needQuotes: false,
-                isStringValue,
-              };
-
-              if (shouldHandleRule(rule, declaration, result)) {
-                declarationParsedResults.push({ declaration, rule, parsed });
-              }
-
-              // Do not traverse inside `url`
-              // eslint-disable-next-line consistent-return
-              return false;
-            } else if (isImageSetFunc.test(valueNode.value)) {
-              for (const nNode of valueNode.nodes) {
-                const { type, value } = nNode;
-
-                if (type === 'function' && isUrlFunc.test(value)) {
-                  const { nodes } = nNode;
-                  const isStringValue =
-                    nodes.length !== 0 && nodes[0].type === 'string';
-                  const url = isStringValue
-                    ? nodes[0].value
-                    : valueParser.stringify(nodes);
-
-                  const rule = {
-                    node: getNodeFromUrlFunc(nNode),
-                    url,
-                    needQuotes: false,
-                    isStringValue,
-                  };
-
-                  if (shouldHandleRule(rule, declaration, result)) {
-                    declarationParsedResults.push({
-                      declaration,
-                      rule,
-                      parsed,
-                    });
-                  }
-                } else if (type === 'string') {
-                  const rule = {
-                    node: nNode,
-                    url: value,
-                    needQuotes: true,
-                    isStringValue: true,
-                  };
-
-                  if (shouldHandleRule(rule, declaration, result)) {
-                    declarationParsedResults.push({
-                      declaration,
-                      rule,
-                      parsed,
-                    });
-                  }
-                }
-              }
-
-              // Do not traverse inside `image-set`
-              // eslint-disable-next-line consistent-return
-              return false;
-            }
-          });
+        Declaration(declaration) {
+          visitor(result, parsedResults, declaration, 'value');
         },
         async OnceExit() {
-          if (declarationParsedResults.length === 0) {
+          if (parsedResults.length === 0) {
             return;
           }
 
@@ -134,7 +133,7 @@ const plugin = (options = {}) => {
 
           let hasUrlImportHelper = false;
 
-          for (const parsedResult of declarationParsedResults) {
+          for (const parsedResult of parsedResults) {
             const { url, isStringValue } = parsedResult.rule;
 
             let normalizedUrl = url;
@@ -193,7 +192,7 @@ const plugin = (options = {}) => {
               url,
               prefix,
               hash,
-              parsedResult: { declaration, rule, parsed },
+              parsedResult: { node, rule, parsed },
             } = results[index];
             const newUrl = prefix ? `${prefix}!${url}` : url;
             const importKey = newUrl;
@@ -232,7 +231,7 @@ const plugin = (options = {}) => {
             rule.node.value = replacementName;
 
             // eslint-disable-next-line no-param-reassign
-            declaration.value = parsed.toString();
+            node.value = parsed.toString();
           }
         },
       };

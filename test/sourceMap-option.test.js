@@ -516,7 +516,7 @@ describe('"sourceMap" option', () => {
 
     it('should generate source maps when css was extracted', async () => {
       const compiler = getCompiler(
-        './source-map/basic.js',
+        './source-map/extract.js',
         {},
         {
           devtool: 'source-map',
@@ -563,7 +563,7 @@ describe('"sourceMap" option', () => {
 
     it('should generate source maps when css was extracted and do not change "[contenthash]" on different platform', async () => {
       const compiler = getCompiler(
-        './source-map/basic.js',
+        './source-map/extract.js',
         {},
         {
           devtool: 'source-map',
@@ -747,7 +747,7 @@ describe('"sourceMap" option', () => {
 
     it('should generate source maps when css was extracted', async () => {
       const compiler = getCompiler(
-        './source-map/basic.js',
+        './source-map/extract.js',
         {},
         {
           output: {
