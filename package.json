@@ -45,13 +45,13 @@
   "dependencies": {
     "camelcase": "^6.1.0",
     "cssesc": "^3.0.0",
-    "icss-utils": "^5.0.0-rc.0",
+    "icss-utils": "^5.0.0",
     "loader-utils": "^2.0.0",
     "postcss": "^8.1.1",
-    "postcss-modules-extract-imports": "^3.0.0-rc.3",
-    "postcss-modules-local-by-default": "^4.0.0-rc.4",
-    "postcss-modules-scope": "^3.0.0-rc.2",
-    "postcss-modules-values": "^4.0.0-rc.5",
+    "postcss-modules-extract-imports": "^3.0.0",
+    "postcss-modules-local-by-default": "^4.0.0",
+    "postcss-modules-scope": "^3.0.0",
+    "postcss-modules-values": "^4.0.0",
     "postcss-value-parser": "^4.1.0",
     "schema-utils": "^3.0.0",
     "semver": "^7.3.2"
