@@ -43,8 +43,8 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      # - name: Security audit
-      # run: npm run security
+      - name: Security audit
+        run: npm run security
 
       - name: Check commit message
         uses: wagoid/commitlint-github-action@v1
@@ -56,7 +56,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         node-version: [10.x, 12.x, 14.x]
-        webpack-version: [latest, next]
+        webpack-version: [4, latest]
 
     runs-on: ${{ matrix.os }}
 
