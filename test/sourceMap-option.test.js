@@ -609,7 +609,7 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         // TODO still buggy on webpack@4
-        webpack.version[0] === '5' ? 'main.208dafd9be3442f7a927.css' : chunkName
+        webpack.version[0] === '5' ? 'main.0c4134a13ce273487b87.css' : chunkName
       );
 
       expect(
