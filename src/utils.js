@@ -49,7 +49,7 @@ const filenameReservedRegex = /[<>:"/\\|?*]/g;
 // eslint-disable-next-line no-control-regex
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
 
-function escapeLocalident(localident) {
+function escapeLocalIdent(localident) {
   return cssesc(
     localident
       // For `[hash]` placeholder
@@ -330,13 +330,13 @@ function getModulesPlugins(options, loaderContext) {
               }
             );
 
-            return escapeLocalident(localIdent).replace(
+            return escapeLocalIdent(localIdent).replace(
               /\\\[local\\]/gi,
               exportName
             );
           }
 
-          return escapeLocalident(localIdent);
+          return escapeLocalIdent(localIdent);
         },
         exportGlobals: options.modules.exportGlobals,
       }),
