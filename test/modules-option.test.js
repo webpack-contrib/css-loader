@@ -1455,4 +1455,22 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should work with `@` character in scoped packages', async () => {
+    const compiler = getCompiler('./modules/issue-1223/issue-1223.js', {
+      modules: {
+        localIdentName: '[path]-[local]',
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/issue-1223/@foo/bar/index.module.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });
