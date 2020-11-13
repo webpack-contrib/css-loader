@@ -12472,6 +12472,56 @@ Array [
 
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with the "animation" : errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the "animation" : module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._2D_a3nRJzeYYTHGyq4Flnv {\\\\n  animation: 3s _1mfCY-QJoM3OC5uQJynmBJ;\\\\n}\\\\n\\\\n._2PJ0C1A-J6DQoUOkoQ0iJf {\\\\n  animation: _1mfCY-QJoM3OC5uQJynmBJ 3s;\\\\n}\\\\n\\\\n._3YD2YkzQKZPR2NHYPjUkly {\\\\n  animation-name: _1mfCY-QJoM3OC5uQJynmBJ;\\\\n}\\\\n\\\\n@keyframes _1mfCY-QJoM3OC5uQJynmBJ {\\\\n  0% {\\\\n    background: white;\\\\n  }\\\\n  100% {\\\\n    background: red;\\\\n  }\\\\n}\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"a\\": \\"_2D_a3nRJzeYYTHGyq4Flnv\\",
+	\\"animationName\\": \\"_1mfCY-QJoM3OC5uQJynmBJ\\",
+	\\"b\\": \\"_2PJ0C1A-J6DQoUOkoQ0iJf\\",
+	\\"c\\": \\"_3YD2YkzQKZPR2NHYPjUkly\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with the "animation" : result 1`] = `
+Array [
+  Array [
+    "./modules/issue-1228/source.css",
+    "._2D_a3nRJzeYYTHGyq4Flnv {
+  animation: 3s _1mfCY-QJoM3OC5uQJynmBJ;
+}
+
+._2PJ0C1A-J6DQoUOkoQ0iJf {
+  animation: _1mfCY-QJoM3OC5uQJynmBJ 3s;
+}
+
+._3YD2YkzQKZPR2NHYPjUkly {
+  animation-name: _1mfCY-QJoM3OC5uQJynmBJ;
+}
+
+@keyframes _1mfCY-QJoM3OC5uQJynmBJ {
+  0% {
+    background: white;
+  }
+  100% {
+    background: red;
+  }
+}",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the "animation" : warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with the "auto" by default for icss: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with the "auto" by default for icss: module 1`] = `

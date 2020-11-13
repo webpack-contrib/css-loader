@@ -1473,4 +1473,20 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('should work with the "animation" ', async () => {
+    const compiler = getCompiler('./modules/issue-1228/source.js', {
+      modules: { mode: 'local' },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource('./modules/issue-1228/source.css', stats)
+    ).toMatchSnapshot('module');
+    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
+      'result'
+    );
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });
