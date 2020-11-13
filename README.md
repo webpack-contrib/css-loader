@@ -32,7 +32,7 @@ Then add the plugin to your `webpack` config. For example:
 **file.js**
 
 ```js
-import css from 'file.css';
+import css from "file.css";
 ```
 
 **webpack.config.js**
@@ -43,7 +43,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
@@ -66,7 +66,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['to-string-loader', 'css-loader'],
+        use: ["to-string-loader", "css-loader"],
       },
     ],
   },
@@ -76,7 +76,7 @@ module.exports = {
 or
 
 ```js
-const css = require('./test.css').toString();
+const css = require("./test.css").toString();
 
 console.log(css); // {String}
 ```
@@ -97,9 +97,9 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          'handlebars-loader', // handlebars loader expects raw resource string
-          'extract-loader',
-          'css-loader',
+          "handlebars-loader", // handlebars loader expects raw resource string
+          "extract-loader",
+          "css-loader",
         ],
       },
     ],
@@ -157,7 +157,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           url: true,
         },
@@ -179,13 +179,13 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           url: (url, resourcePath) => {
             // resourcePath - path to css file
 
             // Don't handle `img.png` urls
-            if (url.includes('img.png')) {
+            if (url.includes("img.png")) {
               return false;
             }
 
@@ -238,7 +238,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           import: true,
         },
@@ -260,13 +260,13 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           import: (url, media, resourcePath) => {
             // resourcePath - path to css file
 
             // Don't handle `style.css` import
-            if (url.includes('style.css')) {
+            if (url.includes("style.css")) {
               return false;
             }
 
@@ -298,7 +298,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: true,
         },
@@ -362,8 +362,8 @@ The loader replaces local selectors with unique identifiers. The chosen unique i
 
 ```js
 exports.locals = {
-  className: '_23_aKvs-b8bW2Vg3fwHozO',
-  subClass: '_13LGdX8RMStbBE9w-t0gZ1',
+  className: "_23_aKvs-b8bW2Vg3fwHozO",
+  subClass: "_13LGdX8RMStbBE9w-t0gZ1",
 };
 ```
 
@@ -391,8 +391,8 @@ This doesn't result in any change to the CSS itself but exports multiple classna
 
 ```js
 exports.locals = {
-  className: '_23_aKvs-b8bW2Vg3fwHozO',
-  subClass: '_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO',
+  className: "_23_aKvs-b8bW2Vg3fwHozO",
+  subClass: "_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO",
 };
 ```
 
@@ -415,14 +415,14 @@ To import a local classname from another module.
 
 ```css
 :local(.continueButton) {
-  composes: button from 'library/button.css';
+  composes: button from "library/button.css";
   background: red;
 }
 ```
 
 ```css
 :local(.nameEdit) {
-  composes: edit highlight from './edit.css';
+  composes: edit highlight from "./edit.css";
   background: red;
 }
 ```
@@ -431,8 +431,8 @@ To import from multiple modules use multiple `composes:` rules.
 
 ```css
 :local(.className) {
-  composes: edit hightlight from './edit.css';
-  composes: button from 'module/button.css';
+  composes: edit hightlight from "./edit.css";
+  composes: button from "module/button.css";
   composes: classFromThisModule;
   background: red;
 }
@@ -477,7 +477,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: true,
         },
@@ -499,10 +499,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           // Using `local` value has same effect like using `modules: true`
-          modules: 'global',
+          modules: "global",
         },
       },
     ],
@@ -522,18 +522,18 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
-            compileType: 'module',
-            mode: 'local',
+            compileType: "module",
+            mode: "local",
             auto: true,
             exportGlobals: true,
-            localIdentName: '[path][name]__[local]--[hash:base64:5]',
-            localIdentContext: path.resolve(__dirname, 'src'),
-            localIdentHashPrefix: 'my-custom-hash',
+            localIdentName: "[path][name]__[local]--[hash:base64:5]",
+            localIdentContext: path.resolve(__dirname, "src"),
+            localIdentHashPrefix: "my-custom-hash",
             namedExport: true,
-            exportLocalsConvention: 'camelCase',
+            exportLocalsConvention: "camelCase",
             exportOnlyLocals: false,
           },
         },
@@ -563,10 +563,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
-            compileType: 'icss',
+            compileType: "icss",
           },
         },
       },
@@ -597,7 +597,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
             auto: true,
@@ -621,7 +621,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
             auto: /\.custom-module\.\w+$/i,
@@ -645,10 +645,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
-            auto: (resourcePath) => resourcePath.endsWith('.custom-module.css'),
+            auto: (resourcePath) => resourcePath.endsWith(".custom-module.css"),
           },
         },
       },
@@ -676,10 +676,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
-            mode: 'global',
+            mode: "global",
           },
         },
       },
@@ -702,20 +702,20 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
             // Callback must return "local", "global", or "pure" values
             mode: (resourcePath) => {
               if (/pure.css$/i.test(resourcePath)) {
-                return 'pure';
+                return "pure";
               }
 
               if (/global.css$/i.test(resourcePath)) {
-                return 'global';
+                return "global";
               }
 
-              return 'local';
+              return "local";
             },
           },
         },
@@ -750,10 +750,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
-            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            localIdentName: "[path][name]__[local]--[hash:base64:5]",
           },
         },
       },
@@ -777,10 +777,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
-            localIdentContext: path.resolve(__dirname, 'src'),
+            localIdentContext: path.resolve(__dirname, "src"),
           },
         },
       },
@@ -804,10 +804,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
-            localIdentHashPrefix: 'hash',
+            localIdentHashPrefix: "hash",
           },
         },
       },
@@ -829,7 +829,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
             localIdentRegExp: /page-(.*)\.css/i,
@@ -859,11 +859,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
             getLocalIdent: (context, localIdentName, localName, options) => {
-              return 'whatever_random_class_name';
+              return "whatever_random_class_name";
             },
           },
         },
@@ -898,7 +898,7 @@ Enables/disables ES modules named export for locals.
 **index.js**
 
 ```js
-import { fooBaz, bar } from './styles.css';
+import { fooBaz, bar } from "./styles.css";
 
 console.log(fooBaz, bar);
 ```
@@ -913,7 +913,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           esModule: true,
           modules: {
@@ -941,7 +941,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
             exportGlobals: true,
@@ -982,7 +982,7 @@ By default, the exported JSON keys mirror the class names (i.e `asIs` value).
 **file.js**
 
 ```js
-import { className } from 'file.css';
+import { className } from "file.css";
 ```
 
 **webpack.config.js**
@@ -993,10 +993,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
-          mode: 'local',
-          localsConvention: 'camelCase',
+          mode: "local",
+          localsConvention: "camelCase",
         },
       },
     ],
@@ -1023,7 +1023,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
             exportOnlyLocals: true,
@@ -1050,7 +1050,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           sourceMap: true,
         },
@@ -1078,9 +1078,9 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               importLoaders: 2,
               // 0 => no loaders (default);
@@ -1088,8 +1088,8 @@ module.exports = {
               // 2 => postcss-loader, sass-loader
             },
           },
-          'postcss-loader',
-          'sass-loader',
+          "postcss-loader",
+          "sass-loader",
         ],
       },
     ],
@@ -1117,7 +1117,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           esModule: false,
         },
@@ -1141,11 +1141,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 8192,
         },
@@ -1179,9 +1179,9 @@ module.exports = {
         // For Less - /\.((c|le)ss)$/i,
         test: /\.((c|sa|sc)ss)$/i,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               // Run `postcss-loader` on each CSS `@import`, do not forget that `sass-loader` compile non CSS `@import`'s into a single file
               // If you need run `sass-loader` and `postcss-loader` on each CSS `@import` please set it to `2`
@@ -1191,18 +1191,18 @@ module.exports = {
             },
           },
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
           },
           // Can be `less-loader`
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
           },
         ],
       },
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 8192,
         },
@@ -1230,15 +1230,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
   resolve: {
     alias: {
-      '/assets/unresolved/img.png': path.resolve(
+      "/assets/unresolved/img.png": path.resolve(
         __dirname,
-        'assets/real-path-to-img/img.png'
+        "assets/real-path-to-img/img.png"
       ),
     },
   },
@@ -1326,7 +1326,7 @@ $colorBackground: red;
 File treated as `CSS Module`.
 
 ```scss
-@import 'variables.scss';
+@import "variables.scss";
 .componentClass {
   background-color: $colorBackground;
 }
@@ -1337,8 +1337,8 @@ File treated as `CSS Module`.
 Using both `CSS Module` functionality as well as SCSS variables directly in JavaScript.
 
 ```jsx
-import svars from 'variables.scss';
-import styles from 'Component.module.scss';
+import svars from "variables.scss";
+import styles from "Component.module.scss";
 
 // Render DOM with CSS modules class name
 // <div className={styles.componentClass}>

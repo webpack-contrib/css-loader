@@ -4,17 +4,17 @@ export default class CssSyntaxError extends Error {
 
     const { reason, line, column, file } = error;
 
-    this.name = 'CssSyntaxError';
+    this.name = "CssSyntaxError";
 
     // Based on https://github.com/postcss/postcss/blob/master/lib/css-syntax-error.es6#L132
     // We don't need `plugin` and `file` properties.
     this.message = `${this.name}\n\n`;
 
-    if (typeof line !== 'undefined') {
+    if (typeof line !== "undefined") {
       this.message += `(${line}:${column}) `;
     }
 
-    this.message += file ? `${file} ` : '<css input> ';
+    this.message += file ? `${file} ` : "<css input> ";
     this.message += `${reason}`;
 
     const code = error.showSourceCode();

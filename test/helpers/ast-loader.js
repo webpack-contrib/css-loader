@@ -1,9 +1,9 @@
-import postcss from 'postcss';
-import postcssPresetEnv from 'postcss-preset-env';
-import postcssPkg from 'postcss/package.json';
-import semver from 'semver';
+import postcss from "postcss";
+import postcssPresetEnv from "postcss-preset-env";
+import postcssPkg from "postcss/package.json";
+import semver from "semver";
 
-const incomingVersion = semver.inc(postcssPkg.version, 'minor');
+const incomingVersion = semver.inc(postcssPkg.version, "minor");
 
 export default function astLoader(content) {
   const callback = this.async();
@@ -17,11 +17,11 @@ export default function astLoader(content) {
     })
     .then(({ css, map, root, messages }) => {
       const ast = {
-        type: 'postcss',
+        type: "postcss",
         version: incomingVersion,
       };
 
-      Object.defineProperty(ast, 'root', {
+      Object.defineProperty(ast, "root", {
         get: spy.mockReturnValue(root),
       });
 

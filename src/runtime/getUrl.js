@@ -7,7 +7,7 @@ module.exports = (url, options) => {
   // eslint-disable-next-line no-underscore-dangle, no-param-reassign
   url = url && url.__esModule ? url.default : url;
 
-  if (typeof url !== 'string') {
+  if (typeof url !== "string") {
     return url;
   }
 
@@ -25,7 +25,7 @@ module.exports = (url, options) => {
   // Should url be wrapped?
   // See https://drafts.csswg.org/css-values-3/#urls
   if (/["'() \t\n]/.test(url) || options.needQuotes) {
-    return `"${url.replace(/"/g, '\\"').replace(/\n/g, '\\n')}"`;
+    return `"${url.replace(/"/g, '\\"').replace(/\n/g, "\\n")}"`;
   }
 
   return url;

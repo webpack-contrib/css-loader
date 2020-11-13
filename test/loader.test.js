@@ -1,8 +1,8 @@
-import path from 'path';
+import path from "path";
 
-import { version } from 'webpack';
+import { version } from "webpack";
 
-import postcssPresetEnv from 'postcss-preset-env';
+import postcssPresetEnv from "postcss-preset-env";
 
 import {
   compile,
@@ -11,49 +11,49 @@ import {
   getExecutedCode,
   getModuleSource,
   getWarnings,
-} from './helpers/index';
+} from "./helpers/index";
 
 jest.setTimeout(10000);
 
-describe('loader', () => {
-  it('should work', async () => {
-    const compiler = getCompiler('./basic.js');
+describe("loader", () => {
+  it("should work", async () => {
+    const compiler = getCompiler("./basic.js");
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./basic.css', stats)).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with empty css', async () => {
-    const compiler = getCompiler('./empty.js');
+  it("should work with empty css", async () => {
+    const compiler = getCompiler("./empty.js");
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./empty.css', stats)).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+    expect(getModuleSource("./empty.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with empty options', async () => {
-    const compiler = getCompiler('./basic.js', {});
+  it("should work with empty options", async () => {
+    const compiler = getCompiler("./basic.js", {});
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./basic.css', stats)).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
   it('should work with "asset" module type', async () => {
-    const isWebpack5 = version[0] === '5';
+    const isWebpack5 = version[0] === "5";
     const config = {
       module: {
         rules: [
@@ -61,19 +61,19 @@ describe('loader', () => {
             test: /\.css$/i,
             use: [
               {
-                loader: path.resolve(__dirname, '../src'),
+                loader: path.resolve(__dirname, "../src"),
               },
             ],
           },
           isWebpack5
             ? {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                type: 'asset',
+                type: "asset",
               }
             : {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                loader: 'file-loader',
-                options: { name: '[name].[ext]' },
+                loader: "file-loader",
+                options: { name: "[name].[ext]" },
               },
         ],
       },
@@ -82,35 +82,35 @@ describe('loader', () => {
     if (isWebpack5) {
       config.experiments = { asset: true };
       config.output = {
-        path: path.resolve(__dirname, 'outputs'),
-        filename: '[name].bundle.js',
-        chunkFilename: '[name].chunk.js',
-        publicPath: '/webpack/public/path/',
-        assetModuleFilename: '[name][ext]',
+        path: path.resolve(__dirname, "outputs"),
+        filename: "[name].bundle.js",
+        chunkFilename: "[name].chunk.js",
+        publicPath: "/webpack/public/path/",
+        assetModuleFilename: "[name][ext]",
       };
     }
 
-    const compiler = getCompiler('./basic.js', {}, config);
+    const compiler = getCompiler("./basic.js", {}, config);
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./basic.css', stats)).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should throws error when no loader(s) for assets', async () => {
+  it("should throws error when no loader(s) for assets", async () => {
     const compiler = getCompiler(
-      './basic.js',
+      "./basic.js",
       {},
       {
         module: {
           rules: [
             {
               test: /\.css$/i,
-              loader: path.resolve(__dirname, '../src'),
+              loader: path.resolve(__dirname, "../src"),
             },
           ],
         },
@@ -118,27 +118,27 @@ describe('loader', () => {
     );
     const stats = await compile(compiler);
 
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should throw error on invalid css syntax', async () => {
-    const compiler = getCompiler('./error.js', {});
+  it("should throw error on invalid css syntax", async () => {
+    const compiler = getCompiler("./error.js", {});
     const stats = await compile(compiler);
 
     expect(
       stats.compilation.fileDependencies.has(
-        path.resolve('./test/fixtures/error.css')
+        path.resolve("./test/fixtures/error.css")
       )
     ).toBe(true);
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats, false, 'postcss')).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats, false, "postcss")).toMatchSnapshot("errors");
   });
 
   it('should reuse `ast` from "postcss-loader"', async () => {
     const spy = jest.fn();
     const compiler = getCompiler(
-      './postcss-present-env/source.js',
+      "./postcss-present-env/source.js",
       {},
       {
         module: {
@@ -147,19 +147,19 @@ describe('loader', () => {
               test: /\.css$/i,
               rules: [
                 {
-                  loader: path.resolve(__dirname, '../src'),
+                  loader: path.resolve(__dirname, "../src"),
                   options: { importLoaders: 1 },
                 },
                 {
-                  loader: require.resolve('./helpers/ast-loader'),
+                  loader: require.resolve("./helpers/ast-loader"),
                   options: { spy },
                 },
               ],
             },
             {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-              loader: 'file-loader',
-              options: { name: '[name].[ext]' },
+              loader: "file-loader",
+              options: { name: "[name].[ext]" },
             },
           ],
         },
@@ -170,18 +170,18 @@ describe('loader', () => {
     expect(spy).toHaveBeenCalledTimes(1);
 
     expect(
-      getModuleSource('./postcss-present-env/source.css', stats)
-    ).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+      getModuleSource("./postcss-present-env/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
   it('should work with "sass-loader"', async () => {
     const compiler = getCompiler(
-      './scss/source.js',
+      "./scss/source.js",
       {},
       {
         module: {
@@ -189,12 +189,12 @@ describe('loader', () => {
             {
               test: /\.s[ca]ss$/i,
               rules: [
-                { loader: path.resolve(__dirname, '../src') },
+                { loader: path.resolve(__dirname, "../src") },
                 {
-                  loader: 'sass-loader',
+                  loader: "sass-loader",
                   options: {
                     // eslint-disable-next-line global-require
-                    implementation: require('sass'),
+                    implementation: require("sass"),
                   },
                 },
               ],
@@ -205,37 +205,37 @@ describe('loader', () => {
     );
     const stats = await compile(compiler);
 
-    expect(getModuleSource('./scss/source.scss', stats)).toMatchSnapshot(
-      'module'
+    expect(getModuleSource("./scss/source.scss", stats)).toMatchSnapshot(
+      "module"
     );
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with ModuleConcatenationPlugin', async () => {
+  it("should work with ModuleConcatenationPlugin", async () => {
     const compiler = getCompiler(
-      './basic.js',
+      "./basic.js",
       {},
       {
-        mode: 'production',
+        mode: "production",
         module: {
           rules: [
             {
               test: /\.css$/i,
               use: [
                 {
-                  loader: path.resolve(__dirname, '../src'),
+                  loader: path.resolve(__dirname, "../src"),
                   options: { esModule: true },
                 },
               ],
             },
             {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-              loader: 'file-loader',
-              options: { name: '[name].[ext]', esModule: true },
+              loader: "file-loader",
+              options: { name: "[name].[ext]", esModule: true },
             },
           ],
         },
@@ -249,26 +249,26 @@ describe('loader', () => {
       expect(stats.compilation.modules.length).toBe(6);
     }
 
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with ModuleConcatenationPlugin (file-loader)', async () => {
+  it("should work with ModuleConcatenationPlugin (file-loader)", async () => {
     const compiler = getCompiler(
-      './basic.js',
+      "./basic.js",
       {},
       {
-        mode: 'production',
+        mode: "production",
         module: {
           rules: [
             {
               test: /\.css$/i,
-              loader: path.resolve(__dirname, '../src'),
+              loader: path.resolve(__dirname, "../src"),
             },
             {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-              loader: 'file-loader',
-              options: { name: '[name].[ext]', esModule: true },
+              loader: "file-loader",
+              options: { name: "[name].[ext]", esModule: true },
             },
           ],
         },
@@ -282,26 +282,26 @@ describe('loader', () => {
       expect(stats.compilation.modules.length).toBe(6);
     }
 
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with ModuleConcatenationPlugin (url-loader)', async () => {
+  it("should work with ModuleConcatenationPlugin (url-loader)", async () => {
     const compiler = getCompiler(
-      './basic.js',
+      "./basic.js",
       {},
       {
-        mode: 'production',
+        mode: "production",
         module: {
           rules: [
             {
               test: /\.css$/i,
-              loader: path.resolve(__dirname, '../src'),
+              loader: path.resolve(__dirname, "../src"),
             },
             {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-              loader: 'url-loader',
-              options: { name: '[name].[ext]', limit: true, esModule: true },
+              loader: "url-loader",
+              options: { name: "[name].[ext]", limit: true, esModule: true },
             },
           ],
         },
@@ -315,57 +315,57 @@ describe('loader', () => {
       expect(stats.compilation.modules.length).toBe(6);
     }
 
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('issue #1033', async () => {
-    const compiler = getCompiler('./modules/issue-1033/issue-1033.js', {
+  it("issue #1033", async () => {
+    const compiler = getCompiler("./modules/issue-1033/issue-1033.js", {
       modules: {
-        mode: 'local',
-        localIdentName: '_[local]',
+        mode: "local",
+        localIdentName: "_[local]",
         exportOnlyLocals: true,
       },
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/issue-1033/issue-1033.css', stats)
-    ).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+      getModuleSource("./modules/issue-1033/issue-1033.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('issue #1033 (2)', async () => {
-    const compiler = getCompiler('./modules/issue-1033/issue-1033.js', {
-      modules: { mode: 'local', localIdentName: '_[local]' },
+  it("issue #1033 (2)", async () => {
+    const compiler = getCompiler("./modules/issue-1033/issue-1033.js", {
+      modules: { mode: "local", localIdentName: "_[local]" },
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource('./modules/issue-1033/issue-1033.css', stats)
-    ).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+      getModuleSource("./modules/issue-1033/issue-1033.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should throw an error on invisible spaces', async () => {
-    const compiler = getCompiler('./invisible-space.js');
+  it("should throw an error on invisible spaces", async () => {
+    const compiler = getCompiler("./invisible-space.js");
     const stats = await compile(compiler);
 
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats, false, 'postcss')).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats, false, "postcss")).toMatchSnapshot("errors");
   });
 
   it('should work with the "modules.auto" option and the "importLoaders" option', async () => {
     const compiler = getCompiler(
-      './integration/index.js',
+      "./integration/index.js",
       {},
       {
         module: {
@@ -374,7 +374,7 @@ describe('loader', () => {
               test: /\.((c|sa|sc)ss)$/i,
               rules: [
                 {
-                  loader: path.resolve(__dirname, '../src'),
+                  loader: path.resolve(__dirname, "../src"),
                   options: {
                     // Run only `postcss-loader` on each `@import`
                     // If you need run `sass-loader` and `postcss-loader` please set it to `2`
@@ -384,7 +384,7 @@ describe('loader', () => {
                   },
                 },
                 {
-                  loader: 'postcss-loader',
+                  loader: "postcss-loader",
                   options: {
                     postcssOptions: {
                       plugins: [postcssPresetEnv({ stage: 0 })],
@@ -395,13 +395,13 @@ describe('loader', () => {
                 // The `test` property should be `\.less/i`
                 {
                   test: /\.s[ac]ss$/i,
-                  loader: 'sass-loader',
+                  loader: "sass-loader",
                 },
               ],
             },
             {
               test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-              loader: 'url-loader',
+              loader: "url-loader",
               options: {
                 limit: 8192,
               },
@@ -412,16 +412,16 @@ describe('loader', () => {
     );
     const stats = await compile(compiler);
 
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with none AST metadata', async () => {
+  it("should work with none AST metadata", async () => {
     const compiler = getCompiler(
-      './simple.js',
+      "./simple.js",
       {},
       {
         module: {
@@ -430,10 +430,10 @@ describe('loader', () => {
               test: /\.css$/i,
               rules: [
                 {
-                  loader: path.resolve(__dirname, '../src'),
+                  loader: path.resolve(__dirname, "../src"),
                 },
                 {
-                  loader: path.resolve(__dirname, '../test/helpers/preLoader'),
+                  loader: path.resolve(__dirname, "../test/helpers/preLoader"),
                 },
               ],
             },
@@ -443,17 +443,17 @@ describe('loader', () => {
     );
     const stats = await compile(compiler);
 
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
   it('should not generate console.warn when plugins disabled and hideNothingWarning is "true"', async () => {
-    jest.spyOn(console, 'warn').mockImplementation(() => {});
+    jest.spyOn(console, "warn").mockImplementation(() => {});
 
-    const compiler = getCompiler('./empty.js', {
+    const compiler = getCompiler("./empty.js", {
       import: false,
       url: false,
     });
@@ -461,15 +461,15 @@ describe('loader', () => {
 
     // eslint-disable-next-line no-console
     expect(console.warn).not.toHaveBeenCalledWith(
-      'You did not set any plugins, parser, or stringifier. ' +
-        'Right now, PostCSS does nothing. Pick plugins for your case ' +
-        'on https://www.postcss.parts/ and use them in postcss.config.js.'
+      "You did not set any plugins, parser, or stringifier. " +
+        "Right now, PostCSS does nothing. Pick plugins for your case " +
+        "on https://www.postcss.parts/ and use them in postcss.config.js."
     );
-    expect(getModuleSource('./empty.css', stats)).toMatchSnapshot('module');
-    expect(getExecutedCode('main.bundle.js', compiler, stats)).toMatchSnapshot(
-      'result'
+    expect(getModuleSource("./empty.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 });

@@ -1,14 +1,14 @@
-import Module from 'module';
-import path from 'path';
+import Module from "module";
+import path from "path";
 
 const parentModule = module;
 
 export default (code) => {
-  const resource = 'test.js';
+  const resource = "test.js";
   const module = new Module(resource, parentModule);
   // eslint-disable-next-line no-underscore-dangle
   module.paths = Module._nodeModulePaths(
-    path.resolve(__dirname, '../fixtures')
+    path.resolve(__dirname, "../fixtures")
   );
   module.filename = resource;
 

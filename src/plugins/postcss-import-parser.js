@@ -1,15 +1,15 @@
-import valueParser from 'postcss-value-parser';
+import valueParser from "postcss-value-parser";
 
 import {
   normalizeUrl,
   resolveRequests,
   isUrlRequestable,
   requestify,
-} from '../utils';
+} from "../utils";
 
 function visitor(result, parsedResults, node, key) {
   // Convert only top-level @import
-  if (node.parent.type !== 'root') {
+  if (node.parent.type !== "root") {
     return;
   }
 
@@ -29,7 +29,7 @@ function visitor(result, parsedResults, node, key) {
   // Invalid type - `@import foo-bar;`
   if (
     paramsNodes.length === 0 ||
-    (paramsNodes[0].type !== 'string' && paramsNodes[0].type !== 'function')
+    (paramsNodes[0].type !== "string" && paramsNodes[0].type !== "function")
   ) {
     result.warn(`Unable to find uri in "${node.toString()}"`, { node });
 
@@ -39,12 +39,12 @@ function visitor(result, parsedResults, node, key) {
   let isStringValue;
   let url;
 
-  if (paramsNodes[0].type === 'string') {
+  if (paramsNodes[0].type === "string") {
     isStringValue = true;
     url = paramsNodes[0].value;
   } else {
     // Invalid function - `@import nourl(test.css);`
-    if (paramsNodes[0].value.toLowerCase() !== 'url') {
+    if (paramsNodes[0].value.toLowerCase() !== "url") {
       result.warn(`Unable to find uri in "${node.toString()}"`, { node });
 
       return;
@@ -52,7 +52,7 @@ function visitor(result, parsedResults, node, key) {
 
     isStringValue =
       paramsNodes[0].nodes.length !== 0 &&
-      paramsNodes[0].nodes[0].type === 'string';
+      paramsNodes[0].nodes[0].type === "string";
     url = isStringValue
       ? paramsNodes[0].nodes[0].value
       : valueParser.stringify(paramsNodes[0].nodes);
@@ -75,14 +75,14 @@ function visitor(result, parsedResults, node, key) {
 
 const plugin = (options = {}) => {
   return {
-    postcssPlugin: 'postcss-import-parser',
+    postcssPlugin: "postcss-import-parser",
     prepare(result) {
       const parsedResults = [];
 
       return {
         AtRule: {
           import(atRule) {
-            visitor(result, parsedResults, atRule, 'params');
+            visitor(result, parsedResults, atRule, "params");
           },
         },
         async OnceExit() {
@@ -97,16 +97,16 @@ const plugin = (options = {}) => {
             const { node, url, isStringValue, mediaNodes } = parsedResult;
 
             let normalizedUrl = url;
-            let prefix = '';
+            let prefix = "";
 
             const isRequestable = isUrlRequestable(normalizedUrl);
 
             if (isRequestable) {
-              const queryParts = normalizedUrl.split('!');
+              const queryParts = normalizedUrl.split("!");
 
               if (queryParts.length > 1) {
                 normalizedUrl = queryParts.pop();
-                prefix = queryParts.join('!');
+                prefix = queryParts.join("!");
               }
 
               normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);

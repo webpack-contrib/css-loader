@@ -1,10 +1,10 @@
-import { extractICSS, replaceValueSymbols, replaceSymbols } from 'icss-utils';
+import { extractICSS, replaceValueSymbols, replaceSymbols } from "icss-utils";
 
-import { normalizeUrl, resolveRequests, requestify } from '../utils';
+import { normalizeUrl, resolveRequests, requestify } from "../utils";
 
 const plugin = (options = {}) => {
   return {
-    postcssPlugin: 'postcss-icss-parser',
+    postcssPlugin: "postcss-icss-parser",
     async OnceExit(root) {
       const importReplacements = Object.create(null);
       const { icssImports, icssExports } = extractICSS(root);
@@ -21,13 +21,13 @@ const plugin = (options = {}) => {
         }
 
         let normalizedUrl = url;
-        let prefix = '';
+        let prefix = "";
 
-        const queryParts = normalizedUrl.split('!');
+        const queryParts = normalizedUrl.split("!");
 
         if (queryParts.length > 1) {
           normalizedUrl = queryParts.pop();
-          prefix = queryParts.join('!');
+          prefix = queryParts.join("!");
         }
 
         const request = requestify(

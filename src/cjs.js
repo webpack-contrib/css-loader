@@ -1,3 +1,3 @@
-const loader = require('./index');
+const loader = require("./index");
 
 module.exports = loader.default;

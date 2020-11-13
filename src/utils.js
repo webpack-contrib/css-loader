@@ -2,21 +2,21 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import { fileURLToPath } from 'url';
-import path from 'path';
+import { fileURLToPath } from "url";
+import path from "path";
 
-import { urlToRequest, interpolateName } from 'loader-utils';
-import cssesc from 'cssesc';
-import modulesValues from 'postcss-modules-values';
-import localByDefault from 'postcss-modules-local-by-default';
-import extractImports from 'postcss-modules-extract-imports';
-import modulesScope from 'postcss-modules-scope';
-import camelCase from 'camelcase';
+import { urlToRequest, interpolateName } from "loader-utils";
+import cssesc from "cssesc";
+import modulesValues from "postcss-modules-values";
+import localByDefault from "postcss-modules-local-by-default";
+import extractImports from "postcss-modules-extract-imports";
+import modulesScope from "postcss-modules-scope";
+import camelCase from "camelcase";
 
-const whitespace = '[\\x20\\t\\r\\n\\f]';
+const whitespace = "[\\x20\\t\\r\\n\\f]";
 const unescapeRegExp = new RegExp(
   `\\\\([\\da-f]{1,6}${whitespace}?|(${whitespace})|.)`,
-  'ig'
+  "ig"
 );
 const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
 
@@ -41,7 +41,7 @@ function unescape(str) {
 }
 
 function normalizePath(file) {
-  return path.sep === '\\' ? file.replace(/\\/g, '/') : file;
+  return path.sep === "\\" ? file.replace(/\\/g, "/") : file;
 }
 
 // eslint-disable-next-line no-control-regex
@@ -53,10 +53,10 @@ function escapeLocalIdent(localident) {
   return cssesc(
     localident
       // For `[hash]` placeholder
-      .replace(/^((-?[0-9])|--)/, '_$1')
-      .replace(filenameReservedRegex, '-')
-      .replace(reControlChars, '-')
-      .replace(/\./g, '-'),
+      .replace(/^((-?[0-9])|--)/, "_$1")
+      .replace(filenameReservedRegex, "-")
+      .replace(reControlChars, "-")
+      .replace(/\./g, "-"),
     { isIdentifier: true }
   );
 }
@@ -81,7 +81,7 @@ function normalizeUrl(url, isStringValue) {
   let normalizedUrl = url;
 
   if (isStringValue && /\\(\n|\r\n|\r|\f)/.test(normalizedUrl)) {
-    normalizedUrl = normalizedUrl.replace(/\\(\n|\r\n|\r|\f)/g, '');
+    normalizedUrl = normalizedUrl.replace(/\\(\n|\r\n|\r|\f)/g, "");
   }
 
   if (matchNativeWin32Path.test(url)) {
@@ -96,14 +96,14 @@ function requestify(url, rootContext) {
     return fileURLToPath(url);
   }
 
-  return url.charAt(0) === '/'
+  return url.charAt(0) === "/"
     ? urlToRequest(url, rootContext)
     : urlToRequest(url);
 }
 
 function getFilter(filter, resourcePath) {
   return (...args) => {
-    if (typeof filter === 'function') {
+    if (typeof filter === "function") {
       return filter(...args, resourcePath);
     }
 
@@ -112,7 +112,7 @@ function getFilter(filter, resourcePath) {
 }
 
 function getValidLocalName(localName, exportLocalsConvention) {
-  if (exportLocalsConvention === 'dashesOnly') {
+  if (exportLocalsConvention === "dashesOnly") {
     return dashesCamelCase(localName);
   }
 
@@ -126,7 +126,7 @@ function getModulesOptions(rawOptions, loaderContext) {
   const { resourcePath } = loaderContext;
   let isIcss;
 
-  if (typeof rawOptions.modules === 'undefined') {
+  if (typeof rawOptions.modules === "undefined") {
     const isModules = moduleRegExp.test(resourcePath);
 
     if (!isModules) {
@@ -137,38 +137,38 @@ function getModulesOptions(rawOptions, loaderContext) {
       return false;
     }
   } else if (
-    typeof rawOptions.modules === 'boolean' &&
+    typeof rawOptions.modules === "boolean" &&
     rawOptions.modules === false
   ) {
     return false;
   }
 
   let modulesOptions = {
-    compileType: isIcss ? 'icss' : 'module',
+    compileType: isIcss ? "icss" : "module",
     auto: true,
-    mode: 'local',
+    mode: "local",
     exportGlobals: false,
-    localIdentName: '[hash:base64]',
+    localIdentName: "[hash:base64]",
     localIdentContext: loaderContext.rootContext,
-    localIdentHashPrefix: '',
+    localIdentHashPrefix: "",
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
     namedExport: false,
-    exportLocalsConvention: 'asIs',
+    exportLocalsConvention: "asIs",
     exportOnlyLocals: false,
   };
 
   if (
-    typeof rawOptions.modules === 'boolean' ||
-    typeof rawOptions.modules === 'string'
+    typeof rawOptions.modules === "boolean" ||
+    typeof rawOptions.modules === "string"
   ) {
     modulesOptions.mode =
-      typeof rawOptions.modules === 'string' ? rawOptions.modules : 'local';
+      typeof rawOptions.modules === "string" ? rawOptions.modules : "local";
   } else {
     if (rawOptions.modules) {
-      if (typeof rawOptions.modules.auto === 'boolean') {
+      if (typeof rawOptions.modules.auto === "boolean") {
         const isModules =
           rawOptions.modules.auto && moduleRegExp.test(resourcePath);
 
@@ -181,7 +181,7 @@ function getModulesOptions(rawOptions, loaderContext) {
         if (!isModules) {
           return false;
         }
-      } else if (typeof rawOptions.modules.auto === 'function') {
+      } else if (typeof rawOptions.modules.auto === "function") {
         const isModule = rawOptions.modules.auto(resourcePath);
 
         if (!isModule) {
@@ -191,16 +191,16 @@ function getModulesOptions(rawOptions, loaderContext) {
 
       if (
         rawOptions.modules.namedExport === true &&
-        typeof rawOptions.modules.exportLocalsConvention === 'undefined'
+        typeof rawOptions.modules.exportLocalsConvention === "undefined"
       ) {
-        modulesOptions.exportLocalsConvention = 'camelCaseOnly';
+        modulesOptions.exportLocalsConvention = "camelCaseOnly";
       }
     }
 
     modulesOptions = { ...modulesOptions, ...(rawOptions.modules || {}) };
   }
 
-  if (typeof modulesOptions.mode === 'function') {
+  if (typeof modulesOptions.mode === "function") {
     modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
   }
 
@@ -212,8 +212,8 @@ function getModulesOptions(rawOptions, loaderContext) {
     }
 
     if (
-      modulesOptions.exportLocalsConvention !== 'camelCaseOnly' &&
-      modulesOptions.exportLocalsConvention !== 'dashesOnly'
+      modulesOptions.exportLocalsConvention !== "camelCaseOnly" &&
+      modulesOptions.exportLocalsConvention !== "dashesOnly"
     ) {
       throw new Error(
         'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "camelCaseOnly" or "dashesOnly"'
@@ -223,7 +223,7 @@ function getModulesOptions(rawOptions, loaderContext) {
 
   if (/\[emoji(?::(\d+))?\]/i.test(modulesOptions.localIdentName)) {
     loaderContext.emitWarning(
-      'Emoji is deprecated and will be removed in next major release.'
+      "Emoji is deprecated and will be removed in next major release."
     );
   }
 
@@ -234,19 +234,19 @@ function normalizeOptions(rawOptions, loaderContext) {
   const modulesOptions = getModulesOptions(rawOptions, loaderContext);
 
   return {
-    url: typeof rawOptions.url === 'undefined' ? true : rawOptions.url,
-    import: typeof rawOptions.import === 'undefined' ? true : rawOptions.import,
+    url: typeof rawOptions.url === "undefined" ? true : rawOptions.url,
+    import: typeof rawOptions.import === "undefined" ? true : rawOptions.import,
     modules: modulesOptions,
     sourceMap:
-      typeof rawOptions.sourceMap === 'boolean'
+      typeof rawOptions.sourceMap === "boolean"
         ? rawOptions.sourceMap
         : loaderContext.sourceMap,
     importLoaders:
-      typeof rawOptions.importLoaders === 'string'
+      typeof rawOptions.importLoaders === "string"
         ? parseInt(rawOptions.importLoaders, 10)
         : rawOptions.importLoaders,
     esModule:
-      typeof rawOptions.esModule === 'undefined' ? true : rawOptions.esModule,
+      typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
   };
 }
 
@@ -255,7 +255,7 @@ function shouldUseImportPlugin(options) {
     return false;
   }
 
-  if (typeof options.import === 'boolean') {
+  if (typeof options.import === "boolean") {
     return options.import;
   }
 
@@ -267,7 +267,7 @@ function shouldUseURLPlugin(options) {
     return false;
   }
 
-  if (typeof options.url === 'boolean') {
+  if (typeof options.url === "boolean") {
     return options.url;
   }
 
@@ -275,7 +275,7 @@ function shouldUseURLPlugin(options) {
 }
 
 function shouldUseModulesPlugins(options) {
-  return options.modules.compileType === 'module';
+  return options.modules.compileType === "module";
 }
 
 function shouldUseIcssPlugin(options) {
@@ -303,7 +303,7 @@ function getModulesPlugins(options, loaderContext) {
         generateScopedName(exportName) {
           let localIdent;
 
-          if (typeof getLocalIdent !== 'undefined') {
+          if (typeof getLocalIdent !== "undefined") {
             localIdent = getLocalIdent(
               loaderContext,
               localIdentName,
@@ -318,7 +318,7 @@ function getModulesPlugins(options, loaderContext) {
 
           // A null/undefined value signals that we should invoke the default
           // getLocalIdent method.
-          if (typeof localIdent === 'undefined' || localIdent === null) {
+          if (typeof localIdent === "undefined" || localIdent === null) {
             localIdent = defaultGetLocalIdent(
               loaderContext,
               localIdentName,
@@ -352,19 +352,19 @@ const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
 const ABSOLUTE_SCHEME = /^[a-z0-9+\-.]+:/i;
 
 function getURLType(source) {
-  if (source[0] === '/') {
-    if (source[1] === '/') {
-      return 'scheme-relative';
+  if (source[0] === "/") {
+    if (source[1] === "/") {
+      return "scheme-relative";
     }
 
-    return 'path-absolute';
+    return "path-absolute";
   }
 
   if (IS_NATIVE_WIN32_PATH.test(source)) {
-    return 'path-absolute';
+    return "path-absolute";
   }
 
-  return ABSOLUTE_SCHEME.test(source) ? 'absolute' : 'path-relative';
+  return ABSOLUTE_SCHEME.test(source) ? "absolute" : "path-relative";
 }
 
 function normalizeSourceMap(map, resourcePath) {
@@ -372,7 +372,7 @@ function normalizeSourceMap(map, resourcePath) {
 
   // Some loader emit source map as string
   // Strip any JSON XSSI avoidance prefix from the string (as documented in the source maps specification), and then parse the string as JSON.
-  if (typeof newMap === 'string') {
+  if (typeof newMap === "string") {
     newMap = JSON.parse(newMap);
   }
 
@@ -387,16 +387,16 @@ function normalizeSourceMap(map, resourcePath) {
     // We should normalize path because previous loaders like `sass-loader` using backslash when generate source map
     newMap.sources = newMap.sources.map((source) => {
       // Non-standard syntax from `postcss`
-      if (source.indexOf('<') === 0) {
+      if (source.indexOf("<") === 0) {
         return source;
       }
 
       const sourceType = getURLType(source);
 
       // Do no touch `scheme-relative` and `absolute` URLs
-      if (sourceType === 'path-relative' || sourceType === 'path-absolute') {
+      if (sourceType === "path-relative" || sourceType === "path-absolute") {
         const absoluteSource =
-          sourceType === 'path-relative' && sourceRoot
+          sourceType === "path-relative" && sourceRoot
             ? path.resolve(sourceRoot, normalizePath(source))
             : normalizePath(source);
 
@@ -419,15 +419,15 @@ function getPreRequester({ loaders, loaderIndex }) {
     }
 
     if (number === false) {
-      cache[number] = '';
+      cache[number] = "";
     } else {
       const loadersRequest = loaders
         .slice(
           loaderIndex,
-          loaderIndex + 1 + (typeof number !== 'number' ? 0 : number)
+          loaderIndex + 1 + (typeof number !== "number" ? 0 : number)
         )
         .map((x) => x.request)
-        .join('!');
+        .join("!");
 
       cache[number] = `-!${loadersRequest}!`;
     }
@@ -437,7 +437,7 @@ function getPreRequester({ loaders, loaderIndex }) {
 }
 
 function getImportCode(imports, options) {
-  let code = '';
+  let code = "";
 
   for (const item of imports) {
     const { importName, url, icss } = item;
@@ -445,7 +445,7 @@ function getImportCode(imports, options) {
     if (options.esModule) {
       if (icss && options.modules.namedExport) {
         code += `import ${
-          options.modules.exportOnlyLocals ? '' : `${importName}, `
+          options.modules.exportOnlyLocals ? "" : `${importName}, `
         }* as ${importName}_NAMED___ from ${url};\n`;
       } else {
         code += `import ${importName} from ${url};\n`;
@@ -455,7 +455,7 @@ function getImportCode(imports, options) {
     }
   }
 
-  return code ? `// Imports\n${code}` : '';
+  return code ? `// Imports\n${code}` : "";
 }
 
 function normalizeSourceMapForRuntime(map, loaderContext) {
@@ -464,17 +464,17 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
   if (resultMap) {
     delete resultMap.file;
 
-    resultMap.sourceRoot = '';
+    resultMap.sourceRoot = "";
 
     resultMap.sources = resultMap.sources.map((source) => {
       // Non-standard syntax from `postcss`
-      if (source.indexOf('<') === 0) {
+      if (source.indexOf("<") === 0) {
         return source;
       }
 
       const sourceType = getURLType(source);
 
-      if (sourceType !== 'path-relative') {
+      if (sourceType !== "path-relative") {
         return source;
       }
 
@@ -493,19 +493,19 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
 
 function getModuleCode(result, api, replacements, options, loaderContext) {
   if (options.modules.exportOnlyLocals === true) {
-    return '';
+    return "";
   }
 
   const sourceMapValue = options.sourceMap
     ? `,${normalizeSourceMapForRuntime(result.map, loaderContext)}`
-    : '';
+    : "";
 
   let code = JSON.stringify(result.css);
 
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${
     options.sourceMap
-      ? '___CSS_LOADER_API_SOURCEMAP_IMPORT___'
-      : 'function(i){return i[1]}'
+      ? "___CSS_LOADER_API_SOURCEMAP_IMPORT___"
+      : "function(i){return i[1]}"
   });\n`;
 
   for (const item of api) {
@@ -514,17 +514,17 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
     beforeCode += url
       ? `___CSS_LOADER_EXPORT___.push([module.id, ${JSON.stringify(
           `@import url(${url});`
-        )}${media ? `, ${JSON.stringify(media)}` : ''}]);\n`
+        )}${media ? `, ${JSON.stringify(media)}` : ""}]);\n`
       : `___CSS_LOADER_EXPORT___.i(${item.importName}${
-          media ? `, ${JSON.stringify(media)}` : dedupe ? ', ""' : ''
-        }${dedupe ? ', true' : ''});\n`;
+          media ? `, ${JSON.stringify(media)}` : dedupe ? ', ""' : ""
+        }${dedupe ? ", true" : ""});\n`;
   }
 
   for (const item of replacements) {
     const { replacementName, importName, localName } = item;
 
     if (localName) {
-      code = code.replace(new RegExp(replacementName, 'g'), () =>
+      code = code.replace(new RegExp(replacementName, "g"), () =>
         options.modules.namedExport
           ? `" + ${importName}_NAMED___[${JSON.stringify(
               getValidLocalName(
@@ -538,13 +538,13 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
       const { hash, needQuotes } = item;
       const getUrlOptions = []
         .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
-        .concat(needQuotes ? 'needQuotes: true' : []);
+        .concat(needQuotes ? "needQuotes: true" : []);
       const preparedOptions =
-        getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(', ')} }` : '';
+        getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(", ")} }` : "";
 
       beforeCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
       code = code.replace(
-        new RegExp(replacementName, 'g'),
+        new RegExp(replacementName, "g"),
         () => `" + ${replacementName} + "`
       );
     }
@@ -560,8 +560,8 @@ function dashesCamelCase(str) {
 }
 
 function getExportCode(exports, replacements, options) {
-  let code = '// Exports\n';
-  let localsCode = '';
+  let code = "// Exports\n";
+  let localsCode = "";
 
   const addExportToLocalsCode = (name, value) => {
     if (options.modules.namedExport) {
@@ -577,7 +577,7 @@ function getExportCode(exports, replacements, options) {
 
   for (const { name, value } of exports) {
     switch (options.modules.exportLocalsConvention) {
-      case 'camelCase': {
+      case "camelCase": {
         addExportToLocalsCode(name, value);
 
         const modifiedName = camelCase(name);
@@ -587,11 +587,11 @@ function getExportCode(exports, replacements, options) {
         }
         break;
       }
-      case 'camelCaseOnly': {
+      case "camelCaseOnly": {
         addExportToLocalsCode(camelCase(name), value);
         break;
       }
-      case 'dashes': {
+      case "dashes": {
         addExportToLocalsCode(name, value);
 
         const modifiedName = dashesCamelCase(name);
@@ -601,11 +601,11 @@ function getExportCode(exports, replacements, options) {
         }
         break;
       }
-      case 'dashesOnly': {
+      case "dashesOnly": {
         addExportToLocalsCode(dashesCamelCase(name), value);
         break;
       }
-      case 'asIs':
+      case "asIs":
       default:
         addExportToLocalsCode(name, value);
         break;
@@ -618,7 +618,7 @@ function getExportCode(exports, replacements, options) {
     if (localName) {
       const { importName } = item;
 
-      localsCode = localsCode.replace(new RegExp(replacementName, 'g'), () => {
+      localsCode = localsCode.replace(new RegExp(replacementName, "g"), () => {
         if (options.modules.namedExport) {
           return `" + ${importName}_NAMED___[${JSON.stringify(
             getValidLocalName(localName, options.modules.exportLocalsConvention)
@@ -631,7 +631,7 @@ function getExportCode(exports, replacements, options) {
       });
     } else {
       localsCode = localsCode.replace(
-        new RegExp(replacementName, 'g'),
+        new RegExp(replacementName, "g"),
         () => `" + ${replacementName} + "`
       );
     }
@@ -641,7 +641,7 @@ function getExportCode(exports, replacements, options) {
     code += options.modules.namedExport
       ? localsCode
       : `${
-          options.esModule ? 'export default' : 'module.exports ='
+          options.esModule ? "export default" : "module.exports ="
         } {\n${localsCode}\n};\n`;
 
     return code;
@@ -654,7 +654,7 @@ function getExportCode(exports, replacements, options) {
   }
 
   code += `${
-    options.esModule ? 'export default' : 'module.exports ='
+    options.esModule ? "export default" : "module.exports ="
   } ___CSS_LOADER_EXPORT___;\n`;
 
   return code;
