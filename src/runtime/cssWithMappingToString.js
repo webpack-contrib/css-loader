@@ -1,7 +1,7 @@
 module.exports = function cssWithMappingToString(item) {
   const [, content, , cssMapping] = item;
 
-  if (typeof btoa === 'function') {
+  if (typeof btoa === "function") {
     // eslint-disable-next-line no-undef
     const base64 = btoa(
       unescape(encodeURIComponent(JSON.stringify(cssMapping)))
@@ -10,11 +10,11 @@ module.exports = function cssWithMappingToString(item) {
     const sourceMapping = `/*# ${data} */`;
 
     const sourceURLs = cssMapping.sources.map(
-      (source) => `/*# sourceURL=${cssMapping.sourceRoot || ''}${source} */`
+      (source) => `/*# sourceURL=${cssMapping.sourceRoot || ""}${source} */`
     );
 
-    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+    return [content].concat(sourceURLs).concat([sourceMapping]).join("\n");
   }
 
-  return [content].join('\n');
+  return [content].join("\n");
 };

@@ -1,11 +1,11 @@
-import valueParser from 'postcss-value-parser';
+import valueParser from "postcss-value-parser";
 
 import {
   normalizeUrl,
   requestify,
   resolveRequests,
   isUrlRequestable,
-} from '../utils';
+} from "../utils";
 
 const isUrlFunc = /url/i;
 const isImageSetFunc = /^(?:-webkit-)?image-set$/i;
@@ -17,7 +17,7 @@ function getNodeFromUrlFunc(node) {
 
 function shouldHandleRule(rule, node, result) {
   // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
-  if (rule.url.replace(/^[\s]+|[\s]+$/g, '').length === 0) {
+  if (rule.url.replace(/^[\s]+|[\s]+$/g, "").length === 0) {
     result.warn(`Unable to find uri in '${node.toString()}'`, { node });
 
     return false;
@@ -38,13 +38,13 @@ function visitor(result, parsedResults, node, key) {
   const parsed = valueParser(node[key]);
 
   parsed.walk((valueNode) => {
-    if (valueNode.type !== 'function') {
+    if (valueNode.type !== "function") {
       return;
     }
 
     if (isUrlFunc.test(valueNode.value)) {
       const { nodes } = valueNode;
-      const isStringValue = nodes.length !== 0 && nodes[0].type === 'string';
+      const isStringValue = nodes.length !== 0 && nodes[0].type === "string";
       const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
 
       const rule = {
@@ -65,10 +65,10 @@ function visitor(result, parsedResults, node, key) {
       for (const nNode of valueNode.nodes) {
         const { type, value } = nNode;
 
-        if (type === 'function' && isUrlFunc.test(value)) {
+        if (type === "function" && isUrlFunc.test(value)) {
           const { nodes } = nNode;
           const isStringValue =
-            nodes.length !== 0 && nodes[0].type === 'string';
+            nodes.length !== 0 && nodes[0].type === "string";
           const url = isStringValue
             ? nodes[0].value
             : valueParser.stringify(nodes);
@@ -87,7 +87,7 @@ function visitor(result, parsedResults, node, key) {
               parsed,
             });
           }
-        } else if (type === 'string') {
+        } else if (type === "string") {
           const rule = {
             node: nNode,
             url: value,
@@ -114,13 +114,13 @@ function visitor(result, parsedResults, node, key) {
 
 const plugin = (options = {}) => {
   return {
-    postcssPlugin: 'postcss-url-parser',
+    postcssPlugin: "postcss-url-parser",
     prepare(result) {
       const parsedResults = [];
 
       return {
         Declaration(declaration) {
-          visitor(result, parsedResults, declaration, 'value');
+          visitor(result, parsedResults, declaration, "value");
         },
         async OnceExit() {
           if (parsedResults.length === 0) {
@@ -137,13 +137,13 @@ const plugin = (options = {}) => {
             const { url, isStringValue } = parsedResult.rule;
 
             let normalizedUrl = url;
-            let prefix = '';
+            let prefix = "";
 
-            const queryParts = normalizedUrl.split('!');
+            const queryParts = normalizedUrl.split("!");
 
             if (queryParts.length > 1) {
               normalizedUrl = queryParts.pop();
-              prefix = queryParts.join('!');
+              prefix = queryParts.join("!");
             }
 
             normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
@@ -155,9 +155,9 @@ const plugin = (options = {}) => {
 
             if (!hasUrlImportHelper) {
               options.imports.push({
-                importName: '___CSS_LOADER_GET_URL_IMPORT___',
+                importName: "___CSS_LOADER_GET_URL_IMPORT___",
                 url: options.urlHandler(
-                  require.resolve('../runtime/getUrl.js')
+                  require.resolve("../runtime/getUrl.js")
                 ),
                 index: -1,
               });
@@ -168,8 +168,8 @@ const plugin = (options = {}) => {
             const splittedUrl = normalizedUrl.split(/(\?)?#/);
             const [pathname, query, hashOrQuery] = splittedUrl;
 
-            let hash = query ? '?' : '';
-            hash += hashOrQuery ? `#${hashOrQuery}` : '';
+            let hash = query ? "?" : "";
+            hash += hashOrQuery ? `#${hashOrQuery}` : "";
 
             const request = requestify(pathname, options.rootContext);
 
@@ -226,7 +226,7 @@ const plugin = (options = {}) => {
             }
 
             // eslint-disable-next-line no-param-reassign
-            rule.node.type = 'word';
+            rule.node.type = "word";
             // eslint-disable-next-line no-param-reassign
             rule.node.value = replacementName;
 

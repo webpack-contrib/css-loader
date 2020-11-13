@@ -2,16 +2,16 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import { getOptions, stringifyRequest } from 'loader-utils';
-import postcss from 'postcss';
-import postcssPkg from 'postcss/package.json';
-import { validate } from 'schema-utils';
-import { satisfies } from 'semver';
+import { getOptions, stringifyRequest } from "loader-utils";
+import postcss from "postcss";
+import postcssPkg from "postcss/package.json";
+import { validate } from "schema-utils";
+import { satisfies } from "semver";
 
-import CssSyntaxError from './CssSyntaxError';
-import Warning from './Warning';
-import schema from './options.json';
-import { icssParser, importParser, urlParser } from './plugins';
+import CssSyntaxError from "./CssSyntaxError";
+import Warning from "./Warning";
+import schema from "./options.json";
+import { icssParser, importParser, urlParser } from "./plugins";
 import {
   normalizeOptions,
   shouldUseModulesPlugins,
@@ -26,14 +26,14 @@ import {
   getModulesPlugins,
   normalizeSourceMap,
   sort,
-} from './utils';
+} from "./utils";
 
 export default async function loader(content, map, meta) {
   const rawOptions = getOptions(this);
 
   validate(schema, rawOptions, {
-    name: 'CSS Loader',
-    baseDataPath: 'options',
+    name: "CSS Loader",
+    baseDataPath: "options",
   });
 
   const plugins = [];
@@ -61,10 +61,10 @@ export default async function loader(content, map, meta) {
 
   if (shouldUseImportPlugin(options)) {
     const resolver = this.getResolve({
-      conditionNames: ['style'],
-      extensions: ['.css'],
-      mainFields: ['css', 'style', 'main', '...'],
-      mainFiles: ['index', '...'],
+      conditionNames: ["style"],
+      extensions: [".css"],
+      mainFields: ["css", "style", "main", "..."],
+      mainFiles: ["index", "..."],
       restrictions: [/\.css$/i],
     });
 
@@ -89,8 +89,8 @@ export default async function loader(content, map, meta) {
 
   if (shouldUseURLPlugin(options)) {
     const urlResolver = this.getResolve({
-      conditionNames: ['asset'],
-      mainFields: ['asset'],
+      conditionNames: ["asset"],
+      mainFields: ["asset"],
       mainFiles: [],
       extensions: [],
     });
@@ -113,10 +113,10 @@ export default async function loader(content, map, meta) {
 
   if (shouldUseIcssPlugin(options)) {
     const icssResolver = this.getResolve({
-      conditionNames: ['style'],
+      conditionNames: ["style"],
       extensions: [],
-      mainFields: ['css', 'style', 'main', '...'],
-      mainFiles: ['index', '...'],
+      mainFields: ["css", "style", "main", "..."],
+      mainFiles: ["index", "..."],
     });
 
     plugins.push(
@@ -143,7 +143,7 @@ export default async function loader(content, map, meta) {
 
     if (
       ast &&
-      ast.type === 'postcss' &&
+      ast.type === "postcss" &&
       satisfies(ast.version, `^${postcssPkg.version}`)
     ) {
       // eslint-disable-next-line no-param-reassign
@@ -174,7 +174,7 @@ export default async function loader(content, map, meta) {
     }
 
     callback(
-      error.name === 'CssSyntaxError' ? new CssSyntaxError(error) : error
+      error.name === "CssSyntaxError" ? new CssSyntaxError(error) : error
     );
 
     return;
@@ -194,16 +194,16 @@ export default async function loader(content, map, meta) {
 
   if (options.modules.exportOnlyLocals !== true) {
     imports.unshift({
-      importName: '___CSS_LOADER_API_IMPORT___',
-      url: stringifyRequest(this, require.resolve('./runtime/api')),
+      importName: "___CSS_LOADER_API_IMPORT___",
+      url: stringifyRequest(this, require.resolve("./runtime/api")),
     });
 
     if (options.sourceMap) {
       imports.unshift({
-        importName: '___CSS_LOADER_API_SOURCEMAP_IMPORT___',
+        importName: "___CSS_LOADER_API_SOURCEMAP_IMPORT___",
         url: stringifyRequest(
           this,
-          require.resolve('./runtime/cssWithMappingToString')
+          require.resolve("./runtime/cssWithMappingToString")
         ),
       });
     }

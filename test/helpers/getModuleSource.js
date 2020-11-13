@@ -4,7 +4,7 @@ export default (id, stats) => {
   let { source } = module;
 
   // Todo remove after drop webpack@4 support
-  source = source.replace(/\?\?.*!/g, '??[ident]!');
+  source = source.replace(/\?\?.*!/g, "??[ident]!");
 
   return source;
 };

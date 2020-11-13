@@ -7,23 +7,23 @@ module.exports = (api) => {
   return {
     presets: [
       [
-        '@babel/preset-env',
+        "@babel/preset-env",
         {
           targets: {
-            node: '10.13.0',
+            node: "10.13.0",
           },
         },
       ],
     ],
     overrides: [
       {
-        test: './src/runtime',
+        test: "./src/runtime",
         presets: [
           [
-            '@babel/preset-env',
+            "@babel/preset-env",
             {
               targets: {
-                node: '0.12',
+                node: "0.12",
               },
             },
           ],
