@@ -995,8 +995,9 @@ module.exports = {
         test: /\.css$/i,
         loader: "css-loader",
         options: {
-          mode: "local",
-          localsConvention: "camelCase",
+          modules: {
+            exportLocalsConvention: "camelCase",
+          },
         },
       },
     ],
