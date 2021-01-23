@@ -24,7 +24,7 @@ The `css-loader` interprets `@import` and `url()` like `import/require()` and wi
 To begin, you'll need to install `css-loader`:
 
 ```console
-npm install --save-dev css-loader
+npm install --save-dev style-loader css-loader
 ```
 
 Then add the plugin to your `webpack` config. For example:
