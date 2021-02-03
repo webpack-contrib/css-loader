@@ -160,8 +160,8 @@ describe('"url" option', () => {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
               type: "asset",
               generator: {
-                // TODO bug `Conflict: Multiple chunks emit assets to the same filename img.png (chunks main and main)`
-                // due inline syntax `!../../helpers/url-loader.js?esModule=false!~package/img.png`
+                // TODO need refactor tests after drop webpack@4 due inline syntax `!../../helpers/url-loader.js?esModule=false!~package/img.png`
+                // We need to use `resourceQuery: /inline/`
                 filename: "[name].[hash][ext]",
               },
             },
