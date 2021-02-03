@@ -140,6 +140,118 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work with the 'asset' type of asset modules", async () => {
+    const compiler = getCompiler(
+      "./url/url.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: {},
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              type: "asset",
+              generator: {
+                // TODO bug `Conflict: Multiple chunks emit assets to the same filename img.png (chunks main and main)`
+                // due inline syntax `!../../helpers/url-loader.js?esModule=false!~package/img.png`
+                filename: "[name].[hash][ext]",
+              },
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with the 'asset/resource' type of asset modules", async () => {
+    const compiler = getCompiler(
+      "./url/url.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: {},
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              type: "asset/resource",
+              generator: {
+                // TODO bug `Conflict: Multiple chunks emit assets to the same filename img.png (chunks main and main)`
+                // due inline syntax `!../../helpers/url-loader.js?esModule=false!~package/img.png`
+                filename: "[name].[hash][ext]",
+              },
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with the 'asset/inline' type of asset modules", async () => {
+    const compiler = getCompiler(
+      "./url/url.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: {},
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              type: "asset/inline",
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should throw an error on unresolved import", async () => {
     const compiler = getCompiler("./url/url-unresolved.js");
     const stats = await compile(compiler);
