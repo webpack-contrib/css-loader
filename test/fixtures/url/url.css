@@ -306,7 +306,8 @@ a {
 .class.class.class {
   background: url('./img\
 (img.png');
-  background: url('./img\(img.png');
+  background: url('./img\
+(img.png');
   background: url('./img\
 (img.png');
   background: url('./img\
@@ -349,9 +350,9 @@ a {
   background: url(./img\'\28%29\ img.png);
 }
 
-.qqq {
-  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')
-}
+/*.qqq {*/
+/*  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')*/
+/*}*/
 
 .class {
   /* Should be one import */
