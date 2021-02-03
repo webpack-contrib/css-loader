@@ -27,8 +27,8 @@ function removeCWD(str) {
     .replace(new RegExp(cwd, "g"), "");
 }
 
-export default (errors, shortError, type) => {
-  return errors.map((error) => {
+export default (errors, shortError, type) =>
+  errors.map((error) => {
     let errorMessage = error.toString();
 
     if (shortError) {
@@ -50,4 +50,3 @@ export default (errors, shortError, type) => {
 
     return removeCWD(errorMessage.split("\n").slice(0, 12).join("\n"));
   });
-};
