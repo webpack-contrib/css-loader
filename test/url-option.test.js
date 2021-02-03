@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 
+import webpack from "webpack";
+
 import {
   compile,
   getCompiler,
@@ -9,6 +11,8 @@ import {
   getModuleSource,
   getWarnings,
 } from "./helpers/index";
+
+const isWebpack5 = webpack.version.startsWith(5);
 
 describe('"url" option', () => {
   it("should work when not specified", async () => {
@@ -156,15 +160,20 @@ describe('"url" option', () => {
                 },
               ],
             },
-            {
-              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-              type: "asset",
-              generator: {
-                // TODO need refactor tests after drop webpack@4 due inline syntax `!../../helpers/url-loader.js?esModule=false!~package/img.png`
-                // We need to use `resourceQuery: /inline/`
-                filename: "[name].[hash][ext]",
-              },
-            },
+            isWebpack5
+              ? {
+                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+                  type: "asset",
+                  generator: {
+                    // TODO need refactor tests after drop webpack@4 due inline syntax `!../../helpers/url-loader.js?esModule=false!~package/img.png`
+                    // We need to use `resourceQuery: /inline/`
+                    filename: "[name].[hash][ext]",
+                  },
+                }
+              : {
+                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+                  loader: "url-loader",
+                },
           ],
         },
       }
@@ -195,15 +204,20 @@ describe('"url" option', () => {
                 },
               ],
             },
-            {
-              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-              type: "asset/resource",
-              generator: {
-                // TODO bug `Conflict: Multiple chunks emit assets to the same filename img.png (chunks main and main)`
-                // due inline syntax `!../../helpers/url-loader.js?esModule=false!~package/img.png`
-                filename: "[name].[hash][ext]",
-              },
-            },
+            isWebpack5
+              ? {
+                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+                  type: "asset",
+                  generator: {
+                    // TODO need refactor tests after drop webpack@4 due inline syntax `!../../helpers/url-loader.js?esModule=false!~package/img.png`
+                    // We need to use `resourceQuery: /inline/`
+                    filename: "[name].[hash][ext]",
+                  },
+                }
+              : {
+                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+                  loader: "url-loader",
+                },
           ],
         },
       }
@@ -234,10 +248,15 @@ describe('"url" option', () => {
                 },
               ],
             },
-            {
-              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-              type: "asset/inline",
-            },
+            isWebpack5
+              ? {
+                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+                  type: "asset/inline",
+                }
+              : {
+                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+                  loader: "url-loader",
+                },
           ],
         },
       }
