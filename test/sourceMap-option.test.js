@@ -501,7 +501,7 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         webpack.version[0] === "5"
-          ? "main.c3447e78abcd04637737.bundle.js"
+          ? "main.bac0eaf8cd232e2ae9a6.bundle.js"
           : "main.19efc497c5c37fc5e355.bundle.js"
       );
       expect(
@@ -609,7 +609,7 @@ describe('"sourceMap" option', () => {
 
       expect(chunkName).toBe(
         // TODO still buggy on webpack@4
-        webpack.version[0] === "5" ? "main.0c4134a13ce273487b87.css" : chunkName
+        webpack.version[0] === "5" ? "main.695010bdb768b7260e76.css" : chunkName
       );
 
       expect(
