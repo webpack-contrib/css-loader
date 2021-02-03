@@ -50,6 +50,8 @@ module.exports = {
 };
 ```
 
+**Only for webpack v4:**
+
 Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader) and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see [below](https://github.com/webpack-contrib/css-loader#assets)).
 
 And run `webpack` via your preferred method.
@@ -1134,6 +1136,30 @@ module.exports = {
 
 The following `webpack.config.js` can load CSS files, embed small PNG/JPG/GIF/SVG images as well as fonts as [Data URLs](https://tools.ietf.org/html/rfc2397) and copy larger files to the output directory.
 
+**For webpack v5:**
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        // More information here https://webpack.js.org/guides/asset-modules/
+        type: "asset",
+      },
+    ],
+  },
+};
+```
+
+**For webpack v4:**
+
 **webpack.config.js**
 
 ```js
@@ -1187,8 +1213,6 @@ module.exports = {
               // Run `postcss-loader` on each CSS `@import`, do not forget that `sass-loader` compile non CSS `@import`'s into a single file
               // If you need run `sass-loader` and `postcss-loader` on each CSS `@import` please set it to `2`
               importLoaders: 1,
-              // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
-              modules: { auto: true },
             },
           },
           {
@@ -1201,13 +1225,20 @@ module.exports = {
           },
         ],
       },
+      // For webpack v5
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-        loader: "url-loader",
-        options: {
-          limit: 8192,
-        },
+        // More information here https://webpack.js.org/guides/asset-modules/
+        type: "asset",
       },
+      // For webpack v4
+      // {
+      //  test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+      //  loader: "url-loader",
+      //  options: {
+      //    limit: 8192,
+      //  },
+      // },
     ],
   },
 };
