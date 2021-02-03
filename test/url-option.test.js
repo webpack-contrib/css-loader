@@ -171,6 +171,10 @@ describe('"url" option', () => {
               : {
                   test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
                   loader: "url-loader",
+                  options: {
+                    limit: 8096,
+                    name: "[name].[ext]",
+                  },
                 },
           ],
         },
@@ -213,6 +217,10 @@ describe('"url" option', () => {
               : {
                   test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
                   loader: "url-loader",
+                  options: {
+                    limit: 8096,
+                    name: "[name].[ext]",
+                  },
                 },
           ],
         },
