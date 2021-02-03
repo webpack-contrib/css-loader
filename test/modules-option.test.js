@@ -676,9 +676,7 @@ describe('"modules" option', () => {
   it("issue #1063 throw error", async () => {
     const compiler = getCompiler("./modules/issue-1063/issue-1063.js", {
       modules: {
-        mode: () => {
-          return "not local, global or pure";
-        },
+        mode: () => "not local, global or pure",
       },
     });
     const stats = await compile(compiler);
