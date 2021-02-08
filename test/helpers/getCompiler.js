@@ -46,6 +46,10 @@ export default (fixture, loaderOptions = {}, config = {}) => {
           "../fixtures/modules/composes"
         ),
         "/img.png": path.resolve(__dirname, "../fixtures/url/img.png"),
+        "/guide/img/banWord/addCoinDialogTitleBg.png": path.resolve(
+          __dirname,
+          "../fixtures/url/img.png"
+        ),
       },
     },
     optimization: {
