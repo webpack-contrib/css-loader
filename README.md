@@ -126,7 +126,7 @@ Type: `Boolean|Function`
 Default: `true`
 
 Enables/Disables `url`/`image-set` functions handling.
-Control `url()` resolving. Absolute URLs are not resolving.
+Control `url()` resolving. Absolute paths and root-relative URLs now resolving(Version [4.0.0](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md#400-2020-07-25) and above).
 
 Examples resolutions:
 
