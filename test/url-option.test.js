@@ -56,6 +56,10 @@ describe('"url" option', () => {
       url: (url, resourcePath) => {
         expect(typeof resourcePath === "string").toBe(true);
 
+        if (url.startsWith("/guide/img")) {
+          return false;
+        }
+
         // Don't handle `img.png`
         if (url.includes("img.png")) {
           return false;

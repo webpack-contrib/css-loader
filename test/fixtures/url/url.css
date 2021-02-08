@@ -385,3 +385,7 @@ a {
 .strange {
   background: url('%2E/img.png');
 }
+
+.my-background {
+  background-image: url("/guide/img/banWord/addCoinDialogTitleBg.png");
+}
