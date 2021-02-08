@@ -64,6 +64,37 @@ Array [
 
 exports[`loader should not generate console.warn when plugins disabled and hideNothingWarning is "true": warnings 1`] = `Array []`;
 
+exports[`loader should pass queries to other loader: errors 1`] = `Array []`;
+
+exports[`loader should pass queries to other loader: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+import ___CSS_LOADER_URL_IMPORT_0___ from \\"./url/image.svg?color=%23BAAFDB%3F\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___, { hash: \\"#foo\\" });
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".example {\\\\n    background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should pass queries to other loader: result 1`] = `
+Array [
+  Array [
+    "./other-loader-query.css",
+    ".example {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=#foo);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader should pass queries to other loader: warnings 1`] = `Array []`;
+
 exports[`loader should reuse \`ast\` from "postcss-loader": errors 1`] = `Array []`;
 
 exports[`loader should reuse \`ast\` from "postcss-loader": module 1`] = `

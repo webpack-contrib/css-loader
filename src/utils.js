@@ -85,10 +85,10 @@ function normalizeUrl(url, isStringValue) {
   }
 
   if (matchNativeWin32Path.test(url)) {
-    return decodeURIComponent(normalizedUrl);
+    return decodeURI(normalizedUrl);
   }
 
-  return decodeURIComponent(unescape(normalizedUrl));
+  return decodeURI(unescape(normalizedUrl));
 }
 
 function requestify(url, rootContext) {
