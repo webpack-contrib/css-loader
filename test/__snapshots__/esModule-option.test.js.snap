@@ -290,21 +290,6 @@ exports[`"esModule" option should work with commonjs css-loader + commonjs mini-
 
 exports[`"esModule" option should work with commonjs css-loader + commonjs style-loader: errors 1`] = `Array []`;
 
-exports[`"esModule" option should work with commonjs css-loader + commonjs style-loader: result 1`] = `
-Object {
-  "css": Object {
-    "body": "BwpsNB5_0Pze7vq8KQOAN",
-    "footer": "_10gZ0Ke9A0uqq8u0Z2eRKA",
-    "header-baz": "_2n-RuEOd5cLXo65ILWgtue",
-  },
-  "html": "
-<div class=\\"_2n-RuEOd5cLXo65ILWgtue\\">
-<div class=\\"BwpsNB5_0Pze7vq8KQOAN\\">
-<div class=\\"_10gZ0Ke9A0uqq8u0Z2eRKA\\">
-",
-}
-`;
-
 exports[`"esModule" option should work with commonjs css-loader + commonjs style-loader: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with commonjs css-loader + esModule mini-css-extract-plugin: errors 1`] = `Array []`;
@@ -314,21 +299,6 @@ exports[`"esModule" option should work with commonjs css-loader + esModule mini-
 exports[`"esModule" option should work with commonjs css-loader + esModule mini-css-extract-plugin: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with commonjs css-loader + esModule style-loader: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with commonjs css-loader + esModule style-loader: result 1`] = `
-Object {
-  "css": Object {
-    "body": "BwpsNB5_0Pze7vq8KQOAN",
-    "footer": "_10gZ0Ke9A0uqq8u0Z2eRKA",
-    "header-baz": "_2n-RuEOd5cLXo65ILWgtue",
-  },
-  "html": "
-<div class=\\"_2n-RuEOd5cLXo65ILWgtue\\">
-<div class=\\"BwpsNB5_0Pze7vq8KQOAN\\">
-<div class=\\"_10gZ0Ke9A0uqq8u0Z2eRKA\\">
-",
-}
-`;
 
 exports[`"esModule" option should work with commonjs css-loader + esModule style-loader: warnings 1`] = `Array []`;
 
@@ -340,21 +310,6 @@ exports[`"esModule" option should work with esModule css-loader + commonjs mini-
 
 exports[`"esModule" option should work with esModule css-loader + commonjs style-loader: errors 1`] = `Array []`;
 
-exports[`"esModule" option should work with esModule css-loader + commonjs style-loader: result 1`] = `
-Object {
-  "css": Object {
-    "body": "BwpsNB5_0Pze7vq8KQOAN",
-    "footer": "_10gZ0Ke9A0uqq8u0Z2eRKA",
-    "header-baz": "_2n-RuEOd5cLXo65ILWgtue",
-  },
-  "html": "
-<div class=\\"_2n-RuEOd5cLXo65ILWgtue\\">
-<div class=\\"BwpsNB5_0Pze7vq8KQOAN\\">
-<div class=\\"_10gZ0Ke9A0uqq8u0Z2eRKA\\">
-",
-}
-`;
-
 exports[`"esModule" option should work with esModule css-loader + commonjs style-loader: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with esModule css-loader + esModule mini-css-extract-plugin: errors 1`] = `Array []`;
@@ -364,20 +319,5 @@ exports[`"esModule" option should work with esModule css-loader + esModule mini-
 exports[`"esModule" option should work with esModule css-loader + esModule mini-css-extract-plugin: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with esModule css-loader + esModule style-loader: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with esModule css-loader + esModule style-loader: result 1`] = `
-Object {
-  "css": Object {
-    "body": "BwpsNB5_0Pze7vq8KQOAN",
-    "footer": "_10gZ0Ke9A0uqq8u0Z2eRKA",
-    "header-baz": "_2n-RuEOd5cLXo65ILWgtue",
-  },
-  "html": "
-<div class=\\"_2n-RuEOd5cLXo65ILWgtue\\">
-<div class=\\"BwpsNB5_0Pze7vq8KQOAN\\">
-<div class=\\"_10gZ0Ke9A0uqq8u0Z2eRKA\\">
-",
-}
-`;
 
 exports[`"esModule" option should work with esModule css-loader + esModule style-loader: warnings 1`] = `Array []`;
