@@ -704,25 +704,21 @@ function sort(a, b) {
 }
 
 function isWebpackIgnoreComment(node) {
-  if (webpackIgnoreCommentRegexp.test(`${node.raws.afterName}`)) {
+  if (
+    node.raws.afterName &&
+    webpackIgnoreCommentRegexp.test(`${node.raws.afterName}`)
+  ) {
     return true;
   }
 
-  const possibleCommentPlaces = [node.prev()];
+  const prevNode = node.prev();
 
-  if (node.type === "decl") {
-    possibleCommentPlaces.push(node.parent.prev());
-  }
-
-  for (const prevNode of possibleCommentPlaces.filter((i) => Boolean(i))) {
-    if (prevNode.type !== "comment") {
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-
-    if (webpackIgnoreCommentRegexp.test(prevNode.text)) {
-      return true;
-    }
+  if (
+    prevNode &&
+    prevNode.type === "comment" &&
+    webpackIgnoreCommentRegexp.test(prevNode.text)
+  ) {
+    return true;
   }
 
   return false;

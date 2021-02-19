@@ -743,8 +743,9 @@ var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___, { hash: \\"#Roboto-Regular\\" });
 var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
 var ___CSS_LOADER_URL_REPLACEMENT_6___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: \\"#iefix\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_7___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___, { needQuotes: true });
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"/*webpackIgnore:  true*/\\\\n@import url(./basic.css);\\\\n\\\\n@import /* webpackIgnore:   true */ url(./imported.css);\\\\n\\\\n/** webpackIgnore: true **/\\\\n@import url(./simple.css);\\\\n\\\\n/** webpackIgnore: true */\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\"),  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background:  url(\\\\\\"./url/img.png\\\\\\"),  url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n/** webpackIgnore: true **/\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  src:\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.svg#Roboto-Regular\\\\\\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  src:\\\\n    /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_3___ + \\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  /** webpackIgnore: true **/\\\\n  src:\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.svg#Roboto-Regular\\\\\\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_5___ + \\");\\\\n  src:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_6___ + \\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n/*webpackIgnore:  true*/\\\\n.class {\\\\n  background-image: image-set(\\\\n    url(./url/img.png) 2x,\\\\n    url(./url/img.png) 3x,\\\\n    url(./url/img.png) 4x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: image-set(\\\\n    url(./url/img.png) 2x,\\\\n    url(./url/img.png) 3x,\\\\n    url(./url/img.png) 4x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  background-image: /*webpackIgnore:  true*/ image-set(\\\\n    url(./url/img.png) 2x,\\\\n    url(./url/img.png) 3x,\\\\n    url(./url/img.png) 4x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  background-image: image-set(\\\\n    /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 2x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 3x,\\\\n      /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 5x\\\\n  );\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"/*webpackIgnore:  true*/\\\\n@import url(./basic.css);\\\\n\\\\n@import /* webpackIgnore:   true */ url(./imported.css);\\\\n\\\\n/** webpackIgnore: true **/\\\\n@import url(./simple.css);\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\"),  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background:  url(\\\\\\"./url/img.png\\\\\\"),  url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  src:\\\\n    /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_3___ + \\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  /** webpackIgnore: true **/\\\\n  src:\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.svg#Roboto-Regular\\\\\\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_5___ + \\");\\\\n  src:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_6___ + \\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: image-set(\\\\n    url(./url/img.png) 2x,\\\\n    url(./url/img.png) 3x,\\\\n    url(./url/img.png) 4x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  background-image: /*webpackIgnore:  true*/ image-set(\\\\n    url(./url/img.png) 2x,\\\\n    url(./url/img.png) 3x,\\\\n    url(./url/img.png) 4x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  background-image: image-set(\\\\n    /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 2x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 3x,\\\\n      /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 5x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n    background-image: image-set(\\\\n        /*webpackIgnore:  true*/\\\\n        './url/img.png' 2x,\\\\n        \\" + ___CSS_LOADER_URL_REPLACEMENT_7___ + \\" 3x,\\\\n        /*webpackIgnore:  true*/\\\\n        './url/img.png' 5x\\\\n    );\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -761,12 +762,6 @@ Array [
 
 /** webpackIgnore: true **/
 @import url(./simple.css);
-
-/** webpackIgnore: true */
-.class {
-  color: red;
-  background: url(\\"./url/img.png\\");
-}
 
 .class {
   color: red;
@@ -791,20 +786,6 @@ Array [
     url(/webpack/public/path/img.png),
       /** webpackIgnore: true **/
     url(\\"./url/img.png\\");
-}
-
-/** webpackIgnore: true **/
-@font-face {
-  font-family: \\"Roboto\\";
-  src: url(\\"./fonts/Roboto-Regular.eot\\");
-  src:
-    url(\\"./fonts/Roboto-Regular.eot#iefix\\") format(\\"embedded-opentype\\"),
-    url(\\"./fonts/Roboto-Regular.woff2\\") format(\\"woff\\"),
-    url(\\"./fonts/Roboto-Regular.woff\\") format(\\"woff\\"),
-    url(\\"./fonts/Roboto-Regular.ttf\\") format(\\"truetype\\"),
-    url(\\"./fonts/Roboto-Regular.svg#Roboto-Regular\\") format(\\"svg\\");
-  font-weight: 400;
-  font-style: normal;
 }
 
 @font-face {
@@ -850,15 +831,6 @@ Array [
   font-style: normal;
 }
 
-/*webpackIgnore:  true*/
-.class {
-  background-image: image-set(
-    url(./url/img.png) 2x,
-    url(./url/img.png) 3x,
-    url(./url/img.png) 4x
-  );
-}
-
 .class {
   /*webpackIgnore:  true*/
   background-image: image-set(
@@ -884,6 +856,16 @@ Array [
       /*webpackIgnore:  true*/
     url(./url/img.png) 5x
   );
+}
+
+.class {
+    background-image: image-set(
+        /*webpackIgnore:  true*/
+        './url/img.png' 2x,
+        \\"/webpack/public/path/img.png\\" 3x,
+        /*webpackIgnore:  true*/
+        './url/img.png' 5x
+    );
 }
 ",
     "",

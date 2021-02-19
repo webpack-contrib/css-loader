@@ -1141,11 +1141,11 @@ With the help of the `/* webpackIgnore: true */`comment, it is possible to disab
 @import url(./basic.css);
 @import /* webpackIgnore: true */ url(./imported.css);
 
-/** webpackIgnore: true */
 .class {
-  /* Disabled url handling for the all .class */
+  /* Disabled url handling for the all urls in 'background' declaration */
   color: red;
-  background: url("./url/img.png");
+  /** webpackIgnore: true */
+  background: url("./url/img.png"), url("./url/img.png");
 }
 
 .class {
@@ -1153,12 +1153,6 @@ With the help of the `/* webpackIgnore: true */`comment, it is possible to disab
   color: red;
   background: /** webpackIgnore: true */ url("./url/img.png"),
     url("./url/img.png");
-}
-.class {
-  /* Disabled url handling for the all urls in 'background' declaration */
-  color: red;
-  /** webpackIgnore: true */
-  background: url("./url/img.png"), url("./url/img.png");
 }
 
 /* prettier-ignore */
