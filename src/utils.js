@@ -19,6 +19,7 @@ const unescapeRegExp = new RegExp(
   "ig"
 );
 const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
+const webpackIgnoreCommentRegexp = /webpackIgnore:(\s+)?true/i;
 
 function unescape(str) {
   return str.replace(unescapeRegExp, (_, escaped, escapedWhitespace) => {
@@ -702,6 +703,31 @@ function sort(a, b) {
   return a.index - b.index;
 }
 
+function isWebpackIgnoreComment(node) {
+  if (webpackIgnoreCommentRegexp.test(`${node.raws.afterName}`)) {
+    return true;
+  }
+
+  const possibleCommentPlaces = [node.prev()];
+
+  if (node.type === "decl") {
+    possibleCommentPlaces.push(node.parent.prev());
+  }
+
+  for (const prevNode of possibleCommentPlaces.filter((i) => Boolean(i))) {
+    if (prevNode.type !== "comment") {
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
+    if (webpackIgnoreCommentRegexp.test(prevNode.text)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 export {
   normalizeOptions,
   shouldUseModulesPlugins,
@@ -721,4 +747,6 @@ export {
   resolveRequests,
   isUrlRequestable,
   sort,
+  isWebpackIgnoreComment,
+  webpackIgnoreCommentRegexp,
 };

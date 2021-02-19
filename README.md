@@ -1132,6 +1132,50 @@ module.exports = {
 
 ## Examples
 
+### Disable url resolving using the `/* webpackIgnore: true */` comment
+
+With the help of the `/* webpackIgnore: true */`comment, it is possible to disable sources handling for rules and for individual declarations.
+
+```css
+/* webpackIgnore: true*/
+@import url(./basic.css);
+@import /* webpackIgnore: true */ url(./imported.css);
+
+/** webpackIgnore: true */
+.class {
+  /* Disabled url handling for the all .class */
+  color: red;
+  background: url("./url/img.png");
+}
+
+.class {
+  /* Disabled url handling for the first url in 'background' declaration */
+  color: red;
+  background: /** webpackIgnore: true */ url("./url/img.png"),
+    url("./url/img.png");
+}
+.class {
+  /* Disabled url handling for the all urls in 'background' declaration */
+  color: red;
+  /** webpackIgnore: true */
+  background: url("./url/img.png"), url("./url/img.png");
+}
+
+/* prettier-ignore */
+.class {
+  /* Disabled url handling for the 3 and 6 urls in 'background-image' declaration */
+  background-image: image-set(
+    url(./url/img.png) 2x,
+    url(./url/img.png) 3x,
+    /*webpackIgnore:  true*/ url(./url/img.png) 4x,
+    url(./url/img.png) 5x,
+    url(./url/img.png) 6x,
+    /*webpackIgnore:  true*/
+    url(./url/img.png) 7x
+  );
+}
+```
+
 ### Assets
 
 The following `webpack.config.js` can load CSS files, embed small PNG/JPG/GIF/SVG images as well as fonts as [Data URLs](https://tools.ietf.org/html/rfc2397) and copy larger files to the output directory.

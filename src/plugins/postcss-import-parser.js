@@ -5,11 +5,16 @@ import {
   resolveRequests,
   isUrlRequestable,
   requestify,
+  isWebpackIgnoreComment,
 } from "../utils";
 
 function visitor(result, parsedResults, node, key) {
   // Convert only top-level @import
   if (node.parent.type !== "root") {
+    return;
+  }
+
+  if (isWebpackIgnoreComment(node)) {
     return;
   }
 
