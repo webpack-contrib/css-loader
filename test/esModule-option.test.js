@@ -110,10 +110,10 @@ describe('"esModule" option', () => {
   });
 
   const styleLoaderTests = [
-    // {
-    //   localLoaderMode: "commonjs",
-    //   extractLoaderMode: "commonjs",
-    // },
+    {
+      localLoaderMode: "commonjs",
+      extractLoaderMode: "commonjs",
+    },
     {
       localLoaderMode: "esModule",
       extractLoaderMode: "esModule",
