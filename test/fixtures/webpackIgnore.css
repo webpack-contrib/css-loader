@@ -123,19 +123,52 @@
 }
 
 .class {
-  background-image: /*webpackIgnore:  true*/ image-set(
-    url(./url/img.png) 2x,
-    url(./url/img.png) 3x,
-    url(./url/img.png) 4x
-  );
+  /*webpackIgnore:  true*/
+  background-image: 
+    image-set(
+        /*webpackIgnore:  false*/
+        url(./url/img.png) 2x,
+        /*webpackIgnore:  true*/
+        url(./url/img.png) 3x,
+        url(./url/img.png) 4x,
+        /*webpackIgnore:  false */
+        /*webpackIgnore:  true */
+        url(./url/img.png) 5x
+    ), 
+    url('./url/img.png');
 }
 
 .class {
-  background-image: /*webpackIgnore:  true*/ image-set(
-    url(./url/img.png) 2x,
-    url(./url/img.png) 3x,
-    url(./url/img.png) 4x
-  ), url('./url/img.png');
+    background-image:
+      image-set(
+        /*webpackIgnore:  false*/
+        url(./url/img.png) 2x,
+        /*webpackIgnore:  true*/
+        url(./url/img.png) 3x,
+        url(./url/img.png) 4x,
+        /*webpackIgnore:  false */
+        /*webpackIgnore:  true */
+        url(./url/img.png) 5x
+      ),
+      /*webpackIgnore:  false*/
+      url('./url/img.png'),
+      /*webpackIgnore:  true*/
+      url('./url/img.png');;
+}
+
+.class {
+    background-image:
+        image-set(
+            /*webpackIgnore:  false*/
+            url(./url/img.png) 2x,
+            /*webpackIgnore:  true*/
+            url(./url/img.png) 3x,
+            url(./url/img.png) 4x,
+            /*webpackIgnore:  false */
+            /*webpackIgnore:  true */
+            url(./url/img.png) 5x
+        ),
+        url('./url/img.png');
 }
 
 .class {
@@ -169,4 +202,14 @@
     url(./url/img.png) 4x,
     url(./url/img.png) 5x
   );
+}
+
+.class {
+  color: red;
+  background: url("./url/img.png"), /** webpackIgnore: true */url("./url/img.png");
+}
+
+.class {
+  color: red;
+  background: url("./url/img.png")/** webpackIgnore: true */, url("./url/img.png");
 }
