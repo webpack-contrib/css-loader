@@ -5,7 +5,7 @@ import {
   resolveRequests,
   isUrlRequestable,
   requestify,
-  isWebpackIgnoreComment,
+  webpackIgnoreCommentRegexp,
 } from "../utils";
 
 function visitor(result, parsedResults, node, key) {
@@ -14,8 +14,25 @@ function visitor(result, parsedResults, node, key) {
     return;
   }
 
-  if (isWebpackIgnoreComment(node)) {
-    return;
+  if (node.raws.afterName && node.raws.afterName.trim().length > 0) {
+    const lastCommentIndex = node.raws.afterName.lastIndexOf("/*");
+    const matched = node.raws.afterName
+      .slice(lastCommentIndex)
+      .match(webpackIgnoreCommentRegexp);
+
+    if (matched && matched[2] === "true") {
+      return;
+    }
+  }
+
+  const prevNode = node.prev();
+
+  if (prevNode && prevNode.type === "comment") {
+    const matched = prevNode.text.match(webpackIgnoreCommentRegexp);
+
+    if (matched && matched[2] === "true") {
+      return;
+    }
   }
 
   // Nodes do not exists - `@import url('http://') :root {}`

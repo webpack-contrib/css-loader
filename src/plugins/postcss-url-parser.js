@@ -5,7 +5,6 @@ import {
   requestify,
   resolveRequests,
   isUrlRequestable,
-  isWebpackIgnoreComment,
   webpackIgnoreCommentRegexp,
 } from "../utils";
 
@@ -37,27 +36,42 @@ function visitor(result, parsedResults, node, key) {
     return;
   }
 
-  if (isWebpackIgnoreComment(node)) {
-    return;
+  const value =
+    typeof node.raws.value === "undefined" ? node[key] : node.raws.value.raw;
+  const parsed = valueParser(value);
+
+  let needIgnore;
+
+  if (typeof node.raws.between !== "undefined") {
+    const lastCommentIndex = node.raws.between.lastIndexOf("/*");
+
+    const matched = node.raws.between
+      .slice(lastCommentIndex)
+      .match(webpackIgnoreCommentRegexp);
+
+    if (matched) {
+      needIgnore = matched[2] === "true";
+    }
   }
 
-  const parsed = valueParser(
-    typeof node.raws.value === "undefined" ? node[key] : node.raws.value.raw
-  );
+  let isIgnoreOnDeclaration = false;
 
-  let webpackIgnore =
-    typeof node.raws.between !== "undefined" &&
-    webpackIgnoreCommentRegexp.test(node.raws.between);
+  const prevNode = node.prev();
 
-  if (webpackIgnore && isImageSetFunc.test(parsed.nodes[0].value)) {
-    return;
+  if (prevNode && prevNode.type === "comment") {
+    const matched = prevNode.text.match(webpackIgnoreCommentRegexp);
+
+    if (matched) {
+      isIgnoreOnDeclaration = matched[2] === "true";
+    }
   }
 
   parsed.walk((valueNode) => {
     if (valueNode.type === "comment") {
-      if (webpackIgnoreCommentRegexp.test(valueNode.value)) {
-        webpackIgnore = true;
-      }
+      const matched = valueNode.value.match(webpackIgnoreCommentRegexp);
+
+      needIgnore = matched && matched[2] === "true";
+
       return;
     }
 
@@ -65,8 +79,13 @@ function visitor(result, parsedResults, node, key) {
       return;
     }
 
-    if (webpackIgnore) {
-      webpackIgnore = false;
+    if (isIgnoreOnDeclaration && needIgnore !== false) {
+      return;
+    }
+
+    if (needIgnore) {
+      // eslint-disable-next-line no-undefined
+      needIgnore = undefined;
       return;
     }
 
@@ -90,6 +109,7 @@ function visitor(result, parsedResults, node, key) {
       // eslint-disable-next-line consistent-return
       return false;
     } else if (isImageSetFunc.test(valueNode.value)) {
+      // TODO bug
       let imageSetWebpackIgnore = false;
 
       for (const nNode of valueNode.nodes) {

@@ -1,9 +1,16 @@
 /* webpackIgnore: true */
 @import url(./basic.css);
 @import /*    webpackIgnore:   true    */ url(./imported.css);
+@import /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);
+@import /* webpackIgnore: false */ /* webpackIgnore: true */ /* webpackIgnore: true */ url(./simple.css);
+@import /* webpackIgnore: false */ /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);
+
+/** Resolved **/
 @import /* webpackIgnore: false */ url(./simple.css);
-@import /** webpackIgnore: false **/ /* webpackIgnore: true */ url(./simple.css);
-@import /** webpackIgnore: false **/ /* webpackIgnore: true */ /* webpackIgnore: false */ url(./simple.css);
+@import /****webpackIgnore: false***/ url(./simple.css);
+@import /*   *   *   *   webpackIgnore:   false   *   *   */ url(./simple.css);
+@import /* webpackIgnore: false */ /* webpackIgnore: true */ /* webpackIgnore: false */ url(./simple.css);
+/** Resolved **/
 
 .class {
   color: red;
