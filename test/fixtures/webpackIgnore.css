@@ -1,10 +1,9 @@
-/*webpackIgnore:  true*/
+/* webpackIgnore: true */
 @import url(./basic.css);
-
-@import /* webpackIgnore:   true */ url(./imported.css);
-
-/** webpackIgnore: true **/
-@import url(./simple.css);
+@import /*    webpackIgnore:   true    */ url(./imported.css);
+@import /* webpackIgnore: false */ url(./simple.css);
+@import /** webpackIgnore: false **/ /* webpackIgnore: true */ url(./simple.css);
+@import /** webpackIgnore: false **/ /* webpackIgnore: true */ /* webpackIgnore: false */ url(./simple.css);
 
 .class {
   color: red;
@@ -13,8 +12,41 @@
 
 .class {
   color: red;
+  background: url("./url/img.png"), /** webpackIgnore: true */ url("./url/img.png");
+}
+
+.class {
+  color: red;
   /** webpackIgnore: true */
-  background:  url("./url/img.png"),  url("./url/img.png");
+  background: url("./url/img.png"), url("./url/img.png");
+}
+
+.class {
+  color: red;
+  /** webpackIgnore: true */
+  background: url("./url/img.png"), /** webpackIgnore: false */ url("./url/img.png");
+}
+
+.class {
+  color: red;
+  /** webpackIgnore: true */
+  background: url("./url/img.png"), /** webpackIgnore: false */ url("./url/img.png"), /** webpackIgnore: true */ url("./url/img.png"), /** webpackIgnore: false */ url("./url/img.png");
+}
+
+.class {
+  color: red;
+  /** webpackIgnore: true */
+  background: /** webpackIgnore: false */ url("./url/img.png"), /** webpackIgnore: true */ url("./url/img.png");
+}
+
+.class {
+  color: red;
+  background: /** webpackIgnore: true */ /** webpackIgnore: false */ url("./url/img.png"), url("./url/img.png");
+}
+
+.class {
+  color: red;
+  background: url("./url/img.png"), /** webpackIgnore: true */ /** webpackIgnore: false */ url("./url/img.png");
 }
 
 .class {
@@ -89,6 +121,14 @@
     url(./url/img.png) 3x,
     url(./url/img.png) 4x
   );
+}
+
+.class {
+  background-image: /*webpackIgnore:  true*/ image-set(
+    url(./url/img.png) 2x,
+    url(./url/img.png) 3x,
+    url(./url/img.png) 4x
+  ), url('./url/img.png');
 }
 
 .class {
