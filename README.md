@@ -1151,8 +1151,14 @@ With the help of the `/* webpackIgnore: true */`comment, it is possible to disab
 .class {
   /* Disabled url handling for the first url in 'background' declaration */
   color: red;
-  background: /** webpackIgnore: true */ url("./url/img.png"),
-    url("./url/img.png");
+  background: 
+    /** webpackIgnore: true */ url("./url/img.png"), url("./url/img.png");
+}
+.class {
+  /* Disabled url handling for the second url in 'background' declaration */
+  color: red;
+  background: url("./url/img.png"),
+    /** webpackIgnore: true */ url("./url/img.png");
 }
 
 /* prettier-ignore */
