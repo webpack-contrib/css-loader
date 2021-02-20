@@ -36,9 +36,9 @@ function visitor(result, parsedResults, node, key) {
     return;
   }
 
-  const value =
-    typeof node.raws.value === "undefined" ? node[key] : node.raws.value.raw;
-  const parsed = valueParser(value);
+  const parsed = valueParser(
+    typeof node.raws.value === "undefined" ? node[key] : node.raws.value.raw
+  );
 
   let needIgnore;
 
@@ -109,16 +109,18 @@ function visitor(result, parsedResults, node, key) {
       // eslint-disable-next-line consistent-return
       return false;
     } else if (isImageSetFunc.test(valueNode.value)) {
-      // TODO bug
       let imageSetWebpackIgnore = false;
 
       for (const nNode of valueNode.nodes) {
         const { type, value } = nNode;
 
         if (type === "comment") {
-          if (webpackIgnoreCommentRegexp.test(value)) {
-            imageSetWebpackIgnore = true;
+          const matched = value.match(webpackIgnoreCommentRegexp);
+
+          if (matched) {
+            imageSetWebpackIgnore = matched[2] === "true";
           }
+
           // eslint-disable-next-line no-continue
           continue;
         }
