@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/webpack-contrib/css-loader/compare/v5.0.2...v5.1.0) (2021-02-25)
+
+
+### Features
+
+* added support webpackIgnore comment ([#1264](https://github.com/webpack-contrib/css-loader/issues/1264)) ([53d40a9](https://github.com/webpack-contrib/css-loader/commit/53d40a9bb35a79e6a15308bbb7a01358f39816df))
+
 ### [5.0.2](https://github.com/webpack-contrib/css-loader/compare/v5.0.1...v5.0.2) (2021-02-08)
 
 
