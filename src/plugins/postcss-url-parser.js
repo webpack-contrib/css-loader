@@ -31,6 +31,37 @@ function shouldHandleRule(rule, node, result) {
   return true;
 }
 
+function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
+  if (index === 0 && typeof inBetween !== "undefined") {
+    return inBetween;
+  }
+
+  let prevValueNode = nodes[index - 1];
+
+  if (!prevValueNode) {
+    // eslint-disable-next-line consistent-return
+    return;
+  }
+
+  if (prevValueNode.type === "space") {
+    if (!nodes[index - 2]) {
+      // eslint-disable-next-line consistent-return
+      return;
+    }
+
+    prevValueNode = nodes[index - 2];
+  }
+
+  if (prevValueNode.type !== "comment") {
+    // eslint-disable-next-line consistent-return
+    return;
+  }
+
+  const matched = prevValueNode.value.match(webpackIgnoreCommentRegexp);
+
+  return matched && matched[2] === "true";
+}
+
 function visitor(result, parsedResults, node, key) {
   if (!needParseDeclaration.test(node[key])) {
     return;
@@ -40,7 +71,7 @@ function visitor(result, parsedResults, node, key) {
     typeof node.raws.value === "undefined" ? node[key] : node.raws.value.raw
   );
 
-  let needIgnore;
+  let inBetween;
 
   if (typeof node.raws.between !== "undefined") {
     const lastCommentIndex = node.raws.between.lastIndexOf("/*");
@@ -50,7 +81,7 @@ function visitor(result, parsedResults, node, key) {
       .match(webpackIgnoreCommentRegexp);
 
     if (matched) {
-      needIgnore = matched[2] === "true";
+      inBetween = matched[2] === "true";
     }
   }
 
@@ -66,30 +97,26 @@ function visitor(result, parsedResults, node, key) {
     }
   }
 
-  parsed.walk((valueNode) => {
-    if (valueNode.type === "comment") {
-      const matched = valueNode.value.match(webpackIgnoreCommentRegexp);
+  let needIgnore;
 
-      needIgnore = matched && matched[2] === "true";
-
-      return;
-    }
-
+  parsed.walk((valueNode, index, valueNodes) => {
     if (valueNode.type !== "function") {
       return;
     }
 
-    if (isIgnoreOnDeclaration && needIgnore !== false) {
-      return;
-    }
-
-    if (needIgnore) {
-      // eslint-disable-next-line no-undefined
-      needIgnore = undefined;
-      return;
-    }
-
     if (isUrlFunc.test(valueNode.value)) {
+      needIgnore = getWebpackIgnoreCommentValue(index, valueNodes, inBetween);
+
+      if (isIgnoreOnDeclaration && needIgnore !== false) {
+        return;
+      }
+
+      if (needIgnore) {
+        // eslint-disable-next-line no-undefined
+        needIgnore = undefined;
+        return;
+      }
+
       const { nodes } = valueNode;
       const isStringValue = nodes.length !== 0 && nodes[0].type === "string";
       const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
@@ -109,25 +136,23 @@ function visitor(result, parsedResults, node, key) {
       // eslint-disable-next-line consistent-return
       return false;
     } else if (isImageSetFunc.test(valueNode.value)) {
-      let imageSetWebpackIgnore = false;
-
-      for (const nNode of valueNode.nodes) {
+      for (const [innerIndex, nNode] of valueNode.nodes.entries()) {
         const { type, value } = nNode;
 
-        if (type === "comment") {
-          const matched = value.match(webpackIgnoreCommentRegexp);
+        if (type === "function" && isUrlFunc.test(value)) {
+          needIgnore = getWebpackIgnoreCommentValue(
+            innerIndex,
+            valueNode.nodes
+          );
 
-          if (matched) {
-            imageSetWebpackIgnore = matched[2] === "true";
+          if (isIgnoreOnDeclaration && needIgnore !== false) {
+            // eslint-disable-next-line no-continue
+            continue;
           }
 
-          // eslint-disable-next-line no-continue
-          continue;
-        }
-
-        if (type === "function" && isUrlFunc.test(value)) {
-          if (imageSetWebpackIgnore) {
-            imageSetWebpackIgnore = false;
+          if (needIgnore) {
+            // eslint-disable-next-line no-undefined
+            needIgnore = undefined;
             // eslint-disable-next-line no-continue
             continue;
           }
@@ -154,8 +179,19 @@ function visitor(result, parsedResults, node, key) {
             });
           }
         } else if (type === "string") {
-          if (imageSetWebpackIgnore) {
-            imageSetWebpackIgnore = false;
+          needIgnore = getWebpackIgnoreCommentValue(
+            innerIndex,
+            valueNode.nodes
+          );
+
+          if (isIgnoreOnDeclaration && needIgnore !== false) {
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+          if (needIgnore) {
+            // eslint-disable-next-line no-undefined
+            needIgnore = undefined;
             // eslint-disable-next-line no-continue
             continue;
           }

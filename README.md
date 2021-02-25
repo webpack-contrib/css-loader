@@ -1137,40 +1137,50 @@ module.exports = {
 With the help of the `/* webpackIgnore: true */`comment, it is possible to disable sources handling for rules and for individual declarations.
 
 ```css
-/* webpackIgnore: true*/
+/* webpackIgnore: true */
 @import url(./basic.css);
 @import /* webpackIgnore: true */ url(./imported.css);
 
 .class {
-  /* Disabled url handling for the all urls in 'background' declaration */
+  /* Disabled url handling for the all urls in the 'background' declaration */
   color: red;
-  /** webpackIgnore: true */
+  /* webpackIgnore: true */
   background: url("./url/img.png"), url("./url/img.png");
 }
 
 .class {
-  /* Disabled url handling for the first url in 'background' declaration */
+  /* Disabled url handling for the first url in the 'background' declaration */
   color: red;
   background: 
-    /** webpackIgnore: true */ url("./url/img.png"), url("./url/img.png");
+    /* webpackIgnore: true */ url("./url/img.png"), url("./url/img.png");
 }
+
 .class {
-  /* Disabled url handling for the second url in 'background' declaration */
+  /* Disabled url handling for the second url in the 'background' declaration */
   color: red;
   background: url("./url/img.png"),
-    /** webpackIgnore: true */ url("./url/img.png");
+    /* webpackIgnore: true */ url("./url/img.png");
 }
 
 /* prettier-ignore */
 .class {
-  /* Disabled url handling for the 3 and 6 urls in 'background-image' declaration */
+  /* Disabled url handling for the second url in the 'background' declaration */
+  color: red;
+  background: url("./url/img.png"),
+    /* webpackIgnore: true */ 
+    url("./url/img.png");
+}
+
+/* prettier-ignore */
+.class {
+  /* Disabled url handling for third and sixth urls in the 'background-image' declaration */
   background-image: image-set(
     url(./url/img.png) 2x,
     url(./url/img.png) 3x,
-    /*webpackIgnore:  true*/ url(./url/img.png) 4x,
+    /* webpackIgnore:  true */ url(./url/img.png) 4x,
     url(./url/img.png) 5x,
     url(./url/img.png) 6x,
-    /*webpackIgnore:  true*/
+    /* webpackIgnore:  true */
     url(./url/img.png) 7x
   );
 }

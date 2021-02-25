@@ -233,10 +233,13 @@
   background-image:
     image-set(
       url(./url/img.png) 2x  /*webpackIgnore:  true*/,
-      url(./url/img.png)  /*webpackIgnore:  true*/ 3x,
-      /*webpackIgnore:  true*/url(./url/img.png)  4x,
-      /*webpackIgnore:  true*/ url(./url/img.png)  5x,
-      url(./url/img.png) 6x
+      url(./url/img.png) /*webpackIgnore:  true*/ 3x,
+      url(./url/img.png) 4x /*webpackIgnore:  true*/,
+      /*webpackIgnore:  true*/url(./url/img.png) 5x,
+      /*webpackIgnore:  true*/ url(./url/img.png) 6x,
+      /*webpackIgnore:  true*/ 
+      url(./url/img.png) 7x,
+      url(./url/img.png) 8x
     ),
     /*webpackIgnore:  false*/
     url('./url/img.png'),
