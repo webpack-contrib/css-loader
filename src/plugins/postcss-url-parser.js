@@ -5,6 +5,7 @@ import {
   requestify,
   resolveRequests,
   isUrlRequestable,
+  webpackIgnoreCommentRegexp,
 } from "../utils";
 
 const isUrlFunc = /url/i;
@@ -30,19 +31,94 @@ function shouldHandleRule(rule, node, result) {
   return true;
 }
 
+function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
+  if (index === 0 && typeof inBetween !== "undefined") {
+    return inBetween;
+  }
+
+  let prevValueNode = nodes[index - 1];
+
+  if (!prevValueNode) {
+    // eslint-disable-next-line consistent-return
+    return;
+  }
+
+  if (prevValueNode.type === "space") {
+    if (!nodes[index - 2]) {
+      // eslint-disable-next-line consistent-return
+      return;
+    }
+
+    prevValueNode = nodes[index - 2];
+  }
+
+  if (prevValueNode.type !== "comment") {
+    // eslint-disable-next-line consistent-return
+    return;
+  }
+
+  const matched = prevValueNode.value.match(webpackIgnoreCommentRegexp);
+
+  return matched && matched[2] === "true";
+}
+
 function visitor(result, parsedResults, node, key) {
   if (!needParseDeclaration.test(node[key])) {
     return;
   }
 
-  const parsed = valueParser(node[key]);
+  const parsed = valueParser(
+    typeof node.raws.value === "undefined" ? node[key] : node.raws.value.raw
+  );
 
-  parsed.walk((valueNode) => {
+  let inBetween;
+
+  if (typeof node.raws.between !== "undefined") {
+    const lastCommentIndex = node.raws.between.lastIndexOf("/*");
+
+    const matched = node.raws.between
+      .slice(lastCommentIndex)
+      .match(webpackIgnoreCommentRegexp);
+
+    if (matched) {
+      inBetween = matched[2] === "true";
+    }
+  }
+
+  let isIgnoreOnDeclaration = false;
+
+  const prevNode = node.prev();
+
+  if (prevNode && prevNode.type === "comment") {
+    const matched = prevNode.text.match(webpackIgnoreCommentRegexp);
+
+    if (matched) {
+      isIgnoreOnDeclaration = matched[2] === "true";
+    }
+  }
+
+  let needIgnore;
+
+  parsed.walk((valueNode, index, valueNodes) => {
     if (valueNode.type !== "function") {
       return;
     }
 
     if (isUrlFunc.test(valueNode.value)) {
+      needIgnore = getWebpackIgnoreCommentValue(index, valueNodes, inBetween);
+
+      if (
+        (isIgnoreOnDeclaration && typeof needIgnore === "undefined") ||
+        needIgnore
+      ) {
+        if (needIgnore) {
+          // eslint-disable-next-line no-undefined
+          needIgnore = undefined;
+        }
+
+        return;
+      }
+
       const { nodes } = valueNode;
       const isStringValue = nodes.length !== 0 && nodes[0].type === "string";
       const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
@@ -62,10 +138,28 @@ function visitor(result, parsedResults, node, key) {
       // eslint-disable-next-line consistent-return
       return false;
     } else if (isImageSetFunc.test(valueNode.value)) {
-      for (const nNode of valueNode.nodes) {
+      for (const [innerIndex, nNode] of valueNode.nodes.entries()) {
         const { type, value } = nNode;
 
         if (type === "function" && isUrlFunc.test(value)) {
+          needIgnore = getWebpackIgnoreCommentValue(
+            innerIndex,
+            valueNode.nodes
+          );
+
+          if (
+            (isIgnoreOnDeclaration && typeof needIgnore === "undefined") ||
+            needIgnore
+          ) {
+            if (needIgnore) {
+              // eslint-disable-next-line no-undefined
+              needIgnore = undefined;
+            }
+
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
           const { nodes } = nNode;
           const isStringValue =
             nodes.length !== 0 && nodes[0].type === "string";
@@ -88,6 +182,24 @@ function visitor(result, parsedResults, node, key) {
             });
           }
         } else if (type === "string") {
+          needIgnore = getWebpackIgnoreCommentValue(
+            innerIndex,
+            valueNode.nodes
+          );
+
+          if (
+            (isIgnoreOnDeclaration && typeof needIgnore === "undefined") ||
+            needIgnore
+          ) {
+            if (needIgnore) {
+              // eslint-disable-next-line no-undefined
+              needIgnore = undefined;
+            }
+
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
           const rule = {
             node: nNode,
             url: value,
@@ -104,7 +216,6 @@ function visitor(result, parsedResults, node, key) {
           }
         }
       }
-
       // Do not traverse inside `image-set`
       // eslint-disable-next-line consistent-return
       return false;

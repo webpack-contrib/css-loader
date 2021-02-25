@@ -19,6 +19,7 @@ const unescapeRegExp = new RegExp(
   "ig"
 );
 const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
+const webpackIgnoreCommentRegexp = /webpackIgnore:(\s+)?(true|false)/;
 
 function unescape(str) {
   return str.replace(unescapeRegExp, (_, escaped, escapedWhitespace) => {
@@ -721,4 +722,5 @@ export {
   resolveRequests,
   isUrlRequestable,
   sort,
+  webpackIgnoreCommentRegexp,
 };
