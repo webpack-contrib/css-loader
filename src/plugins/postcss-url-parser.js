@@ -107,13 +107,15 @@ function visitor(result, parsedResults, node, key) {
     if (isUrlFunc.test(valueNode.value)) {
       needIgnore = getWebpackIgnoreCommentValue(index, valueNodes, inBetween);
 
-      if (isIgnoreOnDeclaration && needIgnore !== false) {
-        return;
-      }
+      if (
+        (isIgnoreOnDeclaration && typeof needIgnore === "undefined") ||
+        needIgnore
+      ) {
+        if (needIgnore) {
+          // eslint-disable-next-line no-undefined
+          needIgnore = undefined;
+        }
 
-      if (needIgnore) {
-        // eslint-disable-next-line no-undefined
-        needIgnore = undefined;
         return;
       }
 
@@ -145,14 +147,15 @@ function visitor(result, parsedResults, node, key) {
             valueNode.nodes
           );
 
-          if (isIgnoreOnDeclaration && needIgnore !== false) {
-            // eslint-disable-next-line no-continue
-            continue;
-          }
+          if (
+            (isIgnoreOnDeclaration && typeof needIgnore === "undefined") ||
+            needIgnore
+          ) {
+            if (needIgnore) {
+              // eslint-disable-next-line no-undefined
+              needIgnore = undefined;
+            }
 
-          if (needIgnore) {
-            // eslint-disable-next-line no-undefined
-            needIgnore = undefined;
             // eslint-disable-next-line no-continue
             continue;
           }
@@ -184,14 +187,15 @@ function visitor(result, parsedResults, node, key) {
             valueNode.nodes
           );
 
-          if (isIgnoreOnDeclaration && needIgnore !== false) {
-            // eslint-disable-next-line no-continue
-            continue;
-          }
+          if (
+            (isIgnoreOnDeclaration && typeof needIgnore === "undefined") ||
+            needIgnore
+          ) {
+            if (needIgnore) {
+              // eslint-disable-next-line no-undefined
+              needIgnore = undefined;
+            }
 
-          if (needIgnore) {
-            // eslint-disable-next-line no-undefined
-            needIgnore = undefined;
             // eslint-disable-next-line no-continue
             continue;
           }
