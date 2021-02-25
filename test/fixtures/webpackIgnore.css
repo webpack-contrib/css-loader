@@ -19,6 +19,11 @@
 
 .class {
   color: red;
+  background:/** webpackIgnore: true */url("./url/img.png"),  url("./url/img.png");
+}
+
+.class {
+  color: red;
   background: url("./url/img.png"), /** webpackIgnore: true */ url("./url/img.png");
 }
 
@@ -229,7 +234,9 @@
     image-set(
       url(./url/img.png) 2x  /*webpackIgnore:  true*/,
       url(./url/img.png)  /*webpackIgnore:  true*/ 3x,
-      url(./url/img.png) 4x
+      /*webpackIgnore:  true*/url(./url/img.png)  4x,
+      /*webpackIgnore:  true*/ url(./url/img.png)  5x,
+      url(./url/img.png) 6x
     ),
     /*webpackIgnore:  false*/
     url('./url/img.png'),
