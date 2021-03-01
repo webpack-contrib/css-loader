@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.1.1](https://github.com/webpack-contrib/css-loader/compare/v5.1.0...v5.1.1) (2021-03-01)
+
+
+### Bug Fixes
+
+* crash on modified AST from `postcss-loader` ([#1268](https://github.com/webpack-contrib/css-loader/issues/1268)) ([d2a1a84](https://github.com/webpack-contrib/css-loader/commit/d2a1a84afc63fdfb2a4ce6668ed9f2d7f1ba56ca))
+
 ## [5.1.0](https://github.com/webpack-contrib/css-loader/compare/v5.0.2...v5.1.0) (2021-02-25)
 
 
