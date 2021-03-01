@@ -68,12 +68,14 @@ function visitor(result, parsedResults, node, key) {
   }
 
   const parsed = valueParser(
-    typeof node.raws.value === "undefined" ? node[key] : node.raws.value.raw
+    node.raws && node.raws.value && node.raws.value.raw
+      ? node.raws.value.raw
+      : node[key]
   );
 
   let inBetween;
 
-  if (typeof node.raws.between !== "undefined") {
+  if (node.raws && node.raws.between) {
     const lastCommentIndex = node.raws.between.lastIndexOf("/*");
 
     const matched = node.raws.between

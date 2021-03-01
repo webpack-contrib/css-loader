@@ -246,3 +246,10 @@
     /*webpackIgnore:  true*/
     url('./url/img.png');
 }
+
+@font-face {
+    font-family: "anticon";
+    src: url("//at.alicdn.com/t/font_1434092639_4910953.eot?#iefix") format("embedded-opentype"),
+    /* this comment is required */
+    url("//at.alicdn.com/t/font_1434092639_4910953.woff") format("woff");
+}

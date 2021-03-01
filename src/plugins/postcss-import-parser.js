@@ -14,7 +14,11 @@ function visitor(result, parsedResults, node, key) {
     return;
   }
 
-  if (node.raws.afterName && node.raws.afterName.trim().length > 0) {
+  if (
+    node.raws &&
+    node.raws.afterName &&
+    node.raws.afterName.trim().length > 0
+  ) {
     const lastCommentIndex = node.raws.afterName.lastIndexOf("/*");
     const matched = node.raws.afterName
       .slice(lastCommentIndex)
