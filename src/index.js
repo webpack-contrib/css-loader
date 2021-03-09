@@ -19,6 +19,7 @@ import {
   shouldUseURLPlugin,
   shouldUseIcssPlugin,
   getPreRequester,
+  combineRequests,
   getExportCode,
   getFilter,
   getImportCode,
@@ -79,7 +80,7 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            getPreRequester(this)(options.importLoaders) + url
+            combineRequests(getPreRequester(this)(options.importLoaders), url)
           ),
       })
     );
@@ -131,7 +132,7 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            getPreRequester(this)(options.importLoaders) + url
+            combineRequests(getPreRequester(this)(options.importLoaders), url)
           ),
       })
     );

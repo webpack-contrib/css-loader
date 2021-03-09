@@ -437,6 +437,16 @@ function getPreRequester({ loaders, loaderIndex }) {
   };
 }
 
+function combineRequests(preRequest, url) {
+  const idx = url.indexOf("!=!");
+  const combinedRequest =
+    idx !== -1
+      ? url.slice(0, idx + 3) + preRequest + url.slice(idx + 3)
+      : preRequest + url;
+
+  return combinedRequest;
+}
+
 function getImportCode(imports, options) {
   let code = "";
 
@@ -716,6 +726,7 @@ export {
   getModulesPlugins,
   normalizeSourceMap,
   getPreRequester,
+  combineRequests,
   getImportCode,
   getModuleCode,
   getExportCode,

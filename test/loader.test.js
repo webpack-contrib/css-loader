@@ -524,4 +524,43 @@ describe("loader", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work with !=! inline loader syntax", async () => {
+    const compiler = getCompiler(
+      "./inline-loader-syntax/index.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.s?css$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: {
+                    importLoaders: 1,
+                    modules: { auto: true },
+                  },
+                },
+                "sass-loader",
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./inline-loader-syntax/modules.css", stats)
+    ).toMatchSnapshot("module");
+    expect(
+      getModuleSource("./inline-loader-syntax/plain.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

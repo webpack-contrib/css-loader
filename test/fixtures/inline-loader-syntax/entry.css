@@ -1,0 +1,13 @@
+
+@import 'Other.module.scss!=!./modules.css';
+
+@import 'Plain.scss!=!./plain.css';
+
+$color: red;
+
+// Uses Sass syntax
+.foo {
+  > .bar {
+    color: $color;
+  }
+}

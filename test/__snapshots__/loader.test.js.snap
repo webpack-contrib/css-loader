@@ -225,6 +225,58 @@ You may need an appropriate loader to handle this file type, currently no loader
 
 exports[`loader should throws error when no loader(s) for assets: warnings 1`] = `Array []`;
 
+exports[`loader should work with !=! inline loader syntax: errors 1`] = `Array []`;
+
+exports[`loader should work with !=! inline loader syntax: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".foo > .bar {\\\\n  color: red;\\\\n}\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should work with !=! inline loader syntax: module 2`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".baz {\\\\n  width: 5px;\\\\n}\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should work with !=! inline loader syntax: result 1`] = `
+Array [
+  Array [
+    "Other.module.scss!=!../../src/index.js?[ident]!./inline-loader-syntax/modules.css",
+    ".foo > .bar {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    "Plain.scss!=!../../src/index.js?[ident]!./inline-loader-syntax/plain.css",
+    ".baz {
+  width: 5px;
+}",
+    "",
+  ],
+  Array [
+    "./inline-loader-syntax/entry.css",
+    ".foo > .bar {
+  color: red;
+}",
+    "",
+  ],
+]
+`;
+
+exports[`loader should work with !=! inline loader syntax: warnings 1`] = `Array []`;
+
 exports[`loader should work with "asset" module type: errors 1`] = `Array []`;
 
 exports[`loader should work with "asset" module type: module 1`] = `
