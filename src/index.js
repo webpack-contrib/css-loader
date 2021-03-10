@@ -66,7 +66,6 @@ export default async function loader(content, map, meta) {
       extensions: [".css"],
       mainFields: ["css", "style", "main", "..."],
       mainFiles: ["index", "..."],
-      restrictions: [/\.css$/i],
     });
 
     plugins.push(

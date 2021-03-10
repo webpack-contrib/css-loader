@@ -143,3 +143,9 @@ st.css');
 
 @import url('something.css?foo=1&bar=2');
 @import url('something.css?foo=2&bar=1');
+
+@import "   ./test.css   ";
+@import url('   ./test.css   ');
+@import url(   ./test.css   );
+
+@import "./my.scss";
