@@ -703,6 +703,14 @@ function sort(a, b) {
   return a.index - b.index;
 }
 
+function combineRequests(preRequest, url) {
+  const idx = url.indexOf("!=!");
+
+  return idx !== -1
+    ? url.slice(0, idx + 3) + preRequest + url.slice(idx + 3)
+    : preRequest + url;
+}
+
 export {
   normalizeOptions,
   shouldUseModulesPlugins,
@@ -723,4 +731,5 @@ export {
   isUrlRequestable,
   sort,
   webpackIgnoreCommentRegexp,
+  combineRequests,
 };

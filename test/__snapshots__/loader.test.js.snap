@@ -636,6 +636,111 @@ a[href=\\"\\" i] {
 
 exports[`loader should work with empty options: warnings 1`] = `Array []`;
 
+exports[`loader should work with inline module syntax: errors 1`] = `Array []`;
+
+exports[`loader should work with inline module syntax: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"other.modules.css!=!-!../../src/index.js??[ident]!./index-loader-syntax.modules.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"plain.scss!=!-!../../src/index.js??[ident]!./index-loader-syntax-sass.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"other.modules.scss!=!-!../../src/index.js??[ident]!./index-loader-syntax-sass.modules.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"other.modules.css!=!-!../../src/index.js??[ident]!./index-loader-syntax.modules.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_4___ from \\"plain.scss!=!-!../../src/index.js??[ident]!./index-loader-syntax.modules.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_5___ from \\"other.modules.scss!=!-!../../src/index.js??[ident]!./index-loader-syntax-sass.modules.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_2___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_3___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_4___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_5___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".a {\\\\n  color: red;\\\\n}\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should work with inline module syntax: result 1`] = `
+Array [
+  Array [
+    "other.modules.css!=!../../src/index.js?[ident]!./index-loader-syntax.modules.css",
+    "._1ZJhuRHDA53bY_Z4Qfm2b4 {
+  color: red;
+}
+
+.j3CQSVq_DdDvo0Ew74yQi {
+  color: white;
+}",
+    "",
+  ],
+  Array [
+    "plain.scss!=!../../src/index.js?[ident]!./index-loader-syntax-sass.css",
+    ".baz {
+  width: 5px;
+}",
+    "",
+  ],
+  Array [
+    "other.modules.scss!=!../../src/index.js?[ident]!./index-loader-syntax-sass.modules.css",
+    "._1fGl5mRxLFCqIet0X3JYrB > ._2pVMnENaxk1YmKug-4EMYF {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    "other.modules.css!=!../../src/index.js?[ident]!./index-loader-syntax.modules.css",
+    "._1ZJhuRHDA53bY_Z4Qfm2b4 {
+  color: red;
+}
+
+.j3CQSVq_DdDvo0Ew74yQi {
+  color: white;
+}
+
+.B7fdaUjwJ3YVou1v7dYEE {
+  from: custom;
+}",
+    "",
+  ],
+  Array [
+    "other.modules.css!=!../../src/index.js?[ident]!./index-loader-syntax.modules.css",
+    "._1ZJhuRHDA53bY_Z4Qfm2b4 {
+  color: red;
+}
+
+.j3CQSVq_DdDvo0Ew74yQi {
+  color: white;
+}
+
+.B7fdaUjwJ3YVou1v7dYEE {
+  from: custom;
+}",
+    "",
+  ],
+  Array [
+    "other.modules.scss!=!../../src/index.js?[ident]!./index-loader-syntax-sass.modules.css",
+    "._1fGl5mRxLFCqIet0X3JYrB > ._2pVMnENaxk1YmKug-4EMYF {
+  color: red;
+}
+
+._1kK_VYa-N303wnLgpvL-7d {
+  from: custom;
+}",
+    "",
+  ],
+  Array [
+    "./index-loader-syntax.css",
+    ".a {
+  color: red;
+}",
+    "",
+  ],
+]
+`;
+
+exports[`loader should work with inline module syntax: warnings 1`] = `Array []`;
+
 exports[`loader should work with none AST metadata: errors 1`] = `Array []`;
 
 exports[`loader should work with none AST metadata: result 1`] = `

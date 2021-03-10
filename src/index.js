@@ -26,6 +26,7 @@ import {
   getModulesPlugins,
   normalizeSourceMap,
   sort,
+  combineRequests,
 } from "./utils";
 
 export default async function loader(content, map, meta) {
@@ -79,7 +80,7 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            getPreRequester(this)(options.importLoaders) + url
+            combineRequests(getPreRequester(this)(options.importLoaders), url)
           ),
       })
     );
@@ -131,7 +132,7 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            getPreRequester(this)(options.importLoaders) + url
+            combineRequests(getPreRequester(this)(options.importLoaders), url)
           ),
       })
     );
