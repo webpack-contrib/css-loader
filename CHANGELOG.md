@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.1.2](https://github.com/webpack-contrib/css-loader/compare/v5.1.1...v5.1.2) (2021-03-10)
+
+
+### Bug Fixes
+
+* handling `@import` with spaces before and after and any extensions ([#1272](https://github.com/webpack-contrib/css-loader/issues/1272)) ([0c47cf7](https://github.com/webpack-contrib/css-loader/commit/0c47cf7ccbe3635900e8e8840650f69a7eca004d))
+* inline loader syntax in `@import` and modules ([3f49ed0](https://github.com/webpack-contrib/css-loader/commit/3f49ed0864457f9467f560856377c890c392aee7))
+
 ### [5.1.1](https://github.com/webpack-contrib/css-loader/compare/v5.1.0...v5.1.1) (2021-03-01)
 
 
