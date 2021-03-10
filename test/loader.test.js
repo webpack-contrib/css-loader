@@ -524,4 +524,39 @@ describe("loader", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work with inline module syntax", async () => {
+    const compiler = getCompiler(
+      "./index-loader-syntax.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.s?[ca]ss$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: { importLoaders: 1 },
+                },
+                {
+                  loader: "sass-loader",
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./index-loader-syntax.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });
