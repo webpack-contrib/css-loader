@@ -8,6 +8,10 @@ export default (asset, compiler, stats) => {
       // Todo remove after drop webpack@4
       // eslint-disable-next-line no-param-reassign
       module[0] = module[0].replace(/\?.*!/g, "?[ident]!");
+      // eslint-disable-next-line no-param-reassign
+      module[0] = module[0].replace(/!\.\/=!/g, "!=!");
+      // eslint-disable-next-line no-param-reassign
+      module[0] = module[0].replace(/\.\/(.+)!=!/g, "$1!=!");
 
       return module;
     });
