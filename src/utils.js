@@ -79,7 +79,9 @@ function defaultGetLocalIdent(
 }
 
 function normalizeUrl(url, isStringValue) {
-  let normalizedUrl = url;
+  let normalizedUrl = url
+    .replace(/^( |\t\n|\r\n|\r|\f)*/g, "")
+    .replace(/( |\t\n|\r\n|\r|\f)*$/g, "");
 
   if (isStringValue && /\\(\n|\r\n|\r|\f)/.test(normalizedUrl)) {
     normalizedUrl = normalizedUrl.replace(/\\(\n|\r\n|\r|\f)/g, "");
