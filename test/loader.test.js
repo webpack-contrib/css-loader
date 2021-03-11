@@ -553,6 +553,7 @@ describe("loader", () => {
     expect(getModuleSource("./index-loader-syntax.css", stats)).toMatchSnapshot(
       "module"
     );
+
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );

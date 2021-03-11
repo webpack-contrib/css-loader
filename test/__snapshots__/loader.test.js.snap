@@ -675,7 +675,7 @@ Array [
     "",
   ],
   Array [
-    "plain.scss!=!../../src/index.js?[ident]!./index-loader-syntax-sass.css",
+    "button.modules.css!=!./index-loader-syntax-sass.css",
     ".baz {
   width: 5px;
 }",
@@ -732,6 +732,20 @@ Array [
   Array [
     "./index-loader-syntax.css",
     ".a {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    "button.modules.css!=!./index-loader-syntax-sass.css",
+    ".baz {
+  width: 5px;
+}",
+    "",
+  ],
+  Array [
+    "button.module.scss!=!./base64-loader/index.js?[ident]!./simple.js",
+    ".foo {
   color: red;
 }",
     "",
