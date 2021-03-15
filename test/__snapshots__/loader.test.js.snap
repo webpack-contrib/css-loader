@@ -675,8 +675,8 @@ Array [
     "",
   ],
   Array [
-    "plain.scss!=!../../src/index.js?[ident]!./index-loader-syntax-sass.css",
-    ".baz {
+    "button.modules.css!=!./index-loader-syntax-sass.css",
+    ".iuzmhXWrT3_Z-zKS-rMGM {
   width: 5px;
 }",
     "",
@@ -732,6 +732,20 @@ Array [
   Array [
     "./index-loader-syntax.css",
     ".a {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    "button.modules.css!=!./index-loader-syntax-sass.css",
+    ".iuzmhXWrT3_Z-zKS-rMGM {
+  width: 5px;
+}",
+    "",
+  ],
+  Array [
+    "button.module.scss!=!./base64-loader/index.js?[ident]!./simple.js",
+    "._1DaPRMj4jImbX3XSIzjaR4 {
   color: red;
 }",
     "",

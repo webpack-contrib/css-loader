@@ -126,7 +126,10 @@ const moduleRegExp = /\.module(s)?\.\w+$/i;
 const icssRegExp = /\.icss\.\w+$/i;
 
 function getModulesOptions(rawOptions, loaderContext) {
-  const { resourcePath } = loaderContext;
+  const resourcePath =
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._module.matchResource || loaderContext.resourcePath;
+
   let isIcss;
 
   if (typeof rawOptions.modules === "undefined") {
