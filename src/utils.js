@@ -68,28 +68,22 @@ function defaultGetLocalIdent(
   localName,
   options
 ) {
-  let matchResourceRequest;
+  let relativeMatchResource = "";
 
-  // // eslint-disable-next-line no-underscore-dangle
-  // if (loaderContext._module.matchResource) {
-  //   matchResourceRequest = normalizePath(
-  //     // eslint-disable-next-line no-underscore-dangle
-  //     path.relative(options.context, loaderContext._module.matchResource)
-  //   );
-  // }
+  // eslint-disable-next-line no-underscore-dangle
+  if (loaderContext._module.matchResource) {
+    relativeMatchResource = `${normalizePath(
+      // eslint-disable-next-line no-underscore-dangle
+      path.relative(options.context, loaderContext._module.matchResource)
+    )}\x00`;
+  }
 
-  const request = normalizePath(
+  const relativeResourcePath = normalizePath(
     path.relative(options.context, loaderContext.resourcePath)
   );
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${
-    options.hashPrefix +
-    (typeof matchResourceRequest !== "undefined"
-      ? `${matchResourceRequest}\x00`
-      : "") +
-    request
-  }\x00${localName}`;
+  options.content = `${options.hashPrefix}${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
 
   return interpolateName(loaderContext, localIdentName, options);
 }
