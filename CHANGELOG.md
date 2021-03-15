@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.1.3](https://github.com/webpack-contrib/css-loader/compare/v5.1.2...v5.1.3) (2021-03-15)
+
+
+### Bug Fixes
+
+* the `auto` option works using inline module syntax ([#1274](https://github.com/webpack-contrib/css-loader/issues/1274)) ([1db2f4d](https://github.com/webpack-contrib/css-loader/commit/1db2f4df3ff9ae8f0667a2304853c8e7cdd0afc1))
+* ident generation for CSS modules using inline module syntax ([#1274](https://github.com/webpack-contrib/css-loader/issues/1274)) ([1db2f4d](https://github.com/webpack-contrib/css-loader/commit/1db2f4df3ff9ae8f0667a2304853c8e7cdd0afc1))
+
 ### [5.1.2](https://github.com/webpack-contrib/css-loader/compare/v5.1.1...v5.1.2) (2021-03-10)
 
 
