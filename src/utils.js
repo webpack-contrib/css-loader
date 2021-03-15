@@ -69,11 +69,17 @@ function defaultGetLocalIdent(
   options
 ) {
   const { context, hashPrefix } = options;
+  // eslint-disable-next-line no-underscore-dangle
+  const { matchResource } = loaderContext._module;
   const { resourcePath } = loaderContext;
   const request = normalizePath(path.relative(context, resourcePath));
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${hashPrefix + request}\x00${localName}`;
+  options.content = `${
+    hashPrefix +
+    (typeof matchResource !== "undefined" ? `${matchResource}\x00` : "") +
+    request
+  }\x00${localName}`;
 
   return interpolateName(loaderContext, localIdentName, options);
 }

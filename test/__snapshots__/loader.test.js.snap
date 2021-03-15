@@ -665,66 +665,66 @@ exports[`loader should work with inline module syntax: result 1`] = `
 Array [
   Array [
     "other.modules.css!=!../../src/index.js?[ident]!./index-loader-syntax.modules.css",
-    "._1ZJhuRHDA53bY_Z4Qfm2b4 {
+    "._3FhluglYfH54WWRd2Lmpsy {
   color: red;
 }
 
-.j3CQSVq_DdDvo0Ew74yQi {
+._3danpknEEa0R3CZCkFeRI0 {
   color: white;
 }",
     "",
   ],
   Array [
     "button.modules.css!=!./index-loader-syntax-sass.css",
-    ".iuzmhXWrT3_Z-zKS-rMGM {
+    ".C6WgXrKWbFsSifATWfzu {
   width: 5px;
 }",
     "",
   ],
   Array [
     "other.modules.scss!=!../../src/index.js?[ident]!./index-loader-syntax-sass.modules.css",
-    "._1fGl5mRxLFCqIet0X3JYrB > ._2pVMnENaxk1YmKug-4EMYF {
+    "._2r_y8mGYyCwfbs1_VPTK5C > ._1yssyumFL0m4gBbuzRhER2 {
   color: red;
 }",
     "",
   ],
   Array [
     "other.modules.css!=!../../src/index.js?[ident]!./index-loader-syntax.modules.css",
-    "._1ZJhuRHDA53bY_Z4Qfm2b4 {
+    "._3FhluglYfH54WWRd2Lmpsy {
   color: red;
 }
 
-.j3CQSVq_DdDvo0Ew74yQi {
+._3danpknEEa0R3CZCkFeRI0 {
   color: white;
 }
 
-.B7fdaUjwJ3YVou1v7dYEE {
+._3lQ9E7_p8EySCyfUghDtwz {
   from: custom;
 }",
     "",
   ],
   Array [
     "other.modules.css!=!../../src/index.js?[ident]!./index-loader-syntax.modules.css",
-    "._1ZJhuRHDA53bY_Z4Qfm2b4 {
+    "._3FhluglYfH54WWRd2Lmpsy {
   color: red;
 }
 
-.j3CQSVq_DdDvo0Ew74yQi {
+._3danpknEEa0R3CZCkFeRI0 {
   color: white;
 }
 
-.B7fdaUjwJ3YVou1v7dYEE {
+._3lQ9E7_p8EySCyfUghDtwz {
   from: custom;
 }",
     "",
   ],
   Array [
     "other.modules.scss!=!../../src/index.js?[ident]!./index-loader-syntax-sass.modules.css",
-    "._1fGl5mRxLFCqIet0X3JYrB > ._2pVMnENaxk1YmKug-4EMYF {
+    "._2r_y8mGYyCwfbs1_VPTK5C > ._1yssyumFL0m4gBbuzRhER2 {
   color: red;
 }
 
-._1kK_VYa-N303wnLgpvL-7d {
+._3B3N-_-uymcqQkGiRwYhjx {
   from: custom;
 }",
     "",
@@ -738,14 +738,21 @@ Array [
   ],
   Array [
     "button.modules.css!=!./index-loader-syntax-sass.css",
-    ".iuzmhXWrT3_Z-zKS-rMGM {
+    ".C6WgXrKWbFsSifATWfzu {
   width: 5px;
 }",
     "",
   ],
   Array [
-    "button.module.scss!=!./base64-loader/index.js?[ident]!./simple.js",
-    "._1DaPRMj4jImbX3XSIzjaR4 {
+    "button.module.scss!=!./base64-loader/index.js?[ident]!./simple.js?foo=bar",
+    "._1Z1CpM4SYZX9egsUO4gNTz {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    "other.module.scss!=!./base64-loader/index.js?[ident]!./simple.js?foo=baz",
+    "._1KqQu-H04lA8NLg4-NKnDf {
   color: red;
 }",
     "",
