@@ -68,16 +68,26 @@ function defaultGetLocalIdent(
   localName,
   options
 ) {
-  const { context, hashPrefix } = options;
+  let matchResourceRequest;
+
   // eslint-disable-next-line no-underscore-dangle
-  const { matchResource } = loaderContext._module;
-  const { resourcePath } = loaderContext;
-  const request = normalizePath(path.relative(context, resourcePath));
+  if (loaderContext._module.matchResource) {
+    matchResourceRequest = normalizePath(
+      // eslint-disable-next-line no-underscore-dangle
+      path.relative(options.context, loaderContext._module.matchResource)
+    );
+  }
+
+  const request = normalizePath(
+    path.relative(options.context, loaderContext.resourcePath)
+  );
 
   // eslint-disable-next-line no-param-reassign
   options.content = `${
-    hashPrefix +
-    (typeof matchResource !== "undefined" ? `${matchResource}\x00` : "") +
+    options.hashPrefix +
+    (typeof matchResourceRequest !== "undefined"
+      ? `${matchResourceRequest}\x00`
+      : "") +
     request
   }\x00${localName}`;
 
