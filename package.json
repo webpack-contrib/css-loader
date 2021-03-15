@@ -67,7 +67,7 @@
     "del": "^6.0.0",
     "del-cli": "^3.0.1",
     "es-check": "^5.2.3",
-    "eslint": "^7.21.0",
+    "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "file-loader": "^6.2.0",
@@ -90,7 +90,7 @@
     "stylus": "^0.54.8",
     "stylus-loader": "^4.3.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.24.4"
+    "webpack": "^5.26.0"
   },
   "keywords": [
     "webpack",
