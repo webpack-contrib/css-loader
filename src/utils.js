@@ -68,12 +68,22 @@ function defaultGetLocalIdent(
   localName,
   options
 ) {
-  const { context, hashPrefix } = options;
-  const { resourcePath } = loaderContext;
-  const request = normalizePath(path.relative(context, resourcePath));
+  let relativeMatchResource = "";
+
+  // eslint-disable-next-line no-underscore-dangle
+  if (loaderContext._module.matchResource) {
+    relativeMatchResource = `${normalizePath(
+      // eslint-disable-next-line no-underscore-dangle
+      path.relative(options.context, loaderContext._module.matchResource)
+    )}\x00`;
+  }
+
+  const relativeResourcePath = normalizePath(
+    path.relative(options.context, loaderContext.resourcePath)
+  );
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${hashPrefix + request}\x00${localName}`;
+  options.content = `${options.hashPrefix}${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
 
   return interpolateName(loaderContext, localIdentName, options);
 }
@@ -126,7 +136,10 @@ const moduleRegExp = /\.module(s)?\.\w+$/i;
 const icssRegExp = /\.icss\.\w+$/i;
 
 function getModulesOptions(rawOptions, loaderContext) {
-  const { resourcePath } = loaderContext;
+  const resourcePath =
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._module.matchResource || loaderContext.resourcePath;
+
   let isIcss;
 
   if (typeof rawOptions.modules === "undefined") {
