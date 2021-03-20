@@ -261,7 +261,8 @@ const plugin = (options = {}) => {
 
             normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
 
-            if (!options.filter(normalizedUrl)) {
+            const processUrl = await options.filter(normalizedUrl);
+            if (!processUrl) {
               // eslint-disable-next-line no-continue
               continue;
             }

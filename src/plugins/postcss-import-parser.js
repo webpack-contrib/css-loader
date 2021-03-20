@@ -157,9 +157,12 @@ const plugin = (options = {}) => {
               media = valueParser.stringify(mediaNodes).trim().toLowerCase();
             }
 
-            if (options.filter && !options.filter(normalizedUrl, media)) {
-              // eslint-disable-next-line no-continue
-              continue;
+            if (options.filter) {
+              const processURL = await options.filter(normalizedUrl, media);
+              if (!processURL) {
+                // eslint-disable-next-line no-continue
+                continue;
+              }
             }
 
             node.remove();
