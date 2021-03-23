@@ -244,8 +244,6 @@ const plugin = (options = {}) => {
           const imports = new Map();
           const replacements = new Map();
 
-          let hasUrlImportHelper = false;
-
           for (const parsedResult of parsedResults) {
             const { url, isStringValue } = parsedResult.rule;
 
@@ -261,8 +259,39 @@ const plugin = (options = {}) => {
 
             normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
 
-            const processUrl = await options.filter(normalizedUrl);
-            if (!processUrl) {
+            tasks.push(
+              (async () => {
+                const processUrl = await options.filter(normalizedUrl);
+                if (!processUrl) {
+                  return null;
+                }
+
+                const splittedUrl = normalizedUrl.split(/(\?)?#/);
+                const [pathname, query, hashOrQuery] = splittedUrl;
+
+                let hash = query ? "?" : "";
+                hash += hashOrQuery ? `#${hashOrQuery}` : "";
+
+                const request = requestify(pathname, options.rootContext);
+
+                const { resolver, context } = options;
+                const resolvedUrl = await resolveRequests(resolver, context, [
+                  ...new Set([request, normalizedUrl]),
+                ]);
+
+                return { url: resolvedUrl, prefix, hash, parsedResult };
+              })()
+            );
+          }
+
+          const results = await Promise.all(tasks);
+
+          let hasUrlImportHelper = false;
+
+          for (let index = 0; index <= results.length - 1; index++) {
+            const item = results[index];
+
+            if (item === null) {
               // eslint-disable-next-line no-continue
               continue;
             }
@@ -279,35 +308,12 @@ const plugin = (options = {}) => {
               hasUrlImportHelper = true;
             }
 
-            const splittedUrl = normalizedUrl.split(/(\?)?#/);
-            const [pathname, query, hashOrQuery] = splittedUrl;
-
-            let hash = query ? "?" : "";
-            hash += hashOrQuery ? `#${hashOrQuery}` : "";
-
-            const request = requestify(pathname, options.rootContext);
-
-            tasks.push(
-              (async () => {
-                const { resolver, context } = options;
-                const resolvedUrl = await resolveRequests(resolver, context, [
-                  ...new Set([request, normalizedUrl]),
-                ]);
-
-                return { url: resolvedUrl, prefix, hash, parsedResult };
-              })()
-            );
-          }
-
-          const results = await Promise.all(tasks);
-
-          for (let index = 0; index <= results.length - 1; index++) {
             const {
               url,
               prefix,
               hash,
               parsedResult: { node, rule, parsed },
-            } = results[index];
+            } = item;
             const newUrl = prefix ? `${prefix}!${url}` : url;
             const importKey = newUrl;
             let importName = imports.get(importKey);
