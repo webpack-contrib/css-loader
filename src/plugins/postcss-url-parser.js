@@ -134,11 +134,16 @@ function parseDeclaration(declaration, key, result, parsedResults) {
         prefix = queryParts.join("!");
       }
 
-      const nodeFromUrlFunc = getNodeFromUrlFunc(valueNode);
-      const rule = { node: nodeFromUrlFunc, prefix, url, needQuotes: false };
-
-      // TODO rename `node` and look what can be removed
-      parsedResults.push({ declaration, rule, parsed });
+      parsedResults.push({
+        declaration,
+        parsed,
+        rule: {
+          node: getNodeFromUrlFunc(valueNode),
+          prefix,
+          url,
+          needQuotes: false,
+        },
+      });
 
       // eslint-disable-next-line consistent-return
       return false;
@@ -196,15 +201,16 @@ function parseDeclaration(declaration, key, result, parsedResults) {
             prefix = queryParts.join("!");
           }
 
-          const nodeFromUrlFunc = getNodeFromUrlFunc(nNode);
-          const rule = {
-            node: nodeFromUrlFunc,
-            prefix,
-            url,
-            needQuotes: false,
-          };
-
-          parsedResults.push({ declaration, rule, parsed });
+          parsedResults.push({
+            declaration,
+            parsed,
+            rule: {
+              node: getNodeFromUrlFunc(nNode),
+              prefix,
+              url,
+              needQuotes: false,
+            },
+          });
         } else if (type === "string") {
           needIgnore = getWebpackIgnoreCommentValue(
             innerIndex,
@@ -249,9 +255,11 @@ function parseDeclaration(declaration, key, result, parsedResults) {
             prefix = queryParts.join("!");
           }
 
-          const rule = { node: nNode, prefix, url, needQuotes: true };
-
-          parsedResults.push({ declaration, rule, parsed });
+          parsedResults.push({
+            declaration,
+            parsed,
+            rule: { node: nNode, prefix, url, needQuotes: true },
+          });
         }
       }
 
