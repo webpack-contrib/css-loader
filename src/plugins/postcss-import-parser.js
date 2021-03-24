@@ -99,13 +99,6 @@ function parseNode(node, key) {
     throw error;
   }
 
-  const mediaNodes = paramsNodes.slice(1);
-  let media;
-
-  if (mediaNodes.length > 0) {
-    media = valueParser.stringify(mediaNodes).trim().toLowerCase();
-  }
-
   // TODO rename to url
   let normalizedUrl = normalizeUrl(url, isStringValue);
 
@@ -135,6 +128,13 @@ function parseNode(node, key) {
 
       throw error;
     }
+  }
+
+  const mediaNodes = paramsNodes.slice(1);
+  let media;
+
+  if (mediaNodes.length > 0) {
+    media = valueParser.stringify(mediaNodes).trim().toLowerCase();
   }
 
   // eslint-disable-next-line consistent-return
