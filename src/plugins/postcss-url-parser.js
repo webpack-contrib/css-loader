@@ -241,8 +241,6 @@ const plugin = (options = {}) => {
           }
 
           const tasks = [];
-          const imports = new Map();
-          const replacements = new Map();
 
           for (const parsedResult of parsedDeclarations) {
             const { url, isStringValue } = parsedResult.rule;
@@ -286,6 +284,9 @@ const plugin = (options = {}) => {
 
           const results = await Promise.all(tasks);
 
+          const urlToNameMap = new Map();
+          const urlToReplacementMap = new Map();
+
           let hasUrlImportHelper = false;
 
           for (let index = 0; index <= results.length - 1; index++) {
@@ -315,11 +316,11 @@ const plugin = (options = {}) => {
               parsedResult: { node, rule, parsed },
             } = item;
             const newUrl = prefix ? `${prefix}!${url}` : url;
-            let importName = imports.get(newUrl);
+            let importName = urlToNameMap.get(newUrl);
 
             if (!importName) {
-              importName = `___CSS_LOADER_URL_IMPORT_${imports.size}___`;
-              imports.set(newUrl, importName);
+              importName = `___CSS_LOADER_URL_IMPORT_${urlToNameMap.size}___`;
+              urlToNameMap.set(newUrl, importName);
 
               options.imports.push({
                 importName,
@@ -330,11 +331,11 @@ const plugin = (options = {}) => {
 
             const { needQuotes } = item.parsedResult.rule;
             const replacementKey = JSON.stringify({ newUrl, hash, needQuotes });
-            let replacementName = replacements.get(replacementKey);
+            let replacementName = urlToReplacementMap.get(replacementKey);
 
             if (!replacementName) {
-              replacementName = `___CSS_LOADER_URL_REPLACEMENT_${replacements.size}___`;
-              replacements.set(replacementKey, replacementName);
+              replacementName = `___CSS_LOADER_URL_REPLACEMENT_${urlToReplacementMap.size}___`;
+              urlToReplacementMap.set(replacementKey, replacementName);
 
               options.replacements.push({
                 replacementName,
