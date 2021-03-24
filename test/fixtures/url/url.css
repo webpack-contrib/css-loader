@@ -350,12 +350,6 @@ a {
   background: url(./img\'\28%29\ img.png);
 }
 
-/* TODO need refactor tests after drop webpack@4 due inline syntax `!../../helpers/url-loader.js?esModule=false!~package/img.png` */
-/* We need to use `resourceQuery: /inline/` */
-/*.qqq {*/
-/*  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')*/
-/*}*/
-
 .class {
   /* Should be one import */
   background: url('./something.png');
@@ -389,3 +383,14 @@ a {
 .my-background {
   background-image: url("/guide/img/banWord/addCoinDialogTitleBg.png");
 }
+
+.class {
+  background: url('./img.png', 'foo', './img.png', url('./img.png'));
+  background-image: image-set(url('./img.png', 'foo', './img.png', url('./img.png')) 1x, url("./img2x.png") 2x);
+}
+
+/* We need to use `resourceQuery: /inline/` */
+/* Hard to test on webpack v4 */
+/*.qqq {*/
+/*  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')*/
+/*}*/

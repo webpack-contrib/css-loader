@@ -149,3 +149,7 @@ st.css');
 @import url(   ./test.css   );
 
 @import "./my.scss";
+
+@import url('   https://fonts.googleapis.com/css?family=Roboto   ');
+@import url('!!../../helpers/string-loader.js?esModule=false!');
+@import url('   !!../../helpers/string-loader.js?esModule=false!~package/tilde.css   ');
