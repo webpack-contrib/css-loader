@@ -151,3 +151,4 @@ st.css');
 @import "./my.scss";
 
 @import url('   https://fonts.googleapis.com/css?family=Roboto   ');
+@import url('!!../../helpers/string-loader.js?esModule=false!');

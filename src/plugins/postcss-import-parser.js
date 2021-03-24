@@ -98,8 +98,7 @@ function visitor(result, parsedResults, node, key) {
     media = valueParser.stringify(mediaNodes).trim().toLowerCase();
   }
 
-  const normalizedUrl = normalizeUrl(url, isStringValue);
-  const isRequestable = isUrlRequestable(normalizedUrl);
+  let normalizedUrl = normalizeUrl(url, isStringValue);
 
   if (normalizedUrl.trim().length === 0) {
     result.warn(`Unable to find uri in "${node.toString()}"`, {
@@ -109,7 +108,33 @@ function visitor(result, parsedResults, node, key) {
     return;
   }
 
-  parsedResults.push({ node, url: normalizedUrl, isRequestable, media });
+  const isRequestable = isUrlRequestable(normalizedUrl);
+  let prefix;
+
+  if (isRequestable) {
+    const queryParts = normalizedUrl.split("!");
+
+    if (queryParts.length > 1) {
+      normalizedUrl = queryParts.pop();
+      prefix = queryParts.join("!");
+    }
+
+    if (normalizedUrl.trim().length === 0) {
+      result.warn(`Unable to find uri in "${node.toString()}"`, {
+        node,
+      });
+
+      return;
+    }
+  }
+
+  parsedResults.push({
+    node,
+    prefix,
+    url: normalizedUrl,
+    isRequestable,
+    media,
+  });
 }
 
 const plugin = (options = {}) => {
@@ -133,24 +158,13 @@ const plugin = (options = {}) => {
           const tasks = [];
 
           for (const parsedResult of parsedResults) {
-            const { node, isRequestable, url, media } = parsedResult;
-
-            let normalizedUrl = url;
-            let prefix = "";
-
-            if (isRequestable) {
-              const queryParts = normalizedUrl.split("!");
-
-              if (queryParts.length > 1) {
-                normalizedUrl = queryParts.pop();
-                prefix = queryParts.join("!");
-              }
-            }
+            const { node, isRequestable, prefix, url, media } = parsedResult;
 
             tasks.push(
               (async () => {
                 if (options.filter) {
-                  const processURL = await options.filter(normalizedUrl, media);
+                  const processURL = await options.filter(url, media);
+
                   if (!processURL) {
                     return null;
                   }
@@ -159,14 +173,11 @@ const plugin = (options = {}) => {
                 node.remove();
 
                 if (isRequestable) {
-                  const request = requestify(
-                    normalizedUrl,
-                    options.rootContext
-                  );
+                  const request = requestify(url, options.rootContext);
 
                   const { resolver, context } = options;
                   const resolvedUrl = await resolveRequests(resolver, context, [
-                    ...new Set([request, normalizedUrl]),
+                    ...new Set([request, url]),
                   ]);
 
                   return { url: resolvedUrl, media, prefix, isRequestable };
