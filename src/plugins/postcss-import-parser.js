@@ -92,7 +92,7 @@ function parseNode(node, key) {
   url = normalizeUrl(url, isStringValue);
 
   // Empty url - `@import "";` or `@import url();`
-  if (url.trim().length === 0) {
+  if (url.length === 0) {
     const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
     error.node = node;
