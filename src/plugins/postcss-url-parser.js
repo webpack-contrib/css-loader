@@ -273,7 +273,7 @@ const plugin = (options = {}) => {
 
           const resolvedDeclarations = await Promise.all(
             parsedDeclarations.map(async (parsedDeclaration) => {
-              const { url, prefix } = parsedDeclaration.rule;
+              const { url } = parsedDeclaration.rule;
 
               if (options.filter) {
                 const needKeep = await options.filter(url);
@@ -296,7 +296,7 @@ const plugin = (options = {}) => {
                 ...new Set([request, url]),
               ]);
 
-              return { url: resolvedUrl, prefix, hash, parsedDeclaration };
+              return { url: resolvedUrl, hash, ...parsedDeclaration };
             })
           );
 
@@ -327,12 +327,7 @@ const plugin = (options = {}) => {
               hasUrlImportHelper = true;
             }
 
-            const {
-              url,
-              prefix,
-              hash,
-              parsedDeclaration: { node, rule, parsed },
-            } = item;
+            const { url, prefix, hash } = item;
             const newUrl = prefix ? `${prefix}!${url}` : url;
             let importName = urlToNameMap.get(newUrl);
 
@@ -347,7 +342,7 @@ const plugin = (options = {}) => {
               });
             }
 
-            const { needQuotes } = item.parsedDeclaration.rule;
+            const { needQuotes } = item.rule;
             const replacementKey = JSON.stringify({ newUrl, hash, needQuotes });
             let replacementName = urlToReplacementMap.get(replacementKey);
 
@@ -364,12 +359,11 @@ const plugin = (options = {}) => {
             }
 
             // eslint-disable-next-line no-param-reassign
-            rule.node.type = "word";
+            item.rule.node.type = "word";
             // eslint-disable-next-line no-param-reassign
-            rule.node.value = replacementName;
-
+            item.rule.node.value = replacementName;
             // eslint-disable-next-line no-param-reassign
-            node.value = parsed.toString();
+            item.node.value = item.parsed.toString();
           }
         },
       };
