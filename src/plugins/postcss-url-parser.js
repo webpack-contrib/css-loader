@@ -16,21 +16,6 @@ function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
 
-function shouldHandleRule(rule, node, result) {
-  // https://www.w3.org/TR/css-syntax-3/#typedef-url-token
-  if (rule.url.replace(/^[\s]+|[\s]+$/g, "").length === 0) {
-    result.warn(`Unable to find uri in '${node.toString()}'`, { node });
-
-    return false;
-  }
-
-  if (!isUrlRequestable(rule.url)) {
-    return false;
-  }
-
-  return true;
-}
-
 function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   if (index === 0 && typeof inBetween !== "undefined") {
     return inBetween;
@@ -123,20 +108,36 @@ function parseDeclaration(node, key, result, parsedResults) {
 
       const { nodes } = valueNode;
       const isStringValue = nodes.length !== 0 && nodes[0].type === "string";
-      const url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
-
-      const rule = {
-        node: getNodeFromUrlFunc(valueNode),
-        url,
-        needQuotes: false,
-        isStringValue,
-      };
-
-      if (shouldHandleRule(rule, node, result)) {
-        parsedResults.push({ node, rule, parsed });
-      }
+      let url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
+      url = normalizeUrl(url, isStringValue);
 
       // Do not traverse inside `url`
+      if (url.length === 0) {
+        result.warn(`Unable to find uri in '${node.toString()}'`, { node });
+
+        // eslint-disable-next-line consistent-return
+        return false;
+      }
+
+      if (!isUrlRequestable(url)) {
+        // eslint-disable-next-line consistent-return
+        return false;
+      }
+
+      const queryParts = url.split("!");
+      let prefix;
+
+      if (queryParts.length > 1) {
+        url = queryParts.pop();
+        prefix = queryParts.join("!");
+      }
+
+      const nodeFromUrlFunc = getNodeFromUrlFunc(valueNode);
+      const rule = { node: nodeFromUrlFunc, prefix, url, needQuotes: false };
+
+      // TODO rename `node` and look what can be removed
+      parsedResults.push({ node, rule, parsed });
+
       // eslint-disable-next-line consistent-return
       return false;
     } else if (isImageSetFunc.test(valueNode.value)) {
@@ -165,24 +166,41 @@ function parseDeclaration(node, key, result, parsedResults) {
           const { nodes } = nNode;
           const isStringValue =
             nodes.length !== 0 && nodes[0].type === "string";
-          const url = isStringValue
+          let url = isStringValue
             ? nodes[0].value
             : valueParser.stringify(nodes);
+          url = normalizeUrl(url, isStringValue);
 
+          // Do not traverse inside `url`
+          if (url.length === 0) {
+            result.warn(`Unable to find uri in '${node.toString()}'`, { node });
+
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+          if (!isUrlRequestable(url)) {
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+          const queryParts = url.split("!");
+          let prefix;
+
+          if (queryParts.length > 1) {
+            url = queryParts.pop();
+            prefix = queryParts.join("!");
+          }
+
+          const nodeFromUrlFunc = getNodeFromUrlFunc(nNode);
           const rule = {
-            node: getNodeFromUrlFunc(nNode),
+            node: nodeFromUrlFunc,
+            prefix,
             url,
             needQuotes: false,
-            isStringValue,
           };
 
-          if (shouldHandleRule(rule, node, result)) {
-            parsedResults.push({
-              node,
-              rule,
-              parsed,
-            });
-          }
+          parsedResults.push({ node, rule, parsed });
         } else if (type === "string") {
           needIgnore = getWebpackIgnoreCommentValue(
             innerIndex,
@@ -202,22 +220,35 @@ function parseDeclaration(node, key, result, parsedResults) {
             continue;
           }
 
-          const rule = {
-            node: nNode,
-            url: value,
-            needQuotes: true,
-            isStringValue: true,
-          };
+          let url = normalizeUrl(value, true);
 
-          if (shouldHandleRule(rule, node, result)) {
-            parsedResults.push({
-              node,
-              rule,
-              parsed,
-            });
+          // Do not traverse inside `url`
+          if (url.length === 0) {
+            result.warn(`Unable to find uri in '${node.toString()}'`, { node });
+
+            // eslint-disable-next-line no-continue
+            continue;
           }
+
+          if (!isUrlRequestable(url)) {
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+          const queryParts = url.split("!");
+          let prefix;
+
+          if (queryParts.length > 1) {
+            url = queryParts.pop();
+            prefix = queryParts.join("!");
+          }
+
+          const rule = { node: nNode, prefix, url, needQuotes: true };
+
+          parsedResults.push({ node, rule, parsed });
         }
       }
+
       // Do not traverse inside `image-set`
       // eslint-disable-next-line consistent-return
       return false;
@@ -243,29 +274,17 @@ const plugin = (options = {}) => {
           const tasks = [];
 
           for (const parsedResult of parsedDeclarations) {
-            const { url, isStringValue } = parsedResult.rule;
-
-            let normalizedUrl = url;
-            let prefix = "";
-
-            const queryParts = normalizedUrl.split("!");
-
-            if (queryParts.length > 1) {
-              normalizedUrl = queryParts.pop();
-              prefix = queryParts.join("!");
-            }
-
-            normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
+            const { url, prefix } = parsedResult.rule;
 
             tasks.push(
               (async () => {
-                const processUrl = await options.filter(normalizedUrl);
+                const processUrl = await options.filter(url);
 
                 if (!processUrl) {
                   return null;
                 }
 
-                const splittedUrl = normalizedUrl.split(/(\?)?#/);
+                const splittedUrl = url.split(/(\?)?#/);
                 const [pathname, query, hashOrQuery] = splittedUrl;
 
                 let hash = query ? "?" : "";
@@ -275,7 +294,7 @@ const plugin = (options = {}) => {
 
                 const { resolver, context } = options;
                 const resolvedUrl = await resolveRequests(resolver, context, [
-                  ...new Set([request, normalizedUrl]),
+                  ...new Set([request, url]),
                 ]);
 
                 return { url: resolvedUrl, prefix, hash, parsedResult };
