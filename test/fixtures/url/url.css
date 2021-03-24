@@ -390,6 +390,7 @@ a {
 }
 
 /* We need to use `resourceQuery: /inline/` */
-.qqq {
-  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')
-}
+/* Hard to test on webpack v4 */
+/*.qqq {*/
+/*  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')*/
+/*}*/
