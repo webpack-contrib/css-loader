@@ -47,7 +47,7 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
-function parseDeclaration(declaration, key, result, parsedResults) {
+function parseDeclaration(declaration, key, result) {
   if (!needParseDeclaration.test(declaration[key])) {
     return;
   }
@@ -85,6 +85,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
   }
 
   let needIgnore;
+
+  const parsedURLs = [];
 
   parsed.walk((valueNode, index, valueNodes) => {
     if (valueNode.type !== "function") {
@@ -134,7 +136,7 @@ function parseDeclaration(declaration, key, result, parsedResults) {
         prefix = queryParts.join("!");
       }
 
-      parsedResults.push({
+      parsedURLs.push({
         declaration,
         parsed,
         node: getNodeFromUrlFunc(valueNode),
@@ -199,7 +201,7 @@ function parseDeclaration(declaration, key, result, parsedResults) {
             prefix = queryParts.join("!");
           }
 
-          parsedResults.push({
+          parsedURLs.push({
             declaration,
             parsed,
             node: getNodeFromUrlFunc(nNode),
@@ -251,7 +253,7 @@ function parseDeclaration(declaration, key, result, parsedResults) {
             prefix = queryParts.join("!");
           }
 
-          parsedResults.push({
+          parsedURLs.push({
             declaration,
             parsed,
             node: nNode,
@@ -267,6 +269,9 @@ function parseDeclaration(declaration, key, result, parsedResults) {
       return false;
     }
   });
+
+  // eslint-disable-next-line consistent-return
+  return parsedURLs;
 }
 
 const plugin = (options = {}) => {
@@ -277,7 +282,19 @@ const plugin = (options = {}) => {
 
       return {
         Declaration(declaration) {
-          parseDeclaration(declaration, "value", result, parsedDeclarations);
+          let parsedURL;
+
+          try {
+            parsedURL = parseDeclaration(declaration, "value", result);
+          } catch (error) {
+            // Ignore
+          }
+
+          if (!parsedURL) {
+            return;
+          }
+
+          parsedDeclarations.push(...parsedURL);
         },
         async OnceExit() {
           if (parsedDeclarations.length === 0) {

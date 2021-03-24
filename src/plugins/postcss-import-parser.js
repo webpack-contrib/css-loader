@@ -127,34 +127,40 @@ const plugin = (options = {}) => {
   return {
     postcssPlugin: "postcss-import-parser",
     prepare(result) {
-      const parsedNodes = [];
+      const parsedAtRules = [];
 
       return {
         AtRule: {
           import(atRule) {
-            let parsedNode;
+            let parsedAtRule;
 
             try {
-              parsedNode = parseNode(atRule, "params", result);
+              parsedAtRule = parseNode(atRule, "params", result);
             } catch (error) {
               result.warn(error.message, { node: error.node });
             }
 
-            if (!parsedNode) {
+            if (!parsedAtRule) {
               return;
             }
 
-            parsedNodes.push(parsedNode);
+            parsedAtRules.push(parsedAtRule);
           },
         },
         async OnceExit() {
-          if (parsedNodes.length === 0) {
+          if (parsedAtRules.length === 0) {
             return;
           }
 
-          const resolvedNodes = await Promise.all(
-            parsedNodes.map(async (parsedNode) => {
-              const { atRule, isRequestable, prefix, url, media } = parsedNode;
+          const resolvedAtRules = await Promise.all(
+            parsedAtRules.map(async (parsedAtRule) => {
+              const {
+                atRule,
+                isRequestable,
+                prefix,
+                url,
+                media,
+              } = parsedAtRule;
 
               if (options.filter) {
                 const needKeep = await options.filter(url, media);
@@ -183,15 +189,15 @@ const plugin = (options = {}) => {
 
           const urlToNameMap = new Map();
 
-          for (let index = 0; index <= resolvedNodes.length - 1; index++) {
-            const item = resolvedNodes[index];
+          for (let index = 0; index <= resolvedAtRules.length - 1; index++) {
+            const resolvedAtRule = resolvedAtRules[index];
 
-            if (!item) {
+            if (!resolvedAtRule) {
               // eslint-disable-next-line no-continue
               continue;
             }
 
-            const { url, isRequestable, media } = item;
+            const { url, isRequestable, media } = resolvedAtRule;
 
             if (!isRequestable) {
               options.api.push({ url, media, index });
@@ -200,7 +206,7 @@ const plugin = (options = {}) => {
               continue;
             }
 
-            const { prefix } = item;
+            const { prefix } = resolvedAtRule;
             const newUrl = prefix ? `${prefix}!${url}` : url;
             let importName = urlToNameMap.get(newUrl);
 
