@@ -138,10 +138,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
         declaration,
         parsed,
         node: getNodeFromUrlFunc(valueNode),
-        rule: {
-          prefix,
-          url,
-        },
+        prefix,
+        url,
         needQuotes: false,
       });
 
@@ -205,10 +203,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
             declaration,
             parsed,
             node: getNodeFromUrlFunc(nNode),
-            rule: {
-              prefix,
-              url,
-            },
+            prefix,
+            url,
             needQuotes: false,
           });
         } else if (type === "string") {
@@ -259,7 +255,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
             declaration,
             parsed,
             node: nNode,
-            rule: { prefix, url },
+            prefix,
+            url,
             needQuotes: true,
           });
         }
@@ -289,7 +286,7 @@ const plugin = (options = {}) => {
 
           const resolvedDeclarations = await Promise.all(
             parsedDeclarations.map(async (parsedDeclaration) => {
-              const { url } = parsedDeclaration.rule;
+              const { url } = parsedDeclaration;
 
               if (options.filter) {
                 const needKeep = await options.filter(url);
@@ -312,7 +309,7 @@ const plugin = (options = {}) => {
                 ...new Set([request, url]),
               ]);
 
-              return { url: resolvedUrl, hash, ...parsedDeclaration };
+              return { ...parsedDeclaration, url: resolvedUrl, hash };
             })
           );
 
@@ -326,7 +323,7 @@ const plugin = (options = {}) => {
           for (let index = 0; index <= results.length - 1; index++) {
             const item = results[index];
 
-            if (item === null) {
+            if (!item) {
               // eslint-disable-next-line no-continue
               continue;
             }
@@ -343,7 +340,7 @@ const plugin = (options = {}) => {
               hasUrlImportHelper = true;
             }
 
-            const { url, prefix, hash } = item;
+            const { url, prefix } = item;
             const newUrl = prefix ? `${prefix}!${url}` : url;
             let importName = urlToNameMap.get(newUrl);
 
@@ -358,7 +355,7 @@ const plugin = (options = {}) => {
               });
             }
 
-            const { needQuotes } = item;
+            const { hash, needQuotes } = item;
             const replacementKey = JSON.stringify({ newUrl, hash, needQuotes });
             let replacementName = urlToReplacementMap.get(replacementKey);
 
