@@ -8,7 +8,7 @@ import {
   webpackIgnoreCommentRegexp,
 } from "../utils";
 
-function visitor(result, parsedImports, node, key) {
+function parseNode(node, key) {
   // Convert only top-level @import
   if (node.parent.type !== "root") {
     return;
@@ -41,12 +41,13 @@ function visitor(result, parsedImports, node, key) {
 
   // Nodes do not exists - `@import url('http://') :root {}`
   if (node.nodes) {
-    result.warn(
-      "It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
-      { node }
+    const error = new Error(
+      "It looks like you didn't end your @import statement correctly. Child nodes are attached to it."
     );
 
-    return;
+    error.node = node;
+
+    throw error;
   }
 
   const { nodes: paramsNodes } = valueParser(node[key]);
@@ -57,9 +58,11 @@ function visitor(result, parsedImports, node, key) {
     paramsNodes.length === 0 ||
     (paramsNodes[0].type !== "string" && paramsNodes[0].type !== "function")
   ) {
-    result.warn(`Unable to find uri in "${node.toString()}"`, { node });
+    const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
-    return;
+    error.node = node;
+
+    throw error;
   }
 
   let isStringValue;
@@ -71,9 +74,11 @@ function visitor(result, parsedImports, node, key) {
   } else {
     // Invalid function - `@import nourl(test.css);`
     if (paramsNodes[0].value.toLowerCase() !== "url") {
-      result.warn(`Unable to find uri in "${node.toString()}"`, { node });
+      const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
-      return;
+      error.node = node;
+
+      throw error;
     }
 
     isStringValue =
@@ -86,9 +91,11 @@ function visitor(result, parsedImports, node, key) {
 
   // Empty url - `@import "";` or `@import url();`
   if (url.trim().length === 0) {
-    result.warn(`Unable to find uri in "${node.toString()}"`, { node });
+    const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
-    return;
+    error.node = node;
+
+    throw error;
   }
 
   const mediaNodes = paramsNodes.slice(1);
@@ -101,11 +108,11 @@ function visitor(result, parsedImports, node, key) {
   let normalizedUrl = normalizeUrl(url, isStringValue);
 
   if (normalizedUrl.trim().length === 0) {
-    result.warn(`Unable to find uri in "${node.toString()}"`, {
-      node,
-    });
+    const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
-    return;
+    error.node = node;
+
+    throw error;
   }
 
   const isRequestable = isUrlRequestable(normalizedUrl);
@@ -120,42 +127,49 @@ function visitor(result, parsedImports, node, key) {
     }
 
     if (normalizedUrl.trim().length === 0) {
-      result.warn(`Unable to find uri in "${node.toString()}"`, {
-        node,
-      });
+      const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
-      return;
+      error.node = node;
+
+      throw error;
     }
   }
 
-  parsedImports.push({
-    node,
-    prefix,
-    url: normalizedUrl,
-    isRequestable,
-    media,
-  });
+  // eslint-disable-next-line consistent-return
+  return { node, prefix, url: normalizedUrl, isRequestable, media };
 }
 
 const plugin = (options = {}) => {
   return {
     postcssPlugin: "postcss-import-parser",
     prepare(result) {
-      const parsedImports = [];
+      const parsedNodes = [];
 
       return {
         AtRule: {
           import(atRule) {
-            visitor(result, parsedImports, atRule, "params");
+            let parsedNode;
+
+            try {
+              parsedNode = parseNode(atRule, "params", result);
+            } catch (error) {
+              result.warn(error.message, { node: error.node });
+            }
+
+            if (!parsedNode) {
+              return;
+            }
+
+            parsedNodes.push(parsedNode);
           },
         },
         async OnceExit() {
-          if (parsedImports.length === 0) {
+          if (parsedNodes.length === 0) {
             return;
           }
 
-          const resolvedImports = await Promise.all(
-            parsedImports.map(async (parsedResult) => {
+          const resolvedNodes = await Promise.all(
+            parsedNodes.map(async (parsedResult) => {
               const { node, isRequestable, prefix, url, media } = parsedResult;
 
               if (options.filter) {
@@ -183,10 +197,10 @@ const plugin = (options = {}) => {
             })
           );
 
-          const importToNameMap = new Map();
+          const urlToNameMap = new Map();
 
-          for (let index = 0; index <= resolvedImports.length - 1; index++) {
-            const item = resolvedImports[index];
+          for (let index = 0; index <= resolvedNodes.length - 1; index++) {
+            const item = resolvedNodes[index];
 
             if (!item) {
               // eslint-disable-next-line no-continue
@@ -195,30 +209,29 @@ const plugin = (options = {}) => {
 
             const { url, isRequestable, media } = item;
 
-            if (isRequestable) {
-              const { prefix } = item;
-              const newUrl = prefix ? `${prefix}!${url}` : url;
-              const importKey = newUrl;
-              let importName = importToNameMap.get(importKey);
-
-              if (!importName) {
-                importName = `___CSS_LOADER_AT_RULE_IMPORT_${importToNameMap.size}___`;
-                importToNameMap.set(importKey, importName);
-
-                options.imports.push({
-                  importName,
-                  url: options.urlHandler(newUrl),
-                  index,
-                });
-              }
-
-              options.api.push({ importName, media, index });
+            if (!isRequestable) {
+              options.api.push({ url, media, index });
 
               // eslint-disable-next-line no-continue
               continue;
             }
 
-            options.api.push({ url, media, index });
+            const { prefix } = item;
+            const newUrl = prefix ? `${prefix}!${url}` : url;
+            let importName = urlToNameMap.get(newUrl);
+
+            if (!importName) {
+              importName = `___CSS_LOADER_AT_RULE_IMPORT_${urlToNameMap.size}___`;
+              urlToNameMap.set(newUrl, importName);
+
+              options.imports.push({
+                importName,
+                url: options.urlHandler(newUrl),
+                index,
+              });
+            }
+
+            options.api.push({ importName, media, index });
           }
         },
       };
