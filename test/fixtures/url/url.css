@@ -389,3 +389,7 @@ a {
 .my-background {
   background-image: url("/guide/img/banWord/addCoinDialogTitleBg.png");
 }
+
+.class {
+  background: url('./img.png', 'foo', './img.png', url('./img.png'));
+}
