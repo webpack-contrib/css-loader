@@ -89,19 +89,10 @@ function parseNode(node, key) {
       : valueParser.stringify(paramsNodes[0].nodes);
   }
 
-  // Empty url - `@import "";` or `@import url();`
-  // WHY?
-  if (url.trim().length === 0) {
-    const error = new Error(`Unable to find uri in "${node.toString()}"`);
-
-    error.node = node;
-
-    throw error;
-  }
-
   // TODO rename to url
   let normalizedUrl = normalizeUrl(url, isStringValue);
 
+  // Empty url - `@import "";` or `@import url();`
   if (normalizedUrl.trim().length === 0) {
     const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
