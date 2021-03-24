@@ -260,6 +260,7 @@ const plugin = (options = {}) => {
             tasks.push(
               (async () => {
                 const processUrl = await options.filter(normalizedUrl);
+
                 if (!processUrl) {
                   return null;
                 }
