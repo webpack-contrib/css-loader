@@ -8,7 +8,7 @@ import {
   webpackIgnoreCommentRegexp,
 } from "../utils";
 
-function visitor(result, parsedResults, node, key) {
+function visitor(result, parsedImports, node, key) {
   // Convert only top-level @import
   if (node.parent.type !== "root") {
     return;
@@ -128,7 +128,7 @@ function visitor(result, parsedResults, node, key) {
     }
   }
 
-  parsedResults.push({
+  parsedImports.push({
     node,
     prefix,
     url: normalizedUrl,
@@ -141,59 +141,54 @@ const plugin = (options = {}) => {
   return {
     postcssPlugin: "postcss-import-parser",
     prepare(result) {
-      const parsedResults = [];
+      const parsedImports = [];
 
       return {
         AtRule: {
           import(atRule) {
-            visitor(result, parsedResults, atRule, "params");
+            visitor(result, parsedImports, atRule, "params");
           },
         },
         async OnceExit() {
-          if (parsedResults.length === 0) {
+          if (parsedImports.length === 0) {
             return;
           }
 
-          const imports = new Map();
-          const tasks = [];
+          const resolvedImports = await Promise.all(
+            parsedImports.map(async (parsedResult) => {
+              const { node, isRequestable, prefix, url, media } = parsedResult;
 
-          for (const parsedResult of parsedResults) {
-            const { node, isRequestable, prefix, url, media } = parsedResult;
+              if (options.filter) {
+                const processURL = await options.filter(url, media);
 
-            tasks.push(
-              (async () => {
-                if (options.filter) {
-                  const processURL = await options.filter(url, media);
-
-                  if (!processURL) {
-                    return null;
-                  }
+                if (!processURL) {
+                  return null;
                 }
+              }
 
-                node.remove();
+              node.remove();
 
-                if (isRequestable) {
-                  const request = requestify(url, options.rootContext);
+              if (isRequestable) {
+                const request = requestify(url, options.rootContext);
 
-                  const { resolver, context } = options;
-                  const resolvedUrl = await resolveRequests(resolver, context, [
-                    ...new Set([request, url]),
-                  ]);
+                const { resolver, context } = options;
+                const resolvedUrl = await resolveRequests(resolver, context, [
+                  ...new Set([request, url]),
+                ]);
 
-                  return { url: resolvedUrl, media, prefix, isRequestable };
-                }
+                return { url: resolvedUrl, media, prefix, isRequestable };
+              }
 
-                return { url, media, prefix, isRequestable };
-              })()
-            );
-          }
+              return { url, media, prefix, isRequestable };
+            })
+          );
 
-          const results = await Promise.all(tasks);
+          const importToNameMap = new Map();
 
-          for (let index = 0; index <= results.length - 1; index++) {
-            const item = results[index];
+          for (let index = 0; index <= resolvedImports.length - 1; index++) {
+            const item = resolvedImports[index];
 
-            if (item === null) {
+            if (!item) {
               // eslint-disable-next-line no-continue
               continue;
             }
@@ -204,11 +199,11 @@ const plugin = (options = {}) => {
               const { prefix } = item;
               const newUrl = prefix ? `${prefix}!${url}` : url;
               const importKey = newUrl;
-              let importName = imports.get(importKey);
+              let importName = importToNameMap.get(importKey);
 
               if (!importName) {
-                importName = `___CSS_LOADER_AT_RULE_IMPORT_${imports.size}___`;
-                imports.set(importKey, importName);
+                importName = `___CSS_LOADER_AT_RULE_IMPORT_${importToNameMap.size}___`;
+                importToNameMap.set(importKey, importName);
 
                 options.imports.push({
                   importName,
