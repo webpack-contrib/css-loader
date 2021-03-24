@@ -282,13 +282,7 @@ const plugin = (options = {}) => {
 
       return {
         Declaration(declaration) {
-          let parsedURL;
-
-          try {
-            parsedURL = parseDeclaration(declaration, "value", result);
-          } catch (error) {
-            // Ignore
-          }
+          const parsedURL = parseDeclaration(declaration, "value", result);
 
           if (!parsedURL) {
             return;
