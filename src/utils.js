@@ -71,7 +71,7 @@ function defaultGetLocalIdent(
   let relativeMatchResource = "";
 
   // eslint-disable-next-line no-underscore-dangle
-  if (loaderContext._module.matchResource) {
+  if (loaderContext._module && loaderContext._module.matchResource) {
     relativeMatchResource = `${normalizePath(
       // eslint-disable-next-line no-underscore-dangle
       path.relative(options.context, loaderContext._module.matchResource)
@@ -138,7 +138,8 @@ const icssRegExp = /\.icss\.\w+$/i;
 function getModulesOptions(rawOptions, loaderContext) {
   const resourcePath =
     // eslint-disable-next-line no-underscore-dangle
-    loaderContext._module.matchResource || loaderContext.resourcePath;
+    (loaderContext._module && loaderContext._module.matchResource) ||
+    loaderContext.resourcePath;
 
   let isIcss;
 
