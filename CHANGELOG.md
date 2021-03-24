@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/webpack-contrib/css-loader/compare/v5.1.4...v5.2.0) (2021-03-24)
+
+
+### Features
+
+* support async functions for `url` and `import` options ([#1277](https://github.com/webpack-contrib/css-loader/issues/1277)) ([c5062db](https://github.com/webpack-contrib/css-loader/commit/c5062db3fc849d882a07b9f2c9f66f00325c8896))
+
 ### [5.1.4](https://github.com/webpack-contrib/css-loader/compare/v5.1.3...v5.1.4) (2021-03-24)
 
 
