@@ -47,6 +47,22 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
+function shouldHandleURL(url, declaration, result) {
+  if (url.length === 0) {
+    result.warn(`Unable to find uri in '${declaration.toString()}'`, {
+      node: declaration,
+    });
+
+    return false;
+  }
+
+  if (!isUrlRequestable(url)) {
+    return false;
+  }
+
+  return true;
+}
+
 function parseDeclaration(declaration, key, result) {
   if (!needParseDeclaration.test(declaration[key])) {
     return;
@@ -114,16 +130,7 @@ function parseDeclaration(declaration, key, result) {
       url = normalizeUrl(url, isStringValue);
 
       // Do not traverse inside `url`
-      if (url.length === 0) {
-        result.warn(`Unable to find uri in '${declaration.toString()}'`, {
-          node: declaration,
-        });
-
-        // eslint-disable-next-line consistent-return
-        return false;
-      }
-
-      if (!isUrlRequestable(url)) {
+      if (!shouldHandleURL(url, declaration, result)) {
         // eslint-disable-next-line consistent-return
         return false;
       }
@@ -179,18 +186,9 @@ function parseDeclaration(declaration, key, result) {
           url = normalizeUrl(url, isStringValue);
 
           // Do not traverse inside `url`
-          if (url.length === 0) {
-            result.warn(`Unable to find uri in '${declaration.toString()}'`, {
-              node: declaration,
-            });
-
-            // eslint-disable-next-line no-continue
-            continue;
-          }
-
-          if (!isUrlRequestable(url)) {
-            // eslint-disable-next-line no-continue
-            continue;
+          if (!shouldHandleURL(url, declaration, result)) {
+            // eslint-disable-next-line consistent-return
+            return false;
           }
 
           const queryParts = url.split("!");
@@ -231,18 +229,9 @@ function parseDeclaration(declaration, key, result) {
           let url = normalizeUrl(value, true);
 
           // Do not traverse inside `url`
-          if (url.length === 0) {
-            result.warn(`Unable to find uri in '${declaration.toString()}'`, {
-              node: declaration,
-            });
-
-            // eslint-disable-next-line no-continue
-            continue;
-          }
-
-          if (!isUrlRequestable(url)) {
-            // eslint-disable-next-line no-continue
-            continue;
+          if (!shouldHandleURL(url, declaration, result)) {
+            // eslint-disable-next-line consistent-return
+            return false;
           }
 
           const queryParts = url.split("!");
