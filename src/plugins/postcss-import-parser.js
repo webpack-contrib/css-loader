@@ -8,19 +8,19 @@ import {
   webpackIgnoreCommentRegexp,
 } from "../utils";
 
-function parseNode(node, key) {
+function parseNode(atRule, key) {
   // Convert only top-level @import
-  if (node.parent.type !== "root") {
+  if (atRule.parent.type !== "root") {
     return;
   }
 
   if (
-    node.raws &&
-    node.raws.afterName &&
-    node.raws.afterName.trim().length > 0
+    atRule.raws &&
+    atRule.raws.afterName &&
+    atRule.raws.afterName.trim().length > 0
   ) {
-    const lastCommentIndex = node.raws.afterName.lastIndexOf("/*");
-    const matched = node.raws.afterName
+    const lastCommentIndex = atRule.raws.afterName.lastIndexOf("/*");
+    const matched = atRule.raws.afterName
       .slice(lastCommentIndex)
       .match(webpackIgnoreCommentRegexp);
 
@@ -29,7 +29,7 @@ function parseNode(node, key) {
     }
   }
 
-  const prevNode = node.prev();
+  const prevNode = atRule.prev();
 
   if (prevNode && prevNode.type === "comment") {
     const matched = prevNode.text.match(webpackIgnoreCommentRegexp);
@@ -40,17 +40,17 @@ function parseNode(node, key) {
   }
 
   // Nodes do not exists - `@import url('http://') :root {}`
-  if (node.nodes) {
+  if (atRule.nodes) {
     const error = new Error(
       "It looks like you didn't end your @import statement correctly. Child nodes are attached to it."
     );
 
-    error.node = node;
+    error.node = atRule;
 
     throw error;
   }
 
-  const { nodes: paramsNodes } = valueParser(node[key]);
+  const { nodes: paramsNodes } = valueParser(atRule[key]);
 
   // No nodes - `@import ;`
   // Invalid type - `@import foo-bar;`
@@ -58,9 +58,9 @@ function parseNode(node, key) {
     paramsNodes.length === 0 ||
     (paramsNodes[0].type !== "string" && paramsNodes[0].type !== "function")
   ) {
-    const error = new Error(`Unable to find uri in "${node.toString()}"`);
+    const error = new Error(`Unable to find uri in "${atRule.toString()}"`);
 
-    error.node = node;
+    error.node = atRule;
 
     throw error;
   }
@@ -74,9 +74,9 @@ function parseNode(node, key) {
   } else {
     // Invalid function - `@import nourl(test.css);`
     if (paramsNodes[0].value.toLowerCase() !== "url") {
-      const error = new Error(`Unable to find uri in "${node.toString()}"`);
+      const error = new Error(`Unable to find uri in "${atRule.toString()}"`);
 
-      error.node = node;
+      error.node = atRule;
 
       throw error;
     }
@@ -105,9 +105,9 @@ function parseNode(node, key) {
 
   // Empty url - `@import "";` or `@import url();`
   if (url.trim().length === 0) {
-    const error = new Error(`Unable to find uri in "${node.toString()}"`);
+    const error = new Error(`Unable to find uri in "${atRule.toString()}"`);
 
-    error.node = node;
+    error.node = atRule;
 
     throw error;
   }
@@ -120,7 +120,7 @@ function parseNode(node, key) {
   }
 
   // eslint-disable-next-line consistent-return
-  return { node, prefix, url, isRequestable, media };
+  return { atRule, prefix, url, media, isRequestable };
 }
 
 const plugin = (options = {}) => {
@@ -154,7 +154,7 @@ const plugin = (options = {}) => {
 
           const resolvedNodes = await Promise.all(
             parsedNodes.map(async (parsedNode) => {
-              const { node, isRequestable, prefix, url, media } = parsedNode;
+              const { atRule, isRequestable, prefix, url, media } = parsedNode;
 
               if (options.filter) {
                 const needKeep = await options.filter(url, media);
@@ -164,7 +164,7 @@ const plugin = (options = {}) => {
                 }
               }
 
-              node.remove();
+              atRule.remove();
 
               if (isRequestable) {
                 const request = requestify(url, options.rootContext);
