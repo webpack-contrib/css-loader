@@ -271,38 +271,36 @@ const plugin = (options = {}) => {
             return;
           }
 
-          const tasks = [];
+          const resolvedDeclarations = await Promise.all(
+            parsedDeclarations.map(async (parsedDeclaration) => {
+              const { url, prefix } = parsedDeclaration.rule;
 
-          for (const parsedResult of parsedDeclarations) {
-            const { url, prefix } = parsedResult.rule;
+              if (options.filter) {
+                const needKeep = await options.filter(url);
 
-            tasks.push(
-              (async () => {
-                const processUrl = await options.filter(url);
-
-                if (!processUrl) {
+                if (!needKeep) {
                   return null;
                 }
+              }
 
-                const splittedUrl = url.split(/(\?)?#/);
-                const [pathname, query, hashOrQuery] = splittedUrl;
+              const splittedUrl = url.split(/(\?)?#/);
+              const [pathname, query, hashOrQuery] = splittedUrl;
 
-                let hash = query ? "?" : "";
-                hash += hashOrQuery ? `#${hashOrQuery}` : "";
+              let hash = query ? "?" : "";
+              hash += hashOrQuery ? `#${hashOrQuery}` : "";
 
-                const request = requestify(pathname, options.rootContext);
+              const request = requestify(pathname, options.rootContext);
 
-                const { resolver, context } = options;
-                const resolvedUrl = await resolveRequests(resolver, context, [
-                  ...new Set([request, url]),
-                ]);
+              const { resolver, context } = options;
+              const resolvedUrl = await resolveRequests(resolver, context, [
+                ...new Set([request, url]),
+              ]);
 
-                return { url: resolvedUrl, prefix, hash, parsedResult };
-              })()
-            );
-          }
+              return { url: resolvedUrl, prefix, hash, parsedDeclaration };
+            })
+          );
 
-          const results = await Promise.all(tasks);
+          const results = await Promise.all(resolvedDeclarations);
 
           const urlToNameMap = new Map();
           const urlToReplacementMap = new Map();
@@ -333,7 +331,7 @@ const plugin = (options = {}) => {
               url,
               prefix,
               hash,
-              parsedResult: { node, rule, parsed },
+              parsedDeclaration: { node, rule, parsed },
             } = item;
             const newUrl = prefix ? `${prefix}!${url}` : url;
             let importName = urlToNameMap.get(newUrl);
@@ -349,7 +347,7 @@ const plugin = (options = {}) => {
               });
             }
 
-            const { needQuotes } = item.parsedResult.rule;
+            const { needQuotes } = item.parsedDeclaration.rule;
             const replacementKey = JSON.stringify({ newUrl, hash, needQuotes });
             let replacementName = urlToReplacementMap.get(replacementKey);
 

@@ -153,13 +153,13 @@ const plugin = (options = {}) => {
           }
 
           const resolvedNodes = await Promise.all(
-            parsedNodes.map(async (parsedResult) => {
-              const { node, isRequestable, prefix, url, media } = parsedResult;
+            parsedNodes.map(async (parsedNode) => {
+              const { node, isRequestable, prefix, url, media } = parsedNode;
 
               if (options.filter) {
-                const processURL = await options.filter(url, media);
+                const needKeep = await options.filter(url, media);
 
-                if (!processURL) {
+                if (!needKeep) {
                   return null;
                 }
               }
