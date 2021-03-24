@@ -315,12 +315,11 @@ const plugin = (options = {}) => {
               parsedResult: { node, rule, parsed },
             } = item;
             const newUrl = prefix ? `${prefix}!${url}` : url;
-            const importKey = newUrl;
-            let importName = imports.get(importKey);
+            let importName = imports.get(newUrl);
 
             if (!importName) {
               importName = `___CSS_LOADER_URL_IMPORT_${imports.size}___`;
-              imports.set(importKey, importName);
+              imports.set(newUrl, importName);
 
               options.imports.push({
                 importName,
@@ -329,7 +328,7 @@ const plugin = (options = {}) => {
               });
             }
 
-            const { needQuotes } = rule;
+            const { needQuotes } = item.parsedResult.rule;
             const replacementKey = JSON.stringify({ newUrl, hash, needQuotes });
             let replacementName = replacements.get(replacementKey);
 
