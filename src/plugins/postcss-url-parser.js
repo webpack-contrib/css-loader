@@ -141,8 +141,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
           node: getNodeFromUrlFunc(valueNode),
           prefix,
           url,
-          needQuotes: false,
         },
+        needQuotes: false,
       });
 
       // eslint-disable-next-line consistent-return
@@ -208,8 +208,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
               node: getNodeFromUrlFunc(nNode),
               prefix,
               url,
-              needQuotes: false,
             },
+            needQuotes: false,
           });
         } else if (type === "string") {
           needIgnore = getWebpackIgnoreCommentValue(
@@ -258,7 +258,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
           parsedResults.push({
             declaration,
             parsed,
-            rule: { node: nNode, prefix, url, needQuotes: true },
+            rule: { node: nNode, prefix, url },
+            needQuotes: true,
           });
         }
       }
@@ -356,7 +357,7 @@ const plugin = (options = {}) => {
               });
             }
 
-            const { needQuotes } = item.rule;
+            const { needQuotes } = item;
             const replacementKey = JSON.stringify({ newUrl, hash, needQuotes });
             let replacementName = urlToReplacementMap.get(replacementKey);
 
