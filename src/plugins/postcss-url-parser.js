@@ -47,23 +47,23 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
-function parseDeclaration(node, key, result, parsedResults) {
-  if (!needParseDeclaration.test(node[key])) {
+function parseDeclaration(declaration, key, result, parsedResults) {
+  if (!needParseDeclaration.test(declaration[key])) {
     return;
   }
 
   const parsed = valueParser(
-    node.raws && node.raws.value && node.raws.value.raw
-      ? node.raws.value.raw
-      : node[key]
+    declaration.raws && declaration.raws.value && declaration.raws.value.raw
+      ? declaration.raws.value.raw
+      : declaration[key]
   );
 
   let inBetween;
 
-  if (node.raws && node.raws.between) {
-    const lastCommentIndex = node.raws.between.lastIndexOf("/*");
+  if (declaration.raws && declaration.raws.between) {
+    const lastCommentIndex = declaration.raws.between.lastIndexOf("/*");
 
-    const matched = node.raws.between
+    const matched = declaration.raws.between
       .slice(lastCommentIndex)
       .match(webpackIgnoreCommentRegexp);
 
@@ -74,7 +74,7 @@ function parseDeclaration(node, key, result, parsedResults) {
 
   let isIgnoreOnDeclaration = false;
 
-  const prevNode = node.prev();
+  const prevNode = declaration.prev();
 
   if (prevNode && prevNode.type === "comment") {
     const matched = prevNode.text.match(webpackIgnoreCommentRegexp);
@@ -113,7 +113,9 @@ function parseDeclaration(node, key, result, parsedResults) {
 
       // Do not traverse inside `url`
       if (url.length === 0) {
-        result.warn(`Unable to find uri in '${node.toString()}'`, { node });
+        result.warn(`Unable to find uri in '${declaration.toString()}'`, {
+          node: declaration,
+        });
 
         // eslint-disable-next-line consistent-return
         return false;
@@ -136,7 +138,7 @@ function parseDeclaration(node, key, result, parsedResults) {
       const rule = { node: nodeFromUrlFunc, prefix, url, needQuotes: false };
 
       // TODO rename `node` and look what can be removed
-      parsedResults.push({ node, rule, parsed });
+      parsedResults.push({ declaration, rule, parsed });
 
       // eslint-disable-next-line consistent-return
       return false;
@@ -173,7 +175,9 @@ function parseDeclaration(node, key, result, parsedResults) {
 
           // Do not traverse inside `url`
           if (url.length === 0) {
-            result.warn(`Unable to find uri in '${node.toString()}'`, { node });
+            result.warn(`Unable to find uri in '${declaration.toString()}'`, {
+              node: declaration,
+            });
 
             // eslint-disable-next-line no-continue
             continue;
@@ -200,7 +204,7 @@ function parseDeclaration(node, key, result, parsedResults) {
             needQuotes: false,
           };
 
-          parsedResults.push({ node, rule, parsed });
+          parsedResults.push({ declaration, rule, parsed });
         } else if (type === "string") {
           needIgnore = getWebpackIgnoreCommentValue(
             innerIndex,
@@ -224,7 +228,9 @@ function parseDeclaration(node, key, result, parsedResults) {
 
           // Do not traverse inside `url`
           if (url.length === 0) {
-            result.warn(`Unable to find uri in '${node.toString()}'`, { node });
+            result.warn(`Unable to find uri in '${declaration.toString()}'`, {
+              node: declaration,
+            });
 
             // eslint-disable-next-line no-continue
             continue;
@@ -245,7 +251,7 @@ function parseDeclaration(node, key, result, parsedResults) {
 
           const rule = { node: nNode, prefix, url, needQuotes: true };
 
-          parsedResults.push({ node, rule, parsed });
+          parsedResults.push({ declaration, rule, parsed });
         }
       }
 
@@ -363,7 +369,7 @@ const plugin = (options = {}) => {
             // eslint-disable-next-line no-param-reassign
             item.rule.node.value = replacementName;
             // eslint-disable-next-line no-param-reassign
-            item.node.value = item.parsed.toString();
+            item.declaration.value = item.parsed.toString();
           }
         },
       };
