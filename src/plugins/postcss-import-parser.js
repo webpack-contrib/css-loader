@@ -91,15 +91,6 @@ function parseNode(node, key) {
 
   url = normalizeUrl(url, isStringValue);
 
-  // Empty url - `@import "";` or `@import url();`
-  if (url.length === 0) {
-    const error = new Error(`Unable to find uri in "${node.toString()}"`);
-
-    error.node = node;
-
-    throw error;
-  }
-
   const isRequestable = isUrlRequestable(url);
   let prefix;
 
@@ -110,14 +101,15 @@ function parseNode(node, key) {
       url = queryParts.pop();
       prefix = queryParts.join("!");
     }
+  }
 
-    if (url.trim().length === 0) {
-      const error = new Error(`Unable to find uri in "${node.toString()}"`);
+  // Empty url - `@import "";` or `@import url();`
+  if (url.trim().length === 0) {
+    const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
-      error.node = node;
+    error.node = node;
 
-      throw error;
-    }
+    throw error;
   }
 
   const mediaNodes = paramsNodes.slice(1);
