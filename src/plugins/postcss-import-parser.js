@@ -98,7 +98,18 @@ function visitor(result, parsedResults, node, key) {
     media = valueParser.stringify(mediaNodes).trim().toLowerCase();
   }
 
-  parsedResults.push({ node, url, isStringValue, media });
+  const normalizedUrl = normalizeUrl(url, isStringValue);
+  const isRequestable = isUrlRequestable(normalizedUrl);
+
+  if (normalizedUrl.trim().length === 0) {
+    result.warn(`Unable to find uri in "${node.toString()}"`, {
+      node,
+    });
+
+    return;
+  }
+
+  parsedResults.push({ node, url: normalizedUrl, isRequestable, media });
 }
 
 const plugin = (options = {}) => {
@@ -122,12 +133,10 @@ const plugin = (options = {}) => {
           const tasks = [];
 
           for (const parsedResult of parsedResults) {
-            const { node, url, isStringValue, media } = parsedResult;
+            const { node, isRequestable, url, media } = parsedResult;
 
             let normalizedUrl = url;
             let prefix = "";
-
-            const isRequestable = isUrlRequestable(normalizedUrl);
 
             if (isRequestable) {
               const queryParts = normalizedUrl.split("!");
@@ -135,21 +144,6 @@ const plugin = (options = {}) => {
               if (queryParts.length > 1) {
                 normalizedUrl = queryParts.pop();
                 prefix = queryParts.join("!");
-              }
-
-              normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
-
-              // Empty url after normalize - `@import '\
-              // \
-              // \
-              // ';
-              if (normalizedUrl.trim().length === 0) {
-                result.warn(`Unable to find uri in "${node.toString()}"`, {
-                  node,
-                });
-
-                // eslint-disable-next-line no-continue
-                continue;
               }
             }
 
