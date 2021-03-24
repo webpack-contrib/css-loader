@@ -62,7 +62,7 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
-function visitor(result, parsedResults, node, key) {
+function parseDeclaration(node, key, result, parsedResults) {
   if (!needParseDeclaration.test(node[key])) {
     return;
   }
@@ -229,14 +229,14 @@ const plugin = (options = {}) => {
   return {
     postcssPlugin: "postcss-url-parser",
     prepare(result) {
-      const parsedResults = [];
+      const parsedDeclarations = [];
 
       return {
         Declaration(declaration) {
-          visitor(result, parsedResults, declaration, "value");
+          parseDeclaration(declaration, "value", result, parsedDeclarations);
         },
         async OnceExit() {
-          if (parsedResults.length === 0) {
+          if (parsedDeclarations.length === 0) {
             return;
           }
 
@@ -244,7 +244,7 @@ const plugin = (options = {}) => {
           const imports = new Map();
           const replacements = new Map();
 
-          for (const parsedResult of parsedResults) {
+          for (const parsedResult of parsedDeclarations) {
             const { url, isStringValue } = parsedResult.rule;
 
             let normalizedUrl = url;
