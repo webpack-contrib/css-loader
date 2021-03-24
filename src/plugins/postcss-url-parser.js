@@ -137,8 +137,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
       parsedResults.push({
         declaration,
         parsed,
+        node: getNodeFromUrlFunc(valueNode),
         rule: {
-          node: getNodeFromUrlFunc(valueNode),
           prefix,
           url,
         },
@@ -204,8 +204,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
           parsedResults.push({
             declaration,
             parsed,
+            node: getNodeFromUrlFunc(nNode),
             rule: {
-              node: getNodeFromUrlFunc(nNode),
               prefix,
               url,
             },
@@ -258,7 +258,8 @@ function parseDeclaration(declaration, key, result, parsedResults) {
           parsedResults.push({
             declaration,
             parsed,
-            rule: { node: nNode, prefix, url },
+            node: nNode,
+            rule: { prefix, url },
             needQuotes: true,
           });
         }
@@ -374,9 +375,9 @@ const plugin = (options = {}) => {
             }
 
             // eslint-disable-next-line no-param-reassign
-            item.rule.node.type = "word";
+            item.node.type = "word";
             // eslint-disable-next-line no-param-reassign
-            item.rule.node.value = replacementName;
+            item.node.value = replacementName;
             // eslint-disable-next-line no-param-reassign
             item.declaration.value = item.parsed.toString();
           }
