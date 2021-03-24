@@ -157,38 +157,50 @@ const plugin = (options = {}) => {
               media = valueParser.stringify(mediaNodes).trim().toLowerCase();
             }
 
-            if (options.filter && !options.filter(normalizedUrl, media)) {
-              // eslint-disable-next-line no-continue
-              continue;
-            }
+            tasks.push(
+              (async () => {
+                if (options.filter) {
+                  const processURL = await options.filter(normalizedUrl, media);
+                  if (!processURL) {
+                    return null;
+                  }
+                }
 
-            node.remove();
+                node.remove();
 
-            if (isRequestable) {
-              const request = requestify(normalizedUrl, options.rootContext);
+                if (isRequestable) {
+                  const request = requestify(
+                    normalizedUrl,
+                    options.rootContext
+                  );
 
-              tasks.push(
-                (async () => {
                   const { resolver, context } = options;
                   const resolvedUrl = await resolveRequests(resolver, context, [
                     ...new Set([request, normalizedUrl]),
                   ]);
 
                   return { url: resolvedUrl, media, prefix, isRequestable };
-                })()
-              );
-            } else {
-              tasks.push({ url, media, prefix, isRequestable });
-            }
+                }
+
+                return { url, media, prefix, isRequestable };
+              })()
+            );
           }
 
           const results = await Promise.all(tasks);
 
           for (let index = 0; index <= results.length - 1; index++) {
-            const { url, isRequestable, media } = results[index];
+            const item = results[index];
+
+            if (item === null) {
+              // eslint-disable-next-line no-continue
+              continue;
+            }
+
+            const { url, isRequestable, media } = item;
 
             if (isRequestable) {
-              const { prefix } = results[index];
+              const { prefix } = item;
               const newUrl = prefix ? `${prefix}!${url}` : url;
               const importKey = newUrl;
               let importName = imports.get(importKey);
