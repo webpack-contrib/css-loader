@@ -89,11 +89,10 @@ function parseNode(node, key) {
       : valueParser.stringify(paramsNodes[0].nodes);
   }
 
-  // TODO rename to url
-  let normalizedUrl = normalizeUrl(url, isStringValue);
+  url = normalizeUrl(url, isStringValue);
 
   // Empty url - `@import "";` or `@import url();`
-  if (normalizedUrl.trim().length === 0) {
+  if (url.trim().length === 0) {
     const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
     error.node = node;
@@ -101,18 +100,18 @@ function parseNode(node, key) {
     throw error;
   }
 
-  const isRequestable = isUrlRequestable(normalizedUrl);
+  const isRequestable = isUrlRequestable(url);
   let prefix;
 
   if (isRequestable) {
-    const queryParts = normalizedUrl.split("!");
+    const queryParts = url.split("!");
 
     if (queryParts.length > 1) {
-      normalizedUrl = queryParts.pop();
+      url = queryParts.pop();
       prefix = queryParts.join("!");
     }
 
-    if (normalizedUrl.trim().length === 0) {
+    if (url.trim().length === 0) {
       const error = new Error(`Unable to find uri in "${node.toString()}"`);
 
       error.node = node;
@@ -129,7 +128,7 @@ function parseNode(node, key) {
   }
 
   // eslint-disable-next-line consistent-return
-  return { node, prefix, url: normalizedUrl, isRequestable, media };
+  return { node, prefix, url, isRequestable, media };
 }
 
 const plugin = (options = {}) => {
