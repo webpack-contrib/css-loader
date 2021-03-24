@@ -91,12 +91,14 @@ function visitor(result, parsedResults, node, key) {
     return;
   }
 
-  parsedResults.push({
-    node,
-    url,
-    isStringValue,
-    mediaNodes: paramsNodes.slice(1),
-  });
+  const mediaNodes = paramsNodes.slice(1);
+  let media;
+
+  if (mediaNodes.length > 0) {
+    media = valueParser.stringify(mediaNodes).trim().toLowerCase();
+  }
+
+  parsedResults.push({ node, url, isStringValue, media });
 }
 
 const plugin = (options = {}) => {
@@ -120,7 +122,7 @@ const plugin = (options = {}) => {
           const tasks = [];
 
           for (const parsedResult of parsedResults) {
-            const { node, url, isStringValue, mediaNodes } = parsedResult;
+            const { node, url, isStringValue, media } = parsedResult;
 
             let normalizedUrl = url;
             let prefix = "";
@@ -149,12 +151,6 @@ const plugin = (options = {}) => {
                 // eslint-disable-next-line no-continue
                 continue;
               }
-            }
-
-            let media;
-
-            if (mediaNodes.length > 0) {
-              media = valueParser.stringify(mediaNodes).trim().toLowerCase();
             }
 
             tasks.push(
