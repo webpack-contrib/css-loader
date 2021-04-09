@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.1](https://github.com/webpack-contrib/css-loader/compare/v5.2.0...v5.2.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* do not crash on unescaped svg data uri ([#1288](https://github.com/webpack-contrib/css-loader/issues/1288)) ([4f289c5](https://github.com/webpack-contrib/css-loader/commit/4f289c5e4df6c666fdf6dd3402560ae74d4bf7ee))
+
 ## [5.2.0](https://github.com/webpack-contrib/css-loader/compare/v5.1.4...v5.2.0) (2021-03-24)
 
 
