@@ -98,10 +98,24 @@ function normalizeUrl(url, isStringValue) {
   }
 
   if (matchNativeWin32Path.test(url)) {
-    return decodeURI(normalizedUrl);
+    try {
+      normalizedUrl = decodeURI(normalizedUrl);
+    } catch (error) {
+      // Ignore
+    }
+
+    return normalizedUrl;
   }
 
-  return decodeURI(unescape(normalizedUrl));
+  normalizedUrl = unescape(normalizedUrl);
+
+  try {
+    normalizedUrl = decodeURI(normalizedUrl);
+  } catch (error) {
+    // Ignore
+  }
+
+  return normalizedUrl;
 }
 
 function requestify(url, rootContext) {
