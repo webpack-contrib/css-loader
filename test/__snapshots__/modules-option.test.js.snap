@@ -292,6 +292,129 @@ Array [
 
 exports[`"modules" option issue #980: warnings 1`] = `Array []`;
 
+exports[`"modules" option issue #995 #2: errors 1`] = `Array []`;
+
+exports[`"modules" option issue #995 #2: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"/* class=\\\\\\"😀\\\\\\" */\\\\n.a {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.a.b {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.a .b {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" */\\\\n.😀 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.😀.😓 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.😀 .😓 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" */\\\\n.\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.\\\\\\\\1F600.\\\\\\\\1F613 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.\\\\\\\\1F600  .\\\\\\\\1F613 {\\\\n  color: red;\\\\n}\\\\n\\\\n/* Local */\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" */\\\\n.\\\\\\\\  {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀 😓\\\\\\" */\\\\n.\\\\\\\\ .\\\\\\\\  {\\\\n  color: red;\\\\n}\\\\n\\\\n/* class=\\\\\\"😀\\\\\\" > class=\\\\\\"😓\\\\\\" */\\\\n.\\\\\\\\  .\\\\\\\\  {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F600  .a .\\\\\\\\1F600 {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\  .\\\\\\\\  .\\\\\\\\  {\\\\n  color: red;\\\\n}\\\\n\\\\ndiv:not(.\\\\\\\\ ) {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\  .b {\\\\n  color: red;\\\\n}\\\\n\\\\n.b .\\\\\\\\  {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F613  .\\\\\\\\  {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\1F613 .\\\\\\\\  {\\\\n  color: red;\\\\n}\\\\n\\\\n.\\\\\\\\  > .\\\\\\\\  > .\\\\\\\\  {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"a\\": \\" \\",
+	\\"b\\": \\" \\",
+	\\"c\\": \\" \\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option issue #995 #2: result 1`] = `
+Array [
+  Array [
+    "./modules/issue-995/issue-995.css",
+    "/* class=\\"😀\\" */
+.a {
+  color: red;
+}
+
+/* class=\\"😀 😓\\" */
+.a.b {
+  color: red;
+}
+
+/* class=\\"😀\\" > class=\\"😓\\" */
+.a .b {
+  color: red;
+}
+
+/* class=\\"😀\\" */
+.😀 {
+  color: red;
+}
+
+/* class=\\"😀 😓\\" */
+.😀.😓 {
+  color: red;
+}
+
+/* class=\\"😀\\" > class=\\"😓\\" */
+.😀 .😓 {
+  color: red;
+}
+
+/* class=\\"😀\\" */
+.\\\\1F600 {
+  color: red;
+}
+
+/* class=\\"😀 😓\\" */
+.\\\\1F600.\\\\1F613 {
+  color: red;
+}
+
+/* class=\\"😀\\" > class=\\"😓\\" */
+.\\\\1F600  .\\\\1F613 {
+  color: red;
+}
+
+/* Local */
+
+/* class=\\"😀\\" */
+.\\\\  {
+  color: red;
+}
+
+/* class=\\"😀 😓\\" */
+.\\\\ .\\\\  {
+  color: red;
+}
+
+/* class=\\"😀\\" > class=\\"😓\\" */
+.\\\\  .\\\\  {
+  color: red;
+}
+
+.\\\\1F600  .a .\\\\1F600 {
+  color: red;
+}
+
+.\\\\  .\\\\  .\\\\  {
+  color: red;
+}
+
+div:not(.\\\\ ) {
+  color: red;
+}
+
+.\\\\  .b {
+  color: red;
+}
+
+.b .\\\\  {
+  color: red;
+}
+
+.\\\\1F613  .\\\\  {
+  color: red;
+}
+
+.\\\\1F613 .\\\\  {
+  color: red;
+}
+
+.\\\\  > .\\\\  > .\\\\  {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option issue #995 #2: warnings 1`] = `Array []`;
+
 exports[`"modules" option issue #995: errors 1`] = `Array []`;
 
 exports[`"modules" option issue #995: module 1`] = `

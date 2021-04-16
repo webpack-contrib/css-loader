@@ -593,6 +593,25 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("issue #995 #2", async () => {
+    const compiler = getCompiler("./modules/issue-995/issue-995.js", {
+      modules: {
+        mode: "global",
+        localIdentName: " ",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/issue-995/issue-995.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should avoid unnecessary "require"', async () => {
     const compiler = getCompiler("./modules/composes/composes-duplicate.js", {
       modules: true,
