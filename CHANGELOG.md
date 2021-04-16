@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.2](https://github.com/webpack-contrib/css-loader/compare/v5.2.1...v5.2.2) (2021-04-16)
+
+
+### Bug Fixes
+
+* avoid escape nonASCII characters in local names ([0722733](https://github.com/webpack-contrib/css-loader/commit/072273308a8ab4b7efdae31440689dc81978ca1d))
+
 ### [5.2.1](https://github.com/webpack-contrib/css-loader/compare/v5.2.0...v5.2.1) (2021-04-09)
 
 
