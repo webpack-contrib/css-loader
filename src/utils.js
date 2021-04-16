@@ -108,8 +108,7 @@ function escapeLocalIdent(localident) {
       .replace(/^((-?[0-9])|--)/, "_$1")
       .replace(filenameReservedRegex, "-")
       .replace(reControlChars, "-")
-      .replace(/\./g, "-"),
-    { isIdentifier: true }
+      .replace(/\./g, "-")
   );
 }
 
