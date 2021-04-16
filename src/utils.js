@@ -102,6 +102,7 @@ const filenameReservedRegex = /[<>:"/\\|?*]/g;
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
 
 function escapeLocalIdent(localident) {
+  // TODO simplify in the next major release
   return escape(
     localident
       // For `[hash]` placeholder
