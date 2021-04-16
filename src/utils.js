@@ -6,7 +6,6 @@ import { fileURLToPath } from "url";
 import path from "path";
 
 import { urlToRequest, interpolateName } from "loader-utils";
-import cssesc from "cssesc";
 import modulesValues from "postcss-modules-values";
 import localByDefault from "postcss-modules-local-by-default";
 import extractImports from "postcss-modules-extract-imports";
@@ -20,6 +19,78 @@ const unescapeRegExp = new RegExp(
 );
 const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
 const webpackIgnoreCommentRegexp = /webpackIgnore:(\s+)?(true|false)/;
+
+// eslint-disable-next-line no-useless-escape
+const regexSingleEscape = /[ -,.\/:-@[\]\^`{-~]/;
+const regexExcessiveSpaces = /(^|\\+)?(\\[A-F0-9]{1,6})\x20(?![a-fA-F0-9\x20])/g;
+
+function escape(string) {
+  let output = "";
+  let counter = 0;
+  const { length } = string;
+
+  while (counter < length) {
+    // eslint-disable-next-line no-plusplus
+    const character = string.charAt(counter++);
+    let codePoint = character.charCodeAt();
+    let value;
+
+    // If it’s not a printable ASCII character…
+    if (codePoint < 0x20 || codePoint > 0x7e) {
+      if (codePoint >= 0xd800 && codePoint <= 0xdbff && counter < length) {
+        // It’s a high surrogate, and there is a next character.
+        // eslint-disable-next-line no-plusplus
+        const extra = string.charCodeAt(counter++);
+
+        // eslint-disable-next-line no-bitwise
+        if ((extra & 0xfc00) === 0xdc00) {
+          // next character is low surrogate
+          // eslint-disable-next-line no-bitwise
+          codePoint = ((codePoint & 0x3ff) << 10) + (extra & 0x3ff) + 0x10000;
+        } else {
+          // It’s an unmatched surrogate; only append this code unit, in case
+          // the next code unit is the high surrogate of a surrogate pair.
+          // eslint-disable-next-line no-plusplus
+          counter--;
+        }
+      }
+      value = `\\${codePoint.toString(16).toUpperCase()} `;
+    }
+    // eslint-disable-next-line no-control-regex
+    else if (/[\t\n\f\r\x0B]/.test(character)) {
+      value = `\\${codePoint.toString(16).toUpperCase()} `;
+    } else if (character === "\\" || regexSingleEscape.test(character)) {
+      value = `\\${character}`;
+    } else {
+      value = character;
+    }
+
+    output += value;
+  }
+
+  const firstChar = string.charAt(0);
+
+  if (/^-[-\d]/.test(output)) {
+    output = `\\-${output.slice(1)}`;
+  } else if (/\d/.test(firstChar)) {
+    output = `\\3${firstChar} ${output.slice(1)}`;
+  }
+
+  // Remove spaces after `\HEX` escapes that are not followed by a hex digit,
+  // since they’re redundant. Note that this is only possible if the escape
+  // sequence isn’t preceded by an odd number of backslashes.
+  output = output.replace(regexExcessiveSpaces, ($0, $1, $2) => {
+    if ($1 && $1.length % 2) {
+      // It’s not safe to remove the space, so don’t.
+      return $0;
+    }
+
+    // Strip the space.
+    return ($1 || "") + $2;
+  });
+
+  return output;
+}
 
 function unescape(str) {
   return str.replace(unescapeRegExp, (_, escaped, escapedWhitespace) => {
@@ -51,7 +122,7 @@ const filenameReservedRegex = /[<>:"/\\|?*]/g;
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
 
 function escapeLocalIdent(localident) {
-  return cssesc(
+  return escape(
     localident
       // For `[hash]` placeholder
       .replace(/^((-?[0-9])|--)/, "_$1")
