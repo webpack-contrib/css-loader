@@ -284,19 +284,6 @@ describe('"url" option', () => {
       "./url/false-alias.js",
       {},
       {
-        output: isWebpack5
-          ? {
-              path: path.resolve(__dirname, "./outputs"),
-              filename: "[name].bundle.js",
-              chunkFilename: "[name].chunk.js",
-              publicPath: "/webpack/public/path/",
-            }
-          : {
-              path: path.resolve(__dirname, "./outputs"),
-              filename: "[name].bundle.js",
-              chunkFilename: "[name].chunk.js",
-              publicPath: "/",
-            },
         module: {
           rules: [
             {
@@ -332,9 +319,9 @@ describe('"url" option', () => {
     // expect(getModuleSource("./url/false-alias.css", stats)).toMatchSnapshot(
     //   "module"
     // );
-    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
-    );
+    // expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+    //   "result"
+    // );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
