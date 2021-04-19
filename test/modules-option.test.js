@@ -1,6 +1,8 @@
 import path from "path";
 import fs from "fs";
 
+import webpack from "webpack";
+
 import {
   compile,
   getCompiler,
@@ -14,6 +16,8 @@ const testCasesPath = path.join(__dirname, "fixtures/modules/tests-cases");
 const testCases = fs.readdirSync(testCasesPath);
 
 jest.setTimeout(60000);
+
+const isWebpack5 = webpack.version.startsWith(5);
 
 describe('"modules" option', () => {
   [
@@ -839,6 +843,33 @@ describe('"modules" option', () => {
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with "false" alises', async () => {
+    const compiler = getCompiler(
+      "./modules/icss-false-alias/icss.js",
+      {},
+      {
+        resolve: {
+          alias: {
+            "/unknown.css": isWebpack5
+              ? false
+              : path.resolve(__dirname, "./fixtures/url/logo.png"),
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    // TODO uncomment after drop webpack v4
+    // expect(
+    //     getModuleSource("./modules/icss-false-alias/relative.icss.css", stats)
+    // ).toMatchSnapshot("module");
+    // expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+    //     "result"
+    // );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });

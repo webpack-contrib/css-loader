@@ -4239,6 +4239,10 @@ Object {
 
 exports[`"modules" option should work with "exportOnlyLocals" and "namedExport" option: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with "false" alises: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with "false" alises: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with "url" and "namedExport": errors 1`] = `Array []`;
 
 exports[`"modules" option should work with "url" and "namedExport": module 1`] = `

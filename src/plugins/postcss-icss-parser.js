@@ -40,6 +40,11 @@ const plugin = (options = {}) => {
             ...new Set([normalizedUrl, request]),
           ]);
 
+          if (!resolvedUrl) {
+            return;
+          }
+
+          // eslint-disable-next-line consistent-return
           return { url: resolvedUrl, prefix, tokens };
         };
 
@@ -49,8 +54,14 @@ const plugin = (options = {}) => {
       const results = await Promise.all(tasks);
 
       for (let index = 0; index <= results.length - 1; index++) {
-        const { url, prefix, tokens } = results[index];
-        const newUrl = prefix ? `${prefix}!${url}` : url;
+        const item = results[index];
+
+        if (!item) {
+          // eslint-disable-next-line no-continue
+          continue;
+        }
+
+        const newUrl = item.prefix ? `${item.prefix}!${item.url}` : item.url;
         const importKey = newUrl;
         let importName = imports.get(importKey);
 
@@ -68,9 +79,11 @@ const plugin = (options = {}) => {
           options.api.push({ importName, dedupe: true, index });
         }
 
-        for (const [replacementIndex, token] of Object.keys(tokens).entries()) {
+        for (const [replacementIndex, token] of Object.keys(
+          item.tokens
+        ).entries()) {
           const replacementName = `___CSS_LOADER_ICSS_IMPORT_${index}_REPLACEMENT_${replacementIndex}___`;
-          const localName = tokens[token];
+          const localName = item.tokens[token];
 
           importReplacements[token] = replacementName;
 
