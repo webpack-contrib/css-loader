@@ -1865,6 +1865,10 @@ Warning
 ]
 `;
 
+exports[`"import" option should work with 'false' aliases: errors 1`] = `Array []`;
+
+exports[`"import" option should work with 'false' aliases: warnings 1`] = `Array []`;
+
 exports[`"import" option should work with a value equal to "false": errors 1`] = `Array []`;
 
 exports[`"import" option should work with a value equal to "false": module 1`] = `

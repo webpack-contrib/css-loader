@@ -166,11 +166,9 @@ const plugin = (options = {}) => {
                 const needKeep = await options.filter(url, media);
 
                 if (!needKeep) {
-                  return null;
+                  return;
                 }
               }
-
-              atRule.remove();
 
               if (isRequestable) {
                 const request = requestify(url, options.rootContext);
@@ -180,9 +178,19 @@ const plugin = (options = {}) => {
                   ...new Set([request, url]),
                 ]);
 
+                if (!resolvedUrl) {
+                  return;
+                }
+
+                atRule.remove();
+
+                // eslint-disable-next-line consistent-return
                 return { url: resolvedUrl, media, prefix, isRequestable };
               }
 
+              atRule.remove();
+
+              // eslint-disable-next-line consistent-return
               return { url, media, prefix, isRequestable };
             })
           );

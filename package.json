@@ -89,7 +89,7 @@
     "stylus": "^0.54.8",
     "stylus-loader": "^4.3.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.33.2"
+    "webpack": "^5.34.0"
   },
   "keywords": [
     "webpack",

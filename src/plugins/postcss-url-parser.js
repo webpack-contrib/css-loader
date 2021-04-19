@@ -292,7 +292,7 @@ const plugin = (options = {}) => {
                 const needKeep = await options.filter(url);
 
                 if (!needKeep) {
-                  return null;
+                  return;
                 }
               }
 
@@ -309,19 +309,26 @@ const plugin = (options = {}) => {
                 ...new Set([request, url]),
               ]);
 
+              if (!resolvedUrl) {
+                return;
+              }
+
+              // eslint-disable-next-line consistent-return
               return { ...parsedDeclaration, url: resolvedUrl, hash };
             })
           );
-
-          const results = await Promise.all(resolvedDeclarations);
 
           const urlToNameMap = new Map();
           const urlToReplacementMap = new Map();
 
           let hasUrlImportHelper = false;
 
-          for (let index = 0; index <= results.length - 1; index++) {
-            const item = results[index];
+          for (
+            let index = 0;
+            index <= resolvedDeclarations.length - 1;
+            index++
+          ) {
+            const item = resolvedDeclarations[index];
 
             if (!item) {
               // eslint-disable-next-line no-continue
