@@ -854,9 +854,9 @@ describe('"modules" option', () => {
       {
         resolve: {
           alias: {
-            "/unknown.css": isWebpack5
+            "./unknown.css": isWebpack5
               ? false
-              : path.resolve(__dirname, "./fixtures/url/logo.png"),
+              : path.resolve(__dirname, "./fixtures/modules/unknown.css"),
           },
         },
       }

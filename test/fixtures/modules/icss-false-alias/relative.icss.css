@@ -1,4 +1,4 @@
-:import("/unknown.css") {
+:import("./unknown.css") {
   IMPORTED_NAME: primary-color;
 }
 
