@@ -196,6 +196,36 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work with 'false' aliases", async () => {
+    const compiler = getCompiler(
+      "./import/false-alias.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              loader: path.resolve(__dirname, "../src"),
+            },
+          ],
+        },
+        resolve: {
+          alias: { "/style.css": false },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./import/false-alias.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should throw an error on unresolved import", async () => {
     const compiler = getCompiler("./import/unresolved.js");
     const stats = await compile(compiler);

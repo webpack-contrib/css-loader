@@ -279,6 +279,36 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work with 'false' aliases", async () => {
+    const compiler = getCompiler(
+      "./url/false-alias.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              loader: path.resolve(__dirname, "../src"),
+            },
+          ],
+        },
+        resolve: {
+          alias: { "/logo.png": false },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/false-alias.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should throw an error on unresolved import", async () => {
     const compiler = getCompiler("./url/url-unresolved.js");
     const stats = await compile(compiler);
