@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.4](https://github.com/webpack-contrib/css-loader/compare/v5.2.3...v5.2.4) (2021-04-19)
+
+
+### Bug Fixes
+
+* do not crash on 'false' aliases ([#1292](https://github.com/webpack-contrib/css-loader/issues/1292)) ([e913cb1](https://github.com/webpack-contrib/css-loader/commit/e913cb1d73a4f5c3c4464e0446a885e9f677a005))
+
 ### [5.2.3](https://github.com/webpack-contrib/css-loader/compare/v5.2.2...v5.2.3) (2021-04-19)
 
 ### Bug Fixes
