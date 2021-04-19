@@ -5,7 +5,7 @@ import {
   requestify,
   resolveRequests,
   isUrlRequestable,
-  webpackIgnoreCommentRegexp,
+  WEBPACK_IGNORE_COMMENT_REGEXP,
 } from "../utils";
 
 const isUrlFunc = /url/i;
@@ -42,7 +42,7 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
     return;
   }
 
-  const matched = prevValueNode.value.match(webpackIgnoreCommentRegexp);
+  const matched = prevValueNode.value.match(WEBPACK_IGNORE_COMMENT_REGEXP);
 
   return matched && matched[2] === "true";
 }
@@ -81,7 +81,7 @@ function parseDeclaration(declaration, key, result) {
 
     const matched = declaration.raws.between
       .slice(lastCommentIndex)
-      .match(webpackIgnoreCommentRegexp);
+      .match(WEBPACK_IGNORE_COMMENT_REGEXP);
 
     if (matched) {
       inBetween = matched[2] === "true";
@@ -93,7 +93,7 @@ function parseDeclaration(declaration, key, result) {
   const prevNode = declaration.prev();
 
   if (prevNode && prevNode.type === "comment") {
-    const matched = prevNode.text.match(webpackIgnoreCommentRegexp);
+    const matched = prevNode.text.match(WEBPACK_IGNORE_COMMENT_REGEXP);
 
     if (matched) {
       isIgnoreOnDeclaration = matched[2] === "true";

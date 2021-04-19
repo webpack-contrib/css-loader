@@ -12,13 +12,7 @@ import extractImports from "postcss-modules-extract-imports";
 import modulesScope from "postcss-modules-scope";
 import camelCase from "camelcase";
 
-const whitespace = "[\\x20\\t\\r\\n\\f]";
-const unescapeRegExp = new RegExp(
-  `\\\\([\\da-f]{1,6}${whitespace}?|(${whitespace})|.)`,
-  "ig"
-);
-const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
-const webpackIgnoreCommentRegexp = /webpackIgnore:(\s+)?(true|false)/;
+const WEBPACK_IGNORE_COMMENT_REGEXP = /webpackIgnore:(\s+)?(true|false)/;
 
 // eslint-disable-next-line no-useless-escape
 const regexSingleEscape = /[ -,.\/:-@[\]\^`{-~]/;
@@ -72,24 +66,95 @@ function escape(string) {
   return output;
 }
 
-function unescape(str) {
-  return str.replace(unescapeRegExp, (_, escaped, escapedWhitespace) => {
-    const high = `0x${escaped}` - 0x10000;
+function gobbleHex(str) {
+  const lower = str.toLowerCase();
+  let hex = "";
+  let spaceTerminated = false;
 
-    /* eslint-disable line-comment-position */
-    // NaN means non-codepoint
-    // Workaround erroneous numeric interpretation of +"0x"
-    // eslint-disable-next-line no-self-compare
-    return high !== high || escapedWhitespace
-      ? escaped
-      : high < 0
-      ? // BMP codepoint
-        String.fromCharCode(high + 0x10000)
-      : // Supplemental Plane codepoint (surrogate pair)
-        // eslint-disable-next-line no-bitwise
-        String.fromCharCode((high >> 10) | 0xd800, (high & 0x3ff) | 0xdc00);
-    /* eslint-enable line-comment-position */
-  });
+  // eslint-disable-next-line no-undefined
+  for (let i = 0; i < 6 && lower[i] !== undefined; i++) {
+    const code = lower.charCodeAt(i);
+    // check to see if we are dealing with a valid hex char [a-f|0-9]
+    const valid = (code >= 97 && code <= 102) || (code >= 48 && code <= 57);
+    // https://drafts.csswg.org/css-syntax/#consume-escaped-code-point
+    spaceTerminated = code === 32;
+
+    if (!valid) {
+      break;
+    }
+
+    hex += lower[i];
+  }
+
+  if (hex.length === 0) {
+    // eslint-disable-next-line no-undefined
+    return undefined;
+  }
+
+  const codePoint = parseInt(hex, 16);
+
+  const isSurrogate = codePoint >= 0xd800 && codePoint <= 0xdfff;
+  // Add special case for
+  // "If this number is zero, or is for a surrogate, or is greater than the maximum allowed code point"
+  // https://drafts.csswg.org/css-syntax/#maximum-allowed-code-point
+  if (isSurrogate || codePoint === 0x0000 || codePoint > 0x10ffff) {
+    return ["\uFFFD", hex.length + (spaceTerminated ? 1 : 0)];
+  }
+
+  return [
+    String.fromCodePoint(codePoint),
+    hex.length + (spaceTerminated ? 1 : 0),
+  ];
+}
+
+const CONTAINS_ESCAPE = /\\/;
+
+function unescape(str) {
+  const needToProcess = CONTAINS_ESCAPE.test(str);
+
+  if (!needToProcess) {
+    return str;
+  }
+
+  let ret = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "\\") {
+      const gobbled = gobbleHex(str.slice(i + 1, i + 7));
+
+      // eslint-disable-next-line no-undefined
+      if (gobbled !== undefined) {
+        ret += gobbled[0];
+        i += gobbled[1];
+
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      // Retain a pair of \\ if double escaped `\\\\`
+      // https://github.com/postcss/postcss-selector-parser/commit/268c9a7656fb53f543dc620aa5b73a30ec3ff20e
+      if (str[i + 1] === "\\") {
+        ret += "\\";
+        i += 1;
+
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      // if \\ is at the end of the string retain it
+      // https://github.com/postcss/postcss-selector-parser/commit/01a6b346e3612ce1ab20219acc26abdc259ccefb
+      if (str.length === i + 1) {
+        ret += str[i];
+      }
+
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
+    ret += str[i];
+  }
+
+  return ret;
 }
 
 function normalizePath(file) {
@@ -139,6 +204,8 @@ function defaultGetLocalIdent(
   return interpolateName(loaderContext, localIdentName, options);
 }
 
+const NATIVE_WIN32_PATH = /^[A-Z]:[/\\]|^\\\\/i;
+
 function normalizeUrl(url, isStringValue) {
   let normalizedUrl = url
     .replace(/^( |\t\n|\r\n|\r|\f)*/g, "")
@@ -148,7 +215,7 @@ function normalizeUrl(url, isStringValue) {
     normalizedUrl = normalizedUrl.replace(/\\(\n|\r\n|\r|\f)/g, "");
   }
 
-  if (matchNativeWin32Path.test(url)) {
+  if (NATIVE_WIN32_PATH.test(url)) {
     try {
       normalizedUrl = decodeURI(normalizedUrl);
     } catch (error) {
@@ -768,7 +835,7 @@ function isUrlRequestable(url) {
   }
 
   // Absolute URLs
-  if (/^[a-z][a-z0-9+.-]*:/i.test(url) && !matchNativeWin32Path.test(url)) {
+  if (/^[a-z][a-z0-9+.-]*:/i.test(url) && !NATIVE_WIN32_PATH.test(url)) {
     return false;
   }
 
@@ -811,6 +878,6 @@ export {
   resolveRequests,
   isUrlRequestable,
   sort,
-  webpackIgnoreCommentRegexp,
+  WEBPACK_IGNORE_COMMENT_REGEXP,
   combineRequests,
 };
