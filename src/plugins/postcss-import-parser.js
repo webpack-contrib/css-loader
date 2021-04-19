@@ -5,7 +5,7 @@ import {
   resolveRequests,
   isUrlRequestable,
   requestify,
-  webpackIgnoreCommentRegexp,
+  WEBPACK_IGNORE_COMMENT_REGEXP,
 } from "../utils";
 
 function parseNode(atRule, key) {
@@ -22,7 +22,7 @@ function parseNode(atRule, key) {
     const lastCommentIndex = atRule.raws.afterName.lastIndexOf("/*");
     const matched = atRule.raws.afterName
       .slice(lastCommentIndex)
-      .match(webpackIgnoreCommentRegexp);
+      .match(WEBPACK_IGNORE_COMMENT_REGEXP);
 
     if (matched && matched[2] === "true") {
       return;
@@ -32,7 +32,7 @@ function parseNode(atRule, key) {
   const prevNode = atRule.prev();
 
   if (prevNode && prevNode.type === "comment") {
-    const matched = prevNode.text.match(webpackIgnoreCommentRegexp);
+    const matched = prevNode.text.match(WEBPACK_IGNORE_COMMENT_REGEXP);
 
     if (matched && matched[2] === "true") {
       return;
