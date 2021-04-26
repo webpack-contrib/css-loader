@@ -1,8 +1,6 @@
 import fs from "fs";
 import path from "path";
 
-import webpack from "webpack";
-
 import {
   compile,
   getCompiler,
@@ -11,8 +9,6 @@ import {
   getModuleSource,
   getWarnings,
 } from "./helpers/index";
-
-const isWebpack5 = webpack.version.startsWith(5);
 
 describe('"url" option', () => {
   it("should work when not specified", async () => {
@@ -164,22 +160,13 @@ describe('"url" option', () => {
                 },
               ],
             },
-            isWebpack5
-              ? {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  type: "asset",
-                  generator: {
-                    filename: "[name][ext]",
-                  },
-                }
-              : {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  loader: "url-loader",
-                  options: {
-                    limit: 8096,
-                    name: "[name].[ext]",
-                  },
-                },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              type: "asset",
+              generator: {
+                filename: "[name][ext]",
+              },
+            },
           ],
         },
       }
@@ -210,22 +197,13 @@ describe('"url" option', () => {
                 },
               ],
             },
-            isWebpack5
-              ? {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  type: "asset",
-                  generator: {
-                    filename: "[name][ext]",
-                  },
-                }
-              : {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  loader: "url-loader",
-                  options: {
-                    limit: 8096,
-                    name: "[name].[ext]",
-                  },
-                },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              type: "asset",
+              generator: {
+                filename: "[name][ext]",
+              },
+            },
           ],
         },
       }
@@ -256,15 +234,10 @@ describe('"url" option', () => {
                 },
               ],
             },
-            isWebpack5
-              ? {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  type: "asset/inline",
-                }
-              : {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  loader: "url-loader",
-                },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              type: "asset/inline",
+            },
           ],
         },
       }
@@ -290,38 +263,27 @@ describe('"url" option', () => {
               test: /\.css$/i,
               loader: path.resolve(__dirname, "../src"),
             },
-            isWebpack5
-              ? {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  type: "asset/resource",
-                }
-              : {
-                  test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                  loader: "file-loader",
-                  options: {
-                    name: "[name].[ext]",
-                  },
-                },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              type: "asset/resource",
+            },
           ],
         },
         resolve: {
           alias: {
-            "/logo.png": isWebpack5
-              ? false
-              : path.resolve(__dirname, "./fixtures/url/logo.png"),
+            "/logo.png": false,
           },
         },
       }
     );
     const stats = await compile(compiler);
 
-    // TODO uncomment after drop webpack v4
-    // expect(getModuleSource("./url/false-alias.css", stats)).toMatchSnapshot(
-    //   "module"
-    // );
-    // expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-    //   "result"
-    // );
+    expect(getModuleSource("./url/false-alias.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });

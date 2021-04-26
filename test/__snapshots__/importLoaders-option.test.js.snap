@@ -56,8 +56,8 @@ exports[`"importLoaders" option should work with a value equal to ""1"" ("postcs
 exports[`"importLoaders" option should work with a value equal to ""1"" ("postcss-loader" before): module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./other-imported.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
@@ -71,7 +71,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"importLoaders" option should work with a value equal to ""1"" ("postcss-loader" before): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./nested-import/imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/imported.css",
     ".bar {
   color: blue;
   color: rgba(0, 0, 255, 0.9);
@@ -80,7 +80,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./nested-import/other-imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/other-imported.css",
     ".baz {
   color: green;
   color: rgba(0, 0, 255, 0.9);
@@ -107,8 +107,8 @@ exports[`"importLoaders" option should work with a value equal to "0" (\`postcss
 exports[`"importLoaders" option should work with a value equal to "0" (\`postcss-loader\` before): module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./other-imported.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
@@ -122,7 +122,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"importLoaders" option should work with a value equal to "0" (\`postcss-loader\` before): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./nested-import/imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./nested-import/imported.css",
     ".bar {
   color: blue;
   color: rgb(0 0 100% / 90%);
@@ -131,7 +131,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./nested-import/other-imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./nested-import/other-imported.css",
     ".baz {
   color: green;
   color: rgb(0 0 100% / 90%);
@@ -158,8 +158,8 @@ exports[`"importLoaders" option should work with a value equal to "1" ("postcss-
 exports[`"importLoaders" option should work with a value equal to "1" ("postcss-loader" before): module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./other-imported.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
@@ -173,7 +173,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"importLoaders" option should work with a value equal to "1" ("postcss-loader" before): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./nested-import/imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/imported.css",
     ".bar {
   color: blue;
   color: rgba(0, 0, 255, 0.9);
@@ -182,7 +182,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./nested-import/other-imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/other-imported.css",
     ".baz {
   color: green;
   color: rgba(0, 0, 255, 0.9);
@@ -209,8 +209,8 @@ exports[`"importLoaders" option should work with a value equal to "1" (no loader
 exports[`"importLoaders" option should work with a value equal to "1" (no loaders before): module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./other-imported.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
@@ -224,7 +224,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"importLoaders" option should work with a value equal to "1" (no loaders before): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./nested-import/imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./nested-import/imported.css",
     ".bar {
   color: blue;
   color: rgb(0 0 100% / 90%);
@@ -233,7 +233,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./nested-import/other-imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./nested-import/other-imported.css",
     ".baz {
   color: green;
   color: rgb(0 0 100% / 90%);
@@ -260,8 +260,8 @@ exports[`"importLoaders" option should work with a value equal to "2" ("postcss-
 exports[`"importLoaders" option should work with a value equal to "2" ("postcss-loader" before): module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./other-imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./other-imported.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
@@ -275,7 +275,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"importLoaders" option should work with a value equal to "2" ("postcss-loader" before): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./nested-import/imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/imported.css",
     ".bar {
   color: blue;
   color: rgba(0, 0, 255, 0.9);
@@ -284,7 +284,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./nested-import/other-imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/other-imported.css",
     ".baz {
   color: green;
   color: rgba(0, 0, 255, 0.9);
