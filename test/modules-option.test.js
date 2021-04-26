@@ -866,13 +866,12 @@ describe('"modules" option', () => {
     );
     const stats = await compile(compiler);
 
-    // TODO uncomment after drop webpack v4
-    // expect(
-    //     getModuleSource("./modules/icss-false-alias/relative.icss.css", stats)
-    // ).toMatchSnapshot("module");
-    // expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-    //     "result"
-    // );
+    expect(
+      getModuleSource("./modules/icss-false-alias/relative.icss.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });

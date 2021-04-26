@@ -2,10 +2,9 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import { getOptions, stringifyRequest } from "loader-utils";
+import { stringifyRequest } from "loader-utils";
 import postcss from "postcss";
 import postcssPkg from "postcss/package.json";
-import { validate } from "schema-utils";
 import { satisfies } from "semver";
 
 import CssSyntaxError from "./CssSyntaxError";
@@ -30,13 +29,7 @@ import {
 } from "./utils";
 
 export default async function loader(content, map, meta) {
-  const rawOptions = getOptions(this);
-
-  validate(schema, rawOptions, {
-    name: "CSS Loader",
-    baseDataPath: "options",
-  });
-
+  const rawOptions = this.getOptions(schema);
   const plugins = [];
   const callback = this.async();
 

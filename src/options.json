@@ -1,4 +1,5 @@
 {
+  "title": "CSS Loader options",
   "additionalProperties": false,
   "properties": {
     "url": {

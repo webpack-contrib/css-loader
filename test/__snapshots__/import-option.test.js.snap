@@ -5,10 +5,10 @@ exports[`"import" option should keep original order: errors 1`] = `Array []`;
 exports[`"import" option should keep original order: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./order-1.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./order-2.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??[ident]!./order-3.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"-!../../../src/index.js??[ident]!./order-4.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./order-1.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./order-2.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./order-3.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./order-4.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(http://example.com/style.css);\\"]);
@@ -31,7 +31,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should keep original order: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/order-1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-1.css",
     ".order-1 {
   color: red;
 }
@@ -43,7 +43,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-2.css",
     ".order-2 {
   color: red;
 }
@@ -55,7 +55,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-1.css",
     ".order-1 {
   color: red;
 }
@@ -67,7 +67,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-2.css",
     ".order-2 {
   color: red;
 }
@@ -79,7 +79,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-3-1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-3-1.css",
     ".order-3-1 {
   color: white;
 }
@@ -87,7 +87,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-3.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-3.css",
     ".order-3 {
   color: red;
 }
@@ -99,7 +99,7 @@ Array [
     "@import url(http://example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-4-1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-4-1.css",
     ".order-4-1 {
   color: red;
 }
@@ -107,7 +107,7 @@ Array [
     "screen and (min-width: 1000px)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-4-2-1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-4-2-1.css",
     ".order-4-2-1 {
   color: red;
 }
@@ -115,7 +115,7 @@ Array [
     "screen and (min-width: 2000px)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-4-2-2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-4-2-2.css",
     ".order-4-2-2 {
   color: red;
 }
@@ -123,7 +123,7 @@ Array [
     "screen and (min-width: 2000px) and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-4-2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-4-2.css",
     ".order-4-2 {
   color: red;
 }
@@ -131,7 +131,7 @@ Array [
     "screen and (min-width: 2000px)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/order-4.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/order-4.css",
     ".order-4 {
   color: red;
 }
@@ -157,7 +157,7 @@ exports[`"import" option should resolve "file" protocol: errors 1`] = `Array []`
 exports[`"import" option should resolve "file" protocol: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
@@ -170,7 +170,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should resolve "file" protocol: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -192,7 +192,7 @@ exports[`"import" option should resolve absolute path: errors 1`] = `Array []`;
 exports[`"import" option should resolve absolute path: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
@@ -205,7 +205,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should resolve absolute path: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -227,7 +227,7 @@ exports[`"import" option should resolve server-relative url relative rootContext
 exports[`"import" option should resolve server-relative url relative rootContext: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
@@ -241,7 +241,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should resolve server-relative url relative rootContext: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -249,7 +249,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -274,7 +274,7 @@ exports[`"import" option should respect conditionNames: errors 1`] = `Array []`;
 exports[`"import" option should respect conditionNames: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./node_modules/package-with-exports/style.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package-with-exports/style.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
@@ -287,7 +287,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should respect conditionNames: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package-with-exports/style.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/node_modules/package-with-exports/style.css",
     ".load-me {
   color: red;
 }
@@ -321,7 +321,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should respect style field in package.json: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/issue-683/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/node_modules/issue-683/test.css",
     ".test {
   color: coral;
 }
@@ -353,9 +353,9 @@ exports[`"import" option should work resolve order: local -> node_modules -> ali
 exports[`"import" option should work resolve order: local -> node_modules -> alias: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./test.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./issue-683.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./issue-683.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/tilde.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
@@ -370,7 +370,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should work resolve order: local -> node_modules -> alias: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -378,7 +378,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/issue-683/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/node_modules/issue-683/test.css",
     ".test {
   color: coral;
 }
@@ -386,13 +386,13 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/issue-683.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/issue-683.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/node_modules/package/tilde.css",
     ".tilde {
   color: yellow;
 }
@@ -415,26 +415,26 @@ exports[`"import" option should work when "Function": errors 1`] = `Array []`;
 exports[`"import" option should work when "Function": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./test-media.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./test-other.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??[ident]!./query.css?foo=1&bar=1\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"-!../../../src/index.js??[ident]!./other-query.css?foo=1&bar=1#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_4___ from \\"-!../../../src/index.js??[ident]!./relative.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_5___ from \\"-!../../../src/index.js??[ident]!./top-relative.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_6___ from \\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_7___ from \\"-!../../../src/index.js??[ident]!./alias.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_8___ from \\"-!../../../src/index.js??[ident]!./url.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_9___ from \\"-!../../../src/index.js??[ident]!./te'st.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_10___ from \\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_11___ from \\"-!../../../src/index.js??[ident]!./something.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_12___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_13___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_14___ from \\"-!../../../src/index.js??[ident]!./something.css?bar=foo\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_15___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar#one\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_16___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar#two\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_17___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=1&bar=2\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_18___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=2&bar=1\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_19___ from \\"-!../../../src/index.js??[ident]!./my.scss\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test-other.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./query.css?foo=1&bar=1\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./other-query.css?foo=1&bar=1#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_4___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_5___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_6___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/tilde.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_7___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_8___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./url.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_9___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./te'st.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_10___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!!!../../helpers/string-loader.js?esModule=false!./node_modules/package/tilde.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_11___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_12___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_13___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_14___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?bar=foo\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_15___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar#one\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_16___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar#two\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_17___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=1&bar=2\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_18___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=2&bar=1\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_19___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./my.scss\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
 import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -490,7 +490,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should work when "Function": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/test-nested-media.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test-nested-media.css",
     "a {
   b: b;
 }
@@ -498,7 +498,7 @@ Array [
     "screen and (orientation:landscape) and (min-width: 100px)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test-media.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test-media.css",
     ".test {
   c: c;
 }
@@ -506,7 +506,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test-other.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test-other.css",
     ".test {
   d: d;
 }
@@ -548,7 +548,7 @@ Array [
     "@import url(//example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/query.css?foo=1&bar=1",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/query.css?foo=1&bar=1",
     ".query {
   e: e;
 }
@@ -556,7 +556,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -564,7 +564,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -584,7 +584,7 @@ Array [
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/relative.css",
     ".relative {
   color: red;
 }
@@ -592,7 +592,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/top-relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/top-relative.css",
     ".top-relative {
   color: black;
 }
@@ -600,7 +600,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/node_modules/package/tilde.css",
     ".tilde {
   color: yellow;
 }
@@ -608,7 +608,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/alias.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/alias.css",
     ".alias {
   color: red;
 }
@@ -616,7 +616,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/url.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/url.css",
     ".background-imported {
   background: url(/webpack/public/path/img.png);
 }
@@ -624,7 +624,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -632,7 +632,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -640,7 +640,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -648,7 +648,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -656,12 +656,12 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../helpers/string-loader.js?esModule=false!./import/node_modules/package/tilde.css",
     "a { color: red };",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css",
     ".my-box {
   color: red;
 }
@@ -669,7 +669,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css",
     ".my-box {
   color: red;
 }
@@ -677,7 +677,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar",
     ".my-box {
   color: red;
 }
@@ -685,7 +685,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar",
     ".my-box {
   color: red;
 }
@@ -693,7 +693,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#hash",
     ".my-box {
   color: red;
 }
@@ -701,7 +701,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#hash",
     ".my-box {
   color: red;
 }
@@ -709,7 +709,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar",
     ".my-box {
   color: red;
 }
@@ -717,7 +717,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?bar=foo",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?bar=foo",
     ".my-box {
   color: red;
 }
@@ -725,7 +725,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#one",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#one",
     ".my-box {
   color: red;
 }
@@ -733,7 +733,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#two",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#two",
     ".my-box {
   color: red;
 }
@@ -741,7 +741,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=1&bar=2",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=1&bar=2",
     ".my-box {
   color: red;
 }
@@ -749,7 +749,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=2&bar=1",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=2&bar=1",
     ".my-box {
   color: red;
 }
@@ -757,7 +757,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/my.scss",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/my.scss",
     "a {
   color: red;
 }",
@@ -768,7 +768,7 @@ Array [
     "@import url(https://fonts.googleapis.com/css?family=Roboto);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../helpers/string-loader.js?esModule=false!./import/node_modules/package/tilde.css",
     "a { color: red };",
     "",
   ],
@@ -962,32 +962,32 @@ exports[`"import" option should work when not specified: errors 1`] = `Array []`
 exports[`"import" option should work when not specified: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./test.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./test-media.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??[ident]!./test-other.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"-!../../../src/index.js??[ident]!./node_modules/package/test.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_4___ from \\"-!../../../src/index.js??[ident]!./query.css?foo=1&bar=1\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_5___ from \\"-!../../../src/index.js??[ident]!./other-query.css?foo=1&bar=1#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_6___ from \\"-!../../../src/index.js??[ident]!./relative.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_7___ from \\"-!../../../src/index.js??[ident]!./top-relative.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_8___ from \\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_9___ from \\"-!../../../src/index.js??[ident]!./alias.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_10___ from \\"-!../../../src/index.js??[ident]!./url.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_11___ from \\"-!../../../src/index.js??[ident]!./te'st.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_12___ from \\"-!../../../src/index.js??[ident]!./test test.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_13___ from \\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_14___ from \\"-!../../../src/index.js??[ident]!./test.css?foo=bar\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_15___ from \\"-!../../../src/index.js??[ident]!./test.css?foo=bar#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_16___ from \\"-!../../../src/index.js??[ident]!./test.css?#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_17___ from \\"-!../../../src/index.js??[ident]!./something.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_18___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_19___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_20___ from \\"-!../../../src/index.js??[ident]!./something.css?bar=foo\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_21___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar#one\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_22___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar#two\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_23___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=1&bar=2\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_24___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=2&bar=1\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_25___ from \\"-!../../../src/index.js??[ident]!./my.scss\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test-other.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_4___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./query.css?foo=1&bar=1\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_5___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./other-query.css?foo=1&bar=1#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_6___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_7___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_8___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/tilde.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_9___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_10___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./url.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_11___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./te'st.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_12___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_13___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!!!../../helpers/string-loader.js?esModule=false!./node_modules/package/tilde.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_14___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css?foo=bar\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_15___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css?foo=bar#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_16___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css?#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_17___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_18___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_19___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_20___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?bar=foo\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_21___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar#one\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_22___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar#two\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_23___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=1&bar=2\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_24___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=2&bar=1\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_25___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./my.scss\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
 import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -1089,7 +1089,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should work when not specified: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1097,7 +1097,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1105,7 +1105,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1113,7 +1113,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1121,7 +1121,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1129,7 +1129,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1137,7 +1137,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1145,7 +1145,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1153,7 +1153,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1161,7 +1161,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1169,7 +1169,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1177,7 +1177,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1185,7 +1185,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1193,7 +1193,7 @@ Array [
     "screen and (orientation: landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1201,7 +1201,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1209,7 +1209,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test-nested-media.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test-nested-media.css",
     "a {
   b: b;
 }
@@ -1217,7 +1217,7 @@ Array [
     "screen and (orientation:landscape) and (min-width: 100px)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test-media.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test-media.css",
     ".test {
   c: c;
 }
@@ -1225,7 +1225,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test-other.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test-other.css",
     ".test {
   d: d;
 }
@@ -1267,7 +1267,7 @@ Array [
     "@import url(//example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/node_modules/package/test.css",
     ".test {
   d: d
 }
@@ -1275,7 +1275,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/query.css?foo=1&bar=1",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/query.css?foo=1&bar=1",
     ".query {
   e: e;
 }
@@ -1283,7 +1283,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -1291,7 +1291,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -1311,7 +1311,7 @@ Array [
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/relative.css",
     ".relative {
   color: red;
 }
@@ -1319,7 +1319,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/top-relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/top-relative.css",
     ".top-relative {
   color: black;
 }
@@ -1327,7 +1327,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/node_modules/package/tilde.css",
     ".tilde {
   color: yellow;
 }
@@ -1335,7 +1335,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/alias.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/alias.css",
     ".alias {
   color: red;
 }
@@ -1343,7 +1343,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/url.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/url.css",
     ".background-imported {
   background: url(/webpack/public/path/img.png);
 }
@@ -1351,7 +1351,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1359,7 +1359,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1367,7 +1367,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1375,7 +1375,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1383,7 +1383,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1391,7 +1391,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -1399,7 +1399,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -1407,7 +1407,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -1415,7 +1415,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -1423,7 +1423,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1431,7 +1431,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1439,7 +1439,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1447,7 +1447,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1455,7 +1455,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1463,7 +1463,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1471,7 +1471,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1479,7 +1479,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1487,7 +1487,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1495,7 +1495,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1503,7 +1503,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1511,7 +1511,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1519,7 +1519,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1527,7 +1527,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1535,7 +1535,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1543,7 +1543,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -1551,7 +1551,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1559,12 +1559,12 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../helpers/string-loader.js?esModule=false!./import/node_modules/package/tilde.css",
     "a { color: red };",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css?foo=bar",
     ".test {
   a: a;
 }
@@ -1572,7 +1572,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css?foo=bar#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css?foo=bar#hash",
     ".test {
   a: a;
 }
@@ -1580,7 +1580,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css?#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css?#hash",
     ".test {
   a: a;
 }
@@ -1588,7 +1588,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1596,7 +1596,7 @@ Array [
     "supports(display: flex)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1604,7 +1604,7 @@ Array [
     "supports(display: flex) screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css",
     ".my-box {
   color: red;
 }
@@ -1612,7 +1612,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css",
     ".my-box {
   color: red;
 }
@@ -1620,7 +1620,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar",
     ".my-box {
   color: red;
 }
@@ -1628,7 +1628,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar",
     ".my-box {
   color: red;
 }
@@ -1636,7 +1636,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#hash",
     ".my-box {
   color: red;
 }
@@ -1644,7 +1644,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#hash",
     ".my-box {
   color: red;
 }
@@ -1652,7 +1652,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar",
     ".my-box {
   color: red;
 }
@@ -1660,7 +1660,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?bar=foo",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?bar=foo",
     ".my-box {
   color: red;
 }
@@ -1668,7 +1668,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#one",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#one",
     ".my-box {
   color: red;
 }
@@ -1676,7 +1676,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#two",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#two",
     ".my-box {
   color: red;
 }
@@ -1684,7 +1684,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=1&bar=2",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=1&bar=2",
     ".my-box {
   color: red;
 }
@@ -1692,7 +1692,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=2&bar=1",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=2&bar=1",
     ".my-box {
   color: red;
 }
@@ -1700,7 +1700,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1708,7 +1708,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1716,7 +1716,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -1724,7 +1724,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/my.scss",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/my.scss",
     "a {
   color: red;
 }",
@@ -1735,7 +1735,7 @@ Array [
     "@import url(https://fonts.googleapis.com/css?family=Roboto);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../helpers/string-loader.js?esModule=false!./import/node_modules/package/tilde.css",
     "a { color: red };",
     "",
   ],
@@ -1866,6 +1866,31 @@ Warning
 `;
 
 exports[`"import" option should work with 'false' aliases: errors 1`] = `Array []`;
+
+exports[`"import" option should work with 'false' aliases: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@import \\\\\\"/style.css\\\\\\";\\\\n\\\\n.class {\\\\n    color: red;\\\\n}\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"import" option should work with 'false' aliases: result 1`] = `
+Array [
+  Array [
+    "./import/false-alias.css",
+    "@import \\"/style.css\\";
+
+.class {
+    color: red;
+}",
+    "",
+  ],
+]
+`;
 
 exports[`"import" option should work with 'false' aliases: warnings 1`] = `Array []`;
 
@@ -2057,32 +2082,32 @@ exports[`"import" option should work with a value equal to "true": errors 1`] = 
 exports[`"import" option should work with a value equal to "true": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./test.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??[ident]!./test-media.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??[ident]!./test-other.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"-!../../../src/index.js??[ident]!./node_modules/package/test.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_4___ from \\"-!../../../src/index.js??[ident]!./query.css?foo=1&bar=1\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_5___ from \\"-!../../../src/index.js??[ident]!./other-query.css?foo=1&bar=1#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_6___ from \\"-!../../../src/index.js??[ident]!./relative.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_7___ from \\"-!../../../src/index.js??[ident]!./top-relative.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_8___ from \\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_9___ from \\"-!../../../src/index.js??[ident]!./alias.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_10___ from \\"-!../../../src/index.js??[ident]!./url.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_11___ from \\"-!../../../src/index.js??[ident]!./te'st.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_12___ from \\"-!../../../src/index.js??[ident]!./test test.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_13___ from \\"-!../../../src/index.js??[ident]!./node_modules/package/tilde.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_14___ from \\"-!../../../src/index.js??[ident]!./test.css?foo=bar\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_15___ from \\"-!../../../src/index.js??[ident]!./test.css?foo=bar#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_16___ from \\"-!../../../src/index.js??[ident]!./test.css?#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_17___ from \\"-!../../../src/index.js??[ident]!./something.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_18___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_19___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar#hash\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_20___ from \\"-!../../../src/index.js??[ident]!./something.css?bar=foo\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_21___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar#one\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_22___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=bar#two\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_23___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=1&bar=2\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_24___ from \\"-!../../../src/index.js??[ident]!./something.css?foo=2&bar=1\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_25___ from \\"-!../../../src/index.js??[ident]!./my.scss\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test-other.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_4___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./query.css?foo=1&bar=1\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_5___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./other-query.css?foo=1&bar=1#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_6___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_7___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_8___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/tilde.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_9___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_10___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./url.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_11___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./te'st.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_12___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test test.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_13___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!!!../../helpers/string-loader.js?esModule=false!./node_modules/package/tilde.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_14___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css?foo=bar\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_15___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css?foo=bar#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_16___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./test.css?#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_17___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_18___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_19___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar#hash\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_20___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?bar=foo\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_21___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar#one\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_22___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=bar#two\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_23___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=1&bar=2\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_24___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css?foo=2&bar=1\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_25___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./my.scss\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
 import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -2184,7 +2209,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"import" option should work with a value equal to "true": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2192,7 +2217,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2200,7 +2225,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2208,7 +2233,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2216,7 +2241,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2224,7 +2249,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2232,7 +2257,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2240,7 +2265,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2248,7 +2273,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2256,7 +2281,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2264,7 +2289,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2272,7 +2297,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2280,7 +2305,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2288,7 +2313,7 @@ Array [
     "screen and (orientation: landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2296,7 +2321,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2304,7 +2329,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test-nested-media.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test-nested-media.css",
     "a {
   b: b;
 }
@@ -2312,7 +2337,7 @@ Array [
     "screen and (orientation:landscape) and (min-width: 100px)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test-media.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test-media.css",
     ".test {
   c: c;
 }
@@ -2320,7 +2345,7 @@ Array [
     "screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test-other.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test-other.css",
     ".test {
   d: d;
 }
@@ -2362,7 +2387,7 @@ Array [
     "@import url(//example.com/style.css);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/node_modules/package/test.css",
     ".test {
   d: d
 }
@@ -2370,7 +2395,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/query.css?foo=1&bar=1",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/query.css?foo=1&bar=1",
     ".query {
   e: e;
 }
@@ -2378,7 +2403,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -2386,7 +2411,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/other-query.css?foo=1&bar=1#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/other-query.css?foo=1&bar=1#hash",
     ".other-query {
   f: f;
 }
@@ -2406,7 +2431,7 @@ Array [
     "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/relative.css",
     ".relative {
   color: red;
 }
@@ -2414,7 +2439,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/top-relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/top-relative.css",
     ".top-relative {
   color: black;
 }
@@ -2422,7 +2447,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/node_modules/package/tilde.css",
     ".tilde {
   color: yellow;
 }
@@ -2430,7 +2455,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/alias.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/alias.css",
     ".alias {
   color: red;
 }
@@ -2438,7 +2463,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/url.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/url.css",
     ".background-imported {
   background: url(/webpack/public/path/img.png);
 }
@@ -2446,7 +2471,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2454,7 +2479,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2462,7 +2487,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2470,7 +2495,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2478,7 +2503,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2486,7 +2511,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -2494,7 +2519,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -2502,7 +2527,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -2510,7 +2535,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/te'st.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/te'st.css",
     ".strange {
   color: red;
 }
@@ -2518,7 +2543,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2526,7 +2551,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2534,7 +2559,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2542,7 +2567,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2550,7 +2575,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2558,7 +2583,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2566,7 +2591,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2574,7 +2599,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2582,7 +2607,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2590,7 +2615,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2598,7 +2623,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2606,7 +2631,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2614,7 +2639,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2622,7 +2647,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2630,7 +2655,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2638,7 +2663,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test test.css",
     ".space {
   color: gray;
 }
@@ -2646,7 +2671,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2654,12 +2679,12 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../helpers/string-loader.js?esModule=false!./import/node_modules/package/tilde.css",
     "a { color: red };",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css?foo=bar",
     ".test {
   a: a;
 }
@@ -2667,7 +2692,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css?foo=bar#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css?foo=bar#hash",
     ".test {
   a: a;
 }
@@ -2675,7 +2700,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css?#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css?#hash",
     ".test {
   a: a;
 }
@@ -2683,7 +2708,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2691,7 +2716,7 @@ Array [
     "supports(display: flex)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2699,7 +2724,7 @@ Array [
     "supports(display: flex) screen and (orientation:landscape)",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css",
     ".my-box {
   color: red;
 }
@@ -2707,7 +2732,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css",
     ".my-box {
   color: red;
 }
@@ -2715,7 +2740,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar",
     ".my-box {
   color: red;
 }
@@ -2723,7 +2748,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar",
     ".my-box {
   color: red;
 }
@@ -2731,7 +2756,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#hash",
     ".my-box {
   color: red;
 }
@@ -2739,7 +2764,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#hash",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#hash",
     ".my-box {
   color: red;
 }
@@ -2747,7 +2772,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar",
     ".my-box {
   color: red;
 }
@@ -2755,7 +2780,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?bar=foo",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?bar=foo",
     ".my-box {
   color: red;
 }
@@ -2763,7 +2788,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#one",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#one",
     ".my-box {
   color: red;
 }
@@ -2771,7 +2796,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=bar#two",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=bar#two",
     ".my-box {
   color: red;
 }
@@ -2779,7 +2804,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=1&bar=2",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=1&bar=2",
     ".my-box {
   color: red;
 }
@@ -2787,7 +2812,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/something.css?foo=2&bar=1",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/something.css?foo=2&bar=1",
     ".my-box {
   color: red;
 }
@@ -2795,7 +2820,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2803,7 +2828,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2811,7 +2836,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/test.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/test.css",
     ".test {
   a: a;
 }
@@ -2819,7 +2844,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/my.scss",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/my.scss",
     "a {
   color: red;
 }",
@@ -2830,7 +2855,7 @@ Array [
     "@import url(https://fonts.googleapis.com/css?family=Roboto);",
   ],
   Array [
-    "../../src/index.js?[ident]!./import/node_modules/package/tilde.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../helpers/string-loader.js?esModule=false!./import/node_modules/package/tilde.css",
     "a { color: red };",
     "",
   ],

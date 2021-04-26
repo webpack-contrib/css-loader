@@ -1,6 +1,5 @@
 import path from "path";
 
-import webpack from "webpack";
 import postcssPresetEnv from "postcss-preset-env";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
@@ -499,11 +498,7 @@ describe('"sourceMap" option', () => {
         stats.compilation.assets
       ).find((assetName) => /\.js$/.test(assetName));
 
-      expect(chunkName).toBe(
-        webpack.version[0] === "5"
-          ? "main.a531550ffe767c49e881.bundle.js"
-          : "main.19efc497c5c37fc5e355.bundle.js"
-      );
+      expect(chunkName).toBe("main.fe645cef6147a34cde0b.bundle.js");
       expect(
         getModuleSource("fixtures/source-map/basic.css", stats)
       ).toMatchSnapshot("module");
@@ -607,10 +602,7 @@ describe('"sourceMap" option', () => {
 
       const extractedCSS = readAsset(chunkName, compiler, stats);
 
-      expect(chunkName).toBe(
-        // TODO still buggy on webpack@4
-        webpack.version[0] === "5" ? "main.695010bdb768b7260e76.css" : chunkName
-      );
+      expect(chunkName).toBe("main.695010bdb768b7260e76.css");
 
       expect(
         extractedCSS.replace(

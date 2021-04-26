@@ -42,7 +42,7 @@ exports[`"modules" option issue #636: errors 1`] = `Array []`;
 exports[`"modules" option issue #636: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./foo.scss\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./foo.scss\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -58,7 +58,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option issue #636: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/issue-636/foo.scss",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./modules/issue-636/foo.scss",
     ".prefix-foo {
   color: red;
 }",
@@ -80,8 +80,8 @@ exports[`"modules" option issue #861: errors 1`] = `Array []`;
 exports[`"modules" option issue #861: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./node_modules/@localpackage/color.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./node_modules/@localpackage/style.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/@localpackage/color.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/@localpackage/style.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -99,13 +99,13 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option issue #861: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/issue-861/node_modules/@localpackage/color.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/issue-861/node_modules/@localpackage/color.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/issue-861/node_modules/@otherlocalpackage/style.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/issue-861/node_modules/@otherlocalpackage/style.css",
     "._34OED9az7G510opLe4yb1c {
   display: flex;
 }
@@ -113,7 +113,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/issue-861/node_modules/@localpackage/style.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/issue-861/node_modules/@localpackage/style.css",
     "._2blXC1CBMJb76yPAbnhQda {
   color: red;
   margin: 0;
@@ -710,7 +710,7 @@ exports[`"modules" option should avoid unnecessary "require": errors 1`] = `Arra
 exports[`"modules" option should avoid unnecessary "require": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./imported-simple.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -727,7 +727,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should avoid unnecessary "require": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/composes/imported-simple.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/imported-simple.css",
     "._1LcKtmpK51ikm2OTXu6tSg {
   display: block;
 }
@@ -756,8 +756,8 @@ exports[`"modules" option should dedupe same modules in one module (issue #1037)
 exports[`"modules" option should dedupe same modules in one module (issue #1037): module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./buttons/primary-button.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./buttons/secondary-button.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./buttons/primary-button.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./buttons/secondary-button.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -775,7 +775,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should dedupe same modules in one module (issue #1037): result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/dedupe/buttons/button.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/dedupe/buttons/button.css",
     "._2QecNNc0kCyNGf0j-87ceF
 {
   border:none;
@@ -786,7 +786,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/dedupe/buttons/primary-button.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/dedupe/buttons/primary-button.css",
     ".SnLsSJLK0FO19AzFIwO6E
 {
   background-color:blue;
@@ -796,7 +796,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/dedupe/buttons/secondary-button.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/dedupe/buttons/secondary-button.css",
     "._2gUJA1nJv71y2Pdwgea_NW
 {
   background-color:#555;
@@ -836,8 +836,8 @@ exports[`"modules" option should keep order: errors 1`] = `Array []`;
 exports[`"modules" option should keep order: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./order-1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./order-2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./order-1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./order-2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -855,7 +855,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should keep order: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/order/order-1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/order/order-1.css",
     ".cHTwsuS7DF0hGrENHf7wG {
   color: red;
 }
@@ -867,7 +867,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/order/order-2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/order/order-2.css",
     ".ahJ3jQTbr3MI8rE0s5n25 {
   color: blue;
 }
@@ -900,7 +900,7 @@ exports[`"modules" option should resolve absolute path in composes: errors 1`] =
 exports[`"modules" option should resolve absolute path in composes: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./imported-simple.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -916,7 +916,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should resolve absolute path in composes: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/composes/imported-simple.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/imported-simple.css",
     "._1LcKtmpK51ikm2OTXu6tSg {
   display: block;
 }
@@ -938,7 +938,7 @@ exports[`"modules" option should resolve package from node_modules with and with
 exports[`"modules" option should resolve package from node_modules with and without tilde: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!../node_modules/test/index.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../node_modules/test/index.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -956,7 +956,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should resolve package from node_modules with and without tilde: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/node_modules/test/index.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/node_modules/test/index.css",
     "
 ",
     "",
@@ -1355,9 +1355,9 @@ exports[`"modules" option should support resolving in composes preprocessor file
 exports[`"modules" option should support resolving in composes preprocessor files with extensions: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./values.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./less-file.less\\";
-import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??[ident]!./scss-file.scss\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./less-file.less\\";
+import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./scss-file.scss\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -1382,13 +1382,13 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should support resolving in composes preprocessor files with extensions: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/composes/values.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/values.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/less-file.less",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/less-file.less",
     ".AU34OOlIeGkUgT2KVHTK_ {
   padding: 5px;
 }
@@ -1396,7 +1396,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/scss-file.scss",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/scss-file.scss",
     "$color: red;
 
 ._14lUoCryZnM4Rrkm49iWuC {
@@ -1440,15 +1440,15 @@ exports[`"modules" option should support resolving in composes: errors 1`] = `Ar
 exports[`"modules" option should support resolving in composes: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./values.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./something.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??[ident]!./imported-simple.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??[ident]!./relative.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??[ident]!./top-relative.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??[ident]!./alias.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??[ident]!./scss-file.scss\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./test-other.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../issue-861/node_modules/package/style.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./test-other.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
 import ___CSS_LOADER_URL_IMPORT_0___ from \\"../../url/img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -1521,7 +1521,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should support resolving in composes: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/composes/test-other.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/test-other.css",
     "._24axXNO_oC23T0D0YAz-0Y {
   d: d;
 }
@@ -1529,19 +1529,19 @@ Array [
     "(min-width: 100px)",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/values.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/values.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/something.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/something.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/imported-simple.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/imported-simple.css",
     "._1LcKtmpK51ikm2OTXu6tSg {
   display: block;
 }
@@ -1549,7 +1549,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/relative.css",
     "._1bYd-W6Pwrt_8yXpE4FBEu {
   display: inline;
 }
@@ -1557,7 +1557,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/top-relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/top-relative.css",
     "._2fqgZtBtapTNVy6bnJZjkP {
   display: flex;
 }
@@ -1565,7 +1565,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/issue-861/node_modules/package/style.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/issue-861/node_modules/package/style.css",
     "._2212NWEpBgAjfmZAD6jJwU {
   display: inline-block;
 }
@@ -1573,7 +1573,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/alias.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/alias.css",
     ".gASNE59vLxrkyu1XPoUrX {
   display: table;
 }
@@ -1581,7 +1581,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/scss-file.scss",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/sass-loader/dist/cjs.js!./modules/composes/scss-file.scss",
     "._14lUoCryZnM4Rrkm49iWuC {
   color: red;
   padding: 15px;
@@ -2513,14 +2513,14 @@ exports[`"modules" option should work and respect the "exportOnlyLocals" option:
 
 exports[`"modules" option should work and respect the "exportOnlyLocals" option: module 1`] = `
 "// Imports
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./values.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./something.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??[ident]!./imported-simple.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??[ident]!./relative.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??[ident]!./top-relative.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??[ident]!./alias.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??[ident]!./scss-file.scss\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../issue-861/node_modules/package/style.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss\\";
 // Exports
 export default {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
@@ -3888,14 +3888,14 @@ exports[`"modules" option should work with "exportOnlyLocals" and "esModule" wit
 
 exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "false" value options: module 1`] = `
 "// Imports
-var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../src/index.js??[ident]!./values.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../../src/index.js??[ident]!./something.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../../src/index.js??[ident]!./imported-simple.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../../src/index.js??[ident]!./relative.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../../src/index.js??[ident]!./top-relative.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../../src/index.js??[ident]!./alias.css\\");
-var ___CSS_LOADER_ICSS_IMPORT_7___ = require(\\"-!../../../../src/index.js??[ident]!./scss-file.scss\\");
+var ___CSS_LOADER_ICSS_IMPORT_0___ = require(\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_1___ = require(\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_2___ = require(\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_3___ = require(\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_4___ = require(\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_5___ = require(\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../issue-861/node_modules/package/style.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_6___ = require(\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\");
+var ___CSS_LOADER_ICSS_IMPORT_7___ = require(\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss\\");
 // Exports
 module.exports = {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
@@ -4007,14 +4007,14 @@ exports[`"modules" option should work with "exportOnlyLocals" and "esModule" wit
 
 exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "true" value options: module 1`] = `
 "// Imports
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./values.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./something.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??[ident]!./imported-simple.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??[ident]!./relative.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??[ident]!./top-relative.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??[ident]!./alias.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??[ident]!./scss-file.scss\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../issue-861/node_modules/package/style.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss\\";
 // Exports
 export default {
 	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"v-def\\"] + \\"\\",
@@ -4126,14 +4126,14 @@ exports[`"modules" option should work with "exportOnlyLocals" and "namedExport" 
 
 exports[`"modules" option should work with "exportOnlyLocals" and "namedExport" option: module 1`] = `
 "// Imports
-import * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../src/index.js??[ident]!./values.css\\";
-import * as ___CSS_LOADER_ICSS_IMPORT_1____NAMED___ from \\"-!../../../../src/index.js??[ident]!./something.css\\";
-import * as ___CSS_LOADER_ICSS_IMPORT_2____NAMED___ from \\"-!../../../../src/index.js??[ident]!./imported-simple.css\\";
-import * as ___CSS_LOADER_ICSS_IMPORT_3____NAMED___ from \\"-!../../../../src/index.js??[ident]!./relative.css\\";
-import * as ___CSS_LOADER_ICSS_IMPORT_4____NAMED___ from \\"-!../../../../src/index.js??[ident]!./top-relative.css\\";
-import * as ___CSS_LOADER_ICSS_IMPORT_5____NAMED___ from \\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\";
-import * as ___CSS_LOADER_ICSS_IMPORT_6____NAMED___ from \\"-!../../../../src/index.js??[ident]!./alias.css\\";
-import * as ___CSS_LOADER_ICSS_IMPORT_7____NAMED___ from \\"-!../../../../src/index.js??[ident]!./scss-file.scss\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_1____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_2____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_3____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_4____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_5____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../issue-861/node_modules/package/style.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_6____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_7____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss\\";
 // Exports
 export const vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
 export const vOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\"\\";
@@ -4241,6 +4241,33 @@ exports[`"modules" option should work with "exportOnlyLocals" and "namedExport" 
 
 exports[`"modules" option should work with "false" alises: errors 1`] = `Array []`;
 
+exports[`"modules" option should work with "false" alises: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: IMPORTED_NAME;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"primary-color\\": \\"IMPORTED_NAME\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with "false" alises: result 1`] = `
+Array [
+  Array [
+    "./modules/icss-false-alias/relative.icss.css",
+    ".className {
+  color: IMPORTED_NAME;
+}
+",
+    "",
+  ],
+]
+`;
+
 exports[`"modules" option should work with "false" alises: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with "url" and "namedExport": errors 1`] = `Array []`;
@@ -4248,7 +4275,7 @@ exports[`"modules" option should work with "url" and "namedExport": errors 1`] =
 exports[`"modules" option should work with "url" and "namedExport": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../src/index.js??[ident]!./shared.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./shared.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
 import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -4266,7 +4293,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with "url" and "namedExport": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/url/shared.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/url/shared.css",
     "
 ",
     "",
@@ -4293,7 +4320,7 @@ exports[`"modules" option should work with "url": errors 1`] = `Array []`;
 exports[`"modules" option should work with "url": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./shared.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./shared.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
 import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -4313,7 +4340,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with "url": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/url/shared.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/url/shared.css",
     "
 ",
     "",
@@ -5567,7 +5594,7 @@ exports[`"modules" option should work with case \`composes-1\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -5585,7 +5612,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-1/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-1/file.css",
     "._3BQSb6gr0fyI7-ih_Aa3gM {
   color: red;
 }
@@ -5618,7 +5645,7 @@ exports[`"modules" option should work with case \`composes-1\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -5636,7 +5663,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-1/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-1/file.css",
     "._3BQSb6gr0fyI7-ih_Aa3gM {
   color: red;
 }
@@ -5669,7 +5696,7 @@ exports[`"modules" option should work with case \`composes-1\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -5687,7 +5714,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-1/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-1/file.css",
     "._c2 {
   color: red;
 }
@@ -5720,7 +5747,7 @@ exports[`"modules" option should work with case \`composes-1\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -5738,7 +5765,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-1/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-1/file.css",
     "._c2 {
   color: red;
 }
@@ -5771,7 +5798,7 @@ exports[`"modules" option should work with case \`composes-1\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -5789,7 +5816,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-1\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-1/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-1/file.css",
     "._3BQSb6gr0fyI7-ih_Aa3gM {
   color: red;
 }
@@ -5850,7 +5877,7 @@ exports[`"modules" option should work with case \`composes-2\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -5868,7 +5895,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-2/file.css",
     "._2C4Wmr5C8BvxldyLPCylH_ {
   color: red;
 }
@@ -5901,7 +5928,7 @@ exports[`"modules" option should work with case \`composes-2\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -5919,7 +5946,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-2/file.css",
     "._2C4Wmr5C8BvxldyLPCylH_ {
   color: red;
 }
@@ -5952,7 +5979,7 @@ exports[`"modules" option should work with case \`composes-2\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -5970,7 +5997,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-2/file.css",
     "._c-2 {
   color: red;
 }
@@ -6003,7 +6030,7 @@ exports[`"modules" option should work with case \`composes-2\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -6021,7 +6048,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-2/file.css",
     "._c-2 {
   color: red;
 }
@@ -6054,7 +6081,7 @@ exports[`"modules" option should work with case \`composes-2\` (\`modules\` valu
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -6072,7 +6099,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-2\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-2/file.css",
     "._2C4Wmr5C8BvxldyLPCylH_ {
   color: red;
 }
@@ -6134,8 +6161,8 @@ exports[`"modules" option should work with case \`composes-multiple\` (\`modules
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -6152,7 +6179,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file1.css",
     "._2yvVc8ldKIruPL1UnP7sZ2 {
   color: red;
 }
@@ -6160,7 +6187,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file2.css",
     ".vCQloi3WRTK___Y-xY2Pp {
   color: blue;
 }
@@ -6184,8 +6211,8 @@ exports[`"modules" option should work with case \`composes-multiple\` (\`modules
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -6202,7 +6229,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file1.css",
     "._2yvVc8ldKIruPL1UnP7sZ2 {
   color: red;
 }
@@ -6210,7 +6237,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file2.css",
     ".vCQloi3WRTK___Y-xY2Pp {
   color: blue;
 }
@@ -6234,8 +6261,8 @@ exports[`"modules" option should work with case \`composes-multiple\` (\`modules
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -6252,7 +6279,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file1.css",
     "._def1 {
   color: red;
 }
@@ -6260,7 +6287,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file2.css",
     "._def2 {
   color: blue;
 }
@@ -6284,8 +6311,8 @@ exports[`"modules" option should work with case \`composes-multiple\` (\`modules
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -6302,7 +6329,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file1.css",
     "._def1 {
   color: red;
 }
@@ -6310,7 +6337,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file2.css",
     "._def2 {
   color: blue;
 }
@@ -6334,8 +6361,8 @@ exports[`"modules" option should work with case \`composes-multiple\` (\`modules
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -6352,7 +6379,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-multiple\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file1.css",
     "._2yvVc8ldKIruPL1UnP7sZ2 {
   color: red;
 }
@@ -6360,7 +6387,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-multiple/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-multiple/file2.css",
     ".vCQloi3WRTK___Y-xY2Pp {
   color: blue;
 }
@@ -6412,7 +6439,7 @@ exports[`"modules" option should work with case \`composes-with-importing\` (\`m
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -6428,7 +6455,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-with-importing/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-with-importing/file.css",
     "._1poPm3GtzgzcMTbEPyiRPA {
   color: red;
 }
@@ -6452,7 +6479,7 @@ exports[`"modules" option should work with case \`composes-with-importing\` (\`m
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -6468,7 +6495,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-with-importing/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-with-importing/file.css",
     "._1poPm3GtzgzcMTbEPyiRPA {
   color: red;
 }
@@ -6492,7 +6519,7 @@ exports[`"modules" option should work with case \`composes-with-importing\` (\`m
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -6508,7 +6535,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-with-importing/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-with-importing/file.css",
     "._def {
   color: red;
 }
@@ -6532,7 +6559,7 @@ exports[`"modules" option should work with case \`composes-with-importing\` (\`m
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -6548,7 +6575,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-with-importing/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-with-importing/file.css",
     "._def {
   color: red;
 }
@@ -6572,7 +6599,7 @@ exports[`"modules" option should work with case \`composes-with-importing\` (\`m
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -6588,7 +6615,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`composes-with-importing\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/composes-with-importing/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/composes-with-importing/file.css",
     "._1poPm3GtzgzcMTbEPyiRPA {
   color: red;
 }
@@ -8906,7 +8933,7 @@ exports[`"modules" option should work with case \`media-2\` (\`modules\` value i
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -8922,7 +8949,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/media-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/media-2/file.css",
     "
 ",
     "",
@@ -8947,7 +8974,7 @@ exports[`"modules" option should work with case \`media-2\` (\`modules\` value i
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -8964,7 +8991,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/media-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/media-2/file.css",
     "
 ",
     "",
@@ -8989,7 +9016,7 @@ exports[`"modules" option should work with case \`media-2\` (\`modules\` value i
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -9005,7 +9032,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/media-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/media-2/file.css",
     "
 ",
     "",
@@ -9030,7 +9057,7 @@ exports[`"modules" option should work with case \`media-2\` (\`modules\` value i
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -9047,7 +9074,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/media-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/media-2/file.css",
     "
 ",
     "",
@@ -9072,7 +9099,7 @@ exports[`"modules" option should work with case \`media-2\` (\`modules\` value i
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -9089,7 +9116,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`media-2\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/media-2/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/media-2/file.css",
     "
 ",
     "",
@@ -10431,7 +10458,7 @@ exports[`"modules" option should work with case \`values-3\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -10447,7 +10474,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-3/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-3/file.css",
     "
 ",
     "",
@@ -10468,7 +10495,7 @@ exports[`"modules" option should work with case \`values-3\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -10485,7 +10512,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-3/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-3/file.css",
     "
 ",
     "",
@@ -10506,7 +10533,7 @@ exports[`"modules" option should work with case \`values-3\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -10522,7 +10549,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-3/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-3/file.css",
     "
 ",
     "",
@@ -10543,7 +10570,7 @@ exports[`"modules" option should work with case \`values-3\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -10560,7 +10587,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-3/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-3/file.css",
     "
 ",
     "",
@@ -10581,7 +10608,7 @@ exports[`"modules" option should work with case \`values-3\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -10598,7 +10625,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-3\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-3/file.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-3/file.css",
     "
 ",
     "",
@@ -10647,8 +10674,8 @@ exports[`"modules" option should work with case \`values-4\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -10666,13 +10693,13 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file1.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file2.css",
     "
 ",
     "",
@@ -10693,8 +10720,8 @@ exports[`"modules" option should work with case \`values-4\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -10713,13 +10740,13 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file1.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file2.css",
     "
 ",
     "",
@@ -10740,8 +10767,8 @@ exports[`"modules" option should work with case \`values-4\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -10759,13 +10786,13 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file1.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file2.css",
     "
 ",
     "",
@@ -10786,8 +10813,8 @@ exports[`"modules" option should work with case \`values-4\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -10806,13 +10833,13 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file1.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file2.css",
     "
 ",
     "",
@@ -10833,8 +10860,8 @@ exports[`"modules" option should work with case \`values-4\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??[ident]!./file2.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file2.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
@@ -10853,13 +10880,13 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-4\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file1.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-4/file2.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-4/file2.css",
     "
 ",
     "",
@@ -10908,7 +10935,7 @@ exports[`"modules" option should work with case \`values-5\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -10925,7 +10952,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-5/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-5/file1.css",
     "
 ",
     "",
@@ -10946,7 +10973,7 @@ exports[`"modules" option should work with case \`values-5\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -10964,7 +10991,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-5/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-5/file1.css",
     "
 ",
     "",
@@ -10985,7 +11012,7 @@ exports[`"modules" option should work with case \`values-5\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11002,7 +11029,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-5/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-5/file1.css",
     "
 ",
     "",
@@ -11023,7 +11050,7 @@ exports[`"modules" option should work with case \`values-5\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11041,7 +11068,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-5/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-5/file1.css",
     "
 ",
     "",
@@ -11062,7 +11089,7 @@ exports[`"modules" option should work with case \`values-5\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11080,7 +11107,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-5\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-5/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-5/file1.css",
     "
 ",
     "",
@@ -11129,7 +11156,7 @@ exports[`"modules" option should work with case \`values-6\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11146,7 +11173,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-6/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-6/file1.css",
     "
 ",
     "",
@@ -11167,7 +11194,7 @@ exports[`"modules" option should work with case \`values-6\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11185,7 +11212,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-6/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-6/file1.css",
     "
 ",
     "",
@@ -11206,7 +11233,7 @@ exports[`"modules" option should work with case \`values-6\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11223,7 +11250,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-6/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-6/file1.css",
     "
 ",
     "",
@@ -11244,7 +11271,7 @@ exports[`"modules" option should work with case \`values-6\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11262,7 +11289,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-6/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-6/file1.css",
     "
 ",
     "",
@@ -11283,7 +11310,7 @@ exports[`"modules" option should work with case \`values-6\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11301,7 +11328,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-6\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-6/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-6/file1.css",
     "
 ",
     "",
@@ -11350,7 +11377,7 @@ exports[`"modules" option should work with case \`values-7\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11367,7 +11394,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-7/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-7/file1.css",
     "
 ",
     "",
@@ -11388,7 +11415,7 @@ exports[`"modules" option should work with case \`values-7\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11406,7 +11433,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-7/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-7/file1.css",
     "
 ",
     "",
@@ -11427,7 +11454,7 @@ exports[`"modules" option should work with case \`values-7\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`object with mode global)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11444,7 +11471,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`object with mode global)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-7/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-7/file1.css",
     "
 ",
     "",
@@ -11465,7 +11492,7 @@ exports[`"modules" option should work with case \`values-7\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`object with mode local)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11483,7 +11510,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`object with mode local)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-7/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-7/file1.css",
     "
 ",
     "",
@@ -11504,7 +11531,7 @@ exports[`"modules" option should work with case \`values-7\` (\`modules\` value 
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`true)\`: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./file1.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./file1.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -11522,7 +11549,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with case \`values-7\` (\`modules\` value is \`true)\`: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/tests-cases/values-7/file1.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/tests-cases/values-7/file1.css",
     "
 ",
     "",
@@ -12356,7 +12383,7 @@ exports[`"modules" option should work with composes when the "namedExport" is en
 exports[`"modules" option should work with composes when the "namedExport" is enabled and "exportLocalsConvention" options has "dashesOnly" value: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../src/index.js??[ident]!./values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -12378,7 +12405,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with composes when the "namedExport" is enabled and "exportLocalsConvention" options has "dashesOnly" value: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/namedExport/composes/values.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/namedExport/composes/values.css",
     "
 ",
     "",
@@ -12654,7 +12681,7 @@ exports[`"modules" option should work with the "auto" by default for icss: error
 exports[`"modules" option should work with the "auto" by default for icss: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??[ident]!./vars.icss.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.icss.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -12670,7 +12697,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with the "auto" by default for icss: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/mode/icss/vars.icss.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/mode/icss/vars.icss.css",
     "
 ",
     "",
@@ -12814,7 +12841,7 @@ exports[`"modules" option should work with the "namedExport" option with nested 
 exports[`"modules" option should work with the "namedExport" option with nested import: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../src/index.js??[ident]!../../composes/values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!../../composes/values.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -12833,7 +12860,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with the "namedExport" option with nested import: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/composes/values.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/values.css",
     "
 ",
     "",
@@ -13025,7 +13052,7 @@ exports[`"modules" option show work with the "compileType" and "exportOnlyLocals
 
 exports[`"modules" option show work with the "compileType" and "exportOnlyLocals" options: module 1`] = `
 "// Imports
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??[ident]!./vars.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
 // Exports
 export default {
 	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"primary-color\\"] + \\"\\"
@@ -13046,7 +13073,7 @@ exports[`"modules" option show work with the "compileType" and "namedExport" opt
 exports[`"modules" option show work with the "compileType" and "namedExport" options: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../../src/index.js??[ident]!./vars.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -13060,7 +13087,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option show work with the "compileType" and "namedExport" options: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/icss/tests-cases/import/vars.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import/vars.css",
     "
 ",
     "",
@@ -13083,15 +13110,15 @@ exports[`"modules" option show work with the "compileType" option using the "mod
 exports[`"modules" option show work with the "compileType" option using the "module" value: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./values.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??[ident]!./something.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??[ident]!./imported-simple.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??[ident]!./relative.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??[ident]!./top-relative.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??[ident]!../issue-861/node_modules/package/style.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??[ident]!./alias.css\\";
-import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??[ident]!./scss-file.scss\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../../src/index.js??[ident]!./test-other.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_2___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_3___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_4___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_5___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../issue-861/node_modules/package/style.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_6___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_7___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./test-other.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
 import ___CSS_LOADER_URL_IMPORT_0___ from \\"../../url/img.png\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -13164,7 +13191,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option show work with the "compileType" option using the "module" value: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/composes/test-other.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/test-other.css",
     "._24axXNO_oC23T0D0YAz-0Y {
   d: d;
 }
@@ -13172,19 +13199,19 @@ Array [
     "(min-width: 100px)",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/values.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/values.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/something.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/something.css",
     "
 ",
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/imported-simple.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/imported-simple.css",
     "._1LcKtmpK51ikm2OTXu6tSg {
   display: block;
 }
@@ -13192,7 +13219,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/relative.css",
     "._1bYd-W6Pwrt_8yXpE4FBEu {
   display: inline;
 }
@@ -13200,7 +13227,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/top-relative.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/top-relative.css",
     "._2fqgZtBtapTNVy6bnJZjkP {
   display: flex;
 }
@@ -13208,7 +13235,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/issue-861/node_modules/package/style.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/issue-861/node_modules/package/style.css",
     "._2212NWEpBgAjfmZAD6jJwU {
   display: inline-block;
 }
@@ -13216,7 +13243,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/alias.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/alias.css",
     ".gASNE59vLxrkyu1XPoUrX {
   display: table;
 }
@@ -13224,7 +13251,7 @@ Array [
     "",
   ],
   Array [
-    "../../src/index.js?[ident]!./modules/composes/scss-file.scss",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/sass-loader/dist/cjs.js!./modules/composes/scss-file.scss",
     "._14lUoCryZnM4Rrkm49iWuC {
   color: red;
   padding: 15px;
@@ -13533,7 +13560,7 @@ exports[`"modules" option show work with the "compileType" option, case "import"
 exports[`"modules" option show work with the "compileType" option, case "import": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??[ident]!./vars.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -13549,7 +13576,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option show work with the "compileType" option, case "import": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/icss/tests-cases/import/vars.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import/vars.css",
     "
 ",
     "",
@@ -13572,7 +13599,7 @@ exports[`"modules" option show work with the "compileType" option, case "import-
 exports[`"modules" option show work with the "compileType" option, case "import-reserved-keywords": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??[ident]!./vars.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
@@ -13589,7 +13616,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option show work with the "compileType" option, case "import-reserved-keywords": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./modules/icss/tests-cases/import-reserved-keywords/vars.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import-reserved-keywords/vars.css",
     "
 ",
     "",

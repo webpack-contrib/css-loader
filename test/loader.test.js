@@ -1,7 +1,5 @@
 import path from "path";
 
-import { version } from "webpack";
-
 import postcssPresetEnv from "postcss-preset-env";
 
 import {
@@ -53,7 +51,6 @@ describe("loader", () => {
   });
 
   it('should work with "asset" module type', async () => {
-    const isWebpack5 = version[0] === "5";
     const config = {
       module: {
         rules: [
@@ -65,30 +62,22 @@ describe("loader", () => {
               },
             ],
           },
-          isWebpack5
-            ? {
-                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                type: "asset",
-              }
-            : {
-                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                loader: "file-loader",
-                options: { name: "[name].[ext]" },
-              },
+          {
+            test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+            type: "asset",
+          },
         ],
       },
     };
 
-    if (isWebpack5) {
-      config.experiments = { asset: true };
-      config.output = {
-        path: path.resolve(__dirname, "outputs"),
-        filename: "[name].bundle.js",
-        chunkFilename: "[name].chunk.js",
-        publicPath: "/webpack/public/path/",
-        assetModuleFilename: "[name][ext]",
-      };
-    }
+    config.experiments = { asset: true };
+    config.output = {
+      path: path.resolve(__dirname, "outputs"),
+      filename: "[name].bundle.js",
+      chunkFilename: "[name].chunk.js",
+      publicPath: "/webpack/public/path/",
+      assetModuleFilename: "[name][ext]",
+    };
 
     const compiler = getCompiler("./basic.js", {}, config);
     const stats = await compile(compiler);
