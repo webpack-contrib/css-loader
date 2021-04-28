@@ -7,7 +7,7 @@ exports[`"esModule" option should work when not specified: module 1`] = `
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
@@ -99,7 +99,7 @@ exports[`"esModule" option should work with a value equal to "true" and the "mod
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
@@ -145,7 +145,7 @@ exports[`"esModule" option should work with a value equal to "true" and the "mod
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
@@ -194,7 +194,7 @@ exports[`"esModule" option should work with a value equal to "true" and the "mod
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
@@ -243,7 +243,7 @@ exports[`"esModule" option should work with a value equal to "true": module 1`] 
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);

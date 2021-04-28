@@ -356,6 +356,7 @@ const plugin = (options = {}) => {
               urlToNameMap.set(newUrl, importName);
 
               options.imports.push({
+                type: "asset",
                 importName,
                 url: options.urlHandler(newUrl),
                 index,

@@ -70,7 +70,7 @@ exports[`loader should pass queries to other loader: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./url/image.svg?color=%23BAAFDB%3F\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/image.svg?color=%23BAAFDB%3F\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___, { hash: \\"#foo\\" });
 // Module
@@ -85,7 +85,7 @@ Array [
   Array [
     "./other-loader-query.css",
     ".example {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=#foo);
+    background-image: url(/webpack/public/path/image.svg#foo);
 }
 ",
     "",
@@ -101,8 +101,8 @@ exports[`loader should reuse \`ast\` from "postcss-loader": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img1x.png\\";
-import ___CSS_LOADER_URL_IMPORT_1___ from \\"./img2x.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img1x.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"./img2x.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
@@ -215,13 +215,7 @@ CssSyntaxError
 
 exports[`loader should throw error on invalid css syntax: warnings 1`] = `Array []`;
 
-exports[`loader should throws error when no loader(s) for assets: errors 1`] = `
-Array [
-  "ModuleParseError: Module parse failed: Unexpected character '�' (1:0)
-You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
-(Source code omitted for this binary file)",
-]
-`;
+exports[`loader should throws error when no loader(s) for assets: errors 1`] = `Array []`;
 
 exports[`loader should throws error when no loader(s) for assets: warnings 1`] = `Array []`;
 
@@ -232,7 +226,7 @@ exports[`loader should work with "asset" module type: module 1`] = `
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./url/img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
@@ -470,7 +464,7 @@ exports[`loader should work with empty options: module 1`] = `
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./url/img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
@@ -856,12 +850,12 @@ exports[`loader should work with webpackIgnore comment: module 1`] = `
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??ruleSet[1].rules[0].use[0]!./simple.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./url/img.png\\";
-import ___CSS_LOADER_URL_IMPORT_1___ from \\"./fonts/Roboto-Regular.woff2\\";
-import ___CSS_LOADER_URL_IMPORT_2___ from \\"./fonts/Roboto-Regular.woff\\";
-import ___CSS_LOADER_URL_IMPORT_3___ from \\"./fonts/Roboto-Regular.ttf\\";
-import ___CSS_LOADER_URL_IMPORT_4___ from \\"./fonts/Roboto-Regular.svg\\";
-import ___CSS_LOADER_URL_IMPORT_5___ from \\"./fonts/Roboto-Regular.eot\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"./fonts/Roboto-Regular.woff2\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(\\"./fonts/Roboto-Regular.woff\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(\\"./fonts/Roboto-Regular.ttf\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_4___ = new URL(\\"./fonts/Roboto-Regular.svg\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_5___ = new URL(\\"./fonts/Roboto-Regular.eot\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
@@ -1184,7 +1178,7 @@ exports[`loader should work: module 1`] = `
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./url/img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
