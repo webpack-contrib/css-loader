@@ -85,7 +85,7 @@ Array [
   Array [
     "./other-loader-query.css",
     ".example {
-    background-image: url(/webpack/public/path/image.svg#foo);
+    background-image: url(replaced_file_protocol_/webpack/public/path/image.svg#foo);
 }
 ",
     "",
@@ -152,19 +152,19 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 main.hero, .hero.main {
-  background-image: url(/webpack/public/path/img1x.png);
+  background-image: url(replaced_file_protocol_/webpack/public/path/img1x.png);
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 
 main.hero, .hero.main {
-  background-image:  url(/webpack/public/path/img2x.png);
+  background-image:  url(replaced_file_protocol_/webpack/public/path/img2x.png);
 }
 }
 
 main.hero, .hero.main {
-  background-image: -webkit-image-set(url(/webpack/public/path/img1x.png) 1x, url(/webpack/public/path/img2x.png) 2x);
-  background-image: image-set(url(/webpack/public/path/img1x.png) 1x, url(/webpack/public/path/img2x.png) 2x);
+  background-image: -webkit-image-set(url(replaced_file_protocol_/webpack/public/path/img1x.png) 1x, url(replaced_file_protocol_/webpack/public/path/img2x.png) 2x);
+  background-image: image-set(url(replaced_file_protocol_/webpack/public/path/img1x.png) 1x, url(replaced_file_protocol_/webpack/public/path/img2x.png) 2x);
 }
 
 a {
@@ -255,11 +255,11 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class-duplicate-url {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 :root {
@@ -493,11 +493,11 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class-duplicate-url {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 :root {
@@ -924,17 +924,17 @@ Array [
 
 .class {
   color: red;
-  background: /** webpackIgnore: true */ url(\\"./url/img.png\\"),  url(/webpack/public/path/img.png);
+  background: /** webpackIgnore: true */ url(\\"./url/img.png\\"),  url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class {
   color: red;
-  background:/** webpackIgnore: true */url(\\"./url/img.png\\"),  url(/webpack/public/path/img.png);
+  background:/** webpackIgnore: true */url(\\"./url/img.png\\"),  url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\");
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\");
 }
 
 .class {
@@ -946,46 +946,46 @@ Array [
 .class {
   color: red;
   /** webpackIgnore: true */
-  background: url(\\"./url/img.png\\"), /** webpackIgnore: false */ url(/webpack/public/path/img.png);
+  background: url(\\"./url/img.png\\"), /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class {
   color: red;
   /** webpackIgnore: true */
-  background: url(\\"./url/img.png\\"), /** webpackIgnore: false */ url(/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\"), /** webpackIgnore: false */ url(/webpack/public/path/img.png);
+  background: url(\\"./url/img.png\\"), /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\"), /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class {
   color: red;
   /** webpackIgnore: true */
-  background: /** webpackIgnore: false */ url(/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\");
+  background: /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\");
 }
 
 .class {
   color: red;
-  background: /** webpackIgnore: true */ /** webpackIgnore: false */ url(/webpack/public/path/img.png), url(/webpack/public/path/img.png);
+  background: /** webpackIgnore: true */ /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png), url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png), /** webpackIgnore: true */ /** webpackIgnore: false */ url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png), /** webpackIgnore: false */ /** webpackIgnore: true */ url(\\"./url/img.png\\");
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: false */ /** webpackIgnore: true */ url(\\"./url/img.png\\");
 }
 
 .class {
   background:
-    url(/webpack/public/path/img.png),
-    url(/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
       /** webpackIgnore: true **/ url(\\"./url/img.png\\"),
-    url(/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
       /** webpackIgnore: true **/ url(\\"./url/img.png\\"),
-    url(/webpack/public/path/img.png),
-    url(/webpack/public/path/img.png),
-    url(/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
       /** webpackIgnore: true **/
     url(\\"./url/img.png\\");
 }
@@ -996,10 +996,10 @@ Array [
   src:
     /** webpackIgnore: true **/
     url(\\"./fonts/Roboto-Regular.eot#iefix\\") format(\\"embedded-opentype\\"),
-    url(/webpack/public/path/Roboto-Regular.woff2) format(\\"woff\\"),
-    url(/webpack/public/path/Roboto-Regular.woff) format(\\"woff\\"),
-    url(/webpack/public/path/Roboto-Regular.ttf) format(\\"truetype\\"),
-    url(/webpack/public/path/Roboto-Regular.svg#Roboto-Regular) format(\\"svg\\");
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.woff2) format(\\"woff\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.woff) format(\\"woff\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.ttf) format(\\"truetype\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.svg#Roboto-Regular) format(\\"svg\\");
   font-weight: 400;
   font-style: normal;
 }
@@ -1020,15 +1020,15 @@ Array [
 
 @font-face {
   font-family: \\"Roboto\\";
-  src: url(/webpack/public/path/Roboto-Regular.eot);
+  src: url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.eot);
   src:
-    url(/webpack/public/path/Roboto-Regular.eot#iefix) format(\\"embedded-opentype\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.eot#iefix) format(\\"embedded-opentype\\"),
       /** webpackIgnore: true **/
     url(\\"./fonts/Roboto-Regular.woff2\\") format(\\"woff\\"),
-    url(/webpack/public/path/Roboto-Regular.woff) format(\\"woff\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.woff) format(\\"woff\\"),
       /** webpackIgnore: true **/
     url(\\"./fonts/Roboto-Regular.ttf\\") format(\\"truetype\\"),
-    url(/webpack/public/path/Roboto-Regular.svg#Roboto-Regular) format(\\"svg\\");
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.svg#Roboto-Regular) format(\\"svg\\");
   font-weight: 400;
   font-style: normal;
 }
@@ -1047,7 +1047,7 @@ Array [
   background-image: 
     image-set(
         /*webpackIgnore:  false*/
-        url(/webpack/public/path/img.png) 2x,
+        url(replaced_file_protocol_/webpack/public/path/img.png) 2x,
         /*webpackIgnore:  true*/
         url(./url/img.png) 3x,
         url(./url/img.png) 4x,
@@ -1062,16 +1062,16 @@ Array [
     background-image:
       image-set(
         /*webpackIgnore:  false*/
-        url(/webpack/public/path/img.png) 2x,
+        url(replaced_file_protocol_/webpack/public/path/img.png) 2x,
         /*webpackIgnore:  true*/
         url(./url/img.png) 3x,
-        url(/webpack/public/path/img.png) 4x,
+        url(replaced_file_protocol_/webpack/public/path/img.png) 4x,
         /*webpackIgnore:  false */
         /*webpackIgnore:  true */
         url(./url/img.png) 5x
       ),
       /*webpackIgnore:  false*/
-      url(/webpack/public/path/img.png),
+      url(replaced_file_protocol_/webpack/public/path/img.png),
       /*webpackIgnore:  true*/
       url('./url/img.png');;
 }
@@ -1080,22 +1080,22 @@ Array [
     background-image:
         image-set(
             /*webpackIgnore:  false*/
-            url(/webpack/public/path/img.png) 2x,
+            url(replaced_file_protocol_/webpack/public/path/img.png) 2x,
             /*webpackIgnore:  true*/
             url(./url/img.png) 3x,
-            url(/webpack/public/path/img.png) 4x,
+            url(replaced_file_protocol_/webpack/public/path/img.png) 4x,
             /*webpackIgnore:  false */
             /*webpackIgnore:  true */
             url(./url/img.png) 5x
         ),
-        url(/webpack/public/path/img.png);
+        url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class {
   background-image: image-set(
     /*webpackIgnore:  true*/
     url(./url/img.png) 2x,
-    url(/webpack/public/path/img.png) 3x,
+    url(replaced_file_protocol_/webpack/public/path/img.png) 3x,
       /*webpackIgnore:  true*/
     url(./url/img.png) 5x
   );
@@ -1105,7 +1105,7 @@ Array [
     background-image: image-set(
         /*webpackIgnore:  true*/
         './url/img.png' 2x,
-        \\"/webpack/public/path/img.png\\" 3x,
+        \\"replaced_file_protocol_/webpack/public/path/img.png\\" 3x,
         /*webpackIgnore:  true*/
         './url/img.png' 5x
     );
@@ -1115,44 +1115,44 @@ Array [
   /*webpackIgnore:  true*/
   background-image: image-set(
     /*webpackIgnore:  false*/
-    url(/webpack/public/path/img.png) 2x,
+    url(replaced_file_protocol_/webpack/public/path/img.png) 2x,
     /*webpackIgnore:  true*/
     url(./url/img.png) 3x,
     /*webpackIgnore:  false*/
-    url(/webpack/public/path/img.png) 4x,
+    url(replaced_file_protocol_/webpack/public/path/img.png) 4x,
     url(./url/img.png) 5x
   );
 }
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png), /** webpackIgnore: true */url(\\"./url/img.png\\");
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */url(\\"./url/img.png\\");
 }
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\");
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\");
 }
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png)/** webpackIgnore: true */, url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png)/** webpackIgnore: true */, url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class {
   background-image:
     image-set(
-      url(/webpack/public/path/img.png) 2x  /*webpackIgnore:  true*/,
-      url(/webpack/public/path/img.png) /*webpackIgnore:  true*/ 3x,
-      url(/webpack/public/path/img.png) 4x /*webpackIgnore:  true*/,
+      url(replaced_file_protocol_/webpack/public/path/img.png) 2x  /*webpackIgnore:  true*/,
+      url(replaced_file_protocol_/webpack/public/path/img.png) /*webpackIgnore:  true*/ 3x,
+      url(replaced_file_protocol_/webpack/public/path/img.png) 4x /*webpackIgnore:  true*/,
       /*webpackIgnore:  true*/url(./url/img.png) 5x,
       /*webpackIgnore:  true*/ url(./url/img.png) 6x,
       /*webpackIgnore:  true*/ 
       url(./url/img.png) 7x,
-      url(/webpack/public/path/img.png) 8x
+      url(replaced_file_protocol_/webpack/public/path/img.png) 8x
     ),
     /*webpackIgnore:  false*/
-    url(/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
     /*webpackIgnore:  true*/
     url('./url/img.png');
 }
@@ -1207,11 +1207,11 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class-duplicate-url {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 :root {

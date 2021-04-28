@@ -1702,7 +1702,7 @@ a {
 }
 
 ._1qvhWcgsRpzv9-_jaooxI0 {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 ._1-QX-dLNLF1zFn-cPfLHcH {
@@ -4301,11 +4301,11 @@ Array [
   Array [
     "./modules/url/source.css",
     "a {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 body {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -4348,11 +4348,11 @@ Array [
   Array [
     "./modules/url/source.css",
     "a {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 body {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -5161,7 +5161,7 @@ Array [
  */
 
 .bg {
-  background-image: url(/webpack/public/path/img.png);
+  background-image: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 /*
@@ -5200,7 +5200,7 @@ Array [
  */
 
 .bg {
-  background-image: url(/webpack/public/path/img.png);
+  background-image: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 /*
@@ -5242,7 +5242,7 @@ Array [
  */
 
 .j4zJgEr5H67lbBMVZ1hG- {
-  background-image: url(/webpack/public/path/img.png);
+  background-image: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 /*
@@ -5281,7 +5281,7 @@ Array [
  */
 
 .bg {
-  background-image: url(/webpack/public/path/img.png);
+  background-image: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 /*
@@ -5323,7 +5323,7 @@ Array [
  */
 
 ._bg {
-  background-image: url(/webpack/public/path/img.png);
+  background-image: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 /*
@@ -5365,7 +5365,7 @@ Array [
  */
 
 .j4zJgEr5H67lbBMVZ1hG- {
-  background-image: url(/webpack/public/path/img.png);
+  background-image: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 /*
@@ -6844,7 +6844,7 @@ Array [
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -6876,7 +6876,7 @@ Array [
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -6908,7 +6908,7 @@ Array [
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -6940,7 +6940,7 @@ Array [
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -6972,7 +6972,7 @@ Array [
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -7004,7 +7004,7 @@ Array [
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -9607,18 +9607,18 @@ Array [
   Array [
     "./modules/tests-cases/urls/source.css",
     ".a {
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png);
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
 	background: url(data:image/png;base64,AAA);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -9652,18 +9652,18 @@ Array [
   Array [
     "./modules/tests-cases/urls/source.css",
     ".a {
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png);
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
 	background: url(data:image/png;base64,AAA);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -9700,18 +9700,18 @@ Array [
   Array [
     "./modules/tests-cases/urls/source.css",
     ".GZv1DvHy7SSMgc-jmv-_z {
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png);
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
 	background: url(data:image/png;base64,AAA);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -9745,18 +9745,18 @@ Array [
   Array [
     "./modules/tests-cases/urls/source.css",
     ".a {
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png);
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
 	background: url(data:image/png;base64,AAA);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -9793,18 +9793,18 @@ Array [
   Array [
     "./modules/tests-cases/urls/source.css",
     "._a {
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png);
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
 	background: url(data:image/png;base64,AAA);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -9841,18 +9841,18 @@ Array [
   Array [
     "./modules/tests-cases/urls/source.css",
     ".GZv1DvHy7SSMgc-jmv-_z {
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png);
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(\\"/webpack/public/path/img%20img.png\\");
-	background: url(/webpack/public/path/img.png);
-	background: url(/webpack/public/path/img.png#?iefix);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\");
+	background: url(replaced_file_protocol_/webpack/public/path/img.png);
+	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
 	background: url(data:image/png;base64,AAA);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(/webpack/public/path/img.png) url(\\"/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -13372,7 +13372,7 @@ a {
 }
 
 ._1qvhWcgsRpzv9-_jaooxI0 {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 ._1-QX-dLNLF1zFn-cPfLHcH {

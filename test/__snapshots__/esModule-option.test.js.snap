@@ -36,7 +36,7 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -128,7 +128,7 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -177,7 +177,7 @@ Array [
 
 .oFwPvuANP2XsfGir7HPVz {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -226,7 +226,7 @@ Array [
 
 .oFwPvuANP2XsfGir7HPVz {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -272,7 +272,7 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",

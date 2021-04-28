@@ -618,7 +618,7 @@ Array [
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/url.css",
     ".background-imported {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -817,7 +817,7 @@ Array [
 }
 
 .background {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 @import url(./test.css);
@@ -1345,7 +1345,7 @@ Array [
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/url.css",
     ".background-imported {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -1766,7 +1766,7 @@ Array [
 }
 
 .background {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 @import nourl(test.css);
 @import '\\\\
@@ -1979,7 +1979,7 @@ Array [
 @import url('./url.css');
 
 .background {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 @import url(./test.css);
@@ -2465,7 +2465,7 @@ Array [
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./import/url.css",
     ".background-imported {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -2886,7 +2886,7 @@ Array [
 }
 
 .background {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 @import nourl(test.css);
 @import '\\\\
