@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`escape should escape url 1`] = `true`;
+exports[`escape should escape url 1`] = `"true"`;
 
 exports[`escape should escape url 2`] = `null`;
 

@@ -70,6 +70,7 @@ const plugin = (options = {}) => {
           imports.set(importKey, importName);
 
           options.imports.push({
+            type: "icss_import",
             importName,
             url: options.urlHandler(newUrl),
             icss: true,

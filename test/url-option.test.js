@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+
 import {
   compile,
   getCompiler,
@@ -8,6 +10,7 @@ import {
   getExecutedCode,
   getModuleSource,
   getWarnings,
+  readAsset,
 } from "./helpers/index";
 
 describe('"url" option', () => {
@@ -294,5 +297,52 @@ describe('"url" option', () => {
 
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats, true)).toMatchSnapshot("errors");
+  });
+
+  // Todo uncomment test when in MiniCssExtractPlugin will be applied fix for new URL syntax
+  it.skip("should work with mini-css-extract-plugin", async () => {
+    const compiler = getCompiler(
+      "./url/MCEP.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: MiniCssExtractPlugin.loader,
+                  options: {
+                    esModule: true,
+                  },
+                },
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: {
+                    esModule: true,
+                  },
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              type: "asset/resource",
+            },
+          ],
+        },
+        plugins: [
+          new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css",
+          }),
+        ],
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(readAsset("main.css", compiler, stats)).toMatchSnapshot("css");
+    expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 });

@@ -598,7 +598,7 @@ function getImportCode(imports, options) {
         }* as ${importName}_NAMED___ from ${url};\n`;
       } else {
         code +=
-          type === "asset"
+          type === "url"
             ? `var ${importName} = new URL(${url}, import.meta.url);\n`
             : `import ${importName} from ${url};\n`;
       }

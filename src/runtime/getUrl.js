@@ -4,7 +4,7 @@ module.exports = (url, options) => {
     options = {};
   }
 
-  if (!url || typeof url === "boolean") {
+  if (!url) {
     return url;
   }
 
