@@ -299,8 +299,7 @@ describe('"url" option', () => {
     expect(getErrors(stats, true)).toMatchSnapshot("errors");
   });
 
-  // Todo uncomment test when in MiniCssExtractPlugin will be applied fix for new URL syntax
-  it.skip("should work with mini-css-extract-plugin", async () => {
+  it("should work with mini-css-extract-plugin", async () => {
     const compiler = getCompiler(
       "./url/MCEP.js",
       {},
