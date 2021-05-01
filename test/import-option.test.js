@@ -53,23 +53,25 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work when "Function"', async () => {
+  it("should work with import.filter", async () => {
     const compiler = getCompiler("./import/import.js", {
-      import: (url, media, resourcePath) => {
-        expect(url).toBeDefined();
+      import: {
+        filter: (url, media, resourcePath) => {
+          expect(url).toBeDefined();
 
-        if (url === "test-nested-media.css") {
-          expect(media).toBeDefined();
-        }
+          if (url === "test-nested-media.css") {
+            expect(media).toBeDefined();
+          }
 
-        expect(resourcePath).toBeDefined();
+          expect(resourcePath).toBeDefined();
 
-        // Don't handle `test.css`
-        if (url.includes("test.css")) {
-          return false;
-        }
+          // Don't handle `test.css`
+          if (url.includes("test.css")) {
+            return false;
+          }
 
-        return true;
+          return true;
+        },
       },
     });
     const stats = await compile(compiler);

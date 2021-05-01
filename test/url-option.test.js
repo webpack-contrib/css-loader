@@ -50,21 +50,23 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with a value equal to "Function"', async () => {
+  it("should work with url.filter", async () => {
     const compiler = getCompiler("./url/url.js", {
-      url: (url, resourcePath) => {
-        expect(typeof resourcePath === "string").toBe(true);
+      url: {
+        filter: (url, resourcePath) => {
+          expect(typeof resourcePath === "string").toBe(true);
 
-        if (url.startsWith("/guide/img")) {
-          return false;
-        }
+          if (url.startsWith("/guide/img")) {
+            return false;
+          }
 
-        // Don't handle `img.png`
-        if (url.includes("img.png")) {
-          return false;
-        }
+          // Don't handle `img.png`
+          if (url.includes("img.png")) {
+            return false;
+          }
 
-        return true;
+          return true;
+        },
       },
     });
     const stats = await compile(compiler);

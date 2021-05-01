@@ -9,7 +9,13 @@
           "type": "boolean"
         },
         {
-          "instanceof": "Function"
+          "type": "object",
+          "properties": {
+            "filter": {
+              "instanceof": "Function"
+            }
+          },
+          "additionalProperties": false
         }
       ]
     },
@@ -20,7 +26,13 @@
           "type": "boolean"
         },
         {
-          "instanceof": "Function"
+          "type": "object",
+          "properties": {
+            "filter": {
+              "instanceof": "Function"
+            }
+          },
+          "additionalProperties": false
         }
       ]
     },

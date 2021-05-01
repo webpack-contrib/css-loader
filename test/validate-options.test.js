@@ -3,12 +3,12 @@ import { getCompiler, compile } from "./helpers/index";
 describe("validate options", () => {
   const tests = {
     url: {
-      success: [true, false, () => {}],
-      failure: ["true"],
+      success: [true, false, { filter: () => true }],
+      failure: ["true", [], () => {}, { filter: true }, { unknown: () => {} }],
     },
     import: {
-      success: [true, false, () => {}],
-      failure: ["true"],
+      success: [true, false, { filter: () => true }],
+      failure: ["true", [], () => {}, { filter: true }, { unknown: () => {} }],
     },
     modules: {
       success: [

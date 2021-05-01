@@ -67,7 +67,7 @@ export default async function loader(content, map, meta) {
         api: importPluginApi,
         context: this.context,
         rootContext: this.rootContext,
-        filter: getFilter(options.import, this.resourcePath),
+        filter: getFilter(options.import.filter, this.resourcePath),
         resolver,
         urlHandler: (url) =>
           stringifyRequest(
@@ -94,7 +94,7 @@ export default async function loader(content, map, meta) {
         replacements,
         context: this.context,
         rootContext: this.rootContext,
-        filter: getFilter(options.url, this.resourcePath),
+        filter: getFilter(options.url.filter, this.resourcePath),
         resolver: urlResolver,
         urlHandler: (url) => stringifyRequest(this, url),
       })
