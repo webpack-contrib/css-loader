@@ -50,10 +50,6 @@ module.exports = {
 };
 ```
 
-**Only for webpack v4:**
-
-Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader) and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see [below](https://github.com/webpack-contrib/css-loader#assets)).
-
 And run `webpack` via your preferred method.
 
 ### `toString`
@@ -1243,29 +1239,13 @@ module.exports = {
 };
 ```
 
-**For webpack v4:**
+### Extract
 
-**webpack.config.js**
+For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
 
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-        loader: "url-loader",
-        options: {
-          limit: 8192,
-        },
-      },
-    ],
-  },
-};
-```
+- This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode.
+
+- As an alternative, if seeking better development performance and css outputs that mimic production. [extract-css-chunks-webpack-plugin](https://github.com/faceyspacey/extract-css-chunks-webpack-plugin) offers a hot module reload friendly, extended version of mini-css-extract-plugin. HMR real CSS files in dev, works like mini-css in non-dev
 
 ### Pure CSS, CSS modules and PostCSS
 
@@ -1308,14 +1288,6 @@ module.exports = {
         // More information here https://webpack.js.org/guides/asset-modules/
         type: "asset",
       },
-      // For webpack v4
-      // {
-      //  test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-      //  loader: "url-loader",
-      //  options: {
-      //    limit: 8192,
-      //  },
-      // },
     ],
   },
 };

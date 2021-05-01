@@ -337,6 +337,7 @@ const plugin = (options = {}) => {
 
             if (!hasUrlImportHelper) {
               options.imports.push({
+                type: "get_url_import",
                 importName: "___CSS_LOADER_GET_URL_IMPORT___",
                 url: options.urlHandler(
                   require.resolve("../runtime/getUrl.js")
@@ -356,6 +357,7 @@ const plugin = (options = {}) => {
               urlToNameMap.set(newUrl, importName);
 
               options.imports.push({
+                type: "url",
                 importName,
                 url: options.urlHandler(newUrl),
                 index,

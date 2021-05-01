@@ -145,11 +145,6 @@ describe("loader", () => {
                 },
               ],
             },
-            {
-              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-              loader: "file-loader",
-              options: { name: "[name].[ext]" },
-            },
           ],
         },
       }
@@ -225,6 +220,7 @@ describe("loader", () => {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
               loader: "file-loader",
               options: { name: "[name].[ext]", esModule: true },
+              type: "javascript/auto",
             },
           ],
         },
@@ -232,12 +228,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    if (stats.compilation.modules.size) {
-      expect(stats.compilation.modules.size).toBe(10);
-    } else {
-      expect(stats.compilation.modules.length).toBe(6);
-    }
-
+    expect(stats.compilation.modules.size).toBe(12);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -258,6 +249,7 @@ describe("loader", () => {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
               loader: "file-loader",
               options: { name: "[name].[ext]", esModule: true },
+              type: "javascript/auto",
             },
           ],
         },
@@ -265,12 +257,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    if (stats.compilation.modules.size) {
-      expect(stats.compilation.modules.size).toBe(10);
-    } else {
-      expect(stats.compilation.modules.length).toBe(6);
-    }
-
+    expect(stats.compilation.modules.size).toBe(12);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -291,6 +278,7 @@ describe("loader", () => {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
               loader: "url-loader",
               options: { name: "[name].[ext]", limit: true, esModule: true },
+              type: "javascript/auto",
             },
           ],
         },
@@ -298,12 +286,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    if (stats.compilation.modules.size) {
-      expect(stats.compilation.modules.size).toBe(9);
-    } else {
-      expect(stats.compilation.modules.length).toBe(6);
-    }
-
+    expect(stats.compilation.modules.size).toBe(11);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
