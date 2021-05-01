@@ -61,7 +61,7 @@ describe('"importLoaders" option', () => {
               use: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { importLoaders: 0 },
+                  options: { import: { loaders: 0 } },
                 },
                 {
                   loader: "postcss-loader",
@@ -115,7 +115,7 @@ describe('"importLoaders" option', () => {
               use: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { importLoaders: 1 },
+                  options: { import: { loaders: 1 } },
                 },
                 {
                   loader: "postcss-loader",
@@ -155,7 +155,7 @@ describe('"importLoaders" option', () => {
               use: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { importLoaders: 2 },
+                  options: { import: { loaders: 2 } },
                 },
                 {
                   loader: "postcss-loader",
@@ -195,7 +195,7 @@ describe('"importLoaders" option', () => {
               use: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { importLoaders: "1" },
+                  options: { import: { loaders: "1" } },
                 },
                 {
                   loader: "postcss-loader",

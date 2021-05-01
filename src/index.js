@@ -20,6 +20,7 @@ import {
   getPreRequester,
   getExportCode,
   getFilter,
+  getImportLoaders,
   getImportCode,
   getModuleCode,
   getModulesPlugins,
@@ -72,7 +73,10 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            combineRequests(getPreRequester(this)(options.importLoaders), url)
+            combineRequests(
+              getPreRequester(this)(getImportLoaders(options.import.loaders)),
+              url
+            )
           ),
       })
     );
@@ -124,7 +128,10 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            combineRequests(getPreRequester(this)(options.importLoaders), url)
+            combineRequests(
+              getPreRequester(this)(getImportLoaders(options.import.loaders)),
+              url
+            )
           ),
       })
     );
