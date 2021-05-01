@@ -30,7 +30,12 @@ export default (fixture, loaderOptions = {}, config = {}) => {
         },
         {
           test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+          resourceQuery: /^(?!.*\?ignore-asset-modules).*$/,
           type: "asset/resource",
+        },
+        {
+          resourceQuery: /\?ignore-asset-modules$/,
+          type: "javascript/auto",
         },
       ],
     },

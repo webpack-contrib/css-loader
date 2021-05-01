@@ -396,5 +396,5 @@ a {
 /* We need to use `resourceQuery: /inline/` */
 /* Hard to test on webpack v4 */
 .qqq {
-  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img-single.png')
+  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img-single.png?ignore-asset-modules')
 }
