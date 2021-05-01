@@ -9,23 +9,23 @@ exports[`validate options should throw an error on the "esModule" option with "t
 exports[`validate options should throw an error on the "import" option with "() => {}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.import should be one of these:
-   boolean | object { filter? }
+   boolean | object { filter?, loaders? }
    -> Enables/Disables '@import' at-rules handling (https://github.com/webpack-contrib/css-loader#import).
    Details:
     * options.import should be a boolean.
     * options.import should be an object:
-      object { filter? }"
+      object { filter?, loaders? }"
 `;
 
 exports[`validate options should throw an error on the "import" option with "[]" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.import should be one of these:
-   boolean | object { filter? }
+   boolean | object { filter?, loaders? }
    -> Enables/Disables '@import' at-rules handling (https://github.com/webpack-contrib/css-loader#import).
    Details:
     * options.import should be a boolean.
     * options.import should be an object:
-      object { filter? }"
+      object { filter?, loaders? }"
 `;
 
 exports[`validate options should throw an error on the "import" option with "{"filter":true}" value 1`] = `
@@ -33,32 +33,36 @@ exports[`validate options should throw an error on the "import" option with "{"f
  - options.import.filter should be an instance of function."
 `;
 
+exports[`validate options should throw an error on the "import" option with "{"loaders":2.5}" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.import should be one of these:
+   boolean | object { filter?, loaders? }
+   -> Enables/Disables '@import' at-rules handling (https://github.com/webpack-contrib/css-loader#import).
+   Details:
+    * options.import.loaders should be one of these:
+      boolean | string | integer
+      -> Enables/Disables or setups number of loaders applied before CSS loader (https://github.com/webpack-contrib/css-loader#importloaders).
+      Details:
+       * options.import.loaders should be a boolean.
+       * options.import.loaders should be a string.
+       * options.import.loaders should be a integer."
+`;
+
 exports[`validate options should throw an error on the "import" option with "{}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.import has an unknown property 'unknown'. These properties are valid:
-   object { filter? }"
+   object { filter?, loaders? }"
 `;
 
 exports[`validate options should throw an error on the "import" option with "true" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.import should be one of these:
-   boolean | object { filter? }
+   boolean | object { filter?, loaders? }
    -> Enables/Disables '@import' at-rules handling (https://github.com/webpack-contrib/css-loader#import).
    Details:
     * options.import should be a boolean.
     * options.import should be an object:
-      object { filter? }"
-`;
-
-exports[`validate options should throw an error on the "importLoaders" option with "2.5" value 1`] = `
-"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
- - options.importLoaders should be one of these:
-   boolean | string | integer
-   -> Enables/Disables or setups number of loaders applied before CSS loader (https://github.com/webpack-contrib/css-loader#importloaders).
-   Details:
-    * options.importLoaders should be a boolean.
-    * options.importLoaders should be a string.
-    * options.importLoaders should be a integer."
+      object { filter?, loaders? }"
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"auto":"invalid"}" value 1`] = `
@@ -267,49 +271,49 @@ exports[`validate options should throw an error on the "sourceMap" option with "
 exports[`validate options should throw an error on the "unknown" option with "/test/" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "[]" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{"foo":"bar"}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "1" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "false" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "test" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "true" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "url" option with "() => {}" value 1`] = `

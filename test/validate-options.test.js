@@ -7,8 +7,23 @@ describe("validate options", () => {
       failure: ["true", [], () => {}, { filter: true }, { unknown: () => {} }],
     },
     import: {
-      success: [true, false, { filter: () => true }],
-      failure: ["true", [], () => {}, { filter: true }, { unknown: () => {} }],
+      success: [
+        true,
+        false,
+        { filter: () => true },
+        { loaders: false },
+        { loaders: 0 },
+        { loaders: 1 },
+        { loaders: "1" },
+      ],
+      failure: [
+        "true",
+        [],
+        () => {},
+        { filter: true },
+        { unknown: () => {} },
+        { loaders: 2.5 },
+      ],
     },
     modules: {
       success: [
@@ -72,10 +87,6 @@ describe("validate options", () => {
     sourceMap: {
       success: [true, false],
       failure: ["true"],
-    },
-    importLoaders: {
-      success: [false, 0, 1, 2, "1"],
-      failure: [2.5],
     },
     esModule: {
       success: [true, false],
