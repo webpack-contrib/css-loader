@@ -107,14 +107,13 @@ module.exports = {
 
 ## Options
 
-|                 Name                  |            Type             |      Default       | Description                                                            |
-| :-----------------------------------: | :-------------------------: | :----------------: | :--------------------------------------------------------------------- |
-|           **[`url`](#url)**           |     `{Boolean\|Object}`     |       `true`       | Enables/Disables `url`/`image-set` functions handling                  |
-|        **[`import`](#import)**        |     `{Boolean\|Object}`     |       `true`       | Enables/Disables `@import` at-rules handling                           |
-|       **[`modules`](#modules)**       | `{Boolean\|String\|Object}` |   `{auto: true}`   | Enables/Disables CSS Modules and their configuration                   |
-|     **[`sourceMap`](#sourcemap)**     |         `{Boolean}`         | `compiler.devtool` | Enables/Disables generation of source maps                             |
-| **[`importLoaders`](#importloaders)** |         `{Number}`          |        `0`         | Enables/Disables or setups number of loaders applied before CSS loader |
-|      **[`esModule`](#esmodule)**      |         `{Boolean}`         |       `true`       | Use ES modules syntax                                                  |
+|             Name              |            Type             |      Default       | Description                                           |
+| :---------------------------: | :-------------------------: | :----------------: | :---------------------------------------------------- |
+|       **[`url`](#url)**       |     `{Boolean\|Object}`     |       `true`       | Enables/Disables `url`/`image-set` functions handling |
+|    **[`import`](#import)**    |     `{Boolean\|Object}`     |       `true`       | Enables/Disables `@import` at-rules handling          |
+|   **[`modules`](#modules)**   | `{Boolean\|String\|Object}` |   `{auto: true}`   | Enables/Disables CSS Modules and their configuration  |
+| **[`sourceMap`](#sourcemap)** |         `{Boolean}`         | `compiler.devtool` | Enables/Disables generation of source maps            |
+|  **[`esModule`](#esmodule)**  |         `{Boolean}`         |       `true`       | Use ES modules syntax                                 |
 
 ### `url`
 
@@ -250,6 +249,16 @@ module.exports = {
 
 #### `Object`
 
+|           Name            |     Type     |   Default   | Description                                                            |
+| :-----------------------: | :----------: | :---------: | :--------------------------------------------------------------------- |
+|  **[`filter`](#filter)**  | `{Function}` | `undefined` | Allow to filter `@import`                                              |
+| **[`loaders`](#loaders)** |  `{Number}`  |     `0`     | Enables/Disables or setups number of loaders applied before CSS loader |
+
+##### `filter`
+
+Type: `Function`
+Default: `undefined`
+
 Allow to filter `@import`. All filtered `@import` will not be resolved (left in the code as they were written).
 
 **webpack.config.js**
@@ -280,6 +289,47 @@ module.exports = {
   },
 };
 ```
+
+##### `loaders`
+
+Type: `Number`
+Default: `0`
+
+Enables/Disables or setups number of loaders applied before CSS loader.
+
+The option `import.loaders` allows you to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              import: {
+                loaders: 2,
+                // 0 => no loaders (default);
+                // 1 => postcss-loader;
+                // 2 => postcss-loader, sass-loader
+              },
+            },
+          },
+          "postcss-loader",
+          "sass-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
 
 ### `modules`
 
@@ -1062,45 +1112,6 @@ module.exports = {
   },
 };
 ```
-
-### `importLoaders`
-
-Type: `Number`
-Default: `0`
-
-Enables/Disables or setups number of loaders applied before CSS loader.
-
-The option `importLoaders` allows you to configure how many loaders before `css-loader` should be applied to `@import`ed resources.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 2,
-              // 0 => no loaders (default);
-              // 1 => postcss-loader;
-              // 2 => postcss-loader, sass-loader
-            },
-          },
-          "postcss-loader",
-          "sass-loader",
-        ],
-      },
-    ],
-  },
-};
-```
-
-This may change in the future when the module system (i. e. webpack) supports loader matching by origin.
 
 ### `esModule`
 

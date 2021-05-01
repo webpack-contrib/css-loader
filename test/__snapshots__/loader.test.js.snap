@@ -773,9 +773,9 @@ Array [
 
 exports[`loader should work with none AST metadata: warnings 1`] = `Array []`;
 
-exports[`loader should work with the "modules.auto" option and the "importLoaders" option: errors 1`] = `Array []`;
+exports[`loader should work with the "modules.auto" option and the "import.loaders" option: errors 1`] = `Array []`;
 
-exports[`loader should work with the "modules.auto" option and the "importLoaders" option: result 1`] = `
+exports[`loader should work with the "modules.auto" option and the "import.loaders" option: result 1`] = `
 "/* Pure CSS */
 .imported-by-pure {
   overflow-x: hidden;
@@ -841,7 +841,7 @@ exports[`loader should work with the "modules.auto" option and the "importLoader
 "
 `;
 
-exports[`loader should work with the "modules.auto" option and the "importLoaders" option: warnings 1`] = `Array []`;
+exports[`loader should work with the "modules.auto" option and the "import.loaders" option: warnings 1`] = `Array []`;
 
 exports[`loader should work with webpackIgnore comment: errors 1`] = `Array []`;
 

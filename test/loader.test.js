@@ -137,7 +137,7 @@ describe("loader", () => {
               rules: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { importLoaders: 1 },
+                  options: { import: { loaders: 1 } },
                 },
                 {
                   loader: require.resolve("./helpers/ast-loader"),
@@ -335,7 +335,7 @@ describe("loader", () => {
     expect(getErrors(stats, false, "postcss")).toMatchSnapshot("errors");
   });
 
-  it('should work with the "modules.auto" option and the "importLoaders" option', async () => {
+  it('should work with the "modules.auto" option and the "import.loaders" option', async () => {
     const compiler = getCompiler(
       "./integration/index.js",
       {},
@@ -350,7 +350,7 @@ describe("loader", () => {
                   options: {
                     // Run only `postcss-loader` on each `@import`
                     // If you need run `sass-loader` and `postcss-loader` please set it to `2`
-                    importLoaders: 1,
+                    import: { loaders: 1 },
                     // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
                     modules: { auto: true },
                   },
@@ -509,7 +509,7 @@ describe("loader", () => {
               rules: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { importLoaders: 1 },
+                  options: { import: { loaders: 1 } },
                 },
                 {
                   loader: "sass-loader",
