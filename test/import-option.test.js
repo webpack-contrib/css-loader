@@ -53,7 +53,7 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work when "Function"', async () => {
+  it("should work with import.filter", async () => {
     const compiler = getCompiler("./import/import.js", {
       import: {
         filter: (url, media, resourcePath) => {

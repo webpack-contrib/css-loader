@@ -50,7 +50,7 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with a value equal to "Function"', async () => {
+  it("should work with url.filter", async () => {
     const compiler = getCompiler("./url/url.js", {
       url: {
         filter: (url, resourcePath) => {
