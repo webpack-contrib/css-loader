@@ -589,7 +589,7 @@ function getImportCode(imports, options) {
   let code = "";
 
   for (const item of imports) {
-    const { importName, url, icss } = item;
+    const { importName, url, icss, type } = item;
 
     if (options.esModule) {
       if (icss && options.modules.namedExport) {
@@ -597,7 +597,10 @@ function getImportCode(imports, options) {
           options.modules.exportOnlyLocals ? "" : `${importName}, `
         }* as ${importName}_NAMED___ from ${url};\n`;
       } else {
-        code += `import ${importName} from ${url};\n`;
+        code +=
+          type === "url"
+            ? `var ${importName} = new URL(${url}, import.meta.url);\n`
+            : `import ${importName} from ${url};\n`;
       }
     } else {
       code += `var ${importName} = require(${url});\n`;

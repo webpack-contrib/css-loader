@@ -50,10 +50,6 @@ module.exports = {
 };
 ```
 
-**Only for webpack v4:**
-
-Good loaders for requiring your assets are the [file-loader](https://github.com/webpack/file-loader) and the [url-loader](https://github.com/webpack/url-loader) which you should specify in your config (see [below](https://github.com/webpack-contrib/css-loader#assets)).
-
 And run `webpack` via your preferred method.
 
 ### `toString`
@@ -1212,30 +1208,6 @@ module.exports = {
 };
 ```
 
-**For webpack v4:**
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-        loader: "url-loader",
-        options: {
-          limit: 8192,
-        },
-      },
-    ],
-  },
-};
-```
-
 ### Extract
 
 For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
@@ -1285,14 +1257,6 @@ module.exports = {
         // More information here https://webpack.js.org/guides/asset-modules/
         type: "asset",
       },
-      // For webpack v4
-      // {
-      //  test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-      //  loader: "url-loader",
-      //  options: {
-      //    limit: 8192,
-      //  },
-      // },
     ],
   },
 };

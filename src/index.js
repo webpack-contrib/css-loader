@@ -187,12 +187,14 @@ export default async function loader(content, map, meta) {
 
   if (options.modules.exportOnlyLocals !== true) {
     imports.unshift({
+      type: "api_import",
       importName: "___CSS_LOADER_API_IMPORT___",
       url: stringifyRequest(this, require.resolve("./runtime/api")),
     });
 
     if (options.sourceMap) {
       imports.unshift({
+        type: "api_sourcemap_import",
         importName: "___CSS_LOADER_API_SOURCEMAP_IMPORT___",
         url: stringifyRequest(
           this,

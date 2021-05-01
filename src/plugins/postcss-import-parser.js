@@ -223,6 +223,7 @@ const plugin = (options = {}) => {
               urlToNameMap.set(newUrl, importName);
 
               options.imports.push({
+                type: "rule_import",
                 importName,
                 url: options.urlHandler(newUrl),
                 index,

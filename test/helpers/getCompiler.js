@@ -6,6 +6,7 @@ import { createFsFromVolume, Volume } from "memfs";
 export default (fixture, loaderOptions = {}, config = {}) => {
   const fullConfig = {
     mode: "development",
+    target: "node",
     devtool: config.devtool || false,
     context: path.resolve(__dirname, "../fixtures"),
     entry: path.resolve(__dirname, "../fixtures", fixture),
@@ -14,6 +15,7 @@ export default (fixture, loaderOptions = {}, config = {}) => {
       filename: "[name].bundle.js",
       chunkFilename: "[name].chunk.js",
       publicPath: "/webpack/public/path/",
+      assetModuleFilename: "[name][ext]",
     },
     module: {
       rules: [
@@ -28,8 +30,12 @@ export default (fixture, loaderOptions = {}, config = {}) => {
         },
         {
           test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-          loader: "file-loader",
-          options: { name: "[name].[ext]" },
+          resourceQuery: /^(?!.*\?ignore-asset-modules).*$/,
+          type: "asset/resource",
+        },
+        {
+          resourceQuery: /\?ignore-asset-modules$/,
+          type: "javascript/auto",
         },
       ],
     },
