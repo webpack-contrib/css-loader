@@ -109,8 +109,8 @@ module.exports = {
 
 |                 Name                  |            Type             |      Default       | Description                                                            |
 | :-----------------------------------: | :-------------------------: | :----------------: | :--------------------------------------------------------------------- |
-|           **[`url`](#url)**           |    `{Boolean\|Function}`    |       `true`       | Enables/Disables `url`/`image-set` functions handling                  |
-|        **[`import`](#import)**        |    `{Boolean\|Function}`    |       `true`       | Enables/Disables `@import` at-rules handling                           |
+|           **[`url`](#url)**           |     `{Boolean\|Object}`     |       `true`       | Enables/Disables `url`/`image-set` functions handling                  |
+|        **[`import`](#import)**        |     `{Boolean\|Object}`     |       `true`       | Enables/Disables `@import` at-rules handling                           |
 |       **[`modules`](#modules)**       | `{Boolean\|String\|Object}` |   `{auto: true}`   | Enables/Disables CSS Modules and their configuration                   |
 |     **[`sourceMap`](#sourcemap)**     |         `{Boolean}`         | `compiler.devtool` | Enables/Disables generation of source maps                             |
 | **[`importLoaders`](#importloaders)** |         `{Number}`          |        `0`         | Enables/Disables or setups number of loaders applied before CSS loader |
@@ -118,7 +118,7 @@ module.exports = {
 
 ### `url`
 
-Type: `Boolean|Function`
+Type: `Boolean|Object`
 Default: `true`
 
 Enables/Disables `url`/`image-set` functions handling.
@@ -165,7 +165,7 @@ module.exports = {
 };
 ```
 
-#### `Function`
+#### `Object`
 
 Allow to filter `url()`. All filtered `url()` will not be resolved (left in the code as they were written).
 
@@ -179,15 +179,17 @@ module.exports = {
         test: /\.css$/i,
         loader: "css-loader",
         options: {
-          url: (url, resourcePath) => {
-            // resourcePath - path to css file
+          url: {
+            filter: (url, resourcePath) => {
+              // resourcePath - path to css file
 
-            // Don't handle `img.png` urls
-            if (url.includes("img.png")) {
-              return false;
-            }
+              // Don't handle `img.png` urls
+              if (url.includes("img.png")) {
+                return false;
+              }
 
-            return true;
+              return true;
+            },
           },
         },
       },
@@ -198,7 +200,7 @@ module.exports = {
 
 ### `import`
 
-Type: `Boolean|Function`
+Type: `Boolean|Object`
 Default: `true`
 
 Enables/Disables `@import` at-rules handling.
@@ -246,7 +248,7 @@ module.exports = {
 };
 ```
 
-#### `Function`
+#### `Object`
 
 Allow to filter `@import`. All filtered `@import` will not be resolved (left in the code as they were written).
 
@@ -260,15 +262,17 @@ module.exports = {
         test: /\.css$/i,
         loader: "css-loader",
         options: {
-          import: (url, media, resourcePath) => {
-            // resourcePath - path to css file
+          import: {
+            filter: (url, media, resourcePath) => {
+              // resourcePath - path to css file
 
-            // Don't handle `style.css` import
-            if (url.includes("style.css")) {
-              return false;
-            }
+              // Don't handle `style.css` import
+              if (url.includes("style.css")) {
+                return false;
+              }
 
-            return true;
+              return true;
+            },
           },
         },
       },
