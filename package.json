@@ -42,7 +42,6 @@
     "webpack": "^5.0.0"
   },
   "dependencies": {
-    "camelcase": "^6.2.0",
     "icss-utils": "^5.1.0",
     "loader-utils": "^2.0.0",
     "postcss": "^8.2.10",
