@@ -10,13 +10,74 @@ import modulesValues from "postcss-modules-values";
 import localByDefault from "postcss-modules-local-by-default";
 import extractImports from "postcss-modules-extract-imports";
 import modulesScope from "postcss-modules-scope";
-import camelCase from "camelcase";
 
 const WEBPACK_IGNORE_COMMENT_REGEXP = /webpackIgnore:(\s+)?(true|false)/;
 
 // eslint-disable-next-line no-useless-escape
 const regexSingleEscape = /[ -,.\/:-@[\]\^`{-~]/;
 const regexExcessiveSpaces = /(^|\\+)?(\\[A-F0-9]{1,6})\x20(?![a-fA-F0-9\x20])/g;
+
+const preserveCamelCase = (string) => {
+  let result = string;
+  let isLastCharLower = false;
+  let isLastCharUpper = false;
+  let isLastLastCharUpper = false;
+
+  for (let i = 0; i < result.length; i++) {
+    const character = result[i];
+
+    if (isLastCharLower && /[\p{Lu}]/u.test(character)) {
+      result = `${result.slice(0, i)}-${result.slice(i)}`;
+      isLastCharLower = false;
+      isLastLastCharUpper = isLastCharUpper;
+      isLastCharUpper = true;
+      i += 1;
+    } else if (
+      isLastCharUpper &&
+      isLastLastCharUpper &&
+      /[\p{Ll}]/u.test(character)
+    ) {
+      result = `${result.slice(0, i - 1)}-${result.slice(i - 1)}`;
+      isLastLastCharUpper = isLastCharUpper;
+      isLastCharUpper = false;
+      isLastCharLower = true;
+    } else {
+      isLastCharLower =
+        character.toLowerCase() === character &&
+        character.toUpperCase() !== character;
+      isLastLastCharUpper = isLastCharUpper;
+      isLastCharUpper =
+        character.toUpperCase() === character &&
+        character.toLowerCase() !== character;
+    }
+  }
+
+  return result;
+};
+
+function camelCase(input) {
+  let result = input.trim();
+
+  if (result.length === 0) {
+    return "";
+  }
+
+  if (result.length === 1) {
+    return result.toLowerCase();
+  }
+
+  const hasUpperCase = result !== result.toLowerCase();
+
+  if (hasUpperCase) {
+    result = preserveCamelCase(result);
+  }
+
+  return result
+    .replace(/^[_.\- ]+/, "")
+    .toLowerCase()
+    .replace(/[_.\- ]+([\p{Alpha}\p{N}_]|$)/gu, (_, p1) => p1.toUpperCase())
+    .replace(/\d+([\p{Alpha}\p{N}_]|$)/gu, (m) => m.toUpperCase());
+}
 
 function escape(string) {
   let output = "";
@@ -884,4 +945,5 @@ export {
   sort,
   WEBPACK_IGNORE_COMMENT_REGEXP,
   combineRequests,
+  camelCase,
 };
