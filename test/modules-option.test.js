@@ -1429,7 +1429,7 @@ describe('"modules" option', () => {
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
-    it(`show work with the "compileType" option, case "${name}"`, async () => {
+    it(`show work with the "mode: icss" option, case "${name}"`, async () => {
       const compiler = getCompiler(
         `./modules/icss/tests-cases/${name}/source.js`,
         {
@@ -1472,7 +1472,7 @@ describe('"modules" option', () => {
     });
   });
 
-  it('show work with the "compileType" and "exportOnlyLocals" options', async () => {
+  it('show work with the "mode: icss" and "exportOnlyLocals" options', async () => {
     const compiler = getCompiler(
       "./modules/icss/tests-cases/import/source.js",
       {
@@ -1494,7 +1494,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('show work with the "compileType" and "namedExport" options', async () => {
+  it('show work with the "mode: icss" and "namedExport" options', async () => {
     const compiler = getCompiler(
       "./modules/icss/tests-cases/import/source.js",
       {
@@ -1516,9 +1516,11 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('show work with the "compileType" option using the "module" value', async () => {
+  it('show work with the "mode" option using the "local" value', async () => {
     const compiler = getCompiler("./modules/composes/composes.js", {
-      modules: {},
+      modules: {
+        mode: "local",
+      },
     });
     const stats = await compile(compiler);
 
