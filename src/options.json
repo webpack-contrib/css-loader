@@ -57,16 +57,12 @@
           "type": "boolean"
         },
         {
-          "enum": ["local", "global", "pure"]
+          "enum": ["local", "global", "pure", "icss"]
         },
         {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "compileType": {
-              "description": "Controls the extent to which css-loader will process module code (https://github.com/webpack-contrib/css-loader#type)",
-              "enum": ["module", "icss"]
-            },
             "auto": {
               "description": "Allows auto enable CSS modules based on filename (https://github.com/webpack-contrib/css-loader#auto).",
               "anyOf": [
@@ -85,7 +81,7 @@
               "description": "Setup `mode` option (https://github.com/webpack-contrib/css-loader#mode).",
               "anyOf": [
                 {
-                  "enum": ["local", "global", "pure"]
+                  "enum": ["local", "global", "pure", "icss"]
                 },
                 {
                   "instanceof": "Function"
