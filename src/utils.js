@@ -421,9 +421,8 @@ function getModulesOptions(rawOptions, loaderContext) {
   }
 
   let modulesOptions = {
-    compileType: isIcss ? "icss" : "module",
     auto: true,
-    mode: "local",
+    mode: isIcss ? "icss" : "local",
     exportGlobals: false,
     localIdentName: "[hash:base64]",
     localIdentContext: loaderContext.rootContext,
@@ -548,7 +547,11 @@ function shouldUseURLPlugin(options) {
 }
 
 function shouldUseModulesPlugins(options) {
-  return options.modules.compileType === "module";
+  if (typeof options.modules === "boolean" && options.modules === false) {
+    return false;
+  }
+
+  return options.modules.mode !== "icss";
 }
 
 function shouldUseIcssPlugin(options) {

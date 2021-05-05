@@ -576,7 +576,6 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            compileType: "module",
             mode: "local",
             auto: true,
             exportGlobals: true,
@@ -586,38 +585,6 @@ module.exports = {
             namedExport: true,
             exportLocalsConvention: "camelCase",
             exportOnlyLocals: false,
-          },
-        },
-      },
-    ],
-  },
-};
-```
-
-##### `compileType`
-
-Type: `'module' | 'icss'`
-Default: `'module'`
-
-Controls the level of compilation applied to the input styles.
-
-The `module` handles `class` and `id` scoping and `@value` values.
-The `icss` will only compile the low level `Interoperable CSS` format for declaring `:import` and `:export` dependencies between CSS and other languages.
-
-ICSS underpins CSS Module support, and provides a low level syntax for other tools to implement CSS-module variations of their own.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: "css-loader",
-        options: {
-          modules: {
-            compileType: "icss",
           },
         },
       },
@@ -637,7 +604,7 @@ Allows auto enable CSS modules based on filename.
 
 Possible values:
 
-- `true` - enables CSS modules or interoperable CSS format, sets the [`modules.compileType`](#compiletype) option to `module` value for all files which satisfy `/\.module(s)?\.\w+$/i.test(filename)` condition or sets the [`modules.compileType`](#compiletype) option to `icss` value for all files which satisfy `/\.icss\.\w+$/i.test(filename)` condition
+- `true` - enables CSS modules or interoperable CSS format, sets the [`modules.mode`](#mode) option to `local` value for all files which satisfy `/\.module(s)?\.\w+$/i.test(filename)` condition or sets the [`modules.mode`](#mode) option to `icss` value for all files which satisfy `/\.icss\.\w+$/i.test(filename)` condition
 - `false` - disables CSS modules or interoperable CSS format based on filename
 
 **webpack.config.js**
@@ -715,9 +682,16 @@ Default: `'local'`
 
 Setup `mode` option. You can omit the value when you want `local` mode.
 
+Controls the level of compilation applied to the input styles.
+
+The `local`, `global`, and `pure` handles `class` and `id` scoping and `@value` values.
+The `icss` will only compile the low level `Interoperable CSS` format for declaring `:import` and `:export` dependencies between CSS and other languages.
+
+ICSS underpins CSS Module support, and provides a low level syntax for other tools to implement CSS-module variations of their own.
+
 ###### `String`
 
-Possible values - `local`, `global`, and `pure`.
+Possible values - `local`, `global`, `pure`, and `icss`.
 
 **webpack.config.js**
 
@@ -743,7 +717,7 @@ module.exports = {
 
 Allows set different values for the `mode` option based on a filename
 
-Possible return values - `local`, `global`, and `pure`.
+Possible return values - `local`, `global`, `pure` and `icss`.
 
 **webpack.config.js**
 
@@ -1343,7 +1317,7 @@ module.exports = {
 
 ### Separating `Interoperable CSS`-only and `CSS Module` features
 
-The following setup is an example of allowing `Interoperable CSS` features only (such as `:import` and `:export`) without using further `CSS Module` functionality by setting `compileType` option for all files that do not match `*.module.scss` naming convention. This is for reference as having `ICSS` features applied to all files was default `css-loader` behavior before v4.
+The following setup is an example of allowing `Interoperable CSS` features only (such as `:import` and `:export`) without using further `CSS Module` functionality by setting `mode` option for all files that do not match `*.module.scss` naming convention. This is for reference as having `ICSS` features applied to all files was default `css-loader` behavior before v4.
 Meanwhile all files matching `*.module.scss` are treated as `CSS Modules` in this example.
 
 An example case is assumed where a project requires canvas drawing variables to be synchronized with CSS - canvas drawing uses the same color (set by color name in JavaScript) as HTML background (set by class name in CSS).
@@ -1369,7 +1343,7 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: {
-                compileType: 'icss'
+                mode: 'icss'
               }
             }
           },
@@ -1391,7 +1365,7 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: {
-                compileType: 'module'
+                mode: 'local'
               }
             }
           },
