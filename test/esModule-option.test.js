@@ -157,7 +157,7 @@ describe('"esModule" option', () => {
                     options: {
                       esModule: test.localLoaderMode === "esModule",
                       modules: {
-                        namedExport: false
+                        namedExport: false,
                       },
                     },
                   },
