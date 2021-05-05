@@ -902,7 +902,7 @@ module.exports = {
 ##### `namedExport`
 
 Type: `Boolean`
-Default: `false`
+Default: `true`
 
 Enables/disables ES modules named export for locals.
 
@@ -942,8 +942,29 @@ module.exports = {
         loader: "css-loader",
         options: {
           esModule: true,
+          modules: true,
+        },
+      },
+    ],
+  },
+};
+```
+
+You can disable a ES module named export using:
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          esModule: true,
           modules: {
-            namedExport: true,
+            namedExport: false,
           },
         },
       },
@@ -988,7 +1009,7 @@ Style of exported class names.
 
 By default, the exported JSON keys mirror the class names (i.e `asIs` value).
 
-> ⚠ Only `camelCaseOnly` value allowed if you set the `namedExport` value to `true`.
+> ⚠ Only `camelCaseOnly` and `dashesOnly` values allowed if the `namedExport` option is `true`.
 
 |         Name          |    Type    | Description                                                                                      |
 | :-------------------: | :--------: | :----------------------------------------------------------------------------------------------- |

@@ -297,6 +297,7 @@ describe("loader", () => {
         mode: "local",
         localIdentName: "_[local]",
         exportOnlyLocals: true,
+        namedExport: false,
       },
     });
     const stats = await compile(compiler);

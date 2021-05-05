@@ -368,7 +368,7 @@ function getModulesOptions(rawOptions, loaderContext) {
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
-    namedExport: false,
+    namedExport: true,
     exportLocalsConvention: "asIs",
     exportOnlyLocals: false,
   };
@@ -401,16 +401,17 @@ function getModulesOptions(rawOptions, loaderContext) {
           return false;
         }
       }
-
-      if (
-        rawOptions.modules.namedExport === true &&
-        typeof rawOptions.modules.exportLocalsConvention === "undefined"
-      ) {
-        modulesOptions.exportLocalsConvention = "camelCaseOnly";
-      }
     }
 
     modulesOptions = { ...modulesOptions, ...(rawOptions.modules || {}) };
+  }
+
+  if (
+    modulesOptions.namedExport === true &&
+    (typeof rawOptions.modules === "undefined" ||
+      typeof rawOptions.modules.exportLocalsConvention === "undefined")
+  ) {
+    modulesOptions.exportLocalsConvention = "camelCaseOnly";
   }
 
   if (typeof modulesOptions.mode === "function") {

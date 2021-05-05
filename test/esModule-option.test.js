@@ -156,7 +156,9 @@ describe('"esModule" option', () => {
                     loader: path.resolve(__dirname, "../src"),
                     options: {
                       esModule: test.localLoaderMode === "esModule",
-                      modules: true,
+                      modules: {
+                        namedExport: false
+                      },
                     },
                   },
                 ],
@@ -212,7 +214,9 @@ describe('"esModule" option', () => {
                     loader: path.resolve(__dirname, "../src"),
                     options: {
                       esModule: test.localLoaderMode === "esModule",
-                      modules: true,
+                      modules: {
+                        namedExport: false,
+                      },
                     },
                   },
                 ],
