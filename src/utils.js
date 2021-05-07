@@ -5,13 +5,98 @@
 import { fileURLToPath } from "url";
 import path from "path";
 
-import { urlToRequest, interpolateName } from "loader-utils";
+import { interpolateName } from "loader-utils";
 import modulesValues from "postcss-modules-values";
 import localByDefault from "postcss-modules-local-by-default";
 import extractImports from "postcss-modules-extract-imports";
 import modulesScope from "postcss-modules-scope";
 
 const WEBPACK_IGNORE_COMMENT_REGEXP = /webpackIgnore:(\s+)?(true|false)/;
+
+const matchRelativePath = /^\.\.?[/\\]/;
+
+function isAbsolutePath(str) {
+  return path.posix.isAbsolute(str) || path.win32.isAbsolute(str);
+}
+
+function isRelativePath(str) {
+  return matchRelativePath.test(str);
+}
+
+function stringifyRequest(loaderContext, request) {
+  const splitted = request.split("!");
+  const context =
+    loaderContext.context ||
+    (loaderContext.options && loaderContext.options.context);
+
+  return JSON.stringify(
+    splitted
+      .map((part) => {
+        // First, separate singlePath from query, because the query might contain paths again
+        const splittedPart = part.match(/^(.*?)(\?.*)/);
+        const query = splittedPart ? splittedPart[2] : "";
+        let singlePath = splittedPart ? splittedPart[1] : part;
+
+        if (isAbsolutePath(singlePath) && context) {
+          singlePath = path.relative(context, singlePath);
+
+          if (isAbsolutePath(singlePath)) {
+            // If singlePath still matches an absolute path, singlePath was on a different drive than context.
+            // In this case, we leave the path platform-specific without replacing any separators.
+            // @see https://github.com/webpack/loader-utils/pull/14
+            return singlePath + query;
+          }
+
+          if (isRelativePath(singlePath) === false) {
+            // Ensure that the relative path starts at least with ./ otherwise it would be a request into the modules directory (like node_modules).
+            singlePath = `./${singlePath}`;
+          }
+        }
+
+        return singlePath.replace(/\\/g, "/") + query;
+      })
+      .join("!")
+  );
+}
+
+// we can't use path.win32.isAbsolute because it also matches paths starting with a forward slash
+const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
+
+function urlToRequest(url, root) {
+  // Do not rewrite an empty url
+  if (url === "") {
+    return "";
+  }
+
+  const moduleRequestRegex = /^[^?]*~/;
+  let request;
+
+  if (matchNativeWin32Path.test(url)) {
+    // absolute windows path, keep it
+    request = url;
+  } else if (typeof root !== "undefined" && /^\//.test(url)) {
+    // if root is set and the url is root-relative
+    // special case: `~` roots convert to module request
+    if (moduleRequestRegex.test(root)) {
+      request = root.replace(/([^~/])$/, "$1/") + url.slice(1);
+    } else {
+      request = root + url;
+    }
+  } else if (/^\.\.?\//.test(url)) {
+    // A relative url stays
+    request = url;
+  } else {
+    // every other url is threaded like a relative url
+    request = `./${url}`;
+  }
+
+  // A `~` makes the url an module
+  if (moduleRequestRegex.test(request)) {
+    request = request.replace(moduleRequestRegex, "");
+  }
+
+  return request;
+}
 
 // eslint-disable-next-line no-useless-escape
 const regexSingleEscape = /[ -,.\/:-@[\]\^`{-~]/;
@@ -1021,4 +1106,5 @@ export {
   WEBPACK_IGNORE_COMMENT_REGEXP,
   combineRequests,
   camelCase,
+  stringifyRequest,
 };
