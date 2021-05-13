@@ -125,8 +125,7 @@ module.exports = {
 Type: `Boolean|Function`
 Default: `true`
 
-Enables/Disables `url`/`image-set` functions handling.
-Control `url()` resolving. Absolute paths and root-relative URLs now resolving(Version [4.0.0](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md#400-2020-07-25) and above).
+Enables/Disables `url`/`image-set` functions handling. If set to `false`, `css-loader` will not parse any paths specified in `url` or `image-set`. A function can also be passed to control this behavior dynamically based on the path to the asset. Starting with (version [4.0.0](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md#400-2020-07-25), absolute paths are parsed relative to the server root.
 
 Examples resolutions:
 
