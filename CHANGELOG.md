@@ -180,12 +180,11 @@ All notable changes to this project will be documented in this file. See [standa
 * the `onlyLocals` option was moved and renamed to the `modules.exportOnlyLocals` option
 * function arguments of the `import` option were changed, it is now `function(url, media, resourcePath) {}`
 * inline syntax was changed, please write `~` before the file request, i.e. rewrite `url(~!!loader!package/img.png)` to `url(!!loader!~package/img.png)`
-
+ * Improve `url()` resolving algorithm. Absolute paths are now parsed based on the server root and not ignored. This can break builds which relied on absolute paths to point to the asset directory. ([bc19ddd](https://github.com/webpack-contrib/css-loader/commit/bc19ddd8779dafbc2a420870a3cb841041ce9c7c))
 
 ### Features
 
 * `@value` supports importing `url()` ([#1126](https://github.com/webpack-contrib/css-loader/issues/1126)) ([7f49a0a](https://github.com/webpack-contrib/css-loader/commit/7f49a0a6047846bb2e432558365e19d4a0dfb366))
-* improve `url()` resolving algorithm ([bc19ddd](https://github.com/webpack-contrib/css-loader/commit/bc19ddd8779dafbc2a420870a3cb841041ce9c7c))
 * named export for locals ([#1108](https://github.com/webpack-contrib/css-loader/issues/1108)) ([d139ec1](https://github.com/webpack-contrib/css-loader/commit/d139ec1d763f9944550b31f2a75183e488dd1224))
 * respected the `style` field from package.json ([#1099](https://github.com/webpack-contrib/css-loader/issues/1099)) ([edf5347](https://github.com/webpack-contrib/css-loader/commit/edf5347e4203a62e50b87248a83da198afdc6eba))
 * support `file:` protocol ([5604205](https://github.com/webpack-contrib/css-loader/commit/560420567eb0e1a635648b7f4ff0365db475384c))
