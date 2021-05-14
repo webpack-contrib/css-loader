@@ -154,13 +154,8 @@ const plugin = (options = {}) => {
 
           const resolvedAtRules = await Promise.all(
             parsedAtRules.map(async (parsedAtRule) => {
-              const {
-                atRule,
-                isRequestable,
-                prefix,
-                url,
-                media,
-              } = parsedAtRule;
+              const { atRule, isRequestable, prefix, url, media } =
+                parsedAtRule;
 
               if (options.filter) {
                 const needKeep = await options.filter(url, media);

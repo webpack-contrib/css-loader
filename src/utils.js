@@ -16,7 +16,8 @@ const WEBPACK_IGNORE_COMMENT_REGEXP = /webpackIgnore:(\s+)?(true|false)/;
 
 // eslint-disable-next-line no-useless-escape
 const regexSingleEscape = /[ -,.\/:-@[\]\^`{-~]/;
-const regexExcessiveSpaces = /(^|\\+)?(\\[A-F0-9]{1,6})\x20(?![a-fA-F0-9\x20])/g;
+const regexExcessiveSpaces =
+  /(^|\\+)?(\\[A-F0-9]{1,6})\x20(?![a-fA-F0-9\x20])/g;
 
 function escape(string) {
   let output = "";
