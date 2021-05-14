@@ -47,6 +47,14 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
+function isDataUrl(url) {
+  if (/^data:/i.test(url)) {
+    return true;
+  }
+
+  return false;
+}
+
 function shouldHandleURL(url, declaration, result) {
   if (url.length === 0) {
     result.warn(`Unable to find uri in '${declaration.toString()}'`, {
@@ -54,6 +62,10 @@ function shouldHandleURL(url, declaration, result) {
     });
 
     return false;
+  }
+
+  if (isDataUrl(url)) {
+    return true;
   }
 
   if (!isUrlRequestable(url)) {
@@ -135,12 +147,15 @@ function parseDeclaration(declaration, key, result) {
         return false;
       }
 
-      const queryParts = url.split("!");
       let prefix;
 
-      if (queryParts.length > 1) {
-        url = queryParts.pop();
-        prefix = queryParts.join("!");
+      if (!isDataUrl(url)) {
+        const queryParts = url.split("!");
+
+        if (queryParts.length > 1) {
+          url = queryParts.pop();
+          prefix = queryParts.join("!");
+        }
       }
 
       parsedURLs.push({
@@ -191,12 +206,15 @@ function parseDeclaration(declaration, key, result) {
             return false;
           }
 
-          const queryParts = url.split("!");
           let prefix;
 
-          if (queryParts.length > 1) {
-            url = queryParts.pop();
-            prefix = queryParts.join("!");
+          if (!isDataUrl(url)) {
+            const queryParts = url.split("!");
+
+            if (queryParts.length > 1) {
+              url = queryParts.pop();
+              prefix = queryParts.join("!");
+            }
           }
 
           parsedURLs.push({
@@ -229,17 +247,20 @@ function parseDeclaration(declaration, key, result) {
           let url = normalizeUrl(value, true);
 
           // Do not traverse inside `url`
-          if (!shouldHandleURL(url, declaration, result)) {
+          if (!shouldHandleURL(url, declaration, result) && !isDataUrl(url)) {
             // eslint-disable-next-line consistent-return
             return false;
           }
 
-          const queryParts = url.split("!");
           let prefix;
 
-          if (queryParts.length > 1) {
-            url = queryParts.pop();
-            prefix = queryParts.join("!");
+          if (!isDataUrl(url)) {
+            const queryParts = url.split("!");
+
+            if (queryParts.length > 1) {
+              url = queryParts.pop();
+              prefix = queryParts.join("!");
+            }
           }
 
           parsedURLs.push({
@@ -305,9 +326,11 @@ const plugin = (options = {}) => {
               const request = requestify(pathname, options.rootContext);
 
               const { resolver, context } = options;
-              const resolvedUrl = await resolveRequests(resolver, context, [
-                ...new Set([request, url]),
-              ]);
+              const resolvedUrl = isDataUrl(url)
+                ? url
+                : await resolveRequests(resolver, context, [
+                    ...new Set([request, url]),
+                  ]);
 
               if (!resolvedUrl) {
                 return;
@@ -357,7 +380,7 @@ const plugin = (options = {}) => {
               urlToNameMap.set(newUrl, importName);
 
               options.imports.push({
-                type: "url",
+                type: isDataUrl(url) ? "dataUrl" : "url",
                 importName,
                 url: options.urlHandler(newUrl),
                 index,

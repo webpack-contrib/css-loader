@@ -664,6 +664,8 @@ function getImportCode(imports, options) {
         code +=
           type === "url"
             ? `var ${importName} = new URL(${url}, import.meta.url);\n`
+            : type === "dataUrl"
+            ? `var ${importName} = new URL(${url});\n`
             : `import ${importName} from ${url};\n`;
       }
     } else {
