@@ -204,7 +204,7 @@ describe('"url" option', () => {
             },
             {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-              type: "asset",
+              type: "asset/resource",
               generator: {
                 filename: "[name][ext]",
               },
