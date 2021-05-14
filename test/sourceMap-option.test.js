@@ -495,13 +495,13 @@ describe('"sourceMap" option', () => {
         }
       );
       const stats = await compile(compiler);
-      const chunkName = Object.keys(
-        stats.compilation.assets
-      ).find((assetName) => /\.js$/.test(assetName));
+      const chunkName = Object.keys(stats.compilation.assets).find(
+        (assetName) => /\.js$/.test(assetName)
+      );
 
       expect(chunkName).toBe(
         webpack.version[0] === "5"
-          ? "main.a531550ffe767c49e881.bundle.js"
+          ? "main.6480a869998e0b381c90.bundle.js"
           : "main.19efc497c5c37fc5e355.bundle.js"
       );
       expect(
@@ -601,9 +601,9 @@ describe('"sourceMap" option', () => {
         }
       );
       const stats = await compile(compiler);
-      const chunkName = Object.keys(
-        stats.compilation.assets
-      ).find((assetName) => /\.css$/.test(assetName));
+      const chunkName = Object.keys(stats.compilation.assets).find(
+        (assetName) => /\.css$/.test(assetName)
+      );
 
       const extractedCSS = readAsset(chunkName, compiler, stats);
 
