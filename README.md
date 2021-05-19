@@ -1131,6 +1131,38 @@ module.exports = {
 
 ## Examples
 
+### Recommend
+
+For `production` builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
+This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
+For `development` mode (including `webpack-dev-server`) you can use [style-loader](https://github.com/webpack-contrib/style-loader), because it injects CSS into the DOM using multiple <style></style> and works faster.
+
+> i Do not use together `style-loader` and `mini-css-extract-plugin`.
+
+**webpack.config.js**
+
+```js
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== "production";
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
+      },
+    ],
+  },
+  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
+};
+```
+
 ### Disable url resolving using the `/* webpackIgnore: true */` comment
 
 With the help of the `/* webpackIgnore: true */`comment, it is possible to disable sources handling for rules and for individual declarations.
@@ -1234,14 +1266,6 @@ module.exports = {
   },
 };
 ```
-
-### Extract
-
-For production builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
-
-- This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to extract the CSS when running in production mode.
-
-- As an alternative, if seeking better development performance and css outputs that mimic production. [extract-css-chunks-webpack-plugin](https://github.com/faceyspacey/extract-css-chunks-webpack-plugin) offers a hot module reload friendly, extended version of mini-css-extract-plugin. HMR real CSS files in dev, works like mini-css in non-dev
 
 ### Pure CSS, CSS modules and PostCSS
 
