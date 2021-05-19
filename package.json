@@ -23,7 +23,7 @@
     "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
     "postbuild": "npm run validate:runtime",
     "commitlint": "commitlint --from=master",
-    "security": "npm audit",
+    "security": "npm audit --production",
     "lint:prettier": "prettier --list-different .",
     "lint:js": "eslint --cache .",
     "lint": "npm-run-all -l -p \"lint:**\"",
