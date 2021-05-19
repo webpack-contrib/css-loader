@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`camelCase should transform 1`] = `""`;
+
+exports[`camelCase should transform:   foo  bar  1`] = `"fooBar"`;
+
+exports[`camelCase should transform: __foo__bar__ 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: - 1`] = `"-"`;
+
+exports[`camelCase should transform: --__--_--_ 1`] = `""`;
+
+exports[`camelCase should transform: --foo..bar 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: --foo---bar 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: --foo---bar-- 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: --foo--1 1`] = `"foo1"`;
+
+exports[`camelCase should transform: --foo-bar 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: 1Hello 1`] = `"1Hello"`;
+
+exports[`camelCase should transform: A::a 1`] = `"a::a"`;
+
+exports[`camelCase should transform: F 1`] = `"f"`;
+
+exports[`camelCase should transform: FOO-BAR 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: FOÈ-BAR 1`] = `"foèBar"`;
+
+exports[`camelCase should transform: FOÈ-BAr 1`] = `"foèBAr"`;
+
+exports[`camelCase should transform: Hello1World11foo 1`] = `"hello1World11Foo"`;
+
+exports[`camelCase should transform: foo 1`] = `"foo"`;
+
+exports[`camelCase should transform: foo bar 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: foo bar! 1`] = `"fooBar!"`;
+
+exports[`camelCase should transform: foo bar# 1`] = `"fooBar#"`;
+
+exports[`camelCase should transform: foo bar? 1`] = `"fooBar?"`;
+
+exports[`camelCase should transform: foo_bar 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: foo--bar 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: foo-bar 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: foo-bar-baz 1`] = `"fooBarBaz"`;
+
+exports[`camelCase should transform: fooBar 1`] = `"fooBar"`;
+
+exports[`camelCase should transform: fooBar-baz 1`] = `"fooBarBaz"`;
+
+exports[`camelCase should transform: fooBarBaz-bazzy 1`] = `"fooBarBazBazzy"`;
+
+exports[`camelCase should transform: h2w 1`] = `"h2W"`;
+
+exports[`camelCase should transform: mGridCol6@md 1`] = `"mGridCol6@md"`;
