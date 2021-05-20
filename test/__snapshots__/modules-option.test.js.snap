@@ -1727,7 +1727,7 @@ exports[`"modules" option should throw an error on unresolved import: warnings 1
 
 exports[`"modules" option should throw an error when class has unsupported name (JavaScript reserved words): errors 1`] = `
 Array [
-  "ModuleParseError: Module parse failed: Unexpected keyword 'class' (7:13)
+  "ModuleParseError: Module parse failed: Unexpected keyword 'class' (7:11)
 File was processed with these loaders:",
 ]
 `;
@@ -3814,9 +3814,9 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".header-baz {\\\\n  color: red;\\\\n}\\\\n\\\\n.body {\\\\n  color: coral;\\\\n}\\\\n\\\\n.footer {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const headerBaz = \\"header-baz\\";
-export const body = \\"body\\";
-export const footer = \\"footer\\";
+export var headerBaz = \\"header-baz\\";
+export var body = \\"body\\";
+export var footer = \\"footer\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -3860,7 +3860,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".foo_barBaz {\\\\n  color: red;\\\\n}\\\\n\\\\n.bar {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const foo_barBaz = \\"foo_barBaz\\";
+export var foo_barBaz = \\"foo_barBaz\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -4135,53 +4135,53 @@ import * as ___CSS_LOADER_ICSS_IMPORT_5____NAMED___ from \\"-!../../../../src/in
 import * as ___CSS_LOADER_ICSS_IMPORT_6____NAMED___ from \\"-!../../../../src/index.js??[ident]!./alias.css\\";
 import * as ___CSS_LOADER_ICSS_IMPORT_7____NAMED___ from \\"-!../../../../src/index.js??[ident]!./scss-file.scss\\";
 // Exports
-export const vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
-export const vOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\"\\";
-export const sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
-export const mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
-export const vSomething = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\"\\";
-export const vFoo = \\"blue\\";
-export const vBar = \\"block\\";
-export const vPrimary = \\"#BF4040\\";
-export const sBlack = \\"black-selector\\";
-export const mLarge = \\"(min-width: 960px)\\";
-export const vIdent = \\"validIdent\\";
-export const vPreDefinedIdent = \\"left\\";
-export const vString = \\"'content'\\";
-export const vString1 = \\"''\\";
-export const vUrl = \\"url(https://www.exammple.com/images/my-background.png)\\";
-export const vUrl1 = \\"url('https://www.exammple.com/images/my-background.png')\\";
-export const vUrl2 = \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\";
-export const vInteger = \\"100\\";
-export const vInteger1 = \\"-100\\";
-export const vInteger2 = \\"+100\\";
-export const vNumber = \\".60\\";
-export const vNumber1 = \\"-456.8\\";
-export const vNumber2 = \\"-3.4e-2\\";
-export const vDimension = \\"12px\\";
-export const vPercentage = \\"100%\\";
-export const vHex = \\"#fff\\";
-export const vComment = \\" /* comment */\\";
-export const vFunction = \\"rgb(0,0,0)\\";
-export const vUnicodeRange = \\"U+0025-00FF\\";
-export const ghi = \\"_ghi\\";
-export const myClass = \\"_my-class\\";
-export const other = \\"_other\\";
-export const otherOther = \\"_other-other\\";
-export const green = \\"_green\\";
-export const foo = \\"_foo\\";
-export const simple = \\"_simple \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
-export const relative = \\"_relative \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
-export const topRelative = \\"_top-relative \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
-export const myModule = \\"_my-module \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
-export const alias = \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export const aliasDuplicate = \\"_alias-duplicate \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export const primarySelector = \\"_primary-selector\\";
-export const blackSelector = \\"_black-selector\\";
-export const header = \\"_header\\";
-export const foobarbaz = \\"_foobarbaz\\";
-export const url = \\"_url\\";
-export const main = \\"_main \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
+export var vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
+export var vOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\"\\";
+export var sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
+export var mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
+export var vSomething = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\"\\";
+export var vFoo = \\"blue\\";
+export var vBar = \\"block\\";
+export var vPrimary = \\"#BF4040\\";
+export var sBlack = \\"black-selector\\";
+export var mLarge = \\"(min-width: 960px)\\";
+export var vIdent = \\"validIdent\\";
+export var vPreDefinedIdent = \\"left\\";
+export var vString = \\"'content'\\";
+export var vString1 = \\"''\\";
+export var vUrl = \\"url(https://www.exammple.com/images/my-background.png)\\";
+export var vUrl1 = \\"url('https://www.exammple.com/images/my-background.png')\\";
+export var vUrl2 = \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\";
+export var vInteger = \\"100\\";
+export var vInteger1 = \\"-100\\";
+export var vInteger2 = \\"+100\\";
+export var vNumber = \\".60\\";
+export var vNumber1 = \\"-456.8\\";
+export var vNumber2 = \\"-3.4e-2\\";
+export var vDimension = \\"12px\\";
+export var vPercentage = \\"100%\\";
+export var vHex = \\"#fff\\";
+export var vComment = \\" /* comment */\\";
+export var vFunction = \\"rgb(0,0,0)\\";
+export var vUnicodeRange = \\"U+0025-00FF\\";
+export var ghi = \\"_ghi\\";
+export var myClass = \\"_my-class\\";
+export var other = \\"_other\\";
+export var otherOther = \\"_other-other\\";
+export var green = \\"_green\\";
+export var foo = \\"_foo\\";
+export var simple = \\"_simple \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
+export var relative = \\"_relative \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var topRelative = \\"_top-relative \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var myModule = \\"_my-module \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
+export var alias = \\"_alias \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var aliasDuplicate = \\"_alias-duplicate \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var primarySelector = \\"_primary-selector\\";
+export var blackSelector = \\"_black-selector\\";
+export var header = \\"_header\\";
+export var foobarbaz = \\"_foobarbaz\\";
+export var url = \\"_url\\";
+export var main = \\"_main \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
 "
 `;
 
@@ -4257,8 +4257,8 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"a {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\nbody {\\\\n  background: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const vUrl = \\"url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")\\";
-export const vUrlOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\"\\";
+export var vUrl = \\"url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")\\";
+export var vUrlOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\"\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -12362,15 +12362,15 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"._ghi {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def\\"] + \\";\\\\n}\\\\n\\\\n._my-class {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\";\\\\n}\\\\n\\\\n._other {\\\\n  display: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\";\\\\n}\\\\n\\\\n._other-other {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def\\"] + \\";\\\\n}\\\\n\\\\n._green {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_otherOther\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const v_def = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def\\"] + \\"\\";
-export const v_otherOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_otherOther\\"] + \\"\\";
-export const sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
-export const mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
-export const ghi = \\"_ghi\\";
-export const myClass = \\"_my-class\\";
-export const other = \\"_other\\";
-export const otherOther = \\"_other-other\\";
-export const green = \\"_green\\";
+export var v_def = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def\\"] + \\"\\";
+export var v_otherOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_otherOther\\"] + \\"\\";
+export var sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
+export var mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
+export var ghi = \\"_ghi\\";
+export var myClass = \\"_my-class\\";
+export var other = \\"_other\\";
+export var otherOther = \\"_other-other\\";
+export var green = \\"_green\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -12820,12 +12820,12 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"._10XHvKY7SkdmM8ZvRFtWzU {\\\\n  color: #BF4040;\\\\n  padding: 0 10px;\\\\n}\\\\n\\\\n._1kluA9lYOATstWNhEJp14n {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) and (max-width: 1024px) {\\\\n  ._10XHvKY7SkdmM8ZvRFtWzU {\\\\n    color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
-export const vPrimary = \\"#BF4040\\";
-export const sBlack = \\"black-selector\\";
-export const mLarge = \\"(min-width: 960px)\\";
-export const header = \\"_10XHvKY7SkdmM8ZvRFtWzU\\";
-export const blackSelector = \\"_1kluA9lYOATstWNhEJp14n\\";
+export var vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
+export var vPrimary = \\"#BF4040\\";
+export var sBlack = \\"black-selector\\";
+export var mLarge = \\"(min-width: 960px)\\";
+export var header = \\"_10XHvKY7SkdmM8ZvRFtWzU\\";
+export var blackSelector = \\"_1kluA9lYOATstWNhEJp14n\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -12872,7 +12872,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"._1DWrSJ4evr5bF-6Ojpv9nG {\\\\n  color: red;\\\\n}\\\\n\\\\n.bar {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const barBaz = \\"_1DWrSJ4evr5bF-6Ojpv9nG\\";
+export var barBaz = \\"_1DWrSJ4evr5bF-6Ojpv9nG\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -13052,7 +13052,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"primaryColor\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export const primaryColor = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"primaryColor\\"] + \\"\\";
+export var primaryColor = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"primaryColor\\"] + \\"\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
