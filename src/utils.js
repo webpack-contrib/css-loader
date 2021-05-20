@@ -776,7 +776,7 @@ function getExportCode(exports, replacements, options) {
 
   const addExportToLocalsCode = (name, value) => {
     if (options.modules.namedExport) {
-      localsCode += `export const ${name} = ${JSON.stringify(value)};\n`;
+      localsCode += `export var ${name} = ${JSON.stringify(value)};\n`;
     } else {
       if (localsCode) {
         localsCode += `,\n`;
