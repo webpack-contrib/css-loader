@@ -38,7 +38,11 @@ describe('"modules" option', () => {
         const moduleId = `./modules/tests-cases/${name}/source.css`;
         const compiler = getCompiler(pathToTest, {
           modules: modulesValue.mode
-            ? { mode: modulesValue.mode, localIdentName: "_[local]" }
+            ? {
+                mode: modulesValue.mode,
+                localIdentName: "_[local]",
+                namedExport: false,
+              }
             : modulesValue,
         });
         const stats = await compile(compiler);
@@ -85,7 +89,7 @@ describe('"modules" option', () => {
 
   it('should work with the "[local]" placeholder for the "localIdentName" option', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
-      modules: { localIdentName: "[local]" },
+      modules: { localIdentName: "[local]", namedExport: false },
     });
     const stats = await compile(compiler);
 
@@ -104,6 +108,7 @@ describe('"modules" option', () => {
       modules: {
         localIdentName: "[name]--[local]--[hash:base64:5]",
         localIdentContext: path.resolve(__dirname),
+        namedExport: false,
       },
     });
     const stats = await compile(compiler);
@@ -123,6 +128,7 @@ describe('"modules" option', () => {
       modules: {
         localIdentName: "[hash:base64:8]",
         localIdentContext: path.resolve(__dirname),
+        namedExport: false,
       },
     });
     const stats = await compile(compiler);
@@ -142,6 +148,7 @@ describe('"modules" option', () => {
       modules: {
         localIdentName: "[path][name]__[local]",
         localIdentContext: path.resolve(__dirname),
+        namedExport: false,
       },
     });
     const stats = await compile(compiler);
@@ -161,6 +168,7 @@ describe('"modules" option', () => {
       modules: {
         localIdentName: "[local]--[hash]",
         localIdentHashPrefix: "x",
+        namedExport: false,
       },
     });
     const stats = await compile(compiler);
@@ -177,7 +185,7 @@ describe('"modules" option', () => {
 
   it("should work and prefix leading hyphen when digit is first", async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
-      modules: { localIdentName: "-1[local]" },
+      modules: { localIdentName: "-1[local]", namedExport: false },
     });
     const stats = await compile(compiler);
 
@@ -193,7 +201,7 @@ describe('"modules" option', () => {
 
   it("should should work with two leading hyphens", async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
-      modules: { localIdentName: "--[local]" },
+      modules: { localIdentName: "--[local]", namedExport: false },
     });
     const stats = await compile(compiler);
 
@@ -209,7 +217,7 @@ describe('"modules" option', () => {
 
   it("should should work with two leading underscore", async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
-      modules: { localIdentName: "__[local]" },
+      modules: { localIdentName: "__[local]", namedExport: false },
     });
     const stats = await compile(compiler);
 
@@ -225,7 +233,10 @@ describe('"modules" option', () => {
 
   it("should work and correctly replace escaped symbols", async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
-      modules: { localIdentName: "[local]--[hash:base64:4]" },
+      modules: {
+        localIdentName: "[local]--[hash:base64:4]",
+        namedExport: false,
+      },
     });
     const stats = await compile(compiler);
 
@@ -247,6 +258,7 @@ describe('"modules" option', () => {
         localIdentRegExp: "regExp",
         localIdentContext: "context",
         localIdentHashPrefix: "hash",
+        namedExport: false,
         getLocalIdent(loaderContext, localIdentName, localName, options) {
           expect(loaderContext).toBeDefined();
           expect(typeof localIdentName).toBe("string");
@@ -278,6 +290,7 @@ describe('"modules" option', () => {
 
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
+        namedExport: false,
         getLocalIdent(loaderContext, localIdentName, localName, options) {
           expect(options.context).toBeDefined();
 
@@ -351,6 +364,7 @@ describe('"modules" option', () => {
         modules: {
           mode: "local",
           exportGlobals: true,
+          namedExport: false,
         },
       }
     );
@@ -498,6 +512,7 @@ describe('"modules" option', () => {
   it("issue #966 - values in selectors aren't escaped properly", async () => {
     const compiler = getCompiler("./modules/issue-966/issue-966.js", {
       modules: {
+        namedExport: false,
         getLocalIdent: (loaderContext, localIdentName, localName) => {
           if (localName === "foo-class") {
             return `7-${localName}`;
@@ -538,6 +553,7 @@ describe('"modules" option', () => {
     const compiler = getCompiler("./modules/issue-967/path-placeholder.js", {
       modules: {
         mode: "local",
+        namedExport: false,
         localIdentName:
           '[path][name]__[local]__/-sep-?-sep-<-sep->-sep-\\\\-sep-:-sep-*-sep-|-sep-"-sep-:',
       },
@@ -1017,6 +1033,7 @@ describe('"modules" option', () => {
         modules: {
           mode: "local",
           exportLocalsConvention: "asIs",
+          namedExport: false,
         },
       }
     );
@@ -1039,6 +1056,7 @@ describe('"modules" option', () => {
         modules: {
           mode: "local",
           exportLocalsConvention: "camelCase",
+          namedExport: false,
         },
       }
     );
@@ -1083,6 +1101,7 @@ describe('"modules" option', () => {
         modules: {
           mode: "local",
           exportLocalsConvention: "dashes",
+          namedExport: false,
         },
       }
     );
@@ -1167,6 +1186,7 @@ describe('"modules" option', () => {
         mode: "local",
         localIdentName: "_[local]",
         exportOnlyLocals: true,
+        namedExport: false,
       },
       esModule: false,
     });

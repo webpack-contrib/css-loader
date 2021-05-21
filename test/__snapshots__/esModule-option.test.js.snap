@@ -12,7 +12,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.css-class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -34,7 +34,7 @@ Array [
 
 /* Comment */
 
-.class {
+.css-class {
   color: red;
   background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
@@ -58,7 +58,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.css-class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 "
@@ -80,7 +80,7 @@ Array [
 
 /* Comment */
 
-.class {
+.css-class {
   color: red;
   background: url(/webpack/public/path/img.png);
 }
@@ -104,7 +104,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.css-class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -126,7 +126,7 @@ Array [
 
 /* Comment */
 
-.class {
+.css-class {
   color: red;
   background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
@@ -150,11 +150,9 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.oFwPvuANP2XsfGir7HPVz {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n._2uAne49JHw-DEh-AwAARSJ {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-___CSS_LOADER_EXPORT___.locals = {
-	\\"class\\": \\"oFwPvuANP2XsfGir7HPVz\\"
-};
+export const cssClass = \\"_2uAne49JHw-DEh-AwAARSJ\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -175,7 +173,7 @@ Array [
 
 /* Comment */
 
-.oFwPvuANP2XsfGir7HPVz {
+._2uAne49JHw-DEh-AwAARSJ {
   color: red;
   background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
@@ -199,11 +197,9 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.oFwPvuANP2XsfGir7HPVz {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n._2uAne49JHw-DEh-AwAARSJ {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-___CSS_LOADER_EXPORT___.locals = {
-	\\"class\\": \\"oFwPvuANP2XsfGir7HPVz\\"
-};
+export const cssClass = \\"_2uAne49JHw-DEh-AwAARSJ\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -224,7 +220,7 @@ Array [
 
 /* Comment */
 
-.oFwPvuANP2XsfGir7HPVz {
+._2uAne49JHw-DEh-AwAARSJ {
   color: red;
   background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
@@ -248,7 +244,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.css-class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -270,7 +266,7 @@ Array [
 
 /* Comment */
 
-.class {
+.css-class {
   color: red;
   background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }

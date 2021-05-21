@@ -86,6 +86,12 @@ exports[`validate options should throw an error on the "modules" option with "{"
    -> Allows to export names from global class or id, so you can use that as local name (https://github.com/webpack-contrib/css-loader#exportglobals)."
 `;
 
+exports[`validate options should throw an error on the "modules" option with "{"exportLocalsConvention":"asIs"}" value 1`] = `"The \\"modules.namedExport\\" option requires the \\"modules.exportLocalsConvention\\" option to be \\"camelCaseOnly\\" or \\"dashesOnly\\""`;
+
+exports[`validate options should throw an error on the "modules" option with "{"exportLocalsConvention":"camelCase"}" value 1`] = `"The \\"modules.namedExport\\" option requires the \\"modules.exportLocalsConvention\\" option to be \\"camelCaseOnly\\" or \\"dashesOnly\\""`;
+
+exports[`validate options should throw an error on the "modules" option with "{"exportLocalsConvention":"dashes"}" value 1`] = `"The \\"modules.namedExport\\" option requires the \\"modules.exportLocalsConvention\\" option to be \\"camelCaseOnly\\" or \\"dashesOnly\\""`;
+
 exports[`validate options should throw an error on the "modules" option with "{"exportLocalsConvention":"unknown"}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules.exportLocalsConvention should be one of these:

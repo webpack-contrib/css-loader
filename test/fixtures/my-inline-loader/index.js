@@ -1,3 +1,3 @@
 module.exports = (content) => {
-    return `${content}\n.class { from: custom; }`;
+    return `${content}\n.css-class { from: custom; }`;
 };
