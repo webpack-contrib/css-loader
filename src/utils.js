@@ -770,10 +770,10 @@ function dashesCamelCase(str) {
   );
 }
 
-function getExportCode(exports, replacements, options) {
+function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
   let code = "// Exports\n";
 
-  if (!shouldUseIcssPlugin(options)) {
+  if (!needToUseIcssPlugin) {
     code += `${
       options.esModule ? "export default" : "module.exports ="
     } ___CSS_LOADER_EXPORT___;\n`;
