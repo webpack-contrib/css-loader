@@ -106,6 +106,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
+___CSS_LOADER_EXPORT___.locals = {};
 export default ___CSS_LOADER_EXPORT___;
 "
 `;

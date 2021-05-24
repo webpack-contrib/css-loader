@@ -770,8 +770,17 @@ function dashesCamelCase(str) {
   );
 }
 
-function getExportCode(exports, replacements, options) {
+function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
   let code = "// Exports\n";
+
+  if (!needToUseIcssPlugin) {
+    code += `${
+      options.esModule ? "export default" : "module.exports ="
+    } ___CSS_LOADER_EXPORT___;\n`;
+
+    return code;
+  }
+
   let localsCode = "";
 
   const addExportToLocalsCode = (name, value) => {
@@ -858,11 +867,11 @@ function getExportCode(exports, replacements, options) {
     return code;
   }
 
-  if (localsCode) {
-    code += options.modules.namedExport
-      ? localsCode
-      : `___CSS_LOADER_EXPORT___.locals = {\n${localsCode}\n};\n`;
-  }
+  code += options.modules.namedExport
+    ? localsCode
+    : `___CSS_LOADER_EXPORT___.locals = {${
+        localsCode ? `\n${localsCode}\n` : ""
+      }};\n`;
 
   code += `${
     options.esModule ? "export default" : "module.exports ="

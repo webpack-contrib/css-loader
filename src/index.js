@@ -111,7 +111,9 @@ export default async function loader(content, map, meta) {
   const icssPluginImports = [];
   const icssPluginApi = [];
 
-  if (shouldUseIcssPlugin(options)) {
+  const needToUseIcssPlugin = shouldUseIcssPlugin(options);
+
+  if (needToUseIcssPlugin) {
     const icssResolver = this.getResolve({
       conditionNames: ["style"],
       extensions: [],
@@ -211,7 +213,12 @@ export default async function loader(content, map, meta) {
 
   const importCode = getImportCode(imports, options);
   const moduleCode = getModuleCode(result, api, replacements, options, this);
-  const exportCode = getExportCode(exports, replacements, options);
+  const exportCode = getExportCode(
+    exports,
+    replacements,
+    needToUseIcssPlugin,
+    options
+  );
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);
 }
