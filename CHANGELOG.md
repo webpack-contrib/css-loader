@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.6](https://github.com/webpack-contrib/css-loader/compare/v5.2.5...v5.2.6) (2021-05-24)
+
+
+### Bug Fixes
+
+* always write locals export when css modules/icss enabled ([#1315](https://github.com/webpack-contrib/css-loader/issues/1315)) ([075d9bd](https://github.com/webpack-contrib/css-loader/commit/075d9bd044a78543479cbf10ccd3c386a3e434e6))
+
 ### [5.2.5](https://github.com/webpack-contrib/css-loader/compare/v5.2.4...v5.2.5) (2021-05-20)
 
 
