@@ -869,9 +869,9 @@ function getExportCode(exports, replacements, options) {
 
   code += options.modules.namedExport
     ? localsCode
-    : localsCode
-    ? `___CSS_LOADER_EXPORT___.locals = {\n${localsCode}\n};\n`
-    : `___CSS_LOADER_EXPORT___.locals = {};\n`;
+    : `___CSS_LOADER_EXPORT___.locals = {${
+        localsCode ? `\n${localsCode}\n` : ""
+      }};\n`;
 
   code += `${
     options.esModule ? "export default" : "module.exports ="
