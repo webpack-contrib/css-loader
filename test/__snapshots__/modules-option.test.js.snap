@@ -13069,43 +13069,196 @@ Array [
 
 exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`pure\`): warnings 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" and "exportOnlyLocals" options: errors 1`] = `Array []`;
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export": errors 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" and "exportOnlyLocals" options: module 1`] = `
-"// Imports
-import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
-// Exports
-export default {
-	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"primary-color\\"] + \\"\\"
-};
-"
-`;
-
-exports[`"modules" option show work with the "compileType" and "exportOnlyLocals" options: result 1`] = `
-Object {
-  "primary-color": "red",
-}
-`;
-
-exports[`"modules" option show work with the "compileType" and "exportOnlyLocals" options: warnings 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" and "namedExport" options: errors 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" and "namedExport" options: module 1`] = `
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"primaryColor\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
 // Exports
-export var primaryColor = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"primaryColor\\"] + \\"\\";
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_right_value\\"
+};
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option show work with the "compileType" and "namedExport" options: result 1`] = `
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/duplicate-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export-in-multiple-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export-in-multiple-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_right_value\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export-in-multiple-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/duplicate-export-in-multiple-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export-in-multiple-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "empty-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "empty-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "empty-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/empty-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "empty-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "empty-import": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "empty-import": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "empty-import": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/empty-import/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "empty-import": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_test\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "export-reserved-keywords": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "export-reserved-keywords": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"constructor\\": \\"constructor\\",
+	\\"toString\\": \\"toString\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "export-reserved-keywords": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/export-reserved-keywords/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "export-reserved-keywords": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "import": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "import": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "import": result 1`] = `
 Array [
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import/vars.css",
@@ -13124,11 +13277,429 @@ Array [
 ]
 `;
 
-exports[`"modules" option show work with the "compileType" and "namedExport" options: warnings 1`] = `Array []`;
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "import": warnings 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option using the "module" value: errors 1`] = `Array []`;
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "import-reserved-keywords": errors 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option using the "module" value: module 1`] = `
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "import-reserved-keywords": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n  display: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"secondary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\",
+	\\"secondary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"secondary-color\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "import-reserved-keywords": result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import-reserved-keywords/vars.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/icss/tests-cases/import-reserved-keywords/source.css",
+    ".className {
+  color: red;
+  display: block;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "import-reserved-keywords": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "multiple-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "multiple-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_test\\",
+	\\"_foo\\": \\"_bar\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "multiple-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/multiple-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "multiple-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "multiple-keys-values-in-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "multiple-keys-values-in-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_test\\",
+	\\"_test1\\": \\"1\\",
+	\\"_test2\\": \\"'string'\\",
+	\\"_test3\\": \\"1px 2px 3px\\",
+	\\"_test4\\": \\"1px 2px 3px, 1px 2px 3px\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "multiple-keys-values-in-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/multiple-keys-values-in-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "multiple-keys-values-in-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "duplicate-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "duplicate-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_right_value\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "duplicate-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/duplicate-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "duplicate-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "duplicate-export-in-multiple-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "duplicate-export-in-multiple-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_right_value\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "duplicate-export-in-multiple-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/duplicate-export-in-multiple-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "duplicate-export-in-multiple-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "empty-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "empty-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "empty-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/empty-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "empty-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "empty-import": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "empty-import": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "empty-import": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/empty-import/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "empty-import": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_test\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "export-reserved-keywords": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "export-reserved-keywords": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"constructor\\": \\"constructor\\",
+	\\"toString\\": \\"toString\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "export-reserved-keywords": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/export-reserved-keywords/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "export-reserved-keywords": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "import": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "import": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "import": result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import/vars.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/icss/tests-cases/import/source.css",
+    ".className {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "import": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "import-reserved-keywords": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "import-reserved-keywords": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n  display: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"secondary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\",
+	\\"secondary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"secondary-color\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "import-reserved-keywords": result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import-reserved-keywords/vars.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/icss/tests-cases/import-reserved-keywords/source.css",
+    ".className {
+  color: red;
+  display: block;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "import-reserved-keywords": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "multiple-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "multiple-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_test\\",
+	\\"_foo\\": \\"_bar\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "multiple-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/multiple-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "multiple-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "multiple-keys-values-in-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "multiple-keys-values-in-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_test\\",
+	\\"_test1\\": \\"1\\",
+	\\"_test2\\": \\"'string'\\",
+	\\"_test3\\": \\"1px 2px 3px\\",
+	\\"_test4\\": \\"1px 2px 3px, 1px 2px 3px\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "multiple-keys-values-in-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/multiple-keys-values-in-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work when the "modules" option is "icss", case "multiple-keys-values-in-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode" option using the "local" value: errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode" option using the "local" value: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
@@ -13209,7 +13780,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option show work with the "compileType" option using the "module" value: result 1`] = `
+exports[`"modules" option show work with the "mode" option using the "local" value: result 1`] = `
 Array [
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/test-other.css",
@@ -13405,198 +13976,45 @@ a {
 ]
 `;
 
-exports[`"modules" option show work with the "compileType" option using the "module" value: warnings 1`] = `Array []`;
+exports[`"modules" option show work with the "mode" option using the "local" value: warnings 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option, case "duplicate-export": errors 1`] = `Array []`;
+exports[`"modules" option show work with the "mode: icss" and "exportOnlyLocals" options: errors 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option, case "duplicate-export": module 1`] = `
+exports[`"modules" option show work with the "mode: icss" and "exportOnlyLocals" options: module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
-// Exports
-___CSS_LOADER_EXPORT___.locals = {
-	\\"_test\\": \\"_right_value\\"
-};
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "duplicate-export": result 1`] = `
-Array [
-  Array [
-    "./modules/icss/tests-cases/duplicate-export/source.css",
-    "
-",
-    "",
-  ],
-]
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "duplicate-export": warnings 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "duplicate-export-in-multiple-export": errors 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "duplicate-export-in-multiple-export": module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
-// Exports
-___CSS_LOADER_EXPORT___.locals = {
-	\\"_test\\": \\"_right_value\\"
-};
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "duplicate-export-in-multiple-export": result 1`] = `
-Array [
-  Array [
-    "./modules/icss/tests-cases/duplicate-export-in-multiple-export/source.css",
-    "
-",
-    "",
-  ],
-]
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "duplicate-export-in-multiple-export": warnings 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "empty-export": errors 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "empty-export": module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
-// Exports
-___CSS_LOADER_EXPORT___.locals = {};
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "empty-export": result 1`] = `
-Array [
-  Array [
-    "./modules/icss/tests-cases/empty-export/source.css",
-    "
-",
-    "",
-  ],
-]
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "empty-export": warnings 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "empty-import": errors 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "empty-import": module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
-// Exports
-___CSS_LOADER_EXPORT___.locals = {};
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "empty-import": result 1`] = `
-Array [
-  Array [
-    "./modules/icss/tests-cases/empty-import/source.css",
-    "
-",
-    "",
-  ],
-]
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "empty-import": warnings 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "export": errors 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "export": module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
-// Exports
-___CSS_LOADER_EXPORT___.locals = {
-	\\"_test\\": \\"_test\\"
-};
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "export": result 1`] = `
-Array [
-  Array [
-    "./modules/icss/tests-cases/export/source.css",
-    "
-",
-    "",
-  ],
-]
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "export": warnings 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "export-reserved-keywords": errors 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "export-reserved-keywords": module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
-// Exports
-___CSS_LOADER_EXPORT___.locals = {
-	\\"constructor\\": \\"constructor\\",
-	\\"toString\\": \\"toString\\"
-};
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "export-reserved-keywords": result 1`] = `
-Array [
-  Array [
-    "./modules/icss/tests-cases/export-reserved-keywords/source.css",
-    "
-",
-    "",
-  ],
-]
-`;
-
-exports[`"modules" option show work with the "compileType" option, case "export-reserved-keywords": warnings 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "import": errors 1`] = `Array []`;
-
-exports[`"modules" option show work with the "compileType" option, case "import": module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
 import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
+// Exports
+export default {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___[\\"primary-color\\"] + \\"\\"
+};
+"
+`;
+
+exports[`"modules" option show work with the "mode: icss" and "exportOnlyLocals" options: result 1`] = `
+Object {
+  "primary-color": "red",
+}
+`;
+
+exports[`"modules" option show work with the "mode: icss" and "exportOnlyLocals" options: warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" and "namedExport" options: errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" and "namedExport" options: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"primaryColor\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-___CSS_LOADER_EXPORT___.locals = {
-	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\"
-};
+export var primaryColor = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"primaryColor\\"] + \\"\\";
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option show work with the "compileType" option, case "import": result 1`] = `
+exports[`"modules" option show work with the "mode: icss" and "namedExport" options: result 1`] = `
 Array [
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import/vars.css",
@@ -13615,11 +14033,221 @@ Array [
 ]
 `;
 
-exports[`"modules" option show work with the "compileType" option, case "import": warnings 1`] = `Array []`;
+exports[`"modules" option show work with the "mode: icss" and "namedExport" options: warnings 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option, case "import-reserved-keywords": errors 1`] = `Array []`;
+exports[`"modules" option show work with the "mode: icss" option, case "duplicate-export": errors 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option, case "import-reserved-keywords": module 1`] = `
+exports[`"modules" option show work with the "mode: icss" option, case "duplicate-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_right_value\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "duplicate-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/duplicate-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "duplicate-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "duplicate-export-in-multiple-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "duplicate-export-in-multiple-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_right_value\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "duplicate-export-in-multiple-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/duplicate-export-in-multiple-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "duplicate-export-in-multiple-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "empty-export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "empty-export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "empty-export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/empty-export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "empty-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "empty-import": errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "empty-import": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "empty-import": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/empty-import/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "empty-import": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "export": errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "export": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"_test\\": \\"_test\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "export": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/export/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "export-reserved-keywords": errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "export-reserved-keywords": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"constructor\\": \\"constructor\\",
+	\\"toString\\": \\"toString\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "export-reserved-keywords": result 1`] = `
+Array [
+  Array [
+    "./modules/icss/tests-cases/export-reserved-keywords/source.css",
+    "
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "export-reserved-keywords": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "import": errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "import": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "import": result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import/vars.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/icss/tests-cases/import/source.css",
+    ".className {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "import": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "import-reserved-keywords": errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss" option, case "import-reserved-keywords": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
 import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
@@ -13636,7 +14264,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option show work with the "compileType" option, case "import-reserved-keywords": result 1`] = `
+exports[`"modules" option show work with the "mode: icss" option, case "import-reserved-keywords": result 1`] = `
 Array [
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/icss/tests-cases/import-reserved-keywords/vars.css",
@@ -13656,11 +14284,11 @@ Array [
 ]
 `;
 
-exports[`"modules" option show work with the "compileType" option, case "import-reserved-keywords": warnings 1`] = `Array []`;
+exports[`"modules" option show work with the "mode: icss" option, case "import-reserved-keywords": warnings 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option, case "multiple-export": errors 1`] = `Array []`;
+exports[`"modules" option show work with the "mode: icss" option, case "multiple-export": errors 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option, case "multiple-export": module 1`] = `
+exports[`"modules" option show work with the "mode: icss" option, case "multiple-export": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -13675,7 +14303,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option show work with the "compileType" option, case "multiple-export": result 1`] = `
+exports[`"modules" option show work with the "mode: icss" option, case "multiple-export": result 1`] = `
 Array [
   Array [
     "./modules/icss/tests-cases/multiple-export/source.css",
@@ -13686,11 +14314,11 @@ Array [
 ]
 `;
 
-exports[`"modules" option show work with the "compileType" option, case "multiple-export": warnings 1`] = `Array []`;
+exports[`"modules" option show work with the "mode: icss" option, case "multiple-export": warnings 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option, case "multiple-keys-values-in-export": errors 1`] = `Array []`;
+exports[`"modules" option show work with the "mode: icss" option, case "multiple-keys-values-in-export": errors 1`] = `Array []`;
 
-exports[`"modules" option show work with the "compileType" option, case "multiple-keys-values-in-export": module 1`] = `
+exports[`"modules" option show work with the "mode: icss" option, case "multiple-keys-values-in-export": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -13708,7 +14336,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option show work with the "compileType" option, case "multiple-keys-values-in-export": result 1`] = `
+exports[`"modules" option show work with the "mode: icss" option, case "multiple-keys-values-in-export": result 1`] = `
 Array [
   Array [
     "./modules/icss/tests-cases/multiple-keys-values-in-export/source.css",
@@ -13719,4 +14347,4 @@ Array [
 ]
 `;
 
-exports[`"modules" option show work with the "compileType" option, case "multiple-keys-values-in-export": warnings 1`] = `Array []`;
+exports[`"modules" option show work with the "mode: icss" option, case "multiple-keys-values-in-export": warnings 1`] = `Array []`;
