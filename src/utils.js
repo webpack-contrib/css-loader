@@ -356,11 +356,11 @@ function defaultGetLocalIdent(
   );
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${options.hashPrefix}${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
+  options.content = `${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
 
   // eslint-disable-next-line no-underscore-dangle
   const { outputOptions } = loaderContext._compilation;
-  const { hashSalt } = outputOptions;
+  const { hashSalt = options.hashSalt } = outputOptions;
   let { hashFunction, hashDigest, hashDigestLength } = outputOptions;
 
   const mathes = localIdentName.match(
@@ -529,7 +529,7 @@ function getModulesOptions(rawOptions, loaderContext) {
     exportGlobals: false,
     localIdentName: "[hash:base64]",
     localIdentContext: loaderContext.rootContext,
-    localIdentHashPrefix: "",
+    localIdentHashSalt: "",
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
@@ -673,7 +673,7 @@ function getModulesPlugins(options, loaderContext) {
     getLocalIdent,
     localIdentName,
     localIdentContext,
-    localIdentHashPrefix,
+    localIdentHashSalt,
     localIdentRegExp,
   } = options.modules;
 
@@ -695,7 +695,7 @@ function getModulesPlugins(options, loaderContext) {
               unescape(exportName),
               {
                 context: localIdentContext,
-                hashPrefix: localIdentHashPrefix,
+                hashSalt: localIdentHashSalt,
                 regExp: localIdentRegExp,
               }
             );
@@ -710,7 +710,7 @@ function getModulesPlugins(options, loaderContext) {
               unescape(exportName),
               {
                 context: localIdentContext,
-                hashPrefix: localIdentHashPrefix,
+                hashSalt: localIdentHashSalt,
                 regExp: localIdentRegExp,
               }
             );

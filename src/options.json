@@ -98,8 +98,8 @@
               "type": "string",
               "minLength": 1
             },
-            "localIdentHashPrefix": {
-              "description": "Allows to add custom hash to generate more unique classes (https://github.com/webpack-contrib/css-loader#localidenthashprefix).",
+            "localIdentHashSalt": {
+              "description": "Allows to add custom hash to generate more unique classes (https://github.com/webpack-contrib/css-loader#localidenthashsalt).",
               "type": "string",
               "minLength": 1
             },
