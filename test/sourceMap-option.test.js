@@ -602,7 +602,7 @@ describe('"sourceMap" option', () => {
 
       const extractedCSS = readAsset(chunkName, compiler, stats);
 
-      expect(chunkName).toBe("main.695010bdb768b7260e76.css");
+      expect(chunkName).toBe("main.166835fe802ce402ea56.css");
 
       expect(
         extractedCSS.replace(

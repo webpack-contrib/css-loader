@@ -5,7 +5,6 @@
 import { fileURLToPath } from "url";
 import path from "path";
 
-import { interpolateName } from "loader-utils";
 import modulesValues from "postcss-modules-values";
 import localByDefault from "postcss-modules-local-by-default";
 import extractImports from "postcss-modules-extract-imports";
@@ -25,9 +24,7 @@ function isRelativePath(str) {
 
 function stringifyRequest(loaderContext, request) {
   const splitted = request.split("!");
-  const context =
-    loaderContext.context ||
-    (loaderContext.options && loaderContext.options.context);
+  const { context } = loaderContext;
 
   return JSON.stringify(
     splitted
@@ -63,11 +60,6 @@ function stringifyRequest(loaderContext, request) {
 const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
 
 function urlToRequest(url, root) {
-  // Do not rewrite an empty url
-  if (url === "") {
-    return "";
-  }
-
   const moduleRequestRegex = /^[^?]*~/;
   let request;
 
@@ -75,13 +67,7 @@ function urlToRequest(url, root) {
     // absolute windows path, keep it
     request = url;
   } else if (typeof root !== "undefined" && /^\//.test(url)) {
-    // if root is set and the url is root-relative
-    // special case: `~` roots convert to module request
-    if (moduleRequestRegex.test(root)) {
-      request = root.replace(/([^~/])$/, "$1/") + url.slice(1);
-    } else {
-      request = root + url;
-    }
+    request = root + url;
   } else if (/^\.\.?\//.test(url)) {
     // A relative url stays
     request = url;
@@ -102,68 +88,6 @@ function urlToRequest(url, root) {
 const regexSingleEscape = /[ -,.\/:-@[\]\^`{-~]/;
 const regexExcessiveSpaces =
   /(^|\\+)?(\\[A-F0-9]{1,6})\x20(?![a-fA-F0-9\x20])/g;
-
-const preserveCamelCase = (string) => {
-  let result = string;
-  let isLastCharLower = false;
-  let isLastCharUpper = false;
-  let isLastLastCharUpper = false;
-
-  for (let i = 0; i < result.length; i++) {
-    const character = result[i];
-
-    if (isLastCharLower && /[\p{Lu}]/u.test(character)) {
-      result = `${result.slice(0, i)}-${result.slice(i)}`;
-      isLastCharLower = false;
-      isLastLastCharUpper = isLastCharUpper;
-      isLastCharUpper = true;
-      i += 1;
-    } else if (
-      isLastCharUpper &&
-      isLastLastCharUpper &&
-      /[\p{Ll}]/u.test(character)
-    ) {
-      result = `${result.slice(0, i - 1)}-${result.slice(i - 1)}`;
-      isLastLastCharUpper = isLastCharUpper;
-      isLastCharUpper = false;
-      isLastCharLower = true;
-    } else {
-      isLastCharLower =
-        character.toLowerCase() === character &&
-        character.toUpperCase() !== character;
-      isLastLastCharUpper = isLastCharUpper;
-      isLastCharUpper =
-        character.toUpperCase() === character &&
-        character.toLowerCase() !== character;
-    }
-  }
-
-  return result;
-};
-
-function camelCase(input) {
-  let result = input.trim();
-
-  if (result.length === 0) {
-    return "";
-  }
-
-  if (result.length === 1) {
-    return result.toLowerCase();
-  }
-
-  const hasUpperCase = result !== result.toLowerCase();
-
-  if (hasUpperCase) {
-    result = preserveCamelCase(result);
-  }
-
-  return result
-    .replace(/^[_.\- ]+/, "")
-    .toLowerCase()
-    .replace(/[_.\- ]+([\p{Alpha}\p{N}_]|$)/gu, (_, p1) => p1.toUpperCase())
-    .replace(/\d+([\p{Alpha}\p{N}_]|$)/gu, (m) => m.toUpperCase());
-}
 
 const preserveCamelCase = (string) => {
   let result = string;
@@ -387,6 +311,30 @@ function escapeLocalIdent(localident) {
   );
 }
 
+function resolveFolderTemplate(loaderContext, localIdentName, options) {
+  const { context } = options;
+  let { resourcePath } = loaderContext;
+  const parsed = path.parse(loaderContext.resourcePath);
+
+  if (parsed.dir) {
+    resourcePath = parsed.dir + path.sep;
+  }
+
+  let directory = path
+    .relative(context, `${resourcePath}_`)
+    .replace(/\\/g, "/")
+    .replace(/\.\.(\/)?/g, "_$1");
+  directory = directory.substr(0, directory.length - 1);
+
+  if (directory.length > 1) {
+    const folder = path.basename(directory);
+
+    return localIdentName.replace(/\[folder\]/gi, () => folder);
+  }
+
+  return localIdentName;
+}
+
 function defaultGetLocalIdent(
   loaderContext,
   localIdentName,
@@ -410,7 +358,77 @@ function defaultGetLocalIdent(
   // eslint-disable-next-line no-param-reassign
   options.content = `${options.hashPrefix}${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
 
-  return interpolateName(loaderContext, localIdentName, options);
+  // eslint-disable-next-line no-underscore-dangle
+  const { outputOptions } = loaderContext._compilation;
+  const { hashSalt } = outputOptions;
+  let { hashFunction, hashDigest, hashDigestLength } = outputOptions;
+
+  const mathes = localIdentName.match(
+    /\[(?:([^:\]]+):)?(?:(hash|contenthash|fullhash))(?::([a-z]+\d*))?(?::(\d+))?\]/i
+  );
+
+  if (mathes) {
+    const hashName = mathes[2] || hashFunction;
+
+    hashFunction = mathes[1] || hashFunction;
+    hashDigest = mathes[3] || hashDigest;
+    hashDigestLength = mathes[4] || hashDigestLength;
+
+    // `hash` and `contenthash` are same in `loader-utils` context
+    // let's keep `hash` for backward compatibility
+
+    // eslint-disable-next-line no-param-reassign
+    localIdentName = localIdentName.replace(
+      /\[(?:([^:\]]+):)?(?:hash|contenthash|fullhash)(?::([a-z]+\d*))?(?::(\d+))?\]/gi,
+      () => (hashName === "fullhash" ? "[fullhash]" : "[contenthash]")
+    );
+  }
+
+  // eslint-disable-next-line no-underscore-dangle
+  const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
+  // eslint-disable-next-line no-underscore-dangle
+
+  if (hashSalt) {
+    hash.update(hashSalt);
+  }
+
+  hash.update(options.content);
+
+  const localIdentHash = hash
+    .digest(hashDigest)
+    .slice(0, hashDigestLength)
+    .replace(/[/+]/g, "_")
+    .replace(/^\d/g, "_");
+
+  const ext = path.extname(loaderContext.resourcePath);
+  const base = path.basename(loaderContext.resourcePath);
+  const name = base.slice(0, base.length - ext.length);
+
+  const data = {
+    filename: path.relative(options.context, loaderContext.resourcePath),
+    contentHash: localIdentHash,
+    chunk: {
+      name,
+      hash: localIdentHash,
+      contentHash: localIdentHash,
+    },
+  };
+
+  // eslint-disable-next-line no-underscore-dangle
+  let interpolatedFilename = loaderContext._compilation.getPath(
+    localIdentName,
+    data
+  );
+
+  if (localIdentName.includes("[folder]")) {
+    interpolatedFilename = resolveFolderTemplate(
+      loaderContext,
+      interpolatedFilename,
+      options
+    );
+  }
+
+  return interpolatedFilename;
 }
 
 const NATIVE_WIN32_PATH = /^[A-Z]:[/\\]|^\\\\/i;
@@ -585,6 +603,12 @@ function getModulesOptions(rawOptions, loaderContext) {
   if (/\[emoji(?::(\d+))?\]/i.test(modulesOptions.localIdentName)) {
     loaderContext.emitWarning(
       "Emoji is deprecated and will be removed in next major release."
+    );
+  }
+
+  if (modulesOptions.localIdentName.includes("[folder]")) {
+    loaderContext.emitWarning(
+      "[folder] is deprecated and will be removed in next major release. See documentation for available options (https://github.com/webpack-contrib/css-loader#localidentname)"
     );
   }
 
