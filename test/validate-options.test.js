@@ -41,6 +41,9 @@ describe("validate options", () => {
         { localIdentName: "[path][name]__[local]--[hash:base64:5]" },
         { localIdentContext: "context" },
         { localIdentHashSalt: "hash" },
+        { localIdentHashFunction: "md4" },
+        { localIdentHashDigest: "base64" },
+        { localIdentHashDigestLength: 3 },
         {
           getLocalIdent: (loaderContext, localIdentName, localName) =>
             localName,

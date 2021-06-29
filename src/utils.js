@@ -358,11 +358,7 @@ function defaultGetLocalIdent(
   // eslint-disable-next-line no-param-reassign
   options.content = `${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
 
-  // eslint-disable-next-line no-underscore-dangle
-  const { outputOptions } = loaderContext._compilation;
-  const { hashSalt = options.hashSalt } = outputOptions;
-  let { hashFunction, hashDigest, hashDigestLength } = outputOptions;
-
+  let { hashFunction, hashDigest, hashDigestLength } = options;
   const mathes = localIdentName.match(
     /\[(?:([^:\]]+):)?(?:(hash|contenthash|fullhash))(?::([a-z]+\d*))?(?::(\d+))?\]/i
   );
@@ -386,7 +382,7 @@ function defaultGetLocalIdent(
 
   // eslint-disable-next-line no-underscore-dangle
   const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
-  // eslint-disable-next-line no-underscore-dangle
+  const { hashSalt } = options;
 
   if (hashSalt) {
     hash.update(hashSalt);
@@ -523,13 +519,19 @@ function getModulesOptions(rawOptions, loaderContext) {
     return false;
   }
 
+  // eslint-disable-next-line no-underscore-dangle
+  const { outputOptions } = loaderContext._compilation;
+
   let modulesOptions = {
     auto: true,
     mode: isIcss ? "icss" : "local",
     exportGlobals: false,
     localIdentName: "[hash:base64]",
     localIdentContext: loaderContext.rootContext,
-    localIdentHashSalt: "",
+    localIdentHashSalt: outputOptions.hashSalt,
+    localIdentHashFunction: outputOptions.hashFunction,
+    localIdentHashDigest: outputOptions.hashDigest,
+    localIdentHashDigestLength: outputOptions.hashDigestLength,
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
@@ -674,6 +676,9 @@ function getModulesPlugins(options, loaderContext) {
     localIdentName,
     localIdentContext,
     localIdentHashSalt,
+    localIdentHashFunction,
+    localIdentHashDigest,
+    localIdentHashDigestLength,
     localIdentRegExp,
   } = options.modules;
 
@@ -696,6 +701,9 @@ function getModulesPlugins(options, loaderContext) {
               {
                 context: localIdentContext,
                 hashSalt: localIdentHashSalt,
+                hashFunction: localIdentHashFunction,
+                hashDigest: localIdentHashDigest,
+                hashDigestLength: localIdentHashDigestLength,
                 regExp: localIdentRegExp,
               }
             );
@@ -711,6 +719,9 @@ function getModulesPlugins(options, loaderContext) {
               {
                 context: localIdentContext,
                 hashSalt: localIdentHashSalt,
+                hashFunction: localIdentHashFunction,
+                hashDigest: localIdentHashDigest,
+                hashDigestLength: localIdentHashDigestLength,
                 regExp: localIdentRegExp,
               }
             );

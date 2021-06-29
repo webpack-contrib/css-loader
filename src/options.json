@@ -103,6 +103,20 @@
               "type": "string",
               "minLength": 1
             },
+            "localIdentHashFunction": {
+              "description": "Allows to specify hash function to generate classes (https://github.com/webpack-contrib/css-loader#localidenthashfunction).",
+              "type": "string",
+              "minLength": 1
+            },
+            "localIdentHashDigest": {
+              "description": "Allows to specify hash digest to generate classes (https://github.com/webpack-contrib/css-loader#localidenthashdigest).",
+              "type": "string",
+              "minLength": 1
+            },
+            "localIdentHashDigestLength": {
+              "description": "Allows to specify hash digest length to generate classes (https://github.com/webpack-contrib/css-loader#localidenthashdigestlength).",
+              "type": "number"
+            },
             "localIdentRegExp": {
               "description": "Allows to specify custom RegExp for local ident name (https://github.com/webpack-contrib/css-loader#localidentregexp).",
               "anyOf": [
