@@ -4925,6 +4925,390 @@ body {
 
 exports[`"modules" option should work with "url": warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with [folder] 2: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with [folder] 2: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".test-localIdentName {\\\\n  background: red;\\\\n}\\\\n\\\\n._test-localIdentName {\\\\n  background: blue;\\\\n}\\\\n\\\\n.className-localIdentName {\\\\n  background: red;\\\\n}\\\\n\\\\n#someId-localIdentName {\\\\n  background: green;\\\\n}\\\\n\\\\n.className-localIdentName .subClass-localIdentName {\\\\n  color: green;\\\\n}\\\\n\\\\n#someId-localIdentName .subClass-localIdentName {\\\\n  color: blue;\\\\n}\\\\n\\\\n.-a0-34a___f-localIdentName {\\\\n  color: red;\\\\n}\\\\n\\\\n.m_x_\\\\\\\\@-localIdentName {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n.B\\\\\\\\&W\\\\\\\\?-localIdentName {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(-localIdentName {\\\\n  color: aqua;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n.\\\\\\\\31 a2b3c-localIdentName {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#\\\\\\\\#fake-id-localIdentName {\\\\n  color: antiquewhite;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#-a-b-c--localIdentName {\\\\n  color: azure;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"©\\\\\\" */\\\\n#©-localIdentName {\\\\n  color: black;\\\\n}\\\\n\\\\n.♥-localIdentName { background: lime; }\\\\n.©-localIdentName { background: lime; }\\\\n.“‘’”-localIdentName { background: lime; }\\\\n.☺☃-localIdentName { background: lime; }\\\\n.⌘⌥-localIdentName { background: lime; }\\\\n.𝄞♪♩♫♬-localIdentName { background: lime; }\\\\n.💩-localIdentName { background: lime; }\\\\n.\\\\\\\\?-localIdentName { background: lime; }\\\\n.\\\\\\\\@-localIdentName { background: lime; }\\\\n.\\\\\\\\.-localIdentName { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\)-localIdentName { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(-localIdentName { background: lime; }\\\\n.\\\\\\\\31 23-localIdentName { background: lime; }\\\\n.\\\\\\\\31 a2b3c-localIdentName { background: lime; }\\\\n.\\\\\\\\<p\\\\\\\\>-localIdentName { background: lime; }\\\\n.\\\\\\\\<\\\\\\\\>\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\>\\\\\\\\>\\\\\\\\<\\\\\\\\>-localIdentName { background: lime; }\\\\n.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\[\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\-\\\\\\\\]\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\<\\\\\\\\<\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.-localIdentName { background: lime; }\\\\n.\\\\\\\\#-localIdentName { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\#-localIdentName { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\.\\\\\\\\#\\\\\\\\.\\\\\\\\#-localIdentName { background: lime; }\\\\n.\\\\\\\\_-localIdentName { background: lime; }\\\\n.\\\\\\\\{\\\\\\\\}-localIdentName { background: lime; }\\\\n.\\\\\\\\#fake\\\\\\\\-id-localIdentName { background: lime; }\\\\n.foo\\\\\\\\.bar-localIdentName { background: lime; }\\\\n.\\\\\\\\3A hover-localIdentName { background: lime; }\\\\n.\\\\\\\\3A hover\\\\\\\\3A focus\\\\\\\\3A active-localIdentName { background: lime; }\\\\n.\\\\\\\\[attr\\\\\\\\=value\\\\\\\\]-localIdentName { background: lime; }\\\\n.f\\\\\\\\/o\\\\\\\\/o-localIdentName { background: lime; }\\\\n.f\\\\\\\\\\\\\\\\o\\\\\\\\\\\\\\\\o-localIdentName { background: lime; }\\\\n.f\\\\\\\\*o\\\\\\\\*o-localIdentName { background: lime; }\\\\n.f\\\\\\\\!o\\\\\\\\!o-localIdentName { background: lime; }\\\\n.f\\\\\\\\'o\\\\\\\\'o-localIdentName { background: lime; }\\\\n.f\\\\\\\\~o\\\\\\\\~o-localIdentName { background: lime; }\\\\n.f\\\\\\\\+o\\\\\\\\+o-localIdentName { background: lime; }\\\\n\\\\n.foo\\\\\\\\/bar-localIdentName {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar-localIdentName {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\/bar\\\\\\\\/baz-localIdentName {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar\\\\\\\\\\\\\\\\baz-localIdentName {\\\\n  background: hotpink;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"123\\": \\"123-localIdentName\\",
+	\\"test\\": \\"test-localIdentName\\",
+	\\"_test\\": \\"_test-localIdentName\\",
+	\\"className\\": \\"className-localIdentName\\",
+	\\"someId\\": \\"someId-localIdentName\\",
+	\\"subClass\\": \\"subClass-localIdentName\\",
+	\\"-a0-34a___f\\": \\"-a0-34a___f-localIdentName\\",
+	\\"m_x_@\\": \\"m_x_@-localIdentName\\",
+	\\"B&W?\\": \\"B&W?-localIdentName\\",
+	\\":\`(\\": \\":\`(-localIdentName\\",
+	\\"1a2b3c\\": \\"1a2b3c-localIdentName\\",
+	\\"#fake-id\\": \\"#fake-id-localIdentName\\",
+	\\"-a-b-c-\\": \\"-a-b-c--localIdentName\\",
+	\\"©\\": \\"©-localIdentName\\",
+	\\"♥\\": \\"♥-localIdentName\\",
+	\\"“‘’”\\": \\"“‘’”-localIdentName\\",
+	\\"☺☃\\": \\"☺☃-localIdentName\\",
+	\\"⌘⌥\\": \\"⌘⌥-localIdentName\\",
+	\\"𝄞♪♩♫♬\\": \\"𝄞♪♩♫♬-localIdentName\\",
+	\\"💩\\": \\"💩-localIdentName\\",
+	\\"?\\": \\"?-localIdentName\\",
+	\\"@\\": \\"@-localIdentName\\",
+	\\".\\": \\".-localIdentName\\",
+	\\":)\\": \\":)-localIdentName\\",
+	\\"<p>\\": \\"<p>-localIdentName\\",
+	\\"<><<<>><>\\": \\"<><<<>><>-localIdentName\\",
+	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.-localIdentName\\",
+	\\"#\\": \\"#-localIdentName\\",
+	\\"##\\": \\"##-localIdentName\\",
+	\\"#.#.#\\": \\"#.#.#-localIdentName\\",
+	\\"_\\": \\"_-localIdentName\\",
+	\\"{}\\": \\"{}-localIdentName\\",
+	\\"foo.bar\\": \\"foo.bar-localIdentName\\",
+	\\":hover\\": \\":hover-localIdentName\\",
+	\\":hover:focus:active\\": \\":hover:focus:active-localIdentName\\",
+	\\"[attr=value]\\": \\"[attr=value]-localIdentName\\",
+	\\"f/o/o\\": \\"f/o/o-localIdentName\\",
+	\\"f\\\\\\\\o\\\\\\\\o\\": \\"f\\\\\\\\o\\\\\\\\o-localIdentName\\",
+	\\"f*o*o\\": \\"f*o*o-localIdentName\\",
+	\\"f!o!o\\": \\"f!o!o-localIdentName\\",
+	\\"f'o'o\\": \\"f'o'o-localIdentName\\",
+	\\"f~o~o\\": \\"f~o~o-localIdentName\\",
+	\\"f+o+o\\": \\"f+o+o-localIdentName\\",
+	\\"foo/bar\\": \\"foo/bar-localIdentName\\",
+	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar-localIdentName\\",
+	\\"foo/bar/baz\\": \\"foo/bar/baz-localIdentName\\",
+	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz-localIdentName\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with [folder] 2: result 1`] = `
+Array [
+  Array [
+    "./modules/localIdentName/localIdentName.css",
+    ".test-localIdentName {
+  background: red;
+}
+
+._test-localIdentName {
+  background: blue;
+}
+
+.className-localIdentName {
+  background: red;
+}
+
+#someId-localIdentName {
+  background: green;
+}
+
+.className-localIdentName .subClass-localIdentName {
+  color: green;
+}
+
+#someId-localIdentName .subClass-localIdentName {
+  color: blue;
+}
+
+.-a0-34a___f-localIdentName {
+  color: red;
+}
+
+.m_x_\\\\@-localIdentName {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\\\&W\\\\?-localIdentName {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.\\\\3A \\\\\`\\\\(-localIdentName {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.\\\\31 a2b3c-localIdentName {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#\\\\#fake-id-localIdentName {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#-a-b-c--localIdentName {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#©-localIdentName {
+  color: black;
+}
+
+.♥-localIdentName { background: lime; }
+.©-localIdentName { background: lime; }
+.“‘’”-localIdentName { background: lime; }
+.☺☃-localIdentName { background: lime; }
+.⌘⌥-localIdentName { background: lime; }
+.𝄞♪♩♫♬-localIdentName { background: lime; }
+.💩-localIdentName { background: lime; }
+.\\\\?-localIdentName { background: lime; }
+.\\\\@-localIdentName { background: lime; }
+.\\\\.-localIdentName { background: lime; }
+.\\\\3A \\\\)-localIdentName { background: lime; }
+.\\\\3A \\\\\`\\\\(-localIdentName { background: lime; }
+.\\\\31 23-localIdentName { background: lime; }
+.\\\\31 a2b3c-localIdentName { background: lime; }
+.\\\\<p\\\\>-localIdentName { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>-localIdentName { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.-localIdentName { background: lime; }
+.\\\\#-localIdentName { background: lime; }
+.\\\\#\\\\#-localIdentName { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\#-localIdentName { background: lime; }
+.\\\\_-localIdentName { background: lime; }
+.\\\\{\\\\}-localIdentName { background: lime; }
+.\\\\#fake\\\\-id-localIdentName { background: lime; }
+.foo\\\\.bar-localIdentName { background: lime; }
+.\\\\3A hover-localIdentName { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active-localIdentName { background: lime; }
+.\\\\[attr\\\\=value\\\\]-localIdentName { background: lime; }
+.f\\\\/o\\\\/o-localIdentName { background: lime; }
+.f\\\\\\\\o\\\\\\\\o-localIdentName { background: lime; }
+.f\\\\*o\\\\*o-localIdentName { background: lime; }
+.f\\\\!o\\\\!o-localIdentName { background: lime; }
+.f\\\\'o\\\\'o-localIdentName { background: lime; }
+.f\\\\~o\\\\~o-localIdentName { background: lime; }
+.f\\\\+o\\\\+o-localIdentName { background: lime; }
+
+.foo\\\\/bar-localIdentName {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar-localIdentName {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz-localIdentName {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz-localIdentName {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with [folder] 2: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+(Emitted value instead of an instance of Error) [folder] is deprecated and will be removed in next major release. See documentation for available options (https://github.com/webpack-contrib/css-loader#localidentname)",
+]
+`;
+
+exports[`"modules" option should work with [folder]: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with [folder]: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".test-localIdentName-localIdentName {\\\\n  background: red;\\\\n}\\\\n\\\\n._test-localIdentName-localIdentName {\\\\n  background: blue;\\\\n}\\\\n\\\\n.className-localIdentName-localIdentName {\\\\n  background: red;\\\\n}\\\\n\\\\n#someId-localIdentName-localIdentName {\\\\n  background: green;\\\\n}\\\\n\\\\n.className-localIdentName-localIdentName .subClass-localIdentName-localIdentName {\\\\n  color: green;\\\\n}\\\\n\\\\n#someId-localIdentName-localIdentName .subClass-localIdentName-localIdentName {\\\\n  color: blue;\\\\n}\\\\n\\\\n.-a0-34a___f-localIdentName-localIdentName {\\\\n  color: red;\\\\n}\\\\n\\\\n.m_x_\\\\\\\\@-localIdentName-localIdentName {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n.B\\\\\\\\&W\\\\\\\\?-localIdentName-localIdentName {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(-localIdentName-localIdentName {\\\\n  color: aqua;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n.\\\\\\\\31 a2b3c-localIdentName-localIdentName {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#\\\\\\\\#fake-id-localIdentName-localIdentName {\\\\n  color: antiquewhite;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#-a-b-c--localIdentName-localIdentName {\\\\n  color: azure;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"©\\\\\\" */\\\\n#©-localIdentName-localIdentName {\\\\n  color: black;\\\\n}\\\\n\\\\n.♥-localIdentName-localIdentName { background: lime; }\\\\n.©-localIdentName-localIdentName { background: lime; }\\\\n.“‘’”-localIdentName-localIdentName { background: lime; }\\\\n.☺☃-localIdentName-localIdentName { background: lime; }\\\\n.⌘⌥-localIdentName-localIdentName { background: lime; }\\\\n.𝄞♪♩♫♬-localIdentName-localIdentName { background: lime; }\\\\n.💩-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\?-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\@-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\.-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\)-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\31 23-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\31 a2b3c-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\<p\\\\\\\\>-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\<\\\\\\\\>\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\>\\\\\\\\>\\\\\\\\<\\\\\\\\>-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\[\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\-\\\\\\\\]\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\<\\\\\\\\<\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\#-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\#-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\.\\\\\\\\#\\\\\\\\.\\\\\\\\#-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\_-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\{\\\\\\\\}-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\#fake\\\\\\\\-id-localIdentName-localIdentName { background: lime; }\\\\n.foo\\\\\\\\.bar-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\3A hover-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\3A hover\\\\\\\\3A focus\\\\\\\\3A active-localIdentName-localIdentName { background: lime; }\\\\n.\\\\\\\\[attr\\\\\\\\=value\\\\\\\\]-localIdentName-localIdentName { background: lime; }\\\\n.f\\\\\\\\/o\\\\\\\\/o-localIdentName-localIdentName { background: lime; }\\\\n.f\\\\\\\\\\\\\\\\o\\\\\\\\\\\\\\\\o-localIdentName-localIdentName { background: lime; }\\\\n.f\\\\\\\\*o\\\\\\\\*o-localIdentName-localIdentName { background: lime; }\\\\n.f\\\\\\\\!o\\\\\\\\!o-localIdentName-localIdentName { background: lime; }\\\\n.f\\\\\\\\'o\\\\\\\\'o-localIdentName-localIdentName { background: lime; }\\\\n.f\\\\\\\\~o\\\\\\\\~o-localIdentName-localIdentName { background: lime; }\\\\n.f\\\\\\\\+o\\\\\\\\+o-localIdentName-localIdentName { background: lime; }\\\\n\\\\n.foo\\\\\\\\/bar-localIdentName-localIdentName {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar-localIdentName-localIdentName {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\/bar\\\\\\\\/baz-localIdentName-localIdentName {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar\\\\\\\\\\\\\\\\baz-localIdentName-localIdentName {\\\\n  background: hotpink;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"123\\": \\"123-localIdentName-localIdentName\\",
+	\\"test\\": \\"test-localIdentName-localIdentName\\",
+	\\"_test\\": \\"_test-localIdentName-localIdentName\\",
+	\\"className\\": \\"className-localIdentName-localIdentName\\",
+	\\"someId\\": \\"someId-localIdentName-localIdentName\\",
+	\\"subClass\\": \\"subClass-localIdentName-localIdentName\\",
+	\\"-a0-34a___f\\": \\"-a0-34a___f-localIdentName-localIdentName\\",
+	\\"m_x_@\\": \\"m_x_@-localIdentName-localIdentName\\",
+	\\"B&W?\\": \\"B&W?-localIdentName-localIdentName\\",
+	\\":\`(\\": \\":\`(-localIdentName-localIdentName\\",
+	\\"1a2b3c\\": \\"1a2b3c-localIdentName-localIdentName\\",
+	\\"#fake-id\\": \\"#fake-id-localIdentName-localIdentName\\",
+	\\"-a-b-c-\\": \\"-a-b-c--localIdentName-localIdentName\\",
+	\\"©\\": \\"©-localIdentName-localIdentName\\",
+	\\"♥\\": \\"♥-localIdentName-localIdentName\\",
+	\\"“‘’”\\": \\"“‘’”-localIdentName-localIdentName\\",
+	\\"☺☃\\": \\"☺☃-localIdentName-localIdentName\\",
+	\\"⌘⌥\\": \\"⌘⌥-localIdentName-localIdentName\\",
+	\\"𝄞♪♩♫♬\\": \\"𝄞♪♩♫♬-localIdentName-localIdentName\\",
+	\\"💩\\": \\"💩-localIdentName-localIdentName\\",
+	\\"?\\": \\"?-localIdentName-localIdentName\\",
+	\\"@\\": \\"@-localIdentName-localIdentName\\",
+	\\".\\": \\".-localIdentName-localIdentName\\",
+	\\":)\\": \\":)-localIdentName-localIdentName\\",
+	\\"<p>\\": \\"<p>-localIdentName-localIdentName\\",
+	\\"<><<<>><>\\": \\"<><<<>><>-localIdentName-localIdentName\\",
+	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.-localIdentName-localIdentName\\",
+	\\"#\\": \\"#-localIdentName-localIdentName\\",
+	\\"##\\": \\"##-localIdentName-localIdentName\\",
+	\\"#.#.#\\": \\"#.#.#-localIdentName-localIdentName\\",
+	\\"_\\": \\"_-localIdentName-localIdentName\\",
+	\\"{}\\": \\"{}-localIdentName-localIdentName\\",
+	\\"foo.bar\\": \\"foo.bar-localIdentName-localIdentName\\",
+	\\":hover\\": \\":hover-localIdentName-localIdentName\\",
+	\\":hover:focus:active\\": \\":hover:focus:active-localIdentName-localIdentName\\",
+	\\"[attr=value]\\": \\"[attr=value]-localIdentName-localIdentName\\",
+	\\"f/o/o\\": \\"f/o/o-localIdentName-localIdentName\\",
+	\\"f\\\\\\\\o\\\\\\\\o\\": \\"f\\\\\\\\o\\\\\\\\o-localIdentName-localIdentName\\",
+	\\"f*o*o\\": \\"f*o*o-localIdentName-localIdentName\\",
+	\\"f!o!o\\": \\"f!o!o-localIdentName-localIdentName\\",
+	\\"f'o'o\\": \\"f'o'o-localIdentName-localIdentName\\",
+	\\"f~o~o\\": \\"f~o~o-localIdentName-localIdentName\\",
+	\\"f+o+o\\": \\"f+o+o-localIdentName-localIdentName\\",
+	\\"foo/bar\\": \\"foo/bar-localIdentName-localIdentName\\",
+	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar-localIdentName-localIdentName\\",
+	\\"foo/bar/baz\\": \\"foo/bar/baz-localIdentName-localIdentName\\",
+	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz-localIdentName-localIdentName\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with [folder]: result 1`] = `
+Array [
+  Array [
+    "./modules/localIdentName/localIdentName.css",
+    ".test-localIdentName-localIdentName {
+  background: red;
+}
+
+._test-localIdentName-localIdentName {
+  background: blue;
+}
+
+.className-localIdentName-localIdentName {
+  background: red;
+}
+
+#someId-localIdentName-localIdentName {
+  background: green;
+}
+
+.className-localIdentName-localIdentName .subClass-localIdentName-localIdentName {
+  color: green;
+}
+
+#someId-localIdentName-localIdentName .subClass-localIdentName-localIdentName {
+  color: blue;
+}
+
+.-a0-34a___f-localIdentName-localIdentName {
+  color: red;
+}
+
+.m_x_\\\\@-localIdentName-localIdentName {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\\\&W\\\\?-localIdentName-localIdentName {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.\\\\3A \\\\\`\\\\(-localIdentName-localIdentName {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.\\\\31 a2b3c-localIdentName-localIdentName {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#\\\\#fake-id-localIdentName-localIdentName {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#-a-b-c--localIdentName-localIdentName {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#©-localIdentName-localIdentName {
+  color: black;
+}
+
+.♥-localIdentName-localIdentName { background: lime; }
+.©-localIdentName-localIdentName { background: lime; }
+.“‘’”-localIdentName-localIdentName { background: lime; }
+.☺☃-localIdentName-localIdentName { background: lime; }
+.⌘⌥-localIdentName-localIdentName { background: lime; }
+.𝄞♪♩♫♬-localIdentName-localIdentName { background: lime; }
+.💩-localIdentName-localIdentName { background: lime; }
+.\\\\?-localIdentName-localIdentName { background: lime; }
+.\\\\@-localIdentName-localIdentName { background: lime; }
+.\\\\.-localIdentName-localIdentName { background: lime; }
+.\\\\3A \\\\)-localIdentName-localIdentName { background: lime; }
+.\\\\3A \\\\\`\\\\(-localIdentName-localIdentName { background: lime; }
+.\\\\31 23-localIdentName-localIdentName { background: lime; }
+.\\\\31 a2b3c-localIdentName-localIdentName { background: lime; }
+.\\\\<p\\\\>-localIdentName-localIdentName { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>-localIdentName-localIdentName { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.-localIdentName-localIdentName { background: lime; }
+.\\\\#-localIdentName-localIdentName { background: lime; }
+.\\\\#\\\\#-localIdentName-localIdentName { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\#-localIdentName-localIdentName { background: lime; }
+.\\\\_-localIdentName-localIdentName { background: lime; }
+.\\\\{\\\\}-localIdentName-localIdentName { background: lime; }
+.\\\\#fake\\\\-id-localIdentName-localIdentName { background: lime; }
+.foo\\\\.bar-localIdentName-localIdentName { background: lime; }
+.\\\\3A hover-localIdentName-localIdentName { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active-localIdentName-localIdentName { background: lime; }
+.\\\\[attr\\\\=value\\\\]-localIdentName-localIdentName { background: lime; }
+.f\\\\/o\\\\/o-localIdentName-localIdentName { background: lime; }
+.f\\\\\\\\o\\\\\\\\o-localIdentName-localIdentName { background: lime; }
+.f\\\\*o\\\\*o-localIdentName-localIdentName { background: lime; }
+.f\\\\!o\\\\!o-localIdentName-localIdentName { background: lime; }
+.f\\\\'o\\\\'o-localIdentName-localIdentName { background: lime; }
+.f\\\\~o\\\\~o-localIdentName-localIdentName { background: lime; }
+.f\\\\+o\\\\+o-localIdentName-localIdentName { background: lime; }
+
+.foo\\\\/bar-localIdentName-localIdentName {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar-localIdentName-localIdentName {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz-localIdentName-localIdentName {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz-localIdentName-localIdentName {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with [folder]: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+(Emitted value instead of an instance of Error) [folder] is deprecated and will be removed in next major release. See documentation for available options (https://github.com/webpack-contrib/css-loader#localidentname)",
+]
+`;
+
 exports[`"modules" option should work with \`@\` character in scoped packages: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with \`@\` character in scoped packages: module 1`] = `
