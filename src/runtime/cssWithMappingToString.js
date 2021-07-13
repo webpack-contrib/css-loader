@@ -1,6 +1,10 @@
 module.exports = function cssWithMappingToString(item) {
   const [, content, , cssMapping] = item;
 
+  if (!cssMapping) {
+    return content;
+  }
+
   if (typeof btoa === "function") {
     // eslint-disable-next-line no-undef
     const base64 = btoa(
