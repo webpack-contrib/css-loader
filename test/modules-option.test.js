@@ -207,6 +207,45 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work and respect the "localIdentHashFunction" option', async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: {
+        localIdentName: "[local]--[hash]",
+        localIdentHashFunction: "sha256",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work and respect the "localIdentHashFunction" option', async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: {
+        localIdentName: "[local]--[hash]",
+        localIdentHashDigest: "base64",
+        localIdentHashDigestLength: 10,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should work and prefix leading hyphen when digit is first", async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: { localIdentName: "-1[local]" },

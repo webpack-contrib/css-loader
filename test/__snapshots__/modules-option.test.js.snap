@@ -3271,6 +3271,380 @@ a {
 
 exports[`"modules" option should work and respect the "localConvention" option with the "dashesOnly" value: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work and respect the "localIdentHashFunction" option: errors 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option: errors 2`] = `Array []`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".test--_347c66e39c8f6f0a64f {\\\\n  background: red;\\\\n}\\\\n\\\\n._test--_409e4df60a5df5f5d32 {\\\\n  background: blue;\\\\n}\\\\n\\\\n.className--e5c17e6b8130297382dc {\\\\n  background: red;\\\\n}\\\\n\\\\n#someId--_1c77fae3b2571d8af58 {\\\\n  background: green;\\\\n}\\\\n\\\\n.className--e5c17e6b8130297382dc .subClass--_ce74472264bbe729bd3 {\\\\n  color: green;\\\\n}\\\\n\\\\n#someId--_1c77fae3b2571d8af58 .subClass--_ce74472264bbe729bd3 {\\\\n  color: blue;\\\\n}\\\\n\\\\n.-a0-34a___f--_1d60baf3600ddc46079 {\\\\n  color: red;\\\\n}\\\\n\\\\n.m_x_\\\\\\\\@--_732174edbcf0559a465 {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n.B\\\\\\\\&W\\\\\\\\?--_d5519eef501b3fe589f {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(--_e40374bcb01050c202b {\\\\n  color: aqua;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n.\\\\\\\\31 a2b3c--ede5ee005ce96f9de0d8 {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#\\\\\\\\#fake-id--fe2efa29950f418d477a {\\\\n  color: antiquewhite;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#-a-b-c---d1a626ec36769b87efb8 {\\\\n  color: azure;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"©\\\\\\" */\\\\n#©--_6e62e8d8ca88d608527 {\\\\n  color: black;\\\\n}\\\\n\\\\n.♥--f64ab76fe61fcc249909 { background: lime; }\\\\n.©--_6e62e8d8ca88d608527 { background: lime; }\\\\n.“‘’”--_aa74857b05d853821fd { background: lime; }\\\\n.☺☃--_7d317356ac521028664 { background: lime; }\\\\n.⌘⌥--bf468ba3afaf13e0a0b8 { background: lime; }\\\\n.𝄞♪♩♫♬--_0443100801b3837c620 { background: lime; }\\\\n.💩--be44fb27628da290a898 { background: lime; }\\\\n.\\\\\\\\?--_b964d4d1caba6296dcf { background: lime; }\\\\n.\\\\\\\\@--_31e74c1c1fee1edacc9 { background: lime; }\\\\n.\\\\\\\\.--_64f0151a785dcd909f9 { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\)--bbdac15527b1a79b9373 { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(--_e40374bcb01050c202b { background: lime; }\\\\n.\\\\\\\\31 23--_ec7108c037cbacfbb41 { background: lime; }\\\\n.\\\\\\\\31 a2b3c--ede5ee005ce96f9de0d8 { background: lime; }\\\\n.\\\\\\\\<p\\\\\\\\>--_add6ba3a806e4e89c25 { background: lime; }\\\\n.\\\\\\\\<\\\\\\\\>\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\>\\\\\\\\>\\\\\\\\<\\\\\\\\>--_5a72290b08f16a70e6e { background: lime; }\\\\n.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\[\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\-\\\\\\\\]\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\<\\\\\\\\<\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.--_8643b64085158d157d4 { background: lime; }\\\\n.\\\\\\\\#--_7346997a8ea491985ae { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\#--f51a1bcd5b215c049e7e { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\.\\\\\\\\#\\\\\\\\.\\\\\\\\#--_c58cdb64cfefb320f70 { background: lime; }\\\\n.\\\\\\\\_--_6f952770d6b3390c36b { background: lime; }\\\\n.\\\\\\\\{\\\\\\\\}--cdaa74c4f6c9e2b15fff { background: lime; }\\\\n.\\\\\\\\#fake\\\\\\\\-id--fe2efa29950f418d477a { background: lime; }\\\\n.foo\\\\\\\\.bar--ff62a9ce0270a7159046 { background: lime; }\\\\n.\\\\\\\\3A hover--_8e85f8ae7f4139a5258 { background: lime; }\\\\n.\\\\\\\\3A hover\\\\\\\\3A focus\\\\\\\\3A active--_10f1c6d9945b1e0f789 { background: lime; }\\\\n.\\\\\\\\[attr\\\\\\\\=value\\\\\\\\]--e0cacaf2470563d41d45 { background: lime; }\\\\n.f\\\\\\\\/o\\\\\\\\/o--_45f50181c83f563b5c2 { background: lime; }\\\\n.f\\\\\\\\\\\\\\\\o\\\\\\\\\\\\\\\\o--aea404d6630a39db19d8 { background: lime; }\\\\n.f\\\\\\\\*o\\\\\\\\*o--_b29a485ccb4e98b4048 { background: lime; }\\\\n.f\\\\\\\\!o\\\\\\\\!o--c79446ed553ff32b17fd { background: lime; }\\\\n.f\\\\\\\\'o\\\\\\\\'o--_49cf7b5f2fdb64b9373 { background: lime; }\\\\n.f\\\\\\\\~o\\\\\\\\~o--_05ee4fc2b9a084dfdf0 { background: lime; }\\\\n.f\\\\\\\\+o\\\\\\\\+o--f55241c183f773304829 { background: lime; }\\\\n\\\\n.foo\\\\\\\\/bar--_d445c2f789a6c1b6531 {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar--a407ef7c9f9341565b64 {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\/bar\\\\\\\\/baz--ec4e79254ca1b4c975bd {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar\\\\\\\\\\\\\\\\baz--b2ea1383b7cbebaf07d1 {\\\\n  background: hotpink;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"123\\": \\"123--_ec7108c037cbacfbb41\\",
+	\\"test\\": \\"test--_347c66e39c8f6f0a64f\\",
+	\\"_test\\": \\"_test--_409e4df60a5df5f5d32\\",
+	\\"className\\": \\"className--e5c17e6b8130297382dc\\",
+	\\"someId\\": \\"someId--_1c77fae3b2571d8af58\\",
+	\\"subClass\\": \\"subClass--_ce74472264bbe729bd3\\",
+	\\"-a0-34a___f\\": \\"-a0-34a___f--_1d60baf3600ddc46079\\",
+	\\"m_x_@\\": \\"m_x_@--_732174edbcf0559a465\\",
+	\\"B&W?\\": \\"B&W?--_d5519eef501b3fe589f\\",
+	\\":\`(\\": \\":\`(--_e40374bcb01050c202b\\",
+	\\"1a2b3c\\": \\"1a2b3c--ede5ee005ce96f9de0d8\\",
+	\\"#fake-id\\": \\"#fake-id--fe2efa29950f418d477a\\",
+	\\"-a-b-c-\\": \\"-a-b-c---d1a626ec36769b87efb8\\",
+	\\"©\\": \\"©--_6e62e8d8ca88d608527\\",
+	\\"♥\\": \\"♥--f64ab76fe61fcc249909\\",
+	\\"“‘’”\\": \\"“‘’”--_aa74857b05d853821fd\\",
+	\\"☺☃\\": \\"☺☃--_7d317356ac521028664\\",
+	\\"⌘⌥\\": \\"⌘⌥--bf468ba3afaf13e0a0b8\\",
+	\\"𝄞♪♩♫♬\\": \\"𝄞♪♩♫♬--_0443100801b3837c620\\",
+	\\"💩\\": \\"💩--be44fb27628da290a898\\",
+	\\"?\\": \\"?--_b964d4d1caba6296dcf\\",
+	\\"@\\": \\"@--_31e74c1c1fee1edacc9\\",
+	\\".\\": \\".--_64f0151a785dcd909f9\\",
+	\\":)\\": \\":)--bbdac15527b1a79b9373\\",
+	\\"<p>\\": \\"<p>--_add6ba3a806e4e89c25\\",
+	\\"<><<<>><>\\": \\"<><<<>><>--_5a72290b08f16a70e6e\\",
+	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.--_8643b64085158d157d4\\",
+	\\"#\\": \\"#--_7346997a8ea491985ae\\",
+	\\"##\\": \\"##--f51a1bcd5b215c049e7e\\",
+	\\"#.#.#\\": \\"#.#.#--_c58cdb64cfefb320f70\\",
+	\\"_\\": \\"_--_6f952770d6b3390c36b\\",
+	\\"{}\\": \\"{}--cdaa74c4f6c9e2b15fff\\",
+	\\"foo.bar\\": \\"foo.bar--ff62a9ce0270a7159046\\",
+	\\":hover\\": \\":hover--_8e85f8ae7f4139a5258\\",
+	\\":hover:focus:active\\": \\":hover:focus:active--_10f1c6d9945b1e0f789\\",
+	\\"[attr=value]\\": \\"[attr=value]--e0cacaf2470563d41d45\\",
+	\\"f/o/o\\": \\"f/o/o--_45f50181c83f563b5c2\\",
+	\\"f\\\\\\\\o\\\\\\\\o\\": \\"f\\\\\\\\o\\\\\\\\o--aea404d6630a39db19d8\\",
+	\\"f*o*o\\": \\"f*o*o--_b29a485ccb4e98b4048\\",
+	\\"f!o!o\\": \\"f!o!o--c79446ed553ff32b17fd\\",
+	\\"f'o'o\\": \\"f'o'o--_49cf7b5f2fdb64b9373\\",
+	\\"f~o~o\\": \\"f~o~o--_05ee4fc2b9a084dfdf0\\",
+	\\"f+o+o\\": \\"f+o+o--f55241c183f773304829\\",
+	\\"foo/bar\\": \\"foo/bar--_d445c2f789a6c1b6531\\",
+	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar--a407ef7c9f9341565b64\\",
+	\\"foo/bar/baz\\": \\"foo/bar/baz--ec4e79254ca1b4c975bd\\",
+	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz--b2ea1383b7cbebaf07d1\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option: module 2`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".test--HovVWrUTjN {\\\\n  background: red;\\\\n}\\\\n\\\\n._test--_1mLQ0KYr3 {\\\\n  background: blue;\\\\n}\\\\n\\\\n.className--MMk_yFMICy {\\\\n  background: red;\\\\n}\\\\n\\\\n#someId--f_mZz_4mbp {\\\\n  background: green;\\\\n}\\\\n\\\\n.className--MMk_yFMICy .subClass--FYyIWexDGl {\\\\n  color: green;\\\\n}\\\\n\\\\n#someId--f_mZz_4mbp .subClass--FYyIWexDGl {\\\\n  color: blue;\\\\n}\\\\n\\\\n.-a0-34a___f--r_hifewiIo {\\\\n  color: red;\\\\n}\\\\n\\\\n.m_x_\\\\\\\\@--yUrnJ_pW2A {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n.B\\\\\\\\&W\\\\\\\\?--O_Xkei1DAX {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(--_rpCeu5pHk {\\\\n  color: aqua;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n.\\\\\\\\31 a2b3c--mxXeAFeh5M {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#\\\\\\\\#fake-id--_92k79k_uZ {\\\\n  color: antiquewhite;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#-a-b-c---c0kkJWClsc {\\\\n  color: azure;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"©\\\\\\" */\\\\n#©--DLosMLOukp {\\\\n  color: black;\\\\n}\\\\n\\\\n.♥--HQMfjUZeec { background: lime; }\\\\n.©--DLosMLOukp { background: lime; }\\\\n.“‘’”--bS0LrUqKBV { background: lime; }\\\\n.☺☃--F0_yWUDvky { background: lime; }\\\\n.⌘⌥--VyeHlHnBWZ { background: lime; }\\\\n.𝄞♪♩♫♬--Qi7pfuLhD3 { background: lime; }\\\\n.💩--CjG3lWNhvV { background: lime; }\\\\n.\\\\\\\\?--heeATAtrwL { background: lime; }\\\\n.\\\\\\\\@--YofbbuSihG { background: lime; }\\\\n.\\\\\\\\.--_29WwWt8JV { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\)--I_4AeARK9l { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(--_rpCeu5pHk { background: lime; }\\\\n.\\\\\\\\31 23--_Oc_nRVO4G { background: lime; }\\\\n.\\\\\\\\31 a2b3c--mxXeAFeh5M { background: lime; }\\\\n.\\\\\\\\<p\\\\\\\\>--KBVLvvCBhx { background: lime; }\\\\n.\\\\\\\\<\\\\\\\\>\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\>\\\\\\\\>\\\\\\\\<\\\\\\\\>--vOWmh2fN7C { background: lime; }\\\\n.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\[\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\-\\\\\\\\]\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\<\\\\\\\\<\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.--_D32kH5S0x { background: lime; }\\\\n.\\\\\\\\#--LpBEGYchm6 { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\#--wZKDT2QRg1 { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\.\\\\\\\\#\\\\\\\\.\\\\\\\\#--oGI7_ChvpM { background: lime; }\\\\n.\\\\\\\\_--myeULb2GLN { background: lime; }\\\\n.\\\\\\\\{\\\\\\\\}--Mae71ybFnD { background: lime; }\\\\n.\\\\\\\\#fake\\\\\\\\-id--_92k79k_uZ { background: lime; }\\\\n.foo\\\\\\\\.bar--TpLCT2g4E_ { background: lime; }\\\\n.\\\\\\\\3A hover--l6Av_vs8d_ { background: lime; }\\\\n.\\\\\\\\3A hover\\\\\\\\3A focus\\\\\\\\3A active--ZGmd9HMc_i { background: lime; }\\\\n.\\\\\\\\[attr\\\\\\\\=value\\\\\\\\]--KPlJewNi3K { background: lime; }\\\\n.f\\\\\\\\/o\\\\\\\\/o--DIrFdFnBQ9 { background: lime; }\\\\n.f\\\\\\\\\\\\\\\\o\\\\\\\\\\\\\\\\o--H1knt1tAX5 { background: lime; }\\\\n.f\\\\\\\\*o\\\\\\\\*o--_vAKu2IlrR { background: lime; }\\\\n.f\\\\\\\\!o\\\\\\\\!o--APY_BKpa8G { background: lime; }\\\\n.f\\\\\\\\'o\\\\\\\\'o--jTuAkufdKA { background: lime; }\\\\n.f\\\\\\\\~o\\\\\\\\~o--S4VvFBeH35 { background: lime; }\\\\n.f\\\\\\\\+o\\\\\\\\+o--AWIsfyEkWw { background: lime; }\\\\n\\\\n.foo\\\\\\\\/bar--DhIde1Wbgz {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar--aeKkgCs_2D {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\/bar\\\\\\\\/baz--QFT18bFiHR {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar\\\\\\\\\\\\\\\\baz--uM3RYQs79z {\\\\n  background: hotpink;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"123\\": \\"123--_Oc_nRVO4G\\",
+	\\"test\\": \\"test--HovVWrUTjN\\",
+	\\"_test\\": \\"_test--_1mLQ0KYr3\\",
+	\\"className\\": \\"className--MMk_yFMICy\\",
+	\\"someId\\": \\"someId--f_mZz_4mbp\\",
+	\\"subClass\\": \\"subClass--FYyIWexDGl\\",
+	\\"-a0-34a___f\\": \\"-a0-34a___f--r_hifewiIo\\",
+	\\"m_x_@\\": \\"m_x_@--yUrnJ_pW2A\\",
+	\\"B&W?\\": \\"B&W?--O_Xkei1DAX\\",
+	\\":\`(\\": \\":\`(--_rpCeu5pHk\\",
+	\\"1a2b3c\\": \\"1a2b3c--mxXeAFeh5M\\",
+	\\"#fake-id\\": \\"#fake-id--_92k79k_uZ\\",
+	\\"-a-b-c-\\": \\"-a-b-c---c0kkJWClsc\\",
+	\\"©\\": \\"©--DLosMLOukp\\",
+	\\"♥\\": \\"♥--HQMfjUZeec\\",
+	\\"“‘’”\\": \\"“‘’”--bS0LrUqKBV\\",
+	\\"☺☃\\": \\"☺☃--F0_yWUDvky\\",
+	\\"⌘⌥\\": \\"⌘⌥--VyeHlHnBWZ\\",
+	\\"𝄞♪♩♫♬\\": \\"𝄞♪♩♫♬--Qi7pfuLhD3\\",
+	\\"💩\\": \\"💩--CjG3lWNhvV\\",
+	\\"?\\": \\"?--heeATAtrwL\\",
+	\\"@\\": \\"@--YofbbuSihG\\",
+	\\".\\": \\".--_29WwWt8JV\\",
+	\\":)\\": \\":)--I_4AeARK9l\\",
+	\\"<p>\\": \\"<p>--KBVLvvCBhx\\",
+	\\"<><<<>><>\\": \\"<><<<>><>--vOWmh2fN7C\\",
+	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.--_D32kH5S0x\\",
+	\\"#\\": \\"#--LpBEGYchm6\\",
+	\\"##\\": \\"##--wZKDT2QRg1\\",
+	\\"#.#.#\\": \\"#.#.#--oGI7_ChvpM\\",
+	\\"_\\": \\"_--myeULb2GLN\\",
+	\\"{}\\": \\"{}--Mae71ybFnD\\",
+	\\"foo.bar\\": \\"foo.bar--TpLCT2g4E_\\",
+	\\":hover\\": \\":hover--l6Av_vs8d_\\",
+	\\":hover:focus:active\\": \\":hover:focus:active--ZGmd9HMc_i\\",
+	\\"[attr=value]\\": \\"[attr=value]--KPlJewNi3K\\",
+	\\"f/o/o\\": \\"f/o/o--DIrFdFnBQ9\\",
+	\\"f\\\\\\\\o\\\\\\\\o\\": \\"f\\\\\\\\o\\\\\\\\o--H1knt1tAX5\\",
+	\\"f*o*o\\": \\"f*o*o--_vAKu2IlrR\\",
+	\\"f!o!o\\": \\"f!o!o--APY_BKpa8G\\",
+	\\"f'o'o\\": \\"f'o'o--jTuAkufdKA\\",
+	\\"f~o~o\\": \\"f~o~o--S4VvFBeH35\\",
+	\\"f+o+o\\": \\"f+o+o--AWIsfyEkWw\\",
+	\\"foo/bar\\": \\"foo/bar--DhIde1Wbgz\\",
+	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar--aeKkgCs_2D\\",
+	\\"foo/bar/baz\\": \\"foo/bar/baz--QFT18bFiHR\\",
+	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz--uM3RYQs79z\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option: result 1`] = `
+Array [
+  Array [
+    "./modules/localIdentName/localIdentName.css",
+    ".test--_347c66e39c8f6f0a64f {
+  background: red;
+}
+
+._test--_409e4df60a5df5f5d32 {
+  background: blue;
+}
+
+.className--e5c17e6b8130297382dc {
+  background: red;
+}
+
+#someId--_1c77fae3b2571d8af58 {
+  background: green;
+}
+
+.className--e5c17e6b8130297382dc .subClass--_ce74472264bbe729bd3 {
+  color: green;
+}
+
+#someId--_1c77fae3b2571d8af58 .subClass--_ce74472264bbe729bd3 {
+  color: blue;
+}
+
+.-a0-34a___f--_1d60baf3600ddc46079 {
+  color: red;
+}
+
+.m_x_\\\\@--_732174edbcf0559a465 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\\\&W\\\\?--_d5519eef501b3fe589f {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.\\\\3A \\\\\`\\\\(--_e40374bcb01050c202b {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.\\\\31 a2b3c--ede5ee005ce96f9de0d8 {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#\\\\#fake-id--fe2efa29950f418d477a {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#-a-b-c---d1a626ec36769b87efb8 {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#©--_6e62e8d8ca88d608527 {
+  color: black;
+}
+
+.♥--f64ab76fe61fcc249909 { background: lime; }
+.©--_6e62e8d8ca88d608527 { background: lime; }
+.“‘’”--_aa74857b05d853821fd { background: lime; }
+.☺☃--_7d317356ac521028664 { background: lime; }
+.⌘⌥--bf468ba3afaf13e0a0b8 { background: lime; }
+.𝄞♪♩♫♬--_0443100801b3837c620 { background: lime; }
+.💩--be44fb27628da290a898 { background: lime; }
+.\\\\?--_b964d4d1caba6296dcf { background: lime; }
+.\\\\@--_31e74c1c1fee1edacc9 { background: lime; }
+.\\\\.--_64f0151a785dcd909f9 { background: lime; }
+.\\\\3A \\\\)--bbdac15527b1a79b9373 { background: lime; }
+.\\\\3A \\\\\`\\\\(--_e40374bcb01050c202b { background: lime; }
+.\\\\31 23--_ec7108c037cbacfbb41 { background: lime; }
+.\\\\31 a2b3c--ede5ee005ce96f9de0d8 { background: lime; }
+.\\\\<p\\\\>--_add6ba3a806e4e89c25 { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>--_5a72290b08f16a70e6e { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.--_8643b64085158d157d4 { background: lime; }
+.\\\\#--_7346997a8ea491985ae { background: lime; }
+.\\\\#\\\\#--f51a1bcd5b215c049e7e { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\#--_c58cdb64cfefb320f70 { background: lime; }
+.\\\\_--_6f952770d6b3390c36b { background: lime; }
+.\\\\{\\\\}--cdaa74c4f6c9e2b15fff { background: lime; }
+.\\\\#fake\\\\-id--fe2efa29950f418d477a { background: lime; }
+.foo\\\\.bar--ff62a9ce0270a7159046 { background: lime; }
+.\\\\3A hover--_8e85f8ae7f4139a5258 { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active--_10f1c6d9945b1e0f789 { background: lime; }
+.\\\\[attr\\\\=value\\\\]--e0cacaf2470563d41d45 { background: lime; }
+.f\\\\/o\\\\/o--_45f50181c83f563b5c2 { background: lime; }
+.f\\\\\\\\o\\\\\\\\o--aea404d6630a39db19d8 { background: lime; }
+.f\\\\*o\\\\*o--_b29a485ccb4e98b4048 { background: lime; }
+.f\\\\!o\\\\!o--c79446ed553ff32b17fd { background: lime; }
+.f\\\\'o\\\\'o--_49cf7b5f2fdb64b9373 { background: lime; }
+.f\\\\~o\\\\~o--_05ee4fc2b9a084dfdf0 { background: lime; }
+.f\\\\+o\\\\+o--f55241c183f773304829 { background: lime; }
+
+.foo\\\\/bar--_d445c2f789a6c1b6531 {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar--a407ef7c9f9341565b64 {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz--ec4e79254ca1b4c975bd {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz--b2ea1383b7cbebaf07d1 {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option: result 2`] = `
+Array [
+  Array [
+    "./modules/localIdentName/localIdentName.css",
+    ".test--HovVWrUTjN {
+  background: red;
+}
+
+._test--_1mLQ0KYr3 {
+  background: blue;
+}
+
+.className--MMk_yFMICy {
+  background: red;
+}
+
+#someId--f_mZz_4mbp {
+  background: green;
+}
+
+.className--MMk_yFMICy .subClass--FYyIWexDGl {
+  color: green;
+}
+
+#someId--f_mZz_4mbp .subClass--FYyIWexDGl {
+  color: blue;
+}
+
+.-a0-34a___f--r_hifewiIo {
+  color: red;
+}
+
+.m_x_\\\\@--yUrnJ_pW2A {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\\\&W\\\\?--O_Xkei1DAX {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.\\\\3A \\\\\`\\\\(--_rpCeu5pHk {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.\\\\31 a2b3c--mxXeAFeh5M {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#\\\\#fake-id--_92k79k_uZ {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#-a-b-c---c0kkJWClsc {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#©--DLosMLOukp {
+  color: black;
+}
+
+.♥--HQMfjUZeec { background: lime; }
+.©--DLosMLOukp { background: lime; }
+.“‘’”--bS0LrUqKBV { background: lime; }
+.☺☃--F0_yWUDvky { background: lime; }
+.⌘⌥--VyeHlHnBWZ { background: lime; }
+.𝄞♪♩♫♬--Qi7pfuLhD3 { background: lime; }
+.💩--CjG3lWNhvV { background: lime; }
+.\\\\?--heeATAtrwL { background: lime; }
+.\\\\@--YofbbuSihG { background: lime; }
+.\\\\.--_29WwWt8JV { background: lime; }
+.\\\\3A \\\\)--I_4AeARK9l { background: lime; }
+.\\\\3A \\\\\`\\\\(--_rpCeu5pHk { background: lime; }
+.\\\\31 23--_Oc_nRVO4G { background: lime; }
+.\\\\31 a2b3c--mxXeAFeh5M { background: lime; }
+.\\\\<p\\\\>--KBVLvvCBhx { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>--vOWmh2fN7C { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.--_D32kH5S0x { background: lime; }
+.\\\\#--LpBEGYchm6 { background: lime; }
+.\\\\#\\\\#--wZKDT2QRg1 { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\#--oGI7_ChvpM { background: lime; }
+.\\\\_--myeULb2GLN { background: lime; }
+.\\\\{\\\\}--Mae71ybFnD { background: lime; }
+.\\\\#fake\\\\-id--_92k79k_uZ { background: lime; }
+.foo\\\\.bar--TpLCT2g4E_ { background: lime; }
+.\\\\3A hover--l6Av_vs8d_ { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active--ZGmd9HMc_i { background: lime; }
+.\\\\[attr\\\\=value\\\\]--KPlJewNi3K { background: lime; }
+.f\\\\/o\\\\/o--DIrFdFnBQ9 { background: lime; }
+.f\\\\\\\\o\\\\\\\\o--H1knt1tAX5 { background: lime; }
+.f\\\\*o\\\\*o--_vAKu2IlrR { background: lime; }
+.f\\\\!o\\\\!o--APY_BKpa8G { background: lime; }
+.f\\\\'o\\\\'o--jTuAkufdKA { background: lime; }
+.f\\\\~o\\\\~o--S4VvFBeH35 { background: lime; }
+.f\\\\+o\\\\+o--AWIsfyEkWw { background: lime; }
+
+.foo\\\\/bar--DhIde1Wbgz {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar--aeKkgCs_2D {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz--QFT18bFiHR {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz--uM3RYQs79z {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option: warnings 2`] = `Array []`;
+
 exports[`"modules" option should work and respect the "localIdentName" option 2: errors 1`] = `Array []`;
 
 exports[`"modules" option should work and respect the "localIdentName" option 2: module 1`] = `

@@ -762,7 +762,7 @@ Allows to configure the generated local ident name.
 For more information on options see:
 
 - [webpack template strings](https://webpack.js.org/configuration/output/#template-strings),
-- [output.hashdigest](https://webpack.js.org/configuration/output/#outputhashdigest),
+- [output.hashDigest](https://webpack.js.org/configuration/output/#outputhashdigest),
 - [output.hashDigestLength](https://webpack.js.org/configuration/output/#outputhashdigestlength),
 - [output.hashFunction](https://webpack.js.org/configuration/output/#outputhashfunction),
 - [output.hashSalt](https://webpack.js.org/configuration/output/#outputhashsalt).
@@ -773,7 +773,7 @@ Supported template strings:
 - [path] the path of the resource relative to the `compiler.context` option or `modules.localIdentContext` option.
 - [file] - filename and path.
 - [ext] - extension with leading .
-- [hash] - the hash of the string, generated based on `hashPrefix`, `localIdentContext`, `resourcePath` and `exportName`
+- [hash] - the hash of the string, generated based on `localIdentHashSalt`, `localIdentHashFunction`, `localIdentHashDigest`, `localIdentHashDigestLength`, `localIdentContext`, `resourcePath` and `exportName`
 - [<hashFunction>:hash:<hashDigest>:<hashDigestLength>] - hash with hash settings.
 - [local] - original class.
 
@@ -833,12 +833,13 @@ module.exports = {
 };
 ```
 
-##### `localIdentHashSalt
+##### `localIdentHashSalt`
 
 Type: `String`
 Default: `undefined`
 
 Allows to add custom hash to generate more unique classes.
+For more information see [output.hashSalt](https://webpack.js.org/configuration/output/#outputhashsalt).
 
 **webpack.config.js**
 
@@ -852,6 +853,90 @@ module.exports = {
         options: {
           modules: {
             localIdentHashSalt: "hash",
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `localIdentHashFunction`
+
+Type: `String`
+Default: `md4`
+
+Allows to specify hash function to generate classes .
+For more information see [output.hashFunction](https://webpack.js.org/configuration/output/#outputhashfunction).
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            localIdentHashFunction: "md4",
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `localIdentHashDigest`
+
+Type: `String`
+Default: `hex`
+
+Allows to specify hash digest to generate classes.
+For more information see [output.hashDigest](https://webpack.js.org/configuration/output/#outputhashdigest).
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            localIdentHashDigest: "base64",
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `localIdentHashDigestLength`
+
+Type: `Number`
+Default: `20`
+
+Allows to specify hash digest length to generate classes.
+For more information see [output.hashDigestLength](https://webpack.js.org/configuration/output/#outputhashdigestlength).
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            localIdentHashDigestLength: 5,
           },
         },
       },
