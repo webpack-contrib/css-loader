@@ -779,7 +779,7 @@ Supported template strings:
 
 Recommendations:
 
-- use `'[file]__[local]'` for development
+- use `'[path][name]__[local]'` for development
 - use `'[hash:base64]'` for production
 
 The `[local]` placeholder contains original class.

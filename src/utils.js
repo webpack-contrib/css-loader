@@ -326,13 +326,13 @@ function resolveFolderTemplate(loaderContext, localIdentName, options) {
     .replace(/\.\.(\/)?/g, "_$1");
   directory = directory.substr(0, directory.length - 1);
 
-  if (directory.length > 1) {
-    const folder = path.basename(directory);
+  let folder = "";
 
-    return localIdentName.replace(/\[folder\]/gi, () => folder);
+  if (directory.length > 1) {
+    folder = path.basename(directory);
   }
 
-  return localIdentName;
+  return localIdentName.replace(/\[folder\]/gi, () => folder);
 }
 
 function defaultGetLocalIdent(
