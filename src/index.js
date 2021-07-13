@@ -2,7 +2,7 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import { stringifyRequest } from "loader-utils";
+
 import postcss from "postcss";
 import postcssPkg from "postcss/package.json";
 import { satisfies } from "semver";
@@ -27,6 +27,7 @@ import {
   normalizeSourceMap,
   sort,
   combineRequests,
+  stringifyRequest,
 } from "./utils";
 
 export default async function loader(content, map, meta) {
