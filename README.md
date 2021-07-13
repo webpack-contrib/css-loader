@@ -583,7 +583,7 @@ module.exports = {
             exportGlobals: true,
             localIdentName: "[path][name]__[local]--[hash:base64:5]",
             localIdentContext: path.resolve(__dirname, "src"),
-            localIdentHashPrefix: "my-custom-hash",
+            localIdentHashSalt: "my-custom-hash",
             namedExport: true,
             exportLocalsConvention: "camelCase",
             exportOnlyLocals: false,
@@ -833,7 +833,7 @@ module.exports = {
 };
 ```
 
-##### `localIdentHashPrefix`
+##### `localIdentHashSalt
 
 Type: `String`
 Default: `undefined`
@@ -851,7 +851,7 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            localIdentHashPrefix: "hash",
+            localIdentHashSalt: "hash",
           },
         },
       },

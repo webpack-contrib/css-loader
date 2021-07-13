@@ -40,7 +40,7 @@ describe("validate options", () => {
         { mode: () => "local" },
         { localIdentName: "[path][name]__[local]--[hash:base64:5]" },
         { localIdentContext: "context" },
-        { localIdentHashPrefix: "hash" },
+        { localIdentHashSalt: "hash" },
         {
           getLocalIdent: (loaderContext, localIdentName, localName) =>
             localName,
@@ -73,7 +73,7 @@ describe("validate options", () => {
         { mode: "pures" },
         { localIdentName: true },
         { localIdentContext: true },
-        { localIdentHashPrefix: true },
+        { localIdentHashSalt: true },
         { getLocalIdent: [] },
         { localIdentRegExp: true },
         { exportGlobals: "invalid" },

@@ -2817,9 +2817,9 @@ Array [
 
 exports[`"modules" option should work and respect the "getLocalIdent" option: warnings 1`] = `Array []`;
 
-exports[`"modules" option should work and respect the "hashPrefix" option: errors 1`] = `Array []`;
+exports[`"modules" option should work and respect the "hashSalt" option: errors 1`] = `Array []`;
 
-exports[`"modules" option should work and respect the "hashPrefix" option: module 1`] = `
+exports[`"modules" option should work and respect the "hashSalt" option: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -2879,7 +2879,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option should work and respect the "hashPrefix" option: result 1`] = `
+exports[`"modules" option should work and respect the "hashSalt" option: result 1`] = `
 Array [
   Array [
     "./modules/localIdentName/localIdentName.css",
@@ -3002,7 +3002,7 @@ Array [
 ]
 `;
 
-exports[`"modules" option should work and respect the "hashPrefix" option: warnings 1`] = `Array []`;
+exports[`"modules" option should work and respect the "hashSalt" option: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work and respect the "localConvention" option with the "asIs" value: errors 1`] = `Array []`;
 

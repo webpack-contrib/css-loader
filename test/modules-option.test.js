@@ -188,11 +188,11 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "hashPrefix" option', async () => {
+  it('should work and respect the "hashSalt" option', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
         localIdentName: "[local]--[hash]",
-        localIdentHashPrefix: "x",
+        localIdentHashSalt: "x",
       },
     });
     const stats = await compile(compiler);
@@ -278,7 +278,7 @@ describe('"modules" option', () => {
       modules: {
         localIdentRegExp: "regExp",
         localIdentContext: "context",
-        localIdentHashPrefix: "hash",
+        localIdentHashSalt: "hash",
         getLocalIdent(loaderContext, localIdentName, localName, options) {
           expect(loaderContext).toBeDefined();
           expect(typeof localIdentName).toBe("string");
@@ -287,7 +287,7 @@ describe('"modules" option', () => {
 
           expect(options.regExp).toBe("regExp");
           expect(options.context).toBe("context");
-          expect(options.hashPrefix).toBe("hash");
+          expect(options.hashSalt).toBe("hash");
 
           return "foo";
         },
