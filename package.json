@@ -43,7 +43,6 @@
   },
   "dependencies": {
     "icss-utils": "^5.1.0",
-    "loader-utils": "^2.0.0",
     "postcss": "^8.2.15",
     "postcss-modules-extract-imports": "^3.0.0",
     "postcss-modules-local-by-default": "^4.0.0",

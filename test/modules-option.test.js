@@ -118,6 +118,38 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work and respect the "localIdentName" option 2', async () => {
+    const compiler = getCompiler(
+      "./modules/localIdentName/localIdentName.js",
+      {
+        modules: {
+          localIdentName: "[name]--[local]--[contenthash]",
+          localIdentContext: path.resolve(__dirname),
+        },
+      },
+      {
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          publicPath: "/webpack/public/path/",
+          assetModuleFilename: "[name][ext]",
+          hashDigestLength: 5,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work and respect the "context" option', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
