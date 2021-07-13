@@ -3,10 +3,16 @@
 exports[`"sourceMap" option false should generate source maps when css was extracted: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option false should generate source maps when css was extracted: extracted css 1`] = `
-".nested {
+"/*!*******************************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/nested/nested.css ***!
+  \\\\*******************************************************************************************/
+.nested {
   color: blue;
 }
 
+/*!***********************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/basic.css ***!
+  \\\\***********************************************************************************/
 .class {
   color: red;
 }
@@ -286,10 +292,16 @@ exports[`"sourceMap" option true should generate source maps and do not change "
 exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: extracted css 1`] = `
-".nested {
+"/*!*****************************************************************************************************!*\\\\
+  !*** css ./src/index.js??ruleSet[1].rules[0].rules[1]!./test/fixtures/source-map/nested/nested.css ***!
+  \\\\*****************************************************************************************************/
+.nested {
   color: blue;
 }
 
+/*!*********************************************************************************************!*\\\\
+  !*** css ./src/index.js??ruleSet[1].rules[0].rules[1]!./test/fixtures/source-map/basic.css ***!
+  \\\\*********************************************************************************************/
 .class {
   color: red;
 }
@@ -301,7 +313,7 @@ exports[`"sourceMap" option true should generate source maps when css was extrac
 exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: source map 1`] = `
 Object {
   "file": "main.xxxxxxxxxxxxxxxxxxxx.css",
-  "mappings": "AAAA;EACE,WAAW;AACb;;ACAA;EACE,UAAU;AACZ",
+  "mappings": "AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
   "names": Array [],
   "sourceRoot": "",
   "sources": Array [
@@ -329,10 +341,16 @@ exports[`"sourceMap" option true should generate source maps when css was extrac
 exports[`"sourceMap" option true should generate source maps when css was extracted: errors 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps when css was extracted: extracted css 1`] = `
-".nested {
+"/*!*******************************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/nested/nested.css ***!
+  \\\\*******************************************************************************************/
+.nested {
   color: blue;
 }
 
+/*!***********************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/basic.css ***!
+  \\\\***********************************************************************************/
 .class {
   color: red;
 }
@@ -344,7 +362,7 @@ exports[`"sourceMap" option true should generate source maps when css was extrac
 exports[`"sourceMap" option true should generate source maps when css was extracted: source map 1`] = `
 Object {
   "file": "main.css",
-  "mappings": "AAAA;EACE,WAAW;AACb;;ACAA;EACE,UAAU;AACZ",
+  "mappings": "AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
   "names": Array [],
   "sourceRoot": "",
   "sources": Array [
