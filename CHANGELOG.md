@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.7](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7) (2021-07-13)
+
+
+### Bug Fixes
+
+* fix crash when source map is unavailable with external URL in `[@import](https://github.com/import)` ([bb76fe4](https://github.com/webpack-contrib/css-loader/commit/bb76fe48a198e74cacf29ad4b1c01d485f4db11f))
+
 ### [5.2.6](https://github.com/webpack-contrib/css-loader/compare/v5.2.5...v5.2.6) (2021-05-24)
 
 
