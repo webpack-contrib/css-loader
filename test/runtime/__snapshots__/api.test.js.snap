@@ -18,6 +18,8 @@ exports[`api should toString with a source map without "sourceRoot" 1`] = `
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsifQ== */"
 `;
 
+exports[`api should toString with a source map without map 1`] = `"@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');"`;
+
 exports[`api should toString with media query 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {body { a: 1; }}"`;
 
 exports[`api should toString with source mapping 1`] = `

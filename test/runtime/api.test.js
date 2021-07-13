@@ -145,6 +145,18 @@ describe("api", () => {
     expect(m.toString()).toMatchSnapshot();
   });
 
+  // https://github.com/webpack-contrib/css-loader/issues/1322
+  it("should toString with a source map without map", () => {
+    const m = api(cssWithMappingToString);
+
+    m.push([
+      1,
+      "@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');",
+    ]);
+
+    expect(m.toString()).toMatchSnapshot();
+  });
+
   it("should import modules with dedupe", () => {
     const m = api((i) => i[1]);
 
