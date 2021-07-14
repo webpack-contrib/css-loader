@@ -6,32 +6,70 @@ exports[`validate options should throw an error on the "esModule" option with "t
    -> Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule)."
 `;
 
+exports[`validate options should throw an error on the "import" option with "() => {}" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.import should be one of these:
+   boolean | object { filter?, loaders? }
+   -> Allows to enables/disables \`@import\` at-rules handling (https://github.com/webpack-contrib/css-loader#import).
+   Details:
+    * options.import should be a boolean.
+    * options.import should be an object:
+      object { filter?, loaders? }"
+`;
+
+exports[`validate options should throw an error on the "import" option with "[]" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.import should be one of these:
+   boolean | object { filter?, loaders? }
+   -> Allows to enables/disables \`@import\` at-rules handling (https://github.com/webpack-contrib/css-loader#import).
+   Details:
+    * options.import should be a boolean.
+    * options.import should be an object:
+      object { filter?, loaders? }"
+`;
+
+exports[`validate options should throw an error on the "import" option with "{"filter":true}" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.import.filter should be an instance of function."
+`;
+
+exports[`validate options should throw an error on the "import" option with "{"loaders":2.5}" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.import should be one of these:
+   boolean | object { filter?, loaders? }
+   -> Allows to enables/disables \`@import\` at-rules handling (https://github.com/webpack-contrib/css-loader#import).
+   Details:
+    * options.import.loaders should be one of these:
+      boolean | string | integer
+      -> Enables/Disables or setups number of loaders applied before CSS loader (https://github.com/webpack-contrib/css-loader#importloaders).
+      Details:
+       * options.import.loaders should be a boolean.
+       * options.import.loaders should be a string.
+       * options.import.loaders should be a integer."
+`;
+
+exports[`validate options should throw an error on the "import" option with "{}" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.import has an unknown property 'unknown'. These properties are valid:
+   object { filter?, loaders? }"
+`;
+
 exports[`validate options should throw an error on the "import" option with "true" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.import should be one of these:
-   boolean | function
-   -> Enables/Disables '@import' at-rules handling (https://github.com/webpack-contrib/css-loader#import).
+   boolean | object { filter?, loaders? }
+   -> Allows to enables/disables \`@import\` at-rules handling (https://github.com/webpack-contrib/css-loader#import).
    Details:
     * options.import should be a boolean.
-    * options.import should be an instance of function."
-`;
-
-exports[`validate options should throw an error on the "importLoaders" option with "2.5" value 1`] = `
-"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
- - options.importLoaders should be one of these:
-   boolean | string | integer
-   -> Enables/Disables or setups number of loaders applied before CSS loader (https://github.com/webpack-contrib/css-loader#importloaders).
-   Details:
-    * options.importLoaders should be a boolean.
-    * options.importLoaders should be a string.
-    * options.importLoaders should be a integer."
+    * options.import should be an object:
+      object { filter?, loaders? }"
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"auto":"invalid"}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules.auto should be one of these:
       RegExp | function | boolean
@@ -40,13 +78,6 @@ exports[`validate options should throw an error on the "modules" option with "{"
        * options.modules.auto should be an instance of RegExp.
        * options.modules.auto should be an instance of function.
        * options.modules.auto should be a boolean."
-`;
-
-exports[`validate options should throw an error on the "modules" option with "{"compileType":"unknown"}" value 1`] = `
-"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
- - options.modules.compileType should be one of these:
-   \\"module\\" | \\"icss\\"
-   -> Controls the extent to which css-loader will process module code (https://github.com/webpack-contrib/css-loader#type)"
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"exportGlobals":"invalid"}" value 1`] = `
@@ -80,10 +111,10 @@ exports[`validate options should throw an error on the "modules" option with "{"
    -> Allows to redefine basic loader context for local ident name (https://github.com/webpack-contrib/css-loader#localidentcontext)."
 `;
 
-exports[`validate options should throw an error on the "modules" option with "{"localIdentHashPrefix":true}" value 1`] = `
+exports[`validate options should throw an error on the "modules" option with "{"localIdentHashSalt":true}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
- - options.modules.localIdentHashPrefix should be a non-empty string.
-   -> Allows to add custom hash to generate more unique classes (https://github.com/webpack-contrib/css-loader#localidenthashprefix)."
+ - options.modules.localIdentHashSalt should be a non-empty string.
+   -> Allows to add custom hash to generate more unique classes (https://github.com/webpack-contrib/css-loader#localidenthashsalt)."
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"localIdentName":true}" value 1`] = `
@@ -95,8 +126,8 @@ exports[`validate options should throw an error on the "modules" option with "{"
 exports[`validate options should throw an error on the "modules" option with "{"localIdentRegExp":true}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules.localIdentRegExp should be one of these:
       non-empty string | RegExp
@@ -109,60 +140,60 @@ exports[`validate options should throw an error on the "modules" option with "{"
 exports[`validate options should throw an error on the "modules" option with "{"mode":"globals"}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules.mode should be one of these:
-      \\"local\\" | \\"global\\" | \\"pure\\" | function
+      \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | function
       -> Setup \`mode\` option (https://github.com/webpack-contrib/css-loader#mode).
       Details:
        * options.modules.mode should be one of these:
-         \\"local\\" | \\"global\\" | \\"pure\\"
+         \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\"
        * options.modules.mode should be an instance of function."
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"mode":"locals"}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules.mode should be one of these:
-      \\"local\\" | \\"global\\" | \\"pure\\" | function
+      \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | function
       -> Setup \`mode\` option (https://github.com/webpack-contrib/css-loader#mode).
       Details:
        * options.modules.mode should be one of these:
-         \\"local\\" | \\"global\\" | \\"pure\\"
+         \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\"
        * options.modules.mode should be an instance of function."
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"mode":"pures"}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules.mode should be one of these:
-      \\"local\\" | \\"global\\" | \\"pure\\" | function
+      \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | function
       -> Setup \`mode\` option (https://github.com/webpack-contrib/css-loader#mode).
       Details:
        * options.modules.mode should be one of these:
-         \\"local\\" | \\"global\\" | \\"pure\\"
+         \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\"
        * options.modules.mode should be an instance of function."
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"mode":true}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules.mode should be one of these:
-      \\"local\\" | \\"global\\" | \\"pure\\" | function
+      \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | function
       -> Setup \`mode\` option (https://github.com/webpack-contrib/css-loader#mode).
       Details:
        * options.modules.mode should be one of these:
-         \\"local\\" | \\"global\\" | \\"pure\\"
+         \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\"
        * options.modules.mode should be an instance of function."
 `;
 
@@ -175,115 +206,149 @@ exports[`validate options should throw an error on the "modules" option with "{"
 exports[`validate options should throw an error on the "modules" option with "globals" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules should be a boolean.
     * options.modules should be one of these:
-      \\"local\\" | \\"global\\" | \\"pure\\"
+      \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\"
     * options.modules should be an object:
-      object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }"
+      object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }"
 `;
 
 exports[`validate options should throw an error on the "modules" option with "locals" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules should be a boolean.
     * options.modules should be one of these:
-      \\"local\\" | \\"global\\" | \\"pure\\"
+      \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\"
     * options.modules should be an object:
-      object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }"
+      object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }"
 `;
 
 exports[`validate options should throw an error on the "modules" option with "pures" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules should be a boolean.
     * options.modules should be one of these:
-      \\"local\\" | \\"global\\" | \\"pure\\"
+      \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\"
     * options.modules should be an object:
-      object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }"
+      object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }"
 `;
 
 exports[`validate options should throw an error on the "modules" option with "true" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.modules should be one of these:
-   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
-   -> Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).
    Details:
     * options.modules should be a boolean.
     * options.modules should be one of these:
-      \\"local\\" | \\"global\\" | \\"pure\\"
+      \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\"
     * options.modules should be an object:
-      object { compileType?, auto?, mode?, localIdentName?, localIdentContext?, localIdentHashPrefix?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }"
+      object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }"
 `;
 
 exports[`validate options should throw an error on the "sourceMap" option with "true" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.sourceMap should be a boolean.
-   -> Enables/Disables generation of source maps (https://github.com/webpack-contrib/css-loader#sourcemap)."
+   -> Allows to enable/disable source maps (https://github.com/webpack-contrib/css-loader#sourcemap)."
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "/test/" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "[]" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{"foo":"bar"}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "1" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "false" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "test" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "true" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { url?, import?, modules?, sourceMap?, importLoaders?, esModule? }"
+   object { url?, import?, modules?, sourceMap?, esModule? }"
+`;
+
+exports[`validate options should throw an error on the "url" option with "() => {}" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.url should be one of these:
+   boolean | object { filter? }
+   -> Allow to enable/disables handling the CSS functions \`url\` and \`image-set\` (https://github.com/webpack-contrib/css-loader#url).
+   Details:
+    * options.url should be a boolean.
+    * options.url should be an object:
+      object { filter? }"
+`;
+
+exports[`validate options should throw an error on the "url" option with "[]" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.url should be one of these:
+   boolean | object { filter? }
+   -> Allow to enable/disables handling the CSS functions \`url\` and \`image-set\` (https://github.com/webpack-contrib/css-loader#url).
+   Details:
+    * options.url should be a boolean.
+    * options.url should be an object:
+      object { filter? }"
+`;
+
+exports[`validate options should throw an error on the "url" option with "{"filter":true}" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.url.filter should be an instance of function."
+`;
+
+exports[`validate options should throw an error on the "url" option with "{}" value 1`] = `
+"Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
+ - options.url has an unknown property 'unknown'. These properties are valid:
+   object { filter? }"
 `;
 
 exports[`validate options should throw an error on the "url" option with "true" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.url should be one of these:
-   boolean | function
-   -> Enables/Disables 'url'/'image-set' functions handling (https://github.com/webpack-contrib/css-loader#url).
+   boolean | object { filter? }
+   -> Allow to enable/disables handling the CSS functions \`url\` and \`image-set\` (https://github.com/webpack-contrib/css-loader#url).
    Details:
     * options.url should be a boolean.
-    * options.url should be an instance of function."
+    * options.url should be an object:
+      object { filter? }"
 `;

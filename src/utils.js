@@ -5,13 +5,84 @@
 import { fileURLToPath } from "url";
 import path from "path";
 
-import { urlToRequest, interpolateName } from "loader-utils";
 import modulesValues from "postcss-modules-values";
 import localByDefault from "postcss-modules-local-by-default";
 import extractImports from "postcss-modules-extract-imports";
 import modulesScope from "postcss-modules-scope";
 
 const WEBPACK_IGNORE_COMMENT_REGEXP = /webpackIgnore:(\s+)?(true|false)/;
+
+const matchRelativePath = /^\.\.?[/\\]/;
+
+function isAbsolutePath(str) {
+  return path.posix.isAbsolute(str) || path.win32.isAbsolute(str);
+}
+
+function isRelativePath(str) {
+  return matchRelativePath.test(str);
+}
+
+function stringifyRequest(loaderContext, request) {
+  const splitted = request.split("!");
+  const { context } = loaderContext;
+
+  return JSON.stringify(
+    splitted
+      .map((part) => {
+        // First, separate singlePath from query, because the query might contain paths again
+        const splittedPart = part.match(/^(.*?)(\?.*)/);
+        const query = splittedPart ? splittedPart[2] : "";
+        let singlePath = splittedPart ? splittedPart[1] : part;
+
+        if (isAbsolutePath(singlePath) && context) {
+          singlePath = path.relative(context, singlePath);
+
+          if (isAbsolutePath(singlePath)) {
+            // If singlePath still matches an absolute path, singlePath was on a different drive than context.
+            // In this case, we leave the path platform-specific without replacing any separators.
+            // @see https://github.com/webpack/loader-utils/pull/14
+            return singlePath + query;
+          }
+
+          if (isRelativePath(singlePath) === false) {
+            // Ensure that the relative path starts at least with ./ otherwise it would be a request into the modules directory (like node_modules).
+            singlePath = `./${singlePath}`;
+          }
+        }
+
+        return singlePath.replace(/\\/g, "/") + query;
+      })
+      .join("!")
+  );
+}
+
+// We can't use path.win32.isAbsolute because it also matches paths starting with a forward slash
+const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
+const IS_MODULE_REQUEST = /^[^?]*~/;
+
+function urlToRequest(url, root) {
+  let request;
+
+  if (IS_NATIVE_WIN32_PATH.test(url)) {
+    // absolute windows path, keep it
+    request = url;
+  } else if (typeof root !== "undefined" && /^\//.test(url)) {
+    request = root + url;
+  } else if (/^\.\.?\//.test(url)) {
+    // A relative url stays
+    request = url;
+  } else {
+    // every other url is threaded like a relative url
+    request = `./${url}`;
+  }
+
+  // A `~` makes the url an module
+  if (IS_MODULE_REQUEST.test(request)) {
+    request = request.replace(IS_MODULE_REQUEST, "");
+  }
+
+  return request;
+}
 
 // eslint-disable-next-line no-useless-escape
 const regexSingleEscape = /[ -,.\/:-@[\]\^`{-~]/;
@@ -261,9 +332,74 @@ function defaultGetLocalIdent(
   );
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${options.hashPrefix}${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
+  options.content = `${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
 
-  return interpolateName(loaderContext, localIdentName, options);
+  let { hashFunction, hashDigest, hashDigestLength } = options;
+  const mathes = localIdentName.match(
+    /\[(?:([^:\]]+):)?(?:(hash|contenthash|fullhash))(?::([a-z]+\d*))?(?::(\d+))?\]/i
+  );
+
+  if (mathes) {
+    const hashName = mathes[2] || hashFunction;
+
+    hashFunction = mathes[1] || hashFunction;
+    hashDigest = mathes[3] || hashDigest;
+    hashDigestLength = mathes[4] || hashDigestLength;
+
+    // `hash` and `contenthash` are same in `loader-utils` context
+    // let's keep `hash` for backward compatibility
+
+    // eslint-disable-next-line no-param-reassign
+    localIdentName = localIdentName.replace(
+      /\[(?:([^:\]]+):)?(?:hash|contenthash|fullhash)(?::([a-z]+\d*))?(?::(\d+))?\]/gi,
+      () => (hashName === "fullhash" ? "[fullhash]" : "[contenthash]")
+    );
+  }
+
+  // eslint-disable-next-line no-underscore-dangle
+  const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
+  const { hashSalt } = options;
+
+  if (hashSalt) {
+    hash.update(hashSalt);
+  }
+
+  hash.update(options.content);
+
+  const localIdentHash = hash
+    .digest(hashDigest)
+    .slice(0, hashDigestLength)
+    .replace(/[/+]/g, "_")
+    .replace(/^\d/g, "_");
+
+  // TODO need improve on webpack side, we should allow to pass hash/contentHash without chunk property, also `data` for `getPath` should be looks good without chunk property
+  const ext = path.extname(loaderContext.resourcePath);
+  const base = path.basename(loaderContext.resourcePath);
+  const name = base.slice(0, base.length - ext.length);
+  const data = {
+    filename: path.relative(options.context, loaderContext.resourcePath),
+    contentHash: localIdentHash,
+    chunk: {
+      name,
+      hash: localIdentHash,
+      contentHash: localIdentHash,
+    },
+  };
+
+  // eslint-disable-next-line no-underscore-dangle
+  return loaderContext._compilation.getPath(localIdentName, data);
+}
+
+function fixedEncodeURIComponent(str) {
+  return str.replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16)}`);
+}
+
+function isDataUrl(url) {
+  if (/^data:/i.test(url)) {
+    return true;
+  }
+
+  return false;
 }
 
 const NATIVE_WIN32_PATH = /^[A-Z]:[/\\]|^\\\\/i;
@@ -289,6 +425,11 @@ function normalizeUrl(url, isStringValue) {
 
   normalizedUrl = unescape(normalizedUrl);
 
+  if (isDataUrl(url)) {
+    // Todo fixedEncodeURIComponent is workaround. Webpack resolver shouldn't handle "!" in dataURL
+    return fixedEncodeURIComponent(normalizedUrl);
+  }
+
   try {
     normalizedUrl = decodeURI(normalizedUrl);
   } catch (error) {
@@ -298,14 +439,27 @@ function normalizeUrl(url, isStringValue) {
   return normalizedUrl;
 }
 
-function requestify(url, rootContext) {
-  if (/^file:/i.test(url)) {
-    return fileURLToPath(url);
+function requestify(url, rootContext, needToResolveURL = true) {
+  if (needToResolveURL) {
+    if (/^file:/i.test(url)) {
+      return fileURLToPath(url);
+    }
+
+    return url.charAt(0) === "/"
+      ? urlToRequest(url, rootContext)
+      : urlToRequest(url);
   }
 
-  return url.charAt(0) === "/"
-    ? urlToRequest(url, rootContext)
-    : urlToRequest(url);
+  if (url.charAt(0) === "/" || /^file:/i.test(url)) {
+    return url;
+  }
+
+  // A `~` makes the url an module
+  if (IS_MODULE_REQUEST.test(url)) {
+    return url.replace(IS_MODULE_REQUEST, "");
+  }
+
+  return url;
 }
 
 function getFilter(filter, resourcePath) {
@@ -318,6 +472,10 @@ function getFilter(filter, resourcePath) {
   };
 }
 
+function getImportLoaders(loaders) {
+  return typeof loaders === "string" ? parseInt(loaders, 10) : loaders;
+}
+
 function getValidLocalName(localName, exportLocalsConvention) {
   if (exportLocalsConvention === "dashesOnly") {
     return dashesCamelCase(localName);
@@ -326,89 +484,88 @@ function getValidLocalName(localName, exportLocalsConvention) {
   return camelCase(localName);
 }
 
-const moduleRegExp = /\.module(s)?\.\w+$/i;
-const icssRegExp = /\.icss\.\w+$/i;
+const IS_MODULES = /\.module(s)?\.\w+$/i;
+const IS_ICSS = /\.icss\.\w+$/i;
 
 function getModulesOptions(rawOptions, loaderContext) {
+  if (typeof rawOptions.modules === "boolean" && rawOptions.modules === false) {
+    return false;
+  }
+
   const resourcePath =
     // eslint-disable-next-line no-underscore-dangle
     (loaderContext._module && loaderContext._module.matchResource) ||
     loaderContext.resourcePath;
 
-  let isIcss;
+  let auto;
+  let rawModulesOptions;
 
   if (typeof rawOptions.modules === "undefined") {
-    const isModules = moduleRegExp.test(resourcePath);
-
-    if (!isModules) {
-      isIcss = icssRegExp.test(resourcePath);
-    }
-
-    if (!isModules && !isIcss) {
-      return false;
-    }
-  } else if (
-    typeof rawOptions.modules === "boolean" &&
-    rawOptions.modules === false
-  ) {
-    return false;
+    rawModulesOptions = {};
+    auto = true;
+  } else if (typeof rawOptions.modules === "boolean") {
+    rawModulesOptions = {};
+  } else if (typeof rawOptions.modules === "string") {
+    rawModulesOptions = { mode: rawOptions.modules };
+  } else {
+    rawModulesOptions = rawOptions.modules;
+    ({ auto } = rawModulesOptions);
   }
 
-  let modulesOptions = {
-    compileType: isIcss ? "icss" : "module",
-    auto: true,
+  // eslint-disable-next-line no-underscore-dangle
+  const { outputOptions } = loaderContext._compilation;
+  const modulesOptions = {
+    auto,
     mode: "local",
     exportGlobals: false,
     localIdentName: "[hash:base64]",
     localIdentContext: loaderContext.rootContext,
-    localIdentHashPrefix: "",
+    localIdentHashSalt: outputOptions.hashSalt,
+    localIdentHashFunction: outputOptions.hashFunction,
+    localIdentHashDigest: outputOptions.hashDigest,
+    localIdentHashDigestLength: outputOptions.hashDigestLength,
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
     namedExport: false,
-    exportLocalsConvention: "asIs",
+    exportLocalsConvention:
+      rawModulesOptions.namedExport === true &&
+      typeof rawModulesOptions.exportLocalsConvention === "undefined"
+        ? "camelCaseOnly"
+        : "asIs",
     exportOnlyLocals: false,
+    ...rawModulesOptions,
   };
 
-  if (
-    typeof rawOptions.modules === "boolean" ||
-    typeof rawOptions.modules === "string"
-  ) {
-    modulesOptions.mode =
-      typeof rawOptions.modules === "string" ? rawOptions.modules : "local";
-  } else {
-    if (rawOptions.modules) {
-      if (typeof rawOptions.modules.auto === "boolean") {
-        const isModules =
-          rawOptions.modules.auto && moduleRegExp.test(resourcePath);
+  if (typeof modulesOptions.auto === "boolean") {
+    const isModules = modulesOptions.auto && IS_MODULES.test(resourcePath);
 
-        if (!isModules) {
-          return false;
-        }
-      } else if (rawOptions.modules.auto instanceof RegExp) {
-        const isModules = rawOptions.modules.auto.test(resourcePath);
+    let isIcss;
 
-        if (!isModules) {
-          return false;
-        }
-      } else if (typeof rawOptions.modules.auto === "function") {
-        const isModule = rawOptions.modules.auto(resourcePath);
+    if (!isModules) {
+      isIcss = IS_ICSS.test(resourcePath);
 
-        if (!isModule) {
-          return false;
-        }
-      }
-
-      if (
-        rawOptions.modules.namedExport === true &&
-        typeof rawOptions.modules.exportLocalsConvention === "undefined"
-      ) {
-        modulesOptions.exportLocalsConvention = "camelCaseOnly";
+      if (isIcss) {
+        modulesOptions.mode = "icss";
       }
     }
 
-    modulesOptions = { ...modulesOptions, ...(rawOptions.modules || {}) };
+    if (!isModules && !isIcss) {
+      return false;
+    }
+  } else if (modulesOptions.auto instanceof RegExp) {
+    const isModules = modulesOptions.auto.test(resourcePath);
+
+    if (!isModules) {
+      return false;
+    }
+  } else if (typeof modulesOptions.auto === "function") {
+    const isModule = modulesOptions.auto(resourcePath);
+
+    if (!isModule) {
+      return false;
+    }
   }
 
   if (typeof modulesOptions.mode === "function") {
@@ -432,12 +589,6 @@ function getModulesOptions(rawOptions, loaderContext) {
     }
   }
 
-  if (/\[emoji(?::(\d+))?\]/i.test(modulesOptions.localIdentName)) {
-    loaderContext.emitWarning(
-      "Emoji is deprecated and will be removed in next major release."
-    );
-  }
-
   return modulesOptions;
 }
 
@@ -452,10 +603,6 @@ function normalizeOptions(rawOptions, loaderContext) {
       typeof rawOptions.sourceMap === "boolean"
         ? rawOptions.sourceMap
         : loaderContext.sourceMap,
-    importLoaders:
-      typeof rawOptions.importLoaders === "string"
-        ? parseInt(rawOptions.importLoaders, 10)
-        : rawOptions.importLoaders,
     esModule:
       typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
   };
@@ -486,7 +633,11 @@ function shouldUseURLPlugin(options) {
 }
 
 function shouldUseModulesPlugins(options) {
-  return options.modules.compileType === "module";
+  if (typeof options.modules === "boolean" && options.modules === false) {
+    return false;
+  }
+
+  return options.modules.mode !== "icss";
 }
 
 function shouldUseIcssPlugin(options) {
@@ -499,7 +650,10 @@ function getModulesPlugins(options, loaderContext) {
     getLocalIdent,
     localIdentName,
     localIdentContext,
-    localIdentHashPrefix,
+    localIdentHashSalt,
+    localIdentHashFunction,
+    localIdentHashDigest,
+    localIdentHashDigestLength,
     localIdentRegExp,
   } = options.modules;
 
@@ -521,7 +675,10 @@ function getModulesPlugins(options, loaderContext) {
               unescape(exportName),
               {
                 context: localIdentContext,
-                hashPrefix: localIdentHashPrefix,
+                hashSalt: localIdentHashSalt,
+                hashFunction: localIdentHashFunction,
+                hashDigest: localIdentHashDigest,
+                hashDigestLength: localIdentHashDigestLength,
                 regExp: localIdentRegExp,
               }
             );
@@ -536,7 +693,10 @@ function getModulesPlugins(options, loaderContext) {
               unescape(exportName),
               {
                 context: localIdentContext,
-                hashPrefix: localIdentHashPrefix,
+                hashSalt: localIdentHashSalt,
+                hashFunction: localIdentHashFunction,
+                hashDigest: localIdentHashDigest,
+                hashDigestLength: localIdentHashDigestLength,
                 regExp: localIdentRegExp,
               }
             );
@@ -559,7 +719,6 @@ function getModulesPlugins(options, loaderContext) {
   return plugins;
 }
 
-const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
 const ABSOLUTE_SCHEME = /^[a-z0-9+\-.]+:/i;
 
 function getURLType(source) {
@@ -651,7 +810,7 @@ function getImportCode(imports, options) {
   let code = "";
 
   for (const item of imports) {
-    const { importName, url, icss } = item;
+    const { importName, url, icss, type } = item;
 
     if (options.esModule) {
       if (icss && options.modules.namedExport) {
@@ -659,7 +818,10 @@ function getImportCode(imports, options) {
           options.modules.exportOnlyLocals ? "" : `${importName}, `
         }* as ${importName}_NAMED___ from ${url};\n`;
       } else {
-        code += `import ${importName} from ${url};\n`;
+        code +=
+          type === "url"
+            ? `var ${importName} = new URL(${url}, import.meta.url);\n`
+            : `import ${importName} from ${url};\n`;
       }
     } else {
       code += `var ${importName} = require(${url});\n`;
@@ -939,6 +1101,7 @@ export {
   normalizeUrl,
   requestify,
   getFilter,
+  getImportLoaders,
   getModulesOptions,
   getModulesPlugins,
   normalizeSourceMap,
@@ -952,4 +1115,6 @@ export {
   WEBPACK_IGNORE_COMMENT_REGEXP,
   combineRequests,
   camelCase,
+  stringifyRequest,
+  isDataUrl,
 };

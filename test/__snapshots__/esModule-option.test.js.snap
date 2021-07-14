@@ -5,9 +5,9 @@ exports[`"esModule" option should work when not specified: errors 1`] = `Array [
 exports[`"esModule" option should work when not specified: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
@@ -21,7 +21,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"esModule" option should work when not specified: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./es-module/imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".foo {
   color: red;
 }
@@ -36,7 +36,7 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -51,7 +51,7 @@ exports[`"esModule" option should work with a value equal to "false": errors 1`]
 exports[`"esModule" option should work with a value equal to "false": module 1`] = `
 "// Imports
 var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\");
 var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
 var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./img.png\\");
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -67,7 +67,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 exports[`"esModule" option should work with a value equal to "false": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./es-module/imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".foo {
   color: red;
 }
@@ -97,9 +97,9 @@ exports[`"esModule" option should work with a value equal to "true" and the "mod
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "global": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
@@ -114,7 +114,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "global": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./es-module/imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".foo {
   color: red;
 }
@@ -129,7 +129,7 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -144,17 +144,17 @@ exports[`"esModule" option should work with a value equal to "true" and the "mod
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "local": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.oFwPvuANP2XsfGir7HPVz {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.Yz6vxyapD7cLc0x63wym {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"class\\": \\"oFwPvuANP2XsfGir7HPVz\\"
+	\\"class\\": \\"Yz6vxyapD7cLc0x63wym\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -163,8 +163,8 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "local": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./es-module/imported.css",
-    "._2sn2s-Iv44Mnv3FmSmFVuI {
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
+    ".rJenlm2lw3fBBPGxPidc {
   color: red;
 }
 ",
@@ -176,9 +176,9 @@ Array [
 
 /* Comment */
 
-.oFwPvuANP2XsfGir7HPVz {
+.Yz6vxyapD7cLc0x63wym {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -193,17 +193,17 @@ exports[`"esModule" option should work with a value equal to "true" and the "mod
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "pure": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.oFwPvuANP2XsfGir7HPVz {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.Yz6vxyapD7cLc0x63wym {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"class\\": \\"oFwPvuANP2XsfGir7HPVz\\"
+	\\"class\\": \\"Yz6vxyapD7cLc0x63wym\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -212,8 +212,8 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "pure": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./es-module/imported.css",
-    "._2sn2s-Iv44Mnv3FmSmFVuI {
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
+    ".rJenlm2lw3fBBPGxPidc {
   color: red;
 }
 ",
@@ -225,9 +225,9 @@ Array [
 
 /* Comment */
 
-.oFwPvuANP2XsfGir7HPVz {
+.Yz6vxyapD7cLc0x63wym {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",
@@ -242,9 +242,9 @@ exports[`"esModule" option should work with a value equal to "true": errors 1`] 
 exports[`"esModule" option should work with a value equal to "true": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??[ident]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img.png\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
@@ -258,7 +258,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"esModule" option should work with a value equal to "true": result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./es-module/imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".foo {
   color: red;
 }
@@ -273,7 +273,7 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 ",
     "",

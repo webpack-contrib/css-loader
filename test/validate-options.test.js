@@ -3,12 +3,27 @@ import { getCompiler, compile } from "./helpers/index";
 describe("validate options", () => {
   const tests = {
     url: {
-      success: [true, false, () => {}],
-      failure: ["true"],
+      success: [true, false, { filter: () => true }],
+      failure: ["true", [], () => {}, { filter: true }, { unknown: () => {} }],
     },
     import: {
-      success: [true, false, () => {}],
-      failure: ["true"],
+      success: [
+        true,
+        false,
+        { filter: () => true },
+        { loaders: false },
+        { loaders: 0 },
+        { loaders: 1 },
+        { loaders: "1" },
+      ],
+      failure: [
+        "true",
+        [],
+        () => {},
+        { filter: true },
+        { unknown: () => {} },
+        { loaders: 2.5 },
+      ],
     },
     modules: {
       success: [
@@ -17,15 +32,18 @@ describe("validate options", () => {
         "global",
         "local",
         "pure",
-        { compileType: "module" },
-        { compileType: "icss" },
+        "icss",
         { mode: "global" },
         { mode: "local" },
         { mode: "pure" },
+        { mode: "icss" },
         { mode: () => "local" },
         { localIdentName: "[path][name]__[local]--[hash:base64:5]" },
         { localIdentContext: "context" },
-        { localIdentHashPrefix: "hash" },
+        { localIdentHashSalt: "hash" },
+        { localIdentHashFunction: "md4" },
+        { localIdentHashDigest: "base64" },
+        { localIdentHashDigestLength: 3 },
         {
           getLocalIdent: (loaderContext, localIdentName, localName) =>
             localName,
@@ -52,14 +70,13 @@ describe("validate options", () => {
         "globals",
         "locals",
         "pures",
-        { compileType: "unknown" },
         { mode: true },
         { mode: "globals" },
         { mode: "locals" },
         { mode: "pures" },
         { localIdentName: true },
         { localIdentContext: true },
-        { localIdentHashPrefix: true },
+        { localIdentHashSalt: true },
         { getLocalIdent: [] },
         { localIdentRegExp: true },
         { exportGlobals: "invalid" },
@@ -72,10 +89,6 @@ describe("validate options", () => {
     sourceMap: {
       success: [true, false],
       failure: ["true"],
-    },
-    importLoaders: {
-      success: [false, 0, 1, 2, "1"],
-      failure: [2.5],
     },
     esModule: {
       success: [true, false],

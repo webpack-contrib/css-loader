@@ -1,7 +1,5 @@
 import path from "path";
 
-import { version } from "webpack";
-
 import postcssPresetEnv from "postcss-preset-env";
 
 import {
@@ -53,7 +51,6 @@ describe("loader", () => {
   });
 
   it('should work with "asset" module type', async () => {
-    const isWebpack5 = version[0] === "5";
     const config = {
       module: {
         rules: [
@@ -65,30 +62,22 @@ describe("loader", () => {
               },
             ],
           },
-          isWebpack5
-            ? {
-                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                type: "asset",
-              }
-            : {
-                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-                loader: "file-loader",
-                options: { name: "[name].[ext]" },
-              },
+          {
+            test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+            type: "asset",
+          },
         ],
       },
     };
 
-    if (isWebpack5) {
-      config.experiments = { asset: true };
-      config.output = {
-        path: path.resolve(__dirname, "outputs"),
-        filename: "[name].bundle.js",
-        chunkFilename: "[name].chunk.js",
-        publicPath: "/webpack/public/path/",
-        assetModuleFilename: "[name][ext]",
-      };
-    }
+    config.experiments = { asset: true };
+    config.output = {
+      path: path.resolve(__dirname, "outputs"),
+      filename: "[name].bundle.js",
+      chunkFilename: "[name].chunk.js",
+      publicPath: "/webpack/public/path/",
+      assetModuleFilename: "[name][ext]",
+    };
 
     const compiler = getCompiler("./basic.js", {}, config);
     const stats = await compile(compiler);
@@ -148,18 +137,13 @@ describe("loader", () => {
               rules: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { importLoaders: 1 },
+                  options: { import: { loaders: 1 } },
                 },
                 {
                   loader: require.resolve("./helpers/ast-loader"),
                   options: { spy },
                 },
               ],
-            },
-            {
-              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-              loader: "file-loader",
-              options: { name: "[name].[ext]" },
             },
           ],
         },
@@ -236,6 +220,7 @@ describe("loader", () => {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
               loader: "file-loader",
               options: { name: "[name].[ext]", esModule: true },
+              type: "javascript/auto",
             },
           ],
         },
@@ -243,12 +228,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    if (stats.compilation.modules.size) {
-      expect(stats.compilation.modules.size).toBe(10);
-    } else {
-      expect(stats.compilation.modules.length).toBe(6);
-    }
-
+    expect(stats.compilation.modules.size).toBe(13);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -269,6 +249,7 @@ describe("loader", () => {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
               loader: "file-loader",
               options: { name: "[name].[ext]", esModule: true },
+              type: "javascript/auto",
             },
           ],
         },
@@ -276,12 +257,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    if (stats.compilation.modules.size) {
-      expect(stats.compilation.modules.size).toBe(10);
-    } else {
-      expect(stats.compilation.modules.length).toBe(6);
-    }
-
+    expect(stats.compilation.modules.size).toBe(13);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -302,6 +278,7 @@ describe("loader", () => {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
               loader: "url-loader",
               options: { name: "[name].[ext]", limit: true, esModule: true },
+              type: "javascript/auto",
             },
           ],
         },
@@ -309,12 +286,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    if (stats.compilation.modules.size) {
-      expect(stats.compilation.modules.size).toBe(9);
-    } else {
-      expect(stats.compilation.modules.length).toBe(6);
-    }
-
+    expect(stats.compilation.modules.size).toBe(12);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -363,7 +335,7 @@ describe("loader", () => {
     expect(getErrors(stats, false, "postcss")).toMatchSnapshot("errors");
   });
 
-  it('should work with the "modules.auto" option and the "importLoaders" option', async () => {
+  it('should work with the "modules.auto" option and the "import.loaders" option', async () => {
     const compiler = getCompiler(
       "./integration/index.js",
       {},
@@ -378,7 +350,7 @@ describe("loader", () => {
                   options: {
                     // Run only `postcss-loader` on each `@import`
                     // If you need run `sass-loader` and `postcss-loader` please set it to `2`
-                    importLoaders: 1,
+                    import: { loaders: 1 },
                     // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
                     modules: { auto: true },
                   },
@@ -537,7 +509,7 @@ describe("loader", () => {
               rules: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { importLoaders: 1 },
+                  options: { import: { loaders: 1 } },
                 },
                 {
                   loader: "sass-loader",

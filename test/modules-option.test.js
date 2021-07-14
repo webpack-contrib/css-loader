@@ -1,8 +1,6 @@
 import path from "path";
 import fs from "fs";
 
-import webpack from "webpack";
-
 import {
   compile,
   getCompiler,
@@ -16,8 +14,6 @@ const testCasesPath = path.join(__dirname, "fixtures/modules/tests-cases");
 const testCases = fs.readdirSync(testCasesPath);
 
 jest.setTimeout(60000);
-
-const isWebpack5 = webpack.version.startsWith(5);
 
 describe('"modules" option', () => {
   [
@@ -118,6 +114,38 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work and respect the "localIdentName" option 2', async () => {
+    const compiler = getCompiler(
+      "./modules/localIdentName/localIdentName.js",
+      {
+        modules: {
+          localIdentName: "[name]--[local]--[contenthash]",
+          localIdentContext: path.resolve(__dirname),
+        },
+      },
+      {
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          publicPath: "/webpack/public/path/",
+          assetModuleFilename: "[name][ext]",
+          hashDigestLength: 5,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work and respect the "context" option', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
@@ -156,11 +184,50 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "hashPrefix" option', async () => {
+  it('should work and respect the "hashSalt" option', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
         localIdentName: "[local]--[hash]",
-        localIdentHashPrefix: "x",
+        localIdentHashSalt: "x",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work and respect the "localIdentHashFunction" option', async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: {
+        localIdentName: "[local]--[hash]",
+        localIdentHashFunction: "sha256",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work and respect the "localIdentHashFunction" option', async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: {
+        localIdentName: "[local]--[hash]",
+        localIdentHashDigest: "base64",
+        localIdentHashDigestLength: 10,
       },
     });
     const stats = await compile(compiler);
@@ -246,7 +313,7 @@ describe('"modules" option', () => {
       modules: {
         localIdentRegExp: "regExp",
         localIdentContext: "context",
-        localIdentHashPrefix: "hash",
+        localIdentHashSalt: "hash",
         getLocalIdent(loaderContext, localIdentName, localName, options) {
           expect(loaderContext).toBeDefined();
           expect(typeof localIdentName).toBe("string");
@@ -255,7 +322,7 @@ describe('"modules" option', () => {
 
           expect(options.regExp).toBe("regExp");
           expect(options.context).toBe("context");
-          expect(options.hashPrefix).toBe("hash");
+          expect(options.hashSalt).toBe("hash");
 
           return "foo";
         },
@@ -377,7 +444,7 @@ describe('"modules" option', () => {
               test: /source\.css$/,
               loader: path.resolve(__dirname, "../src"),
               options: {
-                importLoaders: false,
+                import: { loaders: false },
                 modules: {
                   localIdentName: "b--[local]",
                 },
@@ -387,7 +454,7 @@ describe('"modules" option', () => {
               test: /dep\.css$/,
               loader: path.resolve(__dirname, "../src"),
               options: {
-                importLoaders: false,
+                import: { loaders: false },
                 modules: {
                   localIdentName: "a--[local]",
                 },
@@ -427,7 +494,7 @@ describe('"modules" option', () => {
                       getLocalIdent: (context, localIdentName, localName) =>
                         `prefix-${localName}`,
                     },
-                    importLoaders: 1,
+                    import: { loaders: 1 },
                   },
                 },
                 {
@@ -819,6 +886,26 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work with the "auto" by default when CSS file is entrypoint', async () => {
+    const compiler = getCompiler([
+      "./modules/mode/entry.css",
+      "./modules/mode/modules.js",
+    ]);
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./modules/mode/entry.css", stats)).toMatchSnapshot(
+      "entry"
+    );
+    expect(
+      getModuleSource("./modules/mode/relative.module.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with the "auto" by default with "modules" filename', async () => {
     const compiler = getCompiler("./modules/mode/modules-2.js");
     const stats = await compile(compiler);
@@ -847,6 +934,24 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work with the "auto" option in the "modules" option for icss', async () => {
+    const compiler = getCompiler("./modules/mode/icss/icss.js", {
+      modules: {
+        auto: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/icss/relative.icss.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with "false" alises', async () => {
     const compiler = getCompiler(
       "./modules/icss-false-alias/icss.js",
@@ -854,30 +959,62 @@ describe('"modules" option', () => {
       {
         resolve: {
           alias: {
-            "./unknown.css": isWebpack5
-              ? false
-              : path.resolve(
-                  __dirname,
-                  "./fixtures/modules/icss-false-alias/unknown.css"
-                ),
+            "./unknown.css": false,
           },
         },
       }
     );
     const stats = await compile(compiler);
 
-    // TODO uncomment after drop webpack v4
-    // expect(
-    //     getModuleSource("./modules/icss-false-alias/relative.icss.css", stats)
-    // ).toMatchSnapshot("module");
-    // expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-    //     "result"
-    // );
+    expect(
+      getModuleSource("./modules/icss-false-alias/relative.icss.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with the "auto" when it is "false"', async () => {
+  it('should work when the "auto" is not specified', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js");
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work when the "auto" is not specified, but specified other modules options', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js", {
+      modules: {
+        localIdentName: "[path][name]__[local]",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with the "auto" option is "false"', async () => {
     const compiler = getCompiler("./modules/mode/modules.js", {
       modules: {
         auto: false,
@@ -895,7 +1032,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with the "auto" when it is "true"', async () => {
+  it('should work with the "auto" option is "true"', async () => {
     const compiler = getCompiler("./modules/mode/modules.js", {
       modules: {
         auto: true,
@@ -906,6 +1043,28 @@ describe('"modules" option', () => {
     expect(
       getModuleSource("./modules/mode/relative.module.css", stats)
     ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work when the "auto" option is "true" with other options', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js", {
+      modules: {
+        auto: true,
+        localIdentName: "[path][name]__[local]",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );
@@ -1411,12 +1570,52 @@ describe('"modules" option', () => {
   const icssTestCases = fs.readdirSync(icssTestCasesPath);
 
   icssTestCases.forEach((name) => {
-    it(`show work with the "compileType" option, case "${name}"`, async () => {
+    it(`show work when the "modules" option is "icss", case "${name}"`, async () => {
+      const compiler = getCompiler(
+        `./modules/icss/tests-cases/${name}/source.js`,
+        {
+          modules: "icss",
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(
+        getModuleSource(`./modules/icss/tests-cases/${name}/source.css`, stats)
+      ).toMatchSnapshot("module");
+      expect(
+        getExecutedCode("main.bundle.js", compiler, stats)
+      ).toMatchSnapshot("result");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+    });
+
+    it(`show work with the "mode: icss" option, case "${name}"`, async () => {
       const compiler = getCompiler(
         `./modules/icss/tests-cases/${name}/source.js`,
         {
           modules: {
-            compileType: "icss",
+            mode: "icss",
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(
+        getModuleSource(`./modules/icss/tests-cases/${name}/source.css`, stats)
+      ).toMatchSnapshot("module");
+      expect(
+        getExecutedCode("main.bundle.js", compiler, stats)
+      ).toMatchSnapshot("result");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+    });
+
+    it(`show work when the "mode" option is function and return "icss" value, case "${name}"`, async () => {
+      const compiler = getCompiler(
+        `./modules/icss/tests-cases/${name}/source.js`,
+        {
+          modules: {
+            mode: () => "icss",
           },
         }
       );
@@ -1433,12 +1632,12 @@ describe('"modules" option', () => {
     });
   });
 
-  it('show work with the "compileType" and "exportOnlyLocals" options', async () => {
+  it('show work with the "mode: icss" and "exportOnlyLocals" options', async () => {
     const compiler = getCompiler(
       "./modules/icss/tests-cases/import/source.js",
       {
         modules: {
-          compileType: "icss",
+          mode: "icss",
           exportOnlyLocals: true,
         },
       }
@@ -1455,12 +1654,12 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('show work with the "compileType" and "namedExport" options', async () => {
+  it('show work with the "mode: icss" and "namedExport" options', async () => {
     const compiler = getCompiler(
       "./modules/icss/tests-cases/import/source.js",
       {
         modules: {
-          compileType: "icss",
+          mode: "icss",
           namedExport: true,
         },
       }
@@ -1477,10 +1676,10 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('show work with the "compileType" option using the "module" value', async () => {
+  it('show work with the "mode" option using the "local" value', async () => {
     const compiler = getCompiler("./modules/composes/composes.js", {
       modules: {
-        compileType: "module",
+        mode: "local",
       },
     });
     const stats = await compile(compiler);

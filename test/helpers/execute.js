@@ -3,6 +3,16 @@ import path from "path";
 
 const parentModule = module;
 
+function replaceAbsolutePath(data) {
+  if (Array.isArray(data)) {
+    return data.map((_) => replaceAbsolutePath(_));
+  }
+
+  return typeof data === "string"
+    ? data.replace(/file:\/\/\/(\D:\/)?/gi, "replaced_file_protocol_/")
+    : data;
+}
+
 export default (code) => {
   const resource = "test.js";
   const module = new Module(resource, parentModule);
@@ -18,5 +28,5 @@ export default (code) => {
     resource
   );
 
-  return module.exports;
+  return replaceAbsolutePath(module.exports);
 };

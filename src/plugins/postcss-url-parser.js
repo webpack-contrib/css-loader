@@ -1,10 +1,11 @@
 import valueParser from "postcss-value-parser";
 
 import {
+  resolveRequests,
   normalizeUrl,
   requestify,
-  resolveRequests,
   isUrlRequestable,
+  isDataUrl,
   WEBPACK_IGNORE_COMMENT_REGEXP,
 } from "../utils";
 
@@ -47,13 +48,23 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
-function shouldHandleURL(url, declaration, result) {
+function shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL) {
   if (url.length === 0) {
     result.warn(`Unable to find uri in '${declaration.toString()}'`, {
       node: declaration,
     });
 
     return false;
+  }
+
+  if (isDataUrl(url) && isSupportDataURLInNewURL) {
+    try {
+      decodeURIComponent(url);
+    } catch (ignoreError) {
+      return false;
+    }
+
+    return true;
   }
 
   if (!isUrlRequestable(url)) {
@@ -63,7 +74,7 @@ function shouldHandleURL(url, declaration, result) {
   return true;
 }
 
-function parseDeclaration(declaration, key, result) {
+function parseDeclaration(declaration, key, result, isSupportDataURLInNewURL) {
   if (!needParseDeclaration.test(declaration[key])) {
     return;
   }
@@ -130,7 +141,9 @@ function parseDeclaration(declaration, key, result) {
       url = normalizeUrl(url, isStringValue);
 
       // Do not traverse inside `url`
-      if (!shouldHandleURL(url, declaration, result)) {
+      if (
+        !shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL)
+      ) {
         // eslint-disable-next-line consistent-return
         return false;
       }
@@ -186,7 +199,9 @@ function parseDeclaration(declaration, key, result) {
           url = normalizeUrl(url, isStringValue);
 
           // Do not traverse inside `url`
-          if (!shouldHandleURL(url, declaration, result)) {
+          if (
+            !shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL)
+          ) {
             // eslint-disable-next-line consistent-return
             return false;
           }
@@ -229,7 +244,9 @@ function parseDeclaration(declaration, key, result) {
           let url = normalizeUrl(value, true);
 
           // Do not traverse inside `url`
-          if (!shouldHandleURL(url, declaration, result)) {
+          if (
+            !shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL)
+          ) {
             // eslint-disable-next-line consistent-return
             return false;
           }
@@ -271,7 +288,13 @@ const plugin = (options = {}) => {
 
       return {
         Declaration(declaration) {
-          const parsedURL = parseDeclaration(declaration, "value", result);
+          const { isSupportDataURLInNewURL } = options;
+          const parsedURL = parseDeclaration(
+            declaration,
+            "value",
+            result,
+            isSupportDataURLInNewURL
+          );
 
           if (!parsedURL) {
             return;
@@ -292,8 +315,14 @@ const plugin = (options = {}) => {
                 const needKeep = await options.filter(url);
 
                 if (!needKeep) {
+                  // eslint-disable-next-line consistent-return
                   return;
                 }
+              }
+
+              if (isDataUrl(url)) {
+                // eslint-disable-next-line consistent-return
+                return parsedDeclaration;
               }
 
               const splittedUrl = url.split(/(\?)?#/);
@@ -302,7 +331,17 @@ const plugin = (options = {}) => {
               let hash = query ? "?" : "";
               hash += hashOrQuery ? `#${hashOrQuery}` : "";
 
-              const request = requestify(pathname, options.rootContext);
+              const { needToResolveURL, rootContext } = options;
+              const request = requestify(
+                pathname,
+                rootContext,
+                needToResolveURL
+              );
+
+              if (!needToResolveURL) {
+                // eslint-disable-next-line consistent-return
+                return { ...parsedDeclaration, url: request, hash };
+              }
 
               const { resolver, context } = options;
               const resolvedUrl = await resolveRequests(resolver, context, [
@@ -310,6 +349,7 @@ const plugin = (options = {}) => {
               ]);
 
               if (!resolvedUrl) {
+                // eslint-disable-next-line consistent-return
                 return;
               }
 
@@ -337,6 +377,7 @@ const plugin = (options = {}) => {
 
             if (!hasUrlImportHelper) {
               options.imports.push({
+                type: "get_url_import",
                 importName: "___CSS_LOADER_GET_URL_IMPORT___",
                 url: options.urlHandler(
                   require.resolve("../runtime/getUrl.js")
@@ -356,8 +397,11 @@ const plugin = (options = {}) => {
               urlToNameMap.set(newUrl, importName);
 
               options.imports.push({
+                type: "url",
                 importName,
-                url: options.urlHandler(newUrl),
+                url: options.needToResolveURL
+                  ? options.urlHandler(newUrl)
+                  : JSON.stringify(newUrl),
                 index,
               });
             }

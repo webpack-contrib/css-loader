@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import webpack from "webpack";
+import postcssPresetEnv from "postcss-preset-env";
 
 import {
   compile,
@@ -11,8 +11,6 @@ import {
   getModuleSource,
   getWarnings,
 } from "./helpers/index";
-
-const isWebpack5 = webpack.version.startsWith(5);
 
 describe('"import" option', () => {
   it("should work when not specified", async () => {
@@ -57,23 +55,25 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work when "Function"', async () => {
+  it("should work with import.filter", async () => {
     const compiler = getCompiler("./import/import.js", {
-      import: (url, media, resourcePath) => {
-        expect(url).toBeDefined();
+      import: {
+        filter: (url, media, resourcePath) => {
+          expect(url).toBeDefined();
 
-        if (url === "test-nested-media.css") {
-          expect(media).toBeDefined();
-        }
+          if (url === "test-nested-media.css") {
+            expect(media).toBeDefined();
+          }
 
-        expect(resourcePath).toBeDefined();
+          expect(resourcePath).toBeDefined();
 
-        // Don't handle `test.css`
-        if (url.includes("test.css")) {
-          return false;
-        }
+          // Don't handle `test.css`
+          if (url.includes("test.css")) {
+            return false;
+          }
 
-        return true;
+          return true;
+        },
       },
     });
     const stats = await compile(compiler);
@@ -215,22 +215,19 @@ describe('"import" option', () => {
         },
         resolve: {
           alias: {
-            "/style.css": isWebpack5
-              ? false
-              : path.resolve(__dirname, "./fixtures/import/alias.css"),
+            "/style.css": false,
           },
         },
       }
     );
     const stats = await compile(compiler);
 
-    // TODO uncomment after drop webpack v4
-    // expect(getModuleSource("./import/false-alias.css", stats)).toMatchSnapshot(
-    //   "module"
-    // );
-    // expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-    //   "result"
-    // );
+    expect(getModuleSource("./import/false-alias.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -241,5 +238,216 @@ describe('"import" option', () => {
 
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats, true)).toMatchSnapshot("errors");
+  });
+
+  it("should work when 'import.loaders' not specified", async () => {
+    const compiler = getCompiler(
+      "./nested-import/source.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              rules: [
+                { loader: path.resolve(__dirname, "../src") },
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./nested-import/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with a "import.loaders" value equal to "0" (`postcss-loader` before)', async () => {
+    const compiler = getCompiler(
+      "./nested-import/source.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: { import: { loaders: 0 } },
+                },
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./nested-import/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with a "import.loaders" value equal to "1" (no loaders before)', async () => {
+    const compiler = getCompiler("./nested-import/source.js");
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./nested-import/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with a "import.loaders" value equal to "1" ("postcss-loader" before)', async () => {
+    const compiler = getCompiler(
+      "./nested-import/source.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: { import: { loaders: 1 } },
+                },
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./nested-import/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with a "import.loaders" value equal to "2" ("postcss-loader" before)', async () => {
+    const compiler = getCompiler(
+      "./nested-import/source.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: { import: { loaders: 2 } },
+                },
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./nested-import/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with a "import.loaders" value equal to ""1"" ("postcss-loader" before)', async () => {
+    const compiler = getCompiler(
+      "./nested-import/source.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: { import: { loaders: "1" } },
+                },
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    postcssOptions: {
+                      plugins: [postcssPresetEnv({ stage: 0 })],
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./nested-import/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 });

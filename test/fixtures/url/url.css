@@ -395,6 +395,28 @@ a {
 
 /* We need to use `resourceQuery: /inline/` */
 /* Hard to test on webpack v4 */
-/*.qqq {*/
-/*  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')*/
-/*}*/
+.qqq {
+  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img-single.png?ignore-asset-modules')
+}
+
+.class {
+  background: url("img.png");
+}
+
+.class {
+  background: url("~img.png");
+}
+
+/** Prefer relative **/
+.class {
+  background: url("nested/img.png");
+}
+
+/** Prefer from modules **/
+.class {
+  background: url("nested/other.png");
+}
+
+.class {
+  background: url("package/img.png");
+}

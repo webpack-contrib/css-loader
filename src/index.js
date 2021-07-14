@@ -2,10 +2,9 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import { getOptions, stringifyRequest } from "loader-utils";
+
 import postcss from "postcss";
 import postcssPkg from "postcss/package.json";
-import { validate } from "schema-utils";
 import { satisfies } from "semver";
 
 import CssSyntaxError from "./CssSyntaxError";
@@ -21,22 +20,18 @@ import {
   getPreRequester,
   getExportCode,
   getFilter,
+  getImportLoaders,
   getImportCode,
   getModuleCode,
   getModulesPlugins,
   normalizeSourceMap,
   sort,
   combineRequests,
+  stringifyRequest,
 } from "./utils";
 
 export default async function loader(content, map, meta) {
-  const rawOptions = getOptions(this);
-
-  validate(schema, rawOptions, {
-    name: "CSS Loader",
-    baseDataPath: "options",
-  });
-
+  const rawOptions = this.getOptions(schema);
   const plugins = [];
   const callback = this.async();
 
@@ -74,12 +69,15 @@ export default async function loader(content, map, meta) {
         api: importPluginApi,
         context: this.context,
         rootContext: this.rootContext,
-        filter: getFilter(options.import, this.resourcePath),
+        filter: getFilter(options.import.filter, this.resourcePath),
         resolver,
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            combineRequests(getPreRequester(this)(options.importLoaders), url)
+            combineRequests(
+              getPreRequester(this)(getImportLoaders(options.import.loaders)),
+              url
+            )
           ),
       })
     );
@@ -88,12 +86,9 @@ export default async function loader(content, map, meta) {
   const urlPluginImports = [];
 
   if (shouldUseURLPlugin(options)) {
-    const urlResolver = this.getResolve({
-      conditionNames: ["asset"],
-      mainFields: ["asset"],
-      mainFiles: [],
-      extensions: [],
-    });
+    const needToResolveURL = !options.esModule;
+    const isSupportDataURLInNewURL =
+      options.esModule && Boolean("fsStartTime" in this._compiler);
 
     plugins.push(
       urlParser({
@@ -101,9 +96,15 @@ export default async function loader(content, map, meta) {
         replacements,
         context: this.context,
         rootContext: this.rootContext,
-        filter: getFilter(options.url, this.resourcePath),
-        resolver: urlResolver,
+        filter: getFilter(options.url.filter, this.resourcePath),
+        needToResolveURL,
+        resolver: needToResolveURL
+          ? this.getResolve({ mainFiles: [], extensions: [] })
+          : // eslint-disable-next-line no-undefined
+            undefined,
         urlHandler: (url) => stringifyRequest(this, url),
+        // Support data urls as input in new URL added in webpack@5.38.0
+        isSupportDataURLInNewURL,
       })
     );
   }
@@ -133,7 +134,10 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            combineRequests(getPreRequester(this)(options.importLoaders), url)
+            combineRequests(
+              getPreRequester(this)(getImportLoaders(options.import.loaders)),
+              url
+            )
           ),
       })
     );
@@ -196,12 +200,14 @@ export default async function loader(content, map, meta) {
 
   if (options.modules.exportOnlyLocals !== true) {
     imports.unshift({
+      type: "api_import",
       importName: "___CSS_LOADER_API_IMPORT___",
       url: stringifyRequest(this, require.resolve("./runtime/api")),
     });
 
     if (options.sourceMap) {
       imports.unshift({
+        type: "api_sourcemap_import",
         importName: "___CSS_LOADER_API_SOURCEMAP_IMPORT___",
         url: stringifyRequest(
           this,

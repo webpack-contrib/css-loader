@@ -6,14 +6,18 @@ import { createFsFromVolume, Volume } from "memfs";
 export default (fixture, loaderOptions = {}, config = {}) => {
   const fullConfig = {
     mode: "development",
+    target: "node",
     devtool: config.devtool || false,
     context: path.resolve(__dirname, "../fixtures"),
-    entry: path.resolve(__dirname, "../fixtures", fixture),
+    entry: Array.isArray(fixture)
+      ? fixture
+      : path.resolve(__dirname, "../fixtures", fixture),
     output: {
       path: path.resolve(__dirname, "../outputs"),
       filename: "[name].bundle.js",
       chunkFilename: "[name].chunk.js",
       publicPath: "/webpack/public/path/",
+      assetModuleFilename: "[name][ext]",
     },
     module: {
       rules: [
@@ -28,8 +32,12 @@ export default (fixture, loaderOptions = {}, config = {}) => {
         },
         {
           test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-          loader: "file-loader",
-          options: { name: "[name].[ext]" },
+          resourceQuery: /^(?!.*\?ignore-asset-modules).*$/,
+          type: "asset/resource",
+        },
+        {
+          resourceQuery: /\?ignore-asset-modules$/,
+          type: "javascript/auto",
         },
       ],
     },
@@ -62,11 +70,7 @@ export default (fixture, loaderOptions = {}, config = {}) => {
   const compiler = webpack(fullConfig);
 
   if (!config.outputFileSystem) {
-    const outputFileSystem = createFsFromVolume(new Volume());
-    // Todo remove when we drop webpack@4 support
-    outputFileSystem.join = path.join.bind(path);
-
-    compiler.outputFileSystem = outputFileSystem;
+    compiler.outputFileSystem = createFsFromVolume(new Volume());
   }
 
   return compiler;
