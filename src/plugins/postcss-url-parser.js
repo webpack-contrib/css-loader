@@ -1,6 +1,7 @@
 import valueParser from "postcss-value-parser";
 
 import {
+  resolveRequests,
   normalizeUrl,
   requestify,
   isUrlRequestable,
@@ -301,20 +302,29 @@ const plugin = (options = {}) => {
               let hash = query ? "?" : "";
               hash += hashOrQuery ? `#${hashOrQuery}` : "";
 
-              const request = requestify(pathname, options.rootContext);
+              const { needToResolveURL, rootContext } = options;
+              const request = requestify(
+                pathname,
+                rootContext,
+                needToResolveURL
+              );
 
-              // const { resolver, context } = options;
-              // const resolvedUrl = await resolveRequests(resolver, context, [
-              //   ...new Set([request, url]),
-              // ]);
-              //
-              // if (!resolvedUrl) {
-              //   return;
-              // }
-              // return { ...parsedDeclaration, url: resolvedUrl, hash };
+              if (!needToResolveURL) {
+                // eslint-disable-next-line consistent-return
+                return { ...parsedDeclaration, url: request, hash };
+              }
+
+              const { resolver, context } = options;
+              const resolvedUrl = await resolveRequests(resolver, context, [
+                ...new Set([request, url]),
+              ]);
+
+              if (!resolvedUrl) {
+                return;
+              }
 
               // eslint-disable-next-line consistent-return
-              return { ...parsedDeclaration, url: request, hash };
+              return { ...parsedDeclaration, url: resolvedUrl, hash };
             })
           );
 
@@ -359,7 +369,9 @@ const plugin = (options = {}) => {
               options.imports.push({
                 type: "url",
                 importName,
-                url: JSON.stringify(newUrl),
+                url: options.needToResolveURL
+                  ? options.urlHandler(newUrl)
+                  : JSON.stringify(newUrl),
                 index,
               });
             }

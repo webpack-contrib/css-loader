@@ -58,9 +58,9 @@ function stringifyRequest(loaderContext, request) {
 
 // We can't use path.win32.isAbsolute because it also matches paths starting with a forward slash
 const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
+const IS_MODULE_REQUEST = /^[^?]*~/;
 
 function urlToRequest(url, root) {
-  const moduleRequestRegex = /^[^?]*~/;
   let request;
 
   if (IS_NATIVE_WIN32_PATH.test(url)) {
@@ -72,14 +72,13 @@ function urlToRequest(url, root) {
     // A relative url stays
     request = url;
   } else {
-    request = url;
     // every other url is threaded like a relative url
-    // request = `./${url}`;
+    request = `./${url}`;
   }
 
   // A `~` makes the url an module
-  if (moduleRequestRegex.test(request)) {
-    request = request.replace(moduleRequestRegex, "");
+  if (IS_MODULE_REQUEST.test(request)) {
+    request = request.replace(IS_MODULE_REQUEST, "");
   }
 
   return request;
@@ -460,12 +459,27 @@ function normalizeUrl(url, isStringValue) {
   return normalizedUrl;
 }
 
-function requestify(url) {
+function requestify(url, rootContext, needToResolveURL) {
   if (/^file:/i.test(url)) {
     return fileURLToPath(url);
   }
 
-  return url.charAt(0) === "/" ? url : urlToRequest(url);
+  if (needToResolveURL) {
+    return url.charAt(0) === "/"
+      ? urlToRequest(url, rootContext)
+      : urlToRequest(url);
+  }
+
+  if (url.charAt(0) === "/") {
+    return url;
+  }
+
+  // A `~` makes the url an module
+  if (IS_MODULE_REQUEST.test(url)) {
+    return url.replace(IS_MODULE_REQUEST, "");
+  }
+
+  return url;
 }
 
 function getFilter(filter, resourcePath) {

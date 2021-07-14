@@ -52,6 +52,36 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work with 'false' value of the 'esModule' option", async () => {
+    const compiler = getCompiler(
+      "./url/url.js",
+      {
+        esModule: false,
+      },
+      {
+        resolve: {
+          alias: {
+            aliasesImg: path.resolve(__dirname, "./fixtures/url"),
+            "/img.png": path.resolve(__dirname, "./fixtures/url/img.png"),
+            "~img.png": path.resolve(__dirname, "./fixtures/url/img.png"),
+            "/guide/img/banWord/addCoinDialogTitleBg.png": path.resolve(
+              __dirname,
+              "./fixtures/url/img.png"
+            ),
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should work with url.filter", async () => {
     const compiler = getCompiler("./url/url.js", {
       url: {
