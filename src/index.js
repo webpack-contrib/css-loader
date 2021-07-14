@@ -86,12 +86,7 @@ export default async function loader(content, map, meta) {
   const urlPluginImports = [];
 
   if (shouldUseURLPlugin(options)) {
-    const urlResolver = this.getResolve({
-      conditionNames: ["asset"],
-      mainFields: ["asset"],
-      mainFiles: [],
-      extensions: [],
-    });
+    const needToResolveURL = !options.esModule;
 
     plugins.push(
       urlParser({
@@ -100,7 +95,11 @@ export default async function loader(content, map, meta) {
         context: this.context,
         rootContext: this.rootContext,
         filter: getFilter(options.url.filter, this.resourcePath),
-        resolver: urlResolver,
+        needToResolveURL,
+        resolver: needToResolveURL
+          ? this.getResolve({ mainFiles: [], extensions: [] })
+          : // eslint-disable-next-line no-undefined
+            undefined,
         urlHandler: (url) => stringifyRequest(this, url),
       })
     );

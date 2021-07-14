@@ -1,9 +1,9 @@
 import valueParser from "postcss-value-parser";
 
 import {
+  resolveRequests,
   normalizeUrl,
   requestify,
-  resolveRequests,
   isUrlRequestable,
   WEBPACK_IGNORE_COMMENT_REGEXP,
 } from "../utils";
@@ -302,7 +302,17 @@ const plugin = (options = {}) => {
               let hash = query ? "?" : "";
               hash += hashOrQuery ? `#${hashOrQuery}` : "";
 
-              const request = requestify(pathname, options.rootContext);
+              const { needToResolveURL, rootContext } = options;
+              const request = requestify(
+                pathname,
+                rootContext,
+                needToResolveURL
+              );
+
+              if (!needToResolveURL) {
+                // eslint-disable-next-line consistent-return
+                return { ...parsedDeclaration, url: request, hash };
+              }
 
               const { resolver, context } = options;
               const resolvedUrl = await resolveRequests(resolver, context, [
@@ -359,7 +369,9 @@ const plugin = (options = {}) => {
               options.imports.push({
                 type: "url",
                 importName,
-                url: options.urlHandler(newUrl),
+                url: options.needToResolveURL
+                  ? options.urlHandler(newUrl)
+                  : JSON.stringify(newUrl),
                 index,
               });
             }

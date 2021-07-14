@@ -8,6 +8,7 @@ npm-debug.log*
 /local
 /reports
 /node_modules
+/test/outputs
 /test/fixtures/import/import-absolute.css
 /test/fixtures/url/url-absolute.css
 /test/fixtures/modules/composes/composes-absolute.css

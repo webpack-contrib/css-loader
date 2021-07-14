@@ -56,14 +56,14 @@ function stringifyRequest(loaderContext, request) {
   );
 }
 
-// we can't use path.win32.isAbsolute because it also matches paths starting with a forward slash
-const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
+// We can't use path.win32.isAbsolute because it also matches paths starting with a forward slash
+const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
+const IS_MODULE_REQUEST = /^[^?]*~/;
 
 function urlToRequest(url, root) {
-  const moduleRequestRegex = /^[^?]*~/;
   let request;
 
-  if (matchNativeWin32Path.test(url)) {
+  if (IS_NATIVE_WIN32_PATH.test(url)) {
     // absolute windows path, keep it
     request = url;
   } else if (typeof root !== "undefined" && /^\//.test(url)) {
@@ -77,8 +77,8 @@ function urlToRequest(url, root) {
   }
 
   // A `~` makes the url an module
-  if (moduleRequestRegex.test(request)) {
-    request = request.replace(moduleRequestRegex, "");
+  if (IS_MODULE_REQUEST.test(request)) {
+    request = request.replace(IS_MODULE_REQUEST, "");
   }
 
   return request;
@@ -459,14 +459,27 @@ function normalizeUrl(url, isStringValue) {
   return normalizedUrl;
 }
 
-function requestify(url, rootContext) {
-  if (/^file:/i.test(url)) {
-    return fileURLToPath(url);
+function requestify(url, rootContext, needToResolveURL = true) {
+  if (needToResolveURL) {
+    if (/^file:/i.test(url)) {
+      return fileURLToPath(url);
+    }
+
+    return url.charAt(0) === "/"
+      ? urlToRequest(url, rootContext)
+      : urlToRequest(url);
   }
 
-  return url.charAt(0) === "/"
-    ? urlToRequest(url, rootContext)
-    : urlToRequest(url);
+  if (url.charAt(0) === "/" || /^file:/i.test(url)) {
+    return url;
+  }
+
+  // A `~` makes the url an module
+  if (IS_MODULE_REQUEST.test(url)) {
+    return url.replace(IS_MODULE_REQUEST, "");
+  }
+
+  return url;
 }
 
 function getFilter(filter, resourcePath) {
@@ -744,7 +757,6 @@ function getModulesPlugins(options, loaderContext) {
   return plugins;
 }
 
-const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
 const ABSOLUTE_SCHEME = /^[a-z0-9+\-.]+:/i;
 
 function getURLType(source) {
