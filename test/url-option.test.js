@@ -416,6 +416,50 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work with 'false' aliases when the 'esModule' option is 'false'", async () => {
+    const compiler = getCompiler(
+      "./url/false-alias.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              loader: path.resolve(__dirname, "../src"),
+              options: {
+                esModule: false,
+              },
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              resourceQuery: /^(?!.*\?ignore-asset-modules).*$/,
+              type: "asset/resource",
+            },
+            {
+              resourceQuery: /\?ignore-asset-modules$/,
+              type: "javascript/auto",
+            },
+          ],
+        },
+        resolve: {
+          alias: {
+            "/logo.png": false,
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/false-alias.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should throw an error on unresolved import", async () => {
     const compiler = getCompiler("./url/url-unresolved.js");
     const stats = await compile(compiler);
