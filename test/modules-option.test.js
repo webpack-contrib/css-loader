@@ -315,6 +315,7 @@ describe('"modules" option', () => {
 
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
+        auto: true,
         localIdentRegExp: "regExp",
         localIdentContext: "context",
         localIdentHashSalt: "hash",
@@ -349,6 +350,7 @@ describe('"modules" option', () => {
 
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
+        auto: true,
         getLocalIdent(loaderContext, localIdentName, localName, options) {
           expect(options.context).toBeDefined();
 
@@ -949,6 +951,27 @@ describe('"modules" option', () => {
 
   it('should work when the "auto" is not specified', async () => {
     const compiler = getCompiler("./modules/mode/not-specified.js");
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work when the "auto" is not specified, but specified other modules options', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js", {
+      modules: {
+        localIdentName: "[path][name]__[local]",
+      },
+    });
     const stats = await compile(compiler);
 
     expect(

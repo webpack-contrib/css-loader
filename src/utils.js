@@ -491,8 +491,8 @@ function getValidLocalName(localName, exportLocalsConvention) {
   return camelCase(localName);
 }
 
-const moduleRegExp = /\.module(s)?\.\w+$/i;
-const icssRegExp = /\.icss\.\w+$/i;
+const IS_MODULES = /\.module(s)?\.\w+$/i;
+const IS_ICSS = /\.icss\.\w+$/i;
 
 function getModulesOptions(rawOptions, loaderContext) {
   const resourcePath =
@@ -500,30 +500,29 @@ function getModulesOptions(rawOptions, loaderContext) {
     (loaderContext._module && loaderContext._module.matchResource) ||
     loaderContext.resourcePath;
 
+  if (typeof rawOptions.modules === "boolean" && rawOptions.modules === false) {
+    return false;
+  }
+
   let isIcss;
 
   if (typeof rawOptions.modules === "undefined") {
-    const isModules = moduleRegExp.test(resourcePath);
+    const isModules = IS_MODULES.test(resourcePath);
 
     if (!isModules) {
-      isIcss = icssRegExp.test(resourcePath);
+      isIcss = IS_ICSS.test(resourcePath);
     }
 
     if (!isModules && !isIcss) {
       return false;
     }
-  } else if (
-    typeof rawOptions.modules === "boolean" &&
-    rawOptions.modules === false
-  ) {
-    return false;
   }
 
   // eslint-disable-next-line no-underscore-dangle
   const { outputOptions } = loaderContext._compilation;
-
-  let modulesOptions = {
-    auto: true,
+  const rawModulesOptions = rawOptions.modules || {};
+  const modulesOptions = {
+    auto: IS_MODULES,
     mode: isIcss ? "icss" : "local",
     exportGlobals: false,
     localIdentName: "[hash:base64]",
@@ -537,8 +536,13 @@ function getModulesOptions(rawOptions, loaderContext) {
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
     namedExport: false,
-    exportLocalsConvention: "asIs",
+    exportLocalsConvention:
+      rawModulesOptions.namedExport === true &&
+      typeof rawModulesOptions.exportLocalsConvention === "undefined"
+        ? "camelCaseOnly"
+        : "asIs",
     exportOnlyLocals: false,
+    ...rawModulesOptions,
   };
 
   if (
@@ -547,38 +551,25 @@ function getModulesOptions(rawOptions, loaderContext) {
   ) {
     modulesOptions.mode =
       typeof rawOptions.modules === "string" ? rawOptions.modules : "local";
-  } else {
-    if (rawOptions.modules) {
-      if (typeof rawOptions.modules.auto === "boolean") {
-        const isModules =
-          rawOptions.modules.auto && moduleRegExp.test(resourcePath);
+  }
 
-        if (!isModules) {
-          return false;
-        }
-      } else if (rawOptions.modules.auto instanceof RegExp) {
-        const isModules = rawOptions.modules.auto.test(resourcePath);
+  if (
+    typeof modulesOptions.auto === "boolean" &&
+    modulesOptions.auto === false
+  ) {
+    return false;
+  } else if (modulesOptions.auto instanceof RegExp) {
+    const isModules = modulesOptions.auto.test(resourcePath);
 
-        if (!isModules) {
-          return false;
-        }
-      } else if (typeof rawOptions.modules.auto === "function") {
-        const isModule = rawOptions.modules.auto(resourcePath);
-
-        if (!isModule) {
-          return false;
-        }
-      }
-
-      if (
-        rawOptions.modules.namedExport === true &&
-        typeof rawOptions.modules.exportLocalsConvention === "undefined"
-      ) {
-        modulesOptions.exportLocalsConvention = "camelCaseOnly";
-      }
+    if (!isModules) {
+      return false;
     }
+  } else if (typeof modulesOptions.auto === "function") {
+    const isModule = modulesOptions.auto(resourcePath);
 
-    modulesOptions = { ...modulesOptions, ...(rawOptions.modules || {}) };
+    if (!isModule) {
+      return false;
+    }
   }
 
   if (typeof modulesOptions.mode === "function") {
