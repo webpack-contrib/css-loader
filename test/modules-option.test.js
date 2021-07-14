@@ -994,7 +994,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with the "auto" when it is "false"', async () => {
+  it('should work with the "auto" option is "false"', async () => {
     const compiler = getCompiler("./modules/mode/modules.js", {
       modules: {
         auto: false,
@@ -1012,7 +1012,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with the "auto" when it is "true"', async () => {
+  it('should work with the "auto" option is "true"', async () => {
     const compiler = getCompiler("./modules/mode/modules.js", {
       modules: {
         auto: true,
@@ -1023,6 +1023,28 @@ describe('"modules" option', () => {
     expect(
       getModuleSource("./modules/mode/relative.module.css", stats)
     ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work when the "auto" option is "true" with other options', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js", {
+      modules: {
+        auto: true,
+        localIdentName: "[path][name]__[local]",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );

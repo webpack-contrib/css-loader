@@ -4495,6 +4495,45 @@ exports[`"modules" option should work when the "auto" is not specified: result 1
 
 exports[`"modules" option should work when the "auto" is not specified: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work when the "auto" option is "true" with other options: errors 1`] = `Array []`;
+
+exports[`"modules" option should work when the "auto" option is "true" with other options: modules-module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".modules-mode-style-modules__class {\\\\n    color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"class\\": \\"modules-mode-style-modules__class\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work when the "auto" option is "true" with other options: not-modules-module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n    color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work when the "auto" option is "true" with other options: result 1`] = `
+".modules-mode-style-modules__class {
+    color: red;
+}
+.class {
+    color: red;
+}
+"
+`;
+
+exports[`"modules" option should work when the "auto" option is "true" with other options: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work when the "namedExport" is enabled and the "exportLocalsConvention" options has "dashesOnly" value: errors 1`] = `Array []`;
 
 exports[`"modules" option should work when the "namedExport" is enabled and the "exportLocalsConvention" options has "dashesOnly" value: module 1`] = `
@@ -13863,9 +13902,9 @@ Array [
 
 exports[`"modules" option should work with the "auto" option in the "modules" option for icss: warnings 1`] = `Array []`;
 
-exports[`"modules" option should work with the "auto" when it is "false": errors 1`] = `Array []`;
+exports[`"modules" option should work with the "auto" option is "false": errors 1`] = `Array []`;
 
-exports[`"modules" option should work with the "auto" when it is "false": module 1`] = `
+exports[`"modules" option should work with the "auto" option is "false": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -13876,7 +13915,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option should work with the "auto" when it is "false": result 1`] = `
+exports[`"modules" option should work with the "auto" option is "false": result 1`] = `
 Array [
   Array [
     "./modules/mode/relative.module.css",
@@ -13889,11 +13928,11 @@ Array [
 ]
 `;
 
-exports[`"modules" option should work with the "auto" when it is "false": warnings 1`] = `Array []`;
+exports[`"modules" option should work with the "auto" option is "false": warnings 1`] = `Array []`;
 
-exports[`"modules" option should work with the "auto" when it is "true": errors 1`] = `Array []`;
+exports[`"modules" option should work with the "auto" option is "true": errors 1`] = `Array []`;
 
-exports[`"modules" option should work with the "auto" when it is "true": module 1`] = `
+exports[`"modules" option should work with the "auto" option is "true": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
@@ -13907,7 +13946,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option should work with the "auto" when it is "true": result 1`] = `
+exports[`"modules" option should work with the "auto" option is "true": result 1`] = `
 Array [
   Array [
     "./modules/mode/relative.module.css",
@@ -13920,7 +13959,7 @@ Array [
 ]
 `;
 
-exports[`"modules" option should work with the "auto" when it is "true": warnings 1`] = `Array []`;
+exports[`"modules" option should work with the "auto" option is "true": warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with the "namedExport" option with nested import: errors 1`] = `Array []`;
 
