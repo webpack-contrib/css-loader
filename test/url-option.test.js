@@ -135,9 +135,12 @@ describe('"url" option', () => {
     const compiler = getCompiler("./url/url-absolute.js");
     const stats = await compile(compiler);
 
-    expect(getModuleSource("./url/url-absolute.css", stats)).toMatchSnapshot(
-      "module"
-    );
+    expect(
+      getModuleSource("./url/url-absolute.css", stats).replace(
+        new RegExp(process.cwd().replace(/\\/g, "/"), "g"),
+        "<cwd>"
+      )
+    ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );
