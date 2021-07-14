@@ -947,6 +947,23 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work when the "auto" is not specified', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js");
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with the "auto" when it is "false"', async () => {
     const compiler = getCompiler("./modules/mode/modules.js", {
       modules: {
