@@ -504,40 +504,39 @@ function getValidLocalName(localName, exportLocalsConvention) {
   return camelCase(localName);
 }
 
-const moduleRegExp = /\.module(s)?\.\w+$/i;
-const icssRegExp = /\.icss\.\w+$/i;
+const IS_MODULES = /\.module(s)?\.\w+$/i;
+const IS_ICSS = /\.icss\.\w+$/i;
 
 function getModulesOptions(rawOptions, loaderContext) {
+  if (typeof rawOptions.modules === "boolean" && rawOptions.modules === false) {
+    return false;
+  }
+
   const resourcePath =
     // eslint-disable-next-line no-underscore-dangle
     (loaderContext._module && loaderContext._module.matchResource) ||
     loaderContext.resourcePath;
 
-  let isIcss;
+  let auto;
+  let rawModulesOptions;
 
   if (typeof rawOptions.modules === "undefined") {
-    const isModules = moduleRegExp.test(resourcePath);
-
-    if (!isModules) {
-      isIcss = icssRegExp.test(resourcePath);
-    }
-
-    if (!isModules && !isIcss) {
-      return false;
-    }
-  } else if (
-    typeof rawOptions.modules === "boolean" &&
-    rawOptions.modules === false
-  ) {
-    return false;
+    rawModulesOptions = {};
+    auto = true;
+  } else if (typeof rawOptions.modules === "boolean") {
+    rawModulesOptions = {};
+  } else if (typeof rawOptions.modules === "string") {
+    rawModulesOptions = { mode: rawOptions.modules };
+  } else {
+    rawModulesOptions = rawOptions.modules;
+    ({ auto } = rawModulesOptions);
   }
 
   // eslint-disable-next-line no-underscore-dangle
   const { outputOptions } = loaderContext._compilation;
-
-  let modulesOptions = {
-    auto: true,
-    mode: isIcss ? "icss" : "local",
+  const modulesOptions = {
+    auto,
+    mode: "local",
     exportGlobals: false,
     localIdentName: "[hash:base64]",
     localIdentContext: loaderContext.rootContext,
@@ -550,48 +549,43 @@ function getModulesOptions(rawOptions, loaderContext) {
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
     namedExport: false,
-    exportLocalsConvention: "asIs",
+    exportLocalsConvention:
+      rawModulesOptions.namedExport === true &&
+      typeof rawModulesOptions.exportLocalsConvention === "undefined"
+        ? "camelCaseOnly"
+        : "asIs",
     exportOnlyLocals: false,
+    ...rawModulesOptions,
   };
 
-  if (
-    typeof rawOptions.modules === "boolean" ||
-    typeof rawOptions.modules === "string"
-  ) {
-    modulesOptions.mode =
-      typeof rawOptions.modules === "string" ? rawOptions.modules : "local";
-  } else {
-    if (rawOptions.modules) {
-      if (typeof rawOptions.modules.auto === "boolean") {
-        const isModules =
-          rawOptions.modules.auto && moduleRegExp.test(resourcePath);
+  if (typeof modulesOptions.auto === "boolean") {
+    const isModules = modulesOptions.auto && IS_MODULES.test(resourcePath);
 
-        if (!isModules) {
-          return false;
-        }
-      } else if (rawOptions.modules.auto instanceof RegExp) {
-        const isModules = rawOptions.modules.auto.test(resourcePath);
+    let isIcss;
 
-        if (!isModules) {
-          return false;
-        }
-      } else if (typeof rawOptions.modules.auto === "function") {
-        const isModule = rawOptions.modules.auto(resourcePath);
+    if (!isModules) {
+      isIcss = IS_ICSS.test(resourcePath);
 
-        if (!isModule) {
-          return false;
-        }
-      }
-
-      if (
-        rawOptions.modules.namedExport === true &&
-        typeof rawOptions.modules.exportLocalsConvention === "undefined"
-      ) {
-        modulesOptions.exportLocalsConvention = "camelCaseOnly";
+      if (isIcss) {
+        modulesOptions.mode = "icss";
       }
     }
 
-    modulesOptions = { ...modulesOptions, ...(rawOptions.modules || {}) };
+    if (!isModules && !isIcss) {
+      return false;
+    }
+  } else if (modulesOptions.auto instanceof RegExp) {
+    const isModules = modulesOptions.auto.test(resourcePath);
+
+    if (!isModules) {
+      return false;
+    }
+  } else if (typeof modulesOptions.auto === "function") {
+    const isModule = modulesOptions.auto(resourcePath);
+
+    if (!isModule) {
+      return false;
+    }
   }
 
   if (typeof modulesOptions.mode === "function") {

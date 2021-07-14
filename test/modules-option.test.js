@@ -1,8 +1,6 @@
 import path from "path";
 import fs from "fs";
 
-import webpack from "webpack";
-
 import {
   compile,
   getCompiler,
@@ -16,8 +14,6 @@ const testCasesPath = path.join(__dirname, "fixtures/modules/tests-cases");
 const testCases = fs.readdirSync(testCasesPath);
 
 jest.setTimeout(60000);
-
-const isWebpack5 = webpack.version.startsWith(5);
 
 describe('"modules" option', () => {
   [
@@ -918,6 +914,24 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work with the "auto" option in the "modules" option for icss', async () => {
+    const compiler = getCompiler("./modules/mode/icss/icss.js", {
+      modules: {
+        auto: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/icss/relative.icss.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with "false" alises', async () => {
     const compiler = getCompiler(
       "./modules/icss-false-alias/icss.js",
@@ -925,12 +939,7 @@ describe('"modules" option', () => {
       {
         resolve: {
           alias: {
-            "./unknown.css": isWebpack5
-              ? false
-              : path.resolve(
-                  __dirname,
-                  "./fixtures/modules/icss-false-alias/unknown.css"
-                ),
+            "./unknown.css": false,
           },
         },
       }
@@ -947,7 +956,45 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with the "auto" when it is "false"', async () => {
+  it('should work when the "auto" is not specified', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js");
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work when the "auto" is not specified, but specified other modules options', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js", {
+      modules: {
+        localIdentName: "[path][name]__[local]",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with the "auto" option is "false"', async () => {
     const compiler = getCompiler("./modules/mode/modules.js", {
       modules: {
         auto: false,
@@ -965,7 +1012,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with the "auto" when it is "true"', async () => {
+  it('should work with the "auto" option is "true"', async () => {
     const compiler = getCompiler("./modules/mode/modules.js", {
       modules: {
         auto: true,
@@ -976,6 +1023,28 @@ describe('"modules" option', () => {
     expect(
       getModuleSource("./modules/mode/relative.module.css", stats)
     ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work when the "auto" option is "true" with other options', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js", {
+      modules: {
+        auto: true,
+        localIdentName: "[path][name]__[local]",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );
