@@ -135,6 +135,9 @@ describe('"url" option', () => {
     const compiler = getCompiler("./url/url-absolute.js");
     const stats = await compile(compiler);
 
+    // eslint-disable-next-line no-console
+    console.log(new RegExp(absolutePath.replace(/\\/g, "\\\\")));
+
     expect(
       getModuleSource("./url/url-absolute.css", stats).replace(
         new RegExp(absolutePath.replace(/\\/g, "\\\\")),
