@@ -5,6 +5,7 @@ import {
   normalizeUrl,
   requestify,
   isUrlRequestable,
+  isDataUrl,
   WEBPACK_IGNORE_COMMENT_REGEXP,
 } from "../utils";
 
@@ -47,13 +48,23 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
-function shouldHandleURL(url, declaration, result) {
+function shouldHandleURL(url, declaration, result, options) {
   if (url.length === 0) {
     result.warn(`Unable to find uri in '${declaration.toString()}'`, {
       node: declaration,
     });
 
     return false;
+  }
+
+  if (isDataUrl(url) && options.isSupportDataURLInNewURL) {
+    try {
+      decodeURIComponent(url);
+    } catch (ignoreError) {
+      return false;
+    }
+
+    return true;
   }
 
   if (!isUrlRequestable(url)) {
@@ -63,7 +74,7 @@ function shouldHandleURL(url, declaration, result) {
   return true;
 }
 
-function parseDeclaration(declaration, key, result) {
+function parseDeclaration(declaration, key, result, options) {
   if (!needParseDeclaration.test(declaration[key])) {
     return;
   }
@@ -130,7 +141,7 @@ function parseDeclaration(declaration, key, result) {
       url = normalizeUrl(url, isStringValue);
 
       // Do not traverse inside `url`
-      if (!shouldHandleURL(url, declaration, result)) {
+      if (!shouldHandleURL(url, declaration, result, options)) {
         // eslint-disable-next-line consistent-return
         return false;
       }
@@ -186,7 +197,7 @@ function parseDeclaration(declaration, key, result) {
           url = normalizeUrl(url, isStringValue);
 
           // Do not traverse inside `url`
-          if (!shouldHandleURL(url, declaration, result)) {
+          if (!shouldHandleURL(url, declaration, result, options)) {
             // eslint-disable-next-line consistent-return
             return false;
           }
@@ -229,7 +240,7 @@ function parseDeclaration(declaration, key, result) {
           let url = normalizeUrl(value, true);
 
           // Do not traverse inside `url`
-          if (!shouldHandleURL(url, declaration, result)) {
+          if (!shouldHandleURL(url, declaration, result, options)) {
             // eslint-disable-next-line consistent-return
             return false;
           }
@@ -271,7 +282,12 @@ const plugin = (options = {}) => {
 
       return {
         Declaration(declaration) {
-          const parsedURL = parseDeclaration(declaration, "value", result);
+          const parsedURL = parseDeclaration(
+            declaration,
+            "value",
+            result,
+            options
+          );
 
           if (!parsedURL) {
             return;
@@ -288,10 +304,15 @@ const plugin = (options = {}) => {
             parsedDeclarations.map(async (parsedDeclaration) => {
               const { url } = parsedDeclaration;
 
+              if (isDataUrl(url)) {
+                return parsedDeclaration;
+              }
+
               if (options.filter) {
                 const needKeep = await options.filter(url);
 
                 if (!needKeep) {
+                  // eslint-disable-next-line consistent-return
                   return;
                 }
               }
@@ -320,6 +341,7 @@ const plugin = (options = {}) => {
               ]);
 
               if (!resolvedUrl) {
+                // eslint-disable-next-line consistent-return
                 return;
               }
 
