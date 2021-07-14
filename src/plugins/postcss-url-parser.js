@@ -304,10 +304,6 @@ const plugin = (options = {}) => {
             parsedDeclarations.map(async (parsedDeclaration) => {
               const { url } = parsedDeclaration;
 
-              if (isDataUrl(url)) {
-                return parsedDeclaration;
-              }
-
               if (options.filter) {
                 const needKeep = await options.filter(url);
 
@@ -315,6 +311,11 @@ const plugin = (options = {}) => {
                   // eslint-disable-next-line consistent-return
                   return;
                 }
+              }
+
+              if (isDataUrl(url)) {
+                // eslint-disable-next-line consistent-return
+                return parsedDeclaration;
               }
 
               const splittedUrl = url.split(/(\?)?#/);
