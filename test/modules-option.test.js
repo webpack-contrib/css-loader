@@ -1,8 +1,6 @@
 import path from "path";
 import fs from "fs";
 
-import webpack from "webpack";
-
 import {
   compile,
   getCompiler,
@@ -16,8 +14,6 @@ const testCasesPath = path.join(__dirname, "fixtures/modules/tests-cases");
 const testCases = fs.readdirSync(testCasesPath);
 
 jest.setTimeout(60000);
-
-const isWebpack5 = webpack.version.startsWith(5);
 
 describe('"modules" option', () => {
   [
@@ -925,12 +921,7 @@ describe('"modules" option', () => {
       {
         resolve: {
           alias: {
-            "./unknown.css": isWebpack5
-              ? false
-              : path.resolve(
-                  __dirname,
-                  "./fixtures/modules/icss-false-alias/unknown.css"
-                ),
+            "./unknown.css": false,
           },
         },
       }
@@ -940,6 +931,44 @@ describe('"modules" option', () => {
     expect(
       getModuleSource("./modules/icss-false-alias/relative.icss.css", stats)
     ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work when the "auto" is not specified', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js");
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work when the "auto" is not specified, but specified other modules options', async () => {
+    const compiler = getCompiler("./modules/mode/not-specified.js", {
+      modules: {
+        localIdentName: "[path][name]__[local]",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/style.modules.css", stats)
+    ).toMatchSnapshot("modules-module");
+    expect(
+      getModuleSource("./modules/mode/no-modules.css", stats)
+    ).toMatchSnapshot("not-modules-module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );
