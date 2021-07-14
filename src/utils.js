@@ -459,14 +459,12 @@ function normalizeUrl(url, isStringValue) {
   return normalizedUrl;
 }
 
-function requestify(url, rootContext) {
+function requestify(url) {
   if (/^file:/i.test(url)) {
     return fileURLToPath(url);
   }
 
-  return url.charAt(0) === "/"
-    ? urlToRequest(url, rootContext)
-    : urlToRequest(url);
+  return url.charAt(0) === "/" ? url : urlToRequest(url);
 }
 
 function getFilter(filter, resourcePath) {

@@ -3,7 +3,6 @@ import valueParser from "postcss-value-parser";
 import {
   normalizeUrl,
   requestify,
-  resolveRequests,
   isUrlRequestable,
   WEBPACK_IGNORE_COMMENT_REGEXP,
 } from "../utils";
@@ -304,17 +303,18 @@ const plugin = (options = {}) => {
 
               const request = requestify(pathname, options.rootContext);
 
-              const { resolver, context } = options;
-              const resolvedUrl = await resolveRequests(resolver, context, [
-                ...new Set([request, url]),
-              ]);
-
-              if (!resolvedUrl) {
-                return;
-              }
+              // const { resolver, context } = options;
+              // const resolvedUrl = await resolveRequests(resolver, context, [
+              //   ...new Set([request, url]),
+              // ]);
+              //
+              // if (!resolvedUrl) {
+              //   return;
+              // }
+              // return { ...parsedDeclaration, url: resolvedUrl, hash };
 
               // eslint-disable-next-line consistent-return
-              return { ...parsedDeclaration, url: resolvedUrl, hash };
+              return { ...parsedDeclaration, url: request, hash };
             })
           );
 
@@ -359,7 +359,7 @@ const plugin = (options = {}) => {
               options.imports.push({
                 type: "url",
                 importName,
-                url: options.urlHandler(newUrl),
+                url: JSON.stringify(newUrl),
                 index,
               });
             }
