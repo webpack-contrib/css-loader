@@ -148,6 +148,45 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should resolve absolute path when the 'esModules' is 'false'", async () => {
+    // Create the file with absolute path
+    const fileDirectory = path.resolve(__dirname, "fixtures", "url");
+    const file = path.resolve(fileDirectory, "url-absolute.css");
+    const absolutePath = path.resolve(fileDirectory, "img.png");
+    const code = `
+.background {
+  background: url(${absolutePath});
+}
+
+.background-other {
+  background: url(${absolutePath.replace(/e/g, "%65")});
+}
+
+.background-other {
+  background: url('${absolutePath.replace(/e/g, "\\\ne")}');
+}
+`;
+
+    fs.writeFileSync(file, code);
+
+    const compiler = getCompiler("./url/url-absolute.js", {
+      esModule: false,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./url/url-absolute.css", stats).replace(
+        absolutePath,
+        "<absolute-path>"
+      )
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should resolve "file" protocol path', async () => {
     // Create the file with absolute path
     const fileDirectory = path.resolve(__dirname, "fixtures", "url");
@@ -172,6 +211,47 @@ describe('"url" option', () => {
     fs.writeFileSync(file, code);
 
     const compiler = getCompiler("./url/url-file-protocol.js");
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./url/url-file-protocol.css", stats).replace(
+        absolutePath,
+        "<file-protocol-url>"
+      )
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should resolve "file" protocol path when the "esModules" is "false"', async () => {
+    // Create the file with absolute path
+    const fileDirectory = path.resolve(__dirname, "fixtures", "url");
+    const file = path.resolve(fileDirectory, "url-file-protocol.css");
+    const absolutePath = path
+      .resolve(fileDirectory, "img.png")
+      .replace(/\\/g, "/");
+    const code = `
+.background {
+  background: url(file://${absolutePath});
+}
+
+.background-other {
+  background: url(file://${absolutePath.replace(/e/g, "%65")});
+}
+
+.background-other {
+  background: url('file://${absolutePath.replace(/e/g, "\\\ne")}');
+}
+`;
+
+    fs.writeFileSync(file, code);
+
+    const compiler = getCompiler("./url/url-file-protocol.js", {
+      esModule: false,
+    });
     const stats = await compile(compiler);
 
     expect(
