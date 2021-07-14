@@ -886,6 +886,26 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work with the "auto" by default when CSS file is entrypoint', async () => {
+    const compiler = getCompiler([
+      "./modules/mode/entry.css",
+      "./modules/mode/modules.js",
+    ]);
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./modules/mode/entry.css", stats)).toMatchSnapshot(
+      "entry"
+    );
+    expect(
+      getModuleSource("./modules/mode/relative.module.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with the "auto" by default with "modules" filename', async () => {
     const compiler = getCompiler("./modules/mode/modules-2.js");
     const stats = await compile(compiler);

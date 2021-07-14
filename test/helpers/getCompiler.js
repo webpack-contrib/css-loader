@@ -9,7 +9,9 @@ export default (fixture, loaderOptions = {}, config = {}) => {
     target: "node",
     devtool: config.devtool || false,
     context: path.resolve(__dirname, "../fixtures"),
-    entry: path.resolve(__dirname, "../fixtures", fixture),
+    entry: Array.isArray(fixture)
+      ? fixture
+      : path.resolve(__dirname, "../fixtures", fixture),
     output: {
       path: path.resolve(__dirname, "../outputs"),
       filename: "[name].bundle.js",
