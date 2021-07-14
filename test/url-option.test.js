@@ -137,8 +137,8 @@ describe('"url" option', () => {
 
     expect(
       getModuleSource("./url/url-absolute.css", stats).replace(
-        new RegExp(process.cwd().replace(/\\/g, "/"), "g"),
-        "<cwd>"
+        absolutePath,
+        "<absolute-path>"
       )
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
@@ -176,8 +176,8 @@ describe('"url" option', () => {
 
     expect(
       getModuleSource("./url/url-file-protocol.css", stats).replace(
-        new RegExp(process.cwd().replace(/\\/g, "/"), "g"),
-        "<cwd>"
+        absolutePath,
+        "<file-protocol-url>"
       )
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
