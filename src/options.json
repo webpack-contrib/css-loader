@@ -3,7 +3,7 @@
   "additionalProperties": false,
   "properties": {
     "url": {
-      "description": "Enables/Disables 'url'/'image-set' functions handling (https://github.com/webpack-contrib/css-loader#url).",
+      "description": "Allow to enable/disables handling the CSS functions `url` and `image-set` (https://github.com/webpack-contrib/css-loader#url).",
       "anyOf": [
         {
           "type": "boolean"
@@ -20,7 +20,7 @@
       ]
     },
     "import": {
-      "description": "Enables/Disables '@import' at-rules handling (https://github.com/webpack-contrib/css-loader#import).",
+      "description": "Allows to enables/disables `@import` at-rules handling (https://github.com/webpack-contrib/css-loader#import).",
       "anyOf": [
         {
           "type": "boolean"
@@ -51,7 +51,7 @@
       ]
     },
     "modules": {
-      "description": "Enables/Disables CSS Modules and their configuration (https://github.com/webpack-contrib/css-loader#modules).",
+      "description": "Allows to enable/disable CSS Modules or ICSS and setup configuration (https://github.com/webpack-contrib/css-loader#modules).",
       "anyOf": [
         {
           "type": "boolean"
@@ -160,7 +160,7 @@
       ]
     },
     "sourceMap": {
-      "description": "Enables/Disables generation of source maps (https://github.com/webpack-contrib/css-loader#sourcemap).",
+      "description": "Allows to enable/disable source maps (https://github.com/webpack-contrib/css-loader#sourcemap).",
       "type": "boolean"
     },
     "esModule": {
