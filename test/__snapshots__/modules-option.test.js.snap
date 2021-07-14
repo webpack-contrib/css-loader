@@ -13412,6 +13412,48 @@ Array [
 
 exports[`"modules" option should work with the "auto" by default for icss: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with the "auto" by default when CSS file is entrypoint: entry 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n    color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with the "auto" by default when CSS file is entrypoint: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the "auto" by default when CSS file is entrypoint: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._wr0eVpMbaGr94MKhByE {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"relative\\": \\"_wr0eVpMbaGr94MKhByE\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with the "auto" by default when CSS file is entrypoint: result 1`] = `
+Array [
+  Array [
+    "./modules/mode/relative.module.css",
+    "._wr0eVpMbaGr94MKhByE {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the "auto" by default when CSS file is entrypoint: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with the "auto" by default with "modules" filename: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with the "auto" by default with "modules" filename: module 1`] = `
