@@ -459,7 +459,7 @@ function normalizeUrl(url, isStringValue) {
   return normalizedUrl;
 }
 
-function requestify(url, rootContext, needToResolveURL) {
+function requestify(url, rootContext, needToResolveURL = true) {
   if (/^file:/i.test(url)) {
     return fileURLToPath(url);
   }
