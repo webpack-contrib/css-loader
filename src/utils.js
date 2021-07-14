@@ -56,14 +56,14 @@ function stringifyRequest(loaderContext, request) {
   );
 }
 
-// we can't use path.win32.isAbsolute because it also matches paths starting with a forward slash
-const matchNativeWin32Path = /^[A-Z]:[/\\]|^\\\\/i;
+// We can't use path.win32.isAbsolute because it also matches paths starting with a forward slash
+const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
 
 function urlToRequest(url, root) {
   const moduleRequestRegex = /^[^?]*~/;
   let request;
 
-  if (matchNativeWin32Path.test(url)) {
+  if (IS_NATIVE_WIN32_PATH.test(url)) {
     // absolute windows path, keep it
     request = url;
   } else if (typeof root !== "undefined" && /^\//.test(url)) {
@@ -72,8 +72,9 @@ function urlToRequest(url, root) {
     // A relative url stays
     request = url;
   } else {
+    request = url;
     // every other url is threaded like a relative url
-    request = `./${url}`;
+    // request = `./${url}`;
   }
 
   // A `~` makes the url an module
@@ -742,7 +743,6 @@ function getModulesPlugins(options, loaderContext) {
   return plugins;
 }
 
-const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
 const ABSOLUTE_SCHEME = /^[a-z0-9+\-.]+:/i;
 
 function getURLType(source) {
