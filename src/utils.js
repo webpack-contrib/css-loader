@@ -390,6 +390,18 @@ function defaultGetLocalIdent(
   return loaderContext._compilation.getPath(localIdentName, data);
 }
 
+function fixedEncodeURIComponent(str) {
+  return str.replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16)}`);
+}
+
+function isDataUrl(url) {
+  if (/^data:/i.test(url)) {
+    return true;
+  }
+
+  return false;
+}
+
 const NATIVE_WIN32_PATH = /^[A-Z]:[/\\]|^\\\\/i;
 
 function normalizeUrl(url, isStringValue) {
@@ -412,6 +424,11 @@ function normalizeUrl(url, isStringValue) {
   }
 
   normalizedUrl = unescape(normalizedUrl);
+
+  if (isDataUrl(url)) {
+    // Todo fixedEncodeURIComponent is workaround. Webpack resolver shouldn't handle "!" in dataURL
+    return fixedEncodeURIComponent(normalizedUrl);
+  }
 
   try {
     normalizedUrl = decodeURI(normalizedUrl);
@@ -1099,4 +1116,5 @@ export {
   combineRequests,
   camelCase,
   stringifyRequest,
+  isDataUrl,
 };

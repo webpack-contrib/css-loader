@@ -87,6 +87,8 @@ export default async function loader(content, map, meta) {
 
   if (shouldUseURLPlugin(options)) {
     const needToResolveURL = !options.esModule;
+    const isSupportDataURLInNewURL =
+      options.esModule && Boolean("fsStartTime" in this._compiler);
 
     plugins.push(
       urlParser({
@@ -101,6 +103,8 @@ export default async function loader(content, map, meta) {
           : // eslint-disable-next-line no-undefined
             undefined,
         urlHandler: (url) => stringifyRequest(this, url),
+        // Support data urls as input in new URL added in webpack@5.38.0
+        isSupportDataURLInNewURL,
       })
     );
   }
