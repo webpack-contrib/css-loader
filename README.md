@@ -122,7 +122,10 @@ module.exports = {
 Type: `Boolean|Object`
 Default: `true`
 
-Enables/Disables handling the CSS functions `url` and `image-set`. If set to `false`, `css-loader` will not parse any paths specified in `url` or `image-set`. A function can also be passed to control this behavior dynamically based on the path to the asset. Starting with version [4.0.0](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md#400-2020-07-25), absolute paths are parsed based on the server root.
+Allow to enable/disables handling the CSS functions `url` and `image-set`.
+If set to `false`, `css-loader` will not parse any paths specified in `url` or `image-set`.
+A function can also be passed to control this behavior dynamically based on the path to the asset.
+Starting with version [4.0.0](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md#400-2020-07-25), absolute paths are parsed based on the server root.
 
 Examples resolutions:
 
@@ -203,7 +206,7 @@ module.exports = {
 Type: `Boolean|Object`
 Default: `true`
 
-Enables/Disables `@import` at-rules handling.
+Allows to enables/disables `@import` at-rules handling.
 Control `@import` resolving. Absolute urls in `@import` will be moved in runtime code.
 
 Examples resolutions:
@@ -335,9 +338,15 @@ This may change in the future when the module system (i. e. webpack) supports lo
 ### `modules`
 
 Type: `Boolean|String|Object`
-Default: based on filename, `true` for all files matching `/\.module\.\w+$/i.test(filename)` regular expression, more information you can read [here](https://github.com/webpack-contrib/css-loader#auto)
+Default: `undefined`
 
-Enables/Disables CSS Modules and their configuration.
+Allows to enable/disable CSS Modules or ICSS and setup configuration:
+
+- `undefined` - enable CSS modules for all files matching `/\.module\.\w+$/i.test(filename)` and `/\.icss\.\w+$/i.test(filename)` regexp.
+- `true` - enable CSS modules for all files.
+- `false` - disables CSS Modules for all files.
+- `string` - disables CSS Modules for all files and set the `mode` option, more information you can read [here](https://github.com/webpack-contrib/css-loader#mode)
+- `object` - enable CSS modules for all files, if `modules.auto` option is not specified, otherwise the `modules.auto` option will determine whether if it is CSS modules or not, more information you can read [here](https://github.com/webpack-contrib/css-loader#auto)
 
 The `modules` option enables/disables the **[CSS Modules](https://github.com/css-modules/css-modules)** specification and setup basic behaviour.
 
@@ -598,9 +607,17 @@ module.exports = {
 ##### `auto`
 
 Type: `Boolean|RegExp|Function`
-Default: `'true'`
+Default: `undefined`
 
-Allows auto enable CSS modules based on filename.
+Allows auto enable CSS modules/ICSS based on filename when `modules` option is object.
+
+Possible values:
+
+- `undefined` - enable CSS modules for all files.
+- `true` - enable CSS modules for all files matching `/\.module\.\w+$/i.test(filename)` and `/\.icss\.\w+$/i.test(filename)` regexp.
+- `false` - disables CSS Modules.
+- `RegExp` - enable CSS modules for all files matching `/RegExp/i.test(filename)` regexp.
+- `function` - enable CSS Modules for files based on the filename satisfying your filter function check.
 
 ###### `Boolean`
 
