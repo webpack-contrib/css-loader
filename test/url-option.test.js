@@ -140,11 +140,11 @@ describe('"url" option', () => {
     // eslint-disable-next-line no-console
     console.log(new RegExp(absolutePath));
     // eslint-disable-next-line no-console
-    console.log(new RegExp(absolutePath.replace(/\\/g, "\\\\")));
+    console.log(new RegExp(absolutePath.replace(/\\/g, "\\")));
 
     expect(
       getModuleSource("./url/url-absolute.css", stats).replace(
-        new RegExp(absolutePath.replace(/\\/g, "\\\\")),
+        new RegExp(absolutePath.replace(/\\/g, "\\\\\\\\")),
         "<absolute-path>"
       )
     ).toMatchSnapshot("module");
