@@ -311,30 +311,6 @@ function escapeLocalIdent(localident) {
   );
 }
 
-function resolveFolderTemplate(loaderContext, localIdentName, options) {
-  const { context } = options;
-  let { resourcePath } = loaderContext;
-  const parsed = path.parse(loaderContext.resourcePath);
-
-  if (parsed.dir) {
-    resourcePath = parsed.dir + path.sep;
-  }
-
-  let directory = path
-    .relative(context, `${resourcePath}_`)
-    .replace(/\\/g, "/")
-    .replace(/\.\.(\/)?/g, "_$1");
-  directory = directory.substr(0, directory.length - 1);
-
-  let folder = "";
-
-  if (directory.length > 1) {
-    folder = path.basename(directory);
-  }
-
-  return localIdentName.replace(/\[folder\]/gi, () => folder);
-}
-
 function defaultGetLocalIdent(
   loaderContext,
   localIdentName,
@@ -396,10 +372,10 @@ function defaultGetLocalIdent(
     .replace(/[/+]/g, "_")
     .replace(/^\d/g, "_");
 
+  // TODO need improve on webpack side, we should allow to pass hash/contentHash without chunk property
   const ext = path.extname(loaderContext.resourcePath);
   const base = path.basename(loaderContext.resourcePath);
   const name = base.slice(0, base.length - ext.length);
-
   const data = {
     filename: path.relative(options.context, loaderContext.resourcePath),
     contentHash: localIdentHash,
@@ -411,20 +387,7 @@ function defaultGetLocalIdent(
   };
 
   // eslint-disable-next-line no-underscore-dangle
-  let interpolatedFilename = loaderContext._compilation.getPath(
-    localIdentName,
-    data
-  );
-
-  if (localIdentName.includes("[folder]")) {
-    interpolatedFilename = resolveFolderTemplate(
-      loaderContext,
-      interpolatedFilename,
-      options
-    );
-  }
-
-  return interpolatedFilename;
+  return loaderContext._compilation.getPath(localIdentName, data);
 }
 
 const NATIVE_WIN32_PATH = /^[A-Z]:[/\\]|^\\\\/i;
@@ -607,18 +570,6 @@ function getModulesOptions(rawOptions, loaderContext) {
         'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "camelCaseOnly" or "dashesOnly"'
       );
     }
-  }
-
-  if (/\[emoji(?::(\d+))?\]/i.test(modulesOptions.localIdentName)) {
-    loaderContext.emitWarning(
-      "Emoji is deprecated and will be removed in next major release."
-    );
-  }
-
-  if (modulesOptions.localIdentName.includes("[folder]")) {
-    loaderContext.emitWarning(
-      "[folder] is deprecated and will be removed in next major release. See documentation for available options (https://github.com/webpack-contrib/css-loader#localidentname)"
-    );
   }
 
   return modulesOptions;
