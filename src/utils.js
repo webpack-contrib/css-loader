@@ -523,7 +523,7 @@ function getModulesOptions(rawOptions, loaderContext) {
   const { outputOptions } = loaderContext._compilation;
   const modulesOptions = {
     auto,
-    mode: IS_ICSS.test(resourcePath) ? "icss" : "local",
+    mode: "local",
     exportGlobals: false,
     localIdentName: "[hash:base64]",
     localIdentContext: loaderContext.rootContext,
@@ -548,7 +548,17 @@ function getModulesOptions(rawOptions, loaderContext) {
   if (typeof modulesOptions.auto === "boolean") {
     const isModules = modulesOptions.auto && IS_MODULES.test(resourcePath);
 
+    let isIcss;
+
     if (!isModules) {
+      isIcss = IS_ICSS.test(resourcePath);
+
+      if (isIcss) {
+        modulesOptions.mode = "icss";
+      }
+    }
+
+    if (!isModules && !isIcss) {
       return false;
     }
   } else if (modulesOptions.auto instanceof RegExp) {

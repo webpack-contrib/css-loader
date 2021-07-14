@@ -4890,8 +4890,11 @@ exports[`"modules" option should work with "false" alises: module 1`] = `
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\":import(\\\\\\"./unknown.css\\\\\\") {\\\\n  IMPORTED_NAME: primary-color;\\\\n}\\\\n\\\\n.className {\\\\n  color: IMPORTED_NAME;\\\\n}\\\\n\\\\n:export {\\\\n  primary-color: IMPORTED_NAME\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: IMPORTED_NAME;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"primary-color\\": \\"IMPORTED_NAME\\"
+};
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -4900,16 +4903,8 @@ exports[`"modules" option should work with "false" alises: result 1`] = `
 Array [
   Array [
     "./modules/icss-false-alias/relative.icss.css",
-    ":import(\\"./unknown.css\\") {
-  IMPORTED_NAME: primary-color;
-}
-
-.className {
+    ".className {
   color: IMPORTED_NAME;
-}
-
-:export {
-  primary-color: IMPORTED_NAME
 }
 ",
     "",
@@ -13733,10 +13728,15 @@ exports[`"modules" option should work with the "auto" by default for icss: error
 exports[`"modules" option should work with the "auto" by default for icss: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.icss.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\":import(\\\\\\"./vars.icss.css\\\\\\") {\\\\n  IMPORTED_NAME: primary-color;\\\\n}\\\\n\\\\n.className {\\\\n  color: IMPORTED_NAME;\\\\n}\\\\n\\\\n:export {\\\\n  primary-color: IMPORTED_NAME\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
 // Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\"
+};
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -13744,17 +13744,15 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`"modules" option should work with the "auto" by default for icss: result 1`] = `
 Array [
   Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/mode/icss/vars.icss.css",
+    "
+",
+    "",
+  ],
+  Array [
     "./modules/mode/icss/relative.icss.css",
-    ":import(\\"./vars.icss.css\\") {
-  IMPORTED_NAME: primary-color;
-}
-
-.className {
-  color: IMPORTED_NAME;
-}
-
-:export {
-  primary-color: IMPORTED_NAME
+    ".className {
+  color: red;
 }
 ",
     "",
@@ -13825,6 +13823,45 @@ Array [
 `;
 
 exports[`"modules" option should work with the "auto" by default: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with the "auto" option in the "modules" option for icss: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the "auto" option in the "modules" option for icss: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.icss.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".className {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"primary-color\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"primary-color\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with the "auto" option in the "modules" option for icss: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/mode/icss/vars.icss.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/mode/icss/relative.icss.css",
+    ".className {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the "auto" option in the "modules" option for icss: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with the "auto" when it is "false": errors 1`] = `Array []`;
 

@@ -914,6 +914,24 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work with the "auto" option in the "modules" option for icss', async () => {
+    const compiler = getCompiler("./modules/mode/icss/icss.js", {
+      modules: {
+        auto: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/mode/icss/relative.icss.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with "false" alises', async () => {
     const compiler = getCompiler(
       "./modules/icss-false-alias/icss.js",
