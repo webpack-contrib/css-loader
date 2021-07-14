@@ -335,9 +335,15 @@ This may change in the future when the module system (i. e. webpack) supports lo
 ### `modules`
 
 Type: `Boolean|String|Object`
-Default: based on filename, `true` for all files matching `/\.module\.\w+$/i.test(filename)` regular expression, more information you can read [here](https://github.com/webpack-contrib/css-loader#auto)
+Default: `undefined`
 
-Enables/Disables CSS Modules and their configuration.
+Enables/Disables CSS Modules and their configuration:
+
+- `undefined` - processed all files matching `/\.module\.\w+$/i.test(filename)` and `/\.icss\.\w+$/i.test(filename)` regular expression
+- `true` - processed all files
+- `false` - disables CSS Modules
+- `string` - processed all files, more information you can read [here](https://github.com/webpack-contrib/css-loader#mode)
+- `object` - processed all files, when `modules.auto` option is not specified, more information you can read [here](https://github.com/webpack-contrib/css-loader#auto)
 
 The `modules` option enables/disables the **[CSS Modules](https://github.com/css-modules/css-modules)** specification and setup basic behaviour.
 
@@ -598,9 +604,17 @@ module.exports = {
 ##### `auto`
 
 Type: `Boolean|RegExp|Function`
-Default: `'true'`
+Default: `undefined`
 
-Allows auto enable CSS modules based on filename.
+Allows auto enable CSS modules based on filename when `modules` option is object.
+
+Possible values:
+
+- `undefined` - processed all files
+- `true` - processed all files matching `/\.module\.\w+$/i.test(filename)` and `/\.icss\.\w+$/i.test(filename)` regular expression
+- `false` - disables CSS Modules
+- `RegExp` - processed all files matching `/RegExp/i.test(filename)` regular expression
+- `Function` - enable CSS Modules for files based on the filename satisfying your filter function check.
 
 ###### `Boolean`
 
