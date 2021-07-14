@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/webpack-contrib/css-loader/compare/v5.2.7...v6.0.0) (2021-07-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimum supported `Node.js` version is `12.13.0`
+* minimum supported `weboack` version is `5`
+* for `url` and `import` options `Function` type was removed in favor `Object` type with the `filter` property, i.e. before `{ url: () => true }`, now `{ url: { filter: () => true } }` and  before `{ import: () => true }`, now `{ import: { filter: () => true } }`
+* the `importLoaders` option was removed in favor in favor `import.loaders` option
+* the `modules.compileType` option was removed in favor the `modules.mode` option with `icss` value, also the `modules` option can have `icss` string value
+* `new URL()` syntax used for `url()`, only when the `esModules` option is enabled (enabled by default), it means you can bundle CSS for libraries
+* [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) are handling in `url()`, it means you can register loaders for them, [example](https://webpack.js.org/configuration/module/#rulescheme)
+* aliases with `false` value for `url()` now generate empty data URI (i.e. `data:0,`), only when the `esModules` option is enabled (enabled by default)
+* using `~` is deprecated when the `esModules` option is enabled (enabled by default) and can be removed from your code (**we recommend it**), but we still support it for historical reasons. Why you can removed it? The loader will first try to resolve `@import`/`url()` as relative, if it cannot be resolved, the loader will try to resolve `@import`/`url()` inside [`node_modules` or modules directories](https://webpack.js.org/configuration/resolve/#resolvemodules).
+* `[ext]` placeholder don't need `.` (dot) before for the `localIdentName` option, i.e. please change `.[ext]` on `[ext]` (no dot before) 
+* `[folder]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic
+* `[emoji]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic
+* the `localIdentHashPrefix` was removed in favor the `localIdentHashSalt` option
+
+### Features
+
+* added `modules.localIdentHashFunction`, `modules.localIdentHashDigest`, `modules.localIdentHashDigestLength` options for better class hashing controlling
+* less dependencies
+
+### Bug Fixes
+
+* better performance
+
 ### [5.2.7](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7) (2021-07-13)
 
 
