@@ -172,7 +172,10 @@ describe('"url" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./url/url-file-protocol.css", stats)
+      getModuleSource("./url/url-file-protocol.css", stats).replace(
+        new RegExp(process.cwd().replace(/\\/g, "/"), "g"),
+        "<cwd>"
+      )
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
