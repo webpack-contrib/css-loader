@@ -137,7 +137,7 @@ describe('"url" option', () => {
 
     expect(
       getModuleSource("./url/url-absolute.css", stats).replace(
-        absolutePath,
+        new RegExp(absolutePath.replace(/\\/g, "\\\\")),
         "<absolute-path>"
       )
     ).toMatchSnapshot("module");
