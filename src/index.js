@@ -86,12 +86,12 @@ export default async function loader(content, map, meta) {
   const urlPluginImports = [];
 
   if (shouldUseURLPlugin(options)) {
-    const urlResolver = this.getResolve({
-      conditionNames: ["asset"],
-      mainFields: ["asset"],
-      mainFiles: [],
-      extensions: [],
-    });
+    // const urlResolver = this.getResolve({
+    //   conditionNames: ["asset"],
+    //   mainFields: ["asset"],
+    //   mainFiles: [],
+    //   extensions: [],
+    // });
 
     plugins.push(
       urlParser({
@@ -100,7 +100,7 @@ export default async function loader(content, map, meta) {
         context: this.context,
         rootContext: this.rootContext,
         filter: getFilter(options.url.filter, this.resourcePath),
-        resolver: urlResolver,
+        // resolver: urlResolver,
         urlHandler: (url) => stringifyRequest(this, url),
       })
     );
