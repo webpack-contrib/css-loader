@@ -460,6 +460,7 @@ function normalizeUrl(url, isStringValue) {
 }
 
 function requestify(url, rootContext, needToResolveURL = true) {
+  // TODO supports `file` protocol in webpack
   if (/^file:/i.test(url)) {
     return fileURLToPath(url);
   }
