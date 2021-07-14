@@ -372,7 +372,7 @@ function defaultGetLocalIdent(
     .replace(/[/+]/g, "_")
     .replace(/^\d/g, "_");
 
-  // TODO need improve on webpack side, we should allow to pass hash/contentHash without chunk property
+  // TODO need improve on webpack side, we should allow to pass hash/contentHash without chunk property, also `data` for `getPath` should be looks good without chunk property
   const ext = path.extname(loaderContext.resourcePath);
   const base = path.basename(loaderContext.resourcePath);
   const name = base.slice(0, base.length - ext.length);
