@@ -88,7 +88,7 @@ export default async function loader(content, map, meta) {
   if (shouldUseURLPlugin(options)) {
     const needToResolveURL = !options.esModule;
     const isSupportDataURLInNewURL =
-      options.esModule && Boolean(this._compiler.fsStartTime);
+      options.esModule && Boolean("fsStartTime" in this._compiler);
 
     plugins.push(
       urlParser({
