@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 
+import webpack from "webpack";
+
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 import {
@@ -372,6 +374,28 @@ describe('"url" option', () => {
     expect(
       getModuleSource("./url/resolve-extensions.css", stats)
     ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  // TODO bug on webpack side
+  it.skip("should work with the 'IgnorePlugin' plugin", async () => {
+    const compiler = getCompiler("./url/ignore-plugin.js");
+
+    new webpack.IgnorePlugin({ resourceRegExp: /directory\// }).apply(compiler);
+    new webpack.IgnorePlugin({ resourceRegExp: /unknwon\.png/ }).apply(
+      compiler
+    );
+    new webpack.IgnorePlugin({ resourceRegExp: /img\.png/ }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/ignore-plugin.css", stats)).toMatchSnapshot(
+      "module"
+    );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );
