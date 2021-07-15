@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Notes
 
 * using `~` is deprecated when the `esModules` option is enabled (enabled by default) and can be removed from your code (**we recommend it**) (`url(~package/image.png)` -> `url(package/image.png)`, `@import url(~package/style.css)` -> `@import url(package/style.css)`, `composes: import from '~package/one.css';` -> `composes: import from 'package/one.css';`), but we still support it for historical reasons. Why you can removed it? The loader will first try to resolve `@import`/`url()`/etc as relative, if it cannot be resolved, the loader will try to resolve `@import`/`url()`/etc inside [`node_modules` or modules directories](https://webpack.js.org/configuration/resolve/#resolvemodules).
+* `file-loader` and `url-loader` are deprecated, please migrate on [`asset modules`](https://webpack.js.org/guides/asset-modules/), since v6 `css-loader` is generating `new URL(...)` syntax, it enables by default built-in [`assets modules`](https://webpack.js.org/guides/asset-modules/), i.e. `type: 'asset'` for all `url()`
 
 ### ⚠ BREAKING CHANGES
 
