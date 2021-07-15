@@ -153,3 +153,8 @@ st.css');
 @import url('   https://fonts.googleapis.com/css?family=Roboto   ');
 @import url('!!../../helpers/string-loader.js?esModule=false!');
 @import url('   !!../../helpers/string-loader.js?esModule=false!~package/tilde.css   ');
+@import url(data:text/css;charset=utf-8,a%20%7B%0D%0A%20%20color%3A%20red%3B%0D%0A%7D);
+
+/* Prefer relative */
+@import url(package/first.css);
+@import url(package/second.css);

@@ -8,14 +8,13 @@ All notable changes to this project will be documented in this file. See [standa
 ### ⚠ BREAKING CHANGES
 
 * minimum supported `Node.js` version is `12.13.0`
-* minimum supported `weboack` version is `5`
+* minimum supported `webpack` version is `5`, we recommend to update to the latest version for better performance
 * for `url` and `import` options `Function` type was removed in favor `Object` type with the `filter` property, i.e. before `{ url: () => true }`, now `{ url: { filter: () => true } }` and  before `{ import: () => true }`, now `{ import: { filter: () => true } }`
-* the `importLoaders` option was removed in favor in favor `import.loaders` option
 * the `modules.compileType` option was removed in favor the `modules.mode` option with `icss` value, also the `modules` option can have `icss` string value
 * `new URL()` syntax used for `url()`, only when the `esModules` option is enabled (enabled by default), it means you can bundle CSS for libraries
 * [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) are handling in `url()`, it means you can register loaders for them, [example](https://webpack.js.org/configuration/module/#rulescheme)
 * aliases with `false` value for `url()` now generate empty data URI (i.e. `data:0,`), only when the `esModules` option is enabled (enabled by default)
-* using `~` is deprecated when the `esModules` option is enabled (enabled by default) and can be removed from your code (**we recommend it**), but we still support it for historical reasons. Why you can removed it? The loader will first try to resolve `@import`/`url()` as relative, if it cannot be resolved, the loader will try to resolve `@import`/`url()` inside [`node_modules` or modules directories](https://webpack.js.org/configuration/resolve/#resolvemodules).
+* using `~` is deprecated when the `esModules` option is enabled (enabled by default) and can be removed from your code (**we recommend it**) (`url(~package/image.png)` -> `url(package/image.png)`, `@import url(~package/style.css)` -> `@import url(package/style.css)`, `composes: import from '~package/one.css';` -> `composes: import from 'package/one.css';`), but we still support it for historical reasons. Why you can removed it? The loader will first try to resolve `@import`/`url()`/etc as relative, if it cannot be resolved, the loader will try to resolve `@import`/`url()`/etc inside [`node_modules` or modules directories](https://webpack.js.org/configuration/resolve/#resolvemodules).
 * `[ext]` placeholder don't need `.` (dot) before for the `localIdentName` option, i.e. please change `.[ext]` on `[ext]` (no dot before) 
 * `[folder]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic
 * `[emoji]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic
@@ -23,12 +22,19 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
+* supported [`resolve.byDependency.css`](https://webpack.js.org/configuration/resolve/#resolvebydependency) resolve options for `@import`
+* supported [`resolve.byDependency.icss`](https://webpack.js.org/configuration/resolve/#resolvebydependency) resolve CSS modules and ICSS imports (i.e. `composes`/etc)
 * added `modules.localIdentHashFunction`, `modules.localIdentHashDigest`, `modules.localIdentHashDigestLength` options for better class hashing controlling
 * less dependencies
 
 ### Bug Fixes
 
 * better performance
+* fixed circular `@import`
+
+### Notes
+
+* **we strongly recommend not to add `.css` to `resolve.extensions`, it reduces performance and in most cases it is simply not necessary, alternative you can set resolve options [by dependency](https://webpack.js.org/configuration/resolve/#resolvebydependency)**   
 
 ### [5.2.7](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7) (2021-07-13)
 

@@ -2132,6 +2132,62 @@ Array [
 
 exports[`"modules" option should work and has "undefined" context if no context was given: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work and prefer relative for "composes": errors 1`] = `Array []`;
+
+exports[`"modules" option should work and prefer relative for "composes": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./package/one.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/two.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".K5Y5lujJvJQUStc4_Kt_ {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.IWnmxZHjAURFvURi0DXC {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"one\\": \\"K5Y5lujJvJQUStc4_Kt_ \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"imported-relative\\"] + \\"\\",
+	\\"two\\": \\"IWnmxZHjAURFvURi0DXC \\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"imported-relative\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and prefer relative for "composes": result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/prefer-relative/package/one.css",
+    ".TpfeG_U6GdEM2gRvQdnG {
+    display: block;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/prefer-relative/node_modules/package/two.css",
+    ".F7PRk4uRr_JBmRY2z5OJ {
+    display: inline;
+}
+",
+    "",
+  ],
+  Array [
+    "./modules/prefer-relative/source.css",
+    ".K5Y5lujJvJQUStc4_Kt_ {
+  color: yellow;
+}
+
+.IWnmxZHjAURFvURi0DXC {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and prefer relative for "composes": warnings 1`] = `Array []`;
+
 exports[`"modules" option should work and prefix leading hyphen when digit is first: errors 1`] = `Array []`;
 
 exports[`"modules" option should work and prefix leading hyphen when digit is first: module 1`] = `
@@ -5039,6 +5095,88 @@ body {
 `;
 
 exports[`"modules" option should work with "url": warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with 'resolve.byDependency.css.extensions': errors 1`] = `Array []`;
+
+exports[`"modules" option should work with 'resolve.byDependency.css.extensions': module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".k8Sw3cNq6_slIbwZ0b9J {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"one\\": \\"k8Sw3cNq6_slIbwZ0b9J \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"imported-relative\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with 'resolve.byDependency.css.extensions': result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/extensions/imported.css",
+    ".QgUbmeOLMNh0EG_yjJLj {
+    display: block;
+}
+",
+    "",
+  ],
+  Array [
+    "./modules/extensions/source.css",
+    ".k8Sw3cNq6_slIbwZ0b9J {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with 'resolve.byDependency.css.extensions': warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with 'resolve.extensions': errors 1`] = `Array []`;
+
+exports[`"modules" option should work with 'resolve.extensions': module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".k8Sw3cNq6_slIbwZ0b9J {\\\\n  color: yellow;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"one\\": \\"k8Sw3cNq6_slIbwZ0b9J \\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"imported-relative\\"] + \\"\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with 'resolve.extensions': result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/extensions/imported.css",
+    ".QgUbmeOLMNh0EG_yjJLj {
+    display: block;
+}
+",
+    "",
+  ],
+  Array [
+    "./modules/extensions/source.css",
+    ".k8Sw3cNq6_slIbwZ0b9J {
+  color: yellow;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with 'resolve.extensions': warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with \`@\` character in scoped packages: errors 1`] = `Array []`;
 

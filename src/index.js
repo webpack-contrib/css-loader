@@ -20,7 +20,6 @@ import {
   getPreRequester,
   getExportCode,
   getFilter,
-  getImportLoaders,
   getImportCode,
   getModuleCode,
   getModulesPlugins,
@@ -57,10 +56,12 @@ export default async function loader(content, map, meta) {
 
   if (shouldUseImportPlugin(options)) {
     const resolver = this.getResolve({
+      dependencyType: "css",
       conditionNames: ["style"],
-      extensions: [".css"],
       mainFields: ["css", "style", "main", "..."],
       mainFiles: ["index", "..."],
+      extensions: [".css", "..."],
+      preferRelative: true,
     });
 
     plugins.push(
@@ -69,15 +70,13 @@ export default async function loader(content, map, meta) {
         api: importPluginApi,
         context: this.context,
         rootContext: this.rootContext,
+        resourcePath: this.resourcePath,
         filter: getFilter(options.import.filter, this.resourcePath),
         resolver,
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            combineRequests(
-              getPreRequester(this)(getImportLoaders(options.import.loaders)),
-              url
-            )
+            combineRequests(getPreRequester(this)(options.importLoaders), url)
           ),
       })
     );
@@ -116,10 +115,12 @@ export default async function loader(content, map, meta) {
 
   if (needToUseIcssPlugin) {
     const icssResolver = this.getResolve({
+      dependencyType: "icss",
       conditionNames: ["style"],
-      extensions: [],
+      extensions: ["..."],
       mainFields: ["css", "style", "main", "..."],
       mainFiles: ["index", "..."],
+      preferRelative: true,
     });
 
     plugins.push(
@@ -134,10 +135,7 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            combineRequests(
-              getPreRequester(this)(getImportLoaders(options.import.loaders)),
-              url
-            )
+            combineRequests(getPreRequester(this)(options.importLoaders), url)
           ),
       })
     );

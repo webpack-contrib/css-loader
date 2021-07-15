@@ -444,7 +444,7 @@ describe('"modules" option', () => {
               test: /source\.css$/,
               loader: path.resolve(__dirname, "../src"),
               options: {
-                import: { loaders: false },
+                importLoaders: false,
                 modules: {
                   localIdentName: "b--[local]",
                 },
@@ -454,7 +454,7 @@ describe('"modules" option', () => {
               test: /dep\.css$/,
               loader: path.resolve(__dirname, "../src"),
               options: {
-                import: { loaders: false },
+                importLoaders: false,
                 modules: {
                   localIdentName: "a--[local]",
                 },
@@ -494,7 +494,7 @@ describe('"modules" option', () => {
                       getLocalIdent: (context, localIdentName, localName) =>
                         `prefix-${localName}`,
                     },
-                    import: { loaders: 1 },
+                    importLoaders: 1,
                   },
                 },
                 {
@@ -1732,6 +1732,74 @@ describe('"modules" option', () => {
 
     expect(
       getModuleSource("./modules/issue-1228/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work and prefer relative for "composes"', async () => {
+    const compiler = getCompiler("./modules/prefer-relative/source.js", {
+      modules: { mode: "local" },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/prefer-relative/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with 'resolve.extensions'", async () => {
+    const compiler = getCompiler(
+      "./modules/extensions/source.js",
+      {
+        modules: { mode: "local" },
+      },
+      {
+        resolve: {
+          extensions: [".css", "..."],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/extensions/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with 'resolve.byDependency.css.extensions'", async () => {
+    const compiler = getCompiler(
+      "./modules/extensions/source.js",
+      {
+        modules: { mode: "local" },
+      },
+      {
+        resolve: {
+          byDependency: {
+            icss: {
+              extensions: [".css", "..."],
+            },
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/extensions/source.css", stats)
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
