@@ -57,10 +57,12 @@ export default async function loader(content, map, meta) {
 
   if (shouldUseImportPlugin(options)) {
     const resolver = this.getResolve({
+      dependencyType: "css",
       conditionNames: ["style"],
-      extensions: [".css"],
       mainFields: ["css", "style", "main", "..."],
       mainFiles: ["index", "..."],
+      extensions: [".css"],
+      preferRelative: true,
     });
 
     plugins.push(
@@ -69,6 +71,7 @@ export default async function loader(content, map, meta) {
         api: importPluginApi,
         context: this.context,
         rootContext: this.rootContext,
+        resourcePath: this.resourcePath,
         filter: getFilter(options.import.filter, this.resourcePath),
         resolver,
         urlHandler: (url) =>

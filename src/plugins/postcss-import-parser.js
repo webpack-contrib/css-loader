@@ -177,6 +177,12 @@ const plugin = (options = {}) => {
                   return;
                 }
 
+                if (resolvedUrl === options.resourcePath) {
+                  atRule.remove();
+
+                  return;
+                }
+
                 atRule.remove();
 
                 // eslint-disable-next-line consistent-return

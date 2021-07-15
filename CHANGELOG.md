@@ -29,6 +29,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * better performance
+* fixed circular `@import`
 
 ### [5.2.7](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7) (2021-07-13)
 
