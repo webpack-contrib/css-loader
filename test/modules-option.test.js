@@ -1739,4 +1739,20 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it('should work and prefer relative for "composes"', async () => {
+    const compiler = getCompiler("./modules/prefer-relative/source.js", {
+      modules: { mode: "local" },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/prefer-relative/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

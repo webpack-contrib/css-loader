@@ -119,10 +119,12 @@ export default async function loader(content, map, meta) {
 
   if (needToUseIcssPlugin) {
     const icssResolver = this.getResolve({
+      dependencyType: "css-modules",
       conditionNames: ["style"],
       extensions: [],
       mainFields: ["css", "style", "main", "..."],
       mainFiles: ["index", "..."],
+      preferRelative: true,
     });
 
     plugins.push(
