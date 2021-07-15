@@ -137,7 +137,7 @@ describe("loader", () => {
               rules: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { import: { loaders: 1 } },
+                  options: { importLoaders: 1 },
                 },
                 {
                   loader: require.resolve("./helpers/ast-loader"),
@@ -350,7 +350,7 @@ describe("loader", () => {
                   options: {
                     // Run only `postcss-loader` on each `@import`
                     // If you need run `sass-loader` and `postcss-loader` please set it to `2`
-                    import: { loaders: 1 },
+                    importLoaders: 1,
                     // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
                     modules: { auto: true },
                   },
@@ -509,7 +509,7 @@ describe("loader", () => {
               rules: [
                 {
                   loader: path.resolve(__dirname, "../src"),
-                  options: { import: { loaders: 1 } },
+                  options: { importLoaders: 1 },
                 },
                 {
                   loader: "sass-loader",

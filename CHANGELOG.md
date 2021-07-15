@@ -8,9 +8,8 @@ All notable changes to this project will be documented in this file. See [standa
 ### ⚠ BREAKING CHANGES
 
 * minimum supported `Node.js` version is `12.13.0`
-* minimum supported `webpack` version is `5`
+* minimum supported `webpack` version is `5`, we recommend to update to the latest version for better performance
 * for `url` and `import` options `Function` type was removed in favor `Object` type with the `filter` property, i.e. before `{ url: () => true }`, now `{ url: { filter: () => true } }` and  before `{ import: () => true }`, now `{ import: { filter: () => true } }`
-* the `importLoaders` option was removed in favor in favor `import.loaders` option
 * the `modules.compileType` option was removed in favor the `modules.mode` option with `icss` value, also the `modules` option can have `icss` string value
 * `new URL()` syntax used for `url()`, only when the `esModules` option is enabled (enabled by default), it means you can bundle CSS for libraries
 * [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) are handling in `url()`, it means you can register loaders for them, [example](https://webpack.js.org/configuration/module/#rulescheme)

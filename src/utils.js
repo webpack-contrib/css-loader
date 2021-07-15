@@ -472,10 +472,6 @@ function getFilter(filter, resourcePath) {
   };
 }
 
-function getImportLoaders(loaders) {
-  return typeof loaders === "string" ? parseInt(loaders, 10) : loaders;
-}
-
 function getValidLocalName(localName, exportLocalsConvention) {
   if (exportLocalsConvention === "dashesOnly") {
     return dashesCamelCase(localName);
@@ -603,6 +599,10 @@ function normalizeOptions(rawOptions, loaderContext) {
       typeof rawOptions.sourceMap === "boolean"
         ? rawOptions.sourceMap
         : loaderContext.sourceMap,
+    importLoaders:
+      typeof rawOptions.importLoaders === "string"
+        ? parseInt(rawOptions.importLoaders, 10)
+        : rawOptions.importLoaders,
     esModule:
       typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
   };
@@ -641,7 +641,7 @@ function shouldUseModulesPlugins(options) {
 }
 
 function shouldUseIcssPlugin(options) {
-  return options.icss === true || Boolean(options.modules);
+  return Boolean(options.modules);
 }
 
 function getModulesPlugins(options, loaderContext) {
@@ -1101,7 +1101,6 @@ export {
   normalizeUrl,
   requestify,
   getFilter,
-  getImportLoaders,
   getModulesOptions,
   getModulesPlugins,
   normalizeSourceMap,

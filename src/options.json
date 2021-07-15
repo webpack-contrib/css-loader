@@ -3,7 +3,7 @@
   "additionalProperties": false,
   "properties": {
     "url": {
-      "description": "Allow to enable/disables handling the CSS functions `url` and `image-set` (https://github.com/webpack-contrib/css-loader#url).",
+      "description": "Allows to enables/disables `url()`/`image-set()` functions handling (https://github.com/webpack-contrib/css-loader#url).",
       "anyOf": [
         {
           "type": "boolean"
@@ -30,20 +30,6 @@
           "properties": {
             "filter": {
               "instanceof": "Function"
-            },
-            "loaders": {
-              "description": "Enables/Disables or setups number of loaders applied before CSS loader (https://github.com/webpack-contrib/css-loader#importloaders).",
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
             }
           },
           "additionalProperties": false
@@ -162,6 +148,20 @@
     "sourceMap": {
       "description": "Allows to enable/disable source maps (https://github.com/webpack-contrib/css-loader#sourcemap).",
       "type": "boolean"
+    },
+    "importLoaders": {
+      "description": "Allows enables/disables or setups number of loaders applied before CSS loader for `@import`/CSS Modules and ICSS imports (https://github.com/webpack-contrib/css-loader#importloaders).",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ]
     },
     "esModule": {
       "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",

@@ -444,7 +444,7 @@ describe('"modules" option', () => {
               test: /source\.css$/,
               loader: path.resolve(__dirname, "../src"),
               options: {
-                import: { loaders: false },
+                importLoaders: false,
                 modules: {
                   localIdentName: "b--[local]",
                 },
@@ -454,7 +454,7 @@ describe('"modules" option', () => {
               test: /dep\.css$/,
               loader: path.resolve(__dirname, "../src"),
               options: {
-                import: { loaders: false },
+                importLoaders: false,
                 modules: {
                   localIdentName: "a--[local]",
                 },
@@ -494,7 +494,7 @@ describe('"modules" option', () => {
                       getLocalIdent: (context, localIdentName, localName) =>
                         `prefix-${localName}`,
                     },
-                    import: { loaders: 1 },
+                    importLoaders: 1,
                   },
                 },
                 {
