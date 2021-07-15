@@ -61,7 +61,7 @@ export default async function loader(content, map, meta) {
       conditionNames: ["style"],
       mainFields: ["css", "style", "main", "..."],
       mainFiles: ["index", "..."],
-      extensions: [".css"],
+      extensions: [".css", "..."],
       preferRelative: true,
     });
 
@@ -119,9 +119,9 @@ export default async function loader(content, map, meta) {
 
   if (needToUseIcssPlugin) {
     const icssResolver = this.getResolve({
-      dependencyType: "css-modules",
+      dependencyType: "icss",
       conditionNames: ["style"],
-      extensions: [],
+      extensions: ["..."],
       mainFields: ["css", "style", "main", "..."],
       mainFiles: ["index", "..."],
       preferRelative: true,

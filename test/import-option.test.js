@@ -246,6 +246,54 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work with 'resolve.extensions'", async () => {
+    const compiler = getCompiler(
+      "./import/extensions.js",
+      {},
+      {
+        resolve: {
+          extensions: [".mycss", "..."],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./import/extensions.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with 'resolve.byDependency.css.extensions'", async () => {
+    const compiler = getCompiler(
+      "./import/extensions.js",
+      {},
+      {
+        resolve: {
+          byDependency: {
+            css: {
+              extensions: [".mycss", "..."],
+            },
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./import/extensions.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should throw an error on unresolved import", async () => {
     const compiler = getCompiler("./import/unresolved.js");
     const stats = await compile(compiler);

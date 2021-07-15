@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### ⚠ BREAKING CHANGES
 
 * minimum supported `Node.js` version is `12.13.0`
-* minimum supported `weboack` version is `5`
+* minimum supported `webpack` version is `5`
 * for `url` and `import` options `Function` type was removed in favor `Object` type with the `filter` property, i.e. before `{ url: () => true }`, now `{ url: { filter: () => true } }` and  before `{ import: () => true }`, now `{ import: { filter: () => true } }`
 * the `importLoaders` option was removed in favor in favor `import.loaders` option
 * the `modules.compileType` option was removed in favor the `modules.mode` option with `icss` value, also the `modules` option can have `icss` string value
@@ -23,6 +23,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
+* supported [`resolve.byDependency.css`](https://webpack.js.org/configuration/resolve/#resolvebydependency) resolve options for `@import`
+* supported [`resolve.byDependency.icss`](https://webpack.js.org/configuration/resolve/#resolvebydependency) resolve CSS modules and ICSS imports (i.e. `composes`/etc)
 * added `modules.localIdentHashFunction`, `modules.localIdentHashDigest`, `modules.localIdentHashDigestLength` options for better class hashing controlling
 * less dependencies
 
@@ -30,6 +32,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 * better performance
 * fixed circular `@import`
+
+### Notes
+
+* **we strongly recommend not to add `.css` to `resolve.extensions`, it reduces performance and in most cases it is simply not necessary, alternative you can set resolve options [by dependency](https://webpack.js.org/configuration/resolve/#resolvebydependency)**   
 
 ### [5.2.7](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7) (2021-07-13)
 

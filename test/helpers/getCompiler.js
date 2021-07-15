@@ -22,7 +22,7 @@ export default (fixture, loaderOptions = {}, config = {}) => {
     module: {
       rules: [
         {
-          test: /\.css$/i,
+          test: /\.(mycss|css)$/i,
           use: [
             {
               loader: path.resolve(__dirname, "../../src"),

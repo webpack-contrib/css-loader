@@ -1755,4 +1755,56 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work with 'resolve.extensions'", async () => {
+    const compiler = getCompiler(
+      "./modules/extensions/source.js",
+      {
+        modules: { mode: "local" },
+      },
+      {
+        resolve: {
+          extensions: [".css", "..."],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/extensions/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with 'resolve.byDependency.css.extensions'", async () => {
+    const compiler = getCompiler(
+      "./modules/extensions/source.js",
+      {
+        modules: { mode: "local" },
+      },
+      {
+        resolve: {
+          byDependency: {
+            icss: {
+              extensions: [".css", "..."],
+            },
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/extensions/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });
