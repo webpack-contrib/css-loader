@@ -340,6 +340,25 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work and respect the "localIdentRegExp" option', async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: {
+        localIdentName: "[1]__[local]__[hash:base64:8]",
+        localIdentRegExp: /[/\\]([^/\\]+?)(?:\.module)?\.[^./\\]+$/,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work and has "undefined" context if no context was given', async () => {
     expect.assertions(58);
 

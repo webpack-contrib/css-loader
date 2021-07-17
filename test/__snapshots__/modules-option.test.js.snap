@@ -4070,6 +4070,193 @@ Array [
 
 exports[`"modules" option should work and respect the "localIdentName" option: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work and respect the "localIdentRegExp" option: errors 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "localIdentRegExp" option: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".localIdentName__test__HovVWrUT {\\\\n  background: red;\\\\n}\\\\n\\\\n.localIdentName___test___1mLQ0KY {\\\\n  background: blue;\\\\n}\\\\n\\\\n.localIdentName__className__MMk_yFMI {\\\\n  background: red;\\\\n}\\\\n\\\\n#localIdentName__someId__f_mZz_4m {\\\\n  background: green;\\\\n}\\\\n\\\\n.localIdentName__className__MMk_yFMI .localIdentName__subClass__FYyIWexD {\\\\n  color: green;\\\\n}\\\\n\\\\n#localIdentName__someId__f_mZz_4m .localIdentName__subClass__FYyIWexD {\\\\n  color: blue;\\\\n}\\\\n\\\\n.localIdentName__-a0-34a___f__r_hifewi {\\\\n  color: red;\\\\n}\\\\n\\\\n.localIdentName__m_x_\\\\\\\\@__yUrnJ_pW {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n.localIdentName__B\\\\\\\\&W\\\\\\\\?__O_Xkei1D {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.localIdentName__\\\\\\\\3A \\\\\\\\\`\\\\\\\\(___rpCeu5p {\\\\n  color: aqua;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n.localIdentName__\\\\\\\\31 a2b3c__mxXeAFeh {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#localIdentName__\\\\\\\\#fake-id___92k79k_ {\\\\n  color: antiquewhite;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#localIdentName__-a-b-c-__c0kkJWCl {\\\\n  color: azure;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"©\\\\\\" */\\\\n#localIdentName__©__DLosMLOu {\\\\n  color: black;\\\\n}\\\\n\\\\n.localIdentName__♥__HQMfjUZe { background: lime; }\\\\n.localIdentName__©__DLosMLOu { background: lime; }\\\\n.localIdentName__“‘’”__bS0LrUqK { background: lime; }\\\\n.localIdentName__☺☃__F0_yWUDv { background: lime; }\\\\n.localIdentName__⌘⌥__VyeHlHnB { background: lime; }\\\\n.localIdentName__𝄞♪♩♫♬__Qi7pfuLh { background: lime; }\\\\n.localIdentName__💩__CjG3lWNh { background: lime; }\\\\n.localIdentName__\\\\\\\\?__heeATAtr { background: lime; }\\\\n.localIdentName__\\\\\\\\@__YofbbuSi { background: lime; }\\\\n.localIdentName__\\\\\\\\.___29WwWt8 { background: lime; }\\\\n.localIdentName__\\\\\\\\3A \\\\\\\\)__I_4AeARK { background: lime; }\\\\n.localIdentName__\\\\\\\\3A \\\\\\\\\`\\\\\\\\(___rpCeu5p { background: lime; }\\\\n.localIdentName__\\\\\\\\31 23___Oc_nRVO { background: lime; }\\\\n.localIdentName__\\\\\\\\31 a2b3c__mxXeAFeh { background: lime; }\\\\n.localIdentName__\\\\\\\\<p\\\\\\\\>__KBVLvvCB { background: lime; }\\\\n.localIdentName__\\\\\\\\<\\\\\\\\>\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\>\\\\\\\\>\\\\\\\\<\\\\\\\\>__vOWmh2fN { background: lime; }\\\\n.localIdentName__\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\[\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\-\\\\\\\\]\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\<\\\\\\\\<\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.___D32kH5S { background: lime; }\\\\n.localIdentName__\\\\\\\\#__LpBEGYch { background: lime; }\\\\n.localIdentName__\\\\\\\\#\\\\\\\\#__wZKDT2QR { background: lime; }\\\\n.localIdentName__\\\\\\\\#\\\\\\\\.\\\\\\\\#\\\\\\\\.\\\\\\\\#__oGI7_Chv { background: lime; }\\\\n.localIdentName__\\\\\\\\___myeULb2G { background: lime; }\\\\n.localIdentName__\\\\\\\\{\\\\\\\\}__Mae71ybF { background: lime; }\\\\n.localIdentName__\\\\\\\\#fake\\\\\\\\-id___92k79k_ { background: lime; }\\\\n.localIdentName__foo\\\\\\\\.bar__TpLCT2g4 { background: lime; }\\\\n.localIdentName__\\\\\\\\3A hover__l6Av_vs8 { background: lime; }\\\\n.localIdentName__\\\\\\\\3A hover\\\\\\\\3A focus\\\\\\\\3A active__ZGmd9HMc { background: lime; }\\\\n.localIdentName__\\\\\\\\[attr\\\\\\\\=value\\\\\\\\]__KPlJewNi { background: lime; }\\\\n.localIdentName__f\\\\\\\\/o\\\\\\\\/o__DIrFdFnB { background: lime; }\\\\n.localIdentName__f\\\\\\\\\\\\\\\\o\\\\\\\\\\\\\\\\o__H1knt1tA { background: lime; }\\\\n.localIdentName__f\\\\\\\\*o\\\\\\\\*o___vAKu2Il { background: lime; }\\\\n.localIdentName__f\\\\\\\\!o\\\\\\\\!o__APY_BKpa { background: lime; }\\\\n.localIdentName__f\\\\\\\\'o\\\\\\\\'o__jTuAkufd { background: lime; }\\\\n.localIdentName__f\\\\\\\\~o\\\\\\\\~o__S4VvFBeH { background: lime; }\\\\n.localIdentName__f\\\\\\\\+o\\\\\\\\+o__AWIsfyEk { background: lime; }\\\\n\\\\n.localIdentName__foo\\\\\\\\/bar__DhIde1Wb {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.localIdentName__foo\\\\\\\\\\\\\\\\bar__aeKkgCs_ {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.localIdentName__foo\\\\\\\\/bar\\\\\\\\/baz__QFT18bFi {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.localIdentName__foo\\\\\\\\\\\\\\\\bar\\\\\\\\\\\\\\\\baz__uM3RYQs7 {\\\\n  background: hotpink;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"123\\": \\"localIdentName__123___Oc_nRVO\\",
+	\\"test\\": \\"localIdentName__test__HovVWrUT\\",
+	\\"_test\\": \\"localIdentName___test___1mLQ0KY\\",
+	\\"className\\": \\"localIdentName__className__MMk_yFMI\\",
+	\\"someId\\": \\"localIdentName__someId__f_mZz_4m\\",
+	\\"subClass\\": \\"localIdentName__subClass__FYyIWexD\\",
+	\\"-a0-34a___f\\": \\"localIdentName__-a0-34a___f__r_hifewi\\",
+	\\"m_x_@\\": \\"localIdentName__m_x_@__yUrnJ_pW\\",
+	\\"B&W?\\": \\"localIdentName__B&W?__O_Xkei1D\\",
+	\\":\`(\\": \\"localIdentName__:\`(___rpCeu5p\\",
+	\\"1a2b3c\\": \\"localIdentName__1a2b3c__mxXeAFeh\\",
+	\\"#fake-id\\": \\"localIdentName__#fake-id___92k79k_\\",
+	\\"-a-b-c-\\": \\"localIdentName__-a-b-c-__c0kkJWCl\\",
+	\\"©\\": \\"localIdentName__©__DLosMLOu\\",
+	\\"♥\\": \\"localIdentName__♥__HQMfjUZe\\",
+	\\"“‘’”\\": \\"localIdentName__“‘’”__bS0LrUqK\\",
+	\\"☺☃\\": \\"localIdentName__☺☃__F0_yWUDv\\",
+	\\"⌘⌥\\": \\"localIdentName__⌘⌥__VyeHlHnB\\",
+	\\"𝄞♪♩♫♬\\": \\"localIdentName__𝄞♪♩♫♬__Qi7pfuLh\\",
+	\\"💩\\": \\"localIdentName__💩__CjG3lWNh\\",
+	\\"?\\": \\"localIdentName__?__heeATAtr\\",
+	\\"@\\": \\"localIdentName__@__YofbbuSi\\",
+	\\".\\": \\"localIdentName__.___29WwWt8\\",
+	\\":)\\": \\"localIdentName__:)__I_4AeARK\\",
+	\\"<p>\\": \\"localIdentName__<p>__KBVLvvCB\\",
+	\\"<><<<>><>\\": \\"localIdentName__<><<<>><>__vOWmh2fN\\",
+	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"localIdentName__++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.___D32kH5S\\",
+	\\"#\\": \\"localIdentName__#__LpBEGYch\\",
+	\\"##\\": \\"localIdentName__##__wZKDT2QR\\",
+	\\"#.#.#\\": \\"localIdentName__#.#.#__oGI7_Chv\\",
+	\\"_\\": \\"localIdentName_____myeULb2G\\",
+	\\"{}\\": \\"localIdentName__{}__Mae71ybF\\",
+	\\"foo.bar\\": \\"localIdentName__foo.bar__TpLCT2g4\\",
+	\\":hover\\": \\"localIdentName__:hover__l6Av_vs8\\",
+	\\":hover:focus:active\\": \\"localIdentName__:hover:focus:active__ZGmd9HMc\\",
+	\\"[attr=value]\\": \\"localIdentName__[attr=value]__KPlJewNi\\",
+	\\"f/o/o\\": \\"localIdentName__f/o/o__DIrFdFnB\\",
+	\\"f\\\\\\\\o\\\\\\\\o\\": \\"localIdentName__f\\\\\\\\o\\\\\\\\o__H1knt1tA\\",
+	\\"f*o*o\\": \\"localIdentName__f*o*o___vAKu2Il\\",
+	\\"f!o!o\\": \\"localIdentName__f!o!o__APY_BKpa\\",
+	\\"f'o'o\\": \\"localIdentName__f'o'o__jTuAkufd\\",
+	\\"f~o~o\\": \\"localIdentName__f~o~o__S4VvFBeH\\",
+	\\"f+o+o\\": \\"localIdentName__f+o+o__AWIsfyEk\\",
+	\\"foo/bar\\": \\"localIdentName__foo/bar__DhIde1Wb\\",
+	\\"foo\\\\\\\\bar\\": \\"localIdentName__foo\\\\\\\\bar__aeKkgCs_\\",
+	\\"foo/bar/baz\\": \\"localIdentName__foo/bar/baz__QFT18bFi\\",
+	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"localIdentName__foo\\\\\\\\bar\\\\\\\\baz__uM3RYQs7\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "localIdentRegExp" option: result 1`] = `
+Array [
+  Array [
+    "./modules/localIdentName/localIdentName.css",
+    ".localIdentName__test__HovVWrUT {
+  background: red;
+}
+
+.localIdentName___test___1mLQ0KY {
+  background: blue;
+}
+
+.localIdentName__className__MMk_yFMI {
+  background: red;
+}
+
+#localIdentName__someId__f_mZz_4m {
+  background: green;
+}
+
+.localIdentName__className__MMk_yFMI .localIdentName__subClass__FYyIWexD {
+  color: green;
+}
+
+#localIdentName__someId__f_mZz_4m .localIdentName__subClass__FYyIWexD {
+  color: blue;
+}
+
+.localIdentName__-a0-34a___f__r_hifewi {
+  color: red;
+}
+
+.localIdentName__m_x_\\\\@__yUrnJ_pW {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.localIdentName__B\\\\&W\\\\?__O_Xkei1D {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.localIdentName__\\\\3A \\\\\`\\\\(___rpCeu5p {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.localIdentName__\\\\31 a2b3c__mxXeAFeh {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#localIdentName__\\\\#fake-id___92k79k_ {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#localIdentName__-a-b-c-__c0kkJWCl {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#localIdentName__©__DLosMLOu {
+  color: black;
+}
+
+.localIdentName__♥__HQMfjUZe { background: lime; }
+.localIdentName__©__DLosMLOu { background: lime; }
+.localIdentName__“‘’”__bS0LrUqK { background: lime; }
+.localIdentName__☺☃__F0_yWUDv { background: lime; }
+.localIdentName__⌘⌥__VyeHlHnB { background: lime; }
+.localIdentName__𝄞♪♩♫♬__Qi7pfuLh { background: lime; }
+.localIdentName__💩__CjG3lWNh { background: lime; }
+.localIdentName__\\\\?__heeATAtr { background: lime; }
+.localIdentName__\\\\@__YofbbuSi { background: lime; }
+.localIdentName__\\\\.___29WwWt8 { background: lime; }
+.localIdentName__\\\\3A \\\\)__I_4AeARK { background: lime; }
+.localIdentName__\\\\3A \\\\\`\\\\(___rpCeu5p { background: lime; }
+.localIdentName__\\\\31 23___Oc_nRVO { background: lime; }
+.localIdentName__\\\\31 a2b3c__mxXeAFeh { background: lime; }
+.localIdentName__\\\\<p\\\\>__KBVLvvCB { background: lime; }
+.localIdentName__\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>__vOWmh2fN { background: lime; }
+.localIdentName__\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.___D32kH5S { background: lime; }
+.localIdentName__\\\\#__LpBEGYch { background: lime; }
+.localIdentName__\\\\#\\\\#__wZKDT2QR { background: lime; }
+.localIdentName__\\\\#\\\\.\\\\#\\\\.\\\\#__oGI7_Chv { background: lime; }
+.localIdentName__\\\\___myeULb2G { background: lime; }
+.localIdentName__\\\\{\\\\}__Mae71ybF { background: lime; }
+.localIdentName__\\\\#fake\\\\-id___92k79k_ { background: lime; }
+.localIdentName__foo\\\\.bar__TpLCT2g4 { background: lime; }
+.localIdentName__\\\\3A hover__l6Av_vs8 { background: lime; }
+.localIdentName__\\\\3A hover\\\\3A focus\\\\3A active__ZGmd9HMc { background: lime; }
+.localIdentName__\\\\[attr\\\\=value\\\\]__KPlJewNi { background: lime; }
+.localIdentName__f\\\\/o\\\\/o__DIrFdFnB { background: lime; }
+.localIdentName__f\\\\\\\\o\\\\\\\\o__H1knt1tA { background: lime; }
+.localIdentName__f\\\\*o\\\\*o___vAKu2Il { background: lime; }
+.localIdentName__f\\\\!o\\\\!o__APY_BKpa { background: lime; }
+.localIdentName__f\\\\'o\\\\'o__jTuAkufd { background: lime; }
+.localIdentName__f\\\\~o\\\\~o__S4VvFBeH { background: lime; }
+.localIdentName__f\\\\+o\\\\+o__AWIsfyEk { background: lime; }
+
+.localIdentName__foo\\\\/bar__DhIde1Wb {
+  background: hotpink;
+}
+
+.localIdentName__foo\\\\\\\\bar__aeKkgCs_ {
+  background: hotpink;
+}
+
+.localIdentName__foo\\\\/bar\\\\/baz__QFT18bFi {
+  background: hotpink;
+}
+
+.localIdentName__foo\\\\\\\\bar\\\\\\\\baz__uM3RYQs7 {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "localIdentRegExp" option: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work and respect the "path" placeholder: errors 1`] = `Array []`;
 
 exports[`"modules" option should work and respect the "path" placeholder: module 1`] = `
