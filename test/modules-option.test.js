@@ -340,7 +340,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it.only('should work and respect the "localIdentRegExp" option', async () => {
+  it('should work and respect the "localIdentRegExp" option', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
         localIdentName: "[1]__[local]__[hash:base64:8]",
