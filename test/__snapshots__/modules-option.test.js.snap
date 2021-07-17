@@ -10450,10 +10450,10 @@ Array [
 	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
-	background: url(data:image/png;base64,AAA);
+	background: url(data:image/png;base64,AAA=);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA=) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -10498,10 +10498,10 @@ Array [
 	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
-	background: url(data:image/png;base64,AAA);
+	background: url(data:image/png;base64,AAA=);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA=) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -10548,10 +10548,10 @@ Array [
 	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
-	background: url(data:image/png;base64,AAA);
+	background: url(data:image/png;base64,AAA=);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA=) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -10596,10 +10596,10 @@ Array [
 	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
-	background: url(data:image/png;base64,AAA);
+	background: url(data:image/png;base64,AAA=);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA=) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -10646,10 +10646,10 @@ Array [
 	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
-	background: url(data:image/png;base64,AAA);
+	background: url(data:image/png;base64,AAA=);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA=) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
@@ -10696,10 +10696,10 @@ Array [
 	background: url(replaced_file_protocol_/webpack/public/path/img.png#?iefix);
 	background: url(\\"#hash\\");
 	background: url(\\"#\\");
-	background: url(data:image/png;base64,AAA);
+	background: url(data:image/png;base64,AAA=);
 	background: url(http://example.com/image.jpg);
 	background: url(//example.com/image.png);
-	background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
+	background: green url(data:image/png;base64,AAA=) url(http://example.com/image.jpg) url(//example.com/image.png) url(replaced_file_protocol_/webpack/public/path/img.png) url(\\"replaced_file_protocol_/webpack/public/path/img%20img.png\\") xyz;
 }
 ",
     "",
