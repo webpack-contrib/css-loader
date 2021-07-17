@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/webpack-contrib/css-loader/compare/v6.0.0...v6.1.0) (2021-07-17)
+
+
+### Features
+
+* add `link` in schema ([#1345](https://github.com/webpack-contrib/css-loader/issues/1345)) ([7d4e493](https://github.com/webpack-contrib/css-loader/commit/7d4e4931390f9e9356af45ae03057d1505d73109))
+
+
+### Bug Fixes
+
+* respect the `localIdentRegExp` option ([#1349](https://github.com/webpack-contrib/css-loader/issues/1349)) ([42f150b](https://github.com/webpack-contrib/css-loader/commit/42f150b429afad9b0851d2e6bd75cec120885aa4))
+
 ## [6.0.0](https://github.com/webpack-contrib/css-loader/compare/v5.2.7...v6.0.0) (2021-07-14)
 
 ### Notes
