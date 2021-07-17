@@ -61,7 +61,7 @@
     "babel-jest": "^27.0.6",
     "cross-env": "^7.0.3",
     "del": "^6.0.0",
-    "del-cli": "^4.0.0",
+    "del-cli": "^4.0.1",
     "es-check": "^5.2.4",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
@@ -86,7 +86,7 @@
     "stylus": "^0.54.8",
     "stylus-loader": "^6.1.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.44.0"
+    "webpack": "^5.45.1"
   },
   "keywords": [
     "webpack",
