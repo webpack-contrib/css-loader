@@ -387,7 +387,19 @@ function defaultGetLocalIdent(
   };
 
   // eslint-disable-next-line no-underscore-dangle
-  return loaderContext._compilation.getPath(localIdentName, data);
+  let result = loaderContext._compilation.getPath(localIdentName, data);
+
+  if (options.regExp) {
+    const match = loaderContext.resourcePath.match(options.regExp);
+
+    if (match) {
+      match.forEach((matched, i) => {
+        result = result.replace(new RegExp(`\\[${i}\\]`, "ig"), matched);
+      });
+    }
+  }
+
+  return result;
 }
 
 function fixedEncodeURIComponent(str) {
