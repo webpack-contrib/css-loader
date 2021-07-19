@@ -2571,6 +2571,64 @@ Array [
 
 exports[`"modules" option should work and respect the "context" option: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type and returns array names: errors 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type and returns array names: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".eFSx39d7lf2DbavLOZEH {\\\\n  color: blue;\\\\n}\\\\n\\\\n._XcV1pTGsk1DDypSCcav {\\\\n  color: blue;\\\\n}\\\\n\\\\n._JxN_SGMxSzstCVbNTUy {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._krAefTYwrSG1l87lmV3 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"foo_TEST_1\\": \\"bar\\",
+	\\"foo_TEST_3\\": \\"bar\\",
+	\\"my_btn_info_is_disabled_TEST_1\\": \\"value\\",
+	\\"my_btn_info_is_disabled_TEST_3\\": \\"value\\",
+	\\"btn_info_is_disabled_TEST_1\\": \\"eFSx39d7lf2DbavLOZEH\\",
+	\\"btn_info_is_disabled_TEST_3\\": \\"eFSx39d7lf2DbavLOZEH\\",
+	\\"btn__info_is_disabled_1_TEST_1\\": \\"_XcV1pTGsk1DDypSCcav\\",
+	\\"btn__info_is_disabled_1_TEST_3\\": \\"_XcV1pTGsk1DDypSCcav\\",
+	\\"simple_TEST_1\\": \\"_JxN_SGMxSzstCVbNTUy\\",
+	\\"simple_TEST_3\\": \\"_JxN_SGMxSzstCVbNTUy\\",
+	\\"foo_bar_TEST_1\\": \\"_krAefTYwrSG1l87lmV3\\",
+	\\"foo_bar_TEST_3\\": \\"_krAefTYwrSG1l87lmV3\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type and returns array names: result 1`] = `
+Array [
+  Array [
+    "./modules/localsConvention/localsConvention.css",
+    ".eFSx39d7lf2DbavLOZEH {
+  color: blue;
+}
+
+._XcV1pTGsk1DDypSCcav {
+  color: blue;
+}
+
+._JxN_SGMxSzstCVbNTUy {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+
+._krAefTYwrSG1l87lmV3 {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type and returns array names: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type: errors 1`] = `Array []`;
 
 exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type: module 1`] = `
@@ -13551,6 +13609,76 @@ Array [
 `;
 
 exports[`"modules" option should work with case \`values-10\` (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with composes when the "exportLocalsConvention" is function and return array names: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with composes when the "exportLocalsConvention" is function and return array names: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".hrlxzfp4noajRWPVp_UC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def_TEST_1\\"] + \\";\\\\n}\\\\n\\\\n.Wr3wRBz8YFj3jWOISgia {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"s_white_TEST_1\\"] + \\";\\\\n}\\\\n\\\\n.N3CMKfMxK4wVelMiMLmQ {\\\\n  display: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"m_small_TEST_1\\"] + \\";\\\\n}\\\\n\\\\n.pgrezI_6B1TIw29jJdO0 {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def_TEST_1\\"] + \\";\\\\n}\\\\n\\\\n._wneqlVHVVNWG_hbM3Ti {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_other_other_TEST_1\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export var v_def_TEST_1 = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def_TEST_1\\"] + \\"\\";
+export var v_def_TEST_3 = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def_TEST_1\\"] + \\"\\";
+export var v_other_other_TEST_1 = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_other_other_TEST_1\\"] + \\"\\";
+export var v_other_other_TEST_3 = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_other_other_TEST_1\\"] + \\"\\";
+export var s_white_TEST_1 = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"s_white_TEST_1\\"] + \\"\\";
+export var s_white_TEST_3 = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"s_white_TEST_1\\"] + \\"\\";
+export var m_small_TEST_1 = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"m_small_TEST_1\\"] + \\"\\";
+export var m_small_TEST_3 = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"m_small_TEST_1\\"] + \\"\\";
+export var ghi_TEST_1 = \\"hrlxzfp4noajRWPVp_UC\\";
+export var ghi_TEST_3 = \\"hrlxzfp4noajRWPVp_UC\\";
+export var my_class_TEST_1 = \\"Wr3wRBz8YFj3jWOISgia\\";
+export var my_class_TEST_3 = \\"Wr3wRBz8YFj3jWOISgia\\";
+export var other_TEST_1 = \\"N3CMKfMxK4wVelMiMLmQ\\";
+export var other_TEST_3 = \\"N3CMKfMxK4wVelMiMLmQ\\";
+export var other_other_TEST_1 = \\"pgrezI_6B1TIw29jJdO0\\";
+export var other_other_TEST_3 = \\"pgrezI_6B1TIw29jJdO0\\";
+export var green_TEST_1 = \\"_wneqlVHVVNWG_hbM3Ti\\";
+export var green_TEST_3 = \\"_wneqlVHVVNWG_hbM3Ti\\";
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with composes when the "exportLocalsConvention" is function and return array names: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/namedExport/composes/values.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/namedExport/composes/composes.css",
+    ".hrlxzfp4noajRWPVp_UC {
+  color: red;
+}
+
+.Wr3wRBz8YFj3jWOISgia {
+  color: white;
+}
+
+.N3CMKfMxK4wVelMiMLmQ {
+  display: (min-width: 320px);
+}
+
+.pgrezI_6B1TIw29jJdO0 {
+  width: red;
+}
+
+._wneqlVHVVNWG_hbM3Ti {
+  color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with composes when the "exportLocalsConvention" is function and return array names: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with composes when the "exportLocalsConvention" is function: errors 1`] = `Array []`;
 

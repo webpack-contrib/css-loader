@@ -1211,6 +1211,32 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work and respect the "exportLocalsConvention" option with the "function" type and returns array names', async () => {
+    const compiler = getCompiler(
+      "./modules/localsConvention/localsConvention.js",
+      {
+        modules: {
+          mode: "local",
+          exportLocalsConvention: (localName) => [
+            `${localName.replace(/-/g, "_")}_TEST_1`,
+            `${localName.replace(/-/g, "_")}_TEST_1`,
+            `${localName.replace(/-/g, "_")}_TEST_3`,
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work and respect the "localConvention" option with the "camelCase" value', async () => {
     const compiler = getCompiler(
       "./modules/localsConvention/localsConvention.js",
@@ -1523,6 +1549,29 @@ describe('"modules" option', () => {
         localIdentName: "_[local]",
         namedExport: true,
         exportLocalsConvention: "dashesOnly",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/namedExport/composes/composes.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with composes when the "exportLocalsConvention" is function and return array names', async () => {
+    const compiler = getCompiler("./modules/namedExport/composes/composes.js", {
+      modules: {
+        namedExport: true,
+        exportLocalsConvention: (localName) => [
+          `${localName.replace(/-/g, "_")}_TEST_1`,
+          `${localName.replace(/-/g, "_")}_TEST_1`,
+          `${localName.replace(/-/g, "_")}_TEST_3`,
+        ],
       },
     });
     const stats = await compile(compiler);

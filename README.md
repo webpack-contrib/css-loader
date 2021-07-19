@@ -1139,6 +1139,34 @@ module.exports = {
 };
 ```
 
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            exportLocalsConvention: function (name) {
+              return [
+                name.replace(/-/g, "_"),
+                // dashesCamelCase
+                name.replace(/-+(\w)/g, (match, firstLetter) =>
+                  firstLetter.toUpperCase()
+                ),
+              ];
+            },
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
 ##### `exportOnlyLocals`
 
 Type: `Boolean`

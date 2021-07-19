@@ -486,7 +486,9 @@ function getFilter(filter, resourcePath) {
 
 function getValidLocalName(localName, exportLocalsConvention) {
   if (typeof exportLocalsConvention === "function") {
-    return exportLocalsConvention(localName);
+    const result = exportLocalsConvention(localName);
+
+    return Array.isArray(result) ? result[0] : result;
   }
 
   if (exportLocalsConvention === "dashesOnly") {
@@ -962,15 +964,21 @@ function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
 
   let localsCode = "";
 
-  const addExportToLocalsCode = (name, value) => {
-    if (options.modules.namedExport) {
-      localsCode += `export var ${name} = ${JSON.stringify(value)};\n`;
-    } else {
-      if (localsCode) {
-        localsCode += `,\n`;
-      }
+  const addExportToLocalsCode = (names, value) => {
+    const normalizedNames = Array.isArray(names)
+      ? new Set(names)
+      : new Set([names]);
 
-      localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
+    for (const name of normalizedNames) {
+      if (options.modules.namedExport) {
+        localsCode += `export var ${name} = ${JSON.stringify(value)};\n`;
+      } else {
+        if (localsCode) {
+          localsCode += `,\n`;
+        }
+
+        localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
+      }
     }
   };
 
@@ -987,13 +995,9 @@ function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
 
     switch (options.modules.exportLocalsConvention) {
       case "camelCase": {
-        addExportToLocalsCode(name, value);
-
         const modifiedName = camelCase(name);
 
-        if (modifiedName !== name) {
-          addExportToLocalsCode(modifiedName, value);
-        }
+        addExportToLocalsCode([name, modifiedName], value);
         break;
       }
       case "camelCaseOnly": {
@@ -1001,13 +1005,9 @@ function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
         break;
       }
       case "dashes": {
-        addExportToLocalsCode(name, value);
-
         const modifiedName = dashesCamelCase(name);
 
-        if (modifiedName !== name) {
-          addExportToLocalsCode(modifiedName, value);
-        }
+        addExportToLocalsCode([name, modifiedName], value);
         break;
       }
       case "dashesOnly": {
