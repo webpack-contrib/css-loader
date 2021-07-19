@@ -1031,6 +1031,9 @@ module.exports = {
 };
 ```
 
+To set a custom name for namedExport, can use [`exportLocalsConvention`](#exportLocalsConvention) option as a function.
+Example below in the [`examples`](#examples) section.
+
 ##### `exportGlobals`
 
 Type: `Boolean`
@@ -1060,10 +1063,12 @@ module.exports = {
 
 ##### `exportLocalsConvention`
 
-Type: `String`
+Type: `String|Function`
 Default: based on the `modules.namedExport` option value, if `true` - `camelCaseOnly`, otherwise `asIs`
 
 Style of exported class names.
+
+###### `String`
 
 By default, the exported JSON keys mirror the class names (i.e `asIs` value).
 
@@ -1102,6 +1107,58 @@ module.exports = {
         options: {
           modules: {
             exportLocalsConvention: "camelCase",
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+###### `Function`
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            exportLocalsConvention: function (name) {
+              return name.replace(/-/g, "_");
+            },
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            exportLocalsConvention: function (name) {
+              return [
+                name.replace(/-/g, "_"),
+                // dashesCamelCase
+                name.replace(/-+(\w)/g, (match, firstLetter) =>
+                  firstLetter.toUpperCase()
+                ),
+              ];
+            },
           },
         },
       },
@@ -1430,6 +1487,31 @@ module.exports = {
         "assets/real-path-to-img/img.png"
       ),
     },
+  },
+};
+```
+
+### Named export with custom export names
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            namedExport: true,
+            exportLocalsConvention: function (name) {
+              return name.replace(/-/g, "_");
+            },
+          },
+        },
+      },
+    ],
   },
 };
 ```

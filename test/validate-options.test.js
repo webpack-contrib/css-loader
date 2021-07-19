@@ -45,6 +45,10 @@ describe("validate options", () => {
         { exportLocalsConvention: "camelCaseOnly" },
         { exportLocalsConvention: "dashes" },
         { exportLocalsConvention: "dashesOnly" },
+        {
+          exportLocalsConvention: (localName) =>
+            `${localName.replace(/-/g, "_")}`,
+        },
         { namedExport: true },
         { namedExport: false },
         { exportOnlyLocals: true },
