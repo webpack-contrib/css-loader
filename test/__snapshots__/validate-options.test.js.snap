@@ -92,10 +92,19 @@ exports[`validate options should throw an error on the "modules" option with "{"
 
 exports[`validate options should throw an error on the "modules" option with "{"exportLocalsConvention":"unknown"}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
- - options.modules.exportLocalsConvention should be one of these:
-   \\"asIs\\" | \\"camelCase\\" | \\"camelCaseOnly\\" | \\"dashes\\" | \\"dashesOnly\\"
-   -> Style of exported classnames.
-   -> Read more at https://github.com/webpack-contrib/css-loader#localsconvention"
+ - options.modules should be one of these:
+   boolean | \\"local\\" | \\"global\\" | \\"pure\\" | \\"icss\\" | object { auto?, mode?, localIdentName?, localIdentContext?, localIdentHashSalt?, localIdentHashFunction?, localIdentHashDigest?, localIdentHashDigestLength?, localIdentRegExp?, getLocalIdent?, namedExport?, exportGlobals?, exportLocalsConvention?, exportOnlyLocals? }
+   -> Allows to enable/disable CSS Modules or ICSS and setup configuration.
+   -> Read more at https://github.com/webpack-contrib/css-loader#modules
+   Details:
+    * options.modules.exportLocalsConvention should be one of these:
+      \\"asIs\\" | \\"camelCase\\" | \\"camelCaseOnly\\" | \\"dashes\\" | \\"dashesOnly\\" | function
+      -> Style of exported classnames.
+      -> Read more at https://github.com/webpack-contrib/css-loader#localsconvention
+      Details:
+       * options.modules.exportLocalsConvention should be one of these:
+         \\"asIs\\" | \\"camelCase\\" | \\"camelCaseOnly\\" | \\"dashes\\" | \\"dashesOnly\\"
+       * options.modules.exportLocalsConvention should be an instance of function."
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"exportOnlyLocals":"invalid"}" value 1`] = `

@@ -485,6 +485,10 @@ function getFilter(filter, resourcePath) {
 }
 
 function getValidLocalName(localName, exportLocalsConvention) {
+  if (typeof exportLocalsConvention === "function") {
+    return exportLocalsConvention(localName);
+  }
+
   if (exportLocalsConvention === "dashesOnly") {
     return dashesCamelCase(localName);
   }
@@ -588,6 +592,7 @@ function getModulesOptions(rawOptions, loaderContext) {
     }
 
     if (
+      typeof modulesOptions.exportLocalsConvention === "string" &&
       modulesOptions.exportLocalsConvention !== "camelCaseOnly" &&
       modulesOptions.exportLocalsConvention !== "dashesOnly"
     ) {
@@ -970,6 +975,16 @@ function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
   };
 
   for (const { name, value } of exports) {
+    if (typeof options.modules.exportLocalsConvention === "function") {
+      addExportToLocalsCode(
+        options.modules.exportLocalsConvention(name),
+        value
+      );
+
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
     switch (options.modules.exportLocalsConvention) {
       case "camelCase": {
         addExportToLocalsCode(name, value);

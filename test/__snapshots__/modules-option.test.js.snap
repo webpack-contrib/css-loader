@@ -1749,6 +1749,15 @@ Error: The \\"modules.namedExport\\" option requires the \\"esModules\\" option 
 
 exports[`"modules" option should throw an error when the "namedExport" option is "true", but the "esModule" is "false": warnings 1`] = `Array []`;
 
+exports[`"modules" option should throw error when the "exportLocalsConvention" function throw error: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: namedExportFn error",
+]
+`;
+
+exports[`"modules" option should throw error when the "exportLocalsConvention" function throw error: warnings 1`] = `Array []`;
+
 exports[`"modules" option should throw error with composes when the "namedExport" is enabled and "exportLocalsConvention" options has invalid value: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
@@ -2561,6 +2570,58 @@ Array [
 `;
 
 exports[`"modules" option should work and respect the "context" option: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type: errors 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".eFSx39d7lf2DbavLOZEH {\\\\n  color: blue;\\\\n}\\\\n\\\\n._XcV1pTGsk1DDypSCcav {\\\\n  color: blue;\\\\n}\\\\n\\\\n._JxN_SGMxSzstCVbNTUy {\\\\n  color: red;\\\\n}\\\\n\\\\na {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._krAefTYwrSG1l87lmV3 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"foo_TEST\\": \\"bar\\",
+	\\"my_btn_info_is_disabled_TEST\\": \\"value\\",
+	\\"btn_info_is_disabled_TEST\\": \\"eFSx39d7lf2DbavLOZEH\\",
+	\\"btn__info_is_disabled_1_TEST\\": \\"_XcV1pTGsk1DDypSCcav\\",
+	\\"simple_TEST\\": \\"_JxN_SGMxSzstCVbNTUy\\",
+	\\"foo_bar_TEST\\": \\"_krAefTYwrSG1l87lmV3\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type: result 1`] = `
+Array [
+  Array [
+    "./modules/localsConvention/localsConvention.css",
+    ".eFSx39d7lf2DbavLOZEH {
+  color: blue;
+}
+
+._XcV1pTGsk1DDypSCcav {
+  color: blue;
+}
+
+._JxN_SGMxSzstCVbNTUy {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+
+._krAefTYwrSG1l87lmV3 {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "exportLocalsConvention" option with the "function" type: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work and respect the "exportOnlyLocals" option: errors 1`] = `Array []`;
 
@@ -4606,6 +4667,52 @@ h1 #pWzFEVR2SnlD5kUmOw_N {
 
 exports[`"modules" option should work and support "pure" mode: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work js template with "namedExport" option when "exportLocalsConvention" option is function: errors 1`] = `Array []`;
+
+exports[`"modules" option should work js template with "namedExport" option when "exportLocalsConvention" option is function: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".header-baz {\\\\n  color: red;\\\\n}\\\\n\\\\n.body {\\\\n  color: coral;\\\\n}\\\\n\\\\n.footer {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export var header_baz_TEST = \\"header-baz\\";
+export var body_TEST = \\"body\\";
+export var footer_TEST = \\"footer\\";
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work js template with "namedExport" option when "exportLocalsConvention" option is function: result 1`] = `
+Object {
+  "css": Array [
+    Array [
+      "./modules/namedExport/template-2/index.css",
+      ".header-baz {
+  color: red;
+}
+
+.body {
+  color: coral;
+}
+
+.footer {
+  color: blue;
+}
+",
+      "",
+    ],
+  ],
+  "html": "
+<div class=\\"header-baz\\">
+<div class=\\"body\\">
+<div class=\\"footer\\">
+",
+}
+`;
+
+exports[`"modules" option should work js template with "namedExport" option when "exportLocalsConvention" option is function: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work js template with "namedExport" option: errors 1`] = `Array []`;
 
 exports[`"modules" option should work js template with "namedExport" option: module 1`] = `
@@ -4771,6 +4878,39 @@ exports[`"modules" option should work when the "auto" option is "true" with othe
 `;
 
 exports[`"modules" option should work when the "auto" option is "true" with other options: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work when the "exportLocalsConvention" option is function: errors 1`] = `Array []`;
+
+exports[`"modules" option should work when the "exportLocalsConvention" option is function: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._pV82SQbfroU2_cQrb3p {\\\\n  color: red;\\\\n}\\\\n\\\\n.bar {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export var bar_baz_TEST = \\"_pV82SQbfroU2_cQrb3p\\";
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work when the "exportLocalsConvention" option is function: result 1`] = `
+Array [
+  Array [
+    "./modules/namedExport/base/index.css",
+    "._pV82SQbfroU2_cQrb3p {
+  color: red;
+}
+
+.bar {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work when the "exportLocalsConvention" option is function: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work when the "namedExport" is enabled and the "exportLocalsConvention" options has "dashesOnly" value: errors 1`] = `Array []`;
 
@@ -13411,6 +13551,67 @@ Array [
 `;
 
 exports[`"modules" option should work with case \`values-10\` (\`modules\` value is \`true)\`: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with composes when the "exportLocalsConvention" is function: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with composes when the "exportLocalsConvention" is function: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"._ghi {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def_TEST\\"] + \\";\\\\n}\\\\n\\\\n._my-class {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"s_white_TEST\\"] + \\";\\\\n}\\\\n\\\\n._other {\\\\n  display: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"m_small_TEST\\"] + \\";\\\\n}\\\\n\\\\n._other-other {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def_TEST\\"] + \\";\\\\n}\\\\n\\\\n._green {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_other_other_TEST\\"] + \\";\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export var v_def_TEST = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_def_TEST\\"] + \\"\\";
+export var v_other_other_TEST = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"v_other_other_TEST\\"] + \\"\\";
+export var s_white_TEST = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"s_white_TEST\\"] + \\"\\";
+export var m_small_TEST = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"m_small_TEST\\"] + \\"\\";
+export var ghi_TEST = \\"_ghi\\";
+export var my_class_TEST = \\"_my-class\\";
+export var other_TEST = \\"_other\\";
+export var other_other_TEST = \\"_other-other\\";
+export var green_TEST = \\"_green\\";
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with composes when the "exportLocalsConvention" is function: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/namedExport/composes/values.css",
+    "
+",
+    "",
+  ],
+  Array [
+    "./modules/namedExport/composes/composes.css",
+    "._ghi {
+  color: red;
+}
+
+._my-class {
+  color: white;
+}
+
+._other {
+  display: (min-width: 320px);
+}
+
+._other-other {
+  width: red;
+}
+
+._green {
+  color: green;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with composes when the "exportLocalsConvention" is function: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with composes when the "namedExport" is enabled and "exportLocalsConvention" options has "dashesOnly" value: errors 1`] = `Array []`;
 

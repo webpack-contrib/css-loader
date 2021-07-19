@@ -1299,6 +1299,29 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work and respect the "exportLocalsConvention" option with the "function" type', async () => {
+    const compiler = getCompiler(
+      "./modules/localsConvention/localsConvention.js",
+      {
+        modules: {
+          mode: "local",
+          exportLocalsConvention: (localName) =>
+            `${localName.replace(/-/g, "_")}_TEST`,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work and respect the "exportOnlyLocals" option', async () => {
     const compiler = getCompiler("./modules/composes/composes.js", {
       modules: {
@@ -1393,6 +1416,26 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work when the "exportLocalsConvention" option is function', async () => {
+    const compiler = getCompiler("./modules/namedExport/base/index.js", {
+      modules: {
+        namedExport: true,
+        exportLocalsConvention: (localName) =>
+          `${localName.replace(/-/g, "_")}_TEST`,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/namedExport/base/index.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with the "namedExport" option with nested import', async () => {
     const compiler = getCompiler("./modules/namedExport/nested/index.js", {
       esModule: true,
@@ -1424,6 +1467,28 @@ describe('"modules" option', () => {
 
     expect(
       getModuleSource("./modules/namedExport/template/index.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work js template with "namedExport" option when "exportLocalsConvention" option is function', async () => {
+    const compiler = getCompiler("./modules/namedExport/template-2/index.js", {
+      esModule: true,
+      modules: {
+        localIdentName: "[local]",
+        namedExport: true,
+        exportLocalsConvention: (localName) =>
+          `${localName.replace(/-/g, "_")}_TEST`,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/namedExport/template-2/index.css", stats)
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
@@ -1470,6 +1535,42 @@ describe('"modules" option', () => {
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with composes when the "exportLocalsConvention" is function', async () => {
+    const compiler = getCompiler("./modules/namedExport/composes/composes.js", {
+      modules: {
+        localIdentName: "_[local]",
+        namedExport: true,
+        exportLocalsConvention: (localName) =>
+          `${localName.replace(/-/g, "_")}_TEST`,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/namedExport/composes/composes.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should throw error when the "exportLocalsConvention" function throw error', async () => {
+    const compiler = getCompiler("./modules/namedExport/composes/composes.js", {
+      modules: {
+        namedExport: true,
+        exportLocalsConvention: () => {
+          throw new Error("namedExportFn error");
+        },
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats, true)).toMatchSnapshot("errors");
   });
 
   it('should throw error with composes when the "namedExport" is enabled and "exportLocalsConvention" options has invalid value', async () => {

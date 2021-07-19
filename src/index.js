@@ -216,7 +216,17 @@ export default async function loader(content, map, meta) {
   }
 
   const importCode = getImportCode(imports, options);
-  const moduleCode = getModuleCode(result, api, replacements, options, this);
+
+  let moduleCode;
+
+  try {
+    moduleCode = getModuleCode(result, api, replacements, options, this);
+  } catch (error) {
+    callback(error);
+
+    return;
+  }
+
   const exportCode = getExportCode(
     exports,
     replacements,
