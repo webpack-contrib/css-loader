@@ -485,17 +485,9 @@ function getFilter(filter, resourcePath) {
 }
 
 function getValidLocalName(localName, exportLocalsConvention) {
-  if (typeof exportLocalsConvention === "function") {
-    const result = exportLocalsConvention(localName);
+  const result = exportLocalsConvention(localName);
 
-    return Array.isArray(result) ? result[0] : result;
-  }
-
-  if (exportLocalsConvention === "dashesOnly") {
-    return dashesCamelCase(localName);
-  }
-
-  return camelCase(localName);
+  return Array.isArray(result) ? result[0] : result;
 }
 
 const IS_MODULES = /\.module(s)?\.\w+$/i;
@@ -552,6 +544,32 @@ function getModulesOptions(rawOptions, loaderContext) {
     ...rawModulesOptions,
   };
 
+  let exportLocalsConventionType;
+
+  if (typeof modulesOptions.exportLocalsConvention === "string") {
+    exportLocalsConventionType = modulesOptions.exportLocalsConvention;
+
+    modulesOptions.exportLocalsConvention = (name) => {
+      switch (exportLocalsConventionType) {
+        case "camelCase": {
+          return [name, camelCase(name)];
+        }
+        case "camelCaseOnly": {
+          return camelCase(name);
+        }
+        case "dashes": {
+          return [name, dashesCamelCase(name)];
+        }
+        case "dashesOnly": {
+          return dashesCamelCase(name);
+        }
+        case "asIs":
+        default:
+          return name;
+      }
+    };
+  }
+
   if (typeof modulesOptions.auto === "boolean") {
     const isModules = modulesOptions.auto && IS_MODULES.test(resourcePath);
 
@@ -594,9 +612,9 @@ function getModulesOptions(rawOptions, loaderContext) {
     }
 
     if (
-      typeof modulesOptions.exportLocalsConvention === "string" &&
-      modulesOptions.exportLocalsConvention !== "camelCaseOnly" &&
-      modulesOptions.exportLocalsConvention !== "dashesOnly"
+      typeof exportLocalsConventionType === "string" &&
+      exportLocalsConventionType !== "camelCaseOnly" &&
+      exportLocalsConventionType !== "dashesOnly"
     ) {
       throw new Error(
         'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "camelCaseOnly" or "dashesOnly"'
@@ -983,42 +1001,7 @@ function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
   };
 
   for (const { name, value } of exports) {
-    if (typeof options.modules.exportLocalsConvention === "function") {
-      addExportToLocalsCode(
-        options.modules.exportLocalsConvention(name),
-        value
-      );
-
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-
-    switch (options.modules.exportLocalsConvention) {
-      case "camelCase": {
-        const modifiedName = camelCase(name);
-
-        addExportToLocalsCode([name, modifiedName], value);
-        break;
-      }
-      case "camelCaseOnly": {
-        addExportToLocalsCode(camelCase(name), value);
-        break;
-      }
-      case "dashes": {
-        const modifiedName = dashesCamelCase(name);
-
-        addExportToLocalsCode([name, modifiedName], value);
-        break;
-      }
-      case "dashesOnly": {
-        addExportToLocalsCode(dashesCamelCase(name), value);
-        break;
-      }
-      case "asIs":
-      default:
-        addExportToLocalsCode(name, value);
-        break;
-    }
+    addExportToLocalsCode(options.modules.exportLocalsConvention(name), value);
   }
 
   for (const item of replacements) {
