@@ -33,6 +33,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: "npm"
 
       - name: Use latest NPM
         run: sudo npm i -g npm
@@ -71,6 +72,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: "npm"
 
       - name: Use latest NPM on ubuntu/macos
         if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
