@@ -513,7 +513,7 @@ function getValidLocalName(localName, exportLocalsConvention) {
 const IS_MODULES = /\.module(s)?\.\w+$/i;
 const IS_ICSS = /\.icss\.\w+$/i;
 
-function getModulesOptions(rawOptions, loaderContext) {
+function getModulesOptions(rawOptions, isExportStyleSheet, loaderContext) {
   if (typeof rawOptions.modules === "boolean" && rawOptions.modules === false) {
     return false;
   }
@@ -554,9 +554,9 @@ function getModulesOptions(rawOptions, loaderContext) {
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
-    namedExport: false,
+    namedExport: isExportStyleSheet || false,
     exportLocalsConvention:
-      rawModulesOptions.namedExport === true &&
+      (rawModulesOptions.namedExport === true || isExportStyleSheet) &&
       typeof rawModulesOptions.exportLocalsConvention === "undefined"
         ? "camelCaseOnly"
         : "asIs",
@@ -646,7 +646,15 @@ function getModulesOptions(rawOptions, loaderContext) {
 }
 
 function normalizeOptions(rawOptions, loaderContext) {
-  const modulesOptions = getModulesOptions(rawOptions, loaderContext);
+  const isExportStyleSheet =
+    typeof rawOptions.exportStyleSheet === "undefined"
+      ? false
+      : rawOptions.exportStyleSheet;
+  const modulesOptions = getModulesOptions(
+    rawOptions,
+    isExportStyleSheet,
+    loaderContext
+  );
 
   return {
     url: typeof rawOptions.url === "undefined" ? true : rawOptions.url,
@@ -662,15 +670,12 @@ function normalizeOptions(rawOptions, loaderContext) {
         : rawOptions.importLoaders,
     esModule:
       typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
-    exportStyleSheet:
-      typeof rawOptions.exportStyleSheet === "undefined"
-        ? false
-        : rawOptions.exportStyleSheet,
+    exportStyleSheet: isExportStyleSheet,
   };
 }
 
 function shouldUseImportPlugin(options) {
-  if (options.modules.exportOnlyLocals) {
+  if (options.exportStyleSheet || options.modules.exportOnlyLocals) {
     return false;
   }
 

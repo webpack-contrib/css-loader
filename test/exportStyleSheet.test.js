@@ -80,7 +80,81 @@ describe("exportStylesheet option", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work and export CSSStyleSheet for import asserions and basic output", async () => {
+  it("should work and keep import as is", async () => {
+    const compiler = getCompiler(
+      "./basic-import-assertion-css.js",
+      {
+        exportStyleSheet: true,
+      },
+      {
+        target: "web",
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          assetModuleFilename: "[name][ext]",
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with urls", async () => {
+    const compiler = getCompiler(
+      "./url/url-import-assertion-css.js",
+      {
+        exportStyleSheet: true,
+      },
+      {
+        devtool: "source-map",
+        target: "web",
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          assetModuleFilename: "[name][ext]",
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with CSS modules", async () => {
+    const compiler = getCompiler(
+      "./modules/composes/composes-import-assertion-css.js",
+      {
+        exportStyleSheet: true,
+        modules: true,
+      },
+      {
+        devtool: "source-map",
+        target: "web",
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          assetModuleFilename: "[name][ext]",
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/composes/composes.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work and export CSSStyleSheet for import assertion and basic output", async () => {
     const compiler = getCompiler(
       "./basic-import-assertion-css-and-standard.js",
       {},
