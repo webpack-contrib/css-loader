@@ -1034,78 +1034,81 @@ function dashesCamelCase(str) {
 function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
   let code = "// Exports\n";
 
-  if (!needToUseIcssPlugin) {
-    code += `${
-      options.esModule ? "export default" : "module.exports ="
-    } ___CSS_LOADER_EXPORT___;\n`;
+  if (needToUseIcssPlugin) {
+    let localsCode = "";
 
-    return code;
-  }
+    const addExportToLocalsCode = (names, value) => {
+      const normalizedNames = Array.isArray(names)
+        ? new Set(names)
+        : new Set([names]);
 
-  let localsCode = "";
-
-  const addExportToLocalsCode = (names, value) => {
-    const normalizedNames = Array.isArray(names)
-      ? new Set(names)
-      : new Set([names]);
-
-    for (const name of normalizedNames) {
-      if (options.modules.namedExport) {
-        localsCode += `export var ${name} = ${JSON.stringify(value)};\n`;
-      } else {
-        if (localsCode) {
-          localsCode += `,\n`;
-        }
-
-        localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
-      }
-    }
-  };
-
-  for (const { name, value } of exports) {
-    addExportToLocalsCode(options.modules.exportLocalsConvention(name), value);
-  }
-
-  for (const item of replacements) {
-    const { replacementName, localName } = item;
-
-    if (localName) {
-      const { importName } = item;
-
-      localsCode = localsCode.replace(new RegExp(replacementName, "g"), () => {
+      for (const name of normalizedNames) {
         if (options.modules.namedExport) {
-          return `" + ${importName}_NAMED___[${JSON.stringify(
-            getValidLocalName(localName, options.modules.exportLocalsConvention)
-          )}] + "`;
-        } else if (options.modules.exportOnlyLocals) {
-          return `" + ${importName}[${JSON.stringify(localName)}] + "`;
-        }
+          localsCode += `export var ${name} = ${JSON.stringify(value)};\n`;
+        } else {
+          if (localsCode) {
+            localsCode += `,\n`;
+          }
 
-        return `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
-      });
-    } else {
-      localsCode = localsCode.replace(
-        new RegExp(replacementName, "g"),
-        () => `" + ${replacementName} + "`
+          localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
+        }
+      }
+    };
+
+    for (const { name, value } of exports) {
+      addExportToLocalsCode(
+        options.modules.exportLocalsConvention(name),
+        value
       );
     }
-  }
 
-  if (options.modules.exportOnlyLocals) {
+    for (const item of replacements) {
+      const { replacementName, localName } = item;
+
+      if (localName) {
+        const { importName } = item;
+
+        localsCode = localsCode.replace(
+          new RegExp(replacementName, "g"),
+          () => {
+            if (options.modules.namedExport) {
+              return `" + ${importName}_NAMED___[${JSON.stringify(
+                getValidLocalName(
+                  localName,
+                  options.modules.exportLocalsConvention
+                )
+              )}] + "`;
+            } else if (options.modules.exportOnlyLocals) {
+              return `" + ${importName}[${JSON.stringify(localName)}] + "`;
+            }
+
+            return `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
+          }
+        );
+      } else {
+        localsCode = localsCode.replace(
+          new RegExp(replacementName, "g"),
+          () => `" + ${replacementName} + "`
+        );
+      }
+    }
+
+    if (options.modules.exportOnlyLocals) {
+      code += options.modules.namedExport
+        ? localsCode
+        : `${
+            options.esModule ? "export default" : "module.exports ="
+          } {\n${localsCode}\n};\n`;
+
+      return code;
+    }
+
     code += options.modules.namedExport
       ? localsCode
-      : `${
-          options.esModule ? "export default" : "module.exports ="
-        } {\n${localsCode}\n};\n`;
-
-    return code;
+      : `___CSS_LOADER_EXPORT___.locals = {${
+          localsCode ? `\n${localsCode}\n` : ""
+        }};\n`;
   }
-
-  code += options.modules.namedExport
-    ? localsCode
-    : `___CSS_LOADER_EXPORT___.locals = {${
-        localsCode ? `\n${localsCode}\n` : ""
-      }};\n`;
 
   code += `${
     options.esModule ? "export default" : "module.exports ="
