@@ -79,4 +79,51 @@ describe("exportStylesheet option", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work and export CSSStyleSheet for import asserions and basic output", async () => {
+    const compiler = getCompiler(
+      "./basic-import-assertion-css-and-standard.js",
+      {},
+      {
+        target: "web",
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          assetModuleFilename: "[name][ext]",
+        },
+        module: {
+          rules: [
+            {
+              test: /\.(mycss|css)$/i,
+              oneOf: [
+                {
+                  assert: { type: "css" },
+                  loader: path.resolve(__dirname, "./../src"),
+                  options: { exportStyleSheet: true },
+                },
+                {
+                  loader: path.resolve(__dirname, "./../src"),
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              resourceQuery: /^(?!.*\?ignore-asset-modules).*$/,
+              type: "asset/resource",
+            },
+            {
+              resourceQuery: /\?ignore-asset-modules$/,
+              type: "javascript/auto",
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });
