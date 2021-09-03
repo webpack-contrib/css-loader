@@ -171,4 +171,29 @@ describe("exportStylesheet option", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  // TODO https://bugs.chromium.org/p/chromium/issues/detail?id=1174094&q=CSSStyleSheet%20source%20maps&can=2
+  it("should work with source maps", async () => {
+    const compiler = getCompiler(
+      "./basic-import-assertion-css.js",
+      {
+        exportStyleSheet: true,
+      },
+      {
+        devtool: "source-map",
+        target: "web",
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          assetModuleFilename: "[name][ext]",
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });
