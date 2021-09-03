@@ -662,6 +662,10 @@ function normalizeOptions(rawOptions, loaderContext) {
         : rawOptions.importLoaders,
     esModule:
       typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
+    exportStyleSheet:
+      typeof rawOptions.exportStyleSheet === "undefined"
+        ? false
+        : rawOptions.exportStyleSheet,
   };
 }
 
@@ -1110,9 +1114,17 @@ function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
         }};\n`;
   }
 
-  code += `${
-    options.esModule ? "export default" : "module.exports ="
-  } ___CSS_LOADER_EXPORT___;\n`;
+  if (options.exportStyleSheet) {
+    code += "var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();\n";
+    code +=
+      "___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());\n";
+  }
+
+  code += `${options.esModule ? "export default" : "module.exports ="} ${
+    options.exportStyleSheet
+      ? "___CSS_LOADER_STYLE_SHEET___"
+      : "___CSS_LOADER_EXPORT___"
+  };\n`;
 
   return code;
 }

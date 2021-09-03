@@ -87,7 +87,7 @@ describe("validate options", () => {
       success: [true, false],
       failure: ["true"],
     },
-    exportStylesheet: {
+    exportStyleSheet: {
       success: [true, false],
       failure: ["true"],
     },

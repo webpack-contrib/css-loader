@@ -194,8 +194,8 @@
       "link": "https://github.com/webpack-contrib/css-loader#esmodule",
       "type": "boolean"
     },
-    "exportStylesheet": {
-      "description": "Exports style as constructable stylesheets (i.e. `import sheet from './styles.css' assert { type: 'css' };`).",
+    "exportStyleSheet": {
+      "description": "Exports styles as constructable stylesheets (i.e. `import sheet from './styles.css' assert { type: 'css' };`).",
       "link": "https://github.com/webpack-contrib/css-loader#exportstylesheet",
       "type": "boolean"
     }
