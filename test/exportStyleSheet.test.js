@@ -126,4 +126,49 @@ describe("exportStylesheet option", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it('should work with "sass-loader"', async () => {
+    const compiler = getCompiler(
+      "./scss/import-assertion-css.js",
+      {},
+      {
+        target: "web",
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          assetModuleFilename: "[name][ext]",
+        },
+        module: {
+          rules: [
+            {
+              test: /\.s[ca]ss$/i,
+              rules: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: {
+                    exportStyleSheet: true,
+                  },
+                },
+                {
+                  loader: "sass-loader",
+                  options: {
+                    // eslint-disable-next-line global-require
+                    implementation: require("sass"),
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./scss/source.scss", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

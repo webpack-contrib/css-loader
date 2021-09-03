@@ -24,6 +24,23 @@ export default ___CSS_LOADER_STYLE_SHEET___;
 
 exports[`exportStylesheet option should work and export CSSStyleSheet for import asserions and basic output: warnings 1`] = `Array []`;
 
+exports[`exportStylesheet option should work with "sass-loader": errors 1`] = `Array []`;
+
+exports[`exportStylesheet option should work with "sass-loader": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
+// Exports
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+export default ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`exportStylesheet option should work with "sass-loader": warnings 1`] = `Array []`;
+
 exports[`exportStylesheet option should work with CommonJS modules: errors 1`] = `Array []`;
 
 exports[`exportStylesheet option should work with CommonJS modules: module 1`] = `
