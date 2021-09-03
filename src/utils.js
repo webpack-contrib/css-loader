@@ -564,6 +564,12 @@ function getModulesOptions(rawOptions, isExportStyleSheet, loaderContext) {
     ...rawModulesOptions,
   };
 
+  if (isExportStyleSheet && modulesOptions.namedExport === false) {
+    throw new Error(
+      'The "exportStyleSheet" option requires the "modules.namedExport" option to be enabled.'
+    );
+  }
+
   let exportLocalsConventionType;
 
   if (typeof modulesOptions.exportLocalsConvention === "string") {
