@@ -311,6 +311,30 @@ function escapeLocalIdent(localident) {
   );
 }
 
+function resolveFolderTemplate(loaderContext, localIdentName, options) {
+  const { context } = options;
+  let { resourcePath } = loaderContext;
+  const parsed = path.parse(loaderContext.resourcePath);
+
+  if (parsed.dir) {
+    resourcePath = parsed.dir + path.sep;
+  }
+
+  let directory = path
+    .relative(context, `${resourcePath}_`)
+    .replace(/\\/g, "/")
+    .replace(/\.\.(\/)?/g, "_$1");
+  directory = directory.substr(0, directory.length - 1);
+
+  let folder = "";
+
+  if (directory.length > 1) {
+    folder = path.basename(directory);
+  }
+
+  return localIdentName.replace(/\[folder\]/gi, () => folder);
+}
+
 function defaultGetLocalIdent(
   loaderContext,
   localIdentName,
@@ -387,19 +411,20 @@ function defaultGetLocalIdent(
   };
 
   // eslint-disable-next-line no-underscore-dangle
-  let result = loaderContext._compilation.getPath(localIdentName, data);
+  let interpolatedFilename = loaderContext._compilation.getPath(
+    localIdentName,
+    data
+  );
 
-  if (options.regExp) {
-    const match = loaderContext.resourcePath.match(options.regExp);
-
-    if (match) {
-      match.forEach((matched, i) => {
-        result = result.replace(new RegExp(`\\[${i}\\]`, "ig"), matched);
-      });
-    }
+  if (localIdentName.includes("[folder]")) {
+    interpolatedFilename = resolveFolderTemplate(
+      loaderContext,
+      interpolatedFilename,
+      options
+    );
   }
 
-  return result;
+  return interpolatedFilename;
 }
 
 function fixedEncodeURIComponent(str) {
