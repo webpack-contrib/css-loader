@@ -393,14 +393,10 @@ function defaultGetLocalIdent(
   let result = loaderContext._compilation.getPath(localIdentName, data);
 
   if (result.includes("[folder]")) {
-    let foo = loaderContext.resourcePath;
-    const parsed = path.parse(foo);
-
-    if (parsed.dir) {
-      foo = parsed.dir + path.sep;
-    }
-
-    let directory = normalizePath(path.relative(context, `${foo}_`));
+    const dirname = path.dirname(resourcePath);
+    let directory = normalizePath(
+      path.relative(context, `${dirname + path.sep}_`)
+    );
 
     directory = directory.substr(0, directory.length - 1);
 

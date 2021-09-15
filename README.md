@@ -746,9 +746,10 @@ For more information on options see:
 Supported template strings:
 
 - `[name]` the basename of the resource
+- `[folder]` the folder the resource relative to the `compiler.context` option or `modules.localIdentContext` option.
 - `[path]` the path of the resource relative to the `compiler.context` option or `modules.localIdentContext` option.
 - `[file]` - filename and path.
-- `[ext]` - extension with leading .
+- `[ext]` - extension with leading `.`.
 - `[hash]` - the hash of the string, generated based on `localIdentHashSalt`, `localIdentHashFunction`, `localIdentHashDigest`, `localIdentHashDigestLength`, `localIdentContext`, `resourcePath` and `exportName`
 - `[<hashFunction>:hash:<hashDigest>:<hashDigestLength>]` - hash with hash settings.
 - `[local]` - original class.
