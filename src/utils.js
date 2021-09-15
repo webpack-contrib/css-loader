@@ -338,16 +338,16 @@ function defaultGetLocalIdent(
   options.content = `${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
 
   let { hashFunction, hashDigest, hashDigestLength } = options;
-  const mathes = localIdentName.match(
+  const matches = localIdentName.match(
     /\[(?:([^:\]]+):)?(?:(hash|contenthash|fullhash))(?::([a-z]+\d*))?(?::(\d+))?\]/i
   );
 
-  if (mathes) {
-    const hashName = mathes[2] || hashFunction;
+  if (matches) {
+    const hashName = matches[2] || hashFunction;
 
-    hashFunction = mathes[1] || hashFunction;
-    hashDigest = mathes[3] || hashDigest;
-    hashDigestLength = mathes[4] || hashDigestLength;
+    hashFunction = matches[1] || hashFunction;
+    hashDigest = matches[3] || hashDigest;
+    hashDigestLength = matches[4] || hashDigestLength;
 
     // `hash` and `contenthash` are same in `loader-utils` context
     // let's keep `hash` for backward compatibility
