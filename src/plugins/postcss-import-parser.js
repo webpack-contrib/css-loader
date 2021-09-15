@@ -196,12 +196,8 @@ const plugin = (options = {}) => {
               } = parsedAtRule;
 
               if (options.filter) {
-                const needKeep = await options.filter(
-                  url,
-                  media,
-                  layer,
-                  supports
-                );
+                // TODO add `layer` and `supports`
+                const needKeep = await options.filter(url, media);
 
                 if (!needKeep) {
                   return;

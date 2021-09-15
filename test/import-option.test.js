@@ -13,7 +13,7 @@ import {
 } from "./helpers/index";
 
 describe('"import" option', () => {
-  it.only("should work when not specified", async () => {
+  it("should work when not specified", async () => {
     const compiler = getCompiler("./import/import.js");
     const stats = await compile(compiler);
 
