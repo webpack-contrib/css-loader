@@ -44,10 +44,64 @@ describe("api", () => {
     expect(m.toString()).toMatchSnapshot();
   });
 
-  it("should toString with media query", () => {
+  it("should toString with media query list", () => {
     const m = api(noSourceMaps);
 
     const m1 = [1, "body { a: 1; }", "screen"];
+    const m2 = [2, "body { b: 2; }", ""];
+    const m3 = [3, "body { c: 3; }", ""];
+    const m4 = [4, "body { d: 4; }", ""];
+
+    m.i([m2, m3], "");
+    m.i([m2], "");
+    m.i([m2, m4], "print");
+    m.push(m1);
+
+    expect(m.toString()).toMatchSnapshot();
+  });
+
+  it("should toString with layer", () => {
+    const m = api(noSourceMaps);
+
+    const m1 = [1, "body { a: 1; }", "", "", "layer(default)"];
+    const m2 = [2, "body { b: 2; }", ""];
+    const m3 = [3, "body { c: 3; }", ""];
+    const m4 = [4, "body { d: 4; }", ""];
+
+    m.i([m2, m3], "");
+    m.i([m2], "");
+    m.i([m2, m4], "print");
+    m.push(m1);
+
+    expect(m.toString()).toMatchSnapshot();
+  });
+
+  it("should toString with supports", () => {
+    const m = api(noSourceMaps);
+
+    const m1 = [1, "body { a: 1; }", "", "supports (display: grid)"];
+    const m2 = [2, "body { b: 2; }", ""];
+    const m3 = [3, "body { c: 3; }", ""];
+    const m4 = [4, "body { d: 4; }", ""];
+
+    m.i([m2, m3], "");
+    m.i([m2], "");
+    m.i([m2, m4], "print");
+    m.push(m1);
+
+    expect(m.toString()).toMatchSnapshot();
+  });
+
+  it("should toString with media query list, layer and supports", () => {
+    const m = api(noSourceMaps);
+
+    const m1 = [
+      1,
+      "body { a: 1; }",
+      "screen",
+      "supports (display: grid)",
+      "layer(default)",
+    ];
     const m2 = [2, "body { b: 2; }", ""];
     const m3 = [3, "body { c: 3; }", ""];
     const m4 = [4, "body { d: 4; }", ""];
