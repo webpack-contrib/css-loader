@@ -1976,4 +1976,82 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work with [folder]", async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: { localIdentName: "[local]-[folder]-[name]" },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with [folder] #2", async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: {
+        localIdentName: "[local]-[folder][name]",
+        localIdentContext: path.resolve(
+          __dirname,
+          "fixtures",
+          "modules",
+          "localIdentName"
+        ),
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with [folder] #3", async () => {
+    const compiler = getCompiler("./modules/ComponentName/index.js", {
+      modules: {
+        localIdentName: "[folder]-[local]",
+        localIdentContext: path.resolve(__dirname, "fixtures", "modules"),
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/ComponentName/index.modules.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with [folder] #4", async () => {
+    const compiler = getCompiler("./modules/ComponentName/index.js", {
+      modules: {
+        localIdentName: "[FOLDER]-[LOCAL]",
+        localIdentContext: path.resolve(__dirname, "fixtures", "modules"),
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/ComponentName/index.modules.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

@@ -319,32 +319,35 @@ function defaultGetLocalIdent(
 ) {
   let relativeMatchResource = "";
 
+  const { context } = options;
+  const { resourcePath } = loaderContext;
+
   // eslint-disable-next-line no-underscore-dangle
   if (loaderContext._module && loaderContext._module.matchResource) {
     relativeMatchResource = `${normalizePath(
       // eslint-disable-next-line no-underscore-dangle
-      path.relative(options.context, loaderContext._module.matchResource)
+      path.relative(context, loaderContext._module.matchResource)
     )}\x00`;
   }
 
   const relativeResourcePath = normalizePath(
-    path.relative(options.context, loaderContext.resourcePath)
+    path.relative(context, resourcePath)
   );
 
   // eslint-disable-next-line no-param-reassign
   options.content = `${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
 
   let { hashFunction, hashDigest, hashDigestLength } = options;
-  const mathes = localIdentName.match(
+  const matches = localIdentName.match(
     /\[(?:([^:\]]+):)?(?:(hash|contenthash|fullhash))(?::([a-z]+\d*))?(?::(\d+))?\]/i
   );
 
-  if (mathes) {
-    const hashName = mathes[2] || hashFunction;
+  if (matches) {
+    const hashName = matches[2] || hashFunction;
 
-    hashFunction = mathes[1] || hashFunction;
-    hashDigest = mathes[3] || hashDigest;
-    hashDigestLength = mathes[4] || hashDigestLength;
+    hashFunction = matches[1] || hashFunction;
+    hashDigest = matches[3] || hashDigest;
+    hashDigestLength = matches[4] || hashDigestLength;
 
     // `hash` and `contenthash` are same in `loader-utils` context
     // let's keep `hash` for backward compatibility
@@ -373,11 +376,11 @@ function defaultGetLocalIdent(
     .replace(/^\d/g, "_");
 
   // TODO need improve on webpack side, we should allow to pass hash/contentHash without chunk property, also `data` for `getPath` should be looks good without chunk property
-  const ext = path.extname(loaderContext.resourcePath);
-  const base = path.basename(loaderContext.resourcePath);
+  const ext = path.extname(resourcePath);
+  const base = path.basename(resourcePath);
   const name = base.slice(0, base.length - ext.length);
   const data = {
-    filename: path.relative(options.context, loaderContext.resourcePath),
+    filename: path.relative(context, resourcePath),
     contentHash: localIdentHash,
     chunk: {
       name,
@@ -389,8 +392,25 @@ function defaultGetLocalIdent(
   // eslint-disable-next-line no-underscore-dangle
   let result = loaderContext._compilation.getPath(localIdentName, data);
 
+  if (/\[folder\]/gi.test(result)) {
+    const dirname = path.dirname(resourcePath);
+    let directory = normalizePath(
+      path.relative(context, `${dirname + path.sep}_`)
+    );
+
+    directory = directory.substr(0, directory.length - 1);
+
+    let folder = "";
+
+    if (directory.length > 1) {
+      folder = path.basename(directory);
+    }
+
+    result = result.replace(/\[folder\]/gi, () => folder);
+  }
+
   if (options.regExp) {
-    const match = loaderContext.resourcePath.match(options.regExp);
+    const match = resourcePath.match(options.regExp);
 
     if (match) {
       match.forEach((matched, i) => {
