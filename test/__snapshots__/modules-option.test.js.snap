@@ -5791,6 +5791,47 @@ Array [
 
 exports[`"modules" option should work with [folder] #3: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with [folder] #4: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with [folder] #4: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".ComponentName-header {\\\\n  color: red;\\\\n}\\\\n\\\\n.ComponentName-body {\\\\n  color: green;\\\\n}\\\\n\\\\n.ComponentName-footer {\\\\n  color: blue;  \\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"header\\": \\"ComponentName-header\\",
+	\\"body\\": \\"ComponentName-body\\",
+	\\"footer\\": \\"ComponentName-footer\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with [folder] #4: result 1`] = `
+Array [
+  Array [
+    "./modules/ComponentName/index.modules.css",
+    ".ComponentName-header {
+  color: red;
+}
+
+.ComponentName-body {
+  color: green;
+}
+
+.ComponentName-footer {
+  color: blue;  
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with [folder] #4: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with [folder]: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with [folder]: module 1`] = `

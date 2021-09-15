@@ -392,7 +392,7 @@ function defaultGetLocalIdent(
   // eslint-disable-next-line no-underscore-dangle
   let result = loaderContext._compilation.getPath(localIdentName, data);
 
-  if (result.includes("[folder]")) {
+  if (/\[folder\]/gi.test(result)) {
     const dirname = path.dirname(resourcePath);
     let directory = normalizePath(
       path.relative(context, `${dirname + path.sep}_`)
