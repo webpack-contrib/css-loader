@@ -27,6 +27,20 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work when not specified", async () => {
+    const compiler = getCompiler("./import/import-stringified.js");
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./import/import.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with a value equal to "true"', async () => {
     const compiler = getCompiler("./import/import.js", { import: true });
     const stats = await compile(compiler);

@@ -63,7 +63,7 @@ exports[`validate options should throw an error on the "importLoaders" option wi
    Details:
     * options.importLoaders should be a boolean.
     * options.importLoaders should be a string.
-    * options.importLoaders should be a integer."
+    * options.importLoaders should be an integer."
 `;
 
 exports[`validate options should throw an error on the "modules" option with "{"auto":"invalid"}" value 1`] = `
