@@ -83,29 +83,7 @@ console.log(css); // {String}
 
 If there are SourceMaps, they will also be included in the result string.
 
-If, for one reason or another, you need to extract CSS as a
-plain string resource (i.e. not wrapped in a JS module) you
-might want to check out the [extract-loader](https://github.com/peerigon/extract-loader).
-It's useful when you, for instance, need to post process the CSS as a string.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          "handlebars-loader", // handlebars loader expects raw resource string
-          "extract-loader",
-          "css-loader",
-        ],
-      },
-    ],
-  },
-};
-```
+If, for one reason or another, you need to extract CSS as a file (i.e. do not store CSS in a JS module) you might want to check out the [recommend example](https://github.com/webpack-contrib/css-loader#recommend).
 
 ## Options
 
