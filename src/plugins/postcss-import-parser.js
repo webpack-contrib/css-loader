@@ -50,7 +50,13 @@ function parseNode(atRule, key) {
     throw error;
   }
 
-  const { nodes: paramsNodes } = valueParser(atRule[key]);
+  const rawParams =
+    atRule.raws &&
+    atRule.raws[key] &&
+    typeof atRule.raws[key].raw !== "undefined"
+      ? atRule.raws[key].raw
+      : atRule[key];
+  const { nodes: paramsNodes } = valueParser(rawParams);
 
   // No nodes - `@import ;`
   // Invalid type - `@import foo-bar;`

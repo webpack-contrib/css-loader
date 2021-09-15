@@ -7,7 +7,7 @@
 @import url( test.css);
 @import url( test.css );
 @import url(
-  test.css
+test.css
 );
 @import url();
 @import url('');
@@ -53,7 +53,7 @@
 }
 
 .foo {
-  @import 'path.css';
+@import 'path.css';
 }
 
 @import url('./relative.css');
@@ -158,3 +158,29 @@ st.css');
 /* Prefer relative */
 @import url(package/first.css);
 @import url(package/second.css);
+
+@import url("./test.css") supports(display: flex);
+@import url("./test.css") supports(display: flex) screen and (min-width: 400px);
+@import url("./test.css") layer;
+@import url("./test.css") layer(default);
+@import url("./test.css") layer(default) supports(display: flex) screen and (min-width: 400px);
+@import url("http://example.com/style.css") supports(display: flex) screen and (min-width: 400px);
+@import url("./test.css")layer(default)supports(display: flex)screen and (min-width:400px);
+@import url("./test.css")screen and (min-width: 400px);
+@import url("./test.css")     layer(     default     )     supports(     display     :     flex     )     screen     and     (     min-width     :     400px     );
+@import url("./test.css") LAYER(DEFAULT) SUPPORTS(DISPLAY: FLEX) SCREEN AND (MIN-WIDTH: 400PX);
+@import url("./test.css") /* Comment */ layer(/* Comment */default/* Comment */) /* Comment */ supports(/* Comment */display/* Comment */:/* Comment */ flex/* Comment */)/* Comment */ screen/* Comment */ and/* Comment */ (/* Comment */min-width/* Comment */: /* Comment */400px/* Comment */);
+@import url(test.css) /* Comment */;
+@import /* Comment */ url(test.css) /* Comment */;
+@import url(test.css) /* Comment */ print and (orientation:landscape);
+@import /* Comment */ url(test.css) /* Comment */ print and (orientation:landscape);
+
+@import url("./import-with-supports.css") supports(display: flex);
+@import url("./import-with-supports-and-media.css") supports(display: flex) screen and (min-width: 400px);
+@import url("./import-with-layer.css") layer(default);
+@import url("./import-with-layer-unnamed.css") layer(default);
+@import url("./import-with-layer-and-supports.css") layer(default) supports(display: flex);
+@import url("./import-with-layer-and-supports-and-media.css") layer(default) supports(display: flex) screen and (min-width: 400px);
+
+/* TODO fix comments */
+/* TODO check source maps generation */

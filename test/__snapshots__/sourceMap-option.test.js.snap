@@ -313,7 +313,7 @@ exports[`"sourceMap" option true should generate source maps when css was extrac
 exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: source map 1`] = `
 Object {
   "file": "main.xxxxxxxxxxxxxxxxxxxx.css",
-  "mappings": "AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
+  "mappings": ";;;AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
   "names": Array [],
   "sourceRoot": "",
   "sources": Array [
@@ -362,7 +362,7 @@ exports[`"sourceMap" option true should generate source maps when css was extrac
 exports[`"sourceMap" option true should generate source maps when css was extracted: source map 1`] = `
 Object {
   "file": "main.css",
-  "mappings": "AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
+  "mappings": ";;;AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
   "names": Array [],
   "sourceRoot": "",
   "sources": Array [
