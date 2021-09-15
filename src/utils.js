@@ -416,6 +416,19 @@ function defaultGetLocalIdent(
     data
   );
 
+  if (options.regExp) {
+    const match = loaderContext.resourcePath.match(options.regExp);
+
+    if (match) {
+      match.forEach((matched, i) => {
+        interpolatedFilename = interpolatedFilename.replace(
+          new RegExp(`\\[${i}\\]`, "ig"),
+          matched
+        );
+      });
+    }
+  }
+
   if (localIdentName.includes("[folder]")) {
     interpolatedFilename = resolveFolderTemplate(
       loaderContext,
