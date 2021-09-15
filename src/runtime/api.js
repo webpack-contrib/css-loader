@@ -8,10 +8,32 @@ module.exports = (cssWithMappingToString) => {
   // return the list of modules as css string
   list.toString = function toString() {
     return this.map((item) => {
-      const content = cssWithMappingToString(item);
+      let content = "";
+
+      if (item[3]) {
+        content += `@${item[3]} {`;
+      }
 
       if (item[2]) {
-        return `@media ${item[2]} {${content}}`;
+        content += `@media ${item[2]} {`;
+      }
+
+      if (item[4]) {
+        content += `@${item[4]} {`;
+      }
+
+      content += cssWithMappingToString(item);
+
+      if (item[4]) {
+        content += "}";
+      }
+
+      if (item[2]) {
+        content += "}";
+      }
+
+      if (item[3]) {
+        content += "}";
       }
 
       return content;
@@ -19,7 +41,7 @@ module.exports = (cssWithMappingToString) => {
   };
 
   // import a list of modules into the list
-  list.i = function i(modules, mediaQuery, dedupe) {
+  list.i = function i(modules, mediaQueryList, dedupe, layer, supports) {
     if (typeof modules === "string") {
       modules = [[null, modules, ""]];
     }
@@ -43,11 +65,27 @@ module.exports = (cssWithMappingToString) => {
         continue;
       }
 
-      if (mediaQuery) {
+      if (mediaQueryList) {
         if (!item[2]) {
-          item[2] = mediaQuery;
+          item[2] = mediaQueryList;
         } else {
-          item[2] = `${mediaQuery} and ${item[2]}`;
+          item[2] = `${mediaQueryList} and ${item[2]}`;
+        }
+      }
+
+      if (layer) {
+        if (!item[3]) {
+          item[3] = layer;
+        } else {
+          item[3] = `${layer} and ${item[3]}`;
+        }
+      }
+
+      if (supports) {
+        if (!item[4]) {
+          item[4] = supports;
+        } else {
+          item[4] = `${supports} and ${item[4]}`;
         }
       }
 

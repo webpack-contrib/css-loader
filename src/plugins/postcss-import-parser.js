@@ -118,15 +118,40 @@ function parseNode(atRule, key) {
     throw error;
   }
 
-  const mediaNodes = paramsNodes.slice(1);
+  const additionalNodes = paramsNodes.slice(1);
+
+  let supports;
+  let layer;
   let media;
 
-  if (mediaNodes.length > 0) {
-    media = valueParser.stringify(mediaNodes).trim().toLowerCase();
+  if (additionalNodes.length > 0) {
+    let nodes = [];
+
+    for (const node of additionalNodes) {
+      nodes.push(node);
+
+      if (
+        (node.type === "function" && node.value.toLowerCase() === "layer") ||
+        (node.type === "word" && node.value.toLowerCase() === "layer")
+      ) {
+        layer = valueParser.stringify(nodes).trim().toLowerCase();
+        nodes = [];
+      } else if (
+        node.type === "function" &&
+        node.value.toLowerCase() === "supports"
+      ) {
+        supports = valueParser.stringify(nodes).trim().toLowerCase();
+        nodes = [];
+      }
+    }
+
+    if (nodes.length > 0) {
+      media = valueParser.stringify(nodes).trim().toLowerCase();
+    }
   }
 
   // eslint-disable-next-line consistent-return
-  return { atRule, prefix, url, media, isRequestable };
+  return { atRule, prefix, url, layer, supports, media, isRequestable };
 }
 
 const plugin = (options = {}) => {
@@ -160,11 +185,23 @@ const plugin = (options = {}) => {
 
           const resolvedAtRules = await Promise.all(
             parsedAtRules.map(async (parsedAtRule) => {
-              const { atRule, isRequestable, prefix, url, media } =
-                parsedAtRule;
+              const {
+                atRule,
+                isRequestable,
+                prefix,
+                url,
+                layer,
+                supports,
+                media,
+              } = parsedAtRule;
 
               if (options.filter) {
-                const needKeep = await options.filter(url, media);
+                const needKeep = await options.filter(
+                  url,
+                  media,
+                  layer,
+                  supports
+                );
 
                 if (!needKeep) {
                   return;
@@ -192,13 +229,20 @@ const plugin = (options = {}) => {
                 atRule.remove();
 
                 // eslint-disable-next-line consistent-return
-                return { url: resolvedUrl, media, prefix, isRequestable };
+                return {
+                  url: resolvedUrl,
+                  layer,
+                  supports,
+                  media,
+                  prefix,
+                  isRequestable,
+                };
               }
 
               atRule.remove();
 
               // eslint-disable-next-line consistent-return
-              return { url, media, prefix, isRequestable };
+              return { url, layer, supports, media, prefix, isRequestable };
             })
           );
 
@@ -212,10 +256,11 @@ const plugin = (options = {}) => {
               continue;
             }
 
-            const { url, isRequestable, media } = resolvedAtRule;
+            const { url, isRequestable, layer, supports, media } =
+              resolvedAtRule;
 
             if (!isRequestable) {
-              options.api.push({ url, media, index });
+              options.api.push({ url, layer, supports, media, index });
 
               // eslint-disable-next-line no-continue
               continue;
@@ -237,7 +282,7 @@ const plugin = (options = {}) => {
               });
             }
 
-            options.api.push({ importName, media, index });
+            options.api.push({ importName, layer, supports, media, index });
           }
         },
       };
