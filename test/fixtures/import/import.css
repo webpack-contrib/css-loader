@@ -172,4 +172,6 @@ st.css');
 @import url("./test.css") /* Comment */ layer(/* Comment */default/* Comment */) /* Comment */ supports(/* Comment */display/* Comment */:/* Comment */ flex/* Comment */)/* Comment */ screen/* Comment */ and/* Comment */ (/* Comment */min-width/* Comment */: /* Comment */400px/* Comment */);
 
 /* TODO fix comments */
+/* TODO nested test with supports */
+/* TODO nested test with layer */
 /* TODO check source maps generation */
