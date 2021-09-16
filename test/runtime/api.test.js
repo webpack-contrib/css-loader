@@ -5,7 +5,8 @@
 /* eslint-disable func-names */
 
 const api = require("../../src/runtime/api");
-const cssWithMappingToString = require("../../src/runtime/cssWithMappingToString");
+const noSourceMaps = require("../../src/runtime/noSourceMaps");
+const sourceMaps = require("../../src/runtime/sourceMaps");
 
 describe("api", () => {
   beforeAll(() => {
@@ -27,7 +28,7 @@ describe("api", () => {
   });
 
   it("should toString a single module", () => {
-    const m = api((i) => i[1]);
+    const m = api(noSourceMaps);
 
     m.push([1, "body { a: 1; }", ""]);
 
@@ -35,7 +36,7 @@ describe("api", () => {
   });
 
   it("should toString multiple modules", () => {
-    const m = api((i) => i[1]);
+    const m = api(noSourceMaps);
 
     m.push([2, "body { b: 2; }", ""]);
     m.push([1, "body { a: 1; }", ""]);
@@ -44,7 +45,7 @@ describe("api", () => {
   });
 
   it("should toString with media query", () => {
-    const m = api((i) => i[1]);
+    const m = api(noSourceMaps);
 
     const m1 = [1, "body { a: 1; }", "screen"];
     const m2 = [2, "body { b: 2; }", ""];
@@ -60,7 +61,7 @@ describe("api", () => {
   });
 
   it("should import modules", () => {
-    const m = api((i) => i[1]);
+    const m = api(noSourceMaps);
     const m1 = [1, "body { a: 1; }", "(orientation:landscape)"];
     const m2 = [2, "body { b: 2; }", ""];
     const m3 = [3, "body { c: 3; }", ""];
@@ -76,7 +77,7 @@ describe("api", () => {
   });
 
   it("should import named modules", () => {
-    const m = api((i) => i[1]);
+    const m = api(noSourceMaps);
     const m1 = ["./module1", "body { a: 1; }", "screen"];
     const m2 = ["./module2", "body { b: 2; }", ""];
     const m3 = ["./module3", "body { c: 3; }", ""];
@@ -91,7 +92,7 @@ describe("api", () => {
   });
 
   it("should toString with source mapping", () => {
-    const m = api(cssWithMappingToString);
+    const m = api(sourceMaps);
 
     m.push([
       1,
@@ -109,7 +110,7 @@ describe("api", () => {
   });
 
   it('should toString with a source map without "sourceRoot"', () => {
-    const m = api(cssWithMappingToString);
+    const m = api(sourceMaps);
 
     m.push([
       1,
@@ -128,7 +129,7 @@ describe("api", () => {
   it("should toString without source mapping if btoa not available", () => {
     global.btoa = null;
 
-    const m = api(cssWithMappingToString);
+    const m = api(sourceMaps);
 
     m.push([
       1,
@@ -147,7 +148,7 @@ describe("api", () => {
 
   // https://github.com/webpack-contrib/css-loader/issues/1322
   it("should toString with a source map without map", () => {
-    const m = api(cssWithMappingToString);
+    const m = api(sourceMaps);
 
     m.push([
       1,
@@ -158,7 +159,7 @@ describe("api", () => {
   });
 
   it("should import modules with dedupe", () => {
-    const m = api((i) => i[1]);
+    const m = api(noSourceMaps);
 
     const m1 = [null, "body { b: 1; }", ""];
     const m2 = ["./module2", "body { b: 2; }", ""];
@@ -175,7 +176,7 @@ describe("api", () => {
   });
 
   it("should import modules when module string", () => {
-    const m = api((i) => i[1]);
+    const m = api(noSourceMaps);
 
     m.i(".button { b: 2; }");
     m.i("");
