@@ -924,12 +924,14 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
 function printParams(media, dedupe, supports, layer) {
   let result = "";
 
-  if (layer) {
+  if (typeof layer !== "undefined") {
     result = `, ${JSON.stringify(layer)}`;
   }
 
-  if (supports) {
+  if (typeof supports !== "undefined") {
     result = `, ${JSON.stringify(supports)}${result}`;
+  } else if (result.length > 0) {
+    result = `, undefined${result}`;
   }
 
   if (dedupe) {
@@ -941,7 +943,7 @@ function printParams(media, dedupe, supports, layer) {
   if (media) {
     result = `${JSON.stringify(media)}${result}`;
   } else if (result.length > 0) {
-    result = `""${result}`;
+    result = `undefined${result}`;
   }
 
   return result;
@@ -1013,7 +1015,14 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
     }
   }
 
-  return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
+  // Indexes description:
+  // 0 - module id
+  // 1 - CSS code
+  // 2 - media
+  // 3 - source map
+  // 4 - supports
+  // 5 - layer
+  return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, undefined${sourceMapValue}]);\n`;
 }
 
 function dashesCamelCase(str) {

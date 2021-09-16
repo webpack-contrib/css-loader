@@ -10,29 +10,33 @@ module.exports = (cssWithMappingToString) => {
     return this.map((item) => {
       let content = "";
 
-      if (item[3]) {
-        content += `@${item[3]} {`;
+      const needSupports = typeof item[4] !== "undefined";
+      const needMedia = typeof item[2] !== "undefined";
+      const needLayer = typeof item[5] !== "undefined";
+
+      if (needSupports) {
+        content += `@supports (${item[4]}) {`;
       }
 
-      if (item[2]) {
+      if (needMedia) {
         content += `@media ${item[2]} {`;
       }
 
-      if (item[4]) {
-        content += `@${item[4]} {`;
+      if (needLayer) {
+        content += `@layer${item[5].length > 0 ? ` ${item[5]}` : ""} {`;
       }
 
       content += cssWithMappingToString(item);
 
-      if (item[4]) {
+      if (needLayer) {
         content += "}";
       }
 
-      if (item[2]) {
+      if (needMedia) {
         content += "}";
       }
 
-      if (item[3]) {
+      if (needSupports) {
         content += "}";
       }
 
@@ -41,9 +45,9 @@ module.exports = (cssWithMappingToString) => {
   };
 
   // import a list of modules into the list
-  list.i = function i(modules, mediaQueryList, dedupe, layer, supports) {
+  list.i = function i(modules, media, dedupe, supports, layer) {
     if (typeof modules === "string") {
-      modules = [[null, modules, ""]];
+      modules = [[null, modules, undefined]];
     }
 
     const alreadyImportedModules = {};
@@ -65,27 +69,27 @@ module.exports = (cssWithMappingToString) => {
         continue;
       }
 
-      if (mediaQueryList) {
+      if (typeof media !== "undefined") {
         if (!item[2]) {
-          item[2] = mediaQueryList;
+          item[2] = media;
         } else {
-          item[2] = `${mediaQueryList} and ${item[2]}`;
+          item[2] = `${media} and ${item[2]}`;
         }
       }
 
-      if (layer) {
-        if (!item[3]) {
-          item[3] = layer;
-        } else {
-          item[3] = `${layer} and ${item[3]}`;
-        }
-      }
-
-      if (supports) {
+      if (typeof supports !== "undefined") {
         if (!item[4]) {
           item[4] = supports;
         } else {
           item[4] = `${supports} and ${item[4]}`;
+        }
+      }
+
+      if (typeof layer !== "undefined") {
+        if (!item[5]) {
+          item[5] = layer;
+        } else {
+          item[5] = `${layer}.${item[5]}`;
         }
       }
 

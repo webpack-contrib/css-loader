@@ -130,16 +130,30 @@ function parseNode(atRule, key) {
     for (const node of additionalNodes) {
       nodes.push(node);
 
-      if (
-        (node.type === "function" && node.value.toLowerCase() === "layer") ||
-        (node.type === "word" && node.value.toLowerCase() === "layer")
-      ) {
+      const isLayerFunction =
+        node.type === "function" && node.value.toLowerCase() === "layer";
+      const isLayerWord =
+        node.type === "word" && node.value.toLowerCase() === "layer";
+
+      if (isLayerFunction || isLayerWord) {
+        if (isLayerFunction) {
+          nodes.splice(nodes.length - 1, 1, ...node.nodes);
+        } else {
+          nodes.splice(nodes.length - 1, 1, {
+            type: "string",
+            value: "",
+            unclosed: false,
+          });
+        }
+
         layer = valueParser.stringify(nodes).trim().toLowerCase();
         nodes = [];
       } else if (
         node.type === "function" &&
         node.value.toLowerCase() === "supports"
       ) {
+        nodes.splice(nodes.length - 1, 1, ...node.nodes);
+
         supports = valueParser.stringify(nodes).trim().toLowerCase();
         nodes = [];
       }
