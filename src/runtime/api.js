@@ -2,9 +2,7 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-// css base code, injected by the css-loader
-// eslint-disable-next-line func-names
-module.exports = function (cssWithMappingToString) {
+module.exports = (cssWithMappingToString) => {
   const list = [];
 
   // return the list of modules as css string
@@ -21,10 +19,8 @@ module.exports = function (cssWithMappingToString) {
   };
 
   // import a list of modules into the list
-  // eslint-disable-next-line func-names
-  list.i = function (modules, mediaQuery, dedupe) {
+  list.i = function i(modules, mediaQuery, dedupe) {
     if (typeof modules === "string") {
-      // eslint-disable-next-line no-param-reassign
       modules = [[null, modules, ""]];
     }
 
@@ -32,7 +28,6 @@ module.exports = function (cssWithMappingToString) {
 
     if (dedupe) {
       for (let i = 0; i < this.length; i++) {
-        // eslint-disable-next-line prefer-destructuring
         const id = this[i][0];
 
         if (id != null) {
@@ -45,7 +40,6 @@ module.exports = function (cssWithMappingToString) {
       const item = [].concat(modules[i]);
 
       if (dedupe && alreadyImportedModules[item[0]]) {
-        // eslint-disable-next-line no-continue
         continue;
       }
 

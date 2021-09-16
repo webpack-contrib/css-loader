@@ -26,9 +26,10 @@ exports[`"sourceMap" option false should not generate source maps when previous 
 
 exports[`"sourceMap" option false should not generate source maps when previous loader does not generate source maps: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
@@ -64,9 +65,10 @@ exports[`"sourceMap" option false should not generate source maps when previous 
 
 exports[`"sourceMap" option false should not generate source maps when previous loader generates source maps: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
@@ -102,9 +104,10 @@ exports[`"sourceMap" option false should not generate source maps: errors 1`] = 
 
 exports[`"sourceMap" option false should not generate source maps: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
@@ -140,9 +143,10 @@ exports[`"sourceMap" option not specified should not generate source maps: error
 
 exports[`"sourceMap" option not specified should not generate source maps: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.css\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
@@ -178,7 +182,7 @@ exports[`"sourceMap" option true should generate source maps #2: errors 1`] = `A
 
 exports[`"sourceMap" option true should generate source maps #2: module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 // Module
@@ -222,7 +226,7 @@ exports[`"sourceMap" option true should generate source maps and do not change "
 
 exports[`"sourceMap" option true should generate source maps and do not change "[contenthash]" on different platform: module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].rules[0]!./nested/nested.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
@@ -391,7 +395,7 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader does not generate source maps: module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
@@ -462,7 +466,7 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates different source in source maps: module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
@@ -533,7 +537,7 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("less-loader"): module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 // Module
@@ -582,7 +586,7 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("postcss-loader"): module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.postcss.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
@@ -723,7 +727,7 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("sass-loader"): module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 // Module
@@ -771,7 +775,7 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps ("stylus-loader"): module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
 // Module
@@ -821,7 +825,7 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps with "sourceRoot": module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
@@ -892,7 +896,7 @@ exports[`"sourceMap" option true should generate source maps when previous loade
 
 exports[`"sourceMap" option true should generate source maps when previous loader generates source maps without "sourceRoot": module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
@@ -963,7 +967,7 @@ exports[`"sourceMap" option true should generate source maps: errors 1`] = `Arra
 
 exports[`"sourceMap" option true should generate source maps: module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/cssWithMappingToString.js\\";
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./nested/nested.css\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);

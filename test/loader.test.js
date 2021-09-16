@@ -26,6 +26,24 @@ describe("loader", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work in 'production' mode", async () => {
+    const compiler = getCompiler(
+      "./basic.js",
+      {},
+      {
+        mode: "production",
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should work with empty css", async () => {
     const compiler = getCompiler("./empty.js");
     const stats = await compile(compiler);
@@ -228,7 +246,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.modules.size).toBe(13);
+    expect(stats.compilation.modules.size).toBe(14);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -257,7 +275,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.modules.size).toBe(13);
+    expect(stats.compilation.modules.size).toBe(14);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -286,7 +304,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.modules.size).toBe(12);
+    expect(stats.compilation.modules.size).toBe(13);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });

@@ -207,10 +207,13 @@ export default async function loader(content, map, meta) {
       imports.unshift({
         type: "api_sourcemap_import",
         importName: "___CSS_LOADER_API_SOURCEMAP_IMPORT___",
-        url: stringifyRequest(
-          this,
-          require.resolve("./runtime/cssWithMappingToString")
-        ),
+        url: stringifyRequest(this, require.resolve("./runtime/noSourceMaps")),
+      });
+    } else {
+      imports.unshift({
+        type: "api_sourcemap_import",
+        importName: "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+        url: stringifyRequest(this, require.resolve("./runtime/noSourceMaps")),
       });
     }
   }
