@@ -179,6 +179,7 @@ st.css');
 @import url(test.css) /* Comment */ print and (orientation:landscape);
 @import /* Comment */ url(test.css) /* Comment */ print and (orientation:landscape);
 
+@import url("./import-unnamed-layer.css") layer(base);
 @import url("./import-with-supports.css") supports(display: flex);
 @import url("./import-with-supports.css") supports(((display: flex)));
 @import url("./import-with-supports-and-media.css") supports(display: flex) screen and (min-width: 400px);

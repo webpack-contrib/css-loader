@@ -1,1 +1,7 @@
-@import url('./test.css') layer(base) supports(display: grid);
+@import url('./test.css') layer(base);
+
+@layer base {
+   .foo {
+       color: red;
+   }
+}
