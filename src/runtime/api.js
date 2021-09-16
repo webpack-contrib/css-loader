@@ -79,9 +79,9 @@ module.exports = (cssWithMappingToString) => {
 
       if (typeof supports !== "undefined") {
         if (!item[4]) {
-          item[4] = supports;
+          item[4] = `${supports}`;
         } else {
-          item[4] = `${supports} and ${item[4]}`;
+          item[4] = `(${supports}) and (${item[4]})`;
         }
       }
 
