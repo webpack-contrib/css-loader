@@ -24,7 +24,7 @@ exports[`api should toString with layer 1`] = `"body { b: 2; }body { c: 3; }body
 
 exports[`api should toString with media query list 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {body { a: 1; }}"`;
 
-exports[`api should toString with media query list, layer and supports 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@layer(default) {@supports (display: grid) {@media screen {body { a: 1; }}}}"`;
+exports[`api should toString with media query list, layer and supports 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@supports (display: grid) {@media screen {@layer(default) {body { a: 1; }}}}"`;
 
 exports[`api should toString with source mapping 1`] = `
 "@[object Object] {body { a: 1; }

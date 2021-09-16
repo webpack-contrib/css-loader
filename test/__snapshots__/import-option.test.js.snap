@@ -872,22 +872,22 @@ a {
 }@layer(default) {.test {
   a: a;
 }
-}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {.test {
+}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {.test {
   a: a;
 }
-}}}@supports(display: flex) {@media screen and (min-width: 400px) {@import url(http://example.com/style.css);}}@layer(default) {@supports(display: flex) {@media screen and (min-width:400px) {.test {
+}}}@media screen and (min-width: 400px) {@supports(display: flex) {@import url(http://example.com/style.css);}}@supports(display: flex) {@media screen and (min-width:400px) {@layer(default) {.test {
   a: a;
 }
 }}}@media screen and (min-width: 400px) {.test {
   a: a;
 }
-}@layer(     default     ) {@supports(     display     :     flex     ) {@media screen     and     (     min-width     :     400px     ) {.test {
+}@supports(     display     :     flex     ) {@media screen     and     (     min-width     :     400px     ) {@layer(     default     ) {.test {
   a: a;
 }
-}}}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {.test {
+}}}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {.test {
   a: a;
 }
-}}}@/* comment */ layer(/* comment */default/* comment */) {@/* comment */ supports(/* comment */display/* comment */:/* comment */ flex/* comment */) {@media /* comment */ screen/* comment */ and/* comment */ (/* comment */min-width/* comment */: /* comment */400px/* comment */) {.test {
+}}}@/* comment */ supports(/* comment */display/* comment */:/* comment */ flex/* comment */) {@media /* comment */ screen/* comment */ and/* comment */ (/* comment */min-width/* comment */: /* comment */400px/* comment */) {@/* comment */ layer(/* comment */default/* comment */) {.test {
   a: a;
 }
 }}}.test {
@@ -908,16 +908,16 @@ a {
 }@supports(display: flex) {}@supports(display: flex) and supports(display: grid) {@media screen and (min-width: 400px) and handheld and (max-width: 400px) {.test {
   a: a;
 }
-}}@supports(display: flex) {@media screen and (min-width: 400px) {}}@layer(base) {@layer(default) and supports(display: grid) {.test {
+}}@supports(display: flex) {@media screen and (min-width: 400px) {}}@layer(default) and supports(display: grid) {@layer(base) {.test {
   a: a;
 }
 }}@layer(default) {}@layer(default) and layer {.test {
   a: a;
 }
-}@layer(default) {}@layer(default) {@supports(display: flex) and layer(base) {.test {
+}@layer(default) {}@supports(display: flex) and layer(base) {@layer(default) {.test {
   a: a;
 }
-}}@layer(default) {@supports(display: flex) {}}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {}}}@media unknown(default) unknown(display: flex) unknown {.test {
+}}@supports(display: flex) {@layer(default) {}}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {}}}@media unknown(default) unknown(display: flex) unknown {.test {
   a: a;
 }
 }@import url();
@@ -1448,22 +1448,22 @@ a {
 }@layer(default) {.test {
   a: a;
 }
-}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {.test {
+}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {.test {
   a: a;
 }
-}}}@supports(display: flex) {@media screen and (min-width: 400px) {@import url(http://example.com/style.css);}}@layer(default) {@supports(display: flex) {@media screen and (min-width:400px) {.test {
+}}}@media screen and (min-width: 400px) {@supports(display: flex) {@import url(http://example.com/style.css);}}@supports(display: flex) {@media screen and (min-width:400px) {@layer(default) {.test {
   a: a;
 }
 }}}@media screen and (min-width: 400px) {.test {
   a: a;
 }
-}@layer(     default     ) {@supports(     display     :     flex     ) {@media screen     and     (     min-width     :     400px     ) {.test {
+}@supports(     display     :     flex     ) {@media screen     and     (     min-width     :     400px     ) {@layer(     default     ) {.test {
   a: a;
 }
-}}}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {.test {
+}}}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {.test {
   a: a;
 }
-}}}@/* comment */ layer(/* comment */default/* comment */) {@/* comment */ supports(/* comment */display/* comment */:/* comment */ flex/* comment */) {@media /* comment */ screen/* comment */ and/* comment */ (/* comment */min-width/* comment */: /* comment */400px/* comment */) {.test {
+}}}@/* comment */ supports(/* comment */display/* comment */:/* comment */ flex/* comment */) {@media /* comment */ screen/* comment */ and/* comment */ (/* comment */min-width/* comment */: /* comment */400px/* comment */) {@/* comment */ layer(/* comment */default/* comment */) {.test {
   a: a;
 }
 }}}.test {
@@ -1484,16 +1484,16 @@ a {
 }@supports(display: flex) {}@supports(display: flex) and supports(display: grid) {@media screen and (min-width: 400px) and handheld and (max-width: 400px) {.test {
   a: a;
 }
-}}@supports(display: flex) {@media screen and (min-width: 400px) {}}@layer(base) {@layer(default) and supports(display: grid) {.test {
+}}@supports(display: flex) {@media screen and (min-width: 400px) {}}@layer(default) and supports(display: grid) {@layer(base) {.test {
   a: a;
 }
 }}@layer(default) {}@layer(default) and layer {.test {
   a: a;
 }
-}@layer(default) {}@layer(default) {@supports(display: flex) and layer(base) {.test {
+}@layer(default) {}@supports(display: flex) and layer(base) {@layer(default) {.test {
   a: a;
 }
-}}@layer(default) {@supports(display: flex) {}}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {}}}@media unknown(default) unknown(display: flex) unknown {.test {
+}}@supports(display: flex) {@layer(default) {}}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {}}}@media unknown(default) unknown(display: flex) unknown {.test {
   a: a;
 }
 }@import url();
@@ -2602,22 +2602,22 @@ a {
 }@layer(default) {.test {
   a: a;
 }
-}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {.test {
+}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {.test {
   a: a;
 }
-}}}@supports(display: flex) {@media screen and (min-width: 400px) {@import url(http://example.com/style.css);}}@layer(default) {@supports(display: flex) {@media screen and (min-width:400px) {.test {
+}}}@media screen and (min-width: 400px) {@supports(display: flex) {@import url(http://example.com/style.css);}}@supports(display: flex) {@media screen and (min-width:400px) {@layer(default) {.test {
   a: a;
 }
 }}}@media screen and (min-width: 400px) {.test {
   a: a;
 }
-}@layer(     default     ) {@supports(     display     :     flex     ) {@media screen     and     (     min-width     :     400px     ) {.test {
+}@supports(     display     :     flex     ) {@media screen     and     (     min-width     :     400px     ) {@layer(     default     ) {.test {
   a: a;
 }
-}}}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {.test {
+}}}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {.test {
   a: a;
 }
-}}}@/* comment */ layer(/* comment */default/* comment */) {@/* comment */ supports(/* comment */display/* comment */:/* comment */ flex/* comment */) {@media /* comment */ screen/* comment */ and/* comment */ (/* comment */min-width/* comment */: /* comment */400px/* comment */) {.test {
+}}}@/* comment */ supports(/* comment */display/* comment */:/* comment */ flex/* comment */) {@media /* comment */ screen/* comment */ and/* comment */ (/* comment */min-width/* comment */: /* comment */400px/* comment */) {@/* comment */ layer(/* comment */default/* comment */) {.test {
   a: a;
 }
 }}}.test {
@@ -2638,16 +2638,16 @@ a {
 }@supports(display: flex) {}@supports(display: flex) and supports(display: grid) {@media screen and (min-width: 400px) and handheld and (max-width: 400px) {.test {
   a: a;
 }
-}}@supports(display: flex) {@media screen and (min-width: 400px) {}}@layer(base) {@layer(default) and supports(display: grid) {.test {
+}}@supports(display: flex) {@media screen and (min-width: 400px) {}}@layer(default) and supports(display: grid) {@layer(base) {.test {
   a: a;
 }
 }}@layer(default) {}@layer(default) and layer {.test {
   a: a;
 }
-}@layer(default) {}@layer(default) {@supports(display: flex) and layer(base) {.test {
+}@layer(default) {}@supports(display: flex) and layer(base) {@layer(default) {.test {
   a: a;
 }
-}}@layer(default) {@supports(display: flex) {}}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {}}}@media unknown(default) unknown(display: flex) unknown {.test {
+}}@supports(display: flex) {@layer(default) {}}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {}}}@media unknown(default) unknown(display: flex) unknown {.test {
   a: a;
 }
 }@import url();
@@ -2994,7 +2994,7 @@ a {
 .second {
     color: red;
 }
-@supports(display: flex) {@media screen and (min-width: 400px) {@import url(http://example.com/style.css);}}@supports(display: flex) {@import url('./test.css') supports(display: grid);}@supports(display: flex) {@media screen and (min-width: 400px) {@import url('./test.css') supports(display: grid) handheld and (max-width: 400px);}}@layer(default) {@import url('./test.css') layer(base) supports(display: grid);}@layer(default) {@import url('./test.css') layer;}@layer(default) {@supports(display: flex) {@import url('./test.css') layer(base);}}@layer(default) {@supports(display: flex) {@media screen and (min-width: 400px) {}}}@import url(test.css);
+@media screen and (min-width: 400px) {@supports(display: flex) {@import url(http://example.com/style.css);}}@supports(display: flex) {@import url('./test.css') supports(display: grid);}@supports(display: flex) {@media screen and (min-width: 400px) {@import url('./test.css') supports(display: grid) handheld and (max-width: 400px);}}@layer(default) {@import url('./test.css') layer(base) supports(display: grid);}@layer(default) {@import url('./test.css') layer;}@supports(display: flex) {@layer(default) {@import url('./test.css') layer(base);}}@supports(display: flex) {@media screen and (min-width: 400px) {@layer(default) {}}}@import url(test.css);
 @import url('test.css');
 @import url(\\"test.css\\");
 @IMPORT url(test.css);
