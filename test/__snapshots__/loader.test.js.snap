@@ -8,7 +8,7 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\", undefined]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {};
 export default ___CSS_LOADER_EXPORT___;
@@ -20,7 +20,7 @@ Array [
   Array [
     "./modules/issue-1033/issue-1033.css",
     "",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -49,7 +49,7 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSour
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -60,7 +60,7 @@ Array [
   Array [
     "./empty.css",
     "",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -78,7 +78,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/image.svg?color=%23BAAFDB%3
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___, { hash: \\"#foo\\" });
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".example {\\\\n    background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".example {\\\\n    background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -92,7 +92,7 @@ Array [
     background-image: url(replaced_file_protocol_/webpack/public/path/image.svg#foo);
 }
 ",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -112,7 +112,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image:  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n}\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") 2x);\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") 2x);\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n    color: #639;\\\\n  }\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image:  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n}\\\\n\\\\nmain.hero, .hero.main {\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") 2x);\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") 2x);\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n    color: #639;\\\\n  }\\\\n\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -180,7 +180,7 @@ a:hover {
     color: #639;
   }
 ",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -239,7 +239,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -253,7 +253,7 @@ Array [
   color: red;
 }
 ",
-    "",
+    undefined,
   ],
   Array [
     967,
@@ -393,7 +393,7 @@ a[href=\\"\\" i] {
   color: blue;
 }
 ",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -415,7 +415,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -429,7 +429,7 @@ Array [
   color: red;
 }
 ",
-    "",
+    undefined,
   ],
   Array [
     "./basic.css",
@@ -569,7 +569,7 @@ a[href=\\"\\" i] {
   color: blue;
 }
 ",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -584,7 +584,7 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noS
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -598,7 +598,7 @@ Array [
   font: 100% Helvetica, sans-serif;
   color: #333;
 }",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -625,7 +625,7 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSour
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -636,7 +636,7 @@ Array [
   Array [
     "./empty.css",
     "",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -658,7 +658,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -672,7 +672,7 @@ Array [
   color: red;
 }
 ",
-    "",
+    undefined,
   ],
   Array [
     "./basic.css",
@@ -812,7 +812,7 @@ a[href=\\"\\" i] {
   color: blue;
 }
 ",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -839,7 +839,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_3___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_4___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_5___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".a {\\\\n  color: red;\\\\n}\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".a {\\\\n  color: red;\\\\n}\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -856,21 +856,21 @@ Array [
 ._hMCVXaTnfM6PXNxIi9q {
   color: white;
 }",
-    "",
+    undefined,
   ],
   Array [
     "button.modules.css!=!./index-loader-syntax-sass.css",
     ".Drgxp1xjMmc3NE0RSqYo {
   width: 5px;
 }",
-    "",
+    undefined,
   ],
   Array [
     "other.modules.scss!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax-sass.modules.css",
     ".Bf1TxkQnV__64Gk9dM7n > .qOILSEPdF7F3GDpf9VWt {
   color: red;
 }",
-    "",
+    undefined,
   ],
   Array [
     "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax.modules.css",
@@ -885,7 +885,7 @@ Array [
 ._65OKcDrrEG8MI0jTKCQ {
   from: custom;
 }",
-    "",
+    undefined,
   ],
   Array [
     "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax.modules.css",
@@ -900,7 +900,7 @@ Array [
 ._65OKcDrrEG8MI0jTKCQ {
   from: custom;
 }",
-    "",
+    undefined,
   ],
   Array [
     "other.modules.scss!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax-sass.modules.css",
@@ -911,35 +911,35 @@ Array [
 .iCwSzW_a1wp1hr9lXhSh {
   from: custom;
 }",
-    "",
+    undefined,
   ],
   Array [
     "./index-loader-syntax.css",
     ".a {
   color: red;
 }",
-    "",
+    undefined,
   ],
   Array [
     "button.modules.css!=!./index-loader-syntax-sass.css",
     ".Drgxp1xjMmc3NE0RSqYo {
   width: 5px;
 }",
-    "",
+    undefined,
   ],
   Array [
     "button.module.scss!=!./base64-loader/index.js?LmZvbyB7IGNvbG9yOiByZWQ7IH0=!./simple.js?foo=bar",
     "._fj422pJ2ianfug99ZY_ {
   color: red;
 }",
-    "",
+    undefined,
   ],
   Array [
     "other.module.scss!=!./base64-loader/index.js?LmZvbyB7IGNvbG9yOiByZWQ7IH0=!./simple.js?foo=baz",
     ".KvYw79kUeYHQWQPScCTK {
   color: red;
 }",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -956,7 +956,7 @@ Array [
   color: red;
 }
 ",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -1061,7 +1061,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_6___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: \\"#iefix\\" });
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___, { needQuotes: true });
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"/* webpackIgnore: true */\\\\n@import url(./basic.css);\\\\n@import /*    webpackIgnore:   true    */ url(./imported.css);\\\\n@import /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);\\\\n@import /* webpackIgnore: false */ /* webpackIgnore: true */ /* webpackIgnore: true */ url(./simple.css);\\\\n@import /* webpackIgnore: false */ /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);\\\\n\\\\n/** Resolved **/\\\\n/** Resolved **/\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\"),  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background:/** webpackIgnore: true */url(\\\\\\"./url/img.png\\\\\\"),  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: url(\\\\\\"./url/img.png\\\\\\"), url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: url(\\\\\\"./url/img.png\\\\\\"), /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: url(\\\\\\"./url/img.png\\\\\\"), /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\"), /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: /** webpackIgnore: true */ /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: false */ /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  src:\\\\n    /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_3___ + \\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  /** webpackIgnore: true **/\\\\n  src:\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.svg#Roboto-Regular\\\\\\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_5___ + \\");\\\\n  src:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_6___ + \\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: image-set(\\\\n    url(./url/img.png) 2x,\\\\n    url(./url/img.png) 3x,\\\\n    url(./url/img.png) 4x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: \\\\n    image-set(\\\\n        /*webpackIgnore:  false*/\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n        /*webpackIgnore:  true*/\\\\n        url(./url/img.png) 3x,\\\\n        url(./url/img.png) 4x,\\\\n        /*webpackIgnore:  false */\\\\n        /*webpackIgnore:  true */\\\\n        url(./url/img.png) 5x\\\\n    ), \\\\n    url('./url/img.png');\\\\n}\\\\n\\\\n.class {\\\\n    background-image:\\\\n      image-set(\\\\n        /*webpackIgnore:  false*/\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n        /*webpackIgnore:  true*/\\\\n        url(./url/img.png) 3x,\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x,\\\\n        /*webpackIgnore:  false */\\\\n        /*webpackIgnore:  true */\\\\n        url(./url/img.png) 5x\\\\n      ),\\\\n      /*webpackIgnore:  false*/\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /*webpackIgnore:  true*/\\\\n      url('./url/img.png');;\\\\n}\\\\n\\\\n.class {\\\\n    background-image:\\\\n        image-set(\\\\n            /*webpackIgnore:  false*/\\\\n            url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n            /*webpackIgnore:  true*/\\\\n            url(./url/img.png) 3x,\\\\n            url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x,\\\\n            /*webpackIgnore:  false */\\\\n            /*webpackIgnore:  true */\\\\n            url(./url/img.png) 5x\\\\n        ),\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image: image-set(\\\\n    /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 2x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 3x,\\\\n      /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 5x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n    background-image: image-set(\\\\n        /*webpackIgnore:  true*/\\\\n        './url/img.png' 2x,\\\\n        \\" + ___CSS_LOADER_URL_REPLACEMENT_7___ + \\" 3x,\\\\n        /*webpackIgnore:  true*/\\\\n        './url/img.png' 5x\\\\n    );\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: image-set(\\\\n    /*webpackIgnore:  false*/\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n    /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 3x,\\\\n    /*webpackIgnore:  false*/\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x,\\\\n    url(./url/img.png) 5x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")/** webpackIgnore: true */, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image:\\\\n    image-set(\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x  /*webpackIgnore:  true*/,\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") /*webpackIgnore:  true*/ 3x,\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x /*webpackIgnore:  true*/,\\\\n      /*webpackIgnore:  true*/url(./url/img.png) 5x,\\\\n      /*webpackIgnore:  true*/ url(./url/img.png) 6x,\\\\n      /*webpackIgnore:  true*/ \\\\n      url(./url/img.png) 7x,\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 8x\\\\n    ),\\\\n    /*webpackIgnore:  false*/\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    /*webpackIgnore:  true*/\\\\n    url('./url/img.png');\\\\n}\\\\n\\\\n@font-face {\\\\n    font-family: \\\\\\"anticon\\\\\\";\\\\n    src: url(\\\\\\"//at.alicdn.com/t/font_1434092639_4910953.eot?#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    /* this comment is required */\\\\n    url(\\\\\\"//at.alicdn.com/t/font_1434092639_4910953.woff\\\\\\") format(\\\\\\"woff\\\\\\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"/* webpackIgnore: true */\\\\n@import url(./basic.css);\\\\n@import /*    webpackIgnore:   true    */ url(./imported.css);\\\\n@import /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);\\\\n@import /* webpackIgnore: false */ /* webpackIgnore: true */ /* webpackIgnore: true */ url(./simple.css);\\\\n@import /* webpackIgnore: false */ /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);\\\\n\\\\n/** Resolved **/\\\\n/** Resolved **/\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\"),  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background:/** webpackIgnore: true */url(\\\\\\"./url/img.png\\\\\\"),  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: url(\\\\\\"./url/img.png\\\\\\"), url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: url(\\\\\\"./url/img.png\\\\\\"), /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: url(\\\\\\"./url/img.png\\\\\\"), /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\"), /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: /** webpackIgnore: true */ /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: false */ /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  src:\\\\n    /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_3___ + \\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  /** webpackIgnore: true **/\\\\n  src:\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.svg#Roboto-Regular\\\\\\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_5___ + \\");\\\\n  src:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_6___ + \\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: image-set(\\\\n    url(./url/img.png) 2x,\\\\n    url(./url/img.png) 3x,\\\\n    url(./url/img.png) 4x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: \\\\n    image-set(\\\\n        /*webpackIgnore:  false*/\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n        /*webpackIgnore:  true*/\\\\n        url(./url/img.png) 3x,\\\\n        url(./url/img.png) 4x,\\\\n        /*webpackIgnore:  false */\\\\n        /*webpackIgnore:  true */\\\\n        url(./url/img.png) 5x\\\\n    ), \\\\n    url('./url/img.png');\\\\n}\\\\n\\\\n.class {\\\\n    background-image:\\\\n      image-set(\\\\n        /*webpackIgnore:  false*/\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n        /*webpackIgnore:  true*/\\\\n        url(./url/img.png) 3x,\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x,\\\\n        /*webpackIgnore:  false */\\\\n        /*webpackIgnore:  true */\\\\n        url(./url/img.png) 5x\\\\n      ),\\\\n      /*webpackIgnore:  false*/\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /*webpackIgnore:  true*/\\\\n      url('./url/img.png');;\\\\n}\\\\n\\\\n.class {\\\\n    background-image:\\\\n        image-set(\\\\n            /*webpackIgnore:  false*/\\\\n            url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n            /*webpackIgnore:  true*/\\\\n            url(./url/img.png) 3x,\\\\n            url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x,\\\\n            /*webpackIgnore:  false */\\\\n            /*webpackIgnore:  true */\\\\n            url(./url/img.png) 5x\\\\n        ),\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image: image-set(\\\\n    /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 2x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 3x,\\\\n      /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 5x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n    background-image: image-set(\\\\n        /*webpackIgnore:  true*/\\\\n        './url/img.png' 2x,\\\\n        \\" + ___CSS_LOADER_URL_REPLACEMENT_7___ + \\" 3x,\\\\n        /*webpackIgnore:  true*/\\\\n        './url/img.png' 5x\\\\n    );\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: image-set(\\\\n    /*webpackIgnore:  false*/\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n    /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 3x,\\\\n    /*webpackIgnore:  false*/\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x,\\\\n    url(./url/img.png) 5x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")/** webpackIgnore: true */, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image:\\\\n    image-set(\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x  /*webpackIgnore:  true*/,\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") /*webpackIgnore:  true*/ 3x,\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x /*webpackIgnore:  true*/,\\\\n      /*webpackIgnore:  true*/url(./url/img.png) 5x,\\\\n      /*webpackIgnore:  true*/ url(./url/img.png) 6x,\\\\n      /*webpackIgnore:  true*/ \\\\n      url(./url/img.png) 7x,\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 8x\\\\n    ),\\\\n    /*webpackIgnore:  false*/\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    /*webpackIgnore:  true*/\\\\n    url('./url/img.png');\\\\n}\\\\n\\\\n@font-face {\\\\n    font-family: \\\\\\"anticon\\\\\\";\\\\n    src: url(\\\\\\"//at.alicdn.com/t/font_1434092639_4910953.eot?#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    /* this comment is required */\\\\n    url(\\\\\\"//at.alicdn.com/t/font_1434092639_4910953.woff\\\\\\") format(\\\\\\"woff\\\\\\");\\\\n}\\\\n\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -1075,7 +1075,7 @@ Array [
   color: red;
 }
 ",
-    "",
+    undefined,
   ],
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./simple.css",
@@ -1083,7 +1083,7 @@ Array [
   color: red;
 }
 ",
-    "",
+    undefined,
   ],
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./simple.css",
@@ -1091,7 +1091,7 @@ Array [
   color: red;
 }
 ",
-    "",
+    undefined,
   ],
   Array [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./simple.css",
@@ -1099,7 +1099,7 @@ Array [
   color: red;
 }
 ",
-    "",
+    undefined,
   ],
   Array [
     "./webpackIgnore.css",
@@ -1355,7 +1355,7 @@ Array [
     url(\\"//at.alicdn.com/t/font_1434092639_4910953.woff\\") format(\\"woff\\");
 }
 ",
-    "",
+    undefined,
   ],
 ]
 `;
@@ -1377,7 +1377,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -1391,7 +1391,7 @@ Array [
   color: red;
 }
 ",
-    "",
+    undefined,
   ],
   Array [
     "./basic.css",
@@ -1531,7 +1531,7 @@ a[href=\\"\\" i] {
   color: blue;
 }
 ",
-    "",
+    undefined,
   ],
 ]
 `;

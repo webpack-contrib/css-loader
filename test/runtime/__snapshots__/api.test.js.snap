@@ -1,37 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`api should import modules 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen and (orientation:landscape) {body { a: 1; }}@media (orientation:landscape) {body { a: 1; }}"`;
+exports[`api should import modules 1`] = `"@media  {body { b: 2; }}@media  {body { c: 3; }}@media  {body { b: 2; }}@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen and (orientation:landscape) {body { a: 1; }}@media (orientation:landscape) {body { a: 1; }}"`;
 
 exports[`api should import modules when module string 1`] = `".button { b: 2; }"`;
 
-exports[`api should import modules with dedupe 1`] = `"body { b: 1; }body { b: 2; }.button { b: 3; }"`;
+exports[`api should import modules with dedupe 1`] = `"@media  {body { b: 1; }}@media  {body { b: 2; }}@media  {.button { b: 3; }}"`;
 
-exports[`api should import named modules 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {body { a: 1; }}"`;
+exports[`api should import named modules 1`] = `"@media  {body { b: 2; }}@media  {body { c: 3; }}@media  {body { b: 2; }}@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {body { a: 1; }}"`;
 
-exports[`api should toString a single module 1`] = `"body { a: 1; }"`;
+exports[`api should toString a single module 1`] = `"@media  {body { a: 1; }}"`;
 
-exports[`api should toString multiple modules 1`] = `"body { b: 2; }body { a: 1; }"`;
+exports[`api should toString multiple modules 1`] = `"@media  {body { b: 2; }}@media  {body { a: 1; }}"`;
 
 exports[`api should toString with a source map without "sourceRoot" 1`] = `
-"@[object Object] {body { a: 1; }
+"@media  {body { a: 1; }
 /*# sourceURL=./path/to/test.scss */
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsifQ== */}"
 `;
 
 exports[`api should toString with a source map without map 1`] = `"@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');"`;
 
-exports[`api should toString with layer 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@layer(default) {body { a: 1; }}"`;
+exports[`api should toString with layer 1`] = `"@media  {body { b: 2; }}@media  {body { c: 3; }}@media  {body { b: 2; }}@media print {body { b: 2; }}@media print {body { d: 4; }}@supports (layer(default)) {@media  {body { a: 1; }}}"`;
 
-exports[`api should toString with media query list 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {body { a: 1; }}"`;
+exports[`api should toString with media query list 1`] = `"@media  {body { b: 2; }}@media  {body { c: 3; }}@media  {body { b: 2; }}@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {body { a: 1; }}"`;
 
-exports[`api should toString with media query list, layer and supports 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@supports (display: grid) {@media screen {@layer(default) {body { a: 1; }}}}"`;
+exports[`api should toString with media query list, layer and supports 1`] = `"@media  {body { b: 2; }}@media  {body { c: 3; }}@media  {body { b: 2; }}@media print {body { b: 2; }}@media print {body { d: 4; }}@supports (layer(default)) {@media screen {body { a: 1; }}}"`;
 
 exports[`api should toString with source mapping 1`] = `
-"@[object Object] {body { a: 1; }
+"@media  {body { a: 1; }
 /*# sourceURL=webpack://./path/to/test.scss */
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoidGVzdC5zY3NzIiwic291cmNlcyI6WyIuL3BhdGgvdG8vdGVzdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTsiLCJzb3VyY2VSb290Ijoid2VicGFjazovLyJ9 */}"
 `;
 
-exports[`api should toString with supports 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@supports (display: grid) {body { a: 1; }}"`;
+exports[`api should toString with supports 1`] = `"@media  {body { b: 2; }}@media  {body { c: 3; }}@media  {body { b: 2; }}@media print {body { b: 2; }}@media print {body { d: 4; }}@media  {body { a: 1; }}"`;
 
-exports[`api should toString without source mapping if btoa not available 1`] = `"@[object Object] {body { a: 1; }}"`;
+exports[`api should toString without source mapping if btoa not available 1`] = `"@media  {body { a: 1; }}"`;
