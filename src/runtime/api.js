@@ -19,7 +19,7 @@ module.exports = (cssWithMappingToString) => {
   };
 
   // import a list of modules into the list
-  list.i = (modules, mediaQuery, dedupe) => {
+  list.i = function i(modules, mediaQuery, dedupe) {
     if (typeof modules === "string") {
       modules = [[null, modules, ""]];
     }
