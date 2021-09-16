@@ -192,5 +192,6 @@ st.css');
 @import url("./import-multiple-unnamed-layer.css") layer(base);
 @import url("./import-with-layer-and-supports.css") layer(default) supports(display: flex);
 @import url("./import-with-layer-and-supports-and-media.css") layer(default) supports(display: flex) screen and (min-width: 400px);
+@import url("./deep-layer.css");
 
 @import url("./test.css") unknown(default) unknown(display: flex) unknown;
