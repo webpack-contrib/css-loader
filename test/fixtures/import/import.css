@@ -159,7 +159,10 @@ st.css');
 @import url(package/first.css);
 @import url(package/second.css);
 
+@import url("./test.css") supports();
+@import url("./test.css") supports(unknown);
 @import url("./test.css") supports(display: flex);
+@import url("./test.css") supports(display: flex !important);
 @import url("./test.css") supports(display: flex) screen and (min-width: 400px);
 @import url("./test.css") layer;
 @import url("./test.css") layer(default);
