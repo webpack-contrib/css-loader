@@ -505,12 +505,13 @@ import ___CSS_LOADER_AT_RULE_IMPORT_26___ from \\"-!../../../src/index.js??ruleS
 import ___CSS_LOADER_AT_RULE_IMPORT_27___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/second.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_28___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-media.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_29___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-unnamed-layer.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_30___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_31___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports-and-media.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_32___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_33___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-unnamed.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_34___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_35___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports-and-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_30___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-multiple-unnamed-layer.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_31___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_32___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports-and-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_33___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_34___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-unnamed.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_35___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_36___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports-and-media.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
 var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
@@ -625,13 +626,14 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"/* comment */ pr
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"/* comment */ print and (orientation:landscape)\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_28___, \\"screen and (min-width: 400px)\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_29___, undefined, false, undefined, \\"base\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, undefined, false, \\"display: flex\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, undefined, false, \\"((display: flex))\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_31___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_32___, undefined, false, undefined, \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, undefined, false, undefined, \\"base\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_31___, undefined, false, \\"display: flex\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_31___, undefined, false, \\"((display: flex))\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_32___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_33___, undefined, false, undefined, \\"default\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_34___, undefined, false, \\"display: flex\\", \\"default\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_35___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\", \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_34___, undefined, false, undefined, \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_35___, undefined, false, \\"display: flex\\", \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_36___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\", \\"default\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"unknown(default) unknown(display: flex) unknown\\");
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -933,6 +935,15 @@ a {
 }}@layer base {.foo {
   color: red;
 }
+}@layer base {@layer {.test {
+  a: a;
+}
+}}@layer base {@layer {.relative {
+  color: red;
+}
+}}@layer base {.foo {
+  color: red;
+}
 }@supports ((display: flex) and (display: grid)) {.test {
   a: a;
 }
@@ -1118,12 +1129,13 @@ import ___CSS_LOADER_AT_RULE_IMPORT_26___ from \\"-!../../../src/index.js??ruleS
 import ___CSS_LOADER_AT_RULE_IMPORT_27___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/second.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_28___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-media.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_29___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-unnamed-layer.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_30___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_31___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports-and-media.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_32___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_33___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-unnamed.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_34___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_35___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports-and-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_30___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-multiple-unnamed-layer.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_31___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_32___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports-and-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_33___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_34___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-unnamed.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_35___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_36___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports-and-media.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
 var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
@@ -1238,13 +1250,14 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"/* comment */ pr
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"/* comment */ print and (orientation:landscape)\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_28___, \\"screen and (min-width: 400px)\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_29___, undefined, false, undefined, \\"base\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, undefined, false, \\"display: flex\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, undefined, false, \\"((display: flex))\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_31___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_32___, undefined, false, undefined, \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, undefined, false, undefined, \\"base\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_31___, undefined, false, \\"display: flex\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_31___, undefined, false, \\"((display: flex))\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_32___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_33___, undefined, false, undefined, \\"default\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_34___, undefined, false, \\"display: flex\\", \\"default\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_35___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\", \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_34___, undefined, false, undefined, \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_35___, undefined, false, \\"display: flex\\", \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_36___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\", \\"default\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"unknown(default) unknown(display: flex) unknown\\");
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -1542,6 +1555,15 @@ a {
 }}@media screen and (min-width: 400px) {
 }@layer base {@layer {.test {
   a: a;
+}
+}}@layer base {.foo {
+  color: red;
+}
+}@layer base {@layer {.test {
+  a: a;
+}
+}}@layer base {@layer {.relative {
+  color: red;
 }
 }}@layer base {.foo {
   color: red;
@@ -2074,7 +2096,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\\\\n@import url(\\\\\\"test.css\\\\\\");\\\\n@IMPORT url(test.css);\\\\n@import URL(test.css);\\\\n@import url(test.css );\\\\n@import url( test.css);\\\\n@import url( test.css );\\\\n@import url(\\\\n  test.css\\\\n);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import \\\\\\"test.css\\\\\\";\\\\n@import 'test.css';\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import url(test.css) screen and (orientation:landscape);\\\\n@import url(test.css) SCREEN AND (ORIENTATION: LANDSCAPE);\\\\n@import url(test.css)screen and (orientation:landscape);\\\\n@import url(test.css)  screen and (orientation:landscape);\\\\n@import url(test-media.css) screen and (orientation:landscape);\\\\n@import url(test-other.css) (min-width: 100px);\\\\n@import url(http://example.com/style.css);\\\\n@import url(http://example.com/style.css);\\\\n@import url(http://example.com/style.css#hash);\\\\n@import url(http://example.com/style.css?#hash);\\\\n@import url(http://example.com/style.css?foo=bar#hash);\\\\n@import url(http://example.com/other-style.css) screen and (orientation:landscape);\\\\n@import url(http://example.com/other-style.css) screen and (orientation:landscape);\\\\n@import url(\\\\\\"//example.com/style.css\\\\\\");\\\\n@import url(~package/test.css);\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n@import url('query.css?foo=1&bar=1');\\\\n@import url('other-query.css?foo=1&bar=1#hash');\\\\n@import url('other-query.css?foo=1&bar=1#hash') screen and (orientation:landscape);\\\\n@import url('https://fonts.googleapis.com/css?family=Roboto');\\\\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');\\\\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto');\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n@import url('./relative.css');\\\\n@import url('../import/top-relative.css');\\\\n@import url(~package/tilde.css);\\\\n@import url(~aliasesImport/alias.css);\\\\n@import url('./url.css');\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@import url(./test.css);\\\\n\\\\n@import './te\\\\\\\\\\\\nst.css';\\\\n@import './te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css';\\\\n@import url('./te\\\\\\\\\\\\nst.css');\\\\n@import url('./te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css');\\\\n\\\\n@import \\\\\\"./te'st.css\\\\\\";\\\\n@import url(\\\\\\"./te'st.css\\\\\\");\\\\n@import './te\\\\\\\\'st.css';\\\\n@import url('./te\\\\\\\\'st.css');\\\\n@import './test test.css';\\\\n@import url('./test test.css');\\\\n@import './test\\\\\\\\ test.css';\\\\n@import url('./test\\\\\\\\ test.css');\\\\n@import './test%20test.css';\\\\n@import url('./test%20test.css');\\\\n@import './\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import './t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import url(./test\\\\\\\\ test.css);\\\\n@import url(./t\\\\\\\\65st%20test.css);\\\\n@import url('./t\\\\\\\\65st%20test.css');\\\\n@import url(\\\\\\"./t\\\\\\\\65st%20test.css\\\\\\");\\\\n@import \\\\\\"./t\\\\\\\\65st%20test.css\\\\\\";\\\\n@import './t\\\\\\\\65st%20test.css';\\\\n@import url(                 test.css                      );\\\\n@import nourl(test.css);\\\\n@import '\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\n';\\\\n@import url('!!../../helpers/string-loader.js?esModule=false!~package/tilde.css');\\\\n@import url(test.css?foo=bar);\\\\n@import url(test.css?foo=bar#hash);\\\\n@import url(test.css?#hash);\\\\n@import \\\\\\"test.css\\\\\\" supports(display: flex);\\\\n@import \\\\\\"test.css\\\\\\" supports(display: flex) screen and (orientation:landscape);\\\\n\\\\n/* Should be one import and two css modules */\\\\n\\\\n@import url('something.css');\\\\n@import url('something.css');\\\\n\\\\n/* Should be one import and two css modules */\\\\n\\\\n@import url('something.css?foo=bar');\\\\n@import url('something.css?foo=bar');\\\\n\\\\n/* Should be one import and two css modules */\\\\n\\\\n@import url('something.css?foo=bar#hash');\\\\n@import url('something.css?foo=bar#hash');\\\\n\\\\n/* Should be two import and two css modules */\\\\n\\\\n@import url('something.css?foo=bar');\\\\n@import url('something.css?bar=foo');\\\\n\\\\n/* Should be two import and two css modules */\\\\n\\\\n@import url('something.css?foo=bar#one');\\\\n@import url('something.css?foo=bar#two');\\\\n\\\\n/* Should be two import and two css modules */\\\\n\\\\n@import url('something.css?foo=1&bar=2');\\\\n@import url('something.css?foo=2&bar=1');\\\\n\\\\n@import \\\\\\"   ./test.css   \\\\\\";\\\\n@import url('   ./test.css   ');\\\\n@import url(   ./test.css   );\\\\n\\\\n@import \\\\\\"./my.scss\\\\\\";\\\\n\\\\n@import url('   https://fonts.googleapis.com/css?family=Roboto   ');\\\\n@import url('!!../../helpers/string-loader.js?esModule=false!');\\\\n@import url('   !!../../helpers/string-loader.js?esModule=false!~package/tilde.css   ');\\\\n@import url(data:text/css;charset=utf-8,a%20%7B%0D%0A%20%20color%3A%20red%3B%0D%0A%7D);\\\\n\\\\n/* Prefer relative */\\\\n@import url(package/first.css);\\\\n@import url(package/second.css);\\\\n\\\\n@import url(\\\\\\"./test.css\\\\\\") supports();\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(unknown);\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(display: flex);\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(display: flex !important);\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\") layer;\\\\n@import url(\\\\\\"./test.css\\\\\\") layer(default);\\\\n@import url(\\\\\\"./test.css\\\\\\") layer(default) supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\") layer();\\\\n@import url(\\\\\\"http://example.com/style.css\\\\\\") supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\")layer(default)supports(display: flex)screen and (min-width:400px);\\\\n@import url(\\\\\\"./test.css\\\\\\")screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\")     layer(     default     )     supports(     display     :     flex     )     screen     and     (     min-width     :     400px     );\\\\n@import url(\\\\\\"./test.css\\\\\\") LAYER(DEFAULT) SUPPORTS(DISPLAY: FLEX) SCREEN AND (MIN-WIDTH: 400PX);\\\\n@import url(\\\\\\"./test.css\\\\\\") /* Comment */ layer(/* Comment */default/* Comment */) /* Comment */ supports(/* Comment */display/* Comment */:/* Comment */ flex/* Comment */)/* Comment */ screen/* Comment */ and/* Comment */ (/* Comment */min-width/* Comment */: /* Comment */400px/* Comment */);\\\\n@import url(test.css) /* Comment */;\\\\n@import /* Comment */ url(test.css) /* Comment */;\\\\n@import url(test.css) /* Comment */ print and (orientation:landscape);\\\\n@import /* Comment */ url(test.css) /* Comment */ print and (orientation:landscape);\\\\n\\\\n@import url(\\\\\\"./import-with-media.css\\\\\\") screen and (min-width: 400px);\\\\n@import url(\\\\\\"./import-unnamed-layer.css\\\\\\") layer(base);\\\\n@import url(\\\\\\"./import-with-supports.css\\\\\\") supports(display: flex);\\\\n@import url(\\\\\\"./import-with-supports.css\\\\\\") supports(((display: flex)));\\\\n@import url(\\\\\\"./import-with-supports-and-media.css\\\\\\") supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./import-with-layer.css\\\\\\") layer(default);\\\\n@import url(\\\\\\"./import-with-layer-unnamed.css\\\\\\") layer(default);\\\\n@import url(\\\\\\"./import-with-layer-and-supports.css\\\\\\") layer(default) supports(display: flex);\\\\n@import url(\\\\\\"./import-with-layer-and-supports-and-media.css\\\\\\") layer(default) supports(display: flex) screen and (min-width: 400px);\\\\n\\\\n@import url(\\\\\\"./test.css\\\\\\") unknown(default) unknown(display: flex) unknown;\\\\n\\", undefined]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\\\\n@import url(\\\\\\"test.css\\\\\\");\\\\n@IMPORT url(test.css);\\\\n@import URL(test.css);\\\\n@import url(test.css );\\\\n@import url( test.css);\\\\n@import url( test.css );\\\\n@import url(\\\\n  test.css\\\\n);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import \\\\\\"test.css\\\\\\";\\\\n@import 'test.css';\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import url(test.css) screen and (orientation:landscape);\\\\n@import url(test.css) SCREEN AND (ORIENTATION: LANDSCAPE);\\\\n@import url(test.css)screen and (orientation:landscape);\\\\n@import url(test.css)  screen and (orientation:landscape);\\\\n@import url(test-media.css) screen and (orientation:landscape);\\\\n@import url(test-other.css) (min-width: 100px);\\\\n@import url(http://example.com/style.css);\\\\n@import url(http://example.com/style.css);\\\\n@import url(http://example.com/style.css#hash);\\\\n@import url(http://example.com/style.css?#hash);\\\\n@import url(http://example.com/style.css?foo=bar#hash);\\\\n@import url(http://example.com/other-style.css) screen and (orientation:landscape);\\\\n@import url(http://example.com/other-style.css) screen and (orientation:landscape);\\\\n@import url(\\\\\\"//example.com/style.css\\\\\\");\\\\n@import url(~package/test.css);\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n@import url('query.css?foo=1&bar=1');\\\\n@import url('other-query.css?foo=1&bar=1#hash');\\\\n@import url('other-query.css?foo=1&bar=1#hash') screen and (orientation:landscape);\\\\n@import url('https://fonts.googleapis.com/css?family=Roboto');\\\\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');\\\\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto');\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n@import url('./relative.css');\\\\n@import url('../import/top-relative.css');\\\\n@import url(~package/tilde.css);\\\\n@import url(~aliasesImport/alias.css);\\\\n@import url('./url.css');\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@import url(./test.css);\\\\n\\\\n@import './te\\\\\\\\\\\\nst.css';\\\\n@import './te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css';\\\\n@import url('./te\\\\\\\\\\\\nst.css');\\\\n@import url('./te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css');\\\\n\\\\n@import \\\\\\"./te'st.css\\\\\\";\\\\n@import url(\\\\\\"./te'st.css\\\\\\");\\\\n@import './te\\\\\\\\'st.css';\\\\n@import url('./te\\\\\\\\'st.css');\\\\n@import './test test.css';\\\\n@import url('./test test.css');\\\\n@import './test\\\\\\\\ test.css';\\\\n@import url('./test\\\\\\\\ test.css');\\\\n@import './test%20test.css';\\\\n@import url('./test%20test.css');\\\\n@import './\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import './t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import url(./test\\\\\\\\ test.css);\\\\n@import url(./t\\\\\\\\65st%20test.css);\\\\n@import url('./t\\\\\\\\65st%20test.css');\\\\n@import url(\\\\\\"./t\\\\\\\\65st%20test.css\\\\\\");\\\\n@import \\\\\\"./t\\\\\\\\65st%20test.css\\\\\\";\\\\n@import './t\\\\\\\\65st%20test.css';\\\\n@import url(                 test.css                      );\\\\n@import nourl(test.css);\\\\n@import '\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\n';\\\\n@import url('!!../../helpers/string-loader.js?esModule=false!~package/tilde.css');\\\\n@import url(test.css?foo=bar);\\\\n@import url(test.css?foo=bar#hash);\\\\n@import url(test.css?#hash);\\\\n@import \\\\\\"test.css\\\\\\" supports(display: flex);\\\\n@import \\\\\\"test.css\\\\\\" supports(display: flex) screen and (orientation:landscape);\\\\n\\\\n/* Should be one import and two css modules */\\\\n\\\\n@import url('something.css');\\\\n@import url('something.css');\\\\n\\\\n/* Should be one import and two css modules */\\\\n\\\\n@import url('something.css?foo=bar');\\\\n@import url('something.css?foo=bar');\\\\n\\\\n/* Should be one import and two css modules */\\\\n\\\\n@import url('something.css?foo=bar#hash');\\\\n@import url('something.css?foo=bar#hash');\\\\n\\\\n/* Should be two import and two css modules */\\\\n\\\\n@import url('something.css?foo=bar');\\\\n@import url('something.css?bar=foo');\\\\n\\\\n/* Should be two import and two css modules */\\\\n\\\\n@import url('something.css?foo=bar#one');\\\\n@import url('something.css?foo=bar#two');\\\\n\\\\n/* Should be two import and two css modules */\\\\n\\\\n@import url('something.css?foo=1&bar=2');\\\\n@import url('something.css?foo=2&bar=1');\\\\n\\\\n@import \\\\\\"   ./test.css   \\\\\\";\\\\n@import url('   ./test.css   ');\\\\n@import url(   ./test.css   );\\\\n\\\\n@import \\\\\\"./my.scss\\\\\\";\\\\n\\\\n@import url('   https://fonts.googleapis.com/css?family=Roboto   ');\\\\n@import url('!!../../helpers/string-loader.js?esModule=false!');\\\\n@import url('   !!../../helpers/string-loader.js?esModule=false!~package/tilde.css   ');\\\\n@import url(data:text/css;charset=utf-8,a%20%7B%0D%0A%20%20color%3A%20red%3B%0D%0A%7D);\\\\n\\\\n/* Prefer relative */\\\\n@import url(package/first.css);\\\\n@import url(package/second.css);\\\\n\\\\n@import url(\\\\\\"./test.css\\\\\\") supports();\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(unknown);\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(display: flex);\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(display: flex !important);\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\") layer;\\\\n@import url(\\\\\\"./test.css\\\\\\") layer(default);\\\\n@import url(\\\\\\"./test.css\\\\\\") layer(default) supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\") layer();\\\\n@import url(\\\\\\"http://example.com/style.css\\\\\\") supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\")layer(default)supports(display: flex)screen and (min-width:400px);\\\\n@import url(\\\\\\"./test.css\\\\\\")screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\")     layer(     default     )     supports(     display     :     flex     )     screen     and     (     min-width     :     400px     );\\\\n@import url(\\\\\\"./test.css\\\\\\") LAYER(DEFAULT) SUPPORTS(DISPLAY: FLEX) SCREEN AND (MIN-WIDTH: 400PX);\\\\n@import url(\\\\\\"./test.css\\\\\\") /* Comment */ layer(/* Comment */default/* Comment */) /* Comment */ supports(/* Comment */display/* Comment */:/* Comment */ flex/* Comment */)/* Comment */ screen/* Comment */ and/* Comment */ (/* Comment */min-width/* Comment */: /* Comment */400px/* Comment */);\\\\n@import url(test.css) /* Comment */;\\\\n@import /* Comment */ url(test.css) /* Comment */;\\\\n@import url(test.css) /* Comment */ print and (orientation:landscape);\\\\n@import /* Comment */ url(test.css) /* Comment */ print and (orientation:landscape);\\\\n\\\\n@import url(\\\\\\"./import-with-media.css\\\\\\") screen and (min-width: 400px);\\\\n@import url(\\\\\\"./import-unnamed-layer.css\\\\\\") layer(base);\\\\n@import url(\\\\\\"./import-multiple-unnamed-layer.css\\\\\\") layer(base);\\\\n@import url(\\\\\\"./import-with-supports.css\\\\\\") supports(display: flex);\\\\n@import url(\\\\\\"./import-with-supports.css\\\\\\") supports(((display: flex)));\\\\n@import url(\\\\\\"./import-with-supports-and-media.css\\\\\\") supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./import-with-layer.css\\\\\\") layer(default);\\\\n@import url(\\\\\\"./import-with-layer-unnamed.css\\\\\\") layer(default);\\\\n@import url(\\\\\\"./import-with-layer-and-supports.css\\\\\\") layer(default) supports(display: flex);\\\\n@import url(\\\\\\"./import-with-layer-and-supports-and-media.css\\\\\\") layer(default) supports(display: flex) screen and (min-width: 400px);\\\\n\\\\n@import url(\\\\\\"./test.css\\\\\\") unknown(default) unknown(display: flex) unknown;\\\\n\\", undefined]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -2264,6 +2286,7 @@ st.css');
 
 @import url(\\"./import-with-media.css\\") screen and (min-width: 400px);
 @import url(\\"./import-unnamed-layer.css\\") layer(base);
+@import url(\\"./import-multiple-unnamed-layer.css\\") layer(base);
 @import url(\\"./import-with-supports.css\\") supports(display: flex);
 @import url(\\"./import-with-supports.css\\") supports(((display: flex)));
 @import url(\\"./import-with-supports-and-media.css\\") supports(display: flex) screen and (min-width: 400px);
@@ -2314,12 +2337,13 @@ import ___CSS_LOADER_AT_RULE_IMPORT_26___ from \\"-!../../../src/index.js??ruleS
 import ___CSS_LOADER_AT_RULE_IMPORT_27___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/second.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_28___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-media.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_29___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-unnamed-layer.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_30___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_31___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports-and-media.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_32___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_33___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-unnamed.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_34___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_35___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports-and-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_30___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-multiple-unnamed-layer.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_31___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_32___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports-and-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_33___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_34___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-unnamed.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_35___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_36___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports-and-media.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
 var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
@@ -2434,13 +2458,14 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"/* comment */ pr
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"/* comment */ print and (orientation:landscape)\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_28___, \\"screen and (min-width: 400px)\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_29___, undefined, false, undefined, \\"base\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, undefined, false, \\"display: flex\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, undefined, false, \\"((display: flex))\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_31___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_32___, undefined, false, undefined, \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, undefined, false, undefined, \\"base\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_31___, undefined, false, \\"display: flex\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_31___, undefined, false, \\"((display: flex))\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_32___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_33___, undefined, false, undefined, \\"default\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_34___, undefined, false, \\"display: flex\\", \\"default\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_35___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\", \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_34___, undefined, false, undefined, \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_35___, undefined, false, \\"display: flex\\", \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_36___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\", \\"default\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___, \\"unknown(default) unknown(display: flex) unknown\\");
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -2742,6 +2767,15 @@ a {
 }}@layer base {.foo {
   color: red;
 }
+}@layer base {@layer {.test {
+  a: a;
+}
+}}@layer base {@layer {.relative {
+  color: red;
+}
+}}@layer base {.foo {
+  color: red;
+}
 }@supports ((display: flex) and (display: grid)) {.test {
   a: a;
 }
@@ -2954,12 +2988,13 @@ import ___CSS_LOADER_AT_RULE_IMPORT_20___ from \\"-!../../../src/index.js??ruleS
 import ___CSS_LOADER_AT_RULE_IMPORT_21___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./node_modules/package/second.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_22___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-media.css\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_23___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-unnamed-layer.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_24___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_25___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports-and-media.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_26___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_27___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-unnamed.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_28___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports.css\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_29___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports-and-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_24___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-multiple-unnamed-layer.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_25___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_26___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-supports-and-media.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_27___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_28___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-unnamed.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_29___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_30___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./import-with-layer-and-supports-and-media.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
 var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
@@ -3010,13 +3045,14 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_21___);
 ___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(http://example.com/style.css);\\", \\"screen and (min-width: 400px)\\", false, \\"display: flex\\"]);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_22___, \\"screen and (min-width: 400px)\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_23___, undefined, false, undefined, \\"base\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_24___, undefined, false, \\"display: flex\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_24___, undefined, false, \\"((display: flex))\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_25___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_26___, undefined, false, undefined, \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_24___, undefined, false, undefined, \\"base\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_25___, undefined, false, \\"display: flex\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_25___, undefined, false, \\"((display: flex))\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_26___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\");
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_27___, undefined, false, undefined, \\"default\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_28___, undefined, false, \\"display: flex\\", \\"default\\");
-___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_29___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\", \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_28___, undefined, false, undefined, \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_29___, undefined, false, \\"display: flex\\", \\"default\\");
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_30___, \\"screen and (min-width: 400px)\\", false, \\"display: flex\\", \\"default\\");
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(test.css);\\\\n@import url('test.css');\\\\n@import url(\\\\\\"test.css\\\\\\");\\\\n@IMPORT url(test.css);\\\\n@import URL(test.css);\\\\n@import url(test.css );\\\\n@import url( test.css);\\\\n@import url( test.css );\\\\n@import url(\\\\n  test.css\\\\n);\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import \\\\\\"test.css\\\\\\";\\\\n@import 'test.css';\\\\n@import '';\\\\n@import \\\\\\"\\\\\\";\\\\n@import \\\\\\"   \\\\\\";\\\\n@import \\\\\\"\\\\n\\\\\\";\\\\n@import url();\\\\n@import url('');\\\\n@import url(\\\\\\"\\\\\\");\\\\n@import url(test.css) screen and (orientation:landscape);\\\\n@import url(test.css) SCREEN AND (ORIENTATION: LANDSCAPE);\\\\n@import url(test.css)screen and (orientation:landscape);\\\\n@import url(test.css)  screen and (orientation:landscape);\\\\n@import url(~package/test.css);\\\\n@import ;\\\\n@import foo-bar;\\\\n@import-normalize;\\\\n@import url('http://') :root {}\\\\n\\\\n.class {\\\\n  a: b c d;\\\\n}\\\\n\\\\n.foo {\\\\n  @import 'path.css';\\\\n}\\\\n\\\\n.background {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n@import url(./test.css);\\\\n\\\\n@import './te\\\\\\\\\\\\nst.css';\\\\n@import './te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css';\\\\n@import url('./te\\\\\\\\\\\\nst.css');\\\\n@import url('./te\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\nst.css');\\\\n@import './test test.css';\\\\n@import url('./test test.css');\\\\n@import './test\\\\\\\\ test.css';\\\\n@import url('./test\\\\\\\\ test.css');\\\\n@import './test%20test.css';\\\\n@import url('./test%20test.css');\\\\n@import './\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./\\\\\\\\74\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import './t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css';\\\\n@import url('./t\\\\\\\\65\\\\\\\\73\\\\\\\\74.css');\\\\n@import url(./test\\\\\\\\ test.css);\\\\n@import url(./t\\\\\\\\65st%20test.css);\\\\n@import url('./t\\\\\\\\65st%20test.css');\\\\n@import url(\\\\\\"./t\\\\\\\\65st%20test.css\\\\\\");\\\\n@import \\\\\\"./t\\\\\\\\65st%20test.css\\\\\\";\\\\n@import './t\\\\\\\\65st%20test.css';\\\\n@import url(                 test.css                      );\\\\n@import nourl(test.css);\\\\n@import '\\\\\\\\\\\\n\\\\\\\\\\\\n\\\\\\\\\\\\n';\\\\n@import url(test.css?foo=bar);\\\\n@import url(test.css?foo=bar#hash);\\\\n@import url(test.css?#hash);\\\\n@import \\\\\\"test.css\\\\\\" supports(display: flex);\\\\n@import \\\\\\"test.css\\\\\\" supports(display: flex) screen and (orientation:landscape);\\\\n\\\\n/* Should be one import and two css modules */\\\\n\\\\n/* Should be one import and two css modules */\\\\n\\\\n/* Should be one import and two css modules */\\\\n\\\\n/* Should be two import and two css modules */\\\\n\\\\n/* Should be two import and two css modules */\\\\n\\\\n/* Should be two import and two css modules */\\\\n\\\\n@import \\\\\\"   ./test.css   \\\\\\";\\\\n@import url('   ./test.css   ');\\\\n@import url(   ./test.css   );\\\\n@import url('!!../../helpers/string-loader.js?esModule=false!');\\\\n\\\\n/* Prefer relative */\\\\n\\\\n@import url(\\\\\\"./test.css\\\\\\") supports();\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(unknown);\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(display: flex);\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(display: flex !important);\\\\n@import url(\\\\\\"./test.css\\\\\\") supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\") layer;\\\\n@import url(\\\\\\"./test.css\\\\\\") layer(default);\\\\n@import url(\\\\\\"./test.css\\\\\\") layer(default) supports(display: flex) screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\") layer();\\\\n@import url(\\\\\\"./test.css\\\\\\")layer(default)supports(display: flex)screen and (min-width:400px);\\\\n@import url(\\\\\\"./test.css\\\\\\")screen and (min-width: 400px);\\\\n@import url(\\\\\\"./test.css\\\\\\")     layer(     default     )     supports(     display     :     flex     )     screen     and     (     min-width     :     400px     );\\\\n@import url(\\\\\\"./test.css\\\\\\") LAYER(DEFAULT) SUPPORTS(DISPLAY: FLEX) SCREEN AND (MIN-WIDTH: 400PX);\\\\n@import url(\\\\\\"./test.css\\\\\\") /* Comment */ layer(/* Comment */default/* Comment */) /* Comment */ supports(/* Comment */display/* Comment */:/* Comment */ flex/* Comment */)/* Comment */ screen/* Comment */ and/* Comment */ (/* Comment */min-width/* Comment */: /* Comment */400px/* Comment */);\\\\n@import url(test.css) /* Comment */;\\\\n@import /* Comment */ url(test.css) /* Comment */;\\\\n@import url(test.css) /* Comment */ print and (orientation:landscape);\\\\n@import /* Comment */ url(test.css) /* Comment */ print and (orientation:landscape);\\\\n\\\\n@import url(\\\\\\"./test.css\\\\\\") unknown(default) unknown(display: flex) unknown;\\\\n\\", undefined]);
@@ -3117,6 +3153,14 @@ a {
 }
 @supports (display: flex) {@media screen and (min-width: 400px) {@import url(http://example.com/style.css);}}@media screen and (min-width: 400px) {@import url('./test.css') screen and (max-width: 1200px);
 }@layer base {@import url(\\"./test.css\\") layer;
+
+.foo {
+  color: red;
+}
+}@layer base {@layer {.relative {
+  color: red;
+}
+}}@layer base {@import url(\\"./test.css\\") layer;
 
 .foo {
   color: red;
