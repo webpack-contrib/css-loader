@@ -86,11 +86,16 @@ describe('"import" option', () => {
   it("should work with import.filter", async () => {
     const compiler = getCompiler("./import/import.js", {
       import: {
-        filter: (url, media, resourcePath) => {
+        filter: (url, media, resourcePath, supports, layer) => {
           expect(url).toBeDefined();
 
           if (url === "test-nested-media.css") {
             expect(media).toBeDefined();
+          }
+
+          if (url === "./import-with-layer-and-supports-and-media.css") {
+            expect(supports).toBeDefined();
+            expect(layer).toBeDefined();
           }
 
           expect(resourcePath).toBeDefined();

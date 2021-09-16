@@ -71,7 +71,7 @@ export default async function loader(content, map, meta) {
         context: this.context,
         rootContext: this.rootContext,
         resourcePath: this.resourcePath,
-        filter: getFilter(options.import.filter, this.resourcePath),
+        filter: options.import.filter,
         resolver,
         urlHandler: (url) =>
           stringifyRequest(
