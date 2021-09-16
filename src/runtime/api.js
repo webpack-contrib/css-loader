@@ -73,7 +73,8 @@ module.exports = (cssWithMappingToString) => {
         if (!item[2]) {
           item[2] = media;
         } else {
-          item[2] = `${media} and ${item[2]}`;
+          item[1] = `@media ${item[2]} {${item[1]}}`;
+          item[2] = media;
         }
       }
 

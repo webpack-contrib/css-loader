@@ -27,7 +27,7 @@ describe('"import" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it.only("should work when not specified and print correct output", async () => {
+  it("should work when not specified and print correct output", async () => {
     const compiler = getCompiler("./import/import-stringified.js");
     const stats = await compile(compiler);
 
