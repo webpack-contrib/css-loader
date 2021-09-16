@@ -82,18 +82,19 @@ module.exports = (cssWithMappingToString) => {
         if (!item[4]) {
           item[4] = `${supports}`;
         } else {
-          item[4] = `(${supports}) and (${item[4]})`;
+          item[1] = `@supports (${item[4]}) {${item[1]}}`;
+          item[4] = supports;
         }
       }
 
       if (typeof layer !== "undefined") {
         if (typeof item[5] === "undefined") {
           item[5] = layer;
-        } else if (item[5] === "") {
-          item[5] = layer;
-          item[1] = `@layer {${item[1]}}`;
         } else {
-          item[5] = `${layer}.${item[5]}`;
+          item[1] = `@layer${item[5].length > 0 ? ` ${item[5]}` : ""} {${
+            item[1]
+          }}`;
+          item[5] = layer;
         }
       }
 

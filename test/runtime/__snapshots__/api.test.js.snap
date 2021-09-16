@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`api should import modules 1`] = `"@media  {body { b: 2; }}@media  {body { c: 3; }}@media  {body { b: 2; }}@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen and (orientation:landscape) {body { a: 1; }}@media (orientation:landscape) {body { a: 1; }}"`;
+exports[`api should import modules 1`] = `"@media  {body { b: 2; }}@media  {body { c: 3; }}@media  {body { b: 2; }}@media print {body { b: 2; }}@media print {body { d: 4; }}@media screen {@media (orientation:landscape) {body { a: 1; }}}@media (orientation:landscape) {body { a: 1; }}"`;
 
 exports[`api should import modules when module string 1`] = `".button { b: 2; }"`;
 
