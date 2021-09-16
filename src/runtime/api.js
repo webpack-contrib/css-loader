@@ -69,6 +69,17 @@ module.exports = (cssWithMappingToString) => {
         continue;
       }
 
+      if (typeof layer !== "undefined") {
+        if (typeof item[5] === "undefined") {
+          item[5] = layer;
+        } else {
+          item[1] = `@layer${item[5].length > 0 ? ` ${item[5]}` : ""} {${
+            item[1]
+          }}`;
+          item[5] = layer;
+        }
+      }
+
       if (typeof media !== "undefined") {
         if (!item[2]) {
           item[2] = media;
@@ -84,17 +95,6 @@ module.exports = (cssWithMappingToString) => {
         } else {
           item[1] = `@supports (${item[4]}) {${item[1]}}`;
           item[4] = supports;
-        }
-      }
-
-      if (typeof layer !== "undefined") {
-        if (typeof item[5] === "undefined") {
-          item[5] = layer;
-        } else {
-          item[1] = `@layer${item[5].length > 0 ? ` ${item[5]}` : ""} {${
-            item[1]
-          }}`;
-          item[5] = layer;
         }
       }
 

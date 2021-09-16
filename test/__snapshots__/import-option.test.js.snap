@@ -1029,7 +1029,10 @@ a {
 }@supports (display: flex) {@layer default {@layer base {.test {
   a: a;
 }
-}}}@supports (display: flex) {@layer default {}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {}}}@layer bootstrap {@layer base {@layer {.relative {
+}}}@supports (display: flex) {@layer default {}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {@supports (display: grid) {@media screen and (min-width: 900px) {@layer base {.test {
+  a: a;
+}
+}}}}}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {}}}@layer bootstrap {@layer base {@layer {.relative {
   color: red;
 }
 }}}@layer bootstrap {@layer base {@layer {.test {
@@ -1727,7 +1730,10 @@ a {
 }@supports (display: flex) {@layer default {@layer base {.test {
   a: a;
 }
-}}}@supports (display: flex) {@layer default {}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {}}}@layer bootstrap {@layer base {@layer {.relative {
+}}}@supports (display: flex) {@layer default {}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {@supports (display: grid) {@media screen and (min-width: 900px) {@layer base {.test {
+  a: a;
+}
+}}}}}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {}}}@layer bootstrap {@layer base {@layer {.relative {
   color: red;
 }
 }}}@layer bootstrap {@layer base {@layer {.test {
@@ -3019,7 +3025,10 @@ a {
 }@supports (display: flex) {@layer default {@layer base {.test {
   a: a;
 }
-}}}@supports (display: flex) {@layer default {}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {}}}@layer bootstrap {@layer base {@layer {.relative {
+}}}@supports (display: flex) {@layer default {}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {@supports (display: grid) {@media screen and (min-width: 900px) {@layer base {.test {
+  a: a;
+}
+}}}}}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {}}}@layer bootstrap {@layer base {@layer {.relative {
   color: red;
 }
 }}}@layer bootstrap {@layer base {@layer {.test {
@@ -3439,7 +3448,7 @@ a {
 .foo {
   color: red;
 }
-}@supports (display: flex) {@layer default {@import url('./test.css') layer(base);}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {}}}@layer bootstrap {@layer base {@layer {.relative {
+}@supports (display: flex) {@layer default {@import url('./test.css') layer(base);}}@supports (display: flex) {@media screen and (min-width: 400px) {@layer default {@import url(\\"./test.css\\") layer(base) supports(display: grid) screen and (min-width: 900px);}}}@layer bootstrap {@layer base {@layer {.relative {
   color: red;
 }
 }}}@layer bootstrap {@layer base {/* unnamed wrapper layers around each sub-file */
