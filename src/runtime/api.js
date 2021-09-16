@@ -86,8 +86,11 @@ module.exports = (cssWithMappingToString) => {
       }
 
       if (typeof layer !== "undefined") {
-        if (!item[5]) {
+        if (typeof item[5] === "undefined") {
           item[5] = layer;
+        } else if (item[5] === "") {
+          item[5] = layer;
+          item[1] = `@layer {${item[1]}}`;
         } else {
           item[5] = `${layer}.${item[5]}`;
         }
