@@ -182,6 +182,7 @@ st.css');
 @import /* Comment */ url(test.css) /* Comment */ print and (orientation:landscape);
 
 @import url("./import-with-media.css") screen and (min-width: 400px);
+@import url("./deep-import-with-media.css") (prefers-color-scheme: dark);
 @import url("./import-with-supports.css") supports(display: flex);
 @import url("./import-with-supports.css") supports(((display: flex)));
 @import url("./import-with-supports-and-media.css") supports(display: flex) screen and (min-width: 400px);
