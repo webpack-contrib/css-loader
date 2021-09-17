@@ -205,13 +205,11 @@ export default async function loader(content, map, meta) {
 
     if (options.sourceMap) {
       imports.unshift({
-        type: "api_sourcemap_import",
         importName: "___CSS_LOADER_API_SOURCEMAP_IMPORT___",
-        url: stringifyRequest(this, require.resolve("./runtime/noSourceMaps")),
+        url: stringifyRequest(this, require.resolve("./runtime/sourceMaps")),
       });
     } else {
       imports.unshift({
-        type: "api_sourcemap_import",
         importName: "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
         url: stringifyRequest(this, require.resolve("./runtime/noSourceMaps")),
       });
