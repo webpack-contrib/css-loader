@@ -11,14 +11,13 @@ module.exports = (cssWithMappingToString) => {
       let content = "";
 
       const needSupports = typeof item[4] !== "undefined";
-      const needMedia = typeof item[2] !== "undefined";
       const needLayer = typeof item[5] !== "undefined";
 
       if (needSupports) {
         content += `@supports (${item[4]}) {`;
       }
 
-      if (needMedia) {
+      if (item[2]) {
         content += `@media ${item[2]} {`;
       }
 
@@ -32,7 +31,7 @@ module.exports = (cssWithMappingToString) => {
         content += "}";
       }
 
-      if (needMedia) {
+      if (item[2]) {
         content += "}";
       }
 
@@ -80,7 +79,7 @@ module.exports = (cssWithMappingToString) => {
         }
       }
 
-      if (typeof media !== "undefined") {
+      if (media) {
         if (!item[2]) {
           item[2] = media;
         } else {

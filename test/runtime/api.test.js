@@ -247,9 +247,9 @@ describe("api", () => {
   it("should import modules with dedupe", () => {
     const m = api(noSourceMaps);
 
-    const m1 = [null, "body { b: 1; }", undefined];
-    const m2 = ["./module2", "body { b: 2; }", undefined];
-    const m3 = ["./module3", ".button { b: 3; }", undefined];
+    const m1 = [null, "body { b: 1; }", ""];
+    const m2 = ["./module2", "body { b: 2; }", ""];
+    const m3 = ["./module3", ".button { b: 3; }", ""];
 
     m.i([m1], "", true);
     m.i([m2], "", true);
