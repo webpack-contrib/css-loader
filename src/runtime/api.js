@@ -10,10 +10,9 @@ module.exports = (cssWithMappingToString) => {
     return this.map((item) => {
       let content = "";
 
-      const needSupports = typeof item[4] !== "undefined";
       const needLayer = typeof item[5] !== "undefined";
 
-      if (needSupports) {
+      if (item[4]) {
         content += `@supports (${item[4]}) {`;
       }
 
@@ -35,7 +34,7 @@ module.exports = (cssWithMappingToString) => {
         content += "}";
       }
 
-      if (needSupports) {
+      if (item[4]) {
         content += "}";
       }
 
@@ -88,7 +87,7 @@ module.exports = (cssWithMappingToString) => {
         }
       }
 
-      if (typeof supports !== "undefined") {
+      if (supports) {
         if (!item[4]) {
           item[4] = `${supports}`;
         } else {

@@ -887,10 +887,10 @@ a {
 .second {
     color: red;
 }
-@supports () {.test {
+.test {
   a: a;
 }
-}@supports (unknown) {.test {
+@supports (unknown) {.test {
   a: a;
 }
 }@supports (display: flex) {.test {
@@ -1588,10 +1588,10 @@ a {
 .second {
     color: red;
 }
-@supports () {.test {
+.test {
   a: a;
 }
-}@supports (unknown) {.test {
+@supports (unknown) {.test {
   a: a;
 }
 }@supports (display: flex) {.test {
@@ -2883,10 +2883,10 @@ a {
 .second {
     color: red;
 }
-@supports () {.test {
+.test {
   a: a;
 }
-}@supports (unknown) {.test {
+@supports (unknown) {.test {
   a: a;
 }
 }@supports (display: flex) {.test {
