@@ -97,6 +97,14 @@ describe("api", () => {
     const m3 = [3, "body { c: 3; }", undefined];
     const m4 = [4, "body { d: 4; }", undefined];
     const m5 = [5, "body { e: 5; }", undefined, undefined, undefined, ""];
+    const m6 = [
+      5,
+      "body { f: 6; }",
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+    ];
 
     m.i([m2, m3], undefined);
     m.i([m2], undefined);
@@ -104,6 +112,7 @@ describe("api", () => {
     m.push(m1);
     m.i([m5]);
     m.i([m1, m5], undefined, undefined, undefined, "framework");
+    m.i([m6], undefined, undefined, undefined, "framework");
 
     expect(m.toString()).toMatchSnapshot();
   });

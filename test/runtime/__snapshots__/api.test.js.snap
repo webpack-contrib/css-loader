@@ -20,7 +20,7 @@ exports[`api should toString with a source map without "sourceRoot" 1`] = `
 
 exports[`api should toString with a source map without map 1`] = `"@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');"`;
 
-exports[`api should toString with layer 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@layer default {body { a: 1; }}@layer {body { e: 5; }}@layer framework {@layer default {body { a: 1; }}}@layer framework {@layer {body { e: 5; }}}"`;
+exports[`api should toString with layer 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@layer default {body { a: 1; }}@layer {body { e: 5; }}@layer framework {@layer default {body { a: 1; }}}@layer framework {@layer {body { e: 5; }}}@layer framework {body { f: 6; }}"`;
 
 exports[`api should toString with media query list 1`] = `"body { b: 2; }body { c: 3; }body { b: 2; }@media print {body { b: 2; }}@media print {body { d: 4; }}@media (min-width: 900px) {body { a: 1; }}@media screen {@media (min-width: 900px) {body { a: 1; }}}@media screen and (min-width: 900px) {body { e: 5; }}"`;
 
