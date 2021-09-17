@@ -7,7 +7,7 @@
 @import url( test.css);
 @import url( test.css );
 @import url(
-test.css
+  test.css
 );
 @import url();
 @import url('');
@@ -53,7 +53,7 @@ test.css
 }
 
 .foo {
-@import 'path.css';
+  @import 'path.css';
 }
 
 @import url('./relative.css');
@@ -159,11 +159,17 @@ st.css');
 @import url(package/first.css);
 @import url(package/second.css);
 
+@import url("./test.css") supports();
+@import url("./test.css") supports(unknown);
 @import url("./test.css") supports(display: flex);
+@import url("./test.css") supports(display: flex !important);
 @import url("./test.css") supports(display: flex) screen and (min-width: 400px);
 @import url("./test.css") layer;
 @import url("./test.css") layer(default);
 @import url("./test.css") layer(default) supports(display: flex) screen and (min-width: 400px);
+@import url("./test.css") layer supports(display: flex) screen and (min-width: 400px);
+@import url("./test.css") layer() supports(display: flex) screen and (min-width: 400px);
+@import url("./test.css") layer();
 @import url("http://example.com/style.css") supports(display: flex) screen and (min-width: 400px);
 @import url("./test.css")layer(default)supports(display: flex)screen and (min-width:400px);
 @import url("./test.css")screen and (min-width: 400px);
@@ -175,12 +181,23 @@ st.css');
 @import url(test.css) /* Comment */ print and (orientation:landscape);
 @import /* Comment */ url(test.css) /* Comment */ print and (orientation:landscape);
 
+@import url("./import-with-media.css") screen and (min-width: 400px);
+@import url("./deep-import-with-media.css") (prefers-color-scheme: dark);
 @import url("./import-with-supports.css") supports(display: flex);
+@import url("./import-with-supports.css") supports(((display: flex)));
+@import url("./deep-import-with-supports.css") supports(display: flex);
+@import url('./test.css') supports(display: grid);
 @import url("./import-with-supports-and-media.css") supports(display: flex) screen and (min-width: 400px);
-@import url("./import-with-layer.css") layer(default);
+@import url("./import-deep-with-supports-and-media.css") supports(display: flex) screen and (min-width: 400px);
+@import url("./test.css") layer(framework);
+@import url("./import-with-layer.css") layer(framework);
+@import url("./deep-import-with-layer.css") layer(framework);
+@import url("./import-multiple-with-layer.css") layer(default);
 @import url("./import-with-layer-unnamed.css") layer(default);
+@import url("./import-unnamed-layer.css") layer(base);
+@import url("./import-multiple-unnamed-layer.css") layer(base);
 @import url("./import-with-layer-and-supports.css") layer(default) supports(display: flex);
 @import url("./import-with-layer-and-supports-and-media.css") layer(default) supports(display: flex) screen and (min-width: 400px);
+@import url("./deep-layer.css");
 
-/* TODO fix comments */
-/* TODO check source maps generation */
+@import url("./test.css") unknown(default) unknown(display: flex) unknown;

@@ -12,6 +12,7 @@ module.exports = {
         "no-param-reassign": "off",
         "no-continue": "off",
         "no-underscore-dangle": "off",
+        "no-undefined": "off",
       },
     },
   ],

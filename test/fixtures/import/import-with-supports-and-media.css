@@ -1,1 +1,1 @@
-@import url('./test.css') supports(display: grid) handheld and (max-width: 400px);
+@import url('./test.css') supports(display: grid) screen and (max-width: 1200px);

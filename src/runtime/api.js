@@ -8,10 +8,34 @@ module.exports = (cssWithMappingToString) => {
   // return the list of modules as css string
   list.toString = function toString() {
     return this.map((item) => {
-      const content = cssWithMappingToString(item);
+      let content = "";
+
+      const needLayer = typeof item[5] !== "undefined";
+
+      if (item[4]) {
+        content += `@supports (${item[4]}) {`;
+      }
 
       if (item[2]) {
-        return `@media ${item[2]} {${content}}`;
+        content += `@media ${item[2]} {`;
+      }
+
+      if (needLayer) {
+        content += `@layer${item[5].length > 0 ? ` ${item[5]}` : ""} {`;
+      }
+
+      content += cssWithMappingToString(item);
+
+      if (needLayer) {
+        content += "}";
+      }
+
+      if (item[2]) {
+        content += "}";
+      }
+
+      if (item[4]) {
+        content += "}";
       }
 
       return content;
@@ -19,9 +43,9 @@ module.exports = (cssWithMappingToString) => {
   };
 
   // import a list of modules into the list
-  list.i = function i(modules, mediaQuery, dedupe) {
+  list.i = function i(modules, media, dedupe, supports, layer) {
     if (typeof modules === "string") {
-      modules = [[null, modules, ""]];
+      modules = [[null, modules, undefined]];
     }
 
     const alreadyImportedModules = {};
@@ -43,11 +67,32 @@ module.exports = (cssWithMappingToString) => {
         continue;
       }
 
-      if (mediaQuery) {
-        if (!item[2]) {
-          item[2] = mediaQuery;
+      if (typeof layer !== "undefined") {
+        if (typeof item[5] === "undefined") {
+          item[5] = layer;
         } else {
-          item[2] = `${mediaQuery} and ${item[2]}`;
+          item[1] = `@layer${item[5].length > 0 ? ` ${item[5]}` : ""} {${
+            item[1]
+          }}`;
+          item[5] = layer;
+        }
+      }
+
+      if (media) {
+        if (!item[2]) {
+          item[2] = media;
+        } else {
+          item[1] = `@media ${item[2]} {${item[1]}}`;
+          item[2] = media;
+        }
+      }
+
+      if (supports) {
+        if (!item[4]) {
+          item[4] = `${supports}`;
+        } else {
+          item[1] = `@supports (${item[4]}) {${item[1]}}`;
+          item[4] = supports;
         }
       }
 

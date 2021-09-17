@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-/* eslint-disable func-names */
+/* eslint-disable func-names, no-undefined */
 
 const api = require("../../src/runtime/api");
 const noSourceMaps = require("../../src/runtime/noSourceMaps");
@@ -30,7 +30,7 @@ describe("api", () => {
   it("should toString a single module", () => {
     const m = api(noSourceMaps);
 
-    m.push([1, "body { a: 1; }", ""]);
+    m.push([1, "body { a: 1; }"]);
 
     expect(m.toString()).toMatchSnapshot();
   });
@@ -38,24 +38,119 @@ describe("api", () => {
   it("should toString multiple modules", () => {
     const m = api(noSourceMaps);
 
-    m.push([2, "body { b: 2; }", ""]);
-    m.push([1, "body { a: 1; }", ""]);
+    m.push([2, "body { b: 2; }"]);
+    m.push([1, "body { a: 1; }"]);
 
     expect(m.toString()).toMatchSnapshot();
   });
 
-  it("should toString with media query", () => {
+  it("should toString with media query list", () => {
     const m = api(noSourceMaps);
 
-    const m1 = [1, "body { a: 1; }", "screen"];
-    const m2 = [2, "body { b: 2; }", ""];
-    const m3 = [3, "body { c: 3; }", ""];
-    const m4 = [4, "body { d: 4; }", ""];
+    const m1 = [1, "body { a: 1; }", "(min-width: 900px)"];
+    const m2 = [2, "body { b: 2; }", undefined];
+    const m3 = [3, "body { c: 3; }", undefined];
+    const m4 = [4, "body { d: 4; }", undefined];
+    const m5 = [5, "body { e: 5; }", "screen and (min-width: 900px)"];
 
-    m.i([m2, m3], "");
-    m.i([m2], "");
+    m.i([m2, m3]);
+    m.i([m2]);
     m.i([m2, m4], "print");
     m.push(m1);
+    m.i([m1], "screen");
+    m.i([m5]);
+
+    expect(m.toString()).toMatchSnapshot();
+  });
+
+  it("should toString with supports", () => {
+    const m = api(noSourceMaps);
+
+    const m1 = [1, "body { a: 1; }", undefined, undefined, "display: flex"];
+    const m2 = [2, "body { b: 2; }", undefined];
+    const m3 = [3, "body { c: 3; }", undefined];
+    const m4 = [4, "body { d: 4; }", undefined];
+    const m5 = [5, "body { e: 5; }", undefined, undefined, "display: grid"];
+
+    m.i([m2, m3]);
+    m.i([m2]);
+    m.i([m2, m4], undefined, false, "display: flex");
+    m.push(m1);
+    m.i([m1, m5], undefined, false, "display: block");
+    m.i([m5]);
+
+    expect(m.toString()).toMatchSnapshot();
+  });
+
+  it("should toString with layer", () => {
+    const m = api(noSourceMaps);
+
+    const m1 = [
+      1,
+      "body { a: 1; }",
+      undefined,
+      undefined,
+      undefined,
+      "default",
+    ];
+    const m2 = [2, "body { b: 2; }", undefined];
+    const m3 = [3, "body { c: 3; }", undefined];
+    const m4 = [4, "body { d: 4; }", undefined];
+    const m5 = [5, "body { e: 5; }", undefined, undefined, undefined, ""];
+    const m6 = [
+      5,
+      "body { f: 6; }",
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+    ];
+
+    m.i([m2, m3], undefined);
+    m.i([m2], undefined);
+    m.i([m2, m4], "print");
+    m.push(m1);
+    m.i([m5]);
+    m.i([m1, m5], undefined, undefined, undefined, "framework");
+    m.i([m6], undefined, undefined, undefined, "framework");
+
+    expect(m.toString()).toMatchSnapshot();
+  });
+
+  it("should toString with media query list, layer and supports", () => {
+    const m = api(noSourceMaps);
+
+    const m1 = [
+      1,
+      "body { a: 1; }",
+      "screen",
+      undefined,
+      "display: grid",
+      "default",
+    ];
+    const m2 = [2, "body { b: 2; }", undefined];
+    const m3 = [3, "body { c: 3; }", undefined];
+    const m4 = [4, "body { d: 4; }", undefined];
+    const m5 = [
+      5,
+      "body { a: 1; }",
+      "screen",
+      undefined,
+      "display: grid",
+      "default",
+    ];
+
+    m.i([m2, m3], undefined);
+    m.i([m2], undefined);
+    m.i([m2, m4], "print");
+    m.push(m1);
+    m.i(
+      [m5],
+      "screen and (mix-width: 100px)",
+      false,
+      "display: block",
+      "framework"
+    );
 
     expect(m.toString()).toMatchSnapshot();
   });
@@ -63,12 +158,12 @@ describe("api", () => {
   it("should import modules", () => {
     const m = api(noSourceMaps);
     const m1 = [1, "body { a: 1; }", "(orientation:landscape)"];
-    const m2 = [2, "body { b: 2; }", ""];
-    const m3 = [3, "body { c: 3; }", ""];
-    const m4 = [4, "body { d: 4; }", ""];
+    const m2 = [2, "body { b: 2; }", undefined];
+    const m3 = [3, "body { c: 3; }", undefined];
+    const m4 = [4, "body { d: 4; }", undefined];
 
-    m.i([m2, m3], "");
-    m.i([m2], "");
+    m.i([m2, m3], undefined);
+    m.i([m2], undefined);
     m.i([m2, m4], "print");
     m.i([m1], "screen");
     m.push(m1);
@@ -79,12 +174,12 @@ describe("api", () => {
   it("should import named modules", () => {
     const m = api(noSourceMaps);
     const m1 = ["./module1", "body { a: 1; }", "screen"];
-    const m2 = ["./module2", "body { b: 2; }", ""];
-    const m3 = ["./module3", "body { c: 3; }", ""];
-    const m4 = ["./module4", "body { d: 4; }", ""];
+    const m2 = ["./module2", "body { b: 2; }", undefined];
+    const m3 = ["./module3", "body { c: 3; }", undefined];
+    const m4 = ["./module4", "body { d: 4; }", undefined];
 
-    m.i([m2, m3], "");
-    m.i([m2], "");
+    m.i([m2, m3], undefined);
+    m.i([m2], undefined);
     m.i([m2, m4], "print");
     m.push(m1);
 
@@ -97,7 +192,7 @@ describe("api", () => {
     m.push([
       1,
       "body { a: 1; }",
-      "",
+      undefined,
       {
         file: "test.scss",
         sources: ["./path/to/test.scss"],
@@ -134,7 +229,7 @@ describe("api", () => {
     m.push([
       1,
       "body { a: 1; }",
-      "",
+      undefined,
       {
         file: "test.scss",
         sources: ["./path/to/test.scss"],
@@ -184,4 +279,3 @@ describe("api", () => {
     expect(m.toString()).toMatchSnapshot();
   });
 });
-/* eslint-enable func-names */

@@ -921,6 +921,34 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
   return JSON.stringify(resultMap);
 }
 
+function printParams(media, dedupe, supports, layer) {
+  let result = "";
+
+  if (typeof layer !== "undefined") {
+    result = `, ${JSON.stringify(layer)}`;
+  }
+
+  if (typeof supports !== "undefined") {
+    result = `, ${JSON.stringify(supports)}${result}`;
+  } else if (result.length > 0) {
+    result = `, undefined${result}`;
+  }
+
+  if (dedupe) {
+    result = `, true${result}`;
+  } else if (result.length > 0) {
+    result = `, false${result}`;
+  }
+
+  if (media) {
+    result = `${JSON.stringify(media)}${result}`;
+  } else if (result.length > 0) {
+    result = `""${result}`;
+  }
+
+  return result;
+}
+
 function getModuleCode(result, api, replacements, options, loaderContext) {
   if (options.modules.exportOnlyLocals === true) {
     return "";
@@ -939,15 +967,22 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
   });\n`;
 
   for (const item of api) {
-    const { url, media, dedupe } = item;
+    const { url, layer, supports, media, dedupe } = item;
 
-    beforeCode += url
-      ? `___CSS_LOADER_EXPORT___.push([module.id, ${JSON.stringify(
-          `@import url(${url});`
-        )}${media ? `, ${JSON.stringify(media)}` : ""}]);\n`
-      : `___CSS_LOADER_EXPORT___.i(${item.importName}${
-          media ? `, ${JSON.stringify(media)}` : dedupe ? ', ""' : ""
-        }${dedupe ? ", true" : ""});\n`;
+    if (url) {
+      // eslint-disable-next-line no-undefined
+      const printedParam = printParams(media, undefined, supports, layer);
+
+      beforeCode += `___CSS_LOADER_EXPORT___.push([module.id, ${JSON.stringify(
+        `@import url(${url});`
+      )}${printedParam.length > 0 ? `, ${printedParam}` : ""}]);\n`;
+    } else {
+      const printedParam = printParams(media, dedupe, supports, layer);
+
+      beforeCode += `___CSS_LOADER_EXPORT___.i(${item.importName}${
+        printedParam.length > 0 ? `, ${printedParam}` : ""
+      });\n`;
+    }
   }
 
   for (const item of replacements) {
@@ -980,6 +1015,13 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
     }
   }
 
+  // Indexes description:
+  // 0 - module id
+  // 1 - CSS code
+  // 2 - media
+  // 3 - source map
+  // 4 - supports
+  // 5 - layer
   return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
 }
 
