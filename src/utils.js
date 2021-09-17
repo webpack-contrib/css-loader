@@ -943,7 +943,7 @@ function printParams(media, dedupe, supports, layer) {
   if (media) {
     result = `${JSON.stringify(media)}${result}`;
   } else if (result.length > 0) {
-    result = `undefined${result}`;
+    result = `""${result}`;
   }
 
   return result;
@@ -1022,7 +1022,7 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
   // 3 - source map
   // 4 - supports
   // 5 - layer
-  return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, undefined${sourceMapValue}]);\n`;
+  return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
 }
 
 function dashesCamelCase(str) {
