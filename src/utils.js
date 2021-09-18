@@ -540,7 +540,8 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
 
   // eslint-disable-next-line no-underscore-dangle
   const { outputOptions } = loaderContext._compilation;
-  const isExportCSSStyleSheet = exportType === "css-style-sheet";
+  const needNamedExport =
+    exportType === "css-style-sheet" || exportType === "string";
   const modulesOptions = {
     auto,
     mode: "local",
@@ -555,9 +556,9 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
-    namedExport: isExportCSSStyleSheet || false,
+    namedExport: needNamedExport || false,
     exportLocalsConvention:
-      (rawModulesOptions.namedExport === true || isExportCSSStyleSheet) &&
+      (rawModulesOptions.namedExport === true || needNamedExport) &&
       typeof rawModulesOptions.exportLocalsConvention === "undefined"
         ? "camelCaseOnly"
         : "asIs",
@@ -625,16 +626,16 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
     modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
   }
 
-  if (isExportCSSStyleSheet) {
+  if (needNamedExport) {
     if (rawOptions.esModule === false) {
       throw new Error(
-        "The 'exportType' option with the 'css-style-sheet' value requires the 'esModules' option to be enabled"
+        "The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'esModules' option to be enabled"
       );
     }
 
     if (modulesOptions.namedExport === false) {
       throw new Error(
-        "The 'exportType' option with the 'css-style-sheet' value requires the 'modules.namedExport' option to be enabled"
+        "The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'modules.namedExport' option to be enabled"
       );
     }
   }

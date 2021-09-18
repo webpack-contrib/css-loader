@@ -37,12 +37,46 @@ describe("'exportType' option", () => {
   });
 
   it("should work with 'string' value", async () => {
-    const compiler = getCompiler("./basic.js", {
+    const compiler = getCompiler("./basic-string.js", {
       exportType: "string",
     });
     const stats = await compile(compiler);
 
-    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(
+      getModuleSource("./basic-css-style-sheet.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with 'string' value and generate source maps", async () => {
+    const compiler = getCompiler("./basic-string.js", {
+      exportType: "string",
+      sourceMap: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./basic-css-style-sheet.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with 'string' value and CSS modules", async () => {
+    const compiler = getCompiler("./basic-string-css-modules.js", {
+      exportType: "string",
+      modules: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./simple.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );
