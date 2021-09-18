@@ -87,14 +87,15 @@ If, for one reason or another, you need to extract CSS as a file (i.e. do not st
 
 ## Options
 
-|                 Name                  |            Type             |      Default       | Description                                                                                                              |
-| :-----------------------------------: | :-------------------------: | :----------------: | :----------------------------------------------------------------------------------------------------------------------- |
-|           **[`url`](#url)**           |     `{Boolean\|Object}`     |       `true`       | Allows to enables/disables `url()`/`image-set()` functions handling                                                      |
-|        **[`import`](#import)**        |     `{Boolean\|Object}`     |       `true`       | Allows to enables/disables `@import` at-rules handling                                                                   |
-|       **[`modules`](#modules)**       | `{Boolean\|String\|Object}` |   `{auto: true}`   | Allows to enables/disables or setup CSS Modules options                                                                  |
-|     **[`sourceMap`](#sourcemap)**     |         `{Boolean}`         | `compiler.devtool` | Enables/Disables generation of source maps                                                                               |
-| **[`importLoaders`](#importloaders)** |         `{Number}`          |        `0`         | Allows enables/disables or setups number of loaders applied before CSS loader for `@import`/CSS Modules and ICSS imports |
-|      **[`esModule`](#esmodule)**      |         `{Boolean}`         |       `true`       | Use ES modules syntax                                                                                                    |
+|                 Name                  |                 Type                  |      Default       | Description                                                                                                                                                                                                                                                  |
+| :-----------------------------------: | :-----------------------------------: | :----------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|           **[`url`](#url)**           |          `{Boolean\|Object}`          |       `true`       | Allows to enables/disables `url()`/`image-set()` functions handling                                                                                                                                                                                          |
+|        **[`import`](#import)**        |          `{Boolean\|Object}`          |       `true`       | Allows to enables/disables `@import` at-rules handling                                                                                                                                                                                                       |
+|       **[`modules`](#modules)**       |      `{Boolean\|String\|Object}`      |   `{auto: true}`   | Allows to enables/disables or setup CSS Modules options                                                                                                                                                                                                      |
+|     **[`sourceMap`](#sourcemap)**     |              `{Boolean}`              | `compiler.devtool` | Enables/Disables generation of source maps                                                                                                                                                                                                                   |
+| **[`importLoaders`](#importloaders)** |              `{Number}`               |        `0`         | Allows enables/disables or setups number of loaders applied before CSS loader for `@import`/CSS Modules and ICSS imports                                                                                                                                     |
+|      **[`esModule`](#esmodule)**      |              `{Boolean}`              |       `true`       | Use ES modules syntax                                                                                                                                                                                                                                        |
+|    **[`exportType`](#exporttype)**    | `{'javascript' \| 'css-style-sheet'}` |    `javascript`    | Allows exporting styles as javascript array with modules or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)) |
 
 ### `url`
 
@@ -1269,6 +1270,168 @@ module.exports = {
 };
 ```
 
+### `exportType`
+
+Type: `'javascript' | 'css-style-sheet'`
+Default: `javascript`
+
+Allows exporting styles as javascript array with modules or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
+Default value is `javascript`, i.e. loader exports array of modules with specific API which is used in `style-loader` or other.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        assert: { type: "css" },
+        loader: "css-loader",
+        options: {
+          exportType: "css-style-sheet",
+        },
+      },
+    ],
+  },
+};
+```
+
+**src/index.js**
+
+```js
+import sheet from "./styles.css" assert { type: "css" };
+
+document.adoptedStyleSheets = [sheet];
+shadowRoot.adoptedStyleSheets = [sheet];
+```
+
+#### `javascript`
+
+The default export is array of modules with specific API which is used in `style-loader` or other.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/i,
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+      },
+    ],
+  },
+};
+```
+
+**src/index.js**
+
+```js
+// `style-loader` applies styles to DOM
+import "./styles.css";
+```
+
+#### `css-style-sheet`
+
+> ⚠ `@import` rules not yet allowed, more [information](https://web.dev/css-module-scripts/#@import-rules-not-yet-allowed)
+> ⚠ You don't need [`style-loader`](https://github.com/webpack-contrib/style-loader) anymore, please remove it.
+> ⚠ The `esModules` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
+> ⚠ Source maps are not currently supported in `Chrome` due [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1174094&q=CSSStyleSheet%20source%20maps&can=2)
+
+The default export is a [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
+
+Useful for [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) and shadow DOM.
+
+More information:
+
+- [Using CSS Module Scripts to import stylesheets](https://web.dev/css-module-scripts/)
+- [Constructable Stylesheets: seamless reusable styles](https://developers.google.com/web/updates/2019/02/constructable-stylesheets)
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        assert: { type: "css" },
+        loader: "css-loader",
+        options: {
+          exportType: "css-style-sheet",
+        },
+      },
+
+      // For Sass/SCSS:
+      //
+      // {
+      //   assert: { type: "css" },
+      //   rules: [
+      //     {
+      //       loader: "css-loader",
+      //       options: {
+      //         exportType: "css-style-sheet",
+      //         // Other options
+      //       },
+      //     },
+      //     {
+      //       loader: "sass-loader",
+      //       options: {
+      //         // Other options
+      //       },
+      //     },
+      //   ],
+      // },
+    ],
+  },
+};
+```
+
+**src/index.js**
+
+```js
+// Example for Sass/SCSS:
+// import sheet from "./styles.scss" assert { type: "css" };
+import sheet from "./styles.css" assert { type: "css" };
+
+document.adoptedStyleSheets = [sheet];
+shadowRoot.adoptedStyleSheets = [sheet];
+```
+
+For migration purposes, you can use the following configuration:
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        oneOf: [
+          {
+            assert: { type: "css" },
+            loader: "css-loader",
+            options: {
+              exportType: "css-style-sheet",
+              // Other options
+            },
+          },
+          {
+            use: [
+              "style-loader",
+              {
+                loader: "css-loader",
+                options: {
+                  // Other options
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+};
+```
+
 ## Examples
 
 ### Recommend
@@ -1289,7 +1452,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.(sa|sc|c)ss$/i,
         use: [
           devMode ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
@@ -1512,8 +1675,8 @@ module.exports = {
       // --------
       // SCSS ALL EXCEPT MODULES
       {
-        test: /\.scss$/,
-        exclude: /\.module\.scss$/,
+        test: /\.scss$/i,
+        exclude: /\.module\.scss$/i,
         use: [
           {
             loader: "style-loader",
@@ -1535,7 +1698,7 @@ module.exports = {
       // --------
       // SCSS MODULES
       {
-        test: /\.module\.scss$/,
+        test: /\.module\.scss$/i,
         use: [
           {
             loader: "style-loader",
