@@ -1391,6 +1391,11 @@ module.exports = {
 ```js
 // Example for Sass/SCSS:
 // import sheet from "./styles.scss" assert { type: "css" };
+
+// Example for CSS modules:
+// import sheet, { myClass } from "./styles.scss" assert { type: "css" };
+
+// Example for CSS:
 import sheet from "./styles.css" assert { type: "css" };
 
 document.adoptedStyleSheets = [sheet];
