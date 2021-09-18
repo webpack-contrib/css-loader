@@ -1273,10 +1273,10 @@ module.exports = {
 ### `exportType`
 
 Type: `'array' | 'css-style-sheet'`
-Default: `array`
+Default: `'array'`
 
 Allows exporting styles as array with modules or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
-Default value is `array`, i.e. loader exports array of modules with specific API which is used in `style-loader` or other.
+Default value is `'array'`, i.e. loader exports array of modules with specific API which is used in `style-loader` or other.
 
 **webpack.config.js**
 
@@ -1305,7 +1305,7 @@ document.adoptedStyleSheets = [sheet];
 shadowRoot.adoptedStyleSheets = [sheet];
 ```
 
-#### `array`
+#### `'array'`
 
 The default export is array of modules with specific API which is used in `style-loader` or other.
 
@@ -1331,7 +1331,7 @@ module.exports = {
 import "./styles.css";
 ```
 
-#### `css-style-sheet`
+#### `'css-style-sheet'`
 
 > ⚠ `@import` rules not yet allowed, more [information](https://web.dev/css-module-scripts/#@import-rules-not-yet-allowed)
 > ⚠ You don't need [`style-loader`](https://github.com/webpack-contrib/style-loader) anymore, please remove it.
