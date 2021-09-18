@@ -513,7 +513,7 @@ function getValidLocalName(localName, exportLocalsConvention) {
 const IS_MODULES = /\.module(s)?\.\w+$/i;
 const IS_ICSS = /\.icss\.\w+$/i;
 
-function getModulesOptions(rawOptions, isExportStyleSheet, loaderContext) {
+function getModulesOptions(rawOptions, exportType, loaderContext) {
   if (typeof rawOptions.modules === "boolean" && rawOptions.modules === false) {
     return false;
   }
@@ -540,6 +540,7 @@ function getModulesOptions(rawOptions, isExportStyleSheet, loaderContext) {
 
   // eslint-disable-next-line no-underscore-dangle
   const { outputOptions } = loaderContext._compilation;
+  const isExportCSSStyleSheet = exportType === "css-style-sheet";
   const modulesOptions = {
     auto,
     mode: "local",
@@ -554,9 +555,9 @@ function getModulesOptions(rawOptions, isExportStyleSheet, loaderContext) {
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
-    namedExport: isExportStyleSheet || false,
+    namedExport: isExportCSSStyleSheet || false,
     exportLocalsConvention:
-      (rawModulesOptions.namedExport === true || isExportStyleSheet) &&
+      (rawModulesOptions.namedExport === true || isExportCSSStyleSheet) &&
       typeof rawModulesOptions.exportLocalsConvention === "undefined"
         ? "camelCaseOnly"
         : "asIs",
@@ -564,9 +565,9 @@ function getModulesOptions(rawOptions, isExportStyleSheet, loaderContext) {
     ...rawModulesOptions,
   };
 
-  if (isExportStyleSheet && modulesOptions.namedExport === false) {
+  if (isExportCSSStyleSheet && modulesOptions.namedExport === false) {
     throw new Error(
-      'The "exportStyleSheet" option requires the "modules.namedExport" option to be enabled.'
+      "When using the 'css-steel-sheet' export type, you must enable the 'modules.namedExport'"
     );
   }
 
@@ -652,13 +653,13 @@ function getModulesOptions(rawOptions, isExportStyleSheet, loaderContext) {
 }
 
 function normalizeOptions(rawOptions, loaderContext) {
-  const isExportStyleSheet =
-    typeof rawOptions.exportStyleSheet === "undefined"
-      ? false
-      : rawOptions.exportStyleSheet;
+  const exportType =
+    typeof rawOptions.exportType === "undefined"
+      ? "javascript"
+      : rawOptions.exportType;
   const modulesOptions = getModulesOptions(
     rawOptions,
-    isExportStyleSheet,
+    exportType,
     loaderContext
   );
 
@@ -676,12 +677,12 @@ function normalizeOptions(rawOptions, loaderContext) {
         : rawOptions.importLoaders,
     esModule:
       typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
-    exportStyleSheet: isExportStyleSheet,
+    exportType,
   };
 }
 
 function shouldUseImportPlugin(options) {
-  if (options.exportStyleSheet || options.modules.exportOnlyLocals) {
+  if (options.modules.exportOnlyLocals) {
     return false;
   }
 
@@ -1046,10 +1047,10 @@ function dashesCamelCase(str) {
   );
 }
 
-function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
+function getExportCode(exports, replacements, icssPluginUsed, options) {
   let code = "// Exports\n";
 
-  if (needToUseIcssPlugin) {
+  if (icssPluginUsed) {
     let localsCode = "";
 
     const addExportToLocalsCode = (names, value) => {
@@ -1125,14 +1126,16 @@ function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
         }};\n`;
   }
 
-  if (options.exportStyleSheet) {
+  const isCSSStyleSheetExport = options.exportType === "css-style-sheet";
+
+  if (isCSSStyleSheetExport) {
     code += "var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();\n";
     code +=
       "___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());\n";
   }
 
   code += `${options.esModule ? "export default" : "module.exports ="} ${
-    options.exportStyleSheet
+    isCSSStyleSheetExport
       ? "___CSS_LOADER_STYLE_SHEET___"
       : "___CSS_LOADER_EXPORT___"
   };\n`;

@@ -55,24 +55,13 @@ export default async function loader(content, map, meta) {
   const importPluginApi = [];
 
   if (shouldUseImportPlugin(options)) {
-    const resolver = this.getResolve({
-      dependencyType: "css",
-      conditionNames: ["style"],
-      mainFields: ["css", "style", "main", "..."],
-      mainFiles: ["index", "..."],
-      extensions: [".css", "..."],
-      preferRelative: true,
-    });
-
     plugins.push(
       importParser({
+        isCSSStyleSheet: options.exportType === "css-style-sheet",
+        loaderContext: this,
         imports: importPluginImports,
         api: importPluginApi,
-        context: this.context,
-        rootContext: this.rootContext,
-        resourcePath: this.resourcePath,
         filter: options.import.filter,
-        resolver,
         urlHandler: (url) =>
           stringifyRequest(
             this,
@@ -114,24 +103,13 @@ export default async function loader(content, map, meta) {
   const needToUseIcssPlugin = shouldUseIcssPlugin(options);
 
   if (needToUseIcssPlugin) {
-    const icssResolver = this.getResolve({
-      dependencyType: "icss",
-      conditionNames: ["style"],
-      extensions: ["..."],
-      mainFields: ["css", "style", "main", "..."],
-      mainFiles: ["index", "..."],
-      preferRelative: true,
-    });
-
     plugins.push(
       icssParser({
+        loaderContext: this,
         imports: icssPluginImports,
         api: icssPluginApi,
         replacements,
         exports,
-        context: this.context,
-        rootContext: this.rootContext,
-        resolver: icssResolver,
         urlHandler: (url) =>
           stringifyRequest(
             this,

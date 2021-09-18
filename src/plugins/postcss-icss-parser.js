@@ -11,6 +11,16 @@ const plugin = (options = {}) => {
       const imports = new Map();
       const tasks = [];
 
+      const { loaderContext } = options;
+      const resolver = loaderContext.getResolve({
+        dependencyType: "icss",
+        conditionNames: ["style"],
+        extensions: ["..."],
+        mainFields: ["css", "style", "main", "..."],
+        mainFiles: ["index", "..."],
+        preferRelative: true,
+      });
+
       // eslint-disable-next-line guard-for-in
       for (const url in icssImports) {
         const tokens = icssImports[url];
@@ -32,13 +42,14 @@ const plugin = (options = {}) => {
 
         const request = requestify(
           normalizeUrl(normalizedUrl, true),
-          options.rootContext
+          loaderContext.rootContext
         );
         const doResolve = async () => {
-          const { resolver, context } = options;
-          const resolvedUrl = await resolveRequests(resolver, context, [
-            ...new Set([normalizedUrl, request]),
-          ]);
+          const resolvedUrl = await resolveRequests(
+            resolver,
+            loaderContext.context,
+            [...new Set([normalizedUrl, request])]
+          );
 
           if (!resolvedUrl) {
             return;

@@ -194,10 +194,10 @@
       "link": "https://github.com/webpack-contrib/css-loader#esmodule",
       "type": "boolean"
     },
-    "exportStyleSheet": {
-      "description": "Exports styles as constructable stylesheets (i.e. `import sheet from './styles.css' assert { type: 'css' };`).",
-      "link": "https://github.com/webpack-contrib/css-loader#exportstylesheet",
-      "type": "boolean"
+    "exportType": {
+      "description": "Allows to exports styles as javascript or constructable stylesheets ('CSSStyleSheet').",
+      "link": "https://github.com/webpack-contrib/css-loader#exporttype",
+      "enum": ["javascript", "css-style-sheet"]
     }
   },
   "type": "object"
