@@ -254,11 +254,37 @@ describe("'exportType' option", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should throw an error for CSS modules when used 'css-style-sheet' value and named export disabled", async () => {
+  it("should throw an error with 'css-style-sheet' value for CSS modules when named export disabled", async () => {
     const compiler = getCompiler("./basic-css-style-sheet.js", {
       exportType: "css-style-sheet",
       modules: {
         namedExport: false,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should throw an error with 'css-style-sheet' value for CSS modules when `esModule` disabled", async () => {
+    const compiler = getCompiler("./basic-css-style-sheet.js", {
+      exportType: "css-style-sheet",
+      esModule: false,
+      modules: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should throw an error with 'css-style-sheet' value for CSS modules when `esModule` disabled, but 'modules.namedExport' enabled", async () => {
+    const compiler = getCompiler("./basic-css-style-sheet.js", {
+      exportType: "css-style-sheet",
+      esModule: false,
+      modules: {
+        namedExport: true,
       },
     });
     const stats = await compile(compiler);

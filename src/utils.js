@@ -565,12 +565,6 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
     ...rawModulesOptions,
   };
 
-  if (isExportCSSStyleSheet && modulesOptions.namedExport === false) {
-    throw new Error(
-      "When using the 'css-steel-sheet' export type, you must enable the 'modules.namedExport'"
-    );
-  }
-
   let exportLocalsConventionType;
 
   if (typeof modulesOptions.exportLocalsConvention === "string") {
@@ -631,10 +625,24 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
     modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
   }
 
+  if (isExportCSSStyleSheet) {
+    if (rawOptions.esModule === false) {
+      throw new Error(
+        "The 'exportType' option with the 'css-style-sheet' value requires the 'esModules' option to be enabled"
+      );
+    }
+
+    if (modulesOptions.namedExport === false) {
+      throw new Error(
+        "The 'exportType' option with the 'css-style-sheet' value requires the 'modules.namedExport' option to be enabled"
+      );
+    }
+  }
+
   if (modulesOptions.namedExport === true) {
     if (rawOptions.esModule === false) {
       throw new Error(
-        'The "modules.namedExport" option requires the "esModules" option to be enabled'
+        "The 'modules.namedExport' option requires the 'esModules' option to be enabled"
       );
     }
 

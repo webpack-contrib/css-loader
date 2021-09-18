@@ -1767,7 +1767,7 @@ exports[`"modules" option should throw an error when the "namedExport" is enable
 exports[`"modules" option should throw an error when the "namedExport" option is "true", but the "esModule" is "false": errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The \\"modules.namedExport\\" option requires the \\"esModules\\" option to be enabled",
+Error: The 'modules.namedExport' option requires the 'esModules' option to be enabled",
 ]
 `;
 
