@@ -10,16 +10,16 @@ exports[`validate options should throw an error on the "esModule" option with "t
 exports[`validate options should throw an error on the "exportType" option with "false" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.exportType should be one of these:
-   \\"javascript\\" | \\"css-style-sheet\\"
-   -> Allows exporting styles as javascript array with modules or constructable stylesheet (i.e. \`CSSStyleSheet\`).
+   \\"array\\" | \\"css-style-sheet\\"
+   -> Allows exporting styles as array with modules or constructable stylesheet (i.e. \`CSSStyleSheet\`).
    -> Read more at https://github.com/webpack-contrib/css-loader#exporttype"
 `;
 
 exports[`validate options should throw an error on the "exportType" option with "true" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
  - options.exportType should be one of these:
-   \\"javascript\\" | \\"css-style-sheet\\"
-   -> Allows exporting styles as javascript array with modules or constructable stylesheet (i.e. \`CSSStyleSheet\`).
+   \\"array\\" | \\"css-style-sheet\\"
+   -> Allows exporting styles as array with modules or constructable stylesheet (i.e. \`CSSStyleSheet\`).
    -> Read more at https://github.com/webpack-contrib/css-loader#exporttype"
 `;
 

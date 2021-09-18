@@ -663,7 +663,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
 function normalizeOptions(rawOptions, loaderContext) {
   const exportType =
     typeof rawOptions.exportType === "undefined"
-      ? "javascript"
+      ? "array"
       : rawOptions.exportType;
   const modulesOptions = getModulesOptions(
     rawOptions,

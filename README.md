@@ -87,15 +87,15 @@ If, for one reason or another, you need to extract CSS as a file (i.e. do not st
 
 ## Options
 
-|                 Name                  |                 Type                  |      Default       | Description                                                                                                                                                                                                                                                  |
-| :-----------------------------------: | :-----------------------------------: | :----------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|           **[`url`](#url)**           |          `{Boolean\|Object}`          |       `true`       | Allows to enables/disables `url()`/`image-set()` functions handling                                                                                                                                                                                          |
-|        **[`import`](#import)**        |          `{Boolean\|Object}`          |       `true`       | Allows to enables/disables `@import` at-rules handling                                                                                                                                                                                                       |
-|       **[`modules`](#modules)**       |      `{Boolean\|String\|Object}`      |   `{auto: true}`   | Allows to enables/disables or setup CSS Modules options                                                                                                                                                                                                      |
-|     **[`sourceMap`](#sourcemap)**     |              `{Boolean}`              | `compiler.devtool` | Enables/Disables generation of source maps                                                                                                                                                                                                                   |
-| **[`importLoaders`](#importloaders)** |              `{Number}`               |        `0`         | Allows enables/disables or setups number of loaders applied before CSS loader for `@import`/CSS Modules and ICSS imports                                                                                                                                     |
-|      **[`esModule`](#esmodule)**      |              `{Boolean}`              |       `true`       | Use ES modules syntax                                                                                                                                                                                                                                        |
-|    **[`exportType`](#exporttype)**    | `{'javascript' \| 'css-style-sheet'}` |    `javascript`    | Allows exporting styles as javascript array with modules or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)) |
+|                 Name                  |               Type               |      Default       | Description                                                                                                                                                                                                                                       |
+| :-----------------------------------: | :------------------------------: | :----------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|           **[`url`](#url)**           |       `{Boolean\|Object}`        |       `true`       | Allows to enables/disables `url()`/`image-set()` functions handling                                                                                                                                                                               |
+|        **[`import`](#import)**        |       `{Boolean\|Object}`        |       `true`       | Allows to enables/disables `@import` at-rules handling                                                                                                                                                                                            |
+|       **[`modules`](#modules)**       |   `{Boolean\|String\|Object}`    |   `{auto: true}`   | Allows to enables/disables or setup CSS Modules options                                                                                                                                                                                           |
+|     **[`sourceMap`](#sourcemap)**     |           `{Boolean}`            | `compiler.devtool` | Enables/Disables generation of source maps                                                                                                                                                                                                        |
+| **[`importLoaders`](#importloaders)** |            `{Number}`            |        `0`         | Allows enables/disables or setups number of loaders applied before CSS loader for `@import`/CSS Modules and ICSS imports                                                                                                                          |
+|      **[`esModule`](#esmodule)**      |           `{Boolean}`            |       `true`       | Use ES modules syntax                                                                                                                                                                                                                             |
+|    **[`exportType`](#exporttype)**    | `{'array' \| 'css-style-sheet'}` |      `array`       | Allows exporting styles as array with modules or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)) |
 
 ### `url`
 
@@ -1272,11 +1272,11 @@ module.exports = {
 
 ### `exportType`
 
-Type: `'javascript' | 'css-style-sheet'`
-Default: `javascript`
+Type: `'array' | 'css-style-sheet'`
+Default: `array`
 
-Allows exporting styles as javascript array with modules or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
-Default value is `javascript`, i.e. loader exports array of modules with specific API which is used in `style-loader` or other.
+Allows exporting styles as array with modules or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
+Default value is `array`, i.e. loader exports array of modules with specific API which is used in `style-loader` or other.
 
 **webpack.config.js**
 
@@ -1305,7 +1305,7 @@ document.adoptedStyleSheets = [sheet];
 shadowRoot.adoptedStyleSheets = [sheet];
 ```
 
-#### `javascript`
+#### `array`
 
 The default export is array of modules with specific API which is used in `style-loader` or other.
 

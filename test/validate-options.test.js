@@ -88,7 +88,7 @@ describe("validate options", () => {
       failure: ["true"],
     },
     exportType: {
-      success: ["javascript", "css-style-sheet"],
+      success: ["array", "css-style-sheet"],
       failure: ["true", false],
     },
     unknown: {

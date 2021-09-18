@@ -10,7 +10,7 @@ import {
 } from "./helpers/index";
 
 describe("'exportType' option", () => {
-  it("should work and export 'javascript' by default", async () => {
+  it("should work and export 'array' by default", async () => {
     const compiler = getCompiler("./basic.js");
     const stats = await compile(compiler);
 
@@ -22,9 +22,9 @@ describe("'exportType' option", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work with 'javascript' value", async () => {
+  it("should work with 'array' value", async () => {
     const compiler = getCompiler("./basic.js", {
-      exportType: "javascript",
+      exportType: "array",
     });
     const stats = await compile(compiler);
 
