@@ -54,48 +54,19 @@ module.exports = {
 
 And run `webpack` via your preferred method.
 
-### `toString`
-
-You can also use the css-loader results directly as a string, such as in Angular's component style.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["to-string-loader", "css-loader"],
-      },
-    ],
-  },
-};
-```
-
-or
-
-```js
-const css = require("./test.css").toString();
-
-console.log(css); // {String}
-```
-
-If there are SourceMaps, they will also be included in the result string.
-
 If, for one reason or another, you need to extract CSS as a file (i.e. do not store CSS in a JS module) you might want to check out the [recommend example](https://github.com/webpack-contrib/css-loader#recommend).
 
 ## Options
 
-|                 Name                  |               Type               |      Default       | Description                                                                                                                                                                                                                                       |
-| :-----------------------------------: | :------------------------------: | :----------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|           **[`url`](#url)**           |       `{Boolean\|Object}`        |       `true`       | Allows to enables/disables `url()`/`image-set()` functions handling                                                                                                                                                                               |
-|        **[`import`](#import)**        |       `{Boolean\|Object}`        |       `true`       | Allows to enables/disables `@import` at-rules handling                                                                                                                                                                                            |
-|       **[`modules`](#modules)**       |   `{Boolean\|String\|Object}`    |   `{auto: true}`   | Allows to enables/disables or setup CSS Modules options                                                                                                                                                                                           |
-|     **[`sourceMap`](#sourcemap)**     |           `{Boolean}`            | `compiler.devtool` | Enables/Disables generation of source maps                                                                                                                                                                                                        |
-| **[`importLoaders`](#importloaders)** |            `{Number}`            |        `0`         | Allows enables/disables or setups number of loaders applied before CSS loader for `@import`/CSS Modules and ICSS imports                                                                                                                          |
-|      **[`esModule`](#esmodule)**      |           `{Boolean}`            |       `true`       | Use ES modules syntax                                                                                                                                                                                                                             |
-|    **[`exportType`](#exporttype)**    | `{'array' \| 'css-style-sheet'}` |      `array`       | Allows exporting styles as array with modules or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)) |
+|                 Name                  |                     Type                     |      Default       | Description                                                                                                                                                                                                                                               |
+| :-----------------------------------: | :------------------------------------------: | :----------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|           **[`url`](#url)**           |             `{Boolean\|Object}`              |       `true`       | Allows to enables/disables `url()`/`image-set()` functions handling                                                                                                                                                                                       |
+|        **[`import`](#import)**        |             `{Boolean\|Object}`              |       `true`       | Allows to enables/disables `@import` at-rules handling                                                                                                                                                                                                    |
+|       **[`modules`](#modules)**       |         `{Boolean\|String\|Object}`          |   `{auto: true}`   | Allows to enables/disables or setup CSS Modules options                                                                                                                                                                                                   |
+|     **[`sourceMap`](#sourcemap)**     |                 `{Boolean}`                  | `compiler.devtool` | Enables/Disables generation of source maps                                                                                                                                                                                                                |
+| **[`importLoaders`](#importloaders)** |                  `{Number}`                  |        `0`         | Allows enables/disables or setups number of loaders applied before CSS loader for `@import`/CSS Modules and ICSS imports                                                                                                                                  |
+|      **[`esModule`](#esmodule)**      |                 `{Boolean}`                  |       `true`       | Use ES modules syntax                                                                                                                                                                                                                                     |
+|    **[`exportType`](#exporttype)**    | `{'array' \| 'string' \| 'css-style-sheet'}` |      `array`       | Allows exporting styles as array with modules, string or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)) |
 
 ### `url`
 
@@ -1272,10 +1243,10 @@ module.exports = {
 
 ### `exportType`
 
-Type: `'array' | 'css-style-sheet'`
+Type: `'array' | 'string' | 'css-style-sheet'`
 Default: `'array'`
 
-Allows exporting styles as array with modules or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
+Allows exporting styles as array with modules, string or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
 Default value is `'array'`, i.e. loader exports array of modules with specific API which is used in `style-loader` or other.
 
 **webpack.config.js**
@@ -1329,6 +1300,36 @@ module.exports = {
 ```js
 // `style-loader` applies styles to DOM
 import "./styles.css";
+```
+
+#### `'string'`
+
+> ⚠ You don't need [`style-loader`](https://github.com/webpack-contrib/style-loader) anymore, please remove it.
+> ⚠ The `esModules` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
+
+The default export is `string`.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/i,
+        use: ["css-loader", "postcss-loader", "sass-loader"],
+      },
+    ],
+  },
+};
+```
+
+**src/index.js**
+
+```js
+import sheet from "./styles.css";
+
+console.log(sheet);
 ```
 
 #### `'css-style-sheet'`

@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* allow the `exportLocalsConvention` option can be a function useful for named export ([#1351](https://github.com/webpack-contrib/css-loader/issues/1351)) ([3c4b357](https://github.com/webpack-contrib/css-loader/commit/3c4b35718273baaf9e0480db715b596fbe5d7453))
+* allow the `exportLocalsConvention` option can be a function, useful for named export ([#1351](https://github.com/webpack-contrib/css-loader/issues/1351)) ([3c4b357](https://github.com/webpack-contrib/css-loader/commit/3c4b35718273baaf9e0480db715b596fbe5d7453))
 
 ## [6.1.0](https://github.com/webpack-contrib/css-loader/compare/v6.0.0...v6.1.0) (2021-07-17)
 
