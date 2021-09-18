@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.3.0](https://github.com/webpack-contrib/css-loader/compare/v6.2.0...v6.3.0) (2021-09-18)
+
+
+### Features
+
+* added `[folder]` placeholder ([a0dee4f](https://github.com/webpack-contrib/css-loader/commit/a0dee4fd34dd1b9892dac7645a4e57ec134e561b))
+* added the `exportType` option with `'array'`, `'string'` and `'css-style-sheet'` values ([c6d2066](https://github.com/webpack-contrib/css-loader/commit/c6d20664ca03226ace26b9766e484e437ec74f60))
+  * `'array'` - the default export is `Array` with API for `style-loader` and other
+  * `'string'` - the default export is `String` you don't need [`to-string-loader`](https://www.npmjs.com/package/to-string-loader) loader anymore
+  * `'css-style-sheet'` - the default export is a [`constructable stylesheet`](https://developers.google.com/web/updates/2019/02/constructable-stylesheets), you can use `import sheet from './styles.css' assert { type: 'css' };` like in a browser, more information you can find [here](https://github.com/webpack-contrib/css-loader#css-style-sheet)
+* supported `supports()` and `layer()` functions in `@import` at-rules ([#1377](https://github.com/webpack-contrib/css-loader/issues/1377)) ([bce2c17](https://github.com/webpack-contrib/css-loader/commit/bce2c17524290591be243829187f909a0ae5a6f7))
+* fix multiple merging multiple `@media` at-rules ([#1377](https://github.com/webpack-contrib/css-loader/issues/1377)) ([bce2c17](https://github.com/webpack-contrib/css-loader/commit/bce2c17524290591be243829187f909a0ae5a6f7))
+
+
+### Bug Fixes
+
+* reduce runtime ([#1378](https://github.com/webpack-contrib/css-loader/issues/1378)) ([cf3a3a7](https://github.com/webpack-contrib/css-loader/commit/cf3a3a7346aa73637ee6aae6fef5648965c31a47))
+
 ## [6.2.0](https://github.com/webpack-contrib/css-loader/compare/v6.1.0...v6.2.0) (2021-07-19)
 
 
