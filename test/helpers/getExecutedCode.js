@@ -16,5 +16,9 @@ export default (asset, compiler, stats, type) => {
     });
   }
 
+  if (executed && typeof executed.text !== "undefined") {
+    executed.text = executed.text.replace(/file:\/\/\/[a-z]:/i, "file:///");
+  }
+
   return executed;
 };
