@@ -1142,11 +1142,24 @@ function getExportCode(exports, replacements, icssPluginUsed, options) {
       "___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());\n";
   }
 
-  code += `${options.esModule ? "export default" : "module.exports ="} ${
-    isCSSStyleSheetExport
-      ? "___CSS_LOADER_STYLE_SHEET___"
-      : "___CSS_LOADER_EXPORT___"
-  };\n`;
+  let finalExport;
+
+  switch (options.exportType) {
+    case "string":
+      finalExport = "___CSS_LOADER_EXPORT___.toString()";
+      break;
+    case "css-style-sheet":
+      finalExport = "___CSS_LOADER_STYLE_SHEET___";
+      break;
+    default:
+    case "array":
+      finalExport = "___CSS_LOADER_EXPORT___";
+      break;
+  }
+
+  code += `${
+    options.esModule ? "export default" : "module.exports ="
+  } ${finalExport};\n`;
 
   return code;
 }

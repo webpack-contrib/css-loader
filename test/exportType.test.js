@@ -36,6 +36,20 @@ describe("'exportType' option", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work with 'string' value", async () => {
+    const compiler = getCompiler("./basic.js", {
+      exportType: "string",
+    });
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should work with 'css-style-sheet' value", async () => {
     const compiler = getCompiler("./basic-css-style-sheet.js", {
       exportType: "css-style-sheet",

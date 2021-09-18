@@ -195,9 +195,9 @@
       "type": "boolean"
     },
     "exportType": {
-      "description": "Allows exporting styles as array with modules or constructable stylesheet (i.e. `CSSStyleSheet`).",
+      "description": "Allows exporting styles as array with modules, string or constructable stylesheet (i.e. `CSSStyleSheet`).",
       "link": "https://github.com/webpack-contrib/css-loader#exporttype",
-      "enum": ["array", "css-style-sheet"]
+      "enum": ["array", "string", "css-style-sheet"]
     }
   },
   "type": "object"
