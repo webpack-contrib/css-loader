@@ -174,7 +174,7 @@ describe("'exportType' option", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work with 'css-style-sheet' and 'javascript' values", async () => {
+  it.only("should work with 'css-style-sheet' and 'array' values", async () => {
     const compiler = getCompiler(
       "./basic-javascript-and-css-style-sheet.js",
       {},

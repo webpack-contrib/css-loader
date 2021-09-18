@@ -18,6 +18,13 @@ export default (asset, compiler, stats, type) => {
 
   if (executed && typeof executed.text !== "undefined") {
     executed.text = executed.text.replace(/file:\/\/\/[a-z]:\//gi, "file:///");
+  } else if (Array.isArray(executed)) {
+    executed.forEach((item) => {
+      if (typeof item.text !== "undefined") {
+        // eslint-disable-next-line no-param-reassign
+        item.text = item.text.replace(/file:\/\/\/[a-z]:\//gi, "file:///");
+      }
+    });
   }
 
   return executed;
