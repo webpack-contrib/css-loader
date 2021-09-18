@@ -17,6 +17,8 @@ export default (asset, compiler, stats, type) => {
   }
 
   if (executed && typeof executed.text !== "undefined") {
+    console.log(executed.text.match(/file:\/\/\/[a-z]:/i));
+
     executed.text = executed.text.replace(/file:\/\/\/[a-z]:/i, "file:///");
   }
 
