@@ -177,6 +177,18 @@ const plugin = (options = {}) => {
       return {
         AtRule: {
           import(atRule) {
+            if (options.isCSSStyleSheet) {
+              options.loaderContext.emitError(
+                new Error(
+                  atRule.error(
+                    "'@import' rules are not allowed here and will not be processed"
+                  ).message
+                )
+              );
+
+              return;
+            }
+
             let parsedAtRule;
 
             try {
@@ -197,6 +209,16 @@ const plugin = (options = {}) => {
             return;
           }
 
+          const { loaderContext } = options;
+          const resolver = loaderContext.getResolve({
+            dependencyType: "css",
+            conditionNames: ["style"],
+            mainFields: ["css", "style", "main", "..."],
+            mainFiles: ["index", "..."],
+            extensions: [".css", "..."],
+            preferRelative: true,
+          });
+
           const resolvedAtRules = await Promise.all(
             parsedAtRules.map(async (parsedAtRule) => {
               const {
@@ -213,7 +235,7 @@ const plugin = (options = {}) => {
                 const needKeep = await options.filter(
                   url,
                   media,
-                  options.resourcePath,
+                  loaderContext.resourcePath,
                   supports,
                   layer
                 );
@@ -224,18 +246,18 @@ const plugin = (options = {}) => {
               }
 
               if (isRequestable) {
-                const request = requestify(url, options.rootContext);
-
-                const { resolver, context } = options;
-                const resolvedUrl = await resolveRequests(resolver, context, [
-                  ...new Set([request, url]),
-                ]);
+                const request = requestify(url, loaderContext.rootContext);
+                const resolvedUrl = await resolveRequests(
+                  resolver,
+                  loaderContext.context,
+                  [...new Set([request, url])]
+                );
 
                 if (!resolvedUrl) {
                   return;
                 }
 
-                if (resolvedUrl === options.resourcePath) {
+                if (resolvedUrl === loaderContext.resourcePath) {
                   atRule.remove();
 
                   return;

@@ -513,7 +513,7 @@ function getValidLocalName(localName, exportLocalsConvention) {
 const IS_MODULES = /\.module(s)?\.\w+$/i;
 const IS_ICSS = /\.icss\.\w+$/i;
 
-function getModulesOptions(rawOptions, loaderContext) {
+function getModulesOptions(rawOptions, exportType, loaderContext) {
   if (typeof rawOptions.modules === "boolean" && rawOptions.modules === false) {
     return false;
   }
@@ -540,6 +540,7 @@ function getModulesOptions(rawOptions, loaderContext) {
 
   // eslint-disable-next-line no-underscore-dangle
   const { outputOptions } = loaderContext._compilation;
+  const isExportCSSStyleSheet = exportType === "css-style-sheet";
   const modulesOptions = {
     auto,
     mode: "local",
@@ -554,9 +555,9 @@ function getModulesOptions(rawOptions, loaderContext) {
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
-    namedExport: false,
+    namedExport: isExportCSSStyleSheet || false,
     exportLocalsConvention:
-      rawModulesOptions.namedExport === true &&
+      (rawModulesOptions.namedExport === true || isExportCSSStyleSheet) &&
       typeof rawModulesOptions.exportLocalsConvention === "undefined"
         ? "camelCaseOnly"
         : "asIs",
@@ -624,10 +625,24 @@ function getModulesOptions(rawOptions, loaderContext) {
     modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
   }
 
+  if (isExportCSSStyleSheet) {
+    if (rawOptions.esModule === false) {
+      throw new Error(
+        "The 'exportType' option with the 'css-style-sheet' value requires the 'esModules' option to be enabled"
+      );
+    }
+
+    if (modulesOptions.namedExport === false) {
+      throw new Error(
+        "The 'exportType' option with the 'css-style-sheet' value requires the 'modules.namedExport' option to be enabled"
+      );
+    }
+  }
+
   if (modulesOptions.namedExport === true) {
     if (rawOptions.esModule === false) {
       throw new Error(
-        'The "modules.namedExport" option requires the "esModules" option to be enabled'
+        "The 'modules.namedExport' option requires the 'esModules' option to be enabled"
       );
     }
 
@@ -646,7 +661,15 @@ function getModulesOptions(rawOptions, loaderContext) {
 }
 
 function normalizeOptions(rawOptions, loaderContext) {
-  const modulesOptions = getModulesOptions(rawOptions, loaderContext);
+  const exportType =
+    typeof rawOptions.exportType === "undefined"
+      ? "array"
+      : rawOptions.exportType;
+  const modulesOptions = getModulesOptions(
+    rawOptions,
+    exportType,
+    loaderContext
+  );
 
   return {
     url: typeof rawOptions.url === "undefined" ? true : rawOptions.url,
@@ -662,6 +685,7 @@ function normalizeOptions(rawOptions, loaderContext) {
         : rawOptions.importLoaders,
     esModule:
       typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
+    exportType,
   };
 }
 
@@ -1031,85 +1055,98 @@ function dashesCamelCase(str) {
   );
 }
 
-function getExportCode(exports, replacements, needToUseIcssPlugin, options) {
+function getExportCode(exports, replacements, icssPluginUsed, options) {
   let code = "// Exports\n";
 
-  if (!needToUseIcssPlugin) {
-    code += `${
-      options.esModule ? "export default" : "module.exports ="
-    } ___CSS_LOADER_EXPORT___;\n`;
+  if (icssPluginUsed) {
+    let localsCode = "";
 
-    return code;
-  }
+    const addExportToLocalsCode = (names, value) => {
+      const normalizedNames = Array.isArray(names)
+        ? new Set(names)
+        : new Set([names]);
 
-  let localsCode = "";
-
-  const addExportToLocalsCode = (names, value) => {
-    const normalizedNames = Array.isArray(names)
-      ? new Set(names)
-      : new Set([names]);
-
-    for (const name of normalizedNames) {
-      if (options.modules.namedExport) {
-        localsCode += `export var ${name} = ${JSON.stringify(value)};\n`;
-      } else {
-        if (localsCode) {
-          localsCode += `,\n`;
-        }
-
-        localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
-      }
-    }
-  };
-
-  for (const { name, value } of exports) {
-    addExportToLocalsCode(options.modules.exportLocalsConvention(name), value);
-  }
-
-  for (const item of replacements) {
-    const { replacementName, localName } = item;
-
-    if (localName) {
-      const { importName } = item;
-
-      localsCode = localsCode.replace(new RegExp(replacementName, "g"), () => {
+      for (const name of normalizedNames) {
         if (options.modules.namedExport) {
-          return `" + ${importName}_NAMED___[${JSON.stringify(
-            getValidLocalName(localName, options.modules.exportLocalsConvention)
-          )}] + "`;
-        } else if (options.modules.exportOnlyLocals) {
-          return `" + ${importName}[${JSON.stringify(localName)}] + "`;
-        }
+          localsCode += `export var ${name} = ${JSON.stringify(value)};\n`;
+        } else {
+          if (localsCode) {
+            localsCode += `,\n`;
+          }
 
-        return `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
-      });
-    } else {
-      localsCode = localsCode.replace(
-        new RegExp(replacementName, "g"),
-        () => `" + ${replacementName} + "`
+          localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
+        }
+      }
+    };
+
+    for (const { name, value } of exports) {
+      addExportToLocalsCode(
+        options.modules.exportLocalsConvention(name),
+        value
       );
     }
-  }
 
-  if (options.modules.exportOnlyLocals) {
+    for (const item of replacements) {
+      const { replacementName, localName } = item;
+
+      if (localName) {
+        const { importName } = item;
+
+        localsCode = localsCode.replace(
+          new RegExp(replacementName, "g"),
+          () => {
+            if (options.modules.namedExport) {
+              return `" + ${importName}_NAMED___[${JSON.stringify(
+                getValidLocalName(
+                  localName,
+                  options.modules.exportLocalsConvention
+                )
+              )}] + "`;
+            } else if (options.modules.exportOnlyLocals) {
+              return `" + ${importName}[${JSON.stringify(localName)}] + "`;
+            }
+
+            return `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
+          }
+        );
+      } else {
+        localsCode = localsCode.replace(
+          new RegExp(replacementName, "g"),
+          () => `" + ${replacementName} + "`
+        );
+      }
+    }
+
+    if (options.modules.exportOnlyLocals) {
+      code += options.modules.namedExport
+        ? localsCode
+        : `${
+            options.esModule ? "export default" : "module.exports ="
+          } {\n${localsCode}\n};\n`;
+
+      return code;
+    }
+
     code += options.modules.namedExport
       ? localsCode
-      : `${
-          options.esModule ? "export default" : "module.exports ="
-        } {\n${localsCode}\n};\n`;
-
-    return code;
+      : `___CSS_LOADER_EXPORT___.locals = {${
+          localsCode ? `\n${localsCode}\n` : ""
+        }};\n`;
   }
 
-  code += options.modules.namedExport
-    ? localsCode
-    : `___CSS_LOADER_EXPORT___.locals = {${
-        localsCode ? `\n${localsCode}\n` : ""
-      }};\n`;
+  const isCSSStyleSheetExport = options.exportType === "css-style-sheet";
 
-  code += `${
-    options.esModule ? "export default" : "module.exports ="
-  } ___CSS_LOADER_EXPORT___;\n`;
+  if (isCSSStyleSheetExport) {
+    code += "var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();\n";
+    code +=
+      "___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());\n";
+  }
+
+  code += `${options.esModule ? "export default" : "module.exports ="} ${
+    isCSSStyleSheetExport
+      ? "___CSS_LOADER_STYLE_SHEET___"
+      : "___CSS_LOADER_EXPORT___"
+  };\n`;
 
   return code;
 }

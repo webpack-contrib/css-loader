@@ -87,6 +87,10 @@ describe("validate options", () => {
       success: [true, false],
       failure: ["true"],
     },
+    exportType: {
+      success: ["array", "css-style-sheet"],
+      failure: ["true", false],
+    },
     unknown: {
       success: [],
       failure: [1, true, false, "test", /test/, [], {}, { foo: "bar" }],

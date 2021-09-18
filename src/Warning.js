@@ -1,7 +1,9 @@
 export default class Warning extends Error {
   constructor(warning) {
     super(warning);
+
     const { text, line, column } = warning;
+
     this.name = "Warning";
 
     // Based on https://github.com/postcss/postcss/blob/master/lib/warning.es6#L74
