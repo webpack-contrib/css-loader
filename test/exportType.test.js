@@ -264,7 +264,7 @@ describe("'exportType' option", () => {
     const stats = await compile(compiler);
 
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
-    expect(getErrors(stats)).toMatchSnapshot("errors");
+    expect(getErrors(stats, true)).toMatchSnapshot("errors");
   });
 
   it("should throw an error with 'css-style-sheet' value for CSS modules when `esModule` disabled", async () => {
@@ -276,7 +276,7 @@ describe("'exportType' option", () => {
     const stats = await compile(compiler);
 
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
-    expect(getErrors(stats)).toMatchSnapshot("errors");
+    expect(getErrors(stats, true)).toMatchSnapshot("errors");
   });
 
   it("should throw an error with 'css-style-sheet' value for CSS modules when `esModule` disabled, but 'modules.namedExport' enabled", async () => {
@@ -290,6 +290,6 @@ describe("'exportType' option", () => {
     const stats = await compile(compiler);
 
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
-    expect(getErrors(stats)).toMatchSnapshot("errors");
+    expect(getErrors(stats, true)).toMatchSnapshot("errors");
   });
 });

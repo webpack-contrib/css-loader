@@ -3,10 +3,7 @@
 exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when \`esModule\` disabled, but 'modules.namedExport' enabled: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The 'exportType' option with the 'css-style-sheet' value requires the 'esModules' option to be enabled
-    at getModulesOptions (/src/utils.js:630:13)
-    at normalizeOptions (/src/utils.js:668:26)
-    at Object.loader (/src/index.js:40:15)",
+Error: The 'exportType' option with the 'css-style-sheet' value requires the 'esModules' option to be enabled",
 ]
 `;
 
@@ -15,10 +12,7 @@ exports[`'exportType' option should throw an error with 'css-style-sheet' value 
 exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when \`esModule\` disabled: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The 'exportType' option with the 'css-style-sheet' value requires the 'esModules' option to be enabled
-    at getModulesOptions (/src/utils.js:630:13)
-    at normalizeOptions (/src/utils.js:668:26)
-    at Object.loader (/src/index.js:40:15)",
+Error: The 'exportType' option with the 'css-style-sheet' value requires the 'esModules' option to be enabled",
 ]
 `;
 
@@ -27,10 +21,7 @@ exports[`'exportType' option should throw an error with 'css-style-sheet' value 
 exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when named export disabled: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The 'exportType' option with the 'css-style-sheet' value requires the 'modules.namedExport' option to be enabled
-    at getModulesOptions (/src/utils.js:636:13)
-    at normalizeOptions (/src/utils.js:668:26)
-    at Object.loader (/src/index.js:40:15)",
+Error: The 'exportType' option with the 'css-style-sheet' value requires the 'modules.namedExport' option to be enabled",
 ]
 `;
 
