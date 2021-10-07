@@ -5059,6 +5059,86 @@ Array [
 
 exports[`"modules" option should work when the "namedExport" is enabled and the "exportLocalsConvention" options has "dashesOnly" value: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work when the 'auto' is not specified with inline module syntax: errors 1`] = `Array []`;
+
+exports[`"modules" option should work when the 'auto' is not specified with inline module syntax: module 1 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.blue {\\\\n    color: white;\\\\n}\\\\n\\\\n.class { from: custom; }\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work when the 'auto' is not specified with inline module syntax: module 2 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".tAbfDoQYh1hH8fgy5jt_ {\\\\n  color: red;\\\\n}\\\\n\\\\n._h7REYQFFxfq7wKBe15e { from: custom; }\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"some-class\\": \\"tAbfDoQYh1hH8fgy5jt_\\",
+	\\"class\\": \\"_h7REYQFFxfq7wKBe15e\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work when the 'auto' is not specified with inline module syntax: module 3 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".some-class {\\\\n  color: red;\\\\n}\\\\n\\\\n.class { from: custom; }\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work when the 'auto' is not specified with inline module syntax: result 1`] = `
+Array [
+  Array [
+    "other.css!=!./my-inline-loader/index.js!./index-loader-syntax.modules.css",
+    ".foo {
+    color: red;
+}
+
+.blue {
+    color: white;
+}
+
+.class { from: custom; }",
+    "",
+  ],
+  Array [
+    "other.modules.css!=!./my-inline-loader/index.js!./simple.css",
+    ".tAbfDoQYh1hH8fgy5jt_ {
+  color: red;
+}
+
+._h7REYQFFxfq7wKBe15e { from: custom; }",
+    "",
+  ],
+  Array [
+    "other.css!=!./my-inline-loader/index.js!./simple-1.css",
+    ".some-class {
+  color: red;
+}
+
+.class { from: custom; }",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work when the 'auto' is not specified with inline module syntax: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "false" value options: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "false" value options: module 1`] = `

@@ -1074,6 +1074,24 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work when the 'auto' is not specified with inline module syntax", async () => {
+    const compiler = getCompiler("./index-loader-syntax-left-and-right.js", {});
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./index-loader-syntax.modules.css", stats)
+    ).toMatchSnapshot("module 1");
+    expect(getModuleSource("./simple.css", stats)).toMatchSnapshot("module 2");
+    expect(getModuleSource("./simple-1.css", stats)).toMatchSnapshot(
+      "module 3"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with the "auto" option is "false"', async () => {
     const compiler = getCompiler("./modules/mode/modules.js", {
       modules: {
