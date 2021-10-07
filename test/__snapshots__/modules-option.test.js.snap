@@ -5414,9 +5414,9 @@ Object {
 
 exports[`"modules" option should work with "exportOnlyLocals" and "namedExport" option: warnings 1`] = `Array []`;
 
-exports[`"modules" option should work with "false" alises: errors 1`] = `Array []`;
+exports[`"modules" option should work with "false" aliases: errors 1`] = `Array []`;
 
-exports[`"modules" option should work with "false" alises: module 1`] = `
+exports[`"modules" option should work with "false" aliases: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
@@ -5431,7 +5431,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option should work with "false" alises: result 1`] = `
+exports[`"modules" option should work with "false" aliases: result 1`] = `
 Array [
   Array [
     "./modules/icss-false-alias/relative.icss.css",
@@ -5444,7 +5444,7 @@ Array [
 ]
 `;
 
-exports[`"modules" option should work with "false" alises: warnings 1`] = `Array []`;
+exports[`"modules" option should work with "false" aliases: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with "url" and "namedExport": errors 1`] = `Array []`;
 
@@ -15106,6 +15106,26 @@ Array [
 `;
 
 exports[`"modules" option should work with the "namedExport" option: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with the 'auto' and exctract CSS using mini-css-extract-plugin: css 1`] = `
+"/*!*****************************************************************!*\\\\
+  !*** css ../../src/index.js!./modules/mode/relative.module.css ***!
+  \\\\*****************************************************************/
+.IU1H9vP4cpzQT_RvUQ84 {
+  color: red;
+}
+
+"
+`;
+
+exports[`"modules" option should work with the 'auto' and exctract CSS using mini-css-extract-plugin: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with the 'auto' and exctract CSS using mini-css-extract-plugin: module 1`] = `
+"// extracted by mini-css-extract-plugin
+export default {\\"relative\\":\\"IU1H9vP4cpzQT_RvUQ84\\"};"
+`;
+
+exports[`"modules" option should work with the 'auto' and exctract CSS using mini-css-extract-plugin: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`global\`): errors 1`] = `Array []`;
 

@@ -1,6 +1,8 @@
 import path from "path";
 import fs from "fs";
 
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+
 import {
   compile,
   getCompiler,
@@ -8,6 +10,7 @@ import {
   getExecutedCode,
   getModuleSource,
   getWarnings,
+  readAsset,
 } from "./helpers/index";
 
 const testCasesPath = path.join(__dirname, "fixtures/modules/tests-cases");
@@ -971,7 +974,45 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with "false" alises', async () => {
+  it("should work with the 'auto' and exctract CSS using mini-css-extract-plugin", async () => {
+    const compiler = getCompiler(
+      "./modules/mode/modules.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: MiniCssExtractPlugin.loader,
+                },
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                },
+              ],
+            },
+          ],
+        },
+        plugins: [
+          new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css",
+          }),
+        ],
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(readAsset("main.css", compiler, stats)).toMatchSnapshot("css");
+    expect(
+      getModuleSource("./modules/mode/relative.module.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work with "false" aliases', async () => {
     const compiler = getCompiler(
       "./modules/icss-false-alias/icss.js",
       {},
