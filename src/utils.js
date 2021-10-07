@@ -319,7 +319,7 @@ function defaultGetLocalIdent(
 ) {
   let relativeMatchResource = "";
 
-  const { context } = options;
+  const { context, hashSalt } = options;
   const { resourcePath } = loaderContext;
 
   // eslint-disable-next-line no-underscore-dangle
@@ -363,7 +363,6 @@ function defaultGetLocalIdent(
   for (let tier = 0; localIdentHash.length < hashDigestLength; tier++) {
     // eslint-disable-next-line no-underscore-dangle
     const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
-    const { hashSalt } = options;
 
     if (hashSalt) {
       hash.update(hashSalt);
@@ -376,9 +375,12 @@ function defaultGetLocalIdent(
     hash.update(options.content);
 
     localIdentHash = (localIdentHash + hash.digest(hashDigest))
+      // Remove all leading digits
       .replace(/^\d+/, "")
+      // Replace all slashes with underscores (same as in base64url)
       .replace(/\//g, "_")
-      .replace(/\W+/g, "")
+      // Remove everything that is not an alphanumeric or underscore
+      .replace(/[^A-Za-z0-9_]+/g, "")
       .slice(0, hashDigestLength);
   }
 
