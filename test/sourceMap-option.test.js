@@ -498,7 +498,7 @@ describe('"sourceMap" option', () => {
         (assetName) => /\.js$/.test(assetName)
       );
 
-      expect(chunkName).toBe("main.37fd3b99e870aa818226.bundle.js");
+      expect(chunkName).toBe("main.043d33a99a1aeaa533ff.bundle.js");
       expect(
         getModuleSource("fixtures/source-map/basic.css", stats)
       ).toMatchSnapshot("module");
