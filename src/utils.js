@@ -319,7 +319,7 @@ function defaultGetLocalIdent(
 ) {
   let relativeMatchResource = "";
 
-  const { context } = options;
+  const { context, hashSalt } = options;
   const { resourcePath } = loaderContext;
 
   // eslint-disable-next-line no-underscore-dangle
@@ -359,21 +359,30 @@ function defaultGetLocalIdent(
     );
   }
 
-  // eslint-disable-next-line no-underscore-dangle
-  const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
-  const { hashSalt } = options;
+  let localIdentHash = "";
+  for (let tier = 0; localIdentHash.length < hashDigestLength; tier++) {
+    // eslint-disable-next-line no-underscore-dangle
+    const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
 
-  if (hashSalt) {
-    hash.update(hashSalt);
+    if (hashSalt) {
+      hash.update(hashSalt);
+    }
+
+    const tierSalt = Buffer.allocUnsafe(4);
+    tierSalt.writeUInt32LE(tier);
+    hash.update(tierSalt);
+
+    hash.update(options.content);
+
+    localIdentHash = (localIdentHash + hash.digest(hashDigest))
+      // Remove all leading digits
+      .replace(/^\d+/, "")
+      // Replace all slashes with underscores (same as in base64url)
+      .replace(/\//g, "_")
+      // Remove everything that is not an alphanumeric or underscore
+      .replace(/[^A-Za-z0-9_]+/g, "")
+      .slice(0, hashDigestLength);
   }
-
-  hash.update(options.content);
-
-  const localIdentHash = hash
-    .digest(hashDigest)
-    .slice(0, hashDigestLength)
-    .replace(/[/+]/g, "_")
-    .replace(/^\d/g, "_");
 
   // TODO need improve on webpack side, we should allow to pass hash/contentHash without chunk property, also `data` for `getPath` should be looks good without chunk property
   const ext = path.extname(resourcePath);
