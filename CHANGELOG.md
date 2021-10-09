@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.4.0](https://github.com/webpack-contrib/css-loader/compare/v6.3.0...v6.4.0) (2021-10-09)
+
+
+### Features
+
+* generate more collision resistant for locals ([c7db752](https://github.com/webpack-contrib/css-loader/commit/c7db752fe6a9c7ff28d165fd24a37be08ef83af5))
+
+
+### Bug Fixes
+
+* classes generation for client and server bundling ([303a3a1](https://github.com/webpack-contrib/css-loader/commit/303a3a171793cf1044c131e291f5c29f9ab86c77))
+
 ## [6.3.0](https://github.com/webpack-contrib/css-loader/compare/v6.2.0...v6.3.0) (2021-09-18)
 
 
