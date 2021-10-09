@@ -317,9 +317,8 @@ function defaultGetLocalIdent(
   localName,
   options
 ) {
-  const { context } = options;
+  const { context, hashSalt } = options;
   const { resourcePath } = loaderContext;
-
   const relativeResourcePath = normalizePath(
     path.relative(context, resourcePath)
   );
@@ -350,6 +349,7 @@ function defaultGetLocalIdent(
   }
 
   let localIdentHash = "";
+
   for (let tier = 0; localIdentHash.length < hashDigestLength; tier++) {
     // eslint-disable-next-line no-underscore-dangle
     const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
@@ -359,9 +359,10 @@ function defaultGetLocalIdent(
     }
 
     const tierSalt = Buffer.allocUnsafe(4);
-    tierSalt.writeUInt32LE(tier);
-    hash.update(tierSalt);
 
+    tierSalt.writeUInt32LE(tier);
+
+    hash.update(tierSalt);
     hash.update(options.content);
 
     localIdentHash = (localIdentHash + hash.digest(hashDigest))
