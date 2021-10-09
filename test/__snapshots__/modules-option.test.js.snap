@@ -1979,6 +1979,177 @@ Array [
 
 exports[`"modules" option should work and correctly replace escaped symbols: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work and generate the same classes for client and server: client errors 1`] = `Array []`;
+
+exports[`"modules" option should work and generate the same classes for client and server: client module 1`] = `
+"// extracted by mini-css-extract-plugin
+export default {\\"123\\":\\"_Oc_nRVO4GQ7K00YULUr\\",\\"test\\":\\"HovVWrUTjN5P06AwS5hN\\",\\"_test\\":\\"_1mLQ0KYr3ydD9bSOOL1\\",\\"className\\":\\"MMk_yFMICywUeqR0iepY\\",\\"someId\\":\\"f_mZz_4mbpipziaiwoW7\\",\\"subClass\\":\\"FYyIWexDGlFG5gXl93Xj\\",\\"-a0-34a___f\\":\\"r_hifewiIojngzs4DOcu\\",\\"m_x_@\\":\\"yUrnJ_pW2ADLHyYLqUNl\\",\\"B&W?\\":\\"O_Xkei1DAX2qh34wT83c\\",\\":\`(\\":\\"_rpCeu5pHk92Z3qzqY_z\\",\\"1a2b3c\\":\\"mxXeAFeh5Mboa3cSbvJV\\",\\"#fake-id\\":\\"_92k79k_uZJspC9mIPTv\\",\\"-a-b-c-\\":\\"c0kkJWClscbZOtfilBcE\\",\\"©\\":\\"DLosMLOukp7Tp4hO7jL0\\",\\"♥\\":\\"HQMfjUZeec5zWyS66OmG\\",\\"“‘’”\\":\\"bS0LrUqKBV4iaTBAKsMY\\",\\"☺☃\\":\\"F0_yWUDvkyhteJA00zkw\\",\\"⌘⌥\\":\\"VyeHlHnBWZuQCsFzscUO\\",\\"𝄞♪♩♫♬\\":\\"Qi7pfuLhD35O0Cedn4XB\\",\\"💩\\":\\"CjG3lWNhvVCcm5R6oxYM\\",\\"?\\":\\"heeATAtrwLqLPvwgoctG\\",\\"@\\":\\"YofbbuSihGYM9Du0fcYK\\",\\".\\":\\"_29WwWt8JVmDYN7Z_26q\\",\\":)\\":\\"I_4AeARK9lm4N7TVyuAb\\",\\"<p>\\":\\"KBVLvvCBhxVgvzXe27HR\\",\\"<><<<>><>\\":\\"vOWmh2fN7CCzZsQKNPLz\\",\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\":\\"_D32kH5S0xGxuC7YOC_W\\",\\"#\\":\\"LpBEGYchm65LG8_V9AYi\\",\\"##\\":\\"wZKDT2QRg1jShfVg3_E4\\",\\"#.#.#\\":\\"oGI7_ChvpMbDAwYUoeH1\\",\\"_\\":\\"myeULb2GLN5e3KYA4yxA\\",\\"{}\\":\\"Mae71ybFnDtrq6WgUsIc\\",\\"foo.bar\\":\\"TpLCT2g4E__O5IMrfhLJ\\",\\":hover\\":\\"l6Av_vs8d_tfpiyTm4bl\\",\\":hover:focus:active\\":\\"ZGmd9HMc_iPx6487LarY\\",\\"[attr=value]\\":\\"KPlJewNi3KC23yxaC_Se\\",\\"f/o/o\\":\\"DIrFdFnBQ9zTR508DSWD\\",\\"f\\\\\\\\o\\\\\\\\o\\":\\"H1knt1tAX5P0sDfLK_9n\\",\\"f*o*o\\":\\"_vAKu2IlrR_fciB3Sosm\\",\\"f!o!o\\":\\"APY_BKpa8G_34n1qfebn\\",\\"f'o'o\\":\\"jTuAkufdKA9r5gtN7Tkc\\",\\"f~o~o\\":\\"S4VvFBeH35ONqPvY3XAy\\",\\"f+o+o\\":\\"AWIsfyEkWwVCslashhSx\\",\\"foo/bar\\":\\"DhIde1WbgzO_4SPrpPoE\\",\\"foo\\\\\\\\bar\\":\\"aeKkgCs_2D8eu6BLa0Ea\\",\\"foo/bar/baz\\":\\"QFT18bFiHRmL7zKaOBRZ\\",\\"foo\\\\\\\\bar\\\\\\\\baz\\":\\"uM3RYQs79zwACaTJ3vBh\\"};"
+`;
+
+exports[`"modules" option should work and generate the same classes for client and server: client result 1`] = `
+Object {
+  "#": "LpBEGYchm65LG8_V9AYi",
+  "##": "wZKDT2QRg1jShfVg3_E4",
+  "#.#.#": "oGI7_ChvpMbDAwYUoeH1",
+  "#fake-id": "_92k79k_uZJspC9mIPTv",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "_D32kH5S0xGxuC7YOC_W",
+  "-a-b-c-": "c0kkJWClscbZOtfilBcE",
+  "-a0-34a___f": "r_hifewiIojngzs4DOcu",
+  ".": "_29WwWt8JVmDYN7Z_26q",
+  "123": "_Oc_nRVO4GQ7K00YULUr",
+  "1a2b3c": "mxXeAFeh5Mboa3cSbvJV",
+  ":)": "I_4AeARK9lm4N7TVyuAb",
+  ":\`(": "_rpCeu5pHk92Z3qzqY_z",
+  ":hover": "l6Av_vs8d_tfpiyTm4bl",
+  ":hover:focus:active": "ZGmd9HMc_iPx6487LarY",
+  "<><<<>><>": "vOWmh2fN7CCzZsQKNPLz",
+  "<p>": "KBVLvvCBhxVgvzXe27HR",
+  "?": "heeATAtrwLqLPvwgoctG",
+  "@": "YofbbuSihGYM9Du0fcYK",
+  "B&W?": "O_Xkei1DAX2qh34wT83c",
+  "[attr=value]": "KPlJewNi3KC23yxaC_Se",
+  "_": "myeULb2GLN5e3KYA4yxA",
+  "_test": "_1mLQ0KYr3ydD9bSOOL1",
+  "className": "MMk_yFMICywUeqR0iepY",
+  "f!o!o": "APY_BKpa8G_34n1qfebn",
+  "f'o'o": "jTuAkufdKA9r5gtN7Tkc",
+  "f*o*o": "_vAKu2IlrR_fciB3Sosm",
+  "f+o+o": "AWIsfyEkWwVCslashhSx",
+  "f/o/o": "DIrFdFnBQ9zTR508DSWD",
+  "f\\\\o\\\\o": "H1knt1tAX5P0sDfLK_9n",
+  "foo.bar": "TpLCT2g4E__O5IMrfhLJ",
+  "foo/bar": "DhIde1WbgzO_4SPrpPoE",
+  "foo/bar/baz": "QFT18bFiHRmL7zKaOBRZ",
+  "foo\\\\bar": "aeKkgCs_2D8eu6BLa0Ea",
+  "foo\\\\bar\\\\baz": "uM3RYQs79zwACaTJ3vBh",
+  "f~o~o": "S4VvFBeH35ONqPvY3XAy",
+  "m_x_@": "yUrnJ_pW2ADLHyYLqUNl",
+  "someId": "f_mZz_4mbpipziaiwoW7",
+  "subClass": "FYyIWexDGlFG5gXl93Xj",
+  "test": "HovVWrUTjN5P06AwS5hN",
+  "{}": "Mae71ybFnDtrq6WgUsIc",
+  "©": "DLosMLOukp7Tp4hO7jL0",
+  "“‘’”": "bS0LrUqKBV4iaTBAKsMY",
+  "⌘⌥": "VyeHlHnBWZuQCsFzscUO",
+  "☺☃": "F0_yWUDvkyhteJA00zkw",
+  "♥": "HQMfjUZeec5zWyS66OmG",
+  "𝄞♪♩♫♬": "Qi7pfuLhD35O0Cedn4XB",
+  "💩": "CjG3lWNhvVCcm5R6oxYM",
+}
+`;
+
+exports[`"modules" option should work and generate the same classes for client and server: client warnings 1`] = `Array []`;
+
+exports[`"modules" option should work and generate the same classes for client and server: server errors 1`] = `Array []`;
+
+exports[`"modules" option should work and generate the same classes for client and server: server module 1`] = `
+"// Exports
+export default {
+	\\"123\\": \\"_Oc_nRVO4GQ7K00YULUr\\",
+	\\"test\\": \\"HovVWrUTjN5P06AwS5hN\\",
+	\\"_test\\": \\"_1mLQ0KYr3ydD9bSOOL1\\",
+	\\"className\\": \\"MMk_yFMICywUeqR0iepY\\",
+	\\"someId\\": \\"f_mZz_4mbpipziaiwoW7\\",
+	\\"subClass\\": \\"FYyIWexDGlFG5gXl93Xj\\",
+	\\"-a0-34a___f\\": \\"r_hifewiIojngzs4DOcu\\",
+	\\"m_x_@\\": \\"yUrnJ_pW2ADLHyYLqUNl\\",
+	\\"B&W?\\": \\"O_Xkei1DAX2qh34wT83c\\",
+	\\":\`(\\": \\"_rpCeu5pHk92Z3qzqY_z\\",
+	\\"1a2b3c\\": \\"mxXeAFeh5Mboa3cSbvJV\\",
+	\\"#fake-id\\": \\"_92k79k_uZJspC9mIPTv\\",
+	\\"-a-b-c-\\": \\"c0kkJWClscbZOtfilBcE\\",
+	\\"©\\": \\"DLosMLOukp7Tp4hO7jL0\\",
+	\\"♥\\": \\"HQMfjUZeec5zWyS66OmG\\",
+	\\"“‘’”\\": \\"bS0LrUqKBV4iaTBAKsMY\\",
+	\\"☺☃\\": \\"F0_yWUDvkyhteJA00zkw\\",
+	\\"⌘⌥\\": \\"VyeHlHnBWZuQCsFzscUO\\",
+	\\"𝄞♪♩♫♬\\": \\"Qi7pfuLhD35O0Cedn4XB\\",
+	\\"💩\\": \\"CjG3lWNhvVCcm5R6oxYM\\",
+	\\"?\\": \\"heeATAtrwLqLPvwgoctG\\",
+	\\"@\\": \\"YofbbuSihGYM9Du0fcYK\\",
+	\\".\\": \\"_29WwWt8JVmDYN7Z_26q\\",
+	\\":)\\": \\"I_4AeARK9lm4N7TVyuAb\\",
+	\\"<p>\\": \\"KBVLvvCBhxVgvzXe27HR\\",
+	\\"<><<<>><>\\": \\"vOWmh2fN7CCzZsQKNPLz\\",
+	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"_D32kH5S0xGxuC7YOC_W\\",
+	\\"#\\": \\"LpBEGYchm65LG8_V9AYi\\",
+	\\"##\\": \\"wZKDT2QRg1jShfVg3_E4\\",
+	\\"#.#.#\\": \\"oGI7_ChvpMbDAwYUoeH1\\",
+	\\"_\\": \\"myeULb2GLN5e3KYA4yxA\\",
+	\\"{}\\": \\"Mae71ybFnDtrq6WgUsIc\\",
+	\\"foo.bar\\": \\"TpLCT2g4E__O5IMrfhLJ\\",
+	\\":hover\\": \\"l6Av_vs8d_tfpiyTm4bl\\",
+	\\":hover:focus:active\\": \\"ZGmd9HMc_iPx6487LarY\\",
+	\\"[attr=value]\\": \\"KPlJewNi3KC23yxaC_Se\\",
+	\\"f/o/o\\": \\"DIrFdFnBQ9zTR508DSWD\\",
+	\\"f\\\\\\\\o\\\\\\\\o\\": \\"H1knt1tAX5P0sDfLK_9n\\",
+	\\"f*o*o\\": \\"_vAKu2IlrR_fciB3Sosm\\",
+	\\"f!o!o\\": \\"APY_BKpa8G_34n1qfebn\\",
+	\\"f'o'o\\": \\"jTuAkufdKA9r5gtN7Tkc\\",
+	\\"f~o~o\\": \\"S4VvFBeH35ONqPvY3XAy\\",
+	\\"f+o+o\\": \\"AWIsfyEkWwVCslashhSx\\",
+	\\"foo/bar\\": \\"DhIde1WbgzO_4SPrpPoE\\",
+	\\"foo\\\\\\\\bar\\": \\"aeKkgCs_2D8eu6BLa0Ea\\",
+	\\"foo/bar/baz\\": \\"QFT18bFiHRmL7zKaOBRZ\\",
+	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"uM3RYQs79zwACaTJ3vBh\\"
+};
+"
+`;
+
+exports[`"modules" option should work and generate the same classes for client and server: server result 1`] = `
+Object {
+  "#": "LpBEGYchm65LG8_V9AYi",
+  "##": "wZKDT2QRg1jShfVg3_E4",
+  "#.#.#": "oGI7_ChvpMbDAwYUoeH1",
+  "#fake-id": "_92k79k_uZJspC9mIPTv",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "_D32kH5S0xGxuC7YOC_W",
+  "-a-b-c-": "c0kkJWClscbZOtfilBcE",
+  "-a0-34a___f": "r_hifewiIojngzs4DOcu",
+  ".": "_29WwWt8JVmDYN7Z_26q",
+  "123": "_Oc_nRVO4GQ7K00YULUr",
+  "1a2b3c": "mxXeAFeh5Mboa3cSbvJV",
+  ":)": "I_4AeARK9lm4N7TVyuAb",
+  ":\`(": "_rpCeu5pHk92Z3qzqY_z",
+  ":hover": "l6Av_vs8d_tfpiyTm4bl",
+  ":hover:focus:active": "ZGmd9HMc_iPx6487LarY",
+  "<><<<>><>": "vOWmh2fN7CCzZsQKNPLz",
+  "<p>": "KBVLvvCBhxVgvzXe27HR",
+  "?": "heeATAtrwLqLPvwgoctG",
+  "@": "YofbbuSihGYM9Du0fcYK",
+  "B&W?": "O_Xkei1DAX2qh34wT83c",
+  "[attr=value]": "KPlJewNi3KC23yxaC_Se",
+  "_": "myeULb2GLN5e3KYA4yxA",
+  "_test": "_1mLQ0KYr3ydD9bSOOL1",
+  "className": "MMk_yFMICywUeqR0iepY",
+  "f!o!o": "APY_BKpa8G_34n1qfebn",
+  "f'o'o": "jTuAkufdKA9r5gtN7Tkc",
+  "f*o*o": "_vAKu2IlrR_fciB3Sosm",
+  "f+o+o": "AWIsfyEkWwVCslashhSx",
+  "f/o/o": "DIrFdFnBQ9zTR508DSWD",
+  "f\\\\o\\\\o": "H1knt1tAX5P0sDfLK_9n",
+  "foo.bar": "TpLCT2g4E__O5IMrfhLJ",
+  "foo/bar": "DhIde1WbgzO_4SPrpPoE",
+  "foo/bar/baz": "QFT18bFiHRmL7zKaOBRZ",
+  "foo\\\\bar": "aeKkgCs_2D8eu6BLa0Ea",
+  "foo\\\\bar\\\\baz": "uM3RYQs79zwACaTJ3vBh",
+  "f~o~o": "S4VvFBeH35ONqPvY3XAy",
+  "m_x_@": "yUrnJ_pW2ADLHyYLqUNl",
+  "someId": "f_mZz_4mbpipziaiwoW7",
+  "subClass": "FYyIWexDGlFG5gXl93Xj",
+  "test": "HovVWrUTjN5P06AwS5hN",
+  "{}": "Mae71ybFnDtrq6WgUsIc",
+  "©": "DLosMLOukp7Tp4hO7jL0",
+  "“‘’”": "bS0LrUqKBV4iaTBAKsMY",
+  "⌘⌥": "VyeHlHnBWZuQCsFzscUO",
+  "☺☃": "F0_yWUDvkyhteJA00zkw",
+  "♥": "HQMfjUZeec5zWyS66OmG",
+  "𝄞♪♩♫♬": "Qi7pfuLhD35O0Cedn4XB",
+  "💩": "CjG3lWNhvVCcm5R6oxYM",
+}
+`;
+
+exports[`"modules" option should work and generate the same classes for client and server: server warnings 1`] = `Array []`;
+
 exports[`"modules" option should work and has "undefined" context if no context was given: errors 1`] = `Array []`;
 
 exports[`"modules" option should work and has "undefined" context if no context was given: module 1`] = `

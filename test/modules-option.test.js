@@ -2132,4 +2132,72 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work and generate the same classes for client and server", async () => {
+    const clientCompiler = getCompiler(
+      "./modules/localIdentName/localIdentName.js",
+      {},
+      {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: MiniCssExtractPlugin.loader,
+                },
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                  options: {
+                    modules: true,
+                  },
+                },
+              ],
+            },
+          ],
+        },
+        plugins: [
+          new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css",
+          }),
+        ],
+      }
+    );
+    const clientStats = await compile(clientCompiler);
+
+    expect(
+      getModuleSource(
+        "./modules/localIdentName/localIdentName.css",
+        clientStats
+      )
+    ).toMatchSnapshot("client module");
+    expect(
+      getExecutedCode("main.bundle.js", clientCompiler, clientStats)
+    ).toMatchSnapshot("client result");
+    expect(getWarnings(clientStats)).toMatchSnapshot("client warnings");
+    expect(getErrors(clientStats)).toMatchSnapshot("client errors");
+
+    const serverCompiler = getCompiler(
+      "./modules/localIdentName/localIdentName.js",
+      {
+        modules: {
+          exportOnlyLocals: true,
+        },
+      }
+    );
+    const serverStats = await compile(serverCompiler);
+
+    expect(
+      getModuleSource(
+        "./modules/localIdentName/localIdentName.css",
+        serverStats
+      )
+    ).toMatchSnapshot("server module");
+    expect(
+      getExecutedCode("main.bundle.js", serverCompiler, serverStats)
+    ).toMatchSnapshot("server result");
+    expect(getWarnings(serverStats)).toMatchSnapshot("server warnings");
+    expect(getErrors(serverStats)).toMatchSnapshot("server errors");
+  });
 });
