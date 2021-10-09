@@ -317,25 +317,15 @@ function defaultGetLocalIdent(
   localName,
   options
 ) {
-  let relativeMatchResource = "";
-
-  const { context, hashSalt } = options;
+  const { context } = options;
   const { resourcePath } = loaderContext;
-
-  // eslint-disable-next-line no-underscore-dangle
-  if (loaderContext._module && loaderContext._module.matchResource) {
-    relativeMatchResource = `${normalizePath(
-      // eslint-disable-next-line no-underscore-dangle
-      path.relative(context, loaderContext._module.matchResource)
-    )}\x00`;
-  }
 
   const relativeResourcePath = normalizePath(
     path.relative(context, resourcePath)
   );
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${relativeMatchResource}${relativeResourcePath}\x00${localName}`;
+  options.content = `${relativeResourcePath}\x00${localName}`;
 
   let { hashFunction, hashDigest, hashDigestLength } = options;
   const matches = localIdentName.match(
