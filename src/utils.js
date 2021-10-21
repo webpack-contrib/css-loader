@@ -22,7 +22,17 @@ function isRelativePath(str) {
   return matchRelativePath.test(str);
 }
 
+// TODO simplify for the next major release
 function stringifyRequest(loaderContext, request) {
+  if (
+    typeof loaderContext.utils !== "undefined" &&
+    typeof loaderContext.utils.contextify === "function"
+  ) {
+    return JSON.stringify(
+      loaderContext.utils.contextify(loaderContext.context, request)
+    );
+  }
+
   const splitted = request.split("!");
   const { context } = loaderContext;
 
