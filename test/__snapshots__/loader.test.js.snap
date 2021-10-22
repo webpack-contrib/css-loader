@@ -849,66 +849,66 @@ exports[`loader should work with inline module syntax: result 1`] = `
 Array [
   Array [
     "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax.modules.css",
-    ".L34UCpsDMDUf5cci5FTp {
+    ".a93a309b12293856648e {
   color: red;
 }
 
-.cR0dzE36E911coHAsfAF {
+.b50b95af6c57a81d3774 {
   color: white;
 }",
     "",
   ],
   Array [
     "button.modules.css!=!./index-loader-syntax-sass.css",
-    ".Bm6FV6LbXUxAkIaBjl7y {
+    ".d28b982d132af1460806 {
   width: 5px;
 }",
     "",
   ],
   Array [
     "other.modules.scss!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax-sass.modules.css",
-    ".JkECLtXaeLgZptjLMVOV > .cg9Qb_Gz48g_sQh4Pjap {
+    ".b81abf7c51211b968e45 > .a68b8de802e543b6f2c1 {
   color: red;
 }",
     "",
   ],
   Array [
     "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax.modules.css",
-    ".L34UCpsDMDUf5cci5FTp {
+    ".a93a309b12293856648e {
   color: red;
 }
 
-.cR0dzE36E911coHAsfAF {
+.b50b95af6c57a81d3774 {
   color: white;
 }
 
-.BBGEY4nuDapXZ5Z5Llcd {
+.c4a967841a682d0f0b1b {
   from: custom;
 }",
     "",
   ],
   Array [
     "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax.modules.css",
-    ".L34UCpsDMDUf5cci5FTp {
+    ".a93a309b12293856648e {
   color: red;
 }
 
-.cR0dzE36E911coHAsfAF {
+.b50b95af6c57a81d3774 {
   color: white;
 }
 
-.BBGEY4nuDapXZ5Z5Llcd {
+.c4a967841a682d0f0b1b {
   from: custom;
 }",
     "",
   ],
   Array [
     "other.modules.scss!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax-sass.modules.css",
-    ".JkECLtXaeLgZptjLMVOV > .cg9Qb_Gz48g_sQh4Pjap {
+    ".b81abf7c51211b968e45 > .a68b8de802e543b6f2c1 {
   color: red;
 }
 
-.WJ9UGZwK6YvLQsxARKO1 {
+.b63f573c352e37114ac1 {
   from: custom;
 }",
     "",
@@ -922,21 +922,21 @@ Array [
   ],
   Array [
     "button.modules.css!=!./index-loader-syntax-sass.css",
-    ".Bm6FV6LbXUxAkIaBjl7y {
+    ".d28b982d132af1460806 {
   width: 5px;
 }",
     "",
   ],
   Array [
     "button.module.scss!=!./base64-loader/index.js?LmZvbyB7IGNvbG9yOiByZWQ7IH0=!./simple.js?foo=bar",
-    ".nQ7qpE_fxjuYDsViKqtM {
+    ".a1aaba411fbc27817636 {
   color: red;
 }",
     "",
   ],
   Array [
     "other.module.scss!=!./base64-loader/index.js?LmZvbyB7IGNvbG9yOiByZWQ7IH0=!./simple.js?foo=baz",
-    ".nQ7qpE_fxjuYDsViKqtM {
+    ".a1aaba411fbc27817636 {
   color: red;
 }",
     "",
@@ -1001,7 +1001,7 @@ exports[`loader should work with the "modules.auto" option and the "import.loade
   color: #333;
 }
 /* CSS modules */
-.kSlR28XrNKt9I9mzvNxN {
+.da2986279d70a424cf3d {
   overflow-x: hidden;
   overflow-y: auto;
   overflow: hidden auto;
@@ -1018,7 +1018,7 @@ exports[`loader should work with the "modules.auto" option and the "import.loade
   overflow-y: auto;
   overflow: hidden auto;
 }
-.lE126I07pG7EhKO3j2bD {
+.bd90eb5006dff598986c {
   color: #333;
   overflow-x: hidden;
   overflow-y: auto;
