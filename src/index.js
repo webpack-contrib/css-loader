@@ -54,9 +54,24 @@ export default async function loader(content, map, meta) {
   const importPluginImports = [];
   const importPluginApi = [];
 
+  let isSupportAbsoluteURL = false;
+
+  // TODO enable by default in the next major release
+  if (
+    this._compilation &&
+    this._compilation.options &&
+    this._compilation.options.experiments &&
+    this._compilation.options.experiments.buildHttp
+  ) {
+    isSupportAbsoluteURL = true;
+  }
+  const isSupportDataURL =
+    options.esModule && Boolean("fsStartTime" in this._compiler);
+
   if (shouldUseImportPlugin(options)) {
     plugins.push(
       importParser({
+        isSupportAbsoluteURL,
         isCSSStyleSheet: options.exportType === "css-style-sheet",
         loaderContext: this,
         imports: importPluginImports,
@@ -75,11 +90,11 @@ export default async function loader(content, map, meta) {
 
   if (shouldUseURLPlugin(options)) {
     const needToResolveURL = !options.esModule;
-    const isSupportDataURLInNewURL =
-      options.esModule && Boolean("fsStartTime" in this._compiler);
 
     plugins.push(
       urlParser({
+        isSupportAbsoluteURL,
+        isSupportDataURL,
         imports: urlPluginImports,
         replacements,
         context: this.context,
@@ -92,7 +107,6 @@ export default async function loader(content, map, meta) {
             undefined,
         urlHandler: (url) => stringifyRequest(this, url),
         // Support data urls as input in new URL added in webpack@5.38.0
-        isSupportDataURLInNewURL,
       })
     );
   }

@@ -562,4 +562,30 @@ describe('"url" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work with absolute URLs", async () => {
+    const compiler = getCompiler(
+      "./url/absolute-url.js",
+      {},
+      {
+        experiments: {
+          buildHttp: {
+            allowedUris: [() => true],
+            lockfileLocation: path.resolve(__dirname, "./lock-files/lock.json"),
+            cacheLocation: path.resolve(__dirname, "./lock-files"),
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/absolute-url.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

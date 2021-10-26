@@ -48,7 +48,7 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
-function shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL) {
+function shouldHandleURL(url, declaration, result, options = {}) {
   if (url.length === 0) {
     result.warn(`Unable to find uri in '${declaration.toString()}'`, {
       node: declaration,
@@ -57,7 +57,7 @@ function shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL) {
     return false;
   }
 
-  if (isDataUrl(url) && isSupportDataURLInNewURL) {
+  if (isDataUrl(url) && options.isSupportDataURL) {
     try {
       decodeURIComponent(url);
     } catch (ignoreError) {
@@ -67,14 +67,14 @@ function shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL) {
     return true;
   }
 
-  if (!isUrlRequestable(url)) {
+  if (!isUrlRequestable(url, options.isSupportAbsoluteURL)) {
     return false;
   }
 
   return true;
 }
 
-function parseDeclaration(declaration, key, result, isSupportDataURLInNewURL) {
+function parseDeclaration(declaration, key, result, options) {
   if (!needParseDeclaration.test(declaration[key])) {
     return;
   }
@@ -141,9 +141,7 @@ function parseDeclaration(declaration, key, result, isSupportDataURLInNewURL) {
       url = normalizeUrl(url, isStringValue);
 
       // Do not traverse inside `url`
-      if (
-        !shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL)
-      ) {
+      if (!shouldHandleURL(url, declaration, result, options)) {
         // eslint-disable-next-line consistent-return
         return false;
       }
@@ -199,9 +197,7 @@ function parseDeclaration(declaration, key, result, isSupportDataURLInNewURL) {
           url = normalizeUrl(url, isStringValue);
 
           // Do not traverse inside `url`
-          if (
-            !shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL)
-          ) {
+          if (!shouldHandleURL(url, declaration, result, options)) {
             // eslint-disable-next-line consistent-return
             return false;
           }
@@ -244,9 +240,7 @@ function parseDeclaration(declaration, key, result, isSupportDataURLInNewURL) {
           let url = normalizeUrl(value, true);
 
           // Do not traverse inside `url`
-          if (
-            !shouldHandleURL(url, declaration, result, isSupportDataURLInNewURL)
-          ) {
+          if (!shouldHandleURL(url, declaration, result, options)) {
             // eslint-disable-next-line consistent-return
             return false;
           }
@@ -288,13 +282,11 @@ const plugin = (options = {}) => {
 
       return {
         Declaration(declaration) {
-          const { isSupportDataURLInNewURL } = options;
-          const parsedURL = parseDeclaration(
-            declaration,
-            "value",
-            result,
-            isSupportDataURLInNewURL
-          );
+          const { isSupportDataURL, isSupportAbsoluteURL } = options;
+          const parsedURL = parseDeclaration(declaration, "value", result, {
+            isSupportDataURL,
+            isSupportAbsoluteURL,
+          });
 
           if (!parsedURL) {
             return;
