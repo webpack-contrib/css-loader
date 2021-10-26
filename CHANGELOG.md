@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.5.0](https://github.com/webpack-contrib/css-loader/compare/v6.4.0...v6.5.0) (2021-10-26)
+
+
+### Features
+
+* support absolute URL in `url()` when `experiments.buildHttp` enabled ([#1389](https://github.com/webpack-contrib/css-loader/issues/1389)) ([8946be4](https://github.com/webpack-contrib/css-loader/commit/8946be4d0f2c0237cd5fa846d67d469ff20058a4))
+
+
+### Bug Fixes
+
+* respect `nosources` in the `devtool` option ([c60eff2](https://github.com/webpack-contrib/css-loader/commit/c60eff212337c8a65995f6675d25f49bb515e77d))
+
 ## [6.4.0](https://github.com/webpack-contrib/css-loader/compare/v6.3.0...v6.4.0) (2021-10-09)
 
 
