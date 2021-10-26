@@ -1189,7 +1189,7 @@ async function resolveRequests(resolve, context, possibleRequests) {
     });
 }
 
-function isUrlRequestable(url) {
+function isUrlRequestable(url, isSupportAbsoluteURL) {
   // Protocol-relative URLs
   if (/^\/\//.test(url)) {
     return false;
@@ -1202,6 +1202,10 @@ function isUrlRequestable(url) {
 
   // Absolute URLs
   if (/^[a-z][a-z0-9+.-]*:/i.test(url) && !NATIVE_WIN32_PATH.test(url)) {
+    if (isSupportAbsoluteURL) {
+      return true;
+    }
+
     return false;
   }
 

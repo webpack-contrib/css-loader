@@ -51,8 +51,8 @@ module.exports = (cssWithMappingToString) => {
     const alreadyImportedModules = {};
 
     if (dedupe) {
-      for (let i = 0; i < this.length; i++) {
-        const id = this[i][0];
+      for (let k = 0; k < this.length; k++) {
+        const id = this[k][0];
 
         if (id != null) {
           alreadyImportedModules[id] = true;
@@ -60,8 +60,8 @@ module.exports = (cssWithMappingToString) => {
       }
     }
 
-    for (let i = 0; i < modules.length; i++) {
-      const item = [].concat(modules[i]);
+    for (let k = 0; k < modules.length; k++) {
+      const item = [].concat(modules[k]);
 
       if (dedupe && alreadyImportedModules[item[0]]) {
         continue;
