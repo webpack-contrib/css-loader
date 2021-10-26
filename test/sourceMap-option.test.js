@@ -509,12 +509,153 @@ describe('"sourceMap" option', () => {
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
-    it("should generate source maps when css was extracted", async () => {
+    it("should generate source maps when css was extracted when the 'devtool' property is 'source-map'", async () => {
       const compiler = getCompiler(
         "./source-map/extract.js",
         {},
         {
           devtool: "source-map",
+          output: {
+            path: path.resolve(__dirname, "../outputs"),
+            filename: "[name].bundle.js",
+            chunkFilename: "[name].chunk.js",
+            publicPath: "/webpack/public/path/",
+          },
+          plugins: [
+            new MiniCssExtractPlugin({
+              filename: "[name].css",
+            }),
+          ],
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                rules: [
+                  {
+                    loader: MiniCssExtractPlugin.loader,
+                  },
+                  {
+                    loader: path.resolve(__dirname, "../src"),
+                    options: { sourceMap: true },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(readAsset("main.css", compiler, stats)).toMatchSnapshot(
+        "extracted css"
+      );
+      expect(
+        JSON.parse(readAsset("main.css.map", compiler, stats))
+      ).toMatchSnapshot("source map");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+    });
+
+    it("should generate source maps when css was extracted when the 'devtool' property is 'nosources-source-map'", async () => {
+      const compiler = getCompiler(
+        "./source-map/extract.js",
+        {},
+        {
+          devtool: "nosources-source-map",
+          output: {
+            path: path.resolve(__dirname, "../outputs"),
+            filename: "[name].bundle.js",
+            chunkFilename: "[name].chunk.js",
+            publicPath: "/webpack/public/path/",
+          },
+          plugins: [
+            new MiniCssExtractPlugin({
+              filename: "[name].css",
+            }),
+          ],
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                rules: [
+                  {
+                    loader: MiniCssExtractPlugin.loader,
+                  },
+                  {
+                    loader: path.resolve(__dirname, "../src"),
+                    options: { sourceMap: true },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(readAsset("main.css", compiler, stats)).toMatchSnapshot(
+        "extracted css"
+      );
+      expect(
+        JSON.parse(readAsset("main.css.map", compiler, stats))
+      ).toMatchSnapshot("source map");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+    });
+
+    it("should generate source maps when css was extracted when the 'devtool' property is 'hidden-nosources-source-map'", async () => {
+      const compiler = getCompiler(
+        "./source-map/extract.js",
+        {},
+        {
+          devtool: "hidden-nosources-source-map",
+          output: {
+            path: path.resolve(__dirname, "../outputs"),
+            filename: "[name].bundle.js",
+            chunkFilename: "[name].chunk.js",
+            publicPath: "/webpack/public/path/",
+          },
+          plugins: [
+            new MiniCssExtractPlugin({
+              filename: "[name].css",
+            }),
+          ],
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                rules: [
+                  {
+                    loader: MiniCssExtractPlugin.loader,
+                  },
+                  {
+                    loader: path.resolve(__dirname, "../src"),
+                    options: { sourceMap: true },
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      );
+      const stats = await compile(compiler);
+
+      expect(readAsset("main.css", compiler, stats)).toMatchSnapshot(
+        "extracted css"
+      );
+      expect(
+        JSON.parse(readAsset("main.css.map", compiler, stats))
+      ).toMatchSnapshot("source map");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+    });
+
+    it("should generate source maps when css was extracted when the 'devtool' property is 'hidden-source-map'", async () => {
+      const compiler = getCompiler(
+        "./source-map/extract.js",
+        {},
+        {
+          devtool: "hidden-source-map",
           output: {
             path: path.resolve(__dirname, "../outputs"),
             filename: "[name].bundle.js",

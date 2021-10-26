@@ -342,9 +342,9 @@ Object {
 
 exports[`"sourceMap" option true should generate source maps when css was extracted and do not change "[contenthash]" on different platform: warnings 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when css was extracted: errors 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'hidden-nosources-source-map': errors 1`] = `Array []`;
 
-exports[`"sourceMap" option true should generate source maps when css was extracted: extracted css 1`] = `
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'hidden-nosources-source-map': extracted css 1`] = `
 "/*!*******************************************************************************************!*\\\\
   !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/nested/nested.css ***!
   \\\\*******************************************************************************************/
@@ -359,11 +359,46 @@ exports[`"sourceMap" option true should generate source maps when css was extrac
   color: red;
 }
 
-
-/*# sourceMappingURL=main.css.map*/"
+"
 `;
 
-exports[`"sourceMap" option true should generate source maps when css was extracted: source map 1`] = `
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'hidden-nosources-source-map': source map 1`] = `
+Object {
+  "file": "main.css",
+  "mappings": ";;;AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
+  "names": Array [],
+  "sourceRoot": "",
+  "sources": Array [
+    "webpack:///./source-map/nested/nested.css",
+    "webpack:///./source-map/basic.css",
+  ],
+  "version": 3,
+}
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'hidden-nosources-source-map': warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'hidden-source-map': errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'hidden-source-map': extracted css 1`] = `
+"/*!*******************************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/nested/nested.css ***!
+  \\\\*******************************************************************************************/
+.nested {
+  color: blue;
+}
+
+/*!***********************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/basic.css ***!
+  \\\\***********************************************************************************/
+.class {
+  color: red;
+}
+
+"
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'hidden-source-map': source map 1`] = `
 Object {
   "file": "main.css",
   "mappings": ";;;AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
@@ -389,7 +424,93 @@ Object {
 }
 `;
 
-exports[`"sourceMap" option true should generate source maps when css was extracted: warnings 1`] = `Array []`;
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'hidden-source-map': warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'nosources-source-map': errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'nosources-source-map': extracted css 1`] = `
+"/*!*******************************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/nested/nested.css ***!
+  \\\\*******************************************************************************************/
+.nested {
+  color: blue;
+}
+
+/*!***********************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/basic.css ***!
+  \\\\***********************************************************************************/
+.class {
+  color: red;
+}
+
+
+/*# sourceMappingURL=main.css.map*/"
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'nosources-source-map': source map 1`] = `
+Object {
+  "file": "main.css",
+  "mappings": ";;;AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
+  "names": Array [],
+  "sourceRoot": "",
+  "sources": Array [
+    "webpack:///./source-map/nested/nested.css",
+    "webpack:///./source-map/basic.css",
+  ],
+  "version": 3,
+}
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'nosources-source-map': warnings 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'source-map': errors 1`] = `Array []`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'source-map': extracted css 1`] = `
+"/*!*******************************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/nested/nested.css ***!
+  \\\\*******************************************************************************************/
+.nested {
+  color: blue;
+}
+
+/*!***********************************************************************************!*\\\\
+  !*** css ../../src/index.js??ruleSet[1].rules[0].rules[1]!./source-map/basic.css ***!
+  \\\\***********************************************************************************/
+.class {
+  color: red;
+}
+
+
+/*# sourceMappingURL=main.css.map*/"
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'source-map': source map 1`] = `
+Object {
+  "file": "main.css",
+  "mappings": ";;;AAAA;EACE,WAAW;AACb;;;;;ACAA;EACE,UAAU;AACZ",
+  "names": Array [],
+  "sourceRoot": "",
+  "sources": Array [
+    "webpack:///./source-map/nested/nested.css",
+    "webpack:///./source-map/basic.css",
+  ],
+  "sourcesContent": Array [
+    ".nested {
+  color: blue;
+}
+",
+    "@import \\"./nested/nested.css\\";
+
+.class {
+  color: red;
+}
+",
+  ],
+  "version": 3,
+}
+`;
+
+exports[`"sourceMap" option true should generate source maps when css was extracted when the 'devtool' property is 'source-map': warnings 1`] = `Array []`;
 
 exports[`"sourceMap" option true should generate source maps when previous loader does not generate source maps: errors 1`] = `Array []`;
 
