@@ -929,8 +929,19 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
   if (resultMap) {
     delete resultMap.file;
 
-    resultMap.sourceRoot = "";
+    /* eslint-disable no-underscore-dangle */
+    if (
+      loaderContext._compilation &&
+      loaderContext._compilation.options &&
+      loaderContext._compilation.options.devtool &&
+      loaderContext._compilation.options.devtool.includes("nosources")
+    ) {
+      /* eslint-enable no-underscore-dangle */
 
+      delete resultMap.sourcesContent;
+    }
+
+    resultMap.sourceRoot = "";
     resultMap.sources = resultMap.sources.map((source) => {
       // Non-standard syntax from `postcss`
       if (source.indexOf("<") === 0) {
@@ -989,9 +1000,16 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
     return "";
   }
 
-  const sourceMapValue = options.sourceMap
-    ? `,${normalizeSourceMapForRuntime(result.map, loaderContext)}`
-    : "";
+  let sourceMapValue = "";
+
+  if (options.sourceMap) {
+    const sourceMap = result.map;
+
+    sourceMapValue = `,${normalizeSourceMapForRuntime(
+      sourceMap,
+      loaderContext
+    )}`;
+  }
 
   let code = JSON.stringify(result.css);
 
