@@ -571,8 +571,11 @@ describe('"url" option', () => {
         experiments: {
           buildHttp: {
             allowedUris: [() => true],
-            lockfileLocation: path.resolve(__dirname, "./lock-files/lock.json"),
-            cacheLocation: path.resolve(__dirname, "./lock-files"),
+            lockfileLocation: path.resolve(
+              __dirname,
+              "./lock-files/url/lock.json"
+            ),
+            cacheLocation: path.resolve(__dirname, "./lock-files/url"),
           },
         },
       }

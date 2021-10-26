@@ -531,4 +531,47 @@ describe('"import" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work with data URI", async () => {
+    const compiler = getCompiler("./import/data-uri.js");
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./import/data-uri.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with absolute URLs", async () => {
+    const compiler = getCompiler(
+      "./import/absolute-url.js",
+      {},
+      {
+        experiments: {
+          buildHttp: {
+            allowedUris: [() => true],
+            lockfileLocation: path.resolve(
+              __dirname,
+              "./lock-files/import/lock.json"
+            ),
+            cacheLocation: path.resolve(__dirname, "./lock-files/import"),
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./import/absolute-url.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

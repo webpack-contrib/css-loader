@@ -1189,32 +1189,43 @@ async function resolveRequests(resolve, context, possibleRequests) {
     });
 }
 
-function isUrlRequestable(url, isSupportAbsoluteURL) {
+function isURLRequestable(url, options = {}) {
   // Protocol-relative URLs
   if (/^\/\//.test(url)) {
-    return false;
-  }
-
-  // `file:` protocol
-  if (/^file:/i.test(url)) {
-    return true;
-  }
-
-  // Absolute URLs
-  if (/^[a-z][a-z0-9+.-]*:/i.test(url) && !NATIVE_WIN32_PATH.test(url)) {
-    if (isSupportAbsoluteURL) {
-      return true;
-    }
-
-    return false;
+    return { requestable: false, needResolve: false };
   }
 
   // `#` URLs
   if (/^#/.test(url)) {
-    return false;
+    return { requestable: false, needResolve: false };
   }
 
-  return true;
+  // Data URI
+  if (isDataUrl(url) && options.isSupportDataURL) {
+    try {
+      decodeURIComponent(url);
+    } catch (ignoreError) {
+      return { requestable: false, needResolve: false };
+    }
+
+    return { requestable: true, needResolve: false };
+  }
+
+  // `file:` protocol
+  if (/^file:/i.test(url)) {
+    return { requestable: true, needResolve: true };
+  }
+
+  // Absolute URLs
+  if (/^[a-z][a-z0-9+.-]*:/i.test(url) && !NATIVE_WIN32_PATH.test(url)) {
+    if (options.isSupportAbsoluteURL && /^https?:/i.test(url)) {
+      return { requestable: true, needResolve: false };
+    }
+
+    return { requestable: false, needResolve: false };
+  }
+
+  return { requestable: true, needResolve: true };
 }
 
 function sort(a, b) {
@@ -1246,7 +1257,7 @@ export {
   getModuleCode,
   getExportCode,
   resolveRequests,
-  isUrlRequestable,
+  isURLRequestable,
   sort,
   WEBPACK_IGNORE_COMMENT_REGEXP,
   combineRequests,

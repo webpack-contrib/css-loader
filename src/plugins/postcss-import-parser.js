@@ -3,12 +3,12 @@ import valueParser from "postcss-value-parser";
 import {
   normalizeUrl,
   resolveRequests,
-  isUrlRequestable,
+  isURLRequestable,
   requestify,
   WEBPACK_IGNORE_COMMENT_REGEXP,
 } from "../utils";
 
-function parseNode(atRule, key) {
+function parseNode(atRule, key, options) {
   // Convert only top-level @import
   if (atRule.parent.type !== "root") {
     return;
@@ -97,10 +97,11 @@ function parseNode(atRule, key) {
 
   url = normalizeUrl(url, isStringValue);
 
-  const isRequestable = isUrlRequestable(url);
+  const { requestable, needResolve } = isURLRequestable(url, options);
+
   let prefix;
 
-  if (isRequestable) {
+  if (requestable && needResolve) {
     const queryParts = url.split("!");
 
     if (queryParts.length > 1) {
@@ -165,7 +166,16 @@ function parseNode(atRule, key) {
   }
 
   // eslint-disable-next-line consistent-return
-  return { atRule, prefix, url, layer, supports, media, isRequestable };
+  return {
+    atRule,
+    prefix,
+    url,
+    layer,
+    supports,
+    media,
+    requestable,
+    needResolve,
+  };
 }
 
 const plugin = (options = {}) => {
@@ -189,10 +199,15 @@ const plugin = (options = {}) => {
               return;
             }
 
+            const { isSupportDataURL, isSupportAbsoluteURL } = options;
+
             let parsedAtRule;
 
             try {
-              parsedAtRule = parseNode(atRule, "params", result);
+              parsedAtRule = parseNode(atRule, "params", {
+                isSupportAbsoluteURL,
+                isSupportDataURL,
+              });
             } catch (error) {
               result.warn(error.message, { node: error.node });
             }
@@ -223,7 +238,8 @@ const plugin = (options = {}) => {
             parsedAtRules.map(async (parsedAtRule) => {
               const {
                 atRule,
-                isRequestable,
+                requestable,
+                needResolve,
                 prefix,
                 url,
                 layer,
@@ -245,7 +261,7 @@ const plugin = (options = {}) => {
                 }
               }
 
-              if (isRequestable) {
+              if (needResolve) {
                 const request = requestify(url, loaderContext.rootContext);
                 const resolvedUrl = await resolveRequests(
                   resolver,
@@ -272,14 +288,14 @@ const plugin = (options = {}) => {
                   supports,
                   media,
                   prefix,
-                  isRequestable,
+                  requestable,
                 };
               }
 
               atRule.remove();
 
               // eslint-disable-next-line consistent-return
-              return { url, layer, supports, media, prefix, isRequestable };
+              return { url, layer, supports, media, prefix, requestable };
             })
           );
 
@@ -293,10 +309,9 @@ const plugin = (options = {}) => {
               continue;
             }
 
-            const { url, isRequestable, layer, supports, media } =
-              resolvedAtRule;
+            const { url, requestable, layer, supports, media } = resolvedAtRule;
 
-            if (!isRequestable) {
+            if (!requestable) {
               options.api.push({ url, layer, supports, media, index });
 
               // eslint-disable-next-line no-continue
