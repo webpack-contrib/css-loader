@@ -4,8 +4,7 @@ import {
   resolveRequests,
   normalizeUrl,
   requestify,
-  isUrlRequestable,
-  isDataUrl,
+  isURLRequestable,
   WEBPACK_IGNORE_COMMENT_REGEXP,
 } from "../utils";
 
@@ -48,30 +47,16 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
-function shouldHandleURL(url, declaration, result, options = {}) {
+function shouldHandleURL(url, declaration, result, options) {
   if (url.length === 0) {
     result.warn(`Unable to find uri in '${declaration.toString()}'`, {
       node: declaration,
     });
 
-    return false;
+    return { requestable: false, needResolve: false };
   }
 
-  if (isDataUrl(url) && options.isSupportDataURL) {
-    try {
-      decodeURIComponent(url);
-    } catch (ignoreError) {
-      return false;
-    }
-
-    return true;
-  }
-
-  if (!isUrlRequestable(url, options.isSupportAbsoluteURL)) {
-    return false;
-  }
-
-  return true;
+  return isURLRequestable(url, options);
 }
 
 function parseDeclaration(declaration, key, result, options) {
@@ -138,15 +123,24 @@ function parseDeclaration(declaration, key, result, options) {
       const { nodes } = valueNode;
       const isStringValue = nodes.length !== 0 && nodes[0].type === "string";
       let url = isStringValue ? nodes[0].value : valueParser.stringify(nodes);
+
       url = normalizeUrl(url, isStringValue);
 
+      const { requestable, needResolve } = shouldHandleURL(
+        url,
+        declaration,
+        result,
+        options
+      );
+
       // Do not traverse inside `url`
-      if (!shouldHandleURL(url, declaration, result, options)) {
+      if (!requestable) {
         // eslint-disable-next-line consistent-return
         return false;
       }
 
       const queryParts = url.split("!");
+
       let prefix;
 
       if (queryParts.length > 1) {
@@ -161,6 +155,7 @@ function parseDeclaration(declaration, key, result, options) {
         prefix,
         url,
         needQuotes: false,
+        needResolve,
       });
 
       // eslint-disable-next-line consistent-return
@@ -194,15 +189,24 @@ function parseDeclaration(declaration, key, result, options) {
           let url = isStringValue
             ? nodes[0].value
             : valueParser.stringify(nodes);
+
           url = normalizeUrl(url, isStringValue);
 
+          const { requestable, needResolve } = shouldHandleURL(
+            url,
+            declaration,
+            result,
+            options
+          );
+
           // Do not traverse inside `url`
-          if (!shouldHandleURL(url, declaration, result, options)) {
+          if (!requestable) {
             // eslint-disable-next-line consistent-return
             return false;
           }
 
           const queryParts = url.split("!");
+
           let prefix;
 
           if (queryParts.length > 1) {
@@ -217,6 +221,7 @@ function parseDeclaration(declaration, key, result, options) {
             prefix,
             url,
             needQuotes: false,
+            needResolve,
           });
         } else if (type === "string") {
           needIgnore = getWebpackIgnoreCommentValue(
@@ -239,13 +244,21 @@ function parseDeclaration(declaration, key, result, options) {
 
           let url = normalizeUrl(value, true);
 
+          const { requestable, needResolve } = shouldHandleURL(
+            url,
+            declaration,
+            result,
+            options
+          );
+
           // Do not traverse inside `url`
-          if (!shouldHandleURL(url, declaration, result, options)) {
+          if (!requestable) {
             // eslint-disable-next-line consistent-return
             return false;
           }
 
           const queryParts = url.split("!");
+
           let prefix;
 
           if (queryParts.length > 1) {
@@ -260,6 +273,7 @@ function parseDeclaration(declaration, key, result, options) {
             prefix,
             url,
             needQuotes: true,
+            needResolve,
           });
         }
       }
@@ -301,7 +315,7 @@ const plugin = (options = {}) => {
 
           const resolvedDeclarations = await Promise.all(
             parsedDeclarations.map(async (parsedDeclaration) => {
-              const { url } = parsedDeclaration;
+              const { url, needResolve } = parsedDeclaration;
 
               if (options.filter) {
                 const needKeep = await options.filter(url);
@@ -312,7 +326,7 @@ const plugin = (options = {}) => {
                 }
               }
 
-              if (isDataUrl(url)) {
+              if (!needResolve) {
                 // eslint-disable-next-line consistent-return
                 return parsedDeclaration;
               }
@@ -323,30 +337,31 @@ const plugin = (options = {}) => {
               let hash = query ? "?" : "";
               hash += hashOrQuery ? `#${hashOrQuery}` : "";
 
-              const { needToResolveURL, rootContext } = options;
+              const { resolver, rootContext } = options;
               const request = requestify(
                 pathname,
                 rootContext,
-                needToResolveURL
+                Boolean(resolver)
               );
 
-              if (!needToResolveURL) {
+              if (!resolver) {
                 // eslint-disable-next-line consistent-return
                 return { ...parsedDeclaration, url: request, hash };
               }
 
-              const { resolver, context } = options;
-              const resolvedUrl = await resolveRequests(resolver, context, [
-                ...new Set([request, url]),
-              ]);
+              const resolvedURL = await resolveRequests(
+                resolver,
+                options.context,
+                [...new Set([request, url])]
+              );
 
-              if (!resolvedUrl) {
+              if (!resolvedURL) {
                 // eslint-disable-next-line consistent-return
                 return;
               }
 
               // eslint-disable-next-line consistent-return
-              return { ...parsedDeclaration, url: resolvedUrl, hash };
+              return { ...parsedDeclaration, url: resolvedURL, hash };
             })
           );
 
@@ -391,7 +406,7 @@ const plugin = (options = {}) => {
               options.imports.push({
                 type: "url",
                 importName,
-                url: options.needToResolveURL
+                url: options.resolver
                   ? options.urlHandler(newUrl)
                   : JSON.stringify(newUrl),
                 index,

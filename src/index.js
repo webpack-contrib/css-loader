@@ -71,7 +71,8 @@ export default async function loader(content, map, meta) {
   if (shouldUseImportPlugin(options)) {
     plugins.push(
       importParser({
-        isSupportAbsoluteURL,
+        isSupportAbsoluteURL: false,
+        isSupportDataURL: false,
         isCSSStyleSheet: options.exportType === "css-style-sheet",
         loaderContext: this,
         imports: importPluginImports,
@@ -100,7 +101,6 @@ export default async function loader(content, map, meta) {
         context: this.context,
         rootContext: this.rootContext,
         filter: getFilter(options.url.filter, this.resourcePath),
-        needToResolveURL,
         resolver: needToResolveURL
           ? this.getResolve({ mainFiles: [], extensions: [] })
           : // eslint-disable-next-line no-undefined
