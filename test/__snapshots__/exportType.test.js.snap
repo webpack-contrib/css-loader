@@ -746,7 +746,7 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_7___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(./test-other.css) (min-width: 100px);\\\\n\\\\n.P85qEbhg8jkBy4rgNwQz {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n}\\\\n\\\\n.Eo6_sfPnD7rpTZ0v1Fkf {\\\\n  color: blue;\\\\n}\\\\n\\\\n.MhaYhnD8XLZ6lZNLg6u6 {\\\\n  display: block;\\\\n}\\\\n\\\\n.gr0d1lZx0jY3yukIIKnp {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\";\\\\n}\\\\n\\\\n.CqJAOFyi5eHSixHLWRPb {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\";\\\\n}\\\\n\\\\n.BwqcJUZVklJeQgpWzVLw {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\";\\\\n}\\\\n\\\\n.BOO06EyodC9uhCD2xDse {\\\\n  color: red;\\\\n}\\\\n\\\\n.B66qfHfcQPX7wKWAfMOK {\\\\n  color: yellow;\\\\n}\\\\n\\\\n._JsG09cO6EVRyhORJU3e {\\\\n  color: gray;\\\\n}\\\\n\\\\n.gFDbeJirQIlTYfptRLPG {\\\\n  color: gray;\\\\n}\\\\n\\\\n.U3fymX2VyTEBwNe_zq9w {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n.IA60KtpCXj8G7nZCIBNv {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n.fx2xx7glc02JfQ47ybJv {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.T2hxfC8Y0VNWMi4kt3ca {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  .pEu_ik4B01tuiKTTGt9A {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\" {\\\\n  .pEu_ik4B01tuiKTTGt9A {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\\\n.Wz1onVymG8bENVS6xbCf {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment:  /* comment */ 10px  /* comment */;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n.OlrTRWpDADlppylS63wE {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.caU4e_rCr38dtNgUdrQh {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(./test-other.css) (min-width: 100px);\\\\n\\\\n.ozGmfTedr1GnFJDWqNUH {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n}\\\\n\\\\n.zchqshjqLbPAHaRvIBET {\\\\n  color: blue;\\\\n}\\\\n\\\\n.WZBxXqS2GytaA3IBhhnd {\\\\n  display: block;\\\\n}\\\\n\\\\n.W51zcAMuJMsNFi1CXgWr {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\";\\\\n}\\\\n\\\\n.KEl5ZxzNkpjfWorrBglC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\";\\\\n}\\\\n\\\\n.ecAEWh2vww9pNEdyj9Jn {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\";\\\\n}\\\\n\\\\n.CBlowYk8qiAgWWzFeXRA {\\\\n  color: red;\\\\n}\\\\n\\\\n.c_NHnDcX1bd_kuxgsuYi {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.S0Kwou8pVmsENtBP3hYm {\\\\n  color: gray;\\\\n}\\\\n\\\\n.rq663Pq_zV0CjpwttvK4 {\\\\n  color: gray;\\\\n}\\\\n\\\\n.fadRMHArJofp7sWEbPVR {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n.sg1HlXqlWy6l6_Wm5iA7 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n.bnRUswvicYag6u0SPnvI {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.kEJRwpukB2OtmkGTknbU {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  .hY2PI5vC9ABuJY1nkWnf {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\" {\\\\n  .hY2PI5vC9ABuJY1nkWnf {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\\\n.q8mv0HutzqdsVWjl8mAz {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment:  /* comment */ 10px  /* comment */;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n.xajoqP1d3SwrjJ4WEM8g {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.Ix5nEHiVOsWuWxdx0twz {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export var vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
 export var vOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\"\\";
@@ -777,24 +777,24 @@ export var vHex = \\"#fff\\";
 export var vComment = \\" /* comment */\\";
 export var vFunction = \\"rgb(0,0,0)\\";
 export var vUnicodeRange = \\"U+0025-00FF\\";
-export var ghi = \\"P85qEbhg8jkBy4rgNwQz\\";
-export var myClass = \\"Eo6_sfPnD7rpTZ0v1Fkf\\";
-export var other = \\"MhaYhnD8XLZ6lZNLg6u6\\";
-export var otherOther = \\"gr0d1lZx0jY3yukIIKnp\\";
-export var green = \\"CqJAOFyi5eHSixHLWRPb\\";
-export var foo = \\"BwqcJUZVklJeQgpWzVLw\\";
-export var simple = \\"BOO06EyodC9uhCD2xDse \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
-export var relative = \\"B66qfHfcQPX7wKWAfMOK \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
-export var topRelative = \\"_JsG09cO6EVRyhORJU3e \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
-export var myModule = \\"gFDbeJirQIlTYfptRLPG \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
-export var alias = \\"U3fymX2VyTEBwNe_zq9w \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export var aliasDuplicate = \\"IA60KtpCXj8G7nZCIBNv \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export var primarySelector = \\"fx2xx7glc02JfQ47ybJv\\";
-export var blackSelector = \\"T2hxfC8Y0VNWMi4kt3ca\\";
-export var header = \\"pEu_ik4B01tuiKTTGt9A\\";
-export var foobarbaz = \\"Wz1onVymG8bENVS6xbCf\\";
-export var url = \\"OlrTRWpDADlppylS63wE\\";
-export var main = \\"caU4e_rCr38dtNgUdrQh \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
+export var ghi = \\"ozGmfTedr1GnFJDWqNUH\\";
+export var myClass = \\"zchqshjqLbPAHaRvIBET\\";
+export var other = \\"WZBxXqS2GytaA3IBhhnd\\";
+export var otherOther = \\"W51zcAMuJMsNFi1CXgWr\\";
+export var green = \\"KEl5ZxzNkpjfWorrBglC\\";
+export var foo = \\"ecAEWh2vww9pNEdyj9Jn\\";
+export var simple = \\"CBlowYk8qiAgWWzFeXRA \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
+export var relative = \\"c_NHnDcX1bd_kuxgsuYi \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var topRelative = \\"S0Kwou8pVmsENtBP3hYm \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var myModule = \\"rq663Pq_zV0CjpwttvK4 \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
+export var alias = \\"fadRMHArJofp7sWEbPVR \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var aliasDuplicate = \\"sg1HlXqlWy6l6_Wm5iA7 \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var primarySelector = \\"bnRUswvicYag6u0SPnvI\\";
+export var blackSelector = \\"kEJRwpukB2OtmkGTknbU\\";
+export var header = \\"hY2PI5vC9ABuJY1nkWnf\\";
+export var foobarbaz = \\"q8mv0HutzqdsVWjl8mAz\\";
+export var url = \\"xajoqP1d3SwrjJ4WEM8g\\";
+export var main = \\"Ix5nEHiVOsWuWxdx0twz \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
 export default ___CSS_LOADER_STYLE_SHEET___;
@@ -804,29 +804,29 @@ export default ___CSS_LOADER_STYLE_SHEET___;
 exports[`'exportType' option should work with 'css-style-sheet' value and CSS modules and still emit error on '@import' at-rules: result 1`] = `
 CSSStyleSheet {
   "named": Object {
-    "alias": "U3fymX2VyTEBwNe_zq9w Lknnf_0WTuZ0CI5y_IX7",
-    "aliasDuplicate": "IA60KtpCXj8G7nZCIBNv Lknnf_0WTuZ0CI5y_IX7",
-    "blackSelector": "T2hxfC8Y0VNWMi4kt3ca",
+    "alias": "fadRMHArJofp7sWEbPVR dnhKs1AYKq4KodZdfzcx",
+    "aliasDuplicate": "sg1HlXqlWy6l6_Wm5iA7 dnhKs1AYKq4KodZdfzcx",
+    "blackSelector": "kEJRwpukB2OtmkGTknbU",
     "default": [Circular],
-    "foo": "BwqcJUZVklJeQgpWzVLw",
-    "foobarbaz": "Wz1onVymG8bENVS6xbCf",
-    "ghi": "P85qEbhg8jkBy4rgNwQz",
-    "green": "CqJAOFyi5eHSixHLWRPb",
-    "header": "pEu_ik4B01tuiKTTGt9A",
+    "foo": "ecAEWh2vww9pNEdyj9Jn",
+    "foobarbaz": "q8mv0HutzqdsVWjl8mAz",
+    "ghi": "ozGmfTedr1GnFJDWqNUH",
+    "green": "KEl5ZxzNkpjfWorrBglC",
+    "header": "hY2PI5vC9ABuJY1nkWnf",
     "mLarge": "(min-width: 960px)",
     "mSmall": "(min-width: 320px)",
-    "main": "caU4e_rCr38dtNgUdrQh wsOp1HM5kumrb0Yi71F8",
-    "myClass": "Eo6_sfPnD7rpTZ0v1Fkf",
-    "myModule": "gFDbeJirQIlTYfptRLPG _6H6UlWPf4T5izbGDco8",
-    "other": "MhaYhnD8XLZ6lZNLg6u6",
-    "otherOther": "gr0d1lZx0jY3yukIIKnp",
-    "primarySelector": "fx2xx7glc02JfQ47ybJv",
-    "relative": "B66qfHfcQPX7wKWAfMOK FlUNBIu4hCY1EW3ToHlv",
+    "main": "Ix5nEHiVOsWuWxdx0twz oNU7JF6MtPAFrlrthaOD",
+    "myClass": "zchqshjqLbPAHaRvIBET",
+    "myModule": "rq663Pq_zV0CjpwttvK4 q49Ogfvno__tAgAiYJcD",
+    "other": "WZBxXqS2GytaA3IBhhnd",
+    "otherOther": "W51zcAMuJMsNFi1CXgWr",
+    "primarySelector": "bnRUswvicYag6u0SPnvI",
+    "relative": "c_NHnDcX1bd_kuxgsuYi o0pMg4suYQOIzdBIQJv1",
     "sBlack": "black-selector",
     "sWhite": "white",
-    "simple": "BOO06EyodC9uhCD2xDse ik5PPUjqiEaVyKXyA8Kp",
-    "topRelative": "_JsG09cO6EVRyhORJU3e u4XuBEKutAIeFlHbl_eS",
-    "url": "OlrTRWpDADlppylS63wE",
+    "simple": "CBlowYk8qiAgWWzFeXRA pCAAqHK9Lcplw9QM7Rj0",
+    "topRelative": "S0Kwou8pVmsENtBP3hYm l9CmW32NEl99tuNLdbzp",
+    "url": "xajoqP1d3SwrjJ4WEM8g",
     "vBar": "block",
     "vComment": " /* comment */",
     "vDef": "red",
@@ -855,65 +855,65 @@ CSSStyleSheet {
   },
   "text": "@import url(./test-other.css) (min-width: 100px);
 
-.P85qEbhg8jkBy4rgNwQz {
+.ozGmfTedr1GnFJDWqNUH {
   color: red;
 }
 
-.Eo6_sfPnD7rpTZ0v1Fkf {
+.zchqshjqLbPAHaRvIBET {
   color: blue;
 }
 
-.MhaYhnD8XLZ6lZNLg6u6 {
+.WZBxXqS2GytaA3IBhhnd {
   display: block;
 }
 
-.gr0d1lZx0jY3yukIIKnp {
+.W51zcAMuJMsNFi1CXgWr {
   width: 2112moon;
 }
 
-.CqJAOFyi5eHSixHLWRPb {
+.KEl5ZxzNkpjfWorrBglC {
   color: green;
 }
 
-.BwqcJUZVklJeQgpWzVLw {
+.ecAEWh2vww9pNEdyj9Jn {
   prop: red;
   duplicate: green;
 }
 
-.BOO06EyodC9uhCD2xDse {
+.CBlowYk8qiAgWWzFeXRA {
   color: red;
 }
 
-.B66qfHfcQPX7wKWAfMOK {
+.c_NHnDcX1bd_kuxgsuYi {
   color: yellow;
 }
 
-._JsG09cO6EVRyhORJU3e {
+.S0Kwou8pVmsENtBP3hYm {
   color: gray;
 }
 
-.gFDbeJirQIlTYfptRLPG {
+.rq663Pq_zV0CjpwttvK4 {
   color: gray;
 }
 
-.U3fymX2VyTEBwNe_zq9w {
+.fadRMHArJofp7sWEbPVR {
   color: gainsboro;
 }
 
-.IA60KtpCXj8G7nZCIBNv {
+.sg1HlXqlWy6l6_Wm5iA7 {
   color: gainsboro;
 }
 
-.fx2xx7glc02JfQ47ybJv {
+.bnRUswvicYag6u0SPnvI {
   color: #BF4040;
 }
 
-.T2hxfC8Y0VNWMi4kt3ca {
+.kEJRwpukB2OtmkGTknbU {
   color: black;
 }
 
 @media (min-width: 960px) {
-  .pEu_ik4B01tuiKTTGt9A {
+  .hY2PI5vC9ABuJY1nkWnf {
     padding: 0 20px;
   }
 }
@@ -923,12 +923,12 @@ CSSStyleSheet {
 }
 
 @media (min-width: 320px) {
-  .pEu_ik4B01tuiKTTGt9A {
+  .hY2PI5vC9ABuJY1nkWnf {
     padding: 20px 20px;
   }
 }
 
-.Wz1onVymG8bENVS6xbCf {
+.q8mv0HutzqdsVWjl8mAz {
   v-ident: validIdent;
   v-pre-defined-ident: left;
   v-string: 'content';
@@ -966,11 +966,11 @@ a {
   color:green;
 }
 
-.OlrTRWpDADlppylS63wE {
+.xajoqP1d3SwrjJ4WEM8g {
   background: url(file:///webpack/public/path/img.png);
 }
 
-.caU4e_rCr38dtNgUdrQh {
+.Ix5nEHiVOsWuWxdx0twz {
   background: red;
 }
 ",
@@ -2467,21 +2467,21 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSour
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".Pj5N6UaAoOGtNEUYMatW {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".dvYI1gdIOPlJqjwAWOo8 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
-export var someClass = \\"Pj5N6UaAoOGtNEUYMatW\\";
+export var someClass = \\"dvYI1gdIOPlJqjwAWOo8\\";
 export default ___CSS_LOADER_EXPORT___.toString();
 "
 `;
 
 exports[`'exportType' option should work with 'string' value and CSS modules: result 1`] = `
 Object {
-  "css": ".Pj5N6UaAoOGtNEUYMatW {
+  "css": ".dvYI1gdIOPlJqjwAWOo8 {
   color: red;
 }
 ",
   "locals": Object {
-    "someClass": "Pj5N6UaAoOGtNEUYMatW",
+    "someClass": "dvYI1gdIOPlJqjwAWOo8",
   },
 }
 `;
@@ -2852,52 +2852,52 @@ export var vHex = \\"#fff\\";
 export var vComment = \\" /* comment */\\";
 export var vFunction = \\"rgb(0,0,0)\\";
 export var vUnicodeRange = \\"U+0025-00FF\\";
-export var ghi = \\"P85qEbhg8jkBy4rgNwQz\\";
-export var myClass = \\"Eo6_sfPnD7rpTZ0v1Fkf\\";
-export var other = \\"MhaYhnD8XLZ6lZNLg6u6\\";
-export var otherOther = \\"gr0d1lZx0jY3yukIIKnp\\";
-export var green = \\"CqJAOFyi5eHSixHLWRPb\\";
-export var foo = \\"BwqcJUZVklJeQgpWzVLw\\";
-export var simple = \\"BOO06EyodC9uhCD2xDse \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
-export var relative = \\"B66qfHfcQPX7wKWAfMOK \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
-export var topRelative = \\"_JsG09cO6EVRyhORJU3e \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
-export var myModule = \\"gFDbeJirQIlTYfptRLPG \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
-export var alias = \\"U3fymX2VyTEBwNe_zq9w \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export var aliasDuplicate = \\"IA60KtpCXj8G7nZCIBNv \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export var primarySelector = \\"fx2xx7glc02JfQ47ybJv\\";
-export var blackSelector = \\"T2hxfC8Y0VNWMi4kt3ca\\";
-export var header = \\"pEu_ik4B01tuiKTTGt9A\\";
-export var foobarbaz = \\"Wz1onVymG8bENVS6xbCf\\";
-export var url = \\"OlrTRWpDADlppylS63wE\\";
-export var main = \\"caU4e_rCr38dtNgUdrQh \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
+export var ghi = \\"ozGmfTedr1GnFJDWqNUH\\";
+export var myClass = \\"zchqshjqLbPAHaRvIBET\\";
+export var other = \\"WZBxXqS2GytaA3IBhhnd\\";
+export var otherOther = \\"W51zcAMuJMsNFi1CXgWr\\";
+export var green = \\"KEl5ZxzNkpjfWorrBglC\\";
+export var foo = \\"ecAEWh2vww9pNEdyj9Jn\\";
+export var simple = \\"CBlowYk8qiAgWWzFeXRA \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
+export var relative = \\"c_NHnDcX1bd_kuxgsuYi \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var topRelative = \\"S0Kwou8pVmsENtBP3hYm \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var myModule = \\"rq663Pq_zV0CjpwttvK4 \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
+export var alias = \\"fadRMHArJofp7sWEbPVR \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var aliasDuplicate = \\"sg1HlXqlWy6l6_Wm5iA7 \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var primarySelector = \\"bnRUswvicYag6u0SPnvI\\";
+export var blackSelector = \\"kEJRwpukB2OtmkGTknbU\\";
+export var header = \\"hY2PI5vC9ABuJY1nkWnf\\";
+export var foobarbaz = \\"q8mv0HutzqdsVWjl8mAz\\";
+export var url = \\"xajoqP1d3SwrjJ4WEM8g\\";
+export var main = \\"Ix5nEHiVOsWuWxdx0twz \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
 "
 `;
 
 exports[`'exportType' option should work with CSS modules and the 'exportOnlyLocals' option: result 1`] = `
 Object {
   "named": Object {
-    "alias": "U3fymX2VyTEBwNe_zq9w Lknnf_0WTuZ0CI5y_IX7",
-    "aliasDuplicate": "IA60KtpCXj8G7nZCIBNv Lknnf_0WTuZ0CI5y_IX7",
-    "blackSelector": "T2hxfC8Y0VNWMi4kt3ca",
-    "foo": "BwqcJUZVklJeQgpWzVLw",
-    "foobarbaz": "Wz1onVymG8bENVS6xbCf",
-    "ghi": "P85qEbhg8jkBy4rgNwQz",
-    "green": "CqJAOFyi5eHSixHLWRPb",
-    "header": "pEu_ik4B01tuiKTTGt9A",
+    "alias": "fadRMHArJofp7sWEbPVR dnhKs1AYKq4KodZdfzcx",
+    "aliasDuplicate": "sg1HlXqlWy6l6_Wm5iA7 dnhKs1AYKq4KodZdfzcx",
+    "blackSelector": "kEJRwpukB2OtmkGTknbU",
+    "foo": "ecAEWh2vww9pNEdyj9Jn",
+    "foobarbaz": "q8mv0HutzqdsVWjl8mAz",
+    "ghi": "ozGmfTedr1GnFJDWqNUH",
+    "green": "KEl5ZxzNkpjfWorrBglC",
+    "header": "hY2PI5vC9ABuJY1nkWnf",
     "mLarge": "(min-width: 960px)",
     "mSmall": "(min-width: 320px)",
-    "main": "caU4e_rCr38dtNgUdrQh wsOp1HM5kumrb0Yi71F8",
-    "myClass": "Eo6_sfPnD7rpTZ0v1Fkf",
-    "myModule": "gFDbeJirQIlTYfptRLPG _6H6UlWPf4T5izbGDco8",
-    "other": "MhaYhnD8XLZ6lZNLg6u6",
-    "otherOther": "gr0d1lZx0jY3yukIIKnp",
-    "primarySelector": "fx2xx7glc02JfQ47ybJv",
-    "relative": "B66qfHfcQPX7wKWAfMOK FlUNBIu4hCY1EW3ToHlv",
+    "main": "Ix5nEHiVOsWuWxdx0twz oNU7JF6MtPAFrlrthaOD",
+    "myClass": "zchqshjqLbPAHaRvIBET",
+    "myModule": "rq663Pq_zV0CjpwttvK4 q49Ogfvno__tAgAiYJcD",
+    "other": "WZBxXqS2GytaA3IBhhnd",
+    "otherOther": "W51zcAMuJMsNFi1CXgWr",
+    "primarySelector": "bnRUswvicYag6u0SPnvI",
+    "relative": "c_NHnDcX1bd_kuxgsuYi o0pMg4suYQOIzdBIQJv1",
     "sBlack": "black-selector",
     "sWhite": "white",
-    "simple": "BOO06EyodC9uhCD2xDse ik5PPUjqiEaVyKXyA8Kp",
-    "topRelative": "_JsG09cO6EVRyhORJU3e u4XuBEKutAIeFlHbl_eS",
-    "url": "OlrTRWpDADlppylS63wE",
+    "simple": "CBlowYk8qiAgWWzFeXRA pCAAqHK9Lcplw9QM7Rj0",
+    "topRelative": "S0Kwou8pVmsENtBP3hYm l9CmW32NEl99tuNLdbzp",
+    "url": "xajoqP1d3SwrjJ4WEM8g",
     "vBar": "block",
     "vComment": " /* comment */",
     "vDef": "red",
