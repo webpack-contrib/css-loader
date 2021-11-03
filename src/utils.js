@@ -364,8 +364,13 @@ function defaultGetLocalIdent(
   let localIdentHash = "";
 
   for (let tier = 0; localIdentHash.length < hashDigestLength; tier++) {
-    // eslint-disable-next-line no-underscore-dangle
-    const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
+    // TODO remove this in the next major release
+    const hash =
+      loaderContext.utils &&
+      typeof loaderContext.utils.createHash === "function"
+        ? loaderContext.utils.createHash(hashFunction)
+        : // eslint-disable-next-line no-underscore-dangle
+          loaderContext._compiler.webpack.util.createHash(hashFunction);
 
     if (hashSalt) {
       hash.update(hashSalt);
@@ -376,7 +381,8 @@ function defaultGetLocalIdent(
     tierSalt.writeUInt32LE(tier);
 
     hash.update(tierSalt);
-    hash.update(options.content);
+    // TODO: bug in webpack with unicode characters with strings
+    hash.update(Buffer.from(options.content, "utf8"));
 
     localIdentHash = (localIdentHash + hash.digest(hashDigest))
       // Remove all leading digits

@@ -329,7 +329,7 @@ describe('"modules" option', () => {
   });
 
   it('should work and respect the "getLocalIdent" option', async () => {
-    expect.assertions(382);
+    expect.assertions(389);
 
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
@@ -382,7 +382,7 @@ describe('"modules" option', () => {
   });
 
   it('should work and has "undefined" context if no context was given', async () => {
-    expect.assertions(58);
+    expect.assertions(59);
 
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
