@@ -691,22 +691,19 @@ function normalizeOptions(rawOptions, loaderContext) {
     loaderContext
   );
 
-  return {
+  let normalizedOptions = {
     url: typeof rawOptions.url === "undefined" ? true : rawOptions.url,
     import: typeof rawOptions.import === "undefined" ? true : rawOptions.import,
     modules: modulesOptions,
-    sourceMap:
-      typeof rawOptions.sourceMap === "boolean"
-        ? rawOptions.sourceMap
-        : loaderContext.sourceMap,
-    importLoaders:
-      typeof rawOptions.importLoaders === "string"
-        ? parseInt(rawOptions.importLoaders, 10)
-        : rawOptions.importLoaders,
-    esModule:
-      typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
-    exportType,
-  };
+    sourceMap: typeof rawOptions.sourceMap === "boolean" ? rawOptions.sourceMap : loaderContext.sourceMap,
+    importLoaders: typeof rawOptions.importLoaders === "string" ? parseInt(rawOptions.importLoaders, 10) : rawOptions.importLoaders,
+    esModule: typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
+    exportType
+  }
+  
+  rawOptions.syntax && typeof rawOptions.syntax === 'object' ? normalizedOptions.syntax = rawOptions.syntax : null;
+
+  return normalizedOptions;
 }
 
 function shouldUseImportPlugin(options) {

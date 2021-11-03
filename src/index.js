@@ -152,18 +152,20 @@ export default async function loader(content, map, meta) {
   let result;
 
   try {
-    result = await postcss(plugins).process(content, {
+
+    let configOptions = {
       hideNothingWarning: true,
       from: resourcePath,
       to: resourcePath,
-      map: options.sourceMap
-        ? {
-            prev: map ? normalizeSourceMap(map, resourcePath) : null,
-            inline: false,
-            annotation: false,
-          }
-        : false,
-    });
+      map: options.sourceMap ? {
+        prev: map ? (0, _utils.normalizeSourceMap)(map, resourcePath) : null,
+        inline: false,
+        annotation: false
+      } : false
+    }
+    options.syntax ? configOptions.syntax = options.syntax : null;
+
+    result = await postcss(plugins).process(content, configOptions);
   } catch (error) {
     if (error.file) {
       this.addDependency(error.file);
