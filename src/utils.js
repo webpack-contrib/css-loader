@@ -364,9 +364,13 @@ function defaultGetLocalIdent(
   let localIdentHash = "";
 
   for (let tier = 0; localIdentHash.length < hashDigestLength; tier++) {
-    // TODO migrate on webpack API (`loaderContext.utils.createHash`) in the next major release
-    // eslint-disable-next-line no-underscore-dangle
-    const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
+    // TODO remove this in the next major release
+    const hash =
+      loaderContext.utils &&
+      typeof loaderContext.utils.createHash === "function"
+        ? loaderContext.utils.createHash(hashFunction)
+        : // eslint-disable-next-line no-underscore-dangle
+          loaderContext._compiler.webpack.util.createHash(hashFunction);
 
     if (hashSalt) {
       hash.update(hashSalt);
