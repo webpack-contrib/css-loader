@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.5.1](https://github.com/webpack-contrib/css-loader/compare/v6.5.0...v6.5.1) (2021-11-03)
+
+
+### Bug Fixes
+
+* regression with unicode characters in locals ([b7a8441](https://github.com/webpack-contrib/css-loader/commit/b7a84414fb3f6e6ff413cbbb7004fa74a78da331))
+* runtime path generation ([#1393](https://github.com/webpack-contrib/css-loader/issues/1393)) ([feafea8](https://github.com/webpack-contrib/css-loader/commit/feafea812a95db05e9b52beaced0def611bba5c8))
+
 ## [6.5.0](https://github.com/webpack-contrib/css-loader/compare/v6.4.0...v6.5.0) (2021-10-26)
 
 
