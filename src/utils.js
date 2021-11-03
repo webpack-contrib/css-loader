@@ -381,13 +381,8 @@ function defaultGetLocalIdent(
     tierSalt.writeUInt32LE(tier);
 
     hash.update(tierSalt);
-    // TODO: bug in webpack with unicode characters
-    hash.update(
-      options.content
-        .split("")
-        .map((i) => `${i.codePointAt(0).toString(16)}`)
-        .join("")
-    );
+    // TODO: bug in webpack with unicode characters with strings
+    hash.update(Buffer.from(options.content, "utf8"));
 
     localIdentHash = (localIdentHash + hash.digest(hashDigest))
       // Remove all leading digits
