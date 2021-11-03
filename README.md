@@ -67,6 +67,7 @@ If, for one reason or another, you need to extract CSS as a file (i.e. do not st
 | **[`importLoaders`](#importloaders)** |                  `{Number}`                  |        `0`         | Allows enables/disables or setups number of loaders applied before CSS loader for `@import`/CSS Modules and ICSS imports                                                                                                                                  |
 |      **[`esModule`](#esmodule)**      |                 `{Boolean}`                  |       `true`       | Use ES modules syntax                                                                                                                                                                                                                                     |
 |    **[`exportType`](#exporttype)**    | `{'array' \| 'string' \| 'css-style-sheet'}` |      `array`       | Allows exporting styles as array with modules, string or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)) |
+|           **[`Syntax`](#syntax)**           |             `{Object}`              |       `null`       | Allows for the specification of a custom parser and stringifier to be used in conjunction with postcss.
 
 ### `url`
 
@@ -1436,6 +1437,25 @@ module.exports = {
     ],
   },
 };
+```
+
+### `Syntax`
+Type: `Object`
+Default: `undefined`
+
+Allows for extensions of the base postcss syntax. Must follow the postcss syntax as outlined [here](https://github.com/postcss/postcss/blob/main/docs/syntax.md).
+
+```js
+module.exports = {
+  ...
+  {
+    loader: 'css-loader',
+    options: {
+      syntax: require("path/to/cusotm-syntax")
+    }
+  },
+  ...
+}
 ```
 
 ## Examples
