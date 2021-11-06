@@ -301,7 +301,13 @@ a {
   background: url("./img img.png");
 }
 
+/* Comment */
+
 .class.class.class {
+  background: url('./img\
+(img.png');
+  background: url('./img\
+(img.png');
   background: url('./img\
 (img.png');
   background: url('./img\
@@ -344,10 +350,6 @@ a {
   background: url(./img\'\28%29\ img.png);
 }
 
-.qqq {
-  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img.png')
-}
-
 .class {
   /* Should be one import */
   background: url('./something.png');
@@ -376,4 +378,53 @@ a {
 
 .strange {
   background: url('%2E/img.png');
+}
+
+.my-background {
+  background-image: url("/guide/img/banWord/addCoinDialogTitleBg.png");
+}
+
+.class {
+  background: url('./img.png', 'foo', './img.png', url('./img.png'));
+  background-image: image-set(url('./img.png', 'foo', './img.png', url('./img.png')) 1x, url("./img2x.png") 2x);
+}
+
+.button {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" style="stroke: rgb(223,224,225); stroke-width: 2px; fill: none; stroke-dasharray: 6px 3px" /></svg>');
+}
+
+/* We need to use `resourceQuery: /inline/` */
+/* Hard to test on webpack v4 */
+.qqq {
+  background: url('!!../../helpers/url-loader.js?esModule=false!~package/img-single.png?ignore-asset-modules')
+}
+
+.class {
+  background: url("img.png");
+}
+
+.class {
+  background: url("~img.png");
+}
+
+/** Prefer relative **/
+.class {
+  background: url("nested/img.png");
+}
+
+/** Prefer from modules **/
+.class {
+  background: url("nested/other.png");
+}
+
+.class {
+  background: url("package/img.png");
+}
+
+.foo {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.bar {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><rect fill="gray" width="5" height="5" y="0" x="0" /></svg>');
 }

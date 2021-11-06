@@ -1,0 +1,2930 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when \`esModule\` disabled, but 'modules.namedExport' enabled: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'esModules' option to be enabled",
+]
+`;
+
+exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when \`esModule\` disabled, but 'modules.namedExport' enabled: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when \`esModule\` disabled: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'esModules' option to be enabled",
+]
+`;
+
+exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when \`esModule\` disabled: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when named export disabled: errors 1`] = `
+Array [
+  "ModuleBuildError: Module build failed (from \`replaced original path\`):
+Error: The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'modules.namedExport' option to be enabled",
+]
+`;
+
+exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when named export disabled: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work and export 'array' by default: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work and export 'array' by default: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`'exportType' option should work and export 'array' by default: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css",
+    ".foo {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    "./basic.css",
+    "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`'exportType' option should work and export 'array' by default: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'array' value: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'array' value: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`'exportType' option should work with 'array' value: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css",
+    ".foo {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    "./basic.css",
+    "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`'exportType' option should work with 'array' value: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' and 'array' values: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' and 'array' values: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+export default ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' and 'array' values: module 2`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js!./imported.css\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' and 'array' values: result 1`] = `
+Array [
+  CSSStyleSheet {
+    "text": "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+",
+  },
+  Array [
+    Array [
+      "../../src/index.js!./imported.css",
+      ".foo {
+  color: red;
+}
+",
+      "",
+    ],
+    Array [
+      "./basic.css?foo=1",
+      "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+",
+      "",
+    ],
+  ],
+]
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' and 'array' values: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and CSS modules and still emit error on '@import' at-rules: errors 1`] = `
+Array [
+  "ModuleError: Module Error (from \`replaced original path\`):
+/test/fixtures/modules/composes/composes.css:1:1: '@import' rules are not allowed here and will not be processed",
+]
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and CSS modules and still emit error on '@import' at-rules: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___, * as ___CSS_LOADER_ICSS_IMPORT_1____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_2___, * as ___CSS_LOADER_ICSS_IMPORT_2____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_3___, * as ___CSS_LOADER_ICSS_IMPORT_3____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_4___, * as ___CSS_LOADER_ICSS_IMPORT_4____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_5___, * as ___CSS_LOADER_ICSS_IMPORT_5____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../issue-861/node_modules/package/style.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_6___, * as ___CSS_LOADER_ICSS_IMPORT_6____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_7___, * as ___CSS_LOADER_ICSS_IMPORT_7____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"../../url/img.png\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_2___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_3___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_4___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_5___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_7___, \\"\\", true);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(./test-other.css) (min-width: 100px);\\\\n\\\\n.ozGmfTedr1GnFJDWqNUH {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n}\\\\n\\\\n.zchqshjqLbPAHaRvIBET {\\\\n  color: blue;\\\\n}\\\\n\\\\n.WZBxXqS2GytaA3IBhhnd {\\\\n  display: block;\\\\n}\\\\n\\\\n.W51zcAMuJMsNFi1CXgWr {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\";\\\\n}\\\\n\\\\n.KEl5ZxzNkpjfWorrBglC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\";\\\\n}\\\\n\\\\n.ecAEWh2vww9pNEdyj9Jn {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\";\\\\n}\\\\n\\\\n.CBlowYk8qiAgWWzFeXRA {\\\\n  color: red;\\\\n}\\\\n\\\\n.c_NHnDcX1bd_kuxgsuYi {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.S0Kwou8pVmsENtBP3hYm {\\\\n  color: gray;\\\\n}\\\\n\\\\n.rq663Pq_zV0CjpwttvK4 {\\\\n  color: gray;\\\\n}\\\\n\\\\n.fadRMHArJofp7sWEbPVR {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n.sg1HlXqlWy6l6_Wm5iA7 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n.bnRUswvicYag6u0SPnvI {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.kEJRwpukB2OtmkGTknbU {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  .hY2PI5vC9ABuJY1nkWnf {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\" {\\\\n  .hY2PI5vC9ABuJY1nkWnf {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\\\n.q8mv0HutzqdsVWjl8mAz {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment:  /* comment */ 10px  /* comment */;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n.xajoqP1d3SwrjJ4WEM8g {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.Ix5nEHiVOsWuWxdx0twz {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export var vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
+export var vOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\"\\";
+export var sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
+export var mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
+export var vSomething = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\"\\";
+export var vFoo = \\"blue\\";
+export var vBar = \\"block\\";
+export var vPrimary = \\"#BF4040\\";
+export var sBlack = \\"black-selector\\";
+export var mLarge = \\"(min-width: 960px)\\";
+export var vIdent = \\"validIdent\\";
+export var vPreDefinedIdent = \\"left\\";
+export var vString = \\"'content'\\";
+export var vString1 = \\"''\\";
+export var vUrl = \\"url(https://www.exammple.com/images/my-background.png)\\";
+export var vUrl1 = \\"url('https://www.exammple.com/images/my-background.png')\\";
+export var vUrl2 = \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\";
+export var vInteger = \\"100\\";
+export var vInteger1 = \\"-100\\";
+export var vInteger2 = \\"+100\\";
+export var vNumber = \\".60\\";
+export var vNumber1 = \\"-456.8\\";
+export var vNumber2 = \\"-3.4e-2\\";
+export var vDimension = \\"12px\\";
+export var vPercentage = \\"100%\\";
+export var vHex = \\"#fff\\";
+export var vComment = \\" /* comment */\\";
+export var vFunction = \\"rgb(0,0,0)\\";
+export var vUnicodeRange = \\"U+0025-00FF\\";
+export var ghi = \\"ozGmfTedr1GnFJDWqNUH\\";
+export var myClass = \\"zchqshjqLbPAHaRvIBET\\";
+export var other = \\"WZBxXqS2GytaA3IBhhnd\\";
+export var otherOther = \\"W51zcAMuJMsNFi1CXgWr\\";
+export var green = \\"KEl5ZxzNkpjfWorrBglC\\";
+export var foo = \\"ecAEWh2vww9pNEdyj9Jn\\";
+export var simple = \\"CBlowYk8qiAgWWzFeXRA \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
+export var relative = \\"c_NHnDcX1bd_kuxgsuYi \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var topRelative = \\"S0Kwou8pVmsENtBP3hYm \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var myModule = \\"rq663Pq_zV0CjpwttvK4 \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
+export var alias = \\"fadRMHArJofp7sWEbPVR \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var aliasDuplicate = \\"sg1HlXqlWy6l6_Wm5iA7 \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var primarySelector = \\"bnRUswvicYag6u0SPnvI\\";
+export var blackSelector = \\"kEJRwpukB2OtmkGTknbU\\";
+export var header = \\"hY2PI5vC9ABuJY1nkWnf\\";
+export var foobarbaz = \\"q8mv0HutzqdsVWjl8mAz\\";
+export var url = \\"xajoqP1d3SwrjJ4WEM8g\\";
+export var main = \\"Ix5nEHiVOsWuWxdx0twz \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+export default ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and CSS modules and still emit error on '@import' at-rules: result 1`] = `
+CSSStyleSheet {
+  "named": Object {
+    "alias": "fadRMHArJofp7sWEbPVR dnhKs1AYKq4KodZdfzcx",
+    "aliasDuplicate": "sg1HlXqlWy6l6_Wm5iA7 dnhKs1AYKq4KodZdfzcx",
+    "blackSelector": "kEJRwpukB2OtmkGTknbU",
+    "default": [Circular],
+    "foo": "ecAEWh2vww9pNEdyj9Jn",
+    "foobarbaz": "q8mv0HutzqdsVWjl8mAz",
+    "ghi": "ozGmfTedr1GnFJDWqNUH",
+    "green": "KEl5ZxzNkpjfWorrBglC",
+    "header": "hY2PI5vC9ABuJY1nkWnf",
+    "mLarge": "(min-width: 960px)",
+    "mSmall": "(min-width: 320px)",
+    "main": "Ix5nEHiVOsWuWxdx0twz oNU7JF6MtPAFrlrthaOD",
+    "myClass": "zchqshjqLbPAHaRvIBET",
+    "myModule": "rq663Pq_zV0CjpwttvK4 q49Ogfvno__tAgAiYJcD",
+    "other": "WZBxXqS2GytaA3IBhhnd",
+    "otherOther": "W51zcAMuJMsNFi1CXgWr",
+    "primarySelector": "bnRUswvicYag6u0SPnvI",
+    "relative": "c_NHnDcX1bd_kuxgsuYi o0pMg4suYQOIzdBIQJv1",
+    "sBlack": "black-selector",
+    "sWhite": "white",
+    "simple": "CBlowYk8qiAgWWzFeXRA pCAAqHK9Lcplw9QM7Rj0",
+    "topRelative": "S0Kwou8pVmsENtBP3hYm l9CmW32NEl99tuNLdbzp",
+    "url": "xajoqP1d3SwrjJ4WEM8g",
+    "vBar": "block",
+    "vComment": " /* comment */",
+    "vDef": "red",
+    "vDimension": "12px",
+    "vFoo": "blue",
+    "vFunction": "rgb(0,0,0)",
+    "vHex": "#fff",
+    "vIdent": "validIdent",
+    "vInteger": "100",
+    "vInteger1": "-100",
+    "vInteger2": "+100",
+    "vNumber": ".60",
+    "vNumber1": "-456.8",
+    "vNumber2": "-3.4e-2",
+    "vOther": "green",
+    "vPercentage": "100%",
+    "vPreDefinedIdent": "left",
+    "vPrimary": "#BF4040",
+    "vSomething": "2112moon",
+    "vString": "'content'",
+    "vString1": "''",
+    "vUnicodeRange": "U+0025-00FF",
+    "vUrl": "url(https://www.exammple.com/images/my-background.png)",
+    "vUrl1": "url('https://www.exammple.com/images/my-background.png')",
+    "vUrl2": "url(\\"https://www.exammple.com/images/my-background.png\\")",
+  },
+  "text": "@import url(./test-other.css) (min-width: 100px);
+
+.ozGmfTedr1GnFJDWqNUH {
+  color: red;
+}
+
+.zchqshjqLbPAHaRvIBET {
+  color: blue;
+}
+
+.WZBxXqS2GytaA3IBhhnd {
+  display: block;
+}
+
+.W51zcAMuJMsNFi1CXgWr {
+  width: 2112moon;
+}
+
+.KEl5ZxzNkpjfWorrBglC {
+  color: green;
+}
+
+.ecAEWh2vww9pNEdyj9Jn {
+  prop: red;
+  duplicate: green;
+}
+
+.CBlowYk8qiAgWWzFeXRA {
+  color: red;
+}
+
+.c_NHnDcX1bd_kuxgsuYi {
+  color: yellow;
+}
+
+.S0Kwou8pVmsENtBP3hYm {
+  color: gray;
+}
+
+.rq663Pq_zV0CjpwttvK4 {
+  color: gray;
+}
+
+.fadRMHArJofp7sWEbPVR {
+  color: gainsboro;
+}
+
+.sg1HlXqlWy6l6_Wm5iA7 {
+  color: gainsboro;
+}
+
+.bnRUswvicYag6u0SPnvI {
+  color: #BF4040;
+}
+
+.kEJRwpukB2OtmkGTknbU {
+  color: black;
+}
+
+@media (min-width: 960px) {
+  .hY2PI5vC9ABuJY1nkWnf {
+    padding: 0 20px;
+  }
+}
+
+.white {
+  color: white;
+}
+
+@media (min-width: 320px) {
+  .hY2PI5vC9ABuJY1nkWnf {
+    padding: 20px 20px;
+  }
+}
+
+.q8mv0HutzqdsVWjl8mAz {
+  v-ident: validIdent;
+  v-pre-defined-ident: left;
+  v-string: 'content';
+  v-string-1: '';
+  v-url: url(https://www.exammple.com/images/my-background.png);
+  v-url-1: url('https://www.exammple.com/images/my-background.png');
+  v-url-2: url(\\"https://www.exammple.com/images/my-background.png\\");
+  v-integer: 100;
+  v-integer-1: -100;
+  v-integer-2: +100;
+  v-number: .60;
+  v-number-1: -456.8;
+  v-number-2: -3.4e-2;
+  v-dimension: 12px;
+  v-percentage: 100%;
+  v-hex: #fff;
+  v-comment:  /* comment */ 10px  /* comment */;
+  v-function: rgb(0,0,0);
+  v-unicode-range: U+0025-00FF;
+  mutliple: #fff .60 100%;
+}
+
+
+a {
+  content: 'content';
+}
+
+@supports (content: 'content') {
+  a {
+    content: 'content';
+  }
+}
+
+[class~='content'] {
+  color:green;
+}
+
+.xajoqP1d3SwrjJ4WEM8g {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.Ix5nEHiVOsWuWxdx0twz {
+  background: red;
+}
+",
+}
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and CSS modules and still emit error on '@import' at-rules: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and CommonJS modules: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and CommonJS modules: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ = require(\\"../../src/runtime/noSourceMaps.js\\");
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../src/runtime/api.js\\");
+var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../src/runtime/getUrl.js\\");
+var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./url/img.png\\");
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+module.exports = ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and CommonJS modules: result 1`] = `
+CSSStyleSheet {
+  "text": "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(/webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(/webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+",
+}
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and CommonJS modules: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and ECMA modules: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and ECMA modules: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+export default ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and ECMA modules: result 1`] = `
+CSSStyleSheet {
+  "text": "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+",
+}
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and ECMA modules: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and generate source maps: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and generate source maps: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../src/runtime/sourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://./basic-css-style-sheet.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA,gBAAgB;;AAEhB,YAAY;;AAEZ;EACE,UAAU;EACV,mDAAgC;AAClC;;AAEA;EACE,mDAAgC;AAClC;;AAEA;EACE,UAAU;EACV,UAAU;AACZ;;AAEA,SAAS,QAAQ,EAAE;;AAEnB,MAAM;;AAEN,SAAS,QAAQ,EAAE;;AAEnB,SAAS,iBAAiB;;AAE1B;EACE;IACE,2BAA2B;EAC7B;AACF;;AAEA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,sBAAsB;EACtB,0BAA0B;EAC1B,4BAA4B;AAC9B;;AAEA,OAAO;AACP,QAAQ;;AAER,SAAS;;AAET;EACE,aAAa;EACb,eAAe;AACjB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;AACvB;;AAEA,aAAa;;AAEb,YAAY;;AAEZ,QAAQ;;AAER;EACE,mBAAmB,EAAE,2BAA2B;AAClD;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;AAClB;;AAEA,IAAI;;AAEJ,WAAW,EAAE,sCAAsC;AACnD,YAAY,EAAE,yCAAyC;AACvD,YAAY,EAAE,2CAA2C;AACzD,UAAU,EAAE,0CAA0C;AACtD,IAAI,EAAE,oCAAoC;;AAE1C;EACE,qBAAqB;EACrB;;;;;;;;;;GAUC;AACH;;AAEA;EACE,mBAAmB;EACnB,oBAAoB;EACpB,oBAAoB;EACpB,mBAAmB;EACnB,iBAAiB;EACjB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mDAAq1B;AACv1B;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,WAAW;AACb\\",\\"sourcesContent\\":[\\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
+// Exports
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+export default ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and generate source maps: result 1`] = `
+CSSStyleSheet {
+  "text": "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+
+/*# sourceURL=webpack://./basic-css-style-sheet.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL2Jhc2ljLWNzcy1zdHlsZS1zaGVldC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCOztBQUVoQixZQUFZOztBQUVaO0VBQ0UsVUFBVTtFQUNWLG1EQUFnQztBQUNsQzs7QUFFQTtFQUNFLG1EQUFnQztBQUNsQzs7QUFFQTtFQUNFLFVBQVU7RUFDVixVQUFVO0FBQ1o7O0FBRUEsU0FBUyxRQUFRLEVBQUU7O0FBRW5CLE1BQU07O0FBRU4sU0FBUyxRQUFRLEVBQUU7O0FBRW5CLFNBQVMsaUJBQWlCOztBQUUxQjtFQUNFO0lBQ0UsMkJBQTJCO0VBQzdCO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLHNCQUFzQjtFQUN0QiwwQkFBMEI7RUFDMUIsNEJBQTRCO0FBQzlCOztBQUVBLE9BQU87QUFDUCxRQUFROztBQUVSLFNBQVM7O0FBRVQ7RUFDRSxhQUFhO0VBQ2IsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSx1QkFBdUI7QUFDekI7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UscUJBQXFCO0FBQ3ZCOztBQUVBLGFBQWE7O0FBRWIsWUFBWTs7QUFFWixRQUFROztBQUVSO0VBQ0UsbUJBQW1CLEVBQUUsMkJBQTJCO0FBQ2xEOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBLElBQUk7O0FBRUosV0FBVyxFQUFFLHNDQUFzQztBQUNuRCxZQUFZLEVBQUUseUNBQXlDO0FBQ3ZELFlBQVksRUFBRSwyQ0FBMkM7QUFDekQsVUFBVSxFQUFFLDBDQUEwQztBQUN0RCxJQUFJLEVBQUUsb0NBQW9DOztBQUUxQztFQUNFLHFCQUFxQjtFQUNyQjs7Ozs7Ozs7OztHQVVDO0FBQ0g7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsb0JBQW9CO0VBQ3BCLG9CQUFvQjtFQUNwQixtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLHdCQUF3QjtBQUMxQjs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTtFQUNFLG1EQUFxMUI7QUFDdjFCOztBQUVBO0VBQ0UsVUFBVTtBQUNaOztBQUVBO0VBQ0UsVUFBVTtBQUNaOztBQUVBO0VBQ0UsV0FBVztBQUNiOztBQUVBO0VBQ0UsV0FBVztBQUNiIiwic291cmNlc0NvbnRlbnQiOlsiQGNoYXJzZXQgXCJVVEYtOFwiO1xuXG4vKiBDb21tZW50ICovXG5cbi5jbGFzcyB7XG4gIGNvbG9yOiByZWQ7XG4gIGJhY2tncm91bmQ6IHVybChcIi4vdXJsL2ltZy5wbmdcIik7XG59XG5cbi5jbGFzcy1kdXBsaWNhdGUtdXJsIHtcbiAgYmFja2dyb3VuZDogdXJsKFwiLi91cmwvaW1nLnBuZ1wiKTtcbn1cblxuOnJvb3Qge1xuICAtLWZvbzogMXB4O1xuICAtLWJhcjogMnB4O1xufVxuXG4uY2xhc3MgeyBhOiBiIGMgZDsgfVxuXG4udHdvIHt9XG5cbi51LW1cXCsgeyBhOiBiIGMgZDsgfVxuXG4uY2xhc3MgeyBjb250ZW50OiBcIlxcRjEwQ1wiIH1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA2MDBweCkge1xuICBib2R5IHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBsaWdodGJsdWU7XG4gIH1cbn1cblxuLmNsYXNzIHtcbiAgY29udGVudDogXCJcXDIxOTNcIjtcbiAgY29udGVudDogXCJcXDIxOTNcXDIxOTNcIjtcbiAgY29udGVudDogXCJcXDIxOTMgXFwyMTkzXCI7XG4gIGNvbnRlbnQ6IFwiXFwyMTkzXFwyMTkzXFwyMTkzXCI7XG4gIGNvbnRlbnQ6IFwiXFwyMTkzIFxcMjE5MyBcXDIxOTNcIjtcbn1cblxuLi10b3Age31cbi5cXC10b3Age31cblxuI1xcI3Rlc3Qge31cblxuLmdyaWQge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG4uZ3JpZC5cXC10b3Age1xuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcbn1cbi5ncmlkLi10b3Age1xuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcbn1cbi5ncmlkLlxcLW1pZGRsZSB7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG4uZ3JpZC5cXC1ib3R0b20ge1xuICBhbGlnbi1pdGVtczogZmxleC1lbmQ7XG59XG5cbi51LW1cXDAwMDAyYiB7fVxuXG4udS1tMDAwMDJiIHt9XG5cbiN1LW1cXCsge31cblxuYm9keSB7XG4gIGZvbnQtZmFtaWx5OiAnw6XCvsKuw6jCvcKvw6nCm8KFw6nCu8KRJzsgLyogc29tZSBjaGluZXNlIGZvbnQgbmFtZSAqL1xufVxuXG4ubXlTdHlsZSB7XG4gIGNvbnRlbnQ6ICdcXGU5MDEnO1xufVxuXG4ubXlTdHlsZSB7XG4gIGNvbnRlbnQ6ICdcXEU5MDEnO1xufVxuXG4uw6LCmcKrIHt9XG5cbi5cXDNBIFxcYFxcKCB7fSAvKiBtYXRjaGVzIGVsZW1lbnRzIHdpdGggY2xhc3M9XCI6YChcIiAqL1xuLlxcMzEgYTJiM2Mge30gLyogbWF0Y2hlcyBlbGVtZW50cyB3aXRoIGNsYXNzPVwiMWEyYjNjXCIgKi9cbiNcXCNmYWtlLWlkIHt9IC8qIG1hdGNoZXMgdGhlIGVsZW1lbnQgd2l0aCBpZD1cIiNmYWtlLWlkXCIgKi9cbiMtYS1iLWMtIHt9IC8qIG1hdGNoZXMgdGhlIGVsZW1lbnQgd2l0aCBpZD1cIi1hLWItYy1cIiAqL1xuI8OCwqkge30gLyogbWF0Y2hlcyB0aGUgZWxlbWVudCB3aXRoIGlkPVwiw4LCqVwiICovXG5cbjpyb290IHtcbiAgLS10aXRsZS1hbGlnbjogY2VudGVyO1xuICAtLXNyLW9ubHk6IHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgd2lkdGg6IDFweDtcbiAgICBoZWlnaHQ6IDFweDtcbiAgICBwYWRkaW5nOiAwO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgY2xpcDogcmVjdCgwLDAsMCwwKTtcbiAgICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICAgIGNsaXAtcGF0aDogaW5zZXQoNTAlKTtcbiAgICBib3JkZXI6IDA7XG4gIH07XG59XG5cbi50ZXN0IHtcbiAgY29udGVudDogXCJcXDIwMTRcXEEwXCI7XG4gIGNvbnRlbnQ6IFwiXFwyMDE0IFxcQTBcIjtcbiAgY29udGVudDogXCJcXEEwIFxcMjAxNFwiO1xuICBjb250ZW50OiBcIlxcQTBcXDIwMTRcIjtcbiAgbWFyZ2luLXRvcDogMXB4XFw5O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDAwXFw5O1xufVxuXG4ubGlnaHQub24gLmJ1bGI6YmVmb3Jle1xuICBjb250ZW50OiAnw7DCn8KSwqEnO1xufVxuXG4uYmFzZTY0IHtcbiAgYmFja2dyb3VuZDogdXJsKGRhdGE6aW1nL2pwZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUJnQUFBQVlDQVlBQUFEZ2R6MzRBQUFBQVhOU1IwSUFyczRjNlFBQUFoeEpSRUZVU0EzdGs3MXJVMUVZeG5NVEVvSlVrb3dXd2RKMmFrRUhCZkdqQ2lJRjZaeWxWVUtTbTJUcVpMR0krQS9vSXUyVVhtOEM0bEF5RjRTV2ppMHRkRkxvMUVvN1ZOMFNhQkVoSDdlL056MG5QVGZHT2ppYUN5ZlBjNTczNHpsZkNRVDZYLzhFL3ZVRXJMODFLQmFMOXkzTFNudWVkNVBjSVRqVU93UjNnc0ZnMmJidGpZdDYvTkdnWEM0UDFldDFsMmFQTG1wQWJEMFNpZGpwZFBxZ1YxNVBBOWQxN3pRYWpVOFV4SFFSSy80RzM1UTVwdmVBSzhMbEkxWmpQTW5sY2x0bnl2bnZid2FPNDF4dnRWcXk3WUh6dE1BQ3E1eG5sYjlFWTNkUmR2Y0dvMWtqNXdSK3QxQW9mREcwZ00rQTg3NUU4RE5qUkNleHNyVjhQajlacVZRaXRWcnRxZWp4ZVB4ak1wbXNzNWhWVEI0YnVYdk1iMkR5VTJ0QlRSUytCanZObFZZVXBQbDdpdVZPM0dxMXVvUXgxRnRTT1cxZ1BncDVaV3JkQnRObVVEZ3Y1YXNneFE4RjFhZjV2aFkwWWp5anVXQzN3VHN6S0p6N0dCT2tjRmxRZlcyT05xNEZqV2krSGo2RFJDS3hRT0syVGxZNHg5MkV1WWQ1ZHZNQWJZSXpmaWthdTNwdTV0SjhLeGFMTGZvMGN5S2NpN3RLNFRaalVNY29YQW1Id3psZTBRL1JhQzVQMUdGTXlWeDlSOUZvOUhZcWxUclNncUR2RmVsQXFWUWE1aG11TVIvV0d0akFhQmRqd0JvRFEwWnNud1ZNWmpLWjluMFplbThEU2VEUGRyblpiTDZGMmwzTk92VVlOWms0b1ZEb1JUYWJQZTRFRE5KekIwWmNqQVl4ZW9aMmkzRk54UTdCSFl3L2NCL2ZsZGFILy9VRVRnSEhPOFM0NEtiZlhnQUFBQUJKUlU1RXJrSmdnZz09KTtcbn1cblxuYVtocmVmPScnXSB7XG4gIGNvbG9yOiByZWQ7XG59XG5cbmFbaHJlZj0nJyBpXSB7XG4gIGNvbG9yOiByZWQ7XG59XG5cbmFbaHJlZj1cIlwiXSB7XG4gIGNvbG9yOiBibHVlO1xufVxuXG5hW2hyZWY9XCJcIiBpXSB7XG4gIGNvbG9yOiBibHVlO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */",
+}
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and generate source maps: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and keep import and emit errors on \`@import\` at-rules: errors 1`] = `
+Array [
+  "ModuleError: Module Error (from \`replaced original path\`):
+/test/fixtures/basic.css:3:1: '@import' rules are not allowed here and will not be processed",
+]
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and keep import and emit errors on \`@import\` at-rules: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n@import 'imported.css';\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+export default ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and keep import and emit errors on \`@import\` at-rules: result 1`] = `
+CSSStyleSheet {
+  "text": "@charset \\"UTF-8\\";
+
+@import 'imported.css';
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+",
+}
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and keep import and emit errors on \`@import\` at-rules: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and urls: errors 1`] = `
+Array [
+  "ModuleError: Module Error (from \`replaced original path\`):
+/test/fixtures/url/url.css:1:1: '@import' rules are not allowed here and will not be processed",
+]
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and urls: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"package/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(\\"./other-img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(\\"./img img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_4___ = new URL(\\"/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_5___ = new URL(\\"data:image/png;base64,AAA\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_6___ = new URL(\\"data:image/svg+xml;charset=utf-8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 42 26%27 fill=%27%23007aff%27><rect width=%274%27 height=%274%27/><rect x=%278%27 y=%271%27 width=%2734%27 height=%272%27/><rect y=%2711%27 width=%274%27 height=%274%27/><rect x=%278%27 y=%2712%27 width=%2734%27 height=%272%27/><rect y=%2722%27 width=%274%27 height=%274%27/><rect x=%278%27 y=%2723%27 width=%2734%27 height=%272%27/></svg>\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_7___ = new URL(\\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2042%2026%27%20fill%3D%27%2523007aff%27%3E%3Crect%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%271%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3Crect%20y%3D%2711%27%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%2712%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3Crect%20y%3D%2722%27%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%2723%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3C%2Fsvg%3E\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_8___ = new URL(\\"data:image/svg+xml;charset=utf-8,<svg xmlns=\\\\\\"http://www.w3.org/2000/svg\\\\\\"><filter id=\\\\\\"filter\\\\\\"><feGaussianBlur in=\\\\\\"SourceAlpha\\\\\\" stdDeviation=\\\\\\"0\\\\\\" /><feOffset dx=\\\\\\"1\\\\\\" dy=\\\\\\"2\\\\\\" result=\\\\\\"offsetblur\\\\\\" /><feFlood flood-color=\\\\\\"rgba%28255,255,255,1%29\\\\\\" /><feComposite in2=\\\\\\"offsetblur\\\\\\" operator=\\\\\\"in\\\\\\" /><feMerge><feMergeNode /><feMergeNode in=\\\\\\"SourceGraphic\\\\\\" /></feMerge></filter></svg>#filter\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_9___ = new URL(\\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%5C%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%5C%22%3E%3Cfilter%20id%3D%5C%22filter%5C%22%3E%3CfeGaussianBlur%20in%3D%5C%22SourceAlpha%5C%22%20stdDeviation%3D%5C%220%5C%22%20%2F%3E%3CfeOffset%20dx%3D%5C%221%5C%22%20dy%3D%5C%222%5C%22%20result%3D%5C%22offsetblur%5C%22%20%2F%3E%3CfeFlood%20flood-color%3D%5C%22rgba%28255%2C255%2C255%2C1%29%5C%22%20%2F%3E%3CfeComposite%20in2%3D%5C%22offsetblur%5C%22%20operator%3D%5C%22in%5C%22%20%2F%3E%3CfeMerge%3E%3CfeMergeNode%20%2F%3E%3CfeMergeNode%20in%3D%5C%22SourceGraphic%5C%22%20%2F%3E%3C%2FfeMerge%3E%3C%2Ffilter%3E%3C%2Fsvg%3E%23filter\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_10___ = new URL(\\"./font.woff\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_11___ = new URL(\\"./font.woff2\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_12___ = new URL(\\"./font.eot\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_13___ = new URL(\\"package/font.ttf\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_14___ = new URL(\\"./font with spaces.eot\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_15___ = new URL(\\"./font.svg\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_16___ = new URL(\\"./font.woff2?foo=bar\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_17___ = new URL(\\"./img1x.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_18___ = new URL(\\"./img2x.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_19___ = new URL(\\"./img.png?foo\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_20___ = new URL(\\"./img.png?foo=bar\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_21___ = new URL(\\"./img.png?\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_22___ = new URL(\\"img-simple.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_23___ = new URL(\\"/url/img-simple.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_24___ = new URL(\\"../url/img-simple.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_25___ = new URL(\\"aliasesImg/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_26___ = new URL(\\"./nested/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_27___ = new URL(\\"nested/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_28___ = new URL(\\"./img3x.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_29___ = new URL(\\"./img1x.png?foo=bar\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_30___ = new URL(\\"./img'img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_31___ = new URL(\\"./img'''img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_32___ = new URL(\\"./img(img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_33___ = new URL(\\"./img)img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_34___ = new URL(\\"./img'() img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_35___ = new URL(\\"img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_36___ = new URL(\\"./something.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_37___ = new URL(\\"./something.png?foo=bar\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_38___ = new URL(\\"./something.png?bar=foo\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_39___ = new URL(\\"./something.png?foo=1&bar=2\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_40___ = new URL(\\"./something.png?foo=2&bar=1\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_41___ = new URL(\\"data:image/svg+xml;charset=UTF-8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20width%3D%22191px%22%20height%3D%22191px%22%20viewBox%3D%220%200%20191%20191%22%20enable-background%3D%22new%200%200%20191%20191%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M95.5%2C0C42.8%2C0%2C0%2C42.8%2C0%2C95.5S42.8%2C191%2C95.5%2C191S191%2C148.2%2C191%2C95.5S148.2%2C0%2C95.5%2C0z%20M95.5%2C187.6%0A%09c-50.848%2C0-92.1-41.25-92.1-92.1c0-50.848%2C41.252-92.1%2C92.1-92.1c50.85%2C0%2C92.1%2C41.252%2C92.1%2C92.1%0A%09C187.6%2C146.35%2C146.35%2C187.6%2C95.5%2C187.6z%22%2F%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M92.9%2C10v8.6H91v-6.5c-0.1%2C0.1-0.2%2C0.2-0.4%2C0.3c-0.2%2C0.1-0.3%2C0.2-0.4%2C0.2c-0.1%2C0-0.3%2C0.1-0.5%2C0.2%0A%09%09c-0.2%2C0.1-0.3%2C0.1-0.5%2C0.1v-1.6c0.5-0.1%2C0.9-0.3%2C1.4-0.5c0.5-0.2%2C0.8-0.5%2C1.2-0.7h1.1V10z%22%2F%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M97.1%2C17.1h3.602v1.5h-5.6V18c0-0.4%2C0.1-0.8%2C0.2-1.2c0.1-0.4%2C0.3-0.6%2C0.5-0.9c0.2-0.3%2C0.5-0.5%2C0.7-0.7%0A%09%09c0.2-0.2%2C0.5-0.4%2C0.7-0.6c0.199-0.2%2C0.5-0.3%2C0.6-0.5c0.102-0.2%2C0.301-0.3%2C0.5-0.5c0.2-0.2%2C0.2-0.3%2C0.301-0.5%0A%09%09c0.101-0.2%2C0.101-0.3%2C0.101-0.5c0-0.4-0.101-0.6-0.3-0.8c-0.2-0.2-0.4-0.3-0.801-0.3c-0.699%2C0-1.399%2C0.3-2.101%2C0.9v-1.6%0A%09%09c0.7-0.5%2C1.5-0.7%2C2.5-0.7c0.399%2C0%2C0.8%2C0.1%2C1.101%2C0.2c0.301%2C0.1%2C0.601%2C0.3%2C0.899%2C0.5c0.3%2C0.2%2C0.399%2C0.5%2C0.5%2C0.8%0A%09%09c0.101%2C0.3%2C0.2%2C0.6%2C0.2%2C1s-0.102%2C0.7-0.2%2C1c-0.099%2C0.3-0.3%2C0.6-0.5%2C0.8c-0.2%2C0.2-0.399%2C0.5-0.7%2C0.7c-0.3%2C0.2-0.5%2C0.4-0.8%2C0.6%0A%09%09c-0.2%2C0.1-0.399%2C0.3-0.5%2C0.4s-0.3%2C0.3-0.5%2C0.4s-0.2%2C0.3-0.3%2C0.4C97.1%2C17%2C97.1%2C17%2C97.1%2C17.1z%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M15%2C95.4c0%2C0.7-0.1%2C1.4-0.2%2C2c-0.1%2C0.6-0.4%2C1.1-0.7%2C1.5C13.8%2C99.3%2C13.4%2C99.6%2C12.9%2C99.8s-1%2C0.3-1.5%2C0.3%0A%09%09c-0.7%2C0-1.3-0.1-1.8-0.3v-1.5c0.4%2C0.3%2C1%2C0.4%2C1.6%2C0.4c0.6%2C0%2C1.1-0.2%2C1.5-0.7c0.4-0.5%2C0.5-1.1%2C0.5-1.9l0%2C0%0A%09%09C12.8%2C96.7%2C12.3%2C96.9%2C11.5%2C96.9c-0.3%2C0-0.7-0.102-1-0.2c-0.3-0.101-0.5-0.3-0.8-0.5c-0.3-0.2-0.4-0.5-0.5-0.8%0A%09%09c-0.1-0.3-0.2-0.7-0.2-1c0-0.4%2C0.1-0.8%2C0.2-1.2c0.1-0.4%2C0.3-0.7%2C0.6-0.9c0.3-0.2%2C0.6-0.5%2C0.9-0.6c0.3-0.1%2C0.8-0.2%2C1.2-0.2%0A%09%09c0.5%2C0%2C0.9%2C0.1%2C1.2%2C0.3c0.3%2C0.2%2C0.7%2C0.4%2C0.9%2C0.8s0.5%2C0.7%2C0.6%2C1.2S15%2C94.8%2C15%2C95.4z%20M13.1%2C94.4c0-0.2%2C0-0.4-0.1-0.6%0A%09%09c-0.1-0.2-0.1-0.4-0.2-0.5c-0.1-0.1-0.2-0.2-0.4-0.3c-0.2-0.1-0.3-0.1-0.5-0.1c-0.2%2C0-0.3%2C0-0.4%2C0.1s-0.3%2C0.2-0.3%2C0.3%0A%09%09c0%2C0.1-0.2%2C0.3-0.2%2C0.4c0%2C0.1-0.1%2C0.4-0.1%2C0.6c0%2C0.2%2C0%2C0.4%2C0.1%2C0.6c0.1%2C0.2%2C0.1%2C0.3%2C0.2%2C0.4c0.1%2C0.1%2C0.2%2C0.2%2C0.4%2C0.3%0A%09%09c0.2%2C0.1%2C0.3%2C0.1%2C0.5%2C0.1c0.2%2C0%2C0.3%2C0%2C0.4-0.1s0.2-0.2%2C0.3-0.3c0.1-0.1%2C0.2-0.2%2C0.2-0.4C13%2C94.7%2C13.1%2C94.6%2C13.1%2C94.4z%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M176%2C99.7V98.1c0.6%2C0.4%2C1.2%2C0.602%2C2%2C0.602c0.5%2C0%2C0.8-0.102%2C1.1-0.301c0.301-0.199%2C0.4-0.5%2C0.4-0.801%0A%09%09c0-0.398-0.2-0.699-0.5-0.898c-0.3-0.2-0.8-0.301-1.3-0.301h-0.802V95h0.701c1.101%2C0%2C1.601-0.4%2C1.601-1.1c0-0.7-0.4-1-1.302-1%0A%09%09c-0.6%2C0-1.1%2C0.2-1.6%2C0.5v-1.5c0.6-0.3%2C1.301-0.4%2C2.1-0.4c0.9%2C0%2C1.5%2C0.2%2C2%2C0.6s0.701%2C0.9%2C0.701%2C1.5c0%2C1.1-0.601%2C1.8-1.701%2C2.1l0%2C0%0A%09%09c0.602%2C0.1%2C1.102%2C0.3%2C1.4%2C0.6s0.5%2C0.8%2C0.5%2C1.3c0%2C0.801-0.3%2C1.4-0.9%2C1.9c-0.6%2C0.5-1.398%2C0.7-2.398%2C0.7%0A%09%09C177.2%2C100.1%2C176.5%2C100%2C176%2C99.7z%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M98.5%2C179.102c0%2C0.398-0.1%2C0.799-0.2%2C1.199C98.2%2C180.7%2C98%2C181%2C97.7%2C181.2s-0.601%2C0.5-0.9%2C0.601%0A%09%09c-0.3%2C0.1-0.7%2C0.199-1.2%2C0.199c-0.5%2C0-0.9-0.1-1.3-0.3c-0.4-0.2-0.7-0.399-0.9-0.8c-0.2-0.4-0.5-0.7-0.6-1.2%0A%09%09c-0.1-0.5-0.2-1-0.2-1.601c0-0.699%2C0.1-1.399%2C0.3-2c0.2-0.601%2C0.4-1.101%2C0.8-1.5c0.4-0.399%2C0.7-0.699%2C1.2-1c0.5-0.3%2C1-0.3%2C1.6-0.3%0A%09%09c0.6%2C0%2C1.2%2C0.101%2C1.5%2C0.199v1.5c-0.4-0.199-0.9-0.399-1.4-0.399c-0.3%2C0-0.6%2C0.101-0.8%2C0.2c-0.2%2C0.101-0.5%2C0.3-0.7%2C0.5%0A%09%09c-0.2%2C0.199-0.3%2C0.5-0.4%2C0.8c-0.1%2C0.301-0.2%2C0.7-0.2%2C1.101l0%2C0c0.4-0.601%2C1-0.8%2C1.8-0.8c0.3%2C0%2C0.7%2C0.1%2C0.9%2C0.199%0A%09%09c0.2%2C0.101%2C0.5%2C0.301%2C0.7%2C0.5c0.199%2C0.2%2C0.398%2C0.5%2C0.5%2C0.801C98.5%2C178.2%2C98.5%2C178.7%2C98.5%2C179.102z%20M96.7%2C179.2%0A%09%09c0-0.899-0.4-1.399-1.1-1.399c-0.2%2C0-0.3%2C0-0.5%2C0.1c-0.2%2C0.101-0.3%2C0.201-0.4%2C0.301c-0.1%2C0.101-0.2%2C0.199-0.2%2C0.4%0A%09%09c0%2C0.199-0.1%2C0.299-0.1%2C0.5c0%2C0.199%2C0%2C0.398%2C0.1%2C0.6s0.1%2C0.3%2C0.2%2C0.5c0.1%2C0.199%2C0.2%2C0.199%2C0.4%2C0.3c0.2%2C0.101%2C0.3%2C0.101%2C0.5%2C0.101%0A%09%09c0.2%2C0%2C0.3%2C0%2C0.5-0.101c0.2-0.101%2C0.301-0.199%2C0.301-0.3c0-0.1%2C0.199-0.301%2C0.199-0.399C96.6%2C179.7%2C96.7%2C179.4%2C96.7%2C179.2z%22%2F%3E%0A%3C%2Fg%3E%0A%3Ccircle%20fill%3D%22%23636363%22%20cx%3D%2295%22%20cy%3D%2295%22%20r%3D%227%22%2F%3E%0A%3C%2Fsvg%3E%0A\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_42___ = new URL(\\"/guide/img/banWord/addCoinDialogTitleBg.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_43___ = new URL(\\"!!../../helpers/url-loader.js?esModule=false!package/img-single.png?ignore-asset-modules\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_44___ = new URL(\\"nested/other.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_45___ = new URL(\\"data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23343a40%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M2 5l6 6 6-6%27/%3e%3c/svg%3e\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_46___ = new URL(\\"data:image/svg+xml;utf8,<svg xmlns=\\\\\\"http://www.w3.org/2000/svg\\\\\\" width=\\\\\\"10\\\\\\" height=\\\\\\"10\\\\\\"><rect fill=\\\\\\"gray\\\\\\" width=\\\\\\"5\\\\\\" height=\\\\\\"5\\\\\\" y=\\\\\\"0\\\\\\" x=\\\\\\"0\\\\\\" /></svg>\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___, { hash: \\"#hash\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
+var ___CSS_LOADER_URL_REPLACEMENT_6___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
+var ___CSS_LOADER_URL_REPLACEMENT_7___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_6___);
+var ___CSS_LOADER_URL_REPLACEMENT_8___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_7___);
+var ___CSS_LOADER_URL_REPLACEMENT_9___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_8___);
+var ___CSS_LOADER_URL_REPLACEMENT_10___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_9___);
+var ___CSS_LOADER_URL_REPLACEMENT_11___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_10___);
+var ___CSS_LOADER_URL_REPLACEMENT_12___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_11___);
+var ___CSS_LOADER_URL_REPLACEMENT_13___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_12___);
+var ___CSS_LOADER_URL_REPLACEMENT_14___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_13___);
+var ___CSS_LOADER_URL_REPLACEMENT_15___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_14___);
+var ___CSS_LOADER_URL_REPLACEMENT_16___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_15___, { hash: \\"#svgFontName\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_17___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_16___);
+var ___CSS_LOADER_URL_REPLACEMENT_18___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_12___, { hash: \\"?#iefix\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_19___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_14___, { hash: \\"?#iefix\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_20___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_17___);
+var ___CSS_LOADER_URL_REPLACEMENT_21___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_18___);
+var ___CSS_LOADER_URL_REPLACEMENT_22___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_19___);
+var ___CSS_LOADER_URL_REPLACEMENT_23___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_20___);
+var ___CSS_LOADER_URL_REPLACEMENT_24___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_20___, { hash: \\"#hash\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_25___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_21___);
+var ___CSS_LOADER_URL_REPLACEMENT_26___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_22___);
+var ___CSS_LOADER_URL_REPLACEMENT_27___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_23___);
+var ___CSS_LOADER_URL_REPLACEMENT_28___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_24___);
+var ___CSS_LOADER_URL_REPLACEMENT_29___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_25___);
+var ___CSS_LOADER_URL_REPLACEMENT_30___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_26___);
+var ___CSS_LOADER_URL_REPLACEMENT_31___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_27___);
+var ___CSS_LOADER_URL_REPLACEMENT_32___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_17___, { needQuotes: true });
+var ___CSS_LOADER_URL_REPLACEMENT_33___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_18___, { needQuotes: true });
+var ___CSS_LOADER_URL_REPLACEMENT_34___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___, { needQuotes: true });
+var ___CSS_LOADER_URL_REPLACEMENT_35___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_28___, { needQuotes: true });
+var ___CSS_LOADER_URL_REPLACEMENT_36___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_29___, { needQuotes: true });
+var ___CSS_LOADER_URL_REPLACEMENT_37___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_17___, { hash: \\"#hash\\", needQuotes: true });
+var ___CSS_LOADER_URL_REPLACEMENT_38___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_17___, { hash: \\"?#iefix\\", needQuotes: true });
+var ___CSS_LOADER_URL_REPLACEMENT_39___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_28___);
+var ___CSS_LOADER_URL_REPLACEMENT_40___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_30___);
+var ___CSS_LOADER_URL_REPLACEMENT_41___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_31___);
+var ___CSS_LOADER_URL_REPLACEMENT_42___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_32___);
+var ___CSS_LOADER_URL_REPLACEMENT_43___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_33___);
+var ___CSS_LOADER_URL_REPLACEMENT_44___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_34___);
+var ___CSS_LOADER_URL_REPLACEMENT_45___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_35___);
+var ___CSS_LOADER_URL_REPLACEMENT_46___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_36___);
+var ___CSS_LOADER_URL_REPLACEMENT_47___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_37___);
+var ___CSS_LOADER_URL_REPLACEMENT_48___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_37___, { hash: \\"#hash\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_49___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_38___);
+var ___CSS_LOADER_URL_REPLACEMENT_50___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_37___, { hash: \\"#foo\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_51___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_38___, { hash: \\"#bar\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_52___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_39___);
+var ___CSS_LOADER_URL_REPLACEMENT_53___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_40___);
+var ___CSS_LOADER_URL_REPLACEMENT_54___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_41___);
+var ___CSS_LOADER_URL_REPLACEMENT_55___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_42___);
+var ___CSS_LOADER_URL_REPLACEMENT_56___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_43___);
+var ___CSS_LOADER_URL_REPLACEMENT_57___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_44___);
+var ___CSS_LOADER_URL_REPLACEMENT_58___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_45___);
+var ___CSS_LOADER_URL_REPLACEMENT_59___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_46___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@import \\\\\\"./imported.css\\\\\\";\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\n    \\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") url(\\" + ___CSS_LOADER_URL_REPLACEMENT_3___ + \\") xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\" + ___CSS_LOADER_URL_REPLACEMENT_5___ + \\") xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\" + ___CSS_LOADER_URL_REPLACEMENT_6___ + \\") url(http://example.com/image.jpg) url(//example.com/image.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_7___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_8___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  filter: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_9___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  filter: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_10___ + \\");\\\\n}\\\\n\\\\n.highlight {\\\\n  filter: url(#highlight);\\\\n}\\\\n\\\\n.highlight {\\\\n  filter: url('#line-marker');\\\\n}\\\\n\\\\n@font-face {\\\\n  src: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_11___ + \\") format('woff'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_12___ + \\") format('woff2'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_13___ + \\") format('eot'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_14___ + \\") format('truetype'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_15___ + \\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_16___ + \\") format('svg'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_17___ + \\") format('woff2'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_18___ + \\") format('embedded-opentype'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_19___ + \\") format('embedded-opentype');\\\\n}\\\\n\\\\n@media (min-width: 500px) {\\\\n  body {\\\\n    background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n  }\\\\n}\\\\n\\\\na {\\\\n  content: \\\\\\"do not use url(path)\\\\\\";\\\\n}\\\\n\\\\nb {\\\\n  content: 'do not \\\\\\"use\\\\\\" url(path)';\\\\n}\\\\n\\\\n@keyframes anim {\\\\n  background: green url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") xyz;\\\\n}\\\\n\\\\n.a {\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x)\\\\n}\\\\n\\\\n.a {\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x)\\\\n}\\\\n\\\\n.class {\\\\n  background: green url() xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url('') xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\\\\\"\\\\\\") xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url('   ') xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\\\n  ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_22___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_23___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_24___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_24___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_25___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") url(\\" + ___CSS_LOADER_URL_REPLACEMENT_7___ + \\") url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: ___CSS_LOADER_URL___;\\\\n  background: ___CSS_LOADER_URL___INDEX___;\\\\n  background: ___CSS_LOADER_URL___99999___;\\\\n  background: ___CSS_LOADER_IMPORT___;\\\\n  background: ___CSS_LOADER_IMPORT___INDEX___;\\\\n  background: ___CSS_LOADER_IMPORT___99999___;\\\\n}\\\\n\\\\n.pure-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_26___ + \\");\\\\n}\\\\n\\\\n.root-relative {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_27___ + \\");\\\\n}\\\\n\\\\n.above-below {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_28___ + \\");\\\\n}\\\\n\\\\n.tilde {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\");\\\\n}\\\\n\\\\n.aliases {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_29___ + \\") ;\\\\n}\\\\n\\\\na {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_30___ + \\");\\\\n}\\\\n\\\\na {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_31___ + \\");\\\\n}\\\\n\\\\n@font-face {\\\\n  src: url(\\\\\\"//at.alicdn.com/t/font_515771_emcns5054x3whfr.eot\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  /* Broken */\\\\n  background-image: -webkit-image-set();\\\\n  background-image: -webkit-image-set('');\\\\n  background-image: image-set();\\\\n  background-image: image-set('');\\\\n  background-image: image-set(\\\\\\"\\\\\\");\\\\n  background-image: image-set(\\\\\\"\\\\\\" 1x);\\\\n  background-image: image-set(url());\\\\n  background-image: image-set(\\\\n    url()\\\\n  );\\\\n  background-image: image-set(URL());\\\\n  background-image: image-set(url(''));\\\\n  background-image: image-set(url(\\\\\\"\\\\\\"));\\\\n  background-image: image-set(url('') 1x);\\\\n  background-image: image-set(1x);\\\\n  background-image: image-set(\\\\n    1x\\\\n  );\\\\n  background: image-set(calc(1rem + 1px) 1x);\\\\n\\\\n  /* Strings */\\\\n  background-image: -webkit-image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_34___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_34___ + \\" 2x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x),\\\\n    image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x);\\\\n  background-image: image-set(\\\\n    \\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x,\\\\n    \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x,\\\\n    \\" + ___CSS_LOADER_URL_REPLACEMENT_35___ + \\" 600dpi\\\\n  );\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_36___ + \\" 1x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_37___ + \\" 1x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_38___ + \\" 1x);\\\\n\\\\n  /* With \`url\` function */\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x);\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x);\\\\n  background-image: -webkit-image-set(\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x\\\\n  );\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x);\\\\n  background-image: image-set(\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x\\\\n  );\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x);\\\\n  background-image: image-set(\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_39___ + \\") 600dpi\\\\n  );\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") 2x);\\\\n\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x);\\\\n}\\\\n\\\\n.class {\\\\n  /* Not allowed on windows */\\\\n  /* background: url(./img\\\\\\\\\\\\\\"img.png); */\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n\\\\n  background-image: image-set(\\\\n    /* Not allowed on windows */\\\\n    /* url(./img\\\\\\\\\\\\\\"img.png) 1x, */\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\") 2x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\") 3x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\") 4x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\") 5x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") 6x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\") 7x\\\\n  );\\\\n}\\\\n\\\\n.class-class-class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n}\\\\n\\\\n/* Comment */\\\\n\\\\n.class.class.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n}\\\\n\\\\n.other-test-case {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n}\\\\n\\\\n.qqq {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_45___ + \\");\\\\n}\\\\n\\\\n.www {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  /* Should be one import */\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_46___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_46___ + \\");\\\\n\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_47___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_47___ + \\");\\\\n\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_48___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_48___ + \\");\\\\n\\\\n  /* Should be two imports */\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_47___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_49___ + \\");\\\\n\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_50___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_51___ + \\");\\\\n\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_52___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_53___ + \\");\\\\n}\\\\n\\\\n.base {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_54___ + \\") 50% 50%/191px no-repeat;\\\\n}\\\\n\\\\n.strange {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.my-background {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_55___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\", 'foo', './img.png', url('./img.png'));\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\", 'foo', './img.png', url('./img.png')) 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x);\\\\n}\\\\n\\\\n.button {\\\\n  background-image: url('data:image/svg+xml;utf8,<svg xmlns=\\\\\\"http://www.w3.org/2000/svg\\\\\\"><rect width=\\\\\\"100%\\\\\\" height=\\\\\\"100%\\\\\\" style=\\\\\\"stroke: rgb(223,224,225); stroke-width: 2px; fill: none; stroke-dasharray: 6px 3px\\\\\\" /></svg>');\\\\n}\\\\n\\\\n/* We need to use \`resourceQuery: /inline/\` */\\\\n/* Hard to test on webpack v4 */\\\\n.qqq {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_56___ + \\")\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_45___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_45___ + \\");\\\\n}\\\\n\\\\n/** Prefer relative **/\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_31___ + \\");\\\\n}\\\\n\\\\n/** Prefer from modules **/\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_57___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\");\\\\n}\\\\n\\\\n.foo {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_58___ + \\");\\\\n}\\\\n\\\\n.bar {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_59___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+export default ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and urls: result 1`] = `
+CSSStyleSheet {
+  "text": "@import \\"./imported.css\\";
+
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png#hash);
+}
+
+.class {
+  background: url(
+    file:///webpack/public/path/img.png
+  );
+}
+
+.class {
+  background: green url( file:///webpack/public/path/img.png ) xyz;
+}
+
+.class {
+  background: green url( file:///webpack/public/path/img.png ) xyz;
+}
+
+.class {
+  background: green url( file:///webpack/public/path/img.png ) xyz;
+}
+
+.class {
+  background: green url(file:///webpack/public/path/img.png) url(file:///webpack/public/path/other-img.png) xyz;
+}
+
+.class {
+  background: green url( \\"file:///webpack/public/path/img%20img.png\\" ) xyz;
+}
+
+.class {
+  background: green url( \\"file:///webpack/public/path/img%20img.png\\" ) xyz;
+}
+
+.class {
+  background: green url(file:///webpack/public/path/img.png) xyz;
+}
+
+.class {
+  background: green url(data:image/png;base64,AAA) url(http://example.com/image.jpg) url(//example.com/image.png) xyz;
+}
+
+.class {
+  background-image: url(\\"data:image/svg+xml;charset=utf-8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 42 26%27 fill=%27%23007aff%27><rect width=%274%27 height=%274%27/><rect x=%278%27 y=%271%27 width=%2734%27 height=%272%27/><rect y=%2711%27 width=%274%27 height=%274%27/><rect x=%278%27 y=%2712%27 width=%2734%27 height=%272%27/><rect y=%2722%27 width=%274%27 height=%274%27/><rect x=%278%27 y=%2723%27 width=%2734%27 height=%272%27/></svg>\\");
+}
+
+.class {
+  background-image: url(\\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2042%2026%27%20fill%3D%27%2523007aff%27%3E%3Crect%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%271%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3Crect%20y%3D%2711%27%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%2712%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3Crect%20y%3D%2722%27%20width%3D%274%27%20height%3D%274%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%2723%27%20width%3D%2734%27%20height%3D%272%27%2F%3E%3C%2Fsvg%3E\\");
+}
+
+.class {
+  filter: url(\\"data:image/svg+xml;charset=utf-8,<svg xmlns=\\\\\\"http://www.w3.org/2000/svg\\\\\\"><filter id=\\\\\\"filter\\\\\\"><feGaussianBlur in=\\\\\\"SourceAlpha\\\\\\" stdDeviation=\\\\\\"0\\\\\\" /><feOffset dx=\\\\\\"1\\\\\\" dy=\\\\\\"2\\\\\\" result=\\\\\\"offsetblur\\\\\\" /><feFlood flood-color=\\\\\\"rgba%28255,255,255,1%29\\\\\\" /><feComposite in2=\\\\\\"offsetblur\\\\\\" operator=\\\\\\"in\\\\\\" /><feMerge><feMergeNode /><feMergeNode in=\\\\\\"SourceGraphic\\\\\\" /></feMerge></filter></svg>#filter\\");
+}
+
+.class {
+  filter: url(\\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%5C%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%5C%22%3E%3Cfilter%20id%3D%5C%22filter%5C%22%3E%3CfeGaussianBlur%20in%3D%5C%22SourceAlpha%5C%22%20stdDeviation%3D%5C%220%5C%22%20%2F%3E%3CfeOffset%20dx%3D%5C%221%5C%22%20dy%3D%5C%222%5C%22%20result%3D%5C%22offsetblur%5C%22%20%2F%3E%3CfeFlood%20flood-color%3D%5C%22rgba%28255%2C255%2C255%2C1%29%5C%22%20%2F%3E%3CfeComposite%20in2%3D%5C%22offsetblur%5C%22%20operator%3D%5C%22in%5C%22%20%2F%3E%3CfeMerge%3E%3CfeMergeNode%20%2F%3E%3CfeMergeNode%20in%3D%5C%22SourceGraphic%5C%22%20%2F%3E%3C%2FfeMerge%3E%3C%2Ffilter%3E%3C%2Fsvg%3E%23filter\\");
+}
+
+.highlight {
+  filter: url(#highlight);
+}
+
+.highlight {
+  filter: url('#line-marker');
+}
+
+@font-face {
+  src: url(file:///webpack/public/path/font.woff) format('woff'),
+    url(file:///webpack/public/path/font.woff2) format('woff2'),
+    url(file:///webpack/public/path/font.eot) format('eot'),
+    url(file:///webpack/public/path/font.ttf) format('truetype'),
+    url(\\"file:///webpack/public/path/font%20with%20spaces.eot\\") format(\\"embedded-opentype\\"),
+    url(file:///webpack/public/path/font.svg#svgFontName) format('svg'),
+    url(file:///webpack/public/path/font.woff2) format('woff2'),
+    url(file:///webpack/public/path/font.eot?#iefix) format('embedded-opentype'),
+    url(\\"file:///webpack/public/path/font%20with%20spaces.eot?#iefix\\") format('embedded-opentype');
+}
+
+@media (min-width: 500px) {
+  body {
+    background: url(file:///webpack/public/path/img.png);
+  }
+}
+
+a {
+  content: \\"do not use url(path)\\";
+}
+
+b {
+  content: 'do not \\"use\\" url(path)';
+}
+
+@keyframes anim {
+  background: green url(file:///webpack/public/path/img.png) xyz;
+}
+
+.a {
+  background-image: -webkit-image-set(url(file:///webpack/public/path/img1x.png) 1x, url(file:///webpack/public/path/img2x.png) 2x)
+}
+
+.a {
+  background-image: image-set(url(file:///webpack/public/path/img1x.png) 1x, url(file:///webpack/public/path/img2x.png) 2x)
+}
+
+.class {
+  background: green url() xyz;
+}
+
+.class {
+  background: green url('') xyz;
+}
+
+.class {
+  background: green url(\\"\\") xyz;
+}
+
+.class {
+  background: green url('   ') xyz;
+}
+
+.class {
+  background: green url(
+  ) xyz;
+}
+
+.class {
+  background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;
+}
+
+.class {
+  background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png#hash);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png#hash);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class {
+  background-image: url(file:///webpack/public/path/img.png) url(\\"data:image/svg+xml;charset=utf-8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 42 26%27 fill=%27%23007aff%27><rect width=%274%27 height=%274%27/><rect x=%278%27 y=%271%27 width=%2734%27 height=%272%27/><rect y=%2711%27 width=%274%27 height=%274%27/><rect x=%278%27 y=%2712%27 width=%2734%27 height=%272%27/><rect y=%2722%27 width=%274%27 height=%274%27/><rect x=%278%27 y=%2723%27 width=%2734%27 height=%272%27/></svg>\\") url(file:///webpack/public/path/img.png);
+}
+
+.class {
+  background: ___CSS_LOADER_URL___;
+  background: ___CSS_LOADER_URL___INDEX___;
+  background: ___CSS_LOADER_URL___99999___;
+  background: ___CSS_LOADER_IMPORT___;
+  background: ___CSS_LOADER_IMPORT___INDEX___;
+  background: ___CSS_LOADER_IMPORT___99999___;
+}
+
+.pure-url {
+  background: url(file:///webpack/public/path/img-simple.png);
+}
+
+.root-relative {
+  background: url(file:///webpack/public/path/img-simple.png);
+}
+
+.above-below {
+  background: url(file:///webpack/public/path/img-simple.png);
+}
+
+.tilde {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.aliases {
+  background: url(file:///webpack/public/path/img.png) ;
+}
+
+a {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+a {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+@font-face {
+  src: url(\\"//at.alicdn.com/t/font_515771_emcns5054x3whfr.eot\\");
+}
+
+.class {
+  /* Broken */
+  background-image: -webkit-image-set();
+  background-image: -webkit-image-set('');
+  background-image: image-set();
+  background-image: image-set('');
+  background-image: image-set(\\"\\");
+  background-image: image-set(\\"\\" 1x);
+  background-image: image-set(url());
+  background-image: image-set(
+    url()
+  );
+  background-image: image-set(URL());
+  background-image: image-set(url(''));
+  background-image: image-set(url(\\"\\"));
+  background-image: image-set(url('') 1x);
+  background-image: image-set(1x);
+  background-image: image-set(
+    1x
+  );
+  background: image-set(calc(1rem + 1px) 1x);
+
+  /* Strings */
+  background-image: -webkit-image-set(\\"file:///webpack/public/path/img1x.png\\" 1x, \\"file:///webpack/public/path/img2x.png\\" 2x);
+  background-image: image-set(\\"file:///webpack/public/path/img1x.png\\" 1x);
+  background-image: image-set(\\"file:///webpack/public/path/img1x.png\\" 1x, \\"file:///webpack/public/path/img2x.png\\" 2x);
+  background-image: image-set(\\"file:///webpack/public/path/img%20img.png\\" 1x, \\"file:///webpack/public/path/img%20img.png\\" 2x);
+  background-image: image-set(\\"file:///webpack/public/path/img1x.png\\" 1x, \\"file:///webpack/public/path/img2x.png\\" 2x),
+    image-set(\\"file:///webpack/public/path/img1x.png\\" 1x, \\"file:///webpack/public/path/img2x.png\\" 2x);
+  background-image: image-set(
+    \\"file:///webpack/public/path/img1x.png\\" 1x,
+    \\"file:///webpack/public/path/img2x.png\\" 2x,
+    \\"file:///webpack/public/path/img3x.png\\" 600dpi
+  );
+  background-image: image-set(\\"file:///webpack/public/path/img1x.png\\" 1x);
+  background-image: image-set(\\"file:///webpack/public/path/img1x.png#hash\\" 1x);
+  background-image: image-set(\\"file:///webpack/public/path/img1x.png?#iefix\\" 1x);
+
+  /* With \`url\` function */
+  background-image: -webkit-image-set(url(file:///webpack/public/path/img1x.png) 1x, url(file:///webpack/public/path/img2x.png) 2x);
+  background-image: -webkit-image-set(url(file:///webpack/public/path/img1x.png) 1x);
+  background-image: -webkit-image-set(
+    url(file:///webpack/public/path/img1x.png) 1x
+  );
+  background-image: image-set(url(file:///webpack/public/path/img1x.png) 1x);
+  background-image: image-set(
+    url(file:///webpack/public/path/img1x.png) 1x
+  );
+  background-image: image-set(url(file:///webpack/public/path/img1x.png) 1x, url(file:///webpack/public/path/img2x.png) 2x);
+  background-image: image-set(
+    url(file:///webpack/public/path/img1x.png) 1x,
+    url(file:///webpack/public/path/img2x.png) 2x,
+    url(file:///webpack/public/path/img3x.png) 600dpi
+  );
+  background-image: image-set(url(\\"file:///webpack/public/path/img%20img.png\\") 1x, url(\\"file:///webpack/public/path/img%20img.png\\") 2x);
+
+  background-image: image-set(url(file:///webpack/public/path/img1x.png) 1x, \\"file:///webpack/public/path/img2x.png\\" 2x);
+}
+
+.class {
+  /* Not allowed on windows */
+  /* background: url(./img\\\\\\"img.png); */
+  background: url(\\"file:///webpack/public/path/img'img.png\\");
+  background: url(\\"file:///webpack/public/path/img'''img.png\\");
+  background: url(\\"file:///webpack/public/path/img(img.png\\");
+  background: url(\\"file:///webpack/public/path/img)img.png\\");
+  background: url(\\"file:///webpack/public/path/img%20img.png\\");
+  background: url(\\"file:///webpack/public/path/img'()%20img.png\\");
+
+  background-image: image-set(
+    /* Not allowed on windows */
+    /* url(./img\\\\\\"img.png) 1x, */
+    url(\\"file:///webpack/public/path/img'''img.png\\") 2x,
+    url(\\"file:///webpack/public/path/img'img.png\\") 3x,
+    url(\\"file:///webpack/public/path/img(img.png\\") 4x,
+    url(\\"file:///webpack/public/path/img)img.png\\") 5x,
+    url(\\"file:///webpack/public/path/img%20img.png\\") 6x,
+    url(\\"file:///webpack/public/path/img'()%20img.png\\") 7x
+  );
+}
+
+.class-class-class {
+  background: url(\\"file:///webpack/public/path/img'''img.png\\");
+  background: url(\\"file:///webpack/public/path/img'()%20img.png\\");
+  background: url(\\"file:///webpack/public/path/img'img.png\\");
+  background: url(\\"file:///webpack/public/path/img(img.png\\");
+  background: url(\\"file:///webpack/public/path/img)img.png\\");
+  background: url(\\"file:///webpack/public/path/img%20img.png\\");
+  background: url(\\"file:///webpack/public/path/img%20img.png\\");
+}
+
+/* Comment */
+
+.class.class.class {
+  background: url(\\"file:///webpack/public/path/img(img.png\\");
+  background: url(\\"file:///webpack/public/path/img(img.png\\");
+  background: url(\\"file:///webpack/public/path/img(img.png\\");
+  background: url(\\"file:///webpack/public/path/img(img.png\\");
+}
+
+.other-test-case {
+  background: url(\\"file:///webpack/public/path/img'''img.png\\");
+  background: url(\\"file:///webpack/public/path/img'()%20img.png\\");
+  background: url(\\"file:///webpack/public/path/img'img.png\\");
+  background: url(\\"file:///webpack/public/path/img(img.png\\");
+  background: url(\\"file:///webpack/public/path/img)img.png\\");
+  background: url(\\"file:///webpack/public/path/img%20img.png\\");
+  background: url(\\"file:///webpack/public/path/img'''img.png\\");
+  background: url(\\"file:///webpack/public/path/img'()%20img.png\\");
+  background: url(\\"file:///webpack/public/path/img'img.png\\");
+  background: url(\\"file:///webpack/public/path/img(img.png\\");
+  background: url(\\"file:///webpack/public/path/img)img.png\\");
+  background: url(\\"file:///webpack/public/path/img%20img.png\\");
+}
+
+.qqq {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.www {
+  background: url(\\"file:///webpack/public/path/img'''img.png\\");
+  background: url(\\"file:///webpack/public/path/img'()%20img.png\\");
+  background: url(\\"file:///webpack/public/path/img'img.png\\");
+  background: url(\\"file:///webpack/public/path/img(img.png\\");
+  background: url(\\"file:///webpack/public/path/img)img.png\\");
+  background: url(\\"file:///webpack/public/path/img%20img.png\\");
+  background: url(file:///webpack/public/path/img.png);
+  background: url(file:///webpack/public/path/img.png);
+  background: url(\\"file:///webpack/public/path/img'img.png\\");
+  background: url(\\"file:///webpack/public/path/img'()%20img.png\\");
+  background: url(\\"file:///webpack/public/path/img'()%20img.png\\");
+}
+
+.class {
+  /* Should be one import */
+  background: url(file:///webpack/public/path/something.png);
+  background: url(file:///webpack/public/path/something.png);
+
+  background: url(file:///webpack/public/path/something.png);
+  background: url(file:///webpack/public/path/something.png);
+
+  background: url(file:///webpack/public/path/something.png#hash);
+  background: url(file:///webpack/public/path/something.png#hash);
+
+  /* Should be two imports */
+  background: url(file:///webpack/public/path/something.png);
+  background: url(file:///webpack/public/path/something.png);
+
+  background: url(file:///webpack/public/path/something.png#foo);
+  background: url(file:///webpack/public/path/something.png#bar);
+
+  background: url(file:///webpack/public/path/something.png);
+  background: url(file:///webpack/public/path/something.png);
+}
+
+.base {
+  background: url(\\"data:image/svg+xml;charset=UTF-8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20width%3D%22191px%22%20height%3D%22191px%22%20viewBox%3D%220%200%20191%20191%22%20enable-background%3D%22new%200%200%20191%20191%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M95.5%2C0C42.8%2C0%2C0%2C42.8%2C0%2C95.5S42.8%2C191%2C95.5%2C191S191%2C148.2%2C191%2C95.5S148.2%2C0%2C95.5%2C0z%20M95.5%2C187.6%0A%09c-50.848%2C0-92.1-41.25-92.1-92.1c0-50.848%2C41.252-92.1%2C92.1-92.1c50.85%2C0%2C92.1%2C41.252%2C92.1%2C92.1%0A%09C187.6%2C146.35%2C146.35%2C187.6%2C95.5%2C187.6z%22%2F%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M92.9%2C10v8.6H91v-6.5c-0.1%2C0.1-0.2%2C0.2-0.4%2C0.3c-0.2%2C0.1-0.3%2C0.2-0.4%2C0.2c-0.1%2C0-0.3%2C0.1-0.5%2C0.2%0A%09%09c-0.2%2C0.1-0.3%2C0.1-0.5%2C0.1v-1.6c0.5-0.1%2C0.9-0.3%2C1.4-0.5c0.5-0.2%2C0.8-0.5%2C1.2-0.7h1.1V10z%22%2F%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M97.1%2C17.1h3.602v1.5h-5.6V18c0-0.4%2C0.1-0.8%2C0.2-1.2c0.1-0.4%2C0.3-0.6%2C0.5-0.9c0.2-0.3%2C0.5-0.5%2C0.7-0.7%0A%09%09c0.2-0.2%2C0.5-0.4%2C0.7-0.6c0.199-0.2%2C0.5-0.3%2C0.6-0.5c0.102-0.2%2C0.301-0.3%2C0.5-0.5c0.2-0.2%2C0.2-0.3%2C0.301-0.5%0A%09%09c0.101-0.2%2C0.101-0.3%2C0.101-0.5c0-0.4-0.101-0.6-0.3-0.8c-0.2-0.2-0.4-0.3-0.801-0.3c-0.699%2C0-1.399%2C0.3-2.101%2C0.9v-1.6%0A%09%09c0.7-0.5%2C1.5-0.7%2C2.5-0.7c0.399%2C0%2C0.8%2C0.1%2C1.101%2C0.2c0.301%2C0.1%2C0.601%2C0.3%2C0.899%2C0.5c0.3%2C0.2%2C0.399%2C0.5%2C0.5%2C0.8%0A%09%09c0.101%2C0.3%2C0.2%2C0.6%2C0.2%2C1s-0.102%2C0.7-0.2%2C1c-0.099%2C0.3-0.3%2C0.6-0.5%2C0.8c-0.2%2C0.2-0.399%2C0.5-0.7%2C0.7c-0.3%2C0.2-0.5%2C0.4-0.8%2C0.6%0A%09%09c-0.2%2C0.1-0.399%2C0.3-0.5%2C0.4s-0.3%2C0.3-0.5%2C0.4s-0.2%2C0.3-0.3%2C0.4C97.1%2C17%2C97.1%2C17%2C97.1%2C17.1z%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M15%2C95.4c0%2C0.7-0.1%2C1.4-0.2%2C2c-0.1%2C0.6-0.4%2C1.1-0.7%2C1.5C13.8%2C99.3%2C13.4%2C99.6%2C12.9%2C99.8s-1%2C0.3-1.5%2C0.3%0A%09%09c-0.7%2C0-1.3-0.1-1.8-0.3v-1.5c0.4%2C0.3%2C1%2C0.4%2C1.6%2C0.4c0.6%2C0%2C1.1-0.2%2C1.5-0.7c0.4-0.5%2C0.5-1.1%2C0.5-1.9l0%2C0%0A%09%09C12.8%2C96.7%2C12.3%2C96.9%2C11.5%2C96.9c-0.3%2C0-0.7-0.102-1-0.2c-0.3-0.101-0.5-0.3-0.8-0.5c-0.3-0.2-0.4-0.5-0.5-0.8%0A%09%09c-0.1-0.3-0.2-0.7-0.2-1c0-0.4%2C0.1-0.8%2C0.2-1.2c0.1-0.4%2C0.3-0.7%2C0.6-0.9c0.3-0.2%2C0.6-0.5%2C0.9-0.6c0.3-0.1%2C0.8-0.2%2C1.2-0.2%0A%09%09c0.5%2C0%2C0.9%2C0.1%2C1.2%2C0.3c0.3%2C0.2%2C0.7%2C0.4%2C0.9%2C0.8s0.5%2C0.7%2C0.6%2C1.2S15%2C94.8%2C15%2C95.4z%20M13.1%2C94.4c0-0.2%2C0-0.4-0.1-0.6%0A%09%09c-0.1-0.2-0.1-0.4-0.2-0.5c-0.1-0.1-0.2-0.2-0.4-0.3c-0.2-0.1-0.3-0.1-0.5-0.1c-0.2%2C0-0.3%2C0-0.4%2C0.1s-0.3%2C0.2-0.3%2C0.3%0A%09%09c0%2C0.1-0.2%2C0.3-0.2%2C0.4c0%2C0.1-0.1%2C0.4-0.1%2C0.6c0%2C0.2%2C0%2C0.4%2C0.1%2C0.6c0.1%2C0.2%2C0.1%2C0.3%2C0.2%2C0.4c0.1%2C0.1%2C0.2%2C0.2%2C0.4%2C0.3%0A%09%09c0.2%2C0.1%2C0.3%2C0.1%2C0.5%2C0.1c0.2%2C0%2C0.3%2C0%2C0.4-0.1s0.2-0.2%2C0.3-0.3c0.1-0.1%2C0.2-0.2%2C0.2-0.4C13%2C94.7%2C13.1%2C94.6%2C13.1%2C94.4z%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M176%2C99.7V98.1c0.6%2C0.4%2C1.2%2C0.602%2C2%2C0.602c0.5%2C0%2C0.8-0.102%2C1.1-0.301c0.301-0.199%2C0.4-0.5%2C0.4-0.801%0A%09%09c0-0.398-0.2-0.699-0.5-0.898c-0.3-0.2-0.8-0.301-1.3-0.301h-0.802V95h0.701c1.101%2C0%2C1.601-0.4%2C1.601-1.1c0-0.7-0.4-1-1.302-1%0A%09%09c-0.6%2C0-1.1%2C0.2-1.6%2C0.5v-1.5c0.6-0.3%2C1.301-0.4%2C2.1-0.4c0.9%2C0%2C1.5%2C0.2%2C2%2C0.6s0.701%2C0.9%2C0.701%2C1.5c0%2C1.1-0.601%2C1.8-1.701%2C2.1l0%2C0%0A%09%09c0.602%2C0.1%2C1.102%2C0.3%2C1.4%2C0.6s0.5%2C0.8%2C0.5%2C1.3c0%2C0.801-0.3%2C1.4-0.9%2C1.9c-0.6%2C0.5-1.398%2C0.7-2.398%2C0.7%0A%09%09C177.2%2C100.1%2C176.5%2C100%2C176%2C99.7z%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23636363%22%20d%3D%22M98.5%2C179.102c0%2C0.398-0.1%2C0.799-0.2%2C1.199C98.2%2C180.7%2C98%2C181%2C97.7%2C181.2s-0.601%2C0.5-0.9%2C0.601%0A%09%09c-0.3%2C0.1-0.7%2C0.199-1.2%2C0.199c-0.5%2C0-0.9-0.1-1.3-0.3c-0.4-0.2-0.7-0.399-0.9-0.8c-0.2-0.4-0.5-0.7-0.6-1.2%0A%09%09c-0.1-0.5-0.2-1-0.2-1.601c0-0.699%2C0.1-1.399%2C0.3-2c0.2-0.601%2C0.4-1.101%2C0.8-1.5c0.4-0.399%2C0.7-0.699%2C1.2-1c0.5-0.3%2C1-0.3%2C1.6-0.3%0A%09%09c0.6%2C0%2C1.2%2C0.101%2C1.5%2C0.199v1.5c-0.4-0.199-0.9-0.399-1.4-0.399c-0.3%2C0-0.6%2C0.101-0.8%2C0.2c-0.2%2C0.101-0.5%2C0.3-0.7%2C0.5%0A%09%09c-0.2%2C0.199-0.3%2C0.5-0.4%2C0.8c-0.1%2C0.301-0.2%2C0.7-0.2%2C1.101l0%2C0c0.4-0.601%2C1-0.8%2C1.8-0.8c0.3%2C0%2C0.7%2C0.1%2C0.9%2C0.199%0A%09%09c0.2%2C0.101%2C0.5%2C0.301%2C0.7%2C0.5c0.199%2C0.2%2C0.398%2C0.5%2C0.5%2C0.801C98.5%2C178.2%2C98.5%2C178.7%2C98.5%2C179.102z%20M96.7%2C179.2%0A%09%09c0-0.899-0.4-1.399-1.1-1.399c-0.2%2C0-0.3%2C0-0.5%2C0.1c-0.2%2C0.101-0.3%2C0.201-0.4%2C0.301c-0.1%2C0.101-0.2%2C0.199-0.2%2C0.4%0A%09%09c0%2C0.199-0.1%2C0.299-0.1%2C0.5c0%2C0.199%2C0%2C0.398%2C0.1%2C0.6s0.1%2C0.3%2C0.2%2C0.5c0.1%2C0.199%2C0.2%2C0.199%2C0.4%2C0.3c0.2%2C0.101%2C0.3%2C0.101%2C0.5%2C0.101%0A%09%09c0.2%2C0%2C0.3%2C0%2C0.5-0.101c0.2-0.101%2C0.301-0.199%2C0.301-0.3c0-0.1%2C0.199-0.301%2C0.199-0.399C96.6%2C179.7%2C96.7%2C179.4%2C96.7%2C179.2z%22%2F%3E%0A%3C%2Fg%3E%0A%3Ccircle%20fill%3D%22%23636363%22%20cx%3D%2295%22%20cy%3D%2295%22%20r%3D%227%22%2F%3E%0A%3C%2Fsvg%3E%0A\\") 50% 50%/191px no-repeat;
+}
+
+.strange {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.my-background {
+  background-image: url(file:///webpack/public/path/img.png);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png, 'foo', './img.png', url('./img.png'));
+  background-image: image-set(url(file:///webpack/public/path/img.png, 'foo', './img.png', url('./img.png')) 1x, url(file:///webpack/public/path/img2x.png) 2x);
+}
+
+.button {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\"><rect width=\\"100%\\" height=\\"100%\\" style=\\"stroke: rgb(223,224,225); stroke-width: 2px; fill: none; stroke-dasharray: 6px 3px\\" /></svg>');
+}
+
+/* We need to use \`resourceQuery: /inline/\` */
+/* Hard to test on webpack v4 */
+.qqq {
+  background: url(file:///webpack/public/path/custom-img.png)
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+/** Prefer relative **/
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+/** Prefer from modules **/
+.class {
+  background: url(file:///webpack/public/path/other.png);
+}
+
+.class {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.foo {
+  background-image: url(\\"data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23343a40%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M2 5l6 6 6-6%27/%3e%3c/svg%3e\\");
+}
+
+.bar {
+  background-image: url(\\"data:image/svg+xml;utf8,<svg xmlns=\\\\\\"http://www.w3.org/2000/svg\\\\\\" width=\\\\\\"10\\\\\\" height=\\\\\\"10\\\\\\"><rect fill=\\\\\\"gray\\\\\\" width=\\\\\\"5\\\\\\" height=\\\\\\"5\\\\\\" y=\\\\\\"0\\\\\\" x=\\\\\\"0\\\\\\" /></svg>\\");
+}
+",
+}
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and urls: warnings 1`] = `
+Array [
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(120:3) Unable to find uri in 'background: green url() xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(124:3) Unable to find uri in 'background: green url('') xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(128:3) Unable to find uri in 'background: green url(\\"\\") xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(132:3) Unable to find uri in 'background: green url('   ') xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(136:3) Unable to find uri in 'background: green url(
+  ) xyz'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(216:3) Unable to find uri in 'background-image: -webkit-image-set('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(218:3) Unable to find uri in 'background-image: image-set('')'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(219:3) Unable to find uri in 'background-image: image-set(\\"\\")'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(220:3) Unable to find uri in 'background-image: image-set(\\"\\" 1x)'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(221:3) Unable to find uri in 'background-image: image-set(url())'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(222:3) Unable to find uri in 'background-image: image-set(
+    url()
+  )'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(225:3) Unable to find uri in 'background-image: image-set(URL())'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(226:3) Unable to find uri in 'background-image: image-set(url(''))'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(227:3) Unable to find uri in 'background-image: image-set(url(\\"\\"))'",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Warning
+
+(228:3) Unable to find uri in 'background-image: image-set(url('') 1x)'",
+]
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and with 'sass-loader': errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and with 'sass-loader': module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
+// Exports
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+export default ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and with 'sass-loader': result 1`] = `
+CSSStyleSheet {
+  "text": "body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}",
+}
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value and with 'sass-loader': warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
+___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
+export default ___CSS_LOADER_STYLE_SHEET___;
+"
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value: result 1`] = `
+CSSStyleSheet {
+  "text": "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(file:///webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(file:///webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+",
+}
+`;
+
+exports[`'exportType' option should work with 'css-style-sheet' value: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'string' value and CSS modules: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'string' value and CSS modules: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".dvYI1gdIOPlJqjwAWOo8 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export var someClass = \\"dvYI1gdIOPlJqjwAWOo8\\";
+export default ___CSS_LOADER_EXPORT___.toString();
+"
+`;
+
+exports[`'exportType' option should work with 'string' value and CSS modules: result 1`] = `
+Object {
+  "css": ".dvYI1gdIOPlJqjwAWOo8 {
+  color: red;
+}
+",
+  "locals": Object {
+    "someClass": "dvYI1gdIOPlJqjwAWOo8",
+  },
+}
+`;
+
+exports[`'exportType' option should work with 'string' value and CSS modules: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'string' value and generate source maps: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'string' value and generate source maps: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from \\"../../src/runtime/sourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://./basic-css-style-sheet.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA,gBAAgB;;AAEhB,YAAY;;AAEZ;EACE,UAAU;EACV,mDAAgC;AAClC;;AAEA;EACE,mDAAgC;AAClC;;AAEA;EACE,UAAU;EACV,UAAU;AACZ;;AAEA,SAAS,QAAQ,EAAE;;AAEnB,MAAM;;AAEN,SAAS,QAAQ,EAAE;;AAEnB,SAAS,iBAAiB;;AAE1B;EACE;IACE,2BAA2B;EAC7B;AACF;;AAEA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,sBAAsB;EACtB,0BAA0B;EAC1B,4BAA4B;AAC9B;;AAEA,OAAO;AACP,QAAQ;;AAER,SAAS;;AAET;EACE,aAAa;EACb,eAAe;AACjB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;AACvB;;AAEA,aAAa;;AAEb,YAAY;;AAEZ,QAAQ;;AAER;EACE,mBAAmB,EAAE,2BAA2B;AAClD;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;AAClB;;AAEA,IAAI;;AAEJ,WAAW,EAAE,sCAAsC;AACnD,YAAY,EAAE,yCAAyC;AACvD,YAAY,EAAE,2CAA2C;AACzD,UAAU,EAAE,0CAA0C;AACtD,IAAI,EAAE,oCAAoC;;AAE1C;EACE,qBAAqB;EACrB;;;;;;;;;;GAUC;AACH;;AAEA;EACE,mBAAmB;EACnB,oBAAoB;EACpB,oBAAoB;EACpB,mBAAmB;EACnB,iBAAiB;EACjB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mDAAq1B;AACv1B;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,WAAW;AACb\\",\\"sourcesContent\\":[\\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
+// Exports
+export default ___CSS_LOADER_EXPORT___.toString();
+"
+`;
+
+exports[`'exportType' option should work with 'string' value and generate source maps: result 1`] = `
+"@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+
+/*# sourceURL=webpack://./basic-css-style-sheet.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL2Jhc2ljLWNzcy1zdHlsZS1zaGVldC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCOztBQUVoQixZQUFZOztBQUVaO0VBQ0UsVUFBVTtFQUNWLG1EQUFnQztBQUNsQzs7QUFFQTtFQUNFLG1EQUFnQztBQUNsQzs7QUFFQTtFQUNFLFVBQVU7RUFDVixVQUFVO0FBQ1o7O0FBRUEsU0FBUyxRQUFRLEVBQUU7O0FBRW5CLE1BQU07O0FBRU4sU0FBUyxRQUFRLEVBQUU7O0FBRW5CLFNBQVMsaUJBQWlCOztBQUUxQjtFQUNFO0lBQ0UsMkJBQTJCO0VBQzdCO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLHNCQUFzQjtFQUN0QiwwQkFBMEI7RUFDMUIsNEJBQTRCO0FBQzlCOztBQUVBLE9BQU87QUFDUCxRQUFROztBQUVSLFNBQVM7O0FBRVQ7RUFDRSxhQUFhO0VBQ2IsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSx1QkFBdUI7QUFDekI7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UscUJBQXFCO0FBQ3ZCOztBQUVBLGFBQWE7O0FBRWIsWUFBWTs7QUFFWixRQUFROztBQUVSO0VBQ0UsbUJBQW1CLEVBQUUsMkJBQTJCO0FBQ2xEOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBLElBQUk7O0FBRUosV0FBVyxFQUFFLHNDQUFzQztBQUNuRCxZQUFZLEVBQUUseUNBQXlDO0FBQ3ZELFlBQVksRUFBRSwyQ0FBMkM7QUFDekQsVUFBVSxFQUFFLDBDQUEwQztBQUN0RCxJQUFJLEVBQUUsb0NBQW9DOztBQUUxQztFQUNFLHFCQUFxQjtFQUNyQjs7Ozs7Ozs7OztHQVVDO0FBQ0g7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsb0JBQW9CO0VBQ3BCLG9CQUFvQjtFQUNwQixtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLHdCQUF3QjtBQUMxQjs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTtFQUNFLG1EQUFxMUI7QUFDdjFCOztBQUVBO0VBQ0UsVUFBVTtBQUNaOztBQUVBO0VBQ0UsVUFBVTtBQUNaOztBQUVBO0VBQ0UsV0FBVztBQUNiOztBQUVBO0VBQ0UsV0FBVztBQUNiIiwic291cmNlc0NvbnRlbnQiOlsiQGNoYXJzZXQgXCJVVEYtOFwiO1xuXG4vKiBDb21tZW50ICovXG5cbi5jbGFzcyB7XG4gIGNvbG9yOiByZWQ7XG4gIGJhY2tncm91bmQ6IHVybChcIi4vdXJsL2ltZy5wbmdcIik7XG59XG5cbi5jbGFzcy1kdXBsaWNhdGUtdXJsIHtcbiAgYmFja2dyb3VuZDogdXJsKFwiLi91cmwvaW1nLnBuZ1wiKTtcbn1cblxuOnJvb3Qge1xuICAtLWZvbzogMXB4O1xuICAtLWJhcjogMnB4O1xufVxuXG4uY2xhc3MgeyBhOiBiIGMgZDsgfVxuXG4udHdvIHt9XG5cbi51LW1cXCsgeyBhOiBiIGMgZDsgfVxuXG4uY2xhc3MgeyBjb250ZW50OiBcIlxcRjEwQ1wiIH1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA2MDBweCkge1xuICBib2R5IHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBsaWdodGJsdWU7XG4gIH1cbn1cblxuLmNsYXNzIHtcbiAgY29udGVudDogXCJcXDIxOTNcIjtcbiAgY29udGVudDogXCJcXDIxOTNcXDIxOTNcIjtcbiAgY29udGVudDogXCJcXDIxOTMgXFwyMTkzXCI7XG4gIGNvbnRlbnQ6IFwiXFwyMTkzXFwyMTkzXFwyMTkzXCI7XG4gIGNvbnRlbnQ6IFwiXFwyMTkzIFxcMjE5MyBcXDIxOTNcIjtcbn1cblxuLi10b3Age31cbi5cXC10b3Age31cblxuI1xcI3Rlc3Qge31cblxuLmdyaWQge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG4uZ3JpZC5cXC10b3Age1xuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcbn1cbi5ncmlkLi10b3Age1xuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcbn1cbi5ncmlkLlxcLW1pZGRsZSB7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG4uZ3JpZC5cXC1ib3R0b20ge1xuICBhbGlnbi1pdGVtczogZmxleC1lbmQ7XG59XG5cbi51LW1cXDAwMDAyYiB7fVxuXG4udS1tMDAwMDJiIHt9XG5cbiN1LW1cXCsge31cblxuYm9keSB7XG4gIGZvbnQtZmFtaWx5OiAnw6XCvsKuw6jCvcKvw6nCm8KFw6nCu8KRJzsgLyogc29tZSBjaGluZXNlIGZvbnQgbmFtZSAqL1xufVxuXG4ubXlTdHlsZSB7XG4gIGNvbnRlbnQ6ICdcXGU5MDEnO1xufVxuXG4ubXlTdHlsZSB7XG4gIGNvbnRlbnQ6ICdcXEU5MDEnO1xufVxuXG4uw6LCmcKrIHt9XG5cbi5cXDNBIFxcYFxcKCB7fSAvKiBtYXRjaGVzIGVsZW1lbnRzIHdpdGggY2xhc3M9XCI6YChcIiAqL1xuLlxcMzEgYTJiM2Mge30gLyogbWF0Y2hlcyBlbGVtZW50cyB3aXRoIGNsYXNzPVwiMWEyYjNjXCIgKi9cbiNcXCNmYWtlLWlkIHt9IC8qIG1hdGNoZXMgdGhlIGVsZW1lbnQgd2l0aCBpZD1cIiNmYWtlLWlkXCIgKi9cbiMtYS1iLWMtIHt9IC8qIG1hdGNoZXMgdGhlIGVsZW1lbnQgd2l0aCBpZD1cIi1hLWItYy1cIiAqL1xuI8OCwqkge30gLyogbWF0Y2hlcyB0aGUgZWxlbWVudCB3aXRoIGlkPVwiw4LCqVwiICovXG5cbjpyb290IHtcbiAgLS10aXRsZS1hbGlnbjogY2VudGVyO1xuICAtLXNyLW9ubHk6IHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgd2lkdGg6IDFweDtcbiAgICBoZWlnaHQ6IDFweDtcbiAgICBwYWRkaW5nOiAwO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgY2xpcDogcmVjdCgwLDAsMCwwKTtcbiAgICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICAgIGNsaXAtcGF0aDogaW5zZXQoNTAlKTtcbiAgICBib3JkZXI6IDA7XG4gIH07XG59XG5cbi50ZXN0IHtcbiAgY29udGVudDogXCJcXDIwMTRcXEEwXCI7XG4gIGNvbnRlbnQ6IFwiXFwyMDE0IFxcQTBcIjtcbiAgY29udGVudDogXCJcXEEwIFxcMjAxNFwiO1xuICBjb250ZW50OiBcIlxcQTBcXDIwMTRcIjtcbiAgbWFyZ2luLXRvcDogMXB4XFw5O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDAwXFw5O1xufVxuXG4ubGlnaHQub24gLmJ1bGI6YmVmb3Jle1xuICBjb250ZW50OiAnw7DCn8KSwqEnO1xufVxuXG4uYmFzZTY0IHtcbiAgYmFja2dyb3VuZDogdXJsKGRhdGE6aW1nL2pwZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUJnQUFBQVlDQVlBQUFEZ2R6MzRBQUFBQVhOU1IwSUFyczRjNlFBQUFoeEpSRUZVU0EzdGs3MXJVMUVZeG5NVEVvSlVrb3dXd2RKMmFrRUhCZkdqQ2lJRjZaeWxWVUtTbTJUcVpMR0krQS9vSXUyVVhtOEM0bEF5RjRTV2ppMHRkRkxvMUVvN1ZOMFNhQkVoSDdlL056MG5QVGZHT2ppYUN5ZlBjNTczNHpsZkNRVDZYLzhFL3ZVRXJMODFLQmFMOXkzTFNudWVkNVBjSVRqVU93UjNnc0ZnMmJidGpZdDYvTkdnWEM0UDFldDFsMmFQTG1wQWJEMFNpZGpwZFBxZ1YxNVBBOWQxN3pRYWpVOFV4SFFSSy80RzM1UTVwdmVBSzhMbEkxWmpQTW5sY2x0bnl2bnZid2FPNDF4dnRWcXk3WUh6dE1BQ3E1eG5sYjlFWTNkUmR2Y0dvMWtqNXdSK3QxQW9mREcwZ00rQTg3NUU4RE5qUkNleHNyVjhQajlacVZRaXRWcnRxZWp4ZVB4ak1wbXNzNWhWVEI0YnVYdk1iMkR5VTJ0QlRSUytCanZObFZZVXBQbDdpdVZPM0dxMXVvUXgxRnRTT1cxZ1BncDVaV3JkQnRObVVEZ3Y1YXNneFE4RjFhZjV2aFkwWWp5anVXQzN3VHN6S0p6N0dCT2tjRmxRZlcyT05xNEZqV2krSGo2RFJDS3hRT0syVGxZNHg5MkV1WWQ1ZHZNQWJZSXpmaWthdTNwdTV0SjhLeGFMTGZvMGN5S2NpN3RLNFRaalVNY29YQW1Id3psZTBRL1JhQzVQMUdGTXlWeDlSOUZvOUhZcWxUclNncUR2RmVsQXFWUWE1aG11TVIvV0d0akFhQmRqd0JvRFEwWnNud1ZNWmpLWjluMFplbThEU2VEUGRyblpiTDZGMmwzTk92VVlOWms0b1ZEb1JUYWJQZTRFRE5KekIwWmNqQVl4ZW9aMmkzRk54UTdCSFl3L2NCL2ZsZGFILy9VRVRnSEhPOFM0NEtiZlhnQUFBQUJKUlU1RXJrSmdnZz09KTtcbn1cblxuYVtocmVmPScnXSB7XG4gIGNvbG9yOiByZWQ7XG59XG5cbmFbaHJlZj0nJyBpXSB7XG4gIGNvbG9yOiByZWQ7XG59XG5cbmFbaHJlZj1cIlwiXSB7XG4gIGNvbG9yOiBibHVlO1xufVxuXG5hW2hyZWY9XCJcIiBpXSB7XG4gIGNvbG9yOiBibHVlO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */"
+`;
+
+exports[`'exportType' option should work with 'string' value and generate source maps: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'string' value: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with 'string' value: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___.toString();
+"
+`;
+
+exports[`'exportType' option should work with 'string' value: result 1`] = `
+"@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+"
+`;
+
+exports[`'exportType' option should work with 'string' value: warnings 1`] = `Array []`;
+
+exports[`'exportType' option should work with CSS modules and the 'exportOnlyLocals' option: errors 1`] = `Array []`;
+
+exports[`'exportType' option should work with CSS modules and the 'exportOnlyLocals' option: module 1`] = `
+"// Imports
+import * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./values.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_1____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./something.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_2____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported-simple.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_3____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./relative.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_4____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./top-relative.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_5____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!../issue-861/node_modules/package/style.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_6____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import * as ___CSS_LOADER_ICSS_IMPORT_7____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss\\";
+// Exports
+export var vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
+export var vOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\"\\";
+export var sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
+export var mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
+export var vSomething = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\"\\";
+export var vFoo = \\"blue\\";
+export var vBar = \\"block\\";
+export var vPrimary = \\"#BF4040\\";
+export var sBlack = \\"black-selector\\";
+export var mLarge = \\"(min-width: 960px)\\";
+export var vIdent = \\"validIdent\\";
+export var vPreDefinedIdent = \\"left\\";
+export var vString = \\"'content'\\";
+export var vString1 = \\"''\\";
+export var vUrl = \\"url(https://www.exammple.com/images/my-background.png)\\";
+export var vUrl1 = \\"url('https://www.exammple.com/images/my-background.png')\\";
+export var vUrl2 = \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\";
+export var vInteger = \\"100\\";
+export var vInteger1 = \\"-100\\";
+export var vInteger2 = \\"+100\\";
+export var vNumber = \\".60\\";
+export var vNumber1 = \\"-456.8\\";
+export var vNumber2 = \\"-3.4e-2\\";
+export var vDimension = \\"12px\\";
+export var vPercentage = \\"100%\\";
+export var vHex = \\"#fff\\";
+export var vComment = \\" /* comment */\\";
+export var vFunction = \\"rgb(0,0,0)\\";
+export var vUnicodeRange = \\"U+0025-00FF\\";
+export var ghi = \\"ozGmfTedr1GnFJDWqNUH\\";
+export var myClass = \\"zchqshjqLbPAHaRvIBET\\";
+export var other = \\"WZBxXqS2GytaA3IBhhnd\\";
+export var otherOther = \\"W51zcAMuJMsNFi1CXgWr\\";
+export var green = \\"KEl5ZxzNkpjfWorrBglC\\";
+export var foo = \\"ecAEWh2vww9pNEdyj9Jn\\";
+export var simple = \\"CBlowYk8qiAgWWzFeXRA \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
+export var relative = \\"c_NHnDcX1bd_kuxgsuYi \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var topRelative = \\"S0Kwou8pVmsENtBP3hYm \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
+export var myModule = \\"rq663Pq_zV0CjpwttvK4 \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
+export var alias = \\"fadRMHArJofp7sWEbPVR \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var aliasDuplicate = \\"sg1HlXqlWy6l6_Wm5iA7 \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
+export var primarySelector = \\"bnRUswvicYag6u0SPnvI\\";
+export var blackSelector = \\"kEJRwpukB2OtmkGTknbU\\";
+export var header = \\"hY2PI5vC9ABuJY1nkWnf\\";
+export var foobarbaz = \\"q8mv0HutzqdsVWjl8mAz\\";
+export var url = \\"xajoqP1d3SwrjJ4WEM8g\\";
+export var main = \\"Ix5nEHiVOsWuWxdx0twz \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
+"
+`;
+
+exports[`'exportType' option should work with CSS modules and the 'exportOnlyLocals' option: result 1`] = `
+Object {
+  "named": Object {
+    "alias": "fadRMHArJofp7sWEbPVR dnhKs1AYKq4KodZdfzcx",
+    "aliasDuplicate": "sg1HlXqlWy6l6_Wm5iA7 dnhKs1AYKq4KodZdfzcx",
+    "blackSelector": "kEJRwpukB2OtmkGTknbU",
+    "foo": "ecAEWh2vww9pNEdyj9Jn",
+    "foobarbaz": "q8mv0HutzqdsVWjl8mAz",
+    "ghi": "ozGmfTedr1GnFJDWqNUH",
+    "green": "KEl5ZxzNkpjfWorrBglC",
+    "header": "hY2PI5vC9ABuJY1nkWnf",
+    "mLarge": "(min-width: 960px)",
+    "mSmall": "(min-width: 320px)",
+    "main": "Ix5nEHiVOsWuWxdx0twz oNU7JF6MtPAFrlrthaOD",
+    "myClass": "zchqshjqLbPAHaRvIBET",
+    "myModule": "rq663Pq_zV0CjpwttvK4 q49Ogfvno__tAgAiYJcD",
+    "other": "WZBxXqS2GytaA3IBhhnd",
+    "otherOther": "W51zcAMuJMsNFi1CXgWr",
+    "primarySelector": "bnRUswvicYag6u0SPnvI",
+    "relative": "c_NHnDcX1bd_kuxgsuYi o0pMg4suYQOIzdBIQJv1",
+    "sBlack": "black-selector",
+    "sWhite": "white",
+    "simple": "CBlowYk8qiAgWWzFeXRA pCAAqHK9Lcplw9QM7Rj0",
+    "topRelative": "S0Kwou8pVmsENtBP3hYm l9CmW32NEl99tuNLdbzp",
+    "url": "xajoqP1d3SwrjJ4WEM8g",
+    "vBar": "block",
+    "vComment": " /* comment */",
+    "vDef": "red",
+    "vDimension": "12px",
+    "vFoo": "blue",
+    "vFunction": "rgb(0,0,0)",
+    "vHex": "#fff",
+    "vIdent": "validIdent",
+    "vInteger": "100",
+    "vInteger1": "-100",
+    "vInteger2": "+100",
+    "vNumber": ".60",
+    "vNumber1": "-456.8",
+    "vNumber2": "-3.4e-2",
+    "vOther": "green",
+    "vPercentage": "100%",
+    "vPreDefinedIdent": "left",
+    "vPrimary": "#BF4040",
+    "vSomething": "2112moon",
+    "vString": "'content'",
+    "vString1": "''",
+    "vUnicodeRange": "U+0025-00FF",
+    "vUrl": "url(https://www.exammple.com/images/my-background.png)",
+    "vUrl1": "url('https://www.exammple.com/images/my-background.png')",
+    "vUrl2": "url(\\"https://www.exammple.com/images/my-background.png\\")",
+  },
+}
+`;
+
+exports[`'exportType' option should work with CSS modules and the 'exportOnlyLocals' option: warnings 1`] = `Array []`;

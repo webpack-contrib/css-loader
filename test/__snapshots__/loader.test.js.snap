@@ -4,11 +4,13 @@ exports[`loader issue #1033 (2): errors 1`] = `Array []`;
 
 exports[`loader issue #1033 (2): module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"\\", \\"\\"]);
 // Exports
+___CSS_LOADER_EXPORT___.locals = {};
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -39,15 +41,74 @@ exports[`loader issue #1033: result 1`] = `Object {}`;
 
 exports[`loader issue #1033: warnings 1`] = `Array []`;
 
+exports[`loader should not generate console.warn when plugins disabled and hideNothingWarning is "true": errors 1`] = `Array []`;
+
+exports[`loader should not generate console.warn when plugins disabled and hideNothingWarning is "true": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should not generate console.warn when plugins disabled and hideNothingWarning is "true": result 1`] = `
+Array [
+  Array [
+    "./empty.css",
+    "",
+    "",
+  ],
+]
+`;
+
+exports[`loader should not generate console.warn when plugins disabled and hideNothingWarning is "true": warnings 1`] = `Array []`;
+
+exports[`loader should pass queries to other loader: errors 1`] = `Array []`;
+
+exports[`loader should pass queries to other loader: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/image.svg?color=%23BAAFDB%3F\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___, { hash: \\"#foo\\" });
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".example {\\\\n    background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should pass queries to other loader: result 1`] = `
+Array [
+  Array [
+    "./other-loader-query.css",
+    ".example {
+    background-image: url(replaced_file_protocol_/webpack/public/path/image.svg#foo);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader should pass queries to other loader: warnings 1`] = `Array []`;
+
 exports[`loader should reuse \`ast\` from "postcss-loader": errors 1`] = `Array []`;
 
 exports[`loader should reuse \`ast\` from "postcss-loader": module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./img1x.png\\";
-import ___CSS_LOADER_URL_IMPORT_1___ from \\"./img2x.png\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img1x.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"./img2x.png\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
@@ -96,19 +157,19 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 main.hero, .hero.main {
-  background-image: url(/webpack/public/path/img1x.png);
+  background-image: url(replaced_file_protocol_/webpack/public/path/img1x.png);
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 
 main.hero, .hero.main {
-  background-image:  url(/webpack/public/path/img2x.png);
+  background-image:  url(replaced_file_protocol_/webpack/public/path/img2x.png);
 }
 }
 
 main.hero, .hero.main {
-  background-image: -webkit-image-set(url(/webpack/public/path/img1x.png) 1x, url(/webpack/public/path/img2x.png) 2x);
-  background-image: image-set(url(/webpack/public/path/img1x.png) 1x, url(/webpack/public/path/img2x.png) 2x);
+  background-image: -webkit-image-set(url(replaced_file_protocol_/webpack/public/path/img1x.png) 1x, url(replaced_file_protocol_/webpack/public/path/img2x.png) 2x);
+  background-image: image-set(url(replaced_file_protocol_/webpack/public/path/img1x.png) 1x, url(replaced_file_protocol_/webpack/public/path/img2x.png) 2x);
 }
 
 a {
@@ -131,7 +192,7 @@ Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
 CssSyntaxError
 
-(1:8) Unknown word
+(1:8) /test/fixtures/invisible-space.css Unknown word
 
 > 1 | a {    color: red;    }
     |        ^
@@ -146,7 +207,7 @@ Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
 CssSyntaxError
 
-(2:3) Unknown word
+(2:3) /test/fixtures/error.css Unknown word
 
   1 | .some {
 > 2 |   invalid css;
@@ -159,29 +220,202 @@ CssSyntaxError
 
 exports[`loader should throw error on invalid css syntax: warnings 1`] = `Array []`;
 
-exports[`loader should throws error when no loader(s) for assets: errors 1`] = `
+exports[`loader should throws error when no loader(s) for assets: errors 1`] = `Array []`;
+
+exports[`loader should throws error when no loader(s) for assets: warnings 1`] = `Array []`;
+
+exports[`loader should work in 'production' mode: errors 1`] = `Array []`;
+
+exports[`loader should work in 'production' mode: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should work in 'production' mode: result 1`] = `
 Array [
-  "ModuleParseError: Module parse failed: Unexpected character '�' (1:0)
-You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
-(Source code omitted for this binary file)",
+  Array [
+    250,
+    ".foo {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    967,
+    "@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class-duplicate-url {
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193\\";
+  content: \\"\\\\2193\\\\2193\\\\2193\\";
+  content: \\"\\\\2193 \\\\2193 \\\\2193\\";
+}
+
+.-top {}
+.\\\\-top {}
+
+#\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\E901';
+}
+
+.♫ {}
+
+.\\\\3A \\\\\`\\\\( {} /* matches elements with class=\\":\`(\\" */
+.\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\2014\\\\A0\\";
+  content: \\"\\\\2014 \\\\A0\\";
+  content: \\"\\\\A0 \\\\2014\\";
+  content: \\"\\\\A0\\\\2014\\";
+  margin-top: 1px\\\\9;
+  background-color: #000\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+",
+    "",
+  ],
 ]
 `;
 
-exports[`loader should throws error when no loader(s) for assets: warnings 1`] = `Array []`;
+exports[`loader should work in 'production' mode: warnings 1`] = `Array []`;
 
 exports[`loader should work with "asset" module type: errors 1`] = `Array []`;
 
 exports[`loader should work with "asset" module type: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./url/img.png\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -205,11 +439,11 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class-duplicate-url {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 :root {
@@ -346,8 +580,9 @@ exports[`loader should work with "sass-loader": errors 1`] = `Array []`;
 
 exports[`loader should work with "sass-loader": module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
 // Exports
@@ -386,8 +621,9 @@ exports[`loader should work with empty css: errors 1`] = `Array []`;
 
 exports[`loader should work with empty css: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, \\"\\", \\"\\"]);
 // Exports
@@ -411,15 +647,18 @@ exports[`loader should work with empty options: errors 1`] = `Array []`;
 
 exports[`loader should work with empty options: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??[ident]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./url/img.png\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -428,7 +667,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`loader should work with empty options: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css",
     ".foo {
   color: red;
 }
@@ -443,11 +682,11 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class-duplicate-url {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 :root {
@@ -580,6 +819,133 @@ a[href=\\"\\" i] {
 
 exports[`loader should work with empty options: warnings 1`] = `Array []`;
 
+exports[`loader should work with inline module syntax: errors 1`] = `Array []`;
+
+exports[`loader should work with inline module syntax: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"other.modules.css!=!-!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax.modules.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_1___ from \\"plain.scss!=!-!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax-sass.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_2___ from \\"other.modules.scss!=!-!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax-sass.modules.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_3___ from \\"other.modules.css!=!-!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader!./index-loader-syntax.modules.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_4___ from \\"plain.scss!=!-!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader!./index-loader-syntax.modules.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_5___ from \\"other.modules.scss!=!-!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader!./index-loader-syntax-sass.modules.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_2___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_3___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_4___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_5___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".a {\\\\n  color: red;\\\\n}\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should work with inline module syntax: result 1`] = `
+Array [
+  Array [
+    "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax.modules.css",
+    ".L34UCpsDMDUf5cci5FTp {
+  color: red;
+}
+
+.cR0dzE36E911coHAsfAF {
+  color: white;
+}",
+    "",
+  ],
+  Array [
+    "button.modules.css!=!./index-loader-syntax-sass.css",
+    ".Bm6FV6LbXUxAkIaBjl7y {
+  width: 5px;
+}",
+    "",
+  ],
+  Array [
+    "other.modules.scss!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax-sass.modules.css",
+    ".JkECLtXaeLgZptjLMVOV > .cg9Qb_Gz48g_sQh4Pjap {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax.modules.css",
+    ".L34UCpsDMDUf5cci5FTp {
+  color: red;
+}
+
+.cR0dzE36E911coHAsfAF {
+  color: white;
+}
+
+.BBGEY4nuDapXZ5Z5Llcd {
+  from: custom;
+}",
+    "",
+  ],
+  Array [
+    "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax.modules.css",
+    ".L34UCpsDMDUf5cci5FTp {
+  color: red;
+}
+
+.cR0dzE36E911coHAsfAF {
+  color: white;
+}
+
+.BBGEY4nuDapXZ5Z5Llcd {
+  from: custom;
+}",
+    "",
+  ],
+  Array [
+    "other.modules.scss!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax-sass.modules.css",
+    ".JkECLtXaeLgZptjLMVOV > .cg9Qb_Gz48g_sQh4Pjap {
+  color: red;
+}
+
+.WJ9UGZwK6YvLQsxARKO1 {
+  from: custom;
+}",
+    "",
+  ],
+  Array [
+    "./index-loader-syntax.css",
+    ".a {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    "button.modules.css!=!./index-loader-syntax-sass.css",
+    ".Bm6FV6LbXUxAkIaBjl7y {
+  width: 5px;
+}",
+    "",
+  ],
+  Array [
+    "button.module.scss!=!./base64-loader/index.js?LmZvbyB7IGNvbG9yOiByZWQ7IH0=!./simple.js?foo=bar",
+    ".nQ7qpE_fxjuYDsViKqtM {
+  color: red;
+}",
+    "",
+  ],
+  Array [
+    "other.module.scss!=!./base64-loader/index.js?LmZvbyB7IGNvbG9yOiByZWQ7IH0=!./simple.js?foo=baz",
+    ".nQ7qpE_fxjuYDsViKqtM {
+  color: red;
+}",
+    "",
+  ],
+]
+`;
+
+exports[`loader should work with inline module syntax: warnings 1`] = `Array []`;
+
 exports[`loader should work with none AST metadata: errors 1`] = `Array []`;
 
 exports[`loader should work with none AST metadata: result 1`] = `
@@ -597,9 +963,9 @@ Array [
 
 exports[`loader should work with none AST metadata: warnings 1`] = `Array []`;
 
-exports[`loader should work with the "modules.auto" option and the "importLoaders" option: errors 1`] = `Array []`;
+exports[`loader should work with the "modules.auto" option and the "import.loaders" option: errors 1`] = `Array []`;
 
-exports[`loader should work with the "modules.auto" option and the "importLoaders" option: result 1`] = `
+exports[`loader should work with the "modules.auto" option and the "import.loaders" option: result 1`] = `
 "/* Pure CSS */
 .imported-by-pure {
   overflow-x: hidden;
@@ -635,7 +1001,7 @@ exports[`loader should work with the "modules.auto" option and the "importLoader
   color: #333;
 }
 /* CSS modules */
-._1IwxFskZk1cbjNkH0QoBiv {
+.kSlR28XrNKt9I9mzvNxN {
   overflow-x: hidden;
   overflow-y: auto;
   overflow: hidden auto;
@@ -652,7 +1018,7 @@ exports[`loader should work with the "modules.auto" option and the "importLoader
   overflow-y: auto;
   overflow: hidden auto;
 }
-._2on1B_I_5ZLmD6I3yY37jX {
+.lE126I07pG7EhKO3j2bD {
   color: #333;
   overflow-x: hidden;
   overflow-y: auto;
@@ -665,21 +1031,353 @@ exports[`loader should work with the "modules.auto" option and the "importLoader
 "
 `;
 
-exports[`loader should work with the "modules.auto" option and the "importLoaders" option: warnings 1`] = `Array []`;
+exports[`loader should work with the "modules.auto" option and the "import.loaders" option: warnings 1`] = `Array []`;
+
+exports[`loader should work with webpackIgnore comment: errors 1`] = `Array []`;
+
+exports[`loader should work with webpackIgnore comment: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??ruleSet[1].rules[0].use[0]!./simple.css\\";
+import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"./fonts/Roboto-Regular.woff2\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(\\"./fonts/Roboto-Regular.woff\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(\\"./fonts/Roboto-Regular.ttf\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_4___ = new URL(\\"./fonts/Roboto-Regular.svg\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_5___ = new URL(\\"./fonts/Roboto-Regular.eot\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___, { hash: \\"#Roboto-Regular\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
+var ___CSS_LOADER_URL_REPLACEMENT_6___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: \\"#iefix\\" });
+var ___CSS_LOADER_URL_REPLACEMENT_7___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___, { needQuotes: true });
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\"/* webpackIgnore: true */\\\\n@import url(./basic.css);\\\\n@import /*    webpackIgnore:   true    */ url(./imported.css);\\\\n@import /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);\\\\n@import /* webpackIgnore: false */ /* webpackIgnore: true */ /* webpackIgnore: true */ url(./simple.css);\\\\n@import /* webpackIgnore: false */ /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);\\\\n\\\\n/** Resolved **/\\\\n/** Resolved **/\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\"),  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background:/** webpackIgnore: true */url(\\\\\\"./url/img.png\\\\\\"),  url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: url(\\\\\\"./url/img.png\\\\\\"), url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: url(\\\\\\"./url/img.png\\\\\\"), /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: url(\\\\\\"./url/img.png\\\\\\"), /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\"), /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  /** webpackIgnore: true */\\\\n  background: /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: /** webpackIgnore: true */ /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ /** webpackIgnore: false */ url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: false */ /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  background:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/ url(\\\\\\"./url/img.png\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  src:\\\\n    /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_3___ + \\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: /** webpackIgnore: true **/ url(\\\\\\"./fonts/Roboto-Regular.eot\\\\\\");\\\\n  /** webpackIgnore: true **/\\\\n  src:\\\\n    url(\\\\\\"./fonts/Roboto-Regular.eot#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\\\\\"./fonts/Roboto-Regular.svg#Roboto-Regular\\\\\\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n@font-face {\\\\n  font-family: \\\\\\"Roboto\\\\\\";\\\\n  src: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_5___ + \\");\\\\n  src:\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_6___ + \\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.woff2\\\\\\") format(\\\\\\"woff\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") format(\\\\\\"woff\\\\\\"),\\\\n      /** webpackIgnore: true **/\\\\n    url(\\\\\\"./fonts/Roboto-Regular.ttf\\\\\\") format(\\\\\\"truetype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") format(\\\\\\"svg\\\\\\");\\\\n  font-weight: 400;\\\\n  font-style: normal;\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: image-set(\\\\n    url(./url/img.png) 2x,\\\\n    url(./url/img.png) 3x,\\\\n    url(./url/img.png) 4x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: \\\\n    image-set(\\\\n        /*webpackIgnore:  false*/\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n        /*webpackIgnore:  true*/\\\\n        url(./url/img.png) 3x,\\\\n        url(./url/img.png) 4x,\\\\n        /*webpackIgnore:  false */\\\\n        /*webpackIgnore:  true */\\\\n        url(./url/img.png) 5x\\\\n    ), \\\\n    url('./url/img.png');\\\\n}\\\\n\\\\n.class {\\\\n    background-image:\\\\n      image-set(\\\\n        /*webpackIgnore:  false*/\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n        /*webpackIgnore:  true*/\\\\n        url(./url/img.png) 3x,\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x,\\\\n        /*webpackIgnore:  false */\\\\n        /*webpackIgnore:  true */\\\\n        url(./url/img.png) 5x\\\\n      ),\\\\n      /*webpackIgnore:  false*/\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n      /*webpackIgnore:  true*/\\\\n      url('./url/img.png');;\\\\n}\\\\n\\\\n.class {\\\\n    background-image:\\\\n        image-set(\\\\n            /*webpackIgnore:  false*/\\\\n            url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n            /*webpackIgnore:  true*/\\\\n            url(./url/img.png) 3x,\\\\n            url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x,\\\\n            /*webpackIgnore:  false */\\\\n            /*webpackIgnore:  true */\\\\n            url(./url/img.png) 5x\\\\n        ),\\\\n        url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image: image-set(\\\\n    /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 2x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 3x,\\\\n      /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 5x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n    background-image: image-set(\\\\n        /*webpackIgnore:  true*/\\\\n        './url/img.png' 2x,\\\\n        \\" + ___CSS_LOADER_URL_REPLACEMENT_7___ + \\" 3x,\\\\n        /*webpackIgnore:  true*/\\\\n        './url/img.png' 5x\\\\n    );\\\\n}\\\\n\\\\n.class {\\\\n  /*webpackIgnore:  true*/\\\\n  background-image: image-set(\\\\n    /*webpackIgnore:  false*/\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x,\\\\n    /*webpackIgnore:  true*/\\\\n    url(./url/img.png) 3x,\\\\n    /*webpackIgnore:  false*/\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x,\\\\n    url(./url/img.png) 5x\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"), /** webpackIgnore: true */ url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")/** webpackIgnore: true */, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image:\\\\n    image-set(\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 2x  /*webpackIgnore:  true*/,\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") /*webpackIgnore:  true*/ 3x,\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 4x /*webpackIgnore:  true*/,\\\\n      /*webpackIgnore:  true*/url(./url/img.png) 5x,\\\\n      /*webpackIgnore:  true*/ url(./url/img.png) 6x,\\\\n      /*webpackIgnore:  true*/ \\\\n      url(./url/img.png) 7x,\\\\n      url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 8x\\\\n    ),\\\\n    /*webpackIgnore:  false*/\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"),\\\\n    /*webpackIgnore:  true*/\\\\n    url('./url/img.png');\\\\n}\\\\n\\\\n@font-face {\\\\n    font-family: \\\\\\"anticon\\\\\\";\\\\n    src: url(\\\\\\"//at.alicdn.com/t/font_1434092639_4910953.eot?#iefix\\\\\\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    /* this comment is required */\\\\n    url(\\\\\\"//at.alicdn.com/t/font_1434092639_4910953.woff\\\\\\") format(\\\\\\"woff\\\\\\");\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`loader should work with webpackIgnore comment: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./simple.css",
+    ".some-class {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./simple.css",
+    ".some-class {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./simple.css",
+    ".some-class {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./simple.css",
+    ".some-class {
+  color: red;
+}
+",
+    "",
+  ],
+  Array [
+    "./webpackIgnore.css",
+    "/* webpackIgnore: true */
+@import url(./basic.css);
+@import /*    webpackIgnore:   true    */ url(./imported.css);
+@import /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);
+@import /* webpackIgnore: false */ /* webpackIgnore: true */ /* webpackIgnore: true */ url(./simple.css);
+@import /* webpackIgnore: false */ /* webpackIgnore: false */ /* webpackIgnore: true */ url(./simple.css);
+
+/** Resolved **/
+/** Resolved **/
+
+.class {
+  color: red;
+  background: /** webpackIgnore: true */ url(\\"./url/img.png\\"),  url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class {
+  color: red;
+  background:/** webpackIgnore: true */url(\\"./url/img.png\\"),  url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\");
+}
+
+.class {
+  color: red;
+  /** webpackIgnore: true */
+  background: url(\\"./url/img.png\\"), url(\\"./url/img.png\\");
+}
+
+.class {
+  color: red;
+  /** webpackIgnore: true */
+  background: url(\\"./url/img.png\\"), /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class {
+  color: red;
+  /** webpackIgnore: true */
+  background: url(\\"./url/img.png\\"), /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\"), /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class {
+  color: red;
+  /** webpackIgnore: true */
+  background: /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\");
+}
+
+.class {
+  color: red;
+  background: /** webpackIgnore: true */ /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png), url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ /** webpackIgnore: false */ url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: false */ /** webpackIgnore: true */ url(\\"./url/img.png\\");
+}
+
+.class {
+  background:
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+      /** webpackIgnore: true **/ url(\\"./url/img.png\\"),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+      /** webpackIgnore: true **/ url(\\"./url/img.png\\"),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+      /** webpackIgnore: true **/
+    url(\\"./url/img.png\\");
+}
+
+@font-face {
+  font-family: \\"Roboto\\";
+  src: /** webpackIgnore: true **/ url(\\"./fonts/Roboto-Regular.eot\\");
+  src:
+    /** webpackIgnore: true **/
+    url(\\"./fonts/Roboto-Regular.eot#iefix\\") format(\\"embedded-opentype\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.woff2) format(\\"woff\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.woff) format(\\"woff\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.ttf) format(\\"truetype\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.svg#Roboto-Regular) format(\\"svg\\");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: \\"Roboto\\";
+  src: /** webpackIgnore: true **/ url(\\"./fonts/Roboto-Regular.eot\\");
+  /** webpackIgnore: true **/
+  src:
+    url(\\"./fonts/Roboto-Regular.eot#iefix\\") format(\\"embedded-opentype\\"),
+    url(\\"./fonts/Roboto-Regular.woff2\\") format(\\"woff\\"),
+    url(\\"./fonts/Roboto-Regular.woff\\") format(\\"woff\\"),
+    url(\\"./fonts/Roboto-Regular.ttf\\") format(\\"truetype\\"),
+    url(\\"./fonts/Roboto-Regular.svg#Roboto-Regular\\") format(\\"svg\\");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: \\"Roboto\\";
+  src: url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.eot);
+  src:
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.eot#iefix) format(\\"embedded-opentype\\"),
+      /** webpackIgnore: true **/
+    url(\\"./fonts/Roboto-Regular.woff2\\") format(\\"woff\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.woff) format(\\"woff\\"),
+      /** webpackIgnore: true **/
+    url(\\"./fonts/Roboto-Regular.ttf\\") format(\\"truetype\\"),
+    url(replaced_file_protocol_/webpack/public/path/Roboto-Regular.svg#Roboto-Regular) format(\\"svg\\");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.class {
+  /*webpackIgnore:  true*/
+  background-image: image-set(
+    url(./url/img.png) 2x,
+    url(./url/img.png) 3x,
+    url(./url/img.png) 4x
+  );
+}
+
+.class {
+  /*webpackIgnore:  true*/
+  background-image: 
+    image-set(
+        /*webpackIgnore:  false*/
+        url(replaced_file_protocol_/webpack/public/path/img.png) 2x,
+        /*webpackIgnore:  true*/
+        url(./url/img.png) 3x,
+        url(./url/img.png) 4x,
+        /*webpackIgnore:  false */
+        /*webpackIgnore:  true */
+        url(./url/img.png) 5x
+    ), 
+    url('./url/img.png');
+}
+
+.class {
+    background-image:
+      image-set(
+        /*webpackIgnore:  false*/
+        url(replaced_file_protocol_/webpack/public/path/img.png) 2x,
+        /*webpackIgnore:  true*/
+        url(./url/img.png) 3x,
+        url(replaced_file_protocol_/webpack/public/path/img.png) 4x,
+        /*webpackIgnore:  false */
+        /*webpackIgnore:  true */
+        url(./url/img.png) 5x
+      ),
+      /*webpackIgnore:  false*/
+      url(replaced_file_protocol_/webpack/public/path/img.png),
+      /*webpackIgnore:  true*/
+      url('./url/img.png');;
+}
+
+.class {
+    background-image:
+        image-set(
+            /*webpackIgnore:  false*/
+            url(replaced_file_protocol_/webpack/public/path/img.png) 2x,
+            /*webpackIgnore:  true*/
+            url(./url/img.png) 3x,
+            url(replaced_file_protocol_/webpack/public/path/img.png) 4x,
+            /*webpackIgnore:  false */
+            /*webpackIgnore:  true */
+            url(./url/img.png) 5x
+        ),
+        url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class {
+  background-image: image-set(
+    /*webpackIgnore:  true*/
+    url(./url/img.png) 2x,
+    url(replaced_file_protocol_/webpack/public/path/img.png) 3x,
+      /*webpackIgnore:  true*/
+    url(./url/img.png) 5x
+  );
+}
+
+.class {
+    background-image: image-set(
+        /*webpackIgnore:  true*/
+        './url/img.png' 2x,
+        \\"replaced_file_protocol_/webpack/public/path/img.png\\" 3x,
+        /*webpackIgnore:  true*/
+        './url/img.png' 5x
+    );
+}
+
+.class {
+  /*webpackIgnore:  true*/
+  background-image: image-set(
+    /*webpackIgnore:  false*/
+    url(replaced_file_protocol_/webpack/public/path/img.png) 2x,
+    /*webpackIgnore:  true*/
+    url(./url/img.png) 3x,
+    /*webpackIgnore:  false*/
+    url(replaced_file_protocol_/webpack/public/path/img.png) 4x,
+    url(./url/img.png) 5x
+  );
+}
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */url(\\"./url/img.png\\");
+}
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png), /** webpackIgnore: true */ url(\\"./url/img.png\\");
+}
+
+.class {
+  color: red;
+  background: url(replaced_file_protocol_/webpack/public/path/img.png)/** webpackIgnore: true */, url(replaced_file_protocol_/webpack/public/path/img.png);
+}
+
+.class {
+  background-image:
+    image-set(
+      url(replaced_file_protocol_/webpack/public/path/img.png) 2x  /*webpackIgnore:  true*/,
+      url(replaced_file_protocol_/webpack/public/path/img.png) /*webpackIgnore:  true*/ 3x,
+      url(replaced_file_protocol_/webpack/public/path/img.png) 4x /*webpackIgnore:  true*/,
+      /*webpackIgnore:  true*/url(./url/img.png) 5x,
+      /*webpackIgnore:  true*/ url(./url/img.png) 6x,
+      /*webpackIgnore:  true*/ 
+      url(./url/img.png) 7x,
+      url(replaced_file_protocol_/webpack/public/path/img.png) 8x
+    ),
+    /*webpackIgnore:  false*/
+    url(replaced_file_protocol_/webpack/public/path/img.png),
+    /*webpackIgnore:  true*/
+    url('./url/img.png');
+}
+
+@font-face {
+    font-family: \\"anticon\\";
+    src: url(\\"//at.alicdn.com/t/font_1434092639_4910953.eot?#iefix\\") format(\\"embedded-opentype\\"),
+    /* this comment is required */
+    url(\\"//at.alicdn.com/t/font_1434092639_4910953.woff\\") format(\\"woff\\");
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`loader should work with webpackIgnore comment: warnings 1`] = `Array []`;
 
 exports[`loader should work: errors 1`] = `Array []`;
 
 exports[`loader should work: module 1`] = `
 "// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??[ident]!./imported.css\\";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
 import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../src/runtime/getUrl.js\\";
-import ___CSS_LOADER_URL_IMPORT_0___ from \\"./url/img.png\\";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./url/img.png\\", import.meta.url);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(\\"data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==\\", import.meta.url);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -688,7 +1386,7 @@ export default ___CSS_LOADER_EXPORT___;
 exports[`loader should work: result 1`] = `
 Array [
   Array [
-    "../../src/index.js?[ident]!./imported.css",
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css",
     ".foo {
   color: red;
 }
@@ -703,11 +1401,11 @@ Array [
 
 .class {
   color: red;
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 .class-duplicate-url {
-  background: url(/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/img.png);
 }
 
 :root {

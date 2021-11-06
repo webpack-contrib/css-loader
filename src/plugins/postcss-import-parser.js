@@ -1,200 +1,347 @@
-import { promisify } from 'util';
-
-import postcss from 'postcss';
-import valueParser from 'postcss-value-parser';
+import valueParser from "postcss-value-parser";
 
 import {
   normalizeUrl,
   resolveRequests,
-  isUrlRequestable,
+  isURLRequestable,
   requestify,
-} from '../utils';
+  WEBPACK_IGNORE_COMMENT_REGEXP,
+} from "../utils";
 
-const pluginName = 'postcss-import-parser';
+function parseNode(atRule, key, options) {
+  // Convert only top-level @import
+  if (atRule.parent.type !== "root") {
+    return;
+  }
 
-function walkAtRules(css, result, options, callback) {
-  const accumulator = [];
+  if (
+    atRule.raws &&
+    atRule.raws.afterName &&
+    atRule.raws.afterName.trim().length > 0
+  ) {
+    const lastCommentIndex = atRule.raws.afterName.lastIndexOf("/*");
+    const matched = atRule.raws.afterName
+      .slice(lastCommentIndex)
+      .match(WEBPACK_IGNORE_COMMENT_REGEXP);
 
-  css.walkAtRules(/^import$/i, (atRule) => {
-    // Convert only top-level @import
-    if (atRule.parent.type !== 'root') {
+    if (matched && matched[2] === "true") {
       return;
     }
+  }
 
-    // Nodes do not exists - `@import url('http://') :root {}`
-    if (atRule.nodes) {
-      result.warn(
-        "It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
-        { node: atRule }
-      );
+  const prevNode = atRule.prev();
 
+  if (prevNode && prevNode.type === "comment") {
+    const matched = prevNode.text.match(WEBPACK_IGNORE_COMMENT_REGEXP);
+
+    if (matched && matched[2] === "true") {
       return;
     }
+  }
 
-    const { nodes: paramsNodes } = valueParser(atRule.params);
+  // Nodes do not exists - `@import url('http://') :root {}`
+  if (atRule.nodes) {
+    const error = new Error(
+      "It looks like you didn't end your @import statement correctly. Child nodes are attached to it."
+    );
 
-    // No nodes - `@import ;`
-    // Invalid type - `@import foo-bar;`
-    if (
-      paramsNodes.length === 0 ||
-      (paramsNodes[0].type !== 'string' && paramsNodes[0].type !== 'function')
-    ) {
-      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
-        node: atRule,
-      });
+    error.node = atRule;
 
-      return;
+    throw error;
+  }
+
+  const rawParams =
+    atRule.raws &&
+    atRule.raws[key] &&
+    typeof atRule.raws[key].raw !== "undefined"
+      ? atRule.raws[key].raw
+      : atRule[key];
+  const { nodes: paramsNodes } = valueParser(rawParams);
+
+  // No nodes - `@import ;`
+  // Invalid type - `@import foo-bar;`
+  if (
+    paramsNodes.length === 0 ||
+    (paramsNodes[0].type !== "string" && paramsNodes[0].type !== "function")
+  ) {
+    const error = new Error(`Unable to find uri in "${atRule.toString()}"`);
+
+    error.node = atRule;
+
+    throw error;
+  }
+
+  let isStringValue;
+  let url;
+
+  if (paramsNodes[0].type === "string") {
+    isStringValue = true;
+    url = paramsNodes[0].value;
+  } else {
+    // Invalid function - `@import nourl(test.css);`
+    if (paramsNodes[0].value.toLowerCase() !== "url") {
+      const error = new Error(`Unable to find uri in "${atRule.toString()}"`);
+
+      error.node = atRule;
+
+      throw error;
     }
 
-    let isStringValue;
-    let url;
+    isStringValue =
+      paramsNodes[0].nodes.length !== 0 &&
+      paramsNodes[0].nodes[0].type === "string";
+    url = isStringValue
+      ? paramsNodes[0].nodes[0].value
+      : valueParser.stringify(paramsNodes[0].nodes);
+  }
 
-    if (paramsNodes[0].type === 'string') {
-      isStringValue = true;
-      url = paramsNodes[0].value;
-    } else {
-      // Invalid function - `@import nourl(test.css);`
-      if (paramsNodes[0].value.toLowerCase() !== 'url') {
-        result.warn(`Unable to find uri in "${atRule.toString()}"`, {
-          node: atRule,
-        });
+  url = normalizeUrl(url, isStringValue);
 
-        return;
+  const { requestable, needResolve } = isURLRequestable(url, options);
+
+  let prefix;
+
+  if (requestable && needResolve) {
+    const queryParts = url.split("!");
+
+    if (queryParts.length > 1) {
+      url = queryParts.pop();
+      prefix = queryParts.join("!");
+    }
+  }
+
+  // Empty url - `@import "";` or `@import url();`
+  if (url.trim().length === 0) {
+    const error = new Error(`Unable to find uri in "${atRule.toString()}"`);
+
+    error.node = atRule;
+
+    throw error;
+  }
+
+  const additionalNodes = paramsNodes.slice(1);
+
+  let supports;
+  let layer;
+  let media;
+
+  if (additionalNodes.length > 0) {
+    let nodes = [];
+
+    for (const node of additionalNodes) {
+      nodes.push(node);
+
+      const isLayerFunction =
+        node.type === "function" && node.value.toLowerCase() === "layer";
+      const isLayerWord =
+        node.type === "word" && node.value.toLowerCase() === "layer";
+
+      if (isLayerFunction || isLayerWord) {
+        if (isLayerFunction) {
+          nodes.splice(nodes.length - 1, 1, ...node.nodes);
+        } else {
+          nodes.splice(nodes.length - 1, 1, {
+            type: "string",
+            value: "",
+            unclosed: false,
+          });
+        }
+
+        layer = valueParser.stringify(nodes).trim().toLowerCase();
+        nodes = [];
+      } else if (
+        node.type === "function" &&
+        node.value.toLowerCase() === "supports"
+      ) {
+        nodes.splice(nodes.length - 1, 1, ...node.nodes);
+
+        supports = valueParser.stringify(nodes).trim().toLowerCase();
+        nodes = [];
       }
-
-      isStringValue =
-        paramsNodes[0].nodes.length !== 0 &&
-        paramsNodes[0].nodes[0].type === 'string';
-      url = isStringValue
-        ? paramsNodes[0].nodes[0].value
-        : valueParser.stringify(paramsNodes[0].nodes);
     }
 
-    // Empty url - `@import "";` or `@import url();`
-    if (url.trim().length === 0) {
-      result.warn(`Unable to find uri in "${atRule.toString()}"`, {
-        node: atRule,
-      });
-
-      return;
+    if (nodes.length > 0) {
+      media = valueParser.stringify(nodes).trim().toLowerCase();
     }
+  }
 
-    accumulator.push({
-      atRule,
-      url,
-      isStringValue,
-      mediaNodes: paramsNodes.slice(1),
-    });
-  });
-
-  callback(null, accumulator);
+  // eslint-disable-next-line consistent-return
+  return {
+    atRule,
+    prefix,
+    url,
+    layer,
+    supports,
+    media,
+    requestable,
+    needResolve,
+  };
 }
 
-const asyncWalkAtRules = promisify(walkAtRules);
+const plugin = (options = {}) => {
+  return {
+    postcssPlugin: "postcss-import-parser",
+    prepare(result) {
+      const parsedAtRules = [];
 
-export default postcss.plugin(pluginName, (options) => async (css, result) => {
-  const parsedResults = await asyncWalkAtRules(css, result, options);
+      return {
+        AtRule: {
+          import(atRule) {
+            if (options.isCSSStyleSheet) {
+              options.loaderContext.emitError(
+                new Error(
+                  atRule.error(
+                    "'@import' rules are not allowed here and will not be processed"
+                  ).message
+                )
+              );
 
-  if (parsedResults.length === 0) {
-    return Promise.resolve();
-  }
+              return;
+            }
 
-  const imports = new Map();
-  const tasks = [];
+            const { isSupportDataURL, isSupportAbsoluteURL } = options;
 
-  for (const parsedResult of parsedResults) {
-    const { atRule, url, isStringValue, mediaNodes } = parsedResult;
+            let parsedAtRule;
 
-    let normalizedUrl = url;
-    let prefix = '';
+            try {
+              parsedAtRule = parseNode(atRule, "params", {
+                isSupportAbsoluteURL,
+                isSupportDataURL,
+              });
+            } catch (error) {
+              result.warn(error.message, { node: error.node });
+            }
 
-    const isRequestable = isUrlRequestable(normalizedUrl);
+            if (!parsedAtRule) {
+              return;
+            }
 
-    if (isRequestable) {
-      const queryParts = normalizedUrl.split('!');
+            parsedAtRules.push(parsedAtRule);
+          },
+        },
+        async OnceExit() {
+          if (parsedAtRules.length === 0) {
+            return;
+          }
 
-      if (queryParts.length > 1) {
-        normalizedUrl = queryParts.pop();
-        prefix = queryParts.join('!');
-      }
+          const { loaderContext } = options;
+          const resolver = loaderContext.getResolve({
+            dependencyType: "css",
+            conditionNames: ["style"],
+            mainFields: ["css", "style", "main", "..."],
+            mainFiles: ["index", "..."],
+            extensions: [".css", "..."],
+            preferRelative: true,
+          });
 
-      normalizedUrl = normalizeUrl(normalizedUrl, isStringValue);
+          const resolvedAtRules = await Promise.all(
+            parsedAtRules.map(async (parsedAtRule) => {
+              const {
+                atRule,
+                requestable,
+                needResolve,
+                prefix,
+                url,
+                layer,
+                supports,
+                media,
+              } = parsedAtRule;
 
-      // Empty url after normalize - `@import '\
-      // \
-      // \
-      // ';
-      if (normalizedUrl.trim().length === 0) {
-        result.warn(`Unable to find uri in "${atRule.toString()}"`, {
-          node: atRule,
-        });
+              if (options.filter) {
+                const needKeep = await options.filter(
+                  url,
+                  media,
+                  loaderContext.resourcePath,
+                  supports,
+                  layer
+                );
 
-        // eslint-disable-next-line no-continue
-        continue;
-      }
-    }
+                if (!needKeep) {
+                  return;
+                }
+              }
 
-    let media;
+              if (needResolve) {
+                const request = requestify(url, loaderContext.rootContext);
+                const resolvedUrl = await resolveRequests(
+                  resolver,
+                  loaderContext.context,
+                  [...new Set([request, url])]
+                );
 
-    if (mediaNodes.length > 0) {
-      media = valueParser.stringify(mediaNodes).trim().toLowerCase();
-    }
+                if (!resolvedUrl) {
+                  return;
+                }
 
-    if (options.filter && !options.filter(normalizedUrl, media)) {
-      // eslint-disable-next-line no-continue
-      continue;
-    }
+                if (resolvedUrl === loaderContext.resourcePath) {
+                  atRule.remove();
 
-    atRule.remove();
+                  return;
+                }
 
-    if (isRequestable) {
-      const request = requestify(normalizedUrl, options.rootContext);
+                atRule.remove();
 
-      tasks.push(
-        (async () => {
-          const { resolver, context } = options;
-          const resolvedUrl = await resolveRequests(resolver, context, [
-            ...new Set([request, normalizedUrl]),
-          ]);
+                // eslint-disable-next-line consistent-return
+                return {
+                  url: resolvedUrl,
+                  layer,
+                  supports,
+                  media,
+                  prefix,
+                  requestable,
+                };
+              }
 
-          return { url: resolvedUrl, media, prefix, isRequestable };
-        })()
-      );
-    } else {
-      tasks.push({ url, media, prefix, isRequestable });
-    }
-  }
+              atRule.remove();
 
-  const results = await Promise.all(tasks);
+              // eslint-disable-next-line consistent-return
+              return { url, layer, supports, media, prefix, requestable };
+            })
+          );
 
-  for (let index = 0; index <= results.length - 1; index++) {
-    const { url, isRequestable, media } = results[index];
+          const urlToNameMap = new Map();
 
-    if (isRequestable) {
-      const { prefix } = results[index];
-      const newUrl = prefix ? `${prefix}!${url}` : url;
-      const importKey = newUrl;
-      let importName = imports.get(importKey);
+          for (let index = 0; index <= resolvedAtRules.length - 1; index++) {
+            const resolvedAtRule = resolvedAtRules[index];
 
-      if (!importName) {
-        importName = `___CSS_LOADER_AT_RULE_IMPORT_${imports.size}___`;
-        imports.set(importKey, importName);
+            if (!resolvedAtRule) {
+              // eslint-disable-next-line no-continue
+              continue;
+            }
 
-        options.imports.push({
-          importName,
-          url: options.urlHandler(newUrl),
-          index,
-        });
-      }
+            const { url, requestable, layer, supports, media } = resolvedAtRule;
 
-      options.api.push({ importName, media, index });
+            if (!requestable) {
+              options.api.push({ url, layer, supports, media, index });
 
-      // eslint-disable-next-line no-continue
-      continue;
-    }
+              // eslint-disable-next-line no-continue
+              continue;
+            }
 
-    options.api.push({ url, media, index });
-  }
+            const { prefix } = resolvedAtRule;
+            const newUrl = prefix ? `${prefix}!${url}` : url;
+            let importName = urlToNameMap.get(newUrl);
 
-  return Promise.resolve();
-});
+            if (!importName) {
+              importName = `___CSS_LOADER_AT_RULE_IMPORT_${urlToNameMap.size}___`;
+              urlToNameMap.set(newUrl, importName);
+
+              options.imports.push({
+                type: "rule_import",
+                importName,
+                url: options.urlHandler(newUrl),
+                index,
+              });
+            }
+
+            options.api.push({ importName, layer, supports, media, index });
+          }
+        },
+      };
+    },
+  };
+};
+
+plugin.postcss = true;
+
+export default plugin;

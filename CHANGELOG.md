@@ -2,6 +2,250 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.5.1](https://github.com/webpack-contrib/css-loader/compare/v6.5.0...v6.5.1) (2021-11-03)
+
+
+### Bug Fixes
+
+* regression with unicode characters in locals ([b7a8441](https://github.com/webpack-contrib/css-loader/commit/b7a84414fb3f6e6ff413cbbb7004fa74a78da331))
+* runtime path generation ([#1393](https://github.com/webpack-contrib/css-loader/issues/1393)) ([feafea8](https://github.com/webpack-contrib/css-loader/commit/feafea812a95db05e9b52beaced0def611bba5c8))
+
+## [6.5.0](https://github.com/webpack-contrib/css-loader/compare/v6.4.0...v6.5.0) (2021-10-26)
+
+
+### Features
+
+* support absolute URL in `url()` when `experiments.buildHttp` enabled ([#1389](https://github.com/webpack-contrib/css-loader/issues/1389)) ([8946be4](https://github.com/webpack-contrib/css-loader/commit/8946be4d0f2c0237cd5fa846d67d469ff20058a4))
+
+
+### Bug Fixes
+
+* respect `nosources` in the `devtool` option ([c60eff2](https://github.com/webpack-contrib/css-loader/commit/c60eff212337c8a65995f6675d25f49bb515e77d))
+
+## [6.4.0](https://github.com/webpack-contrib/css-loader/compare/v6.3.0...v6.4.0) (2021-10-09)
+
+
+### Features
+
+* generate more collision resistant for locals ([c7db752](https://github.com/webpack-contrib/css-loader/commit/c7db752fe6a9c7ff28d165fd24a37be08ef83af5))
+
+
+### Bug Fixes
+
+* classes generation for client and server bundling ([303a3a1](https://github.com/webpack-contrib/css-loader/commit/303a3a171793cf1044c131e291f5c29f9ab86c77))
+
+## [6.3.0](https://github.com/webpack-contrib/css-loader/compare/v6.2.0...v6.3.0) (2021-09-18)
+
+
+### Features
+
+* added `[folder]` placeholder ([a0dee4f](https://github.com/webpack-contrib/css-loader/commit/a0dee4fd34dd1b9892dac7645a4e57ec134e561b))
+* added the `exportType` option with `'array'`, `'string'` and `'css-style-sheet'` values ([c6d2066](https://github.com/webpack-contrib/css-loader/commit/c6d20664ca03226ace26b9766e484e437ec74f60))
+  * `'array'` - the default export is `Array` with API for `style-loader` and other
+  * `'string'` - the default export is `String` you don't need [`to-string-loader`](https://www.npmjs.com/package/to-string-loader) loader anymore
+  * `'css-style-sheet'` - the default export is a [`constructable stylesheet`](https://developers.google.com/web/updates/2019/02/constructable-stylesheets), you can use `import sheet from './styles.css' assert { type: 'css' };` like in a browser, more information you can find [here](https://github.com/webpack-contrib/css-loader#css-style-sheet)
+* supported `supports()` and `layer()` functions in `@import` at-rules ([#1377](https://github.com/webpack-contrib/css-loader/issues/1377)) ([bce2c17](https://github.com/webpack-contrib/css-loader/commit/bce2c17524290591be243829187f909a0ae5a6f7))
+* fix multiple merging multiple `@media` at-rules ([#1377](https://github.com/webpack-contrib/css-loader/issues/1377)) ([bce2c17](https://github.com/webpack-contrib/css-loader/commit/bce2c17524290591be243829187f909a0ae5a6f7))
+
+
+### Bug Fixes
+
+* reduce runtime ([#1378](https://github.com/webpack-contrib/css-loader/issues/1378)) ([cf3a3a7](https://github.com/webpack-contrib/css-loader/commit/cf3a3a7346aa73637ee6aae6fef5648965c31a47))
+
+## [6.2.0](https://github.com/webpack-contrib/css-loader/compare/v6.1.0...v6.2.0) (2021-07-19)
+
+
+### Features
+
+* allow the `exportLocalsConvention` option can be a function, useful for named export ([#1351](https://github.com/webpack-contrib/css-loader/issues/1351)) ([3c4b357](https://github.com/webpack-contrib/css-loader/commit/3c4b35718273baaf9e0480db715b596fbe5d7453))
+
+## [6.1.0](https://github.com/webpack-contrib/css-loader/compare/v6.0.0...v6.1.0) (2021-07-17)
+
+
+### Features
+
+* add `link` in schema ([#1345](https://github.com/webpack-contrib/css-loader/issues/1345)) ([7d4e493](https://github.com/webpack-contrib/css-loader/commit/7d4e4931390f9e9356af45ae03057d1505d73109))
+
+
+### Bug Fixes
+
+* respect the `localIdentRegExp` option ([#1349](https://github.com/webpack-contrib/css-loader/issues/1349)) ([42f150b](https://github.com/webpack-contrib/css-loader/commit/42f150b429afad9b0851d2e6bd75cec120885aa4))
+
+## [6.0.0](https://github.com/webpack-contrib/css-loader/compare/v5.2.7...v6.0.0) (2021-07-14)
+
+### Notes
+
+* using `~` is deprecated when the `esModules` option is enabled (enabled by default) and can be removed from your code (**we recommend it**) (`url(~package/image.png)` -> `url(package/image.png)`, `@import url(~package/style.css)` -> `@import url(package/style.css)`, `composes: import from '~package/one.css';` -> `composes: import from 'package/one.css';`), but we still support it for historical reasons. Why can you remove it? The loader will first try to resolve `@import`/`url()`/etc as relative, if it cannot be resolved, the loader will try to resolve `@import`/`url()`/etc inside [`node_modules` or modules directories](https://webpack.js.org/configuration/resolve/#resolvemodules).
+* `file-loader` and `url-loader` are deprecated, please migrate on [`asset modules`](https://webpack.js.org/guides/asset-modules/), since v6 `css-loader` is generating `new URL(...)` syntax, it enables by default built-in [`assets modules`](https://webpack.js.org/guides/asset-modules/), i.e. `type: 'asset'` for all `url()`
+
+### ⚠ BREAKING CHANGES
+
+* minimum supported `Node.js` version is `12.13.0`
+* minimum supported `webpack` version is `5`, we recommend to update to the latest version for better performance
+* for `url` and `import` options `Function` type was removed in favor `Object` type with the `filter` property, i.e. before `{ url: () => true }`, now `{ url: { filter: () => true } }` and  before `{ import: () => true }`, now `{ import: { filter: () => true } }`
+* the `modules.compileType` option was removed in favor the `modules.mode` option with `icss` value, also the `modules` option can have `icss` string value
+* `new URL()` syntax used for `url()`, only when the `esModules` option is enabled (enabled by default), it means you can bundle CSS for libraries
+* [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) are handling in `url()`, it means you can register loaders for them, [example](https://webpack.js.org/configuration/module/#rulescheme)
+* aliases with `false` value for `url()` now generate empty data URI (i.e. `data:0,`), only when the `esModules` option is enabled (enabled by default)
+* `[ext]` placeholder don't need `.` (dot) before for the `localIdentName` option, i.e. please change `.[ext]` on `[ext]` (no dot before) 
+* `[folder]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic
+* `[emoji]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic
+* the `localIdentHashPrefix` was removed in favor the `localIdentHashSalt` option
+
+### Features
+
+* supported [`resolve.byDependency.css`](https://webpack.js.org/configuration/resolve/#resolvebydependency) resolve options for `@import`
+* supported [`resolve.byDependency.icss`](https://webpack.js.org/configuration/resolve/#resolvebydependency) resolve CSS modules and ICSS imports (i.e. `composes`/etc)
+* added `modules.localIdentHashFunction`, `modules.localIdentHashDigest`, `modules.localIdentHashDigestLength` options for better class hashing controlling
+* less dependencies
+
+### Bug Fixes
+
+* better performance
+* fixed circular `@import`
+
+### Notes
+
+* **we strongly recommend not to add `.css` to `resolve.extensions`, it reduces performance and in most cases it is simply not necessary, alternative you can set resolve options [by dependency](https://webpack.js.org/configuration/resolve/#resolvebydependency)**   
+
+### [5.2.7](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7) (2021-07-13)
+
+
+### Bug Fixes
+
+* fix crash when source map is unavailable with external URL in `[@import](https://github.com/import)` ([bb76fe4](https://github.com/webpack-contrib/css-loader/commit/bb76fe48a198e74cacf29ad4b1c01d485f4db11f))
+
+### [5.2.6](https://github.com/webpack-contrib/css-loader/compare/v5.2.5...v5.2.6) (2021-05-24)
+
+
+### Bug Fixes
+
+* always write locals export when css modules/icss enabled ([#1315](https://github.com/webpack-contrib/css-loader/issues/1315)) ([075d9bd](https://github.com/webpack-contrib/css-loader/commit/075d9bd044a78543479cbf10ccd3c386a3e434e6))
+
+### [5.2.5](https://github.com/webpack-contrib/css-loader/compare/v5.2.4...v5.2.5) (2021-05-20)
+
+
+### Bug Fixes
+
+* compatibility with named export and es5 ([#1314](https://github.com/webpack-contrib/css-loader/issues/1314)) ([0cf8cde](https://github.com/webpack-contrib/css-loader/commit/0cf8cdedd8667b1ba13d3b4322087943a25176f6))
+
+### [5.2.4](https://github.com/webpack-contrib/css-loader/compare/v5.2.3...v5.2.4) (2021-04-19)
+
+
+### Bug Fixes
+
+* do not crash on 'false' aliases ([#1292](https://github.com/webpack-contrib/css-loader/issues/1292)) ([e913cb1](https://github.com/webpack-contrib/css-loader/commit/e913cb1d73a4f5c3c4464e0446a885e9f677a005))
+
+### [5.2.3](https://github.com/webpack-contrib/css-loader/compare/v5.2.2...v5.2.3) (2021-04-19)
+
+### Bug Fixes
+
+* improve performance
+
+### [5.2.2](https://github.com/webpack-contrib/css-loader/compare/v5.2.1...v5.2.2) (2021-04-16)
+
+
+### Bug Fixes
+
+* avoid escape nonASCII characters in local names ([0722733](https://github.com/webpack-contrib/css-loader/commit/072273308a8ab4b7efdae31440689dc81978ca1d))
+
+### [5.2.1](https://github.com/webpack-contrib/css-loader/compare/v5.2.0...v5.2.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* do not crash on unescaped svg data uri ([#1288](https://github.com/webpack-contrib/css-loader/issues/1288)) ([4f289c5](https://github.com/webpack-contrib/css-loader/commit/4f289c5e4df6c666fdf6dd3402560ae74d4bf7ee))
+
+## [5.2.0](https://github.com/webpack-contrib/css-loader/compare/v5.1.4...v5.2.0) (2021-03-24)
+
+
+### Features
+
+* support async functions for `url` and `import` options ([#1277](https://github.com/webpack-contrib/css-loader/issues/1277)) ([c5062db](https://github.com/webpack-contrib/css-loader/commit/c5062db3fc849d882a07b9f2c9f66f00325c8896))
+
+### [5.1.4](https://github.com/webpack-contrib/css-loader/compare/v5.1.3...v5.1.4) (2021-03-24)
+
+
+### Bug Fixes
+
+* crash with thread-loader ([#1281](https://github.com/webpack-contrib/css-loader/issues/1281)) ([7095a7c](https://github.com/webpack-contrib/css-loader/commit/7095a7ca7d985d5447aed80cf3e41a4f8c19b954))
+
+### [5.1.3](https://github.com/webpack-contrib/css-loader/compare/v5.1.2...v5.1.3) (2021-03-15)
+
+
+### Bug Fixes
+
+* the `auto` option works using inline module syntax ([#1274](https://github.com/webpack-contrib/css-loader/issues/1274)) ([1db2f4d](https://github.com/webpack-contrib/css-loader/commit/1db2f4df3ff9ae8f0667a2304853c8e7cdd0afc1))
+* ident generation for CSS modules using inline module syntax ([#1274](https://github.com/webpack-contrib/css-loader/issues/1274)) ([1db2f4d](https://github.com/webpack-contrib/css-loader/commit/1db2f4df3ff9ae8f0667a2304853c8e7cdd0afc1))
+
+### [5.1.2](https://github.com/webpack-contrib/css-loader/compare/v5.1.1...v5.1.2) (2021-03-10)
+
+
+### Bug Fixes
+
+* handling `@import` with spaces before and after and any extensions ([#1272](https://github.com/webpack-contrib/css-loader/issues/1272)) ([0c47cf7](https://github.com/webpack-contrib/css-loader/commit/0c47cf7ccbe3635900e8e8840650f69a7eca004d))
+* inline loader syntax in `@import` and modules ([3f49ed0](https://github.com/webpack-contrib/css-loader/commit/3f49ed0864457f9467f560856377c890c392aee7))
+
+### [5.1.1](https://github.com/webpack-contrib/css-loader/compare/v5.1.0...v5.1.1) (2021-03-01)
+
+
+### Bug Fixes
+
+* crash on modified AST from `postcss-loader` ([#1268](https://github.com/webpack-contrib/css-loader/issues/1268)) ([d2a1a84](https://github.com/webpack-contrib/css-loader/commit/d2a1a84afc63fdfb2a4ce6668ed9f2d7f1ba56ca))
+
+## [5.1.0](https://github.com/webpack-contrib/css-loader/compare/v5.0.2...v5.1.0) (2021-02-25)
+
+
+### Features
+
+* added support webpackIgnore comment ([#1264](https://github.com/webpack-contrib/css-loader/issues/1264)) ([53d40a9](https://github.com/webpack-contrib/css-loader/commit/53d40a9bb35a79e6a15308bbb7a01358f39816df))
+
+### [5.0.2](https://github.com/webpack-contrib/css-loader/compare/v5.0.1...v5.0.2) (2021-02-08)
+
+
+### Bug Fixes
+
+* pass query with hash to other loaders ([#1261](https://github.com/webpack-contrib/css-loader/issues/1261)) ([729a314](https://github.com/webpack-contrib/css-loader/commit/729a314529cd0607c374b07bdf425337f9a778d4))
+
+### [5.0.1](https://github.com/webpack-contrib/css-loader/compare/v5.0.0...v5.0.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* sources in source maps have relative paths ([#1219](https://github.com/webpack-contrib/css-loader/issues/1219)) ([3229b3c](https://github.com/webpack-contrib/css-loader/commit/3229b3cca3cb5d762daeff57239a965b06fd7593))
+
+## [5.0.0](https://github.com/webpack-contrib/css-loader/compare/v4.3.0...v5.0.0) (2020-10-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate on PostCSS 8
+* runtime doesn't contain source maps code without `sourceMap: true`
+* returned value from the `getLocalIdent` escapes by default, the `exportName` value is always unescaped
+* Auto enable icss modules for all files for which `/\.icss\.\w+$/i` (the `modules.compileType` option is `icss`)
+* `[emoji]` placeholder was deprecated
+* `icss` option was removed (it was deprecated previously)
+
+### Features
+
+* allow named exports to have underscores in names ([#1209](https://github.com/webpack-contrib/css-loader/issues/1209)) ([747d62b](https://github.com/webpack-contrib/css-loader/commit/747d62b75a878d8881f4819b96297667dc689b8f))
+* hide warning when you don't need handle `url()`/`@import` ([#1195](https://github.com/webpack-contrib/css-loader/issues/1195)) ([dd52931](https://github.com/webpack-contrib/css-loader/commit/dd52931150ed42f122d9017642437c26cc1b2422))
+* improve error message  ([52412f6](https://github.com/webpack-contrib/css-loader/commit/52412f6d5a54745ee37a4a67f038455c26ba5772))
+* reduce runtime ([9f974be](https://github.com/webpack-contrib/css-loader/commit/9f974be81f5942d3afaf783529677bd541952fa3))
+* add fallback if custom getLocalIdent returns `null`/`undefined` ([#1193](https://github.com/webpack-contrib/css-loader/issues/1193)) ([0f95841](https://github.com/webpack-contrib/css-loader/commit/0f9584135e63f9f354043e7f414e0c1aad0edc6e))
+
+## [4.3.0](https://github.com/webpack-contrib/css-loader/compare/v4.2.2...v4.3.0) (2020-09-08)
+
+
+### Features
+
+* the `importLoaders` can be `string` ([#1178](https://github.com/webpack-contrib/css-loader/issues/1178)) ([ec58a7c](https://github.com/webpack-contrib/css-loader/commit/ec58a7cfda46443e35539d66b86685195fa5db03))
+
+
+### Bug Fixes
+
+* line breaks in `url` function ([88b8ddc](https://github.com/webpack-contrib/css-loader/commit/88b8ddc1d78a2b6a917ed2dfe2f2a37cf6a84190))
+
 ### [4.2.2](https://github.com/webpack-contrib/css-loader/compare/v4.2.1...v4.2.2) (2020-08-24)
 
 
@@ -63,12 +307,12 @@ All notable changes to this project will be documented in this file. See [standa
 * the `onlyLocals` option was moved and renamed to the `modules.exportOnlyLocals` option
 * function arguments of the `import` option were changed, it is now `function(url, media, resourcePath) {}`
 * inline syntax was changed, please write `~` before the file request, i.e. rewrite `url(~!!loader!package/img.png)` to `url(!!loader!~package/img.png)`
-
+ * `url()` resolving algorithm now handles absolute paths instead of ignoring them. This can break builds which relied on absolute paths to refer to the asset directory. ([bc19ddd](https://github.com/webpack-contrib/css-loader/commit/bc19ddd8779dafbc2a420870a3cb841041ce9c7c))
 
 ### Features
 
 * `@value` supports importing `url()` ([#1126](https://github.com/webpack-contrib/css-loader/issues/1126)) ([7f49a0a](https://github.com/webpack-contrib/css-loader/commit/7f49a0a6047846bb2e432558365e19d4a0dfb366))
-* improve `url()` resolving algorithm ([bc19ddd](https://github.com/webpack-contrib/css-loader/commit/bc19ddd8779dafbc2a420870a3cb841041ce9c7c))
+* improve `url()` resolving algorithm to support more path types ([bc19ddd](https://github.com/webpack-contrib/css-loader/commit/bc19ddd8779dafbc2a420870a3cb841041ce9c7c))
 * named export for locals ([#1108](https://github.com/webpack-contrib/css-loader/issues/1108)) ([d139ec1](https://github.com/webpack-contrib/css-loader/commit/d139ec1d763f9944550b31f2a75183e488dd1224))
 * respected the `style` field from package.json ([#1099](https://github.com/webpack-contrib/css-loader/issues/1099)) ([edf5347](https://github.com/webpack-contrib/css-loader/commit/edf5347e4203a62e50b87248a83da198afdc6eba))
 * support `file:` protocol ([5604205](https://github.com/webpack-contrib/css-loader/commit/560420567eb0e1a635648b7f4ff0365db475384c))

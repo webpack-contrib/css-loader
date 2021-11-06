@@ -1,0 +1,15 @@
+{
+  "https://raw.githubusercontent.com/webpack-contrib/css-loader/master/test/fixtures/url/img-from-imported.png": {
+    "integrity": "sha512-bHqIPBYwzPsVLYcTDqJzwgvIaxLjmezufiCVXAMI0Naelf3eWVdydMA40hXbSuB0dZCGjCepuGaI7Ze8kLM+Ew==",
+    "contentType": "image/png"
+  },
+  "https://raw.githubusercontent.com/webpack-contrib/css-loader/master/test/fixtures/url/img.png": {
+    "integrity": "sha512-bHqIPBYwzPsVLYcTDqJzwgvIaxLjmezufiCVXAMI0Naelf3eWVdydMA40hXbSuB0dZCGjCepuGaI7Ze8kLM+Ew==",
+    "contentType": "image/png"
+  },
+  "https://raw.githubusercontent.com/webpack-contrib/css-loader/master/test/fixtures/url/imported.css": {
+    "integrity": "sha512-yduMovHFp1vmkdJda9uz9c3WIwPbmESRe9u1IrxoKKw0q3AjaMDyAwAuZqQW/HFi6fEdS+fAGkBI++JO6EeUSg==",
+    "contentType": "text/plain; charset=utf-8"
+  },
+  "version": 1
+}

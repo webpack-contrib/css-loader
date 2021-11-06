@@ -1,100 +1,106 @@
-import { getCompiler, compile } from './helpers/index';
+import { getCompiler, compile } from "./helpers/index";
 
-describe('validate options', () => {
+describe("validate options", () => {
   const tests = {
     url: {
-      success: [true, false, () => {}],
-      failure: ['true'],
+      success: [true, false, { filter: () => true }],
+      failure: ["true", [], () => {}, { filter: true }, { unknown: () => {} }],
     },
     import: {
-      success: [true, false, () => {}],
-      failure: ['true'],
-    },
-    icss: {
-      success: [true, false],
-      failure: ['true', 1],
+      success: [true, false, { filter: () => true }],
+      failure: ["true", [], () => {}, { filter: true }, { unknown: () => {} }],
     },
     modules: {
       success: [
         true,
         false,
-        'global',
-        'local',
-        'pure',
-        { compileType: 'module' },
-        { compileType: 'icss' },
-        { mode: 'global' },
-        { mode: 'local' },
-        { mode: 'pure' },
-        { mode: () => 'local' },
-        { localIdentName: '[path][name]__[local]--[hash:base64:5]' },
-        { localIdentContext: 'context' },
-        { localIdentHashPrefix: 'hash' },
+        "global",
+        "local",
+        "pure",
+        "icss",
+        { mode: "global" },
+        { mode: "local" },
+        { mode: "pure" },
+        { mode: "icss" },
+        { mode: () => "local" },
+        { localIdentName: "[path][name]__[local]--[hash:base64:5]" },
+        { localIdentContext: "context" },
+        { localIdentHashSalt: "hash" },
+        { localIdentHashFunction: "md4" },
+        { localIdentHashDigest: "base64" },
+        { localIdentHashDigestLength: 3 },
         {
           getLocalIdent: (loaderContext, localIdentName, localName) =>
             localName,
         },
-        { localIdentRegExp: 'page-(.*)\\.js' },
+        { localIdentRegExp: "page-(.*)\\.js" },
         { localIdentRegExp: /page-(.*)\.js/ },
         { exportGlobals: true },
         { auto: true },
         { auto: false },
         { auto: /custom-regex/ },
         { auto: () => true },
-        { exportLocalsConvention: 'asIs' },
-        { exportLocalsConvention: 'camelCase' },
-        { exportLocalsConvention: 'camelCaseOnly' },
-        { exportLocalsConvention: 'dashes' },
-        { exportLocalsConvention: 'dashesOnly' },
+        { exportLocalsConvention: "asIs" },
+        { exportLocalsConvention: "camelCase" },
+        { exportLocalsConvention: "camelCaseOnly" },
+        { exportLocalsConvention: "dashes" },
+        { exportLocalsConvention: "dashesOnly" },
+        {
+          exportLocalsConvention: (localName) =>
+            `${localName.replace(/-/g, "_")}`,
+        },
         { namedExport: true },
         { namedExport: false },
         { exportOnlyLocals: true },
         { exportOnlyLocals: false },
       ],
       failure: [
-        'true',
-        'globals',
-        'locals',
-        'pures',
-        { compileType: 'unknown' },
+        "true",
+        "globals",
+        "locals",
+        "pures",
         { mode: true },
-        { mode: 'globals' },
-        { mode: 'locals' },
-        { mode: 'pures' },
+        { mode: "globals" },
+        { mode: "locals" },
+        { mode: "pures" },
         { localIdentName: true },
         { localIdentContext: true },
-        { localIdentHashPrefix: true },
+        { localIdentHashSalt: true },
         { getLocalIdent: [] },
         { localIdentRegExp: true },
-        { exportGlobals: 'invalid' },
-        { auto: 'invalid' },
-        { exportLocalsConvention: 'unknown' },
-        { namedExport: 'invalid' },
-        { exportOnlyLocals: 'invalid' },
+        { exportGlobals: "invalid" },
+        { auto: "invalid" },
+        { exportLocalsConvention: "unknown" },
+        { namedExport: "invalid" },
+        { exportOnlyLocals: "invalid" },
       ],
     },
     sourceMap: {
       success: [true, false],
-      failure: ['true'],
+      failure: ["true"],
     },
     importLoaders: {
-      success: [false, 0, 1, 2, '1'],
+      success: [false, 0, 1, 2, "1"],
       failure: [2.5],
     },
     esModule: {
       success: [true, false],
-      failure: ['true'],
+      failure: ["true"],
+    },
+    exportType: {
+      success: ["array", "string", "css-style-sheet"],
+      failure: ["true", false],
     },
     unknown: {
       success: [],
-      failure: [1, true, false, 'test', /test/, [], {}, { foo: 'bar' }],
+      failure: [1, true, false, "test", /test/, [], {}, { foo: "bar" }],
     },
   };
 
   function stringifyValue(value) {
     if (
       Array.isArray(value) ||
-      (value && typeof value === 'object' && value.constructor === Object)
+      (value && typeof value === "object" && value.constructor === Object)
     ) {
       return JSON.stringify(value);
     }
@@ -104,28 +110,28 @@ describe('validate options', () => {
 
   async function createTestCase(key, value, type) {
     it(`should ${
-      type === 'success' ? 'successfully validate' : 'throw an error on'
+      type === "success" ? "successfully validate" : "throw an error on"
     } the "${key}" option with "${stringifyValue(value)}" value`, async () => {
       const options = { [key]: value };
 
       if (
-        key === 'modules' &&
-        typeof value === 'object' &&
+        key === "modules" &&
+        typeof value === "object" &&
         value.namedExport === true
       ) {
         options.esModule = true;
       }
 
-      const compiler = getCompiler('simple.js', options);
+      const compiler = getCompiler("simple.js", options);
 
       let stats;
 
       try {
         stats = await compile(compiler);
       } finally {
-        if (type === 'success') {
+        if (type === "success") {
           expect(stats.hasErrors()).toBe(false);
-        } else if (type === 'failure') {
+        } else if (type === "failure") {
           const {
             compilation: { errors },
           } = stats;

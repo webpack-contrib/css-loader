@@ -2,16 +2,15 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import { getOptions, stringifyRequest } from 'loader-utils';
-import postcss from 'postcss';
-import postcssPkg from 'postcss/package.json';
-import validateOptions from 'schema-utils';
-import { satisfies } from 'semver';
 
-import CssSyntaxError from './CssSyntaxError';
-import Warning from './Warning';
-import schema from './options.json';
-import { icssParser, importParser, urlParser } from './plugins';
+import postcss from "postcss";
+import postcssPkg from "postcss/package.json";
+import { satisfies } from "semver";
+
+import CssSyntaxError from "./CssSyntaxError";
+import Warning from "./Warning";
+import schema from "./options.json";
+import { icssParser, importParser, urlParser } from "./plugins";
 import {
   normalizeOptions,
   shouldUseModulesPlugins,
@@ -26,16 +25,12 @@ import {
   getModulesPlugins,
   normalizeSourceMap,
   sort,
-} from './utils';
+  combineRequests,
+  stringifyRequest,
+} from "./utils";
 
 export default async function loader(content, map, meta) {
-  const rawOptions = getOptions(this);
-
-  validateOptions(schema, rawOptions, {
-    name: 'CSS Loader',
-    baseDataPath: 'options',
-  });
-
+  const rawOptions = this.getOptions(schema);
   const plugins = [];
   const callback = this.async();
 
@@ -59,27 +54,34 @@ export default async function loader(content, map, meta) {
   const importPluginImports = [];
   const importPluginApi = [];
 
-  if (shouldUseImportPlugin(options)) {
-    const resolver = this.getResolve({
-      conditionNames: ['style'],
-      extensions: ['.css'],
-      mainFields: ['css', 'style', 'main', '...'],
-      mainFiles: ['index', '...'],
-      restrictions: [/\.css$/i],
-    });
+  let isSupportAbsoluteURL = false;
 
+  // TODO enable by default in the next major release
+  if (
+    this._compilation &&
+    this._compilation.options &&
+    this._compilation.options.experiments &&
+    this._compilation.options.experiments.buildHttp
+  ) {
+    isSupportAbsoluteURL = true;
+  }
+  const isSupportDataURL =
+    options.esModule && Boolean("fsStartTime" in this._compiler);
+
+  if (shouldUseImportPlugin(options)) {
     plugins.push(
       importParser({
+        isSupportAbsoluteURL: false,
+        isSupportDataURL: false,
+        isCSSStyleSheet: options.exportType === "css-style-sheet",
+        loaderContext: this,
         imports: importPluginImports,
         api: importPluginApi,
-        context: this.context,
-        rootContext: this.rootContext,
-        filter: getFilter(options.import, this.resourcePath),
-        resolver,
+        filter: options.import.filter,
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            getPreRequester(this)(options.importLoaders) + url
+            combineRequests(getPreRequester(this)(options.importLoaders), url)
           ),
       })
     );
@@ -88,22 +90,23 @@ export default async function loader(content, map, meta) {
   const urlPluginImports = [];
 
   if (shouldUseURLPlugin(options)) {
-    const urlResolver = this.getResolve({
-      conditionNames: ['asset'],
-      mainFields: ['asset'],
-      mainFiles: [],
-      extensions: [],
-    });
+    const needToResolveURL = !options.esModule;
 
     plugins.push(
       urlParser({
+        isSupportAbsoluteURL,
+        isSupportDataURL,
         imports: urlPluginImports,
         replacements,
         context: this.context,
         rootContext: this.rootContext,
-        filter: getFilter(options.url, this.resourcePath),
-        resolver: urlResolver,
+        filter: getFilter(options.url.filter, this.resourcePath),
+        resolver: needToResolveURL
+          ? this.getResolve({ mainFiles: [], extensions: [] })
+          : // eslint-disable-next-line no-undefined
+            undefined,
         urlHandler: (url) => stringifyRequest(this, url),
+        // Support data urls as input in new URL added in webpack@5.38.0
       })
     );
   }
@@ -111,27 +114,20 @@ export default async function loader(content, map, meta) {
   const icssPluginImports = [];
   const icssPluginApi = [];
 
-  if (shouldUseIcssPlugin(options)) {
-    const icssResolver = this.getResolve({
-      conditionNames: ['style'],
-      extensions: [],
-      mainFields: ['css', 'style', 'main', '...'],
-      mainFiles: ['index', '...'],
-    });
+  const needToUseIcssPlugin = shouldUseIcssPlugin(options);
 
+  if (needToUseIcssPlugin) {
     plugins.push(
       icssParser({
+        loaderContext: this,
         imports: icssPluginImports,
         api: icssPluginApi,
         replacements,
         exports,
-        context: this.context,
-        rootContext: this.rootContext,
-        resolver: icssResolver,
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            getPreRequester(this)(options.importLoaders) + url
+            combineRequests(getPreRequester(this)(options.importLoaders), url)
           ),
       })
     );
@@ -143,7 +139,7 @@ export default async function loader(content, map, meta) {
 
     if (
       ast &&
-      ast.type === 'postcss' &&
+      ast.type === "postcss" &&
       satisfies(ast.version, `^${postcssPkg.version}`)
     ) {
       // eslint-disable-next-line no-param-reassign
@@ -157,6 +153,7 @@ export default async function loader(content, map, meta) {
 
   try {
     result = await postcss(plugins).process(content, {
+      hideNothingWarning: true,
       from: resourcePath,
       to: resourcePath,
       map: options.sourceMap
@@ -173,7 +170,7 @@ export default async function loader(content, map, meta) {
     }
 
     callback(
-      error.name === 'CssSyntaxError' ? new CssSyntaxError(error) : error
+      error.name === "CssSyntaxError" ? new CssSyntaxError(error) : error
     );
 
     return;
@@ -193,14 +190,42 @@ export default async function loader(content, map, meta) {
 
   if (options.modules.exportOnlyLocals !== true) {
     imports.unshift({
-      importName: '___CSS_LOADER_API_IMPORT___',
-      url: stringifyRequest(this, require.resolve('./runtime/api')),
+      type: "api_import",
+      importName: "___CSS_LOADER_API_IMPORT___",
+      url: stringifyRequest(this, require.resolve("./runtime/api")),
     });
+
+    if (options.sourceMap) {
+      imports.unshift({
+        importName: "___CSS_LOADER_API_SOURCEMAP_IMPORT___",
+        url: stringifyRequest(this, require.resolve("./runtime/sourceMaps")),
+      });
+    } else {
+      imports.unshift({
+        importName: "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+        url: stringifyRequest(this, require.resolve("./runtime/noSourceMaps")),
+      });
+    }
   }
 
   const importCode = getImportCode(imports, options);
-  const moduleCode = getModuleCode(result, api, replacements, options, this);
-  const exportCode = getExportCode(exports, replacements, options);
+
+  let moduleCode;
+
+  try {
+    moduleCode = getModuleCode(result, api, replacements, options, this);
+  } catch (error) {
+    callback(error);
+
+    return;
+  }
+
+  const exportCode = getExportCode(
+    exports,
+    replacements,
+    needToUseIcssPlugin,
+    options
+  );
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);
 }
