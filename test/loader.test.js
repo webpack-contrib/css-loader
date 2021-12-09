@@ -88,7 +88,6 @@ describe("loader", () => {
       },
     };
 
-    config.experiments = { asset: true };
     config.output = {
       path: path.resolve(__dirname, "outputs"),
       filename: "[name].bundle.js",
