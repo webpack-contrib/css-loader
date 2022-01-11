@@ -1446,7 +1446,7 @@ For `production` builds it's recommended to extract the CSS from your bundle bei
 This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
 For `development` mode (including `webpack-dev-server`) you can use [style-loader](https://github.com/webpack-contrib/style-loader), because it injects CSS into the DOM using multiple <style></style> and works faster.
 
-> i Do not use together `style-loader` and `mini-css-extract-plugin`.
+> i Do not use `style-loader` and `mini-css-extract-plugin` together.
 
 **webpack.config.js**
 
