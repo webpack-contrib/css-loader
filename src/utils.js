@@ -330,14 +330,28 @@ function defaultGetLocalIdent(
   localName,
   options
 ) {
-  const { context, hashSalt } = options;
+  const { context, hashSalt, hashStrategy } = options;
   const { resourcePath } = loaderContext;
   const relativeResourcePath = normalizePath(
     path.relative(context, resourcePath)
   );
 
+  let useLocalNameInHash;
+  switch (hashStrategy) {
+    case "omit-local-name":
+      useLocalNameInHash = false;
+      break;
+    case "auto":
+      useLocalNameInHash = !/\[local\]/.test(localIdentName);
+      break;
+    default:
+      // undefined or "use-local-name"
+      useLocalNameInHash = true;
+  }
   // eslint-disable-next-line no-param-reassign
-  options.content = `${relativeResourcePath}\x00${localName}`;
+  options.content = useLocalNameInHash
+    ? `${relativeResourcePath}\x00${localName}`
+    : relativeResourcePath;
 
   let { hashFunction, hashDigest, hashDigestLength } = options;
   const matches = localIdentName.match(
@@ -756,6 +770,7 @@ function getModulesPlugins(options, loaderContext) {
     localIdentHashDigest,
     localIdentHashDigestLength,
     localIdentRegExp,
+    hashStrategy,
   } = options.modules;
 
   let plugins = [];
@@ -780,6 +795,7 @@ function getModulesPlugins(options, loaderContext) {
                 hashFunction: localIdentHashFunction,
                 hashDigest: localIdentHashDigest,
                 hashDigestLength: localIdentHashDigestLength,
+                hashStrategy,
                 regExp: localIdentRegExp,
               }
             );
@@ -798,6 +814,7 @@ function getModulesPlugins(options, loaderContext) {
                 hashFunction: localIdentHashFunction,
                 hashDigest: localIdentHashDigest,
                 hashDigestLength: localIdentHashDigestLength,
+                hashStrategy,
                 regExp: localIdentRegExp,
               }
             );
