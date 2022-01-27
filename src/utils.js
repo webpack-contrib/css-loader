@@ -336,22 +336,11 @@ function defaultGetLocalIdent(
     path.relative(context, resourcePath)
   );
 
-  let useLocalNameInHash;
-  switch (hashStrategy) {
-    case "omit-local-name":
-      useLocalNameInHash = false;
-      break;
-    case "auto":
-      useLocalNameInHash = !/\[local\]/.test(localIdentName);
-      break;
-    default:
-      // undefined or "use-local-name"
-      useLocalNameInHash = true;
-  }
   // eslint-disable-next-line no-param-reassign
-  options.content = useLocalNameInHash
-    ? `${relativeResourcePath}\x00${localName}`
-    : relativeResourcePath;
+  options.content =
+    hashStrategy === "auto" && /\[local\]/.test(localIdentName)
+      ? relativeResourcePath
+      : `${relativeResourcePath}\x00${localName}`;
 
   let { hashFunction, hashDigest, hashDigestLength } = options;
   const matches = localIdentName.match(

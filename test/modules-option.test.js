@@ -401,26 +401,6 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "hashStrategy" = "omit-local-name"', async () => {
-    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
-      modules: {
-        localIdentName: "[hash:base64:8]",
-        // localName should not be used even if [local] is absent from the localIdentName template
-        hashStrategy: "omit-local-name",
-      },
-    });
-    const stats = await compile(compiler);
-
-    expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
-    ).toMatchSnapshot("module");
-    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
-    );
-    expect(getWarnings(stats)).toMatchSnapshot("warnings");
-    expect(getErrors(stats)).toMatchSnapshot("errors");
-  });
-
   it('should work and respect the "hashStrategy" = "auto" and [local]', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {

@@ -874,14 +874,13 @@ module.exports = {
 
 ##### `hashStrategy`
 
-Type: `'use-local-name' | 'omit-local-name' | 'auto'`
+Type: `'use-local-name' | 'auto'`
 Default: `'use-local-name'`
 
 Should local name be used when computing the hash.
 
-- `'auto'` Auto detect based on [localIdentName](#localidentname). Use this value to get the output that is better compressable by GZIP or Brotli.
 - `'use-local-name'` Each identifier in a module gets its own hash digest.
-- `'omit-local-name'` All identifiers from the same module shares the same hash digest. Handle with care!
+- `'auto'` Identifiers from the same module shares the same hash digest if it's possible. Use this value to optimize the output for better GZIP or Brotli compression.
 
 **webpack.config.js**
 

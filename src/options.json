@@ -117,7 +117,7 @@
             "hashStrategy": {
               "description": "Allows to specify should localName be used when computing the hash.",
               "link": "https://github.com/webpack-contrib/css-loader#hashstrategy",
-              "enum": ["use-local-name", "omit-local-name", "auto"]
+              "enum": ["use-local-name", "auto"]
             },
             "localIdentRegExp": {
               "description": "Allows to specify custom RegExp for local ident name.",
