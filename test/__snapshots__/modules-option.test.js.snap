@@ -3397,9 +3397,9 @@ Array [
 
 exports[`"modules" option should work and respect the "hashSalt" option: warnings 1`] = `Array []`;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "auto" and [local]: errors 1`] = `Array []`;
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and [local]: errors 1`] = `Array []`;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "auto" and [local]: module 1`] = `
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and [local]: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
@@ -3461,7 +3461,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "auto" and [local]: result 1`] = `
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and [local]: result 1`] = `
 Array [
   Array [
     "./modules/localIdentName/localIdentName.css",
@@ -3585,11 +3585,11 @@ Array [
 ]
 `;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "auto" and [local]: warnings 1`] = `Array []`;
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and [local]: warnings 1`] = `Array []`;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "auto" and no [local]: errors 1`] = `Array []`;
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and no [local]: errors 1`] = `Array []`;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "auto" and no [local]: module 1`] = `
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and no [local]: module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
@@ -3651,7 +3651,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "auto" and no [local]: result 1`] = `
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and no [local]: result 1`] = `
 Array [
   Array [
     "./modules/localIdentName/localIdentName.css",
@@ -3775,11 +3775,11 @@ Array [
 ]
 `;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "auto" and no [local]: warnings 1`] = `Array []`;
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and no [local]: warnings 1`] = `Array []`;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "use-local-name": errors 1`] = `Array []`;
+exports[`"modules" option should work and respect the "hashStrategy" = "resource-path-and-local-name": errors 1`] = `Array []`;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "use-local-name": module 1`] = `
+exports[`"modules" option should work and respect the "hashStrategy" = "resource-path-and-local-name": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
@@ -3841,7 +3841,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "use-local-name": result 1`] = `
+exports[`"modules" option should work and respect the "hashStrategy" = "resource-path-and-local-name": result 1`] = `
 Array [
   Array [
     "./modules/localIdentName/localIdentName.css",
@@ -3965,7 +3965,7 @@ Array [
 ]
 `;
 
-exports[`"modules" option should work and respect the "hashStrategy" = "use-local-name": warnings 1`] = `Array []`;
+exports[`"modules" option should work and respect the "hashStrategy" = "resource-path-and-local-name": warnings 1`] = `Array []`;
 
 exports[`"modules" option should work and respect the "localConvention" option with the "asIs" value: errors 1`] = `Array []`;
 

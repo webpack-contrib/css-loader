@@ -381,12 +381,12 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "hashStrategy" = "use-local-name"', async () => {
+  it('should work and respect the "hashStrategy" = "resource-path-and-local-name"', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
         localIdentName: "[local]__[hash:base64:8]",
         // localName should be used even if [local] is contained in the localIdentName template
-        hashStrategy: "use-local-name",
+        hashStrategy: "resource-path-and-local-name",
       },
     });
     const stats = await compile(compiler);
@@ -401,12 +401,12 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "hashStrategy" = "auto" and [local]', async () => {
+  it('should work and respect the "hashStrategy" = "minimal-subset" and [local]', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
         localIdentName: "[local]__[hash:base64:8]",
         // localName should not be used: [local] is used
-        hashStrategy: "auto",
+        hashStrategy: "minimal-subset",
       },
     });
     const stats = await compile(compiler);
@@ -421,12 +421,12 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "hashStrategy" = "auto" and no [local]', async () => {
+  it('should work and respect the "hashStrategy" = "minimal-subset" and no [local]', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
         localIdentName: "[hash:base64:8]",
         // localName should be used: [local] is not used
-        hashStrategy: "auto",
+        hashStrategy: "minimal-subset",
       },
     });
     const stats = await compile(compiler);

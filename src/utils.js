@@ -338,7 +338,7 @@ function defaultGetLocalIdent(
 
   // eslint-disable-next-line no-param-reassign
   options.content =
-    hashStrategy === "auto" && /\[local\]/.test(localIdentName)
+    hashStrategy === "minimal-subset" && /\[local\]/.test(localIdentName)
       ? relativeResourcePath
       : `${relativeResourcePath}\x00${localName}`;
 

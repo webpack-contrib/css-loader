@@ -874,13 +874,13 @@ module.exports = {
 
 ##### `hashStrategy`
 
-Type: `'use-local-name' | 'auto'`
-Default: `'use-local-name'`
+Type: `'resource-path-and-local-name' | 'minimal-subset'`
+Default: `'resource-path-and-local-name'`
 
 Should local name be used when computing the hash.
 
-- `'use-local-name'` Each identifier in a module gets its own hash digest.
-- `'auto'` Identifiers from the same module shares the same hash digest if it's possible. Use this value to optimize the output for better GZIP or Brotli compression.
+- `'resource-path-and-local-name'` Both resource path and local name are used when hashing. Each identifier in a module gets its own hash digest, always.
+- `'minimal-subset'` Auto detect if identifier names can be omitted from hashing. Use this value to optimize the output for better GZIP or Brotli compression.
 
 **webpack.config.js**
 
@@ -893,7 +893,7 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            hashStrategy: "auto",
+            hashStrategy: "minimal-subset",
           },
         },
       },
