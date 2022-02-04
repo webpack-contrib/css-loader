@@ -58,19 +58,26 @@ If, for one reason or another, you need to extract CSS as a file (i.e. do not st
 
 ## Options
 
-|                 Name                  |                     Type                     |      Default       | Description                                                                                                                                                                                                                                               |
-| :-----------------------------------: | :------------------------------------------: | :----------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|           **[`url`](#url)**           |             `{Boolean\|Object}`              |       `true`       | Allows to enables/disables `url()`/`image-set()` functions handling                                                                                                                                                                                       |
-|        **[`import`](#import)**        |             `{Boolean\|Object}`              |       `true`       | Allows to enables/disables `@import` at-rules handling                                                                                                                                                                                                    |
-|       **[`modules`](#modules)**       |         `{Boolean\|String\|Object}`          |   `{auto: true}`   | Allows to enables/disables or setup CSS Modules options                                                                                                                                                                                                   |
-|     **[`sourceMap`](#sourcemap)**     |                 `{Boolean}`                  | `compiler.devtool` | Enables/Disables generation of source maps                                                                                                                                                                                                                |
-| **[`importLoaders`](#importloaders)** |                  `{Number}`                  |        `0`         | Allows enables/disables or setups number of loaders applied before CSS loader for `@import`/CSS Modules and ICSS imports                                                                                                                                  |
-|      **[`esModule`](#esmodule)**      |                 `{Boolean}`                  |       `true`       | Use ES modules syntax                                                                                                                                                                                                                                     |
-|    **[`exportType`](#exporttype)**    | `{'array' \| 'string' \| 'css-style-sheet'}` |      `array`       | Allows exporting styles as array with modules, string or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)) |
+- **[`url`](#url)**
+- **[`import`](#import)**
+- **[`modules`](#modules)**
+- **[`sourceMap`](#sourcemap)**
+- **[`importLoaders`](#importloaders)**
+- **[`esModule`](#esmodule)**
+- **[`exportType`](#exporttype)**
 
 ### `url`
 
-Type: `Boolean|Object`
+Type:
+
+```ts
+type url =
+  | boolean
+  | {
+      url: (url: string, resourcePath: string) => boolean;
+    };
+```
+
 Default: `true`
 
 Allow to enable/disables handling the CSS functions `url` and `image-set`.
@@ -80,7 +87,7 @@ Starting with version [4.0.0](https://github.com/webpack-contrib/css-loader/blob
 
 Examples resolutions:
 
-```
+```js
 url(image.png) => require('./image.png')
 url('image.png') => require('./image.png')
 url(./image.png) => require('./image.png')
@@ -91,13 +98,13 @@ image-set(url('image2x.png') 1x, url('image1x.png') 2x) => require('./image1x.pn
 
 To import assets from a `node_modules` path (include `resolve.modules`) and for `alias`, prefix it with a `~`:
 
-```
+```js
 url(~module/image.png) => require('module/image.png')
 url('~module/image.png') => require('module/image.png')
 url(~aliasDirectory/image.png) => require('otherDirectory/image.png')
 ```
 
-#### `Boolean`
+#### `boolean`
 
 Enable/disable `url()` resolving.
 
@@ -119,7 +126,7 @@ module.exports = {
 };
 ```
 
-#### `Object`
+#### `object`
 
 Allow to filter `url()`. All filtered `url()` will not be resolved (left in the code as they were written).
 
@@ -154,7 +161,13 @@ module.exports = {
 
 ### `import`
 
-Type: `Boolean|Object`
+Type:
+
+```ts
+type import = boolean |
+ { filter:  (url:string, media:string, resourcePath:string) => boolean; }
+```
+
 Default: `true`
 
 Allows to enables/disables `@import` at-rules handling.
@@ -180,7 +193,7 @@ To import styles from a `node_modules` path (include `resolve.modules`) and for 
 @import url(~aliasDirectory/style.css) => require('otherDirectory/style.css')
 ```
 
-#### `Boolean`
+#### `boolean`
 
 Enable/disable `@import` resolving.
 
@@ -202,15 +215,16 @@ module.exports = {
 };
 ```
 
-#### `Object`
-
-|          Name           |     Type     |   Default   | Description               |
-| :---------------------: | :----------: | :---------: | :------------------------ |
-| **[`filter`](#filter)** | `{Function}` | `undefined` | Allow to filter `@import` |
+#### `object`
 
 ##### `filter`
 
-Type: `Function`
+Type:
+
+```ts
+type filter = (url: string, media: string, resourcePath: string) => boolean;
+```
+
 Default: `undefined`
 
 Allow to filter `@import`. All filtered `@import` will not be resolved (left in the code as they were written).
@@ -246,7 +260,47 @@ module.exports = {
 
 ### `modules`
 
-Type: `Boolean|String|Object`
+Type:
+
+```ts
+type modules =
+  | boolean
+  | "local"
+  | "global"
+  | "pure"
+  | "icss"
+  | {
+      auto: boolean | regExp | ((resourcePath: string) => boolean);
+      mode:
+        | "local"
+        | "global"
+        | "pure"
+        | "icss"
+        | ((resourcePath) => "local" | "global" | "pure" | "icss");
+      localIdentName: string;
+      localIdentContext: string;
+      localIdentHashSalt: string;
+      localIdentHashFunction: string;
+      localIdentHashDigest: string;
+      localIdentRegExp: string | regExp;
+      getLocalIdent: (
+        context: LoaderContext,
+        localIdentName: string,
+        localName: string
+      ) => string;
+      namedExport: boolean;
+      exportGlobals: boolean;
+      exportLocalsConvention:
+        | "asIs"
+        | "camelCase"
+        | "camelCaseOnly"
+        | "dashes"
+        | "dashesOnly"
+        | ((name: string) => string);
+      exportOnlyLocals: boolean;
+    };
+```
+
 Default: `undefined`
 
 Allows to enable/disable CSS Modules or ICSS and setup configuration:
@@ -436,7 +490,7 @@ We recommend use prefix `v-` for values, `s-` for selectors and `m-` for media a
 }
 ```
 
-#### `Boolean`
+#### `boolean`
 
 Enable **CSS Modules** features.
 
@@ -458,7 +512,7 @@ module.exports = {
 };
 ```
 
-#### `String`
+#### `string`
 
 Enable **CSS Modules** features and setup `mode`.
 
@@ -481,7 +535,7 @@ module.exports = {
 };
 ```
 
-#### `Object`
+#### `object`
 
 Enable **CSS Modules** features and setup options for them.
 
@@ -515,7 +569,12 @@ module.exports = {
 
 ##### `auto`
 
-Type: `Boolean|RegExp|Function`
+Type:
+
+```ts
+type auto = boolean | regExp | ((resourcePath: string) => boolean);
+```
+
 Default: `undefined`
 
 Allows auto enable CSS modules/ICSS based on filename when `modules` option is object.
@@ -528,7 +587,7 @@ Possible values:
 - `RegExp` - enable CSS modules for all files matching `/RegExp/i.test(filename)` regexp.
 - `function` - enable CSS Modules for files based on the filename satisfying your filter function check.
 
-###### `Boolean`
+###### `boolean`
 
 Possible values:
 
@@ -579,7 +638,7 @@ module.exports = {
 };
 ```
 
-###### `Function`
+###### `function`
 
 Enable css modules for files based on the filename satisfying your filter function check.
 
@@ -605,7 +664,17 @@ module.exports = {
 
 ##### `mode`
 
-Type: `String|Function`
+Type:
+
+```ts
+type mode =
+        | "local"
+        | "global"
+        | "pure"
+        | "icss"
+        | ((resourcePath) => "local" | "global" | "pure" | "icss"))`
+```
+
 Default: `'local'`
 
 Setup `mode` option. You can omit the value when you want `local` mode.
@@ -617,7 +686,7 @@ The `icss` will only compile the low level `Interoperable CSS` format for declar
 
 ICSS underpins CSS Module support, and provides a low level syntax for other tools to implement CSS-module variations of their own.
 
-###### `String`
+###### `string`
 
 Possible values - `local`, `global`, `pure`, and `icss`.
 
@@ -641,7 +710,7 @@ module.exports = {
 };
 ```
 
-###### `Function`
+###### `function`
 
 Allows set different values for the `mode` option based on a filename
 
@@ -680,7 +749,12 @@ module.exports = {
 
 ##### `localIdentName`
 
-Type: `String`
+Type:
+
+```ts
+type localIdentName = string;
+```
+
 Default: `'[hash:base64]'`
 
 Allows to configure the generated local ident name.
@@ -735,7 +809,12 @@ module.exports = {
 
 ##### `localIdentContext`
 
-Type: `String`
+Type:
+
+```ts
+type localIdentContex = string;
+```
+
 Default: `compiler.context`
 
 Allows to redefine basic loader context for local ident name.
@@ -762,7 +841,12 @@ module.exports = {
 
 ##### `localIdentHashSalt`
 
-Type: `String`
+Type:
+
+```ts
+type localIdentHashSalt = string;
+```
+
 Default: `undefined`
 
 Allows to add custom hash to generate more unique classes.
@@ -790,7 +874,12 @@ module.exports = {
 
 ##### `localIdentHashFunction`
 
-Type: `String`
+Type:
+
+```ts
+type localIdentHashFunction = string;
+```
+
 Default: `md4`
 
 Allows to specify hash function to generate classes .
@@ -818,7 +907,12 @@ module.exports = {
 
 ##### `localIdentHashDigest`
 
-Type: `String`
+Type:
+
+```ts
+type localIdentHashDigest = string;
+```
+
 Default: `hex`
 
 Allows to specify hash digest to generate classes.
@@ -846,7 +940,12 @@ module.exports = {
 
 ##### `localIdentHashDigestLength`
 
-Type: `Number`
+Type:
+
+```ts
+type localIdentHashDigestLength = number;
+```
+
 Default: `20`
 
 Allows to specify hash digest length to generate classes.
@@ -904,7 +1003,12 @@ module.exports = {
 
 ##### `localIdentRegExp`
 
-Type: `String|RegExp`
+Type:
+
+```ts
+type localIdentRegExp = string | RegExp;
+```
+
 Default: `undefined`
 
 **webpack.config.js**
@@ -929,7 +1033,16 @@ module.exports = {
 
 ##### `getLocalIdent`
 
-Type: `Function`
+Type:
+
+```ts
+type getLocalIdent = (
+  context: LoaderContext,
+  localIdentName: string,
+  localName: string
+) => string;
+```
+
 Default: `undefined`
 
 Allows to specify a function to generate the classname.
@@ -961,7 +1074,12 @@ module.exports = {
 
 ##### `namedExport`
 
-Type: `Boolean`
+Type:
+
+```ts
+type namedExport = boolean;
+```
+
 Default: `false`
 
 Enables/disables ES modules named export for locals.
@@ -1017,7 +1135,12 @@ Example below in the [`examples`](#examples) section.
 
 ##### `exportGlobals`
 
-Type: `Boolean`
+Type:
+
+```ts
+type exportsGLobals = boolean;
+```
+
 Default: `false`
 
 Allow `css-loader` to export names from global class or id, so you can use that as local name.
@@ -1044,24 +1167,35 @@ module.exports = {
 
 ##### `exportLocalsConvention`
 
-Type: `String|Function`
+Type:
+
+```ts
+type exportLocalsConvention =
+  | "asIs"
+  | "camelCase"
+  | "camelCaseOnly"
+  | "dashes"
+  | "dashesOnly"
+  | ((name: string) => string);
+```
+
 Default: based on the `modules.namedExport` option value, if `true` - `camelCaseOnly`, otherwise `asIs`
 
 Style of exported class names.
 
-###### `String`
+###### `string`
 
 By default, the exported JSON keys mirror the class names (i.e `asIs` value).
 
 > ⚠ Only `camelCaseOnly` value allowed if you set the `namedExport` value to `true`.
 
-|         Name          |    Type    | Description                                                                                      |
-| :-------------------: | :--------: | :----------------------------------------------------------------------------------------------- |
-|     **`'asIs'`**      | `{String}` | Class names will be exported as is.                                                              |
-|   **`'camelCase'`**   | `{String}` | Class names will be camelized, the original class name will not to be removed from the locals    |
-| **`'camelCaseOnly'`** | `{String}` | Class names will be camelized, the original class name will be removed from the locals           |
-|    **`'dashes'`**     | `{String}` | Only dashes in class names will be camelized                                                     |
-|  **`'dashesOnly'`**   | `{String}` | Dashes in class names will be camelized, the original class name will be removed from the locals |
+|         Name          |   Type   | Description                                                                                      |
+| :-------------------: | :------: | :----------------------------------------------------------------------------------------------- |
+|     **`'asIs'`**      | `string` | Class names will be exported as is.                                                              |
+|   **`'camelCase'`**   | `string` | Class names will be camelized, the original class name will not to be removed from the locals    |
+| **`'camelCaseOnly'`** | `string` | Class names will be camelized, the original class name will be removed from the locals           |
+|    **`'dashes'`**     | `string` | Only dashes in class names will be camelized                                                     |
+|  **`'dashesOnly'`**   | `string` | Dashes in class names will be camelized, the original class name will be removed from the locals |
 
 **file.css**
 
@@ -1096,7 +1230,7 @@ module.exports = {
 };
 ```
 
-###### `Function`
+###### `function`
 
 **webpack.config.js**
 
@@ -1150,7 +1284,12 @@ module.exports = {
 
 ##### `exportOnlyLocals`
 
-Type: `Boolean`
+Type:
+
+```ts
+type exportOnlyLocals = boolean;
+```
+
 Default: `false`
 
 Export only locals.
@@ -1181,7 +1320,12 @@ module.exports = {
 
 ### `importLoaders`
 
-Type: `Number`
+Type:
+
+```ts
+type importLoaders = number;
+```
+
 Default: `0`
 
 Allows to enables/disables or setups number of loaders applied before CSS loader for `@import` at-rules, CSS modules and ICSS imports, i.e. `@import`/`composes`/`@value value from './values.css'`/etc.
@@ -1220,7 +1364,12 @@ This may change in the future when the module system (i. e. webpack) supports lo
 
 ### `sourceMap`
 
-Type: `Boolean`
+Type:
+
+```ts
+type sourceMap = boolean;
+```
+
 Default: depends on the `compiler.devtool` value
 
 By default generation of source maps depends on the [`devtool`](https://webpack.js.org/configuration/devtool/) option. All values enable source map generation except `eval` and `false` value.
@@ -1245,7 +1394,12 @@ module.exports = {
 
 ### `esModule`
 
-Type: `Boolean`
+Type:
+
+```ts
+type esModule = boolean;
+```
+
 Default: `true`
 
 By default, `css-loader` generates JS modules that use the ES modules syntax.
@@ -1273,7 +1427,12 @@ module.exports = {
 
 ### `exportType`
 
-Type: `'array' | 'string' | 'css-style-sheet'`
+Type:
+
+```ts
+type exportType = "array" | "string" | "css-style-sheet";
+```
+
 Default: `'array'`
 
 Allows exporting styles as array with modules, string or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
