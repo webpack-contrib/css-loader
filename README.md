@@ -163,6 +163,8 @@ module.exports = {
 
 Type:
 
+<!-- use other name to prettify since import is reserved keyword -->
+
 ```ts
 type import =
   | boolean
