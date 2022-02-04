@@ -164,8 +164,9 @@ module.exports = {
 Type:
 
 ```ts
-type import = boolean |
- { filter:  (url:string, media:string, resourcePath:string) => boolean; }
+type import =
+  | boolean
+  | { filter: (url: string, media: string, resourcePath: string) => boolean };
 ```
 
 Default: `true`
