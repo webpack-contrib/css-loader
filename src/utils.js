@@ -1297,4 +1297,5 @@ export {
   camelCase,
   stringifyRequest,
   isDataUrl,
+  defaultGetLocalIdent,
 };
