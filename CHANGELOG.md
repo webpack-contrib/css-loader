@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.7.1](https://github.com/webpack-contrib/css-loader/compare/v6.7.0...v6.7.1) (2022-03-08)
+
+
+### Bug Fixes
+
+* defaultGetLocalIdent export ([#1427](https://github.com/webpack-contrib/css-loader/issues/1427)) ([74dac1e](https://github.com/webpack-contrib/css-loader/commit/74dac1e428569236d386ff4e0f971e35c334087a))
+
 ## [6.7.0](https://github.com/webpack-contrib/css-loader/compare/v6.6.0...v6.7.0) (2022-03-04)
 
 
