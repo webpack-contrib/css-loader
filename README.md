@@ -86,7 +86,7 @@ Type:
 type url =
   | boolean
   | {
-      url: (url: string, resourcePath: string) => boolean;
+      filter: (url: string, resourcePath: string) => boolean;
     };
 ```
 
