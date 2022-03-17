@@ -420,7 +420,7 @@ function defaultGetLocalIdent(
       path.relative(context, `${dirname + path.sep}_`)
     );
 
-    directory = directory.substr(0, directory.length - 1);
+    directory = directory.substring(0, directory.length - 1);
 
     let folder = "";
 
