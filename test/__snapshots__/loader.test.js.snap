@@ -112,7 +112,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\n.hero:matches(main, .main) {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") 2x);\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") 2x);\\\\n}\\\\n\\\\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\\\\n\\\\n.hero:matches(main, .main) {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n    color: #639;\\\\n  }\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\":root {\\\\n  --fontSize: 1rem;\\\\n  --mainColor: rgba(18,52,86,0.47059);\\\\n  --secondaryColor: rgba(102, 51, 153, 0.9);\\\\n}\\\\n\\\\n@supports (color: color(display-p3 0 0 0)) {\\\\n:root {\\\\n  --secondaryColor: color(display-p3 0.37546 0.21105 0.57967 / 90%);\\\\n}\\\\n}\\\\n\\\\nhtml {\\\\n  overflow-x: hidden;\\\\n  overflow-y: auto;\\\\n  overflow: hidden auto;\\\\n}\\\\n\\\\n@media (max-width: 50rem) {\\\\n  body {\\\\n    color: rgba(18,52,86,0.47059);\\\\n    color: var(--mainColor);\\\\n    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;\\\\n    font-size: 1rem;\\\\n    font-size: var(--fontSize);\\\\n    line-height: calc(1rem * 1.5);\\\\n    line-height: calc(var(--fontSize) * 1.5);\\\\n    word-wrap: break-word;\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(1rem / 2 + 1px);\\\\n    padding-left: calc(var(--fontSize) / 2 + 1px);\\\\n    padding-right: calc(1rem / 2 + 1px);\\\\n    padding-right: calc(var(--fontSize) / 2 + 1px);\\\\n  }\\\\n}\\\\n\\\\nh1,h2,h3,h4,h5,h6 {\\\\n  margin-top: 0;\\\\n  margin-bottom: 0;\\\\n}\\\\n\\\\n.hero:matches(main, .main) {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") 2x);\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\") 2x);\\\\n}\\\\n\\\\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\\\\n\\\\n.hero:matches(main, .main) {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n}\\\\n\\\\na {\\\\n  color: rgba(0, 0, 255, 0.9)\\\\n}\\\\n\\\\na:hover {\\\\n    color: #639;\\\\n  }\\\\n\\", \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -125,7 +125,13 @@ Array [
     ":root {
   --fontSize: 1rem;
   --mainColor: rgba(18,52,86,0.47059);
-  --secondaryColor: lab(32.5 38.5 -47.6 / 90%);
+  --secondaryColor: rgba(102, 51, 153, 0.9);
+}
+
+@supports (color: color(display-p3 0 0 0)) {
+:root {
+  --secondaryColor: color(display-p3 0.37546 0.21105 0.57967 / 90%);
+}
 }
 
 html {
