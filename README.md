@@ -635,7 +635,7 @@ module.exports = {
 
 ###### `RegExp`
 
-Enable css modules for files based on the filename satisfying your regex check.
+Enable CSS modules for files based on the filename satisfying your regex check.
 
 **webpack.config.js**
 
@@ -659,7 +659,7 @@ module.exports = {
 
 ###### `function`
 
-Enable css modules for files based on the filename satisfying your filter function check.
+Enable CSS modules for files based on the filename satisfying your filter function check.
 
 **webpack.config.js**
 
