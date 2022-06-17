@@ -20,7 +20,9 @@ The `css-loader` interprets `@import` and `url()` like `import/require()` and wi
 
 ## Getting Started
 
-> ⚠ To use css-loader, webpack@5 is required
+> **Warning**
+>
+> To use css-loader, webpack@5 is required
 
 To begin, you'll need to install `css-loader`:
 
@@ -402,7 +404,9 @@ The loader replaces local selectors with unique identifiers. The chosen unique i
 }
 ```
 
-> ℹ️ Identifiers are exported
+> **Note**
+>
+> Identifiers are exported
 
 ```js
 exports.locals = {
@@ -455,7 +459,9 @@ exports.locals = {
 
 To import a local classname from another module.
 
-> i We strongly recommend that you specify the extension when importing a file, since it is possible to import a file with any extension and it is not known in advance which file to use.
+> **Note**
+>
+> We strongly recommend that you specify the extension when importing a file, since it is possible to import a file with any extension and it is not known in advance which file to use.
 
 ```css
 :local(.continueButton) {
@@ -1103,9 +1109,13 @@ Default: `false`
 
 Enables/disables ES modules named export for locals.
 
-> ⚠ Names of locals are converted to camelcase, i.e. the `exportLocalsConvention` option has `camelCaseOnly` value by default.
+> **Warning**
+>
+> Names of locals are converted to camelcase, i.e. the `exportLocalsConvention` option has `camelCaseOnly` value by default.
 
-> ⚠ It is not allowed to use JavaScript reserved words in css class names.
+> **Warning**
+>
+> It is not allowed to use JavaScript reserved words in css class names.
 
 **styles.css**
 
@@ -1206,7 +1216,9 @@ Style of exported class names.
 
 By default, the exported JSON keys mirror the class names (i.e `asIs` value).
 
-> ⚠ Only `camelCaseOnly` value allowed if you set the `namedExport` value to `true`.
+> **Warning**
+>
+> Only `camelCaseOnly` value allowed if you set the `namedExport` value to `true`.
 
 |         Name          |   Type   | Description                                                                                      |
 | :-------------------: | :------: | :----------------------------------------------------------------------------------------------- |
@@ -1512,8 +1524,13 @@ import "./styles.css";
 
 #### `'string'`
 
-> ⚠ You don't need [`style-loader`](https://github.com/webpack-contrib/style-loader) anymore, please remove it.
-> ⚠ The `esModules` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
+> **Warning**
+>
+> You don't need [`style-loader`](https://github.com/webpack-contrib/style-loader) anymore, please remove it.
+
+> **Warning**
+>
+> The `esModules` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
 
 The default export is `string`.
 
@@ -1542,10 +1559,21 @@ console.log(sheet);
 
 #### `'css-style-sheet'`
 
-> ⚠ `@import` rules not yet allowed, more [information](https://web.dev/css-module-scripts/#@import-rules-not-yet-allowed)
-> ⚠ You don't need [`style-loader`](https://github.com/webpack-contrib/style-loader) anymore, please remove it.
-> ⚠ The `esModules` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
-> ⚠ Source maps are not currently supported in `Chrome` due [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1174094&q=CSSStyleSheet%20source%20maps&can=2)
+> **Warning**
+>
+> `@import` rules not yet allowed, more [information](https://web.dev/css-module-scripts/#@import-rules-not-yet-allowed)
+
+> **Warning**
+>
+> You don't need [`style-loader`](https://github.com/webpack-contrib/style-loader) anymore, please remove it.
+
+> **Warning**
+>
+> The `esModules` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
+
+> **Warning**
+>
+> Source maps are not currently supported in `Chrome` due [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1174094&q=CSSStyleSheet%20source%20maps&can=2)
 
 The default export is a [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
 
@@ -1654,7 +1682,9 @@ For `production` builds it's recommended to extract the CSS from your bundle bei
 This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
 For `development` mode (including `webpack-dev-server`) you can use [style-loader](https://github.com/webpack-contrib/style-loader), because it injects CSS into the DOM using multiple <style></style> and works faster.
 
-> i Do not use `style-loader` and `mini-css-extract-plugin` together.
+> **Note**
+>
+> Do not use `style-loader` and `mini-css-extract-plugin` together.
 
 **webpack.config.js**
 
