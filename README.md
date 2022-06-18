@@ -20,9 +20,6 @@ The `css-loader` interprets `@import` and `url()` like `import/require()` and wi
 
 ## Getting Started
 
-> **Warning**
->
-> To use css-loader, webpack@5 is required
 
 To begin, you'll need to install `css-loader`:
 
