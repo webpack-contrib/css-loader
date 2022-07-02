@@ -1,0 +1,7 @@
+{
+  "https://raw.githubusercontent.com/webpack-contrib/css-loader/master/test/fixtures/url/img.png": {
+    "integrity": "sha512-bHqIPBYwzPsVLYcTDqJzwgvIaxLjmezufiCVXAMI0Naelf3eWVdydMA40hXbSuB0dZCGjCepuGaI7Ze8kLM+Ew==",
+    "contentType": "image/png"
+  },
+  "version": 1
+}
