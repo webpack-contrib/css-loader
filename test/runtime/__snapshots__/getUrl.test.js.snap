@@ -12,15 +12,15 @@ exports[`escape should escape url 5`] = `"image.png"`;
 
 exports[`escape should escape url 6`] = `"image.png"`;
 
-exports[`escape should escape url 7`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 7`] = `""image other.png""`;
 
-exports[`escape should escape url 8`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 8`] = `""image other.png""`;
 
-exports[`escape should escape url 9`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 9`] = `""image other.png""`;
 
-exports[`escape should escape url 10`] = `"\\"image\\\\\\"other.png\\""`;
+exports[`escape should escape url 10`] = `""image\\"other.png""`;
 
-exports[`escape should escape url 11`] = `"\\"image\\\\nother.png\\""`;
+exports[`escape should escape url 11`] = `""image\\nother.png""`;
 
 exports[`escape should escape url 12`] = `"image.png#hash"`;
 
@@ -28,17 +28,17 @@ exports[`escape should escape url 13`] = `"image.png#hash"`;
 
 exports[`escape should escape url 14`] = `"image.png#hash"`;
 
-exports[`escape should escape url 15`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 15`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 16`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 16`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 17`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 17`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 18`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 18`] = `""image other.png""`;
 
-exports[`escape should escape url 19`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 19`] = `""image other.png""`;
 
-exports[`escape should escape url 20`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 20`] = `""image other.png""`;
 
 exports[`escape should escape url 21`] = `"image.png"`;
 
@@ -46,15 +46,15 @@ exports[`escape should escape url 22`] = `"image.png"`;
 
 exports[`escape should escape url 23`] = `"image.png"`;
 
-exports[`escape should escape url 24`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 24`] = `""image other.png""`;
 
-exports[`escape should escape url 25`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 25`] = `""image other.png""`;
 
-exports[`escape should escape url 26`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 26`] = `""image other.png""`;
 
-exports[`escape should escape url 27`] = `"\\"image\\\\\\"other.png\\""`;
+exports[`escape should escape url 27`] = `""image\\"other.png""`;
 
-exports[`escape should escape url 28`] = `"\\"image\\\\nother.png\\""`;
+exports[`escape should escape url 28`] = `""image\\nother.png""`;
 
 exports[`escape should escape url 29`] = `"image.png#hash"`;
 
@@ -62,26 +62,26 @@ exports[`escape should escape url 30`] = `"image.png#hash"`;
 
 exports[`escape should escape url 31`] = `"image.png#hash"`;
 
-exports[`escape should escape url 32`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 32`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 33`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 33`] = `""image other.png""`;
 
-exports[`escape should escape url 34`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 34`] = `""image other.png""`;
 
-exports[`escape should escape url 35`] = `"\\"image other.png\\""`;
+exports[`escape should escape url 35`] = `""image other.png""`;
 
-exports[`escape should escape url 36`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 36`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 37`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 37`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 38`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 38`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 39`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 39`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 40`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 40`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 41`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 41`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 42`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 42`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 43`] = `"\\"image other.png#hash\\""`;
+exports[`escape should escape url 43`] = `""image other.png#hash""`;
