@@ -332,9 +332,17 @@ function defaultGetLocalIdent(
 ) {
   const { context, hashSalt, hashStrategy } = options;
   const { resourcePath } = loaderContext;
-  const relativeResourcePath = normalizePath(
+  let relativeResourcePath = normalizePath(
     path.relative(context, resourcePath)
   );
+
+  // eslint-disable-next-line no-underscore-dangle
+  if (loaderContext._module && loaderContext._module.matchResource) {
+    relativeResourcePath = `${normalizePath(
+      // eslint-disable-next-line no-underscore-dangle
+      path.relative(context, loaderContext._module.matchResource)
+    )}`;
+  }
 
   // eslint-disable-next-line no-param-reassign
   options.content =

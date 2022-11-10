@@ -5851,11 +5851,11 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSour
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".dvYI1gdIOPlJqjwAWOo8 {\\\\n  color: red;\\\\n}\\\\n\\\\n.s4qiGaiPSoYikcMyZg9a { from: custom; }\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".mCRIw6YAFAAC3_rE9RUZ {\\\\n  color: red;\\\\n}\\\\n\\\\n.bNEIH_2ycglHGlceq20s { from: custom; }\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"some-class\\": \\"dvYI1gdIOPlJqjwAWOo8\\",
-	\\"class\\": \\"s4qiGaiPSoYikcMyZg9a\\"
+	\\"some-class\\": \\"mCRIw6YAFAAC3_rE9RUZ\\",
+	\\"class\\": \\"bNEIH_2ycglHGlceq20s\\"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -5890,11 +5890,11 @@ Array [
   ],
   Array [
     "other.modules.css!=!./my-inline-loader/index.js!./simple.css",
-    ".dvYI1gdIOPlJqjwAWOo8 {
+    ".mCRIw6YAFAAC3_rE9RUZ {
   color: red;
 }
 
-.s4qiGaiPSoYikcMyZg9a { from: custom; }",
+.bNEIH_2ycglHGlceq20s { from: custom; }",
     "",
   ],
   Array [
