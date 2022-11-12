@@ -381,6 +381,66 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work and respect the "hashStrategy" = "resource-path-and-local-name"', async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: {
+        localIdentName: "[local]__[hash:base64:8]",
+        // localName should be used even if [local] is contained in the localIdentName template
+        hashStrategy: "resource-path-and-local-name",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work and respect the "hashStrategy" = "minimal-subset" and [local]', async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: {
+        localIdentName: "[local]__[hash:base64:8]",
+        // localName should not be used: [local] is used
+        hashStrategy: "minimal-subset",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('should work and respect the "hashStrategy" = "minimal-subset" and no [local]', async () => {
+    const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
+      modules: {
+        localIdentName: "[hash:base64:8]",
+        // localName should be used: [local] is not used
+        hashStrategy: "minimal-subset",
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work and has "undefined" context if no context was given', async () => {
     expect.assertions(59);
 

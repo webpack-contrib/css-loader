@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.7.1](https://github.com/webpack-contrib/css-loader/compare/v6.7.0...v6.7.1) (2022-03-08)
+
+
+### Bug Fixes
+
+* defaultGetLocalIdent export ([#1427](https://github.com/webpack-contrib/css-loader/issues/1427)) ([74dac1e](https://github.com/webpack-contrib/css-loader/commit/74dac1e428569236d386ff4e0f971e35c334087a))
+
+## [6.7.0](https://github.com/webpack-contrib/css-loader/compare/v6.6.0...v6.7.0) (2022-03-04)
+
+
+### Features
+
+* re-export defaultGetLocalIdent ([#1423](https://github.com/webpack-contrib/css-loader/issues/1423)) ([207cf36](https://github.com/webpack-contrib/css-loader/commit/207cf36d541423f12a8d6680b21530c52a2f07d5))
+
+## [6.6.0](https://github.com/webpack-contrib/css-loader/compare/v6.5.1...v6.6.0) (2022-02-02)
+
+
+### Features
+
+* added the `hashStrategy` option ([ca4abce](https://github.com/webpack-contrib/css-loader/commit/ca4abce74d01bc13959e30a4dbbd1ca3a0516d72))
+
+
 ### [6.5.1](https://github.com/webpack-contrib/css-loader/compare/v6.5.0...v6.5.1) (2021-11-03)
 
 

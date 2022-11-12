@@ -3397,6 +3397,576 @@ Array [
 
 exports[`"modules" option should work and respect the "hashSalt" option: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and [local]: errors 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and [local]: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".test__iHMJbI42 {\\\\n  background: red;\\\\n}\\\\n\\\\n._test__iHMJbI42 {\\\\n  background: blue;\\\\n}\\\\n\\\\n.className__iHMJbI42 {\\\\n  background: red;\\\\n}\\\\n\\\\n#someId__iHMJbI42 {\\\\n  background: green;\\\\n}\\\\n\\\\n.className__iHMJbI42 .subClass__iHMJbI42 {\\\\n  color: green;\\\\n}\\\\n\\\\n#someId__iHMJbI42 .subClass__iHMJbI42 {\\\\n  color: blue;\\\\n}\\\\n\\\\n.-a0-34a___f__iHMJbI42 {\\\\n  color: red;\\\\n}\\\\n\\\\n.m_x_\\\\\\\\@__iHMJbI42 {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n.B\\\\\\\\&W\\\\\\\\?__iHMJbI42 {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(__iHMJbI42 {\\\\n  color: aqua;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n.\\\\\\\\31 a2b3c__iHMJbI42 {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#\\\\\\\\#fake-id__iHMJbI42 {\\\\n  color: antiquewhite;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#-a-b-c-__iHMJbI42 {\\\\n  color: azure;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"©\\\\\\" */\\\\n#©__iHMJbI42 {\\\\n  color: black;\\\\n}\\\\n\\\\n.♥__iHMJbI42 { background: lime; }\\\\n.©__iHMJbI42 { background: lime; }\\\\n.😍__iHMJbI42 { background: lime; }\\\\n.“‘’”__iHMJbI42 { background: lime; }\\\\n.☺☃__iHMJbI42 { background: lime; }\\\\n.⌘⌥__iHMJbI42 { background: lime; }\\\\n.𝄞♪♩♫♬__iHMJbI42 { background: lime; }\\\\n.💩__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\?__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\@__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\.__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\)__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\31 23__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\31 a2b3c__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\<p\\\\\\\\>__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\<\\\\\\\\>\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\>\\\\\\\\>\\\\\\\\<\\\\\\\\>__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\[\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\-\\\\\\\\]\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\<\\\\\\\\<\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\#__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\#__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\.\\\\\\\\#\\\\\\\\.\\\\\\\\#__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\___iHMJbI42 { background: lime; }\\\\n.\\\\\\\\{\\\\\\\\}__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\#fake\\\\\\\\-id__iHMJbI42 { background: lime; }\\\\n.foo\\\\\\\\.bar__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\3A hover__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\3A hover\\\\\\\\3A focus\\\\\\\\3A active__iHMJbI42 { background: lime; }\\\\n.\\\\\\\\[attr\\\\\\\\=value\\\\\\\\]__iHMJbI42 { background: lime; }\\\\n.f\\\\\\\\/o\\\\\\\\/o__iHMJbI42 { background: lime; }\\\\n.f\\\\\\\\\\\\\\\\o\\\\\\\\\\\\\\\\o__iHMJbI42 { background: lime; }\\\\n.f\\\\\\\\*o\\\\\\\\*o__iHMJbI42 { background: lime; }\\\\n.f\\\\\\\\!o\\\\\\\\!o__iHMJbI42 { background: lime; }\\\\n.f\\\\\\\\'o\\\\\\\\'o__iHMJbI42 { background: lime; }\\\\n.f\\\\\\\\~o\\\\\\\\~o__iHMJbI42 { background: lime; }\\\\n.f\\\\\\\\+o\\\\\\\\+o__iHMJbI42 { background: lime; }\\\\n\\\\n.foo\\\\\\\\/bar__iHMJbI42 {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar__iHMJbI42 {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\/bar\\\\\\\\/baz__iHMJbI42 {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar\\\\\\\\\\\\\\\\baz__iHMJbI42 {\\\\n  background: hotpink;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"123\\": \\"123__iHMJbI42\\",
+	\\"test\\": \\"test__iHMJbI42\\",
+	\\"_test\\": \\"_test__iHMJbI42\\",
+	\\"className\\": \\"className__iHMJbI42\\",
+	\\"someId\\": \\"someId__iHMJbI42\\",
+	\\"subClass\\": \\"subClass__iHMJbI42\\",
+	\\"-a0-34a___f\\": \\"-a0-34a___f__iHMJbI42\\",
+	\\"m_x_@\\": \\"m_x_@__iHMJbI42\\",
+	\\"B&W?\\": \\"B&W?__iHMJbI42\\",
+	\\":\`(\\": \\":\`(__iHMJbI42\\",
+	\\"1a2b3c\\": \\"1a2b3c__iHMJbI42\\",
+	\\"#fake-id\\": \\"#fake-id__iHMJbI42\\",
+	\\"-a-b-c-\\": \\"-a-b-c-__iHMJbI42\\",
+	\\"©\\": \\"©__iHMJbI42\\",
+	\\"♥\\": \\"♥__iHMJbI42\\",
+	\\"😍\\": \\"😍__iHMJbI42\\",
+	\\"“‘’”\\": \\"“‘’”__iHMJbI42\\",
+	\\"☺☃\\": \\"☺☃__iHMJbI42\\",
+	\\"⌘⌥\\": \\"⌘⌥__iHMJbI42\\",
+	\\"𝄞♪♩♫♬\\": \\"𝄞♪♩♫♬__iHMJbI42\\",
+	\\"💩\\": \\"💩__iHMJbI42\\",
+	\\"?\\": \\"?__iHMJbI42\\",
+	\\"@\\": \\"@__iHMJbI42\\",
+	\\".\\": \\".__iHMJbI42\\",
+	\\":)\\": \\":)__iHMJbI42\\",
+	\\"<p>\\": \\"<p>__iHMJbI42\\",
+	\\"<><<<>><>\\": \\"<><<<>><>__iHMJbI42\\",
+	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.__iHMJbI42\\",
+	\\"#\\": \\"#__iHMJbI42\\",
+	\\"##\\": \\"##__iHMJbI42\\",
+	\\"#.#.#\\": \\"#.#.#__iHMJbI42\\",
+	\\"_\\": \\"___iHMJbI42\\",
+	\\"{}\\": \\"{}__iHMJbI42\\",
+	\\"foo.bar\\": \\"foo.bar__iHMJbI42\\",
+	\\":hover\\": \\":hover__iHMJbI42\\",
+	\\":hover:focus:active\\": \\":hover:focus:active__iHMJbI42\\",
+	\\"[attr=value]\\": \\"[attr=value]__iHMJbI42\\",
+	\\"f/o/o\\": \\"f/o/o__iHMJbI42\\",
+	\\"f\\\\\\\\o\\\\\\\\o\\": \\"f\\\\\\\\o\\\\\\\\o__iHMJbI42\\",
+	\\"f*o*o\\": \\"f*o*o__iHMJbI42\\",
+	\\"f!o!o\\": \\"f!o!o__iHMJbI42\\",
+	\\"f'o'o\\": \\"f'o'o__iHMJbI42\\",
+	\\"f~o~o\\": \\"f~o~o__iHMJbI42\\",
+	\\"f+o+o\\": \\"f+o+o__iHMJbI42\\",
+	\\"foo/bar\\": \\"foo/bar__iHMJbI42\\",
+	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar__iHMJbI42\\",
+	\\"foo/bar/baz\\": \\"foo/bar/baz__iHMJbI42\\",
+	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz__iHMJbI42\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and [local]: result 1`] = `
+Array [
+  Array [
+    "./modules/localIdentName/localIdentName.css",
+    ".test__iHMJbI42 {
+  background: red;
+}
+
+._test__iHMJbI42 {
+  background: blue;
+}
+
+.className__iHMJbI42 {
+  background: red;
+}
+
+#someId__iHMJbI42 {
+  background: green;
+}
+
+.className__iHMJbI42 .subClass__iHMJbI42 {
+  color: green;
+}
+
+#someId__iHMJbI42 .subClass__iHMJbI42 {
+  color: blue;
+}
+
+.-a0-34a___f__iHMJbI42 {
+  color: red;
+}
+
+.m_x_\\\\@__iHMJbI42 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\\\&W\\\\?__iHMJbI42 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.\\\\3A \\\\\`\\\\(__iHMJbI42 {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.\\\\31 a2b3c__iHMJbI42 {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#\\\\#fake-id__iHMJbI42 {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#-a-b-c-__iHMJbI42 {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#©__iHMJbI42 {
+  color: black;
+}
+
+.♥__iHMJbI42 { background: lime; }
+.©__iHMJbI42 { background: lime; }
+.😍__iHMJbI42 { background: lime; }
+.“‘’”__iHMJbI42 { background: lime; }
+.☺☃__iHMJbI42 { background: lime; }
+.⌘⌥__iHMJbI42 { background: lime; }
+.𝄞♪♩♫♬__iHMJbI42 { background: lime; }
+.💩__iHMJbI42 { background: lime; }
+.\\\\?__iHMJbI42 { background: lime; }
+.\\\\@__iHMJbI42 { background: lime; }
+.\\\\.__iHMJbI42 { background: lime; }
+.\\\\3A \\\\)__iHMJbI42 { background: lime; }
+.\\\\3A \\\\\`\\\\(__iHMJbI42 { background: lime; }
+.\\\\31 23__iHMJbI42 { background: lime; }
+.\\\\31 a2b3c__iHMJbI42 { background: lime; }
+.\\\\<p\\\\>__iHMJbI42 { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>__iHMJbI42 { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.__iHMJbI42 { background: lime; }
+.\\\\#__iHMJbI42 { background: lime; }
+.\\\\#\\\\#__iHMJbI42 { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\#__iHMJbI42 { background: lime; }
+.\\\\___iHMJbI42 { background: lime; }
+.\\\\{\\\\}__iHMJbI42 { background: lime; }
+.\\\\#fake\\\\-id__iHMJbI42 { background: lime; }
+.foo\\\\.bar__iHMJbI42 { background: lime; }
+.\\\\3A hover__iHMJbI42 { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active__iHMJbI42 { background: lime; }
+.\\\\[attr\\\\=value\\\\]__iHMJbI42 { background: lime; }
+.f\\\\/o\\\\/o__iHMJbI42 { background: lime; }
+.f\\\\\\\\o\\\\\\\\o__iHMJbI42 { background: lime; }
+.f\\\\*o\\\\*o__iHMJbI42 { background: lime; }
+.f\\\\!o\\\\!o__iHMJbI42 { background: lime; }
+.f\\\\'o\\\\'o__iHMJbI42 { background: lime; }
+.f\\\\~o\\\\~o__iHMJbI42 { background: lime; }
+.f\\\\+o\\\\+o__iHMJbI42 { background: lime; }
+
+.foo\\\\/bar__iHMJbI42 {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar__iHMJbI42 {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz__iHMJbI42 {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz__iHMJbI42 {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and [local]: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and no [local]: errors 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and no [local]: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".KuIShlgs {\\\\n  background: red;\\\\n}\\\\n\\\\n.Lb3fhDAu {\\\\n  background: blue;\\\\n}\\\\n\\\\n.LdhpkZRW {\\\\n  background: red;\\\\n}\\\\n\\\\n#b0rhwJSt {\\\\n  background: green;\\\\n}\\\\n\\\\n.LdhpkZRW .Mw9j4nId {\\\\n  color: green;\\\\n}\\\\n\\\\n#b0rhwJSt .Mw9j4nId {\\\\n  color: blue;\\\\n}\\\\n\\\\n.DdFWMPol {\\\\n  color: red;\\\\n}\\\\n\\\\n.OdAmghrm {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n.h4SEF34C {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.fKJQkLar {\\\\n  color: aqua;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n.YR1u_buY {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#AqiAGSfn {\\\\n  color: antiquewhite;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#CwXv27VM {\\\\n  color: azure;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"©\\\\\\" */\\\\n#jBj0sZiW {\\\\n  color: black;\\\\n}\\\\n\\\\n.vJl9A9Ds { background: lime; }\\\\n.jBj0sZiW { background: lime; }\\\\n.CNLr9yJw { background: lime; }\\\\n.GM0Y0nFC { background: lime; }\\\\n.NKrBw7EA { background: lime; }\\\\n.edHWpSne { background: lime; }\\\\n.QyMp9YME { background: lime; }\\\\n.B82YxwgR { background: lime; }\\\\n.ndmpvNNl { background: lime; }\\\\n.v3gq0wPo { background: lime; }\\\\n.zd5uIZq6 { background: lime; }\\\\n.ZiZnRjRT { background: lime; }\\\\n.fKJQkLar { background: lime; }\\\\n.oqRGsO4U { background: lime; }\\\\n.YR1u_buY { background: lime; }\\\\n.TdAx2ZSk { background: lime; }\\\\n.ozNsTIG0 { background: lime; }\\\\n.ByKoYcSr { background: lime; }\\\\n.HkwIsjW5 { background: lime; }\\\\n.IJc6Xl4Z { background: lime; }\\\\n.BnPpnJmP { background: lime; }\\\\n.bCwkZEDu { background: lime; }\\\\n.IZkBfE9i { background: lime; }\\\\n.AqiAGSfn { background: lime; }\\\\n.uajo7mHz { background: lime; }\\\\n.HVudUNXn { background: lime; }\\\\n.ZlaaXvHL { background: lime; }\\\\n.PWvC4jVM { background: lime; }\\\\n.A5l5sDOD { background: lime; }\\\\n.DFfh4Kyq { background: lime; }\\\\n.gv1E2n_b { background: lime; }\\\\n._aIyR9ET { background: lime; }\\\\n.HSXNnSjt { background: lime; }\\\\n.MrVzSIcS { background: lime; }\\\\n.EvMHRmCu { background: lime; }\\\\n\\\\n.hei2uQgD {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.IgSzmmsC {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.p6KJMhNW {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.HZerWgmU {\\\\n  background: hotpink;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"123\\": \\"oqRGsO4U\\",
+	\\"test\\": \\"KuIShlgs\\",
+	\\"_test\\": \\"Lb3fhDAu\\",
+	\\"className\\": \\"LdhpkZRW\\",
+	\\"someId\\": \\"b0rhwJSt\\",
+	\\"subClass\\": \\"Mw9j4nId\\",
+	\\"-a0-34a___f\\": \\"DdFWMPol\\",
+	\\"m_x_@\\": \\"OdAmghrm\\",
+	\\"B&W?\\": \\"h4SEF34C\\",
+	\\":\`(\\": \\"fKJQkLar\\",
+	\\"1a2b3c\\": \\"YR1u_buY\\",
+	\\"#fake-id\\": \\"AqiAGSfn\\",
+	\\"-a-b-c-\\": \\"CwXv27VM\\",
+	\\"©\\": \\"jBj0sZiW\\",
+	\\"♥\\": \\"vJl9A9Ds\\",
+	\\"😍\\": \\"CNLr9yJw\\",
+	\\"“‘’”\\": \\"GM0Y0nFC\\",
+	\\"☺☃\\": \\"NKrBw7EA\\",
+	\\"⌘⌥\\": \\"edHWpSne\\",
+	\\"𝄞♪♩♫♬\\": \\"QyMp9YME\\",
+	\\"💩\\": \\"B82YxwgR\\",
+	\\"?\\": \\"ndmpvNNl\\",
+	\\"@\\": \\"v3gq0wPo\\",
+	\\".\\": \\"zd5uIZq6\\",
+	\\":)\\": \\"ZiZnRjRT\\",
+	\\"<p>\\": \\"TdAx2ZSk\\",
+	\\"<><<<>><>\\": \\"ozNsTIG0\\",
+	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"ByKoYcSr\\",
+	\\"#\\": \\"HkwIsjW5\\",
+	\\"##\\": \\"IJc6Xl4Z\\",
+	\\"#.#.#\\": \\"BnPpnJmP\\",
+	\\"_\\": \\"bCwkZEDu\\",
+	\\"{}\\": \\"IZkBfE9i\\",
+	\\"foo.bar\\": \\"uajo7mHz\\",
+	\\":hover\\": \\"HVudUNXn\\",
+	\\":hover:focus:active\\": \\"ZlaaXvHL\\",
+	\\"[attr=value]\\": \\"PWvC4jVM\\",
+	\\"f/o/o\\": \\"A5l5sDOD\\",
+	\\"f\\\\\\\\o\\\\\\\\o\\": \\"DFfh4Kyq\\",
+	\\"f*o*o\\": \\"gv1E2n_b\\",
+	\\"f!o!o\\": \\"_aIyR9ET\\",
+	\\"f'o'o\\": \\"HSXNnSjt\\",
+	\\"f~o~o\\": \\"MrVzSIcS\\",
+	\\"f+o+o\\": \\"EvMHRmCu\\",
+	\\"foo/bar\\": \\"hei2uQgD\\",
+	\\"foo\\\\\\\\bar\\": \\"IgSzmmsC\\",
+	\\"foo/bar/baz\\": \\"p6KJMhNW\\",
+	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"HZerWgmU\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and no [local]: result 1`] = `
+Array [
+  Array [
+    "./modules/localIdentName/localIdentName.css",
+    ".KuIShlgs {
+  background: red;
+}
+
+.Lb3fhDAu {
+  background: blue;
+}
+
+.LdhpkZRW {
+  background: red;
+}
+
+#b0rhwJSt {
+  background: green;
+}
+
+.LdhpkZRW .Mw9j4nId {
+  color: green;
+}
+
+#b0rhwJSt .Mw9j4nId {
+  color: blue;
+}
+
+.DdFWMPol {
+  color: red;
+}
+
+.OdAmghrm {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.h4SEF34C {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.fKJQkLar {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.YR1u_buY {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#AqiAGSfn {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#CwXv27VM {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#jBj0sZiW {
+  color: black;
+}
+
+.vJl9A9Ds { background: lime; }
+.jBj0sZiW { background: lime; }
+.CNLr9yJw { background: lime; }
+.GM0Y0nFC { background: lime; }
+.NKrBw7EA { background: lime; }
+.edHWpSne { background: lime; }
+.QyMp9YME { background: lime; }
+.B82YxwgR { background: lime; }
+.ndmpvNNl { background: lime; }
+.v3gq0wPo { background: lime; }
+.zd5uIZq6 { background: lime; }
+.ZiZnRjRT { background: lime; }
+.fKJQkLar { background: lime; }
+.oqRGsO4U { background: lime; }
+.YR1u_buY { background: lime; }
+.TdAx2ZSk { background: lime; }
+.ozNsTIG0 { background: lime; }
+.ByKoYcSr { background: lime; }
+.HkwIsjW5 { background: lime; }
+.IJc6Xl4Z { background: lime; }
+.BnPpnJmP { background: lime; }
+.bCwkZEDu { background: lime; }
+.IZkBfE9i { background: lime; }
+.AqiAGSfn { background: lime; }
+.uajo7mHz { background: lime; }
+.HVudUNXn { background: lime; }
+.ZlaaXvHL { background: lime; }
+.PWvC4jVM { background: lime; }
+.A5l5sDOD { background: lime; }
+.DFfh4Kyq { background: lime; }
+.gv1E2n_b { background: lime; }
+._aIyR9ET { background: lime; }
+.HSXNnSjt { background: lime; }
+.MrVzSIcS { background: lime; }
+.EvMHRmCu { background: lime; }
+
+.hei2uQgD {
+  background: hotpink;
+}
+
+.IgSzmmsC {
+  background: hotpink;
+}
+
+.p6KJMhNW {
+  background: hotpink;
+}
+
+.HZerWgmU {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "minimal-subset" and no [local]: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "resource-path-and-local-name": errors 1`] = `Array []`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "resource-path-and-local-name": module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \\".test__KuIShlgs {\\\\n  background: red;\\\\n}\\\\n\\\\n._test__Lb3fhDAu {\\\\n  background: blue;\\\\n}\\\\n\\\\n.className__LdhpkZRW {\\\\n  background: red;\\\\n}\\\\n\\\\n#someId__b0rhwJSt {\\\\n  background: green;\\\\n}\\\\n\\\\n.className__LdhpkZRW .subClass__Mw9j4nId {\\\\n  color: green;\\\\n}\\\\n\\\\n#someId__b0rhwJSt .subClass__Mw9j4nId {\\\\n  color: blue;\\\\n}\\\\n\\\\n.-a0-34a___f__DdFWMPol {\\\\n  color: red;\\\\n}\\\\n\\\\n.m_x_\\\\\\\\@__OdAmghrm {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n.B\\\\\\\\&W\\\\\\\\?__h4SEF34C {\\\\n  margin-left: auto !important;\\\\n  margin-right: auto !important;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(__fKJQkLar {\\\\n  color: aqua;\\\\n}\\\\n\\\\n/* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n.\\\\\\\\31 a2b3c__YR1u_buY {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#\\\\\\\\#fake-id__AqiAGSfn {\\\\n  color: antiquewhite;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#-a-b-c-__CwXv27VM {\\\\n  color: azure;\\\\n}\\\\n\\\\n/* matches the element with id=\\\\\\"©\\\\\\" */\\\\n#©__jBj0sZiW {\\\\n  color: black;\\\\n}\\\\n\\\\n.♥__vJl9A9Ds { background: lime; }\\\\n.©__jBj0sZiW { background: lime; }\\\\n.😍__CNLr9yJw { background: lime; }\\\\n.“‘’”__GM0Y0nFC { background: lime; }\\\\n.☺☃__NKrBw7EA { background: lime; }\\\\n.⌘⌥__edHWpSne { background: lime; }\\\\n.𝄞♪♩♫♬__QyMp9YME { background: lime; }\\\\n.💩__B82YxwgR { background: lime; }\\\\n.\\\\\\\\?__ndmpvNNl { background: lime; }\\\\n.\\\\\\\\@__v3gq0wPo { background: lime; }\\\\n.\\\\\\\\.__zd5uIZq6 { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\)__ZiZnRjRT { background: lime; }\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\(__fKJQkLar { background: lime; }\\\\n.\\\\\\\\31 23__oqRGsO4U { background: lime; }\\\\n.\\\\\\\\31 a2b3c__YR1u_buY { background: lime; }\\\\n.\\\\\\\\<p\\\\\\\\>__TdAx2ZSk { background: lime; }\\\\n.\\\\\\\\<\\\\\\\\>\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\>\\\\\\\\>\\\\\\\\<\\\\\\\\>__ozNsTIG0 { background: lime; }\\\\n.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\[\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\>\\\\\\\\+\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\<\\\\\\\\-\\\\\\\\]\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\<\\\\\\\\<\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.\\\\\\\\+\\\\\\\\+\\\\\\\\+\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\-\\\\\\\\.\\\\\\\\>\\\\\\\\+\\\\\\\\.\\\\\\\\>\\\\\\\\.__ByKoYcSr { background: lime; }\\\\n.\\\\\\\\#__HkwIsjW5 { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\#__IJc6Xl4Z { background: lime; }\\\\n.\\\\\\\\#\\\\\\\\.\\\\\\\\#\\\\\\\\.\\\\\\\\#__BnPpnJmP { background: lime; }\\\\n.\\\\\\\\___bCwkZEDu { background: lime; }\\\\n.\\\\\\\\{\\\\\\\\}__IZkBfE9i { background: lime; }\\\\n.\\\\\\\\#fake\\\\\\\\-id__AqiAGSfn { background: lime; }\\\\n.foo\\\\\\\\.bar__uajo7mHz { background: lime; }\\\\n.\\\\\\\\3A hover__HVudUNXn { background: lime; }\\\\n.\\\\\\\\3A hover\\\\\\\\3A focus\\\\\\\\3A active__ZlaaXvHL { background: lime; }\\\\n.\\\\\\\\[attr\\\\\\\\=value\\\\\\\\]__PWvC4jVM { background: lime; }\\\\n.f\\\\\\\\/o\\\\\\\\/o__A5l5sDOD { background: lime; }\\\\n.f\\\\\\\\\\\\\\\\o\\\\\\\\\\\\\\\\o__DFfh4Kyq { background: lime; }\\\\n.f\\\\\\\\*o\\\\\\\\*o__gv1E2n_b { background: lime; }\\\\n.f\\\\\\\\!o\\\\\\\\!o___aIyR9ET { background: lime; }\\\\n.f\\\\\\\\'o\\\\\\\\'o__HSXNnSjt { background: lime; }\\\\n.f\\\\\\\\~o\\\\\\\\~o__MrVzSIcS { background: lime; }\\\\n.f\\\\\\\\+o\\\\\\\\+o__EvMHRmCu { background: lime; }\\\\n\\\\n.foo\\\\\\\\/bar__hei2uQgD {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar__IgSzmmsC {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\/bar\\\\\\\\/baz__p6KJMhNW {\\\\n  background: hotpink;\\\\n}\\\\n\\\\n.foo\\\\\\\\\\\\\\\\bar\\\\\\\\\\\\\\\\baz__HZerWgmU {\\\\n  background: hotpink;\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"123\\": \\"123__oqRGsO4U\\",
+	\\"test\\": \\"test__KuIShlgs\\",
+	\\"_test\\": \\"_test__Lb3fhDAu\\",
+	\\"className\\": \\"className__LdhpkZRW\\",
+	\\"someId\\": \\"someId__b0rhwJSt\\",
+	\\"subClass\\": \\"subClass__Mw9j4nId\\",
+	\\"-a0-34a___f\\": \\"-a0-34a___f__DdFWMPol\\",
+	\\"m_x_@\\": \\"m_x_@__OdAmghrm\\",
+	\\"B&W?\\": \\"B&W?__h4SEF34C\\",
+	\\":\`(\\": \\":\`(__fKJQkLar\\",
+	\\"1a2b3c\\": \\"1a2b3c__YR1u_buY\\",
+	\\"#fake-id\\": \\"#fake-id__AqiAGSfn\\",
+	\\"-a-b-c-\\": \\"-a-b-c-__CwXv27VM\\",
+	\\"©\\": \\"©__jBj0sZiW\\",
+	\\"♥\\": \\"♥__vJl9A9Ds\\",
+	\\"😍\\": \\"😍__CNLr9yJw\\",
+	\\"“‘’”\\": \\"“‘’”__GM0Y0nFC\\",
+	\\"☺☃\\": \\"☺☃__NKrBw7EA\\",
+	\\"⌘⌥\\": \\"⌘⌥__edHWpSne\\",
+	\\"𝄞♪♩♫♬\\": \\"𝄞♪♩♫♬__QyMp9YME\\",
+	\\"💩\\": \\"💩__B82YxwgR\\",
+	\\"?\\": \\"?__ndmpvNNl\\",
+	\\"@\\": \\"@__v3gq0wPo\\",
+	\\".\\": \\".__zd5uIZq6\\",
+	\\":)\\": \\":)__ZiZnRjRT\\",
+	\\"<p>\\": \\"<p>__TdAx2ZSk\\",
+	\\"<><<<>><>\\": \\"<><<<>><>__ozNsTIG0\\",
+	\\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\\": \\"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.__ByKoYcSr\\",
+	\\"#\\": \\"#__HkwIsjW5\\",
+	\\"##\\": \\"##__IJc6Xl4Z\\",
+	\\"#.#.#\\": \\"#.#.#__BnPpnJmP\\",
+	\\"_\\": \\"___bCwkZEDu\\",
+	\\"{}\\": \\"{}__IZkBfE9i\\",
+	\\"foo.bar\\": \\"foo.bar__uajo7mHz\\",
+	\\":hover\\": \\":hover__HVudUNXn\\",
+	\\":hover:focus:active\\": \\":hover:focus:active__ZlaaXvHL\\",
+	\\"[attr=value]\\": \\"[attr=value]__PWvC4jVM\\",
+	\\"f/o/o\\": \\"f/o/o__A5l5sDOD\\",
+	\\"f\\\\\\\\o\\\\\\\\o\\": \\"f\\\\\\\\o\\\\\\\\o__DFfh4Kyq\\",
+	\\"f*o*o\\": \\"f*o*o__gv1E2n_b\\",
+	\\"f!o!o\\": \\"f!o!o___aIyR9ET\\",
+	\\"f'o'o\\": \\"f'o'o__HSXNnSjt\\",
+	\\"f~o~o\\": \\"f~o~o__MrVzSIcS\\",
+	\\"f+o+o\\": \\"f+o+o__EvMHRmCu\\",
+	\\"foo/bar\\": \\"foo/bar__hei2uQgD\\",
+	\\"foo\\\\\\\\bar\\": \\"foo\\\\\\\\bar__IgSzmmsC\\",
+	\\"foo/bar/baz\\": \\"foo/bar/baz__p6KJMhNW\\",
+	\\"foo\\\\\\\\bar\\\\\\\\baz\\": \\"foo\\\\\\\\bar\\\\\\\\baz__HZerWgmU\\"
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "resource-path-and-local-name": result 1`] = `
+Array [
+  Array [
+    "./modules/localIdentName/localIdentName.css",
+    ".test__KuIShlgs {
+  background: red;
+}
+
+._test__Lb3fhDAu {
+  background: blue;
+}
+
+.className__LdhpkZRW {
+  background: red;
+}
+
+#someId__b0rhwJSt {
+  background: green;
+}
+
+.className__LdhpkZRW .subClass__Mw9j4nId {
+  color: green;
+}
+
+#someId__b0rhwJSt .subClass__Mw9j4nId {
+  color: blue;
+}
+
+.-a0-34a___f__DdFWMPol {
+  color: red;
+}
+
+.m_x_\\\\@__OdAmghrm {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\\\&W\\\\?__h4SEF34C {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=\\":\`(\\" */
+.\\\\3A \\\\\`\\\\(__fKJQkLar {
+  color: aqua;
+}
+
+/* matches elements with class=\\"1a2b3c\\" */
+.\\\\31 a2b3c__YR1u_buY {
+  color: aliceblue;
+}
+
+/* matches the element with id=\\"#fake-id\\" */
+#\\\\#fake-id__AqiAGSfn {
+  color: antiquewhite;
+}
+
+/* matches the element with id=\\"-a-b-c-\\" */
+#-a-b-c-__CwXv27VM {
+  color: azure;
+}
+
+/* matches the element with id=\\"©\\" */
+#©__jBj0sZiW {
+  color: black;
+}
+
+.♥__vJl9A9Ds { background: lime; }
+.©__jBj0sZiW { background: lime; }
+.😍__CNLr9yJw { background: lime; }
+.“‘’”__GM0Y0nFC { background: lime; }
+.☺☃__NKrBw7EA { background: lime; }
+.⌘⌥__edHWpSne { background: lime; }
+.𝄞♪♩♫♬__QyMp9YME { background: lime; }
+.💩__B82YxwgR { background: lime; }
+.\\\\?__ndmpvNNl { background: lime; }
+.\\\\@__v3gq0wPo { background: lime; }
+.\\\\.__zd5uIZq6 { background: lime; }
+.\\\\3A \\\\)__ZiZnRjRT { background: lime; }
+.\\\\3A \\\\\`\\\\(__fKJQkLar { background: lime; }
+.\\\\31 23__oqRGsO4U { background: lime; }
+.\\\\31 a2b3c__YR1u_buY { background: lime; }
+.\\\\<p\\\\>__TdAx2ZSk { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>__ozNsTIG0 { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.__ByKoYcSr { background: lime; }
+.\\\\#__HkwIsjW5 { background: lime; }
+.\\\\#\\\\#__IJc6Xl4Z { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\#__BnPpnJmP { background: lime; }
+.\\\\___bCwkZEDu { background: lime; }
+.\\\\{\\\\}__IZkBfE9i { background: lime; }
+.\\\\#fake\\\\-id__AqiAGSfn { background: lime; }
+.foo\\\\.bar__uajo7mHz { background: lime; }
+.\\\\3A hover__HVudUNXn { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active__ZlaaXvHL { background: lime; }
+.\\\\[attr\\\\=value\\\\]__PWvC4jVM { background: lime; }
+.f\\\\/o\\\\/o__A5l5sDOD { background: lime; }
+.f\\\\\\\\o\\\\\\\\o__DFfh4Kyq { background: lime; }
+.f\\\\*o\\\\*o__gv1E2n_b { background: lime; }
+.f\\\\!o\\\\!o___aIyR9ET { background: lime; }
+.f\\\\'o\\\\'o__HSXNnSjt { background: lime; }
+.f\\\\~o\\\\~o__MrVzSIcS { background: lime; }
+.f\\\\+o\\\\+o__EvMHRmCu { background: lime; }
+
+.foo\\\\/bar__hei2uQgD {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar__IgSzmmsC {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz__p6KJMhNW {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz__HZerWgmU {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "hashStrategy" = "resource-path-and-local-name": warnings 1`] = `Array []`;
+
 exports[`"modules" option should work and respect the "localConvention" option with the "asIs" value: errors 1`] = `Array []`;
 
 exports[`"modules" option should work and respect the "localConvention" option with the "asIs" value: module 1`] = `

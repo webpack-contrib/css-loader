@@ -114,6 +114,11 @@
               "link": "https://github.com/webpack-contrib/css-loader#localidenthashdigestlength",
               "type": "number"
             },
+            "hashStrategy": {
+              "description": "Allows to specify should localName be used when computing the hash.",
+              "link": "https://github.com/webpack-contrib/css-loader#hashstrategy",
+              "enum": ["resource-path-and-local-name", "minimal-subset"]
+            },
             "localIdentRegExp": {
               "description": "Allows to specify custom RegExp for local ident name.",
               "link": "https://github.com/webpack-contrib/css-loader#localidentregexp",

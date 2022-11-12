@@ -330,14 +330,17 @@ function defaultGetLocalIdent(
   localName,
   options
 ) {
-  const { context, hashSalt } = options;
+  const { context, hashSalt, hashStrategy } = options;
   const { resourcePath } = loaderContext;
   const relativeResourcePath = normalizePath(
     path.relative(context, resourcePath)
   );
 
   // eslint-disable-next-line no-param-reassign
-  options.content = `${relativeResourcePath}\x00${localName}`;
+  options.content =
+    hashStrategy === "minimal-subset" && /\[local\]/.test(localIdentName)
+      ? relativeResourcePath
+      : `${relativeResourcePath}\x00${localName}`;
 
   let { hashFunction, hashDigest, hashDigestLength } = options;
   const matches = localIdentName.match(
@@ -417,7 +420,7 @@ function defaultGetLocalIdent(
       path.relative(context, `${dirname + path.sep}_`)
     );
 
-    directory = directory.substr(0, directory.length - 1);
+    directory = directory.substring(0, directory.length - 1);
 
     let folder = "";
 
@@ -756,6 +759,7 @@ function getModulesPlugins(options, loaderContext) {
     localIdentHashDigest,
     localIdentHashDigestLength,
     localIdentRegExp,
+    hashStrategy,
   } = options.modules;
 
   let plugins = [];
@@ -780,6 +784,7 @@ function getModulesPlugins(options, loaderContext) {
                 hashFunction: localIdentHashFunction,
                 hashDigest: localIdentHashDigest,
                 hashDigestLength: localIdentHashDigestLength,
+                hashStrategy,
                 regExp: localIdentRegExp,
               }
             );
@@ -798,6 +803,7 @@ function getModulesPlugins(options, loaderContext) {
                 hashFunction: localIdentHashFunction,
                 hashDigest: localIdentHashDigest,
                 hashDigestLength: localIdentHashDigestLength,
+                hashStrategy,
                 regExp: localIdentRegExp,
               }
             );
@@ -1291,4 +1297,5 @@ export {
   camelCase,
   stringifyRequest,
   isDataUrl,
+  defaultGetLocalIdent,
 };
