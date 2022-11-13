@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.7.2](https://github.com/webpack-contrib/css-loader/compare/v6.7.1...v6.7.2) (2022-11-13)
+
+
+### Bug Fixes
+
+* css modules generation with inline syntax ([#1480](https://github.com/webpack-contrib/css-loader/issues/1480)) ([2f4c273](https://github.com/webpack-contrib/css-loader/commit/2f4c27399fdadace5af221ae8df95a36642a377e))
+
 ### [6.7.1](https://github.com/webpack-contrib/css-loader/compare/v6.7.0...v6.7.1) (2022-03-08)
 
 
