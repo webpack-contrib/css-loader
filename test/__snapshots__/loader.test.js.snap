@@ -852,66 +852,66 @@ exports[`loader should work with inline module syntax: result 1`] = `
 Array [
   Array [
     "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax.modules.css",
-    ".L34UCpsDMDUf5cci5FTp {
+    ".ZVx7VAdLOO3PJ1TqkYUn {
   color: red;
 }
 
-.cR0dzE36E911coHAsfAF {
+.x0BV6RnIqi6PTJ6If2oA {
   color: white;
 }",
     "",
   ],
   Array [
     "button.modules.css!=!./index-loader-syntax-sass.css",
-    ".Bm6FV6LbXUxAkIaBjl7y {
+    ".n6iVkcAs9Wu9ovztqf8g {
   width: 5px;
 }",
     "",
   ],
   Array [
     "other.modules.scss!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./index-loader-syntax-sass.modules.css",
-    ".JkECLtXaeLgZptjLMVOV > .cg9Qb_Gz48g_sQh4Pjap {
+    ".NF9v028MAhreSp2TJZnn > .ss2pNzM7P7DcLJerCZFm {
   color: red;
 }",
     "",
   ],
   Array [
     "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax.modules.css",
-    ".L34UCpsDMDUf5cci5FTp {
+    ".ZVx7VAdLOO3PJ1TqkYUn {
   color: red;
 }
 
-.cR0dzE36E911coHAsfAF {
+.x0BV6RnIqi6PTJ6If2oA {
   color: white;
 }
 
-.BBGEY4nuDapXZ5Z5Llcd {
+.bNEIH_2ycglHGlceq20s {
   from: custom;
 }",
     "",
   ],
   Array [
     "other.modules.css!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax.modules.css",
-    ".L34UCpsDMDUf5cci5FTp {
+    ".ZVx7VAdLOO3PJ1TqkYUn {
   color: red;
 }
 
-.cR0dzE36E911coHAsfAF {
+.x0BV6RnIqi6PTJ6If2oA {
   color: white;
 }
 
-.BBGEY4nuDapXZ5Z5Llcd {
+.bNEIH_2ycglHGlceq20s {
   from: custom;
 }",
     "",
   ],
   Array [
     "other.modules.scss!=!../../src/index.js??ruleSet[1].rules[0].rules[0]!../../node_modules/sass-loader/dist/cjs.js!./my-inline-loader/index.js!./index-loader-syntax-sass.modules.css",
-    ".JkECLtXaeLgZptjLMVOV > .cg9Qb_Gz48g_sQh4Pjap {
+    ".NF9v028MAhreSp2TJZnn > .ss2pNzM7P7DcLJerCZFm {
   color: red;
 }
 
-.WJ9UGZwK6YvLQsxARKO1 {
+.NMxzPXmuJS2nd8LarB5I {
   from: custom;
 }",
     "",
@@ -925,21 +925,21 @@ Array [
   ],
   Array [
     "button.modules.css!=!./index-loader-syntax-sass.css",
-    ".Bm6FV6LbXUxAkIaBjl7y {
+    ".n6iVkcAs9Wu9ovztqf8g {
   width: 5px;
 }",
     "",
   ],
   Array [
     "button.module.scss!=!./base64-loader/index.js?LmZvbyB7IGNvbG9yOiByZWQ7IH0=!./simple.js?foo=bar",
-    ".nQ7qpE_fxjuYDsViKqtM {
+    ".QwIaKzIX2nnuKwGnu953 {
   color: red;
 }",
     "",
   ],
   Array [
     "other.module.scss!=!./base64-loader/index.js?LmZvbyB7IGNvbG9yOiByZWQ7IH0=!./simple.js?foo=baz",
-    ".nQ7qpE_fxjuYDsViKqtM {
+    ".L_0U1ZWuSHuIqdUV6KjO {
   color: red;
 }",
     "",
