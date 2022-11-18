@@ -1053,7 +1053,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work with the 'auto' and exctract CSS using mini-css-extract-plugin", async () => {
+  it("should work with the 'auto' and extract CSS using mini-css-extract-plugin", async () => {
     const compiler = getCompiler(
       "./modules/mode/modules.js",
       {},

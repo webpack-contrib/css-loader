@@ -162,7 +162,7 @@ module.exports = {
                 return false;
               }
 
-              // Don't handle images under root-relatve /external_images/
+              // Don't handle images under root-relative /external_images/
               if (/^\/external_images\//.test(path)) {
                 return false;
               }
@@ -481,7 +481,7 @@ To import from multiple modules use multiple `composes:` rules.
 
 ```css
 :local(.className) {
-  composes: edit hightlight from "./edit.css";
+  composes: edit highlight from "./edit.css";
   composes: button from "module/button.css";
   composes: classFromThisModule;
   background: red;
