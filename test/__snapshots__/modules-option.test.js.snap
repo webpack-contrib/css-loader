@@ -16155,7 +16155,7 @@ Array [
 
 exports[`"modules" option should work with the "namedExport" option: warnings 1`] = `Array []`;
 
-exports[`"modules" option should work with the 'auto' and exctract CSS using mini-css-extract-plugin: css 1`] = `
+exports[`"modules" option should work with the 'auto' and extract CSS using mini-css-extract-plugin: css 1`] = `
 "/*!*****************************************************************!*\\\\
   !*** css ../../src/index.js!./modules/mode/relative.module.css ***!
   \\\\*****************************************************************/
@@ -16166,14 +16166,14 @@ exports[`"modules" option should work with the 'auto' and exctract CSS using min
 "
 `;
 
-exports[`"modules" option should work with the 'auto' and exctract CSS using mini-css-extract-plugin: errors 1`] = `Array []`;
+exports[`"modules" option should work with the 'auto' and extract CSS using mini-css-extract-plugin: errors 1`] = `Array []`;
 
-exports[`"modules" option should work with the 'auto' and exctract CSS using mini-css-extract-plugin: module 1`] = `
+exports[`"modules" option should work with the 'auto' and extract CSS using mini-css-extract-plugin: module 1`] = `
 "// extracted by mini-css-extract-plugin
 export default {\\"relative\\":\\"cK4wjjU46XTRUXJefTb2\\"};"
 `;
 
-exports[`"modules" option should work with the 'auto' and exctract CSS using mini-css-extract-plugin: warnings 1`] = `Array []`;
+exports[`"modules" option should work with the 'auto' and extract CSS using mini-css-extract-plugin: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`global\`): errors 1`] = `Array []`;
 
