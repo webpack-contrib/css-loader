@@ -62,10 +62,6 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Setup Git
-        if: matrix.os == 'windows-latest'
-        run: git config --global core.autocrlf input
-
       - uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
