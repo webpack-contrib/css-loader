@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.7.3](https://github.com/webpack-contrib/css-loader/compare/v6.7.2...v6.7.3) (2022-12-14)
+
+
+### Bug Fixes
+
+* remove `sourceURL` from emitted CSS ([#1487](https://github.com/webpack-contrib/css-loader/issues/1487)) ([962924c](https://github.com/webpack-contrib/css-loader/commit/962924c79e274be9f6f81d39eac651c1a4876bc2))
+
 ### [6.7.2](https://github.com/webpack-contrib/css-loader/compare/v6.7.1...v6.7.2) (2022-11-13)
 
 
