@@ -574,4 +574,18 @@ describe('"import" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work and output media", async () => {
+    const compiler = getCompiler("./import/list-of-media-queries.js");
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./import/list-of-media-queries.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });
