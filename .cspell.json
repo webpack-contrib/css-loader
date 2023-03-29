@@ -36,7 +36,11 @@
     "Brotli",
     "Contex",
     "vspace",
-    "commitlint"
+    "commitlint",
+    "codecov",
+    "wagoid",
+    "autocrlf",
+    "CODECOV"
   ],
 
   "ignorePaths": [
