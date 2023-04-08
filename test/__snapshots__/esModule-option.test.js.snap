@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`"esModule" option should work when not specified: errors 1`] = `Array []`;
+exports[`"esModule" option should work when not specified: errors 1`] = `[]`;
 
 exports[`"esModule" option should work when not specified: module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
-import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../src/runtime/api.js";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from "-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css";
+import ___CSS_LOADER_GET_URL_IMPORT___ from "../../../src/runtime/getUrl.js";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL("./img.png", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \\"UTF-8\\";\\n\\n/* Comment */\\n\\n.class {\\n  color: red;\\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\\n}\\n", ""]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
 exports[`"esModule" option should work when not specified: result 1`] = `
-Array [
-  Array [
+[
+  [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".foo {
   color: red;
@@ -29,9 +29,9 @@ Array [
 ",
     "",
   ],
-  Array [
+  [
     "./es-module/source.css",
-    "@charset \\"UTF-8\\";
+    "@charset "UTF-8";
 
 /* Comment */
 
@@ -45,30 +45,30 @@ Array [
 ]
 `;
 
-exports[`"esModule" option should work when not specified: warnings 1`] = `Array []`;
+exports[`"esModule" option should work when not specified: warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with a value equal to "false": errors 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "false": errors 1`] = `[]`;
 
 exports[`"esModule" option should work with a value equal to "false": module 1`] = `
 "// Imports
-var ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ = require(\\"../../../src/runtime/noSourceMaps.js\\");
-var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
-var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\");
-var ___CSS_LOADER_GET_URL_IMPORT___ = require(\\"../../../src/runtime/getUrl.js\\");
-var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./img.png\\");
+var ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ = require("../../../src/runtime/noSourceMaps.js");
+var ___CSS_LOADER_API_IMPORT___ = require("../../../src/runtime/api.js");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require("-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css");
+var ___CSS_LOADER_GET_URL_IMPORT___ = require("../../../src/runtime/getUrl.js");
+var ___CSS_LOADER_URL_IMPORT_0___ = require("./img.png");
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \\"UTF-8\\";\\n\\n/* Comment */\\n\\n.class {\\n  color: red;\\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\\n}\\n", ""]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 "
 `;
 
 exports[`"esModule" option should work with a value equal to "false": result 1`] = `
-Array [
-  Array [
+[
+  [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".foo {
   color: red;
@@ -76,9 +76,9 @@ Array [
 ",
     "",
   ],
-  Array [
+  [
     "./es-module/source.css",
-    "@charset \\"UTF-8\\";
+    "@charset "UTF-8";
 
 /* Comment */
 
@@ -92,22 +92,22 @@ Array [
 ]
 `;
 
-exports[`"esModule" option should work with a value equal to "false": warnings 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "false": warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "global": errors 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "global": errors 1`] = `[]`;
 
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "global": module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
-import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../src/runtime/api.js";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from "-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css";
+import ___CSS_LOADER_GET_URL_IMPORT___ from "../../../src/runtime/getUrl.js";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL("./img.png", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \\"UTF-8\\";\\n\\n/* Comment */\\n\\n.class {\\n  color: red;\\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\\n}\\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {};
 export default ___CSS_LOADER_EXPORT___;
@@ -115,8 +115,8 @@ export default ___CSS_LOADER_EXPORT___;
 `;
 
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "global": result 1`] = `
-Array [
-  Array [
+[
+  [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".foo {
   color: red;
@@ -124,9 +124,9 @@ Array [
 ",
     "",
   ],
-  Array [
+  [
     "./es-module/source.css",
-    "@charset \\"UTF-8\\";
+    "@charset "UTF-8";
 
 /* Comment */
 
@@ -140,33 +140,33 @@ Array [
 ]
 `;
 
-exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "global": warnings 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "global": warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "local": errors 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "local": errors 1`] = `[]`;
 
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "local": module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
-import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../src/runtime/api.js";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from "-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css";
+import ___CSS_LOADER_GET_URL_IMPORT___ from "../../../src/runtime/getUrl.js";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL("./img.png", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.OZJqogC5EaF_wROug7zE {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \\"UTF-8\\";\\n\\n/* Comment */\\n\\n.OZJqogC5EaF_wROug7zE {\\n  color: red;\\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\\n}\\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"class\\": \\"OZJqogC5EaF_wROug7zE\\"
+	"class": "OZJqogC5EaF_wROug7zE"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "local": result 1`] = `
-Array [
-  Array [
+[
+  [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".EB7DBFwH4lzwZcKIj2OA {
   color: red;
@@ -174,9 +174,9 @@ Array [
 ",
     "",
   ],
-  Array [
+  [
     "./es-module/source.css",
-    "@charset \\"UTF-8\\";
+    "@charset "UTF-8";
 
 /* Comment */
 
@@ -190,33 +190,33 @@ Array [
 ]
 `;
 
-exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "local": warnings 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "local": warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "pure": errors 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "pure": errors 1`] = `[]`;
 
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "pure": module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
-import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../src/runtime/api.js";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from "-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css";
+import ___CSS_LOADER_GET_URL_IMPORT___ from "../../../src/runtime/getUrl.js";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL("./img.png", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.OZJqogC5EaF_wROug7zE {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \\"UTF-8\\";\\n\\n/* Comment */\\n\\n.OZJqogC5EaF_wROug7zE {\\n  color: red;\\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\\n}\\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"class\\": \\"OZJqogC5EaF_wROug7zE\\"
+	"class": "OZJqogC5EaF_wROug7zE"
 };
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
 exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "pure": result 1`] = `
-Array [
-  Array [
+[
+  [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".EB7DBFwH4lzwZcKIj2OA {
   color: red;
@@ -224,9 +224,9 @@ Array [
 ",
     "",
   ],
-  Array [
+  [
     "./es-module/source.css",
-    "@charset \\"UTF-8\\";
+    "@charset "UTF-8";
 
 /* Comment */
 
@@ -240,30 +240,30 @@ Array [
 ]
 `;
 
-exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "pure": warnings 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "true" and the "mode" value equal to "pure": warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with a value equal to "true": errors 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "true": errors 1`] = `[]`;
 
 exports[`"esModule" option should work with a value equal to "true": module 1`] = `
 "// Imports
-import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noSourceMaps.js\\";
-import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
-import ___CSS_LOADER_AT_RULE_IMPORT_0___ from \\"-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css\\";
-import ___CSS_LOADER_GET_URL_IMPORT___ from \\"../../../src/runtime/getUrl.js\\";
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(\\"./img.png\\", import.meta.url);
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../src/runtime/api.js";
+import ___CSS_LOADER_AT_RULE_IMPORT_0___ from "-!../../../src/index.js??ruleSet[1].rules[0].use[0]!./imported.css";
+import ___CSS_LOADER_GET_URL_IMPORT___ from "../../../src/runtime/getUrl.js";
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL("./img.png", import.meta.url);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \\"UTF-8\\";\\n\\n/* Comment */\\n\\n.class {\\n  color: red;\\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\\n}\\n", ""]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
 exports[`"esModule" option should work with a value equal to "true": result 1`] = `
-Array [
-  Array [
+[
+  [
     "../../src/index.js??ruleSet[1].rules[0].use[0]!./es-module/imported.css",
     ".foo {
   color: red;
@@ -271,9 +271,9 @@ Array [
 ",
     "",
   ],
-  Array [
+  [
     "./es-module/source.css",
-    "@charset \\"UTF-8\\";
+    "@charset "UTF-8";
 
 /* Comment */
 
@@ -287,44 +287,44 @@ Array [
 ]
 `;
 
-exports[`"esModule" option should work with a value equal to "true": warnings 1`] = `Array []`;
+exports[`"esModule" option should work with a value equal to "true": warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with commonjs css-loader + commonjs mini-css-extract-plugin: errors 1`] = `Array []`;
+exports[`"esModule" option should work with commonjs css-loader + commonjs mini-css-extract-plugin: errors 1`] = `[]`;
 
 exports[`"esModule" option should work with commonjs css-loader + commonjs mini-css-extract-plugin: result 1`] = `undefined`;
 
-exports[`"esModule" option should work with commonjs css-loader + commonjs mini-css-extract-plugin: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with commonjs css-loader + commonjs mini-css-extract-plugin: warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with commonjs css-loader + commonjs style-loader: errors 1`] = `Array []`;
+exports[`"esModule" option should work with commonjs css-loader + commonjs style-loader: errors 1`] = `[]`;
 
-exports[`"esModule" option should work with commonjs css-loader + commonjs style-loader: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with commonjs css-loader + commonjs style-loader: warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with commonjs css-loader + esModule mini-css-extract-plugin: errors 1`] = `Array []`;
+exports[`"esModule" option should work with commonjs css-loader + esModule mini-css-extract-plugin: errors 1`] = `[]`;
 
 exports[`"esModule" option should work with commonjs css-loader + esModule mini-css-extract-plugin: result 1`] = `undefined`;
 
-exports[`"esModule" option should work with commonjs css-loader + esModule mini-css-extract-plugin: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with commonjs css-loader + esModule mini-css-extract-plugin: warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with commonjs css-loader + esModule style-loader: errors 1`] = `Array []`;
+exports[`"esModule" option should work with commonjs css-loader + esModule style-loader: errors 1`] = `[]`;
 
-exports[`"esModule" option should work with commonjs css-loader + esModule style-loader: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with commonjs css-loader + esModule style-loader: warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with esModule css-loader + commonjs mini-css-extract-plugin: errors 1`] = `Array []`;
+exports[`"esModule" option should work with esModule css-loader + commonjs mini-css-extract-plugin: errors 1`] = `[]`;
 
 exports[`"esModule" option should work with esModule css-loader + commonjs mini-css-extract-plugin: result 1`] = `undefined`;
 
-exports[`"esModule" option should work with esModule css-loader + commonjs mini-css-extract-plugin: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with esModule css-loader + commonjs mini-css-extract-plugin: warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with esModule css-loader + commonjs style-loader: errors 1`] = `Array []`;
+exports[`"esModule" option should work with esModule css-loader + commonjs style-loader: errors 1`] = `[]`;
 
-exports[`"esModule" option should work with esModule css-loader + commonjs style-loader: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with esModule css-loader + commonjs style-loader: warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with esModule css-loader + esModule mini-css-extract-plugin: errors 1`] = `Array []`;
+exports[`"esModule" option should work with esModule css-loader + esModule mini-css-extract-plugin: errors 1`] = `[]`;
 
 exports[`"esModule" option should work with esModule css-loader + esModule mini-css-extract-plugin: result 1`] = `undefined`;
 
-exports[`"esModule" option should work with esModule css-loader + esModule mini-css-extract-plugin: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with esModule css-loader + esModule mini-css-extract-plugin: warnings 1`] = `[]`;
 
-exports[`"esModule" option should work with esModule css-loader + esModule style-loader: errors 1`] = `Array []`;
+exports[`"esModule" option should work with esModule css-loader + esModule style-loader: errors 1`] = `[]`;
 
-exports[`"esModule" option should work with esModule css-loader + esModule style-loader: warnings 1`] = `Array []`;
+exports[`"esModule" option should work with esModule css-loader + esModule style-loader: warnings 1`] = `[]`;
