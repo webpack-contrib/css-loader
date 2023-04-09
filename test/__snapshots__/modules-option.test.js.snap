@@ -9685,7 +9685,7 @@ exports[`"modules" option should work with case \`issue-589\` (\`modules\` value
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/09a1a1112c577c2794359715edfcb5ac.png);
 }
 ",
     "",
@@ -9719,7 +9719,7 @@ exports[`"modules" option should work with case \`issue-589\` (\`modules\` value
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/09a1a1112c577c2794359715edfcb5ac.png);
 }
 ",
     "",
@@ -9753,7 +9753,7 @@ exports[`"modules" option should work with case \`issue-589\` (\`modules\` value
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/09a1a1112c577c2794359715edfcb5ac.png);
 }
 ",
     "",
@@ -9787,7 +9787,7 @@ exports[`"modules" option should work with case \`issue-589\` (\`modules\` value
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/09a1a1112c577c2794359715edfcb5ac.png);
 }
 ",
     "",
@@ -9821,7 +9821,7 @@ exports[`"modules" option should work with case \`issue-589\` (\`modules\` value
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/09a1a1112c577c2794359715edfcb5ac.png);
 }
 ",
     "",
@@ -9855,7 +9855,7 @@ exports[`"modules" option should work with case \`issue-589\` (\`modules\` value
     "./modules/tests-cases/issue-589/source.css",
     "body:before {
   content: '';
-  background: url(replaced_file_protocol_/webpack/public/path/img.png);
+  background: url(replaced_file_protocol_/webpack/public/path/09a1a1112c577c2794359715edfcb5ac.png);
 }
 ",
     "",
