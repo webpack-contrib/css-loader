@@ -457,7 +457,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgba(0, 0, 255, 0.9);\\n}\\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgb(0 0 100% / 90%);\\n}\\n", ""]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -487,7 +487,7 @@ exports[`"import" option should work when 'import.loaders' not specified: result
     "./nested-import/source.css",
     ".foo {
   color: red;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2019,7 +2019,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgba(0, 0, 255, 0.9);\\n}\\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgb(0 0 100% / 90%);\\n}\\n", ""]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -2031,7 +2031,7 @@ exports[`"import" option should work with a "import.loaders" value equal to ""1"
     "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/imported.css",
     ".bar {
   color: blue;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2040,7 +2040,7 @@ exports[`"import" option should work with a "import.loaders" value equal to ""1"
     "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/other-imported.css",
     ".baz {
   color: green;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2049,7 +2049,7 @@ exports[`"import" option should work with a "import.loaders" value equal to ""1"
     "./nested-import/source.css",
     ".foo {
   color: red;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2071,7 +2071,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgba(0, 0, 255, 0.9);\\n}\\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgb(0 0 100% / 90%);\\n}\\n", ""]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -2101,7 +2101,7 @@ exports[`"import" option should work with a "import.loaders" value equal to "0" 
     "./nested-import/source.css",
     ".foo {
   color: red;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2123,7 +2123,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgba(0, 0, 255, 0.9);\\n}\\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgb(0 0 100% / 90%);\\n}\\n", ""]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -2135,7 +2135,7 @@ exports[`"import" option should work with a "import.loaders" value equal to "1" 
     "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/imported.css",
     ".bar {
   color: blue;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2144,7 +2144,7 @@ exports[`"import" option should work with a "import.loaders" value equal to "1" 
     "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/other-imported.css",
     ".baz {
   color: green;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2153,7 +2153,7 @@ exports[`"import" option should work with a "import.loaders" value equal to "1" 
     "./nested-import/source.css",
     ".foo {
   color: red;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2227,7 +2227,7 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_AT_RULE_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgba(0, 0, 255, 0.9);\\n}\\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".foo {\\n  color: red;\\n  color: rgb(0 0 100% / 90%);\\n}\\n", ""]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -2239,7 +2239,7 @@ exports[`"import" option should work with a "import.loaders" value equal to "2" 
     "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/imported.css",
     ".bar {
   color: blue;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2248,7 +2248,7 @@ exports[`"import" option should work with a "import.loaders" value equal to "2" 
     "../../src/index.js??ruleSet[1].rules[0].use[0]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./nested-import/other-imported.css",
     ".baz {
   color: green;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
@@ -2257,7 +2257,7 @@ exports[`"import" option should work with a "import.loaders" value equal to "2" 
     "./nested-import/source.css",
     ".foo {
   color: red;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgb(0 0 100% / 90%);
 }
 ",
     "",
