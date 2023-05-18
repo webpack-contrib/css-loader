@@ -548,4 +548,75 @@ describe("loader", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work and nothing to do with built-in CSS support", async () => {
+    const compiler = getCompiler(
+      "./basic-built-in-css-support.js",
+      {},
+      {
+        experiments: {
+          css: true,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work and nothing to do with built-in CSS support", async () => {
+    const compiler = getCompiler(
+      "./basic-built-in-css-support.js",
+      {},
+      {
+        experiments: {
+          futureDefaults: true,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with built-in CSS support", async () => {
+    const compiler = getCompiler(
+      "./basic.js",
+      {},
+      {
+        experiments: {
+          css: true,
+        },
+        module: {
+          rules: [
+            {
+              type: "javascript/auto",
+              test: /\.(mycss|css)$/i,
+              use: [
+                {
+                  loader: path.resolve(__dirname, "../src"),
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+              type: "asset/resource",
+            },
+          ],
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });
