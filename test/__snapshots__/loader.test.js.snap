@@ -516,18 +516,18 @@ a[href=\\"\\" i] {
 exports[`loader should work and nothing to do with built-in CSS support: warnings 1`] = `
 Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-You can't use \`experiments.css\` and \`css-loader\` together, please set \`experiments.css\` to \`false\` or set \`{ type: \\"javascript/auto\\" }\` for rules with \`css-loader\` in your webpack config.",
+You can't use \`experiments.css\` (\`experiments.futureDefaults\` enable built-in CSS support by default) and \`css-loader\` together, please set \`experiments.css\` to \`false\` or set \`{ type: \\"javascript/auto\\" }\` for rules with \`css-loader\` in your webpack config (now css-loader does nothing).",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-You can't use \`experiments.css\` and \`css-loader\` together, please set \`experiments.css\` to \`false\` or set \`{ type: \\"javascript/auto\\" }\` for rules with \`css-loader\` in your webpack config.",
+You can't use \`experiments.css\` (\`experiments.futureDefaults\` enable built-in CSS support by default) and \`css-loader\` together, please set \`experiments.css\` to \`false\` or set \`{ type: \\"javascript/auto\\" }\` for rules with \`css-loader\` in your webpack config (now css-loader does nothing).",
 ]
 `;
 
 exports[`loader should work and nothing to do with built-in CSS support: warnings 2`] = `
 Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-You can't use \`experiments.css\` and \`css-loader\` together, please set \`experiments.css\` to \`false\` or set \`{ type: \\"javascript/auto\\" }\` for rules with \`css-loader\` in your webpack config.",
+You can't use \`experiments.css\` (\`experiments.futureDefaults\` enable built-in CSS support by default) and \`css-loader\` together, please set \`experiments.css\` to \`false\` or set \`{ type: \\"javascript/auto\\" }\` for rules with \`css-loader\` in your webpack config (now css-loader does nothing).",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-You can't use \`experiments.css\` and \`css-loader\` together, please set \`experiments.css\` to \`false\` or set \`{ type: \\"javascript/auto\\" }\` for rules with \`css-loader\` in your webpack config.",
+You can't use \`experiments.css\` (\`experiments.futureDefaults\` enable built-in CSS support by default) and \`css-loader\` together, please set \`experiments.css\` to \`false\` or set \`{ type: \\"javascript/auto\\" }\` for rules with \`css-loader\` in your webpack config (now css-loader does nothing).",
 ]
 `;
 

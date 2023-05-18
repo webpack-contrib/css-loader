@@ -30,6 +30,7 @@ import {
 } from "./utils";
 
 export default async function loader(content, map, meta) {
+  const rawOptions = this.getOptions(schema);
   const callback = this.async();
 
   if (
@@ -42,7 +43,7 @@ export default async function loader(content, map, meta) {
   ) {
     this.emitWarning(
       new Error(
-        'You can\'t use `experiments.css` and `css-loader` together, please set `experiments.css` to `false` or set `{ type: "javascript/auto" }` for rules with `css-loader` in your webpack config.'
+        'You can\'t use `experiments.css` (`experiments.futureDefaults` enable built-in CSS support by default) and `css-loader` together, please set `experiments.css` to `false` or set `{ type: "javascript/auto" }` for rules with `css-loader` in your webpack config (now css-loader does nothing).'
       )
     );
 
@@ -50,9 +51,6 @@ export default async function loader(content, map, meta) {
 
     return;
   }
-
-  const rawOptions = this.getOptions(schema);
-  const plugins = [];
 
   let options;
 
@@ -64,6 +62,7 @@ export default async function loader(content, map, meta) {
     return;
   }
 
+  const plugins = [];
   const replacements = [];
   const exports = [];
 
