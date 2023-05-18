@@ -6888,7 +6888,7 @@ Array [
 }
 
 .ComponentName-footer {
-  color: blue;
+  color: blue;  
 }
 ",
     "",
@@ -6930,7 +6930,7 @@ Array [
 }
 
 .ComponentName-footer {
-  color: blue;
+  color: blue;  
 }
 ",
     "",
@@ -10088,7 +10088,7 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../../src/runti
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".vbnAfVvDroZNdlAZSoos {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@keyframes UoOoKaAgXjyeGpq6UeAE {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n@-webkit-keyframes laDyXrGTqpWgSjWpVfsq {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n.UoOoKaAgXjyeGpq6UeAE {\\\\n\\\\tanimation-name: UoOoKaAgXjyeGpq6UeAE;\\\\n\\\\tanimation: laDyXrGTqpWgSjWpVfsq 1s ease;\\\\n}\\\\n\\\\n.laDyXrGTqpWgSjWpVfsq {\\\\n\\\\tcolor: green;\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease;\\\\n\\\\tanimation-name: laDyXrGTqpWgSjWpVfsq;\\\\n}\\\\n\\\\n.TKT0JgE4RNGqNpibZQwi {\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease, laDyXrGTqpWgSjWpVfsq\\\\n}\\\\n\\\\n.D79vyB123bYrLinvj46J {\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease, laDyXrGTqpWgSjWpVfsq;\\\\n}\\\\n\\\\n.d9QlkrhUnCgqBozPqqcq {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@-webkit-keyframes y8xpMb2xhav4TZYNTfHq {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n@keyframes y8xpMb2xhav4TZYNTfHq {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n.FEOgTA_LLfagujCY2tZA {\\\\n  -webkit-animation: \\\\\\\\@bounce 1s infinite;\\\\n  animation: \\\\\\\\@bounce 1s infinite;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".vbnAfVvDroZNdlAZSoos {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@keyframes UoOoKaAgXjyeGpq6UeAE {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n@-webkit-keyframes laDyXrGTqpWgSjWpVfsq {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n.UoOoKaAgXjyeGpq6UeAE {\\\\n\\\\tanimation-name: UoOoKaAgXjyeGpq6UeAE;\\\\n\\\\tanimation: laDyXrGTqpWgSjWpVfsq 1s ease;\\\\n}\\\\n\\\\n.laDyXrGTqpWgSjWpVfsq {\\\\n\\\\tcolor: green;\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease;\\\\n\\\\tanimation-name: laDyXrGTqpWgSjWpVfsq;\\\\n}\\\\n\\\\n.TKT0JgE4RNGqNpibZQwi {\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease, laDyXrGTqpWgSjWpVfsq\\\\n}\\\\n\\\\n.D79vyB123bYrLinvj46J {\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease, laDyXrGTqpWgSjWpVfsq;\\\\n}\\\\n\\\\n.d9QlkrhUnCgqBozPqqcq {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@-webkit-keyframes y8xpMb2xhav4TZYNTfHq {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n@keyframes y8xpMb2xhav4TZYNTfHq {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n.FEOgTA_LLfagujCY2tZA {\\\\n  -webkit-animation: y8xpMb2xhav4TZYNTfHq 1s infinite;\\\\n  animation: y8xpMb2xhav4TZYNTfHq 1s infinite;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"a\\": \\"vbnAfVvDroZNdlAZSoos\\",
@@ -10186,8 +10186,8 @@ Array [
 }
 
 .FEOgTA_LLfagujCY2tZA {
-  -webkit-animation: \\\\@bounce 1s infinite;
-  animation: \\\\@bounce 1s infinite;
+  -webkit-animation: y8xpMb2xhav4TZYNTfHq 1s infinite;
+  animation: y8xpMb2xhav4TZYNTfHq 1s infinite;
 }
 ",
     "",
@@ -10313,7 +10313,7 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../../src/runti
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"._a {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@keyframes _bounce {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n@-webkit-keyframes _bounce2 {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n._bounce {\\\\n\\\\tanimation-name: _bounce;\\\\n\\\\tanimation: _bounce2 1s ease;\\\\n}\\\\n\\\\n._bounce2 {\\\\n\\\\tcolor: green;\\\\n\\\\tanimation: _bounce 1s ease;\\\\n\\\\tanimation-name: _bounce2;\\\\n}\\\\n\\\\n._bounce3 {\\\\n\\\\tanimation: _bounce 1s ease, _bounce2\\\\n}\\\\n\\\\n._bounce4 {\\\\n\\\\tanimation: _bounce 1s ease, _bounce2;\\\\n}\\\\n\\\\n._b {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@-webkit-keyframes _\\\\\\\\@bounce {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n@keyframes _\\\\\\\\@bounce {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n._container {\\\\n  -webkit-animation: \\\\\\\\@bounce 1s infinite;\\\\n  animation: \\\\\\\\@bounce 1s infinite;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\"._a {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@keyframes _bounce {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n@-webkit-keyframes _bounce2 {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n._bounce {\\\\n\\\\tanimation-name: _bounce;\\\\n\\\\tanimation: _bounce2 1s ease;\\\\n}\\\\n\\\\n._bounce2 {\\\\n\\\\tcolor: green;\\\\n\\\\tanimation: _bounce 1s ease;\\\\n\\\\tanimation-name: _bounce2;\\\\n}\\\\n\\\\n._bounce3 {\\\\n\\\\tanimation: _bounce 1s ease, _bounce2\\\\n}\\\\n\\\\n._bounce4 {\\\\n\\\\tanimation: _bounce 1s ease, _bounce2;\\\\n}\\\\n\\\\n._b {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@-webkit-keyframes _\\\\\\\\@bounce {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n@keyframes _\\\\\\\\@bounce {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n._container {\\\\n  -webkit-animation: _\\\\\\\\@bounce 1s infinite;\\\\n  animation: _\\\\\\\\@bounce 1s infinite;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"a\\": \\"_a\\",
@@ -10411,8 +10411,8 @@ Array [
 }
 
 ._container {
-  -webkit-animation: \\\\@bounce 1s infinite;
-  animation: \\\\@bounce 1s infinite;
+  -webkit-animation: _\\\\@bounce 1s infinite;
+  animation: _\\\\@bounce 1s infinite;
 }
 ",
     "",
@@ -10430,7 +10430,7 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../../src/runti
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".vbnAfVvDroZNdlAZSoos {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@keyframes UoOoKaAgXjyeGpq6UeAE {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n@-webkit-keyframes laDyXrGTqpWgSjWpVfsq {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n.UoOoKaAgXjyeGpq6UeAE {\\\\n\\\\tanimation-name: UoOoKaAgXjyeGpq6UeAE;\\\\n\\\\tanimation: laDyXrGTqpWgSjWpVfsq 1s ease;\\\\n}\\\\n\\\\n.laDyXrGTqpWgSjWpVfsq {\\\\n\\\\tcolor: green;\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease;\\\\n\\\\tanimation-name: laDyXrGTqpWgSjWpVfsq;\\\\n}\\\\n\\\\n.TKT0JgE4RNGqNpibZQwi {\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease, laDyXrGTqpWgSjWpVfsq\\\\n}\\\\n\\\\n.D79vyB123bYrLinvj46J {\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease, laDyXrGTqpWgSjWpVfsq;\\\\n}\\\\n\\\\n.d9QlkrhUnCgqBozPqqcq {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@-webkit-keyframes y8xpMb2xhav4TZYNTfHq {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n@keyframes y8xpMb2xhav4TZYNTfHq {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n.FEOgTA_LLfagujCY2tZA {\\\\n  -webkit-animation: \\\\\\\\@bounce 1s infinite;\\\\n  animation: \\\\\\\\@bounce 1s infinite;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \\".vbnAfVvDroZNdlAZSoos {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@keyframes UoOoKaAgXjyeGpq6UeAE {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n@-webkit-keyframes laDyXrGTqpWgSjWpVfsq {\\\\n\\\\t0% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n\\\\t5% {\\\\n\\\\t\\\\ttransform: translateY(-100%);\\\\n\\\\t\\\\topacity: 0;\\\\n\\\\t}\\\\n}\\\\n\\\\n.UoOoKaAgXjyeGpq6UeAE {\\\\n\\\\tanimation-name: UoOoKaAgXjyeGpq6UeAE;\\\\n\\\\tanimation: laDyXrGTqpWgSjWpVfsq 1s ease;\\\\n}\\\\n\\\\n.laDyXrGTqpWgSjWpVfsq {\\\\n\\\\tcolor: green;\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease;\\\\n\\\\tanimation-name: laDyXrGTqpWgSjWpVfsq;\\\\n}\\\\n\\\\n.TKT0JgE4RNGqNpibZQwi {\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease, laDyXrGTqpWgSjWpVfsq\\\\n}\\\\n\\\\n.D79vyB123bYrLinvj46J {\\\\n\\\\tanimation: UoOoKaAgXjyeGpq6UeAE 1s ease, laDyXrGTqpWgSjWpVfsq;\\\\n}\\\\n\\\\n.d9QlkrhUnCgqBozPqqcq {\\\\n\\\\tcolor: green;\\\\n}\\\\n\\\\n@-webkit-keyframes y8xpMb2xhav4TZYNTfHq {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n@keyframes y8xpMb2xhav4TZYNTfHq {\\\\n  0%, 100% {\\\\n    transform: translateY(-25%);\\\\n    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n    animation-timing-function: cubic-bezier(0.8,0,1,1);\\\\n  }\\\\n\\\\n  50% {\\\\n    transform: none;\\\\n    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n    animation-timing-function: cubic-bezier(0,0,0.2,1);\\\\n  }\\\\n}\\\\n\\\\n.FEOgTA_LLfagujCY2tZA {\\\\n  -webkit-animation: y8xpMb2xhav4TZYNTfHq 1s infinite;\\\\n  animation: y8xpMb2xhav4TZYNTfHq 1s infinite;\\\\n}\\\\n\\", \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"a\\": \\"vbnAfVvDroZNdlAZSoos\\",
@@ -10528,8 +10528,8 @@ Array [
 }
 
 .FEOgTA_LLfagujCY2tZA {
-  -webkit-animation: \\\\@bounce 1s infinite;
-  animation: \\\\@bounce 1s infinite;
+  -webkit-animation: y8xpMb2xhav4TZYNTfHq 1s infinite;
+  animation: y8xpMb2xhav4TZYNTfHq 1s infinite;
 }
 ",
     "",
