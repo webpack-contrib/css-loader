@@ -31,8 +31,26 @@ import {
 
 export default async function loader(content, map, meta) {
   const rawOptions = this.getOptions(schema);
-  const plugins = [];
   const callback = this.async();
+
+  if (
+    this._compiler &&
+    this._compiler.options &&
+    this._compiler.options.experiments &&
+    this._compiler.options.experiments.css &&
+    this._module &&
+    this._module.type === "css"
+  ) {
+    this.emitWarning(
+      new Error(
+        'You can\'t use `experiments.css` (`experiments.futureDefaults` enable built-in CSS support by default) and `css-loader` together, please set `experiments.css` to `false` or set `{ type: "javascript/auto" }` for rules with `css-loader` in your webpack config (now css-loader does nothing).'
+      )
+    );
+
+    callback(null, content, map, meta);
+
+    return;
+  }
 
   let options;
 
@@ -44,6 +62,7 @@ export default async function loader(content, map, meta) {
     return;
   }
 
+  const plugins = [];
   const replacements = [];
   const exports = [];
 
