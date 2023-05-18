@@ -184,9 +184,17 @@ Type:
 <!-- use other name to prettify since import is reserved keyword -->
 
 ```ts
-type import =
+type importFn =
   | boolean
-  | { filter: (url: string, media: string, resourcePath: string) => boolean };
+  | {
+      filter: (
+        url: string,
+        media: string,
+        resourcePath: string,
+        supports?: string,
+        layer?: string
+      ) => boolean;
+    };
 ```
 
 Default: `true`
@@ -693,11 +701,11 @@ Type:
 
 ```ts
 type mode =
-        | "local"
-        | "global"
-        | "pure"
-        | "icss"
-        | ((resourcePath) => "local" | "global" | "pure" | "icss"))`
+  | "local"
+  | "global"
+  | "pure"
+  | "icss"
+  | ((resourcePath: string) => "local" | "global" | "pure" | "icss");
 ```
 
 Default: `'local'`
