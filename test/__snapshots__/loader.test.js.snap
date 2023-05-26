@@ -193,7 +193,8 @@ exports[`loader should reuse \`ast\` from "postcss-loader": warnings 1`] = `Arra
 exports[`loader should throw an error on invisible spaces: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-CssSyntaxError
+
+SyntaxError
 
 (1:8) /test/fixtures/invisible-space.css Unknown word
 
@@ -208,7 +209,8 @@ exports[`loader should throw an error on invisible spaces: warnings 1`] = `Array
 exports[`loader should throw error on invalid css syntax: errors 1`] = `
 Array [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-CssSyntaxError
+
+SyntaxError
 
 (2:3) /test/fixtures/error.css Unknown word
 

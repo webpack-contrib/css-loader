@@ -1281,6 +1281,57 @@ function combineRequests(preRequest, url) {
     : preRequest + url;
 }
 
+function warningFactory(obj) {
+  let message = "";
+
+  if (typeof obj.line !== "undefined") {
+    message += `(${obj.line}:${obj.column}) `;
+  }
+
+  if (typeof obj.plugin !== "undefined") {
+    message += `from "${obj.plugin}" plugin: `;
+  }
+
+  message += obj.text;
+
+  if (obj.node) {
+    message += `\n\nCode:\n  ${obj.node.toString()}\n`;
+  }
+
+  const warning = new Error(message);
+
+  warning.stack = null;
+
+  return warning;
+}
+
+function syntaxErrorFactory(obj) {
+  let message = "\nSyntaxError\n\n";
+
+  if (typeof obj.line !== "undefined") {
+    message += `(${obj.line}:${obj.column}) `;
+  }
+
+  if (typeof obj.plugin !== "undefined") {
+    message += `from "${obj.plugin}" plugin: `;
+  }
+
+  message += obj.file ? `${obj.file} ` : "<css input> ";
+  message += `${obj.reason}`;
+
+  const code = obj.showSourceCode();
+
+  if (code) {
+    message += `\n\n${code}\n`;
+  }
+
+  const error = new Error(message);
+
+  error.stack = null;
+
+  return error;
+}
+
 export {
   normalizeOptions,
   shouldUseModulesPlugins,
@@ -1306,4 +1357,6 @@ export {
   stringifyRequest,
   isDataUrl,
   defaultGetLocalIdent,
+  warningFactory,
+  syntaxErrorFactory,
 };
