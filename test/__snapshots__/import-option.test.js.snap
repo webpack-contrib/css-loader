@@ -1128,73 +1128,109 @@ a {
 exports[`"import" option should work when not specified and print correct output: warnings 1`] = `
 Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(105:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import nourl(test.css)\\"
 
-(105:1) Unable to find uri in \\"@import nourl(test.css)\\"",
+Code:
+  @import nourl(test.css)
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
-
-(106:1) Unable to find uri in \\"@import '\\\\
+(106:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import '\\\\
 \\\\
 \\\\
-'\\"",
-  "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+'\\"
 
-(12:1) Unable to find uri in \\"@import url()\\"",
+Code:
+  @import '\\\\
+\\\\
+\\\\
+'
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(12:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url()\\"
 
-(13:1) Unable to find uri in \\"@import url('')\\"",
+Code:
+  @import url()
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(13:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('')\\"
 
-(14:1) Unable to find uri in \\"@import url(\\"\\")\\"",
+Code:
+  @import url('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(14:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url(\\"\\")\\"
 
-(154:1) Unable to find uri in \\"@import url('!!../../helpers/string-loader.js?esModule=false!')\\"",
+Code:
+  @import url(\\"\\")
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(154:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('!!../../helpers/string-loader.js?esModule=false!')\\"
 
-(17:1) Unable to find uri in \\"@import ''\\"",
+Code:
+  @import url('!!../../helpers/string-loader.js?esModule=false!')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(17:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import ''\\"
 
-(18:1) Unable to find uri in \\"@import \\"\\"\\"",
+Code:
+  @import ''
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(18:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"\\"\\"
 
-(19:1) Unable to find uri in \\"@import \\"   \\"\\"",
+Code:
+  @import \\"\\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(19:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"   \\"\\"
 
-(20:1) Unable to find uri in \\"@import \\"
-\\"\\"",
+Code:
+  @import \\"   \\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(20:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"
+\\"\\"
 
-(22:1) Unable to find uri in \\"@import url()\\"",
+Code:
+  @import \\"
+\\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(22:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url()\\"
 
-(23:1) Unable to find uri in \\"@import url('')\\"",
+Code:
+  @import url()
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(23:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('')\\"
 
-(24:1) Unable to find uri in \\"@import url(\\"\\")\\"",
+Code:
+  @import url('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(24:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url(\\"\\")\\"
 
-(40:1) Unable to find uri in \\"@import \\"",
+Code:
+  @import url(\\"\\")
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(40:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"
 
-(41:1) Unable to find uri in \\"@import foo-bar\\"",
+Code:
+  @import 
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(41:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import foo-bar\\"
 
-(43:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+Code:
+  @import foo-bar
+",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+(43:1) from \\"postcss-import-parser\\" plugin: It looks like you didn't end your @import statement correctly. Child nodes are attached to it.
+
+Code:
+  @import url('http://') :root {}
+",
 ]
 `;
 
@@ -1829,73 +1865,109 @@ a {
 exports[`"import" option should work when not specified: warnings 1`] = `
 Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(105:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import nourl(test.css)\\"
 
-(105:1) Unable to find uri in \\"@import nourl(test.css)\\"",
+Code:
+  @import nourl(test.css)
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
-
-(106:1) Unable to find uri in \\"@import '\\\\
+(106:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import '\\\\
 \\\\
 \\\\
-'\\"",
-  "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+'\\"
 
-(12:1) Unable to find uri in \\"@import url()\\"",
+Code:
+  @import '\\\\
+\\\\
+\\\\
+'
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(12:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url()\\"
 
-(13:1) Unable to find uri in \\"@import url('')\\"",
+Code:
+  @import url()
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(13:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('')\\"
 
-(14:1) Unable to find uri in \\"@import url(\\"\\")\\"",
+Code:
+  @import url('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(14:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url(\\"\\")\\"
 
-(154:1) Unable to find uri in \\"@import url('!!../../helpers/string-loader.js?esModule=false!')\\"",
+Code:
+  @import url(\\"\\")
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(154:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('!!../../helpers/string-loader.js?esModule=false!')\\"
 
-(17:1) Unable to find uri in \\"@import ''\\"",
+Code:
+  @import url('!!../../helpers/string-loader.js?esModule=false!')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(17:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import ''\\"
 
-(18:1) Unable to find uri in \\"@import \\"\\"\\"",
+Code:
+  @import ''
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(18:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"\\"\\"
 
-(19:1) Unable to find uri in \\"@import \\"   \\"\\"",
+Code:
+  @import \\"\\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(19:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"   \\"\\"
 
-(20:1) Unable to find uri in \\"@import \\"
-\\"\\"",
+Code:
+  @import \\"   \\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(20:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"
+\\"\\"
 
-(22:1) Unable to find uri in \\"@import url()\\"",
+Code:
+  @import \\"
+\\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(22:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url()\\"
 
-(23:1) Unable to find uri in \\"@import url('')\\"",
+Code:
+  @import url()
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(23:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('')\\"
 
-(24:1) Unable to find uri in \\"@import url(\\"\\")\\"",
+Code:
+  @import url('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(24:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url(\\"\\")\\"
 
-(40:1) Unable to find uri in \\"@import \\"",
+Code:
+  @import url(\\"\\")
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(40:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"
 
-(41:1) Unable to find uri in \\"@import foo-bar\\"",
+Code:
+  @import 
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(41:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import foo-bar\\"
 
-(43:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+Code:
+  @import foo-bar
+",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+(43:1) from \\"postcss-import-parser\\" plugin: It looks like you didn't end your @import statement correctly. Child nodes are attached to it.
+
+Code:
+  @import url('http://') :root {}
+",
 ]
 `;
 
@@ -3124,73 +3196,109 @@ a {
 exports[`"import" option should work with a value equal to "true": warnings 1`] = `
 Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(105:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import nourl(test.css)\\"
 
-(105:1) Unable to find uri in \\"@import nourl(test.css)\\"",
+Code:
+  @import nourl(test.css)
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
-
-(106:1) Unable to find uri in \\"@import '\\\\
+(106:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import '\\\\
 \\\\
 \\\\
-'\\"",
-  "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+'\\"
 
-(12:1) Unable to find uri in \\"@import url()\\"",
+Code:
+  @import '\\\\
+\\\\
+\\\\
+'
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(12:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url()\\"
 
-(13:1) Unable to find uri in \\"@import url('')\\"",
+Code:
+  @import url()
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(13:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('')\\"
 
-(14:1) Unable to find uri in \\"@import url(\\"\\")\\"",
+Code:
+  @import url('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(14:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url(\\"\\")\\"
 
-(154:1) Unable to find uri in \\"@import url('!!../../helpers/string-loader.js?esModule=false!')\\"",
+Code:
+  @import url(\\"\\")
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(154:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('!!../../helpers/string-loader.js?esModule=false!')\\"
 
-(17:1) Unable to find uri in \\"@import ''\\"",
+Code:
+  @import url('!!../../helpers/string-loader.js?esModule=false!')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(17:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import ''\\"
 
-(18:1) Unable to find uri in \\"@import \\"\\"\\"",
+Code:
+  @import ''
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(18:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"\\"\\"
 
-(19:1) Unable to find uri in \\"@import \\"   \\"\\"",
+Code:
+  @import \\"\\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(19:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"   \\"\\"
 
-(20:1) Unable to find uri in \\"@import \\"
-\\"\\"",
+Code:
+  @import \\"   \\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(20:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"
+\\"\\"
 
-(22:1) Unable to find uri in \\"@import url()\\"",
+Code:
+  @import \\"
+\\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(22:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url()\\"
 
-(23:1) Unable to find uri in \\"@import url('')\\"",
+Code:
+  @import url()
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(23:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('')\\"
 
-(24:1) Unable to find uri in \\"@import url(\\"\\")\\"",
+Code:
+  @import url('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(24:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url(\\"\\")\\"
 
-(40:1) Unable to find uri in \\"@import \\"",
+Code:
+  @import url(\\"\\")
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(40:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"
 
-(41:1) Unable to find uri in \\"@import foo-bar\\"",
+Code:
+  @import 
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(41:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import foo-bar\\"
 
-(43:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+Code:
+  @import foo-bar
+",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+(43:1) from \\"postcss-import-parser\\" plugin: It looks like you didn't end your @import statement correctly. Child nodes are attached to it.
+
+Code:
+  @import url('http://') :root {}
+",
 ]
 `;
 
@@ -3695,72 +3803,108 @@ st.css');
 exports[`"import" option should work with import.filter: warnings 1`] = `
 Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(105:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import nourl(test.css)\\"
 
-(105:1) Unable to find uri in \\"@import nourl(test.css)\\"",
+Code:
+  @import nourl(test.css)
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
-
-(106:1) Unable to find uri in \\"@import '\\\\
+(106:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import '\\\\
 \\\\
 \\\\
-'\\"",
-  "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+'\\"
 
-(12:1) Unable to find uri in \\"@import url()\\"",
+Code:
+  @import '\\\\
+\\\\
+\\\\
+'
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(12:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url()\\"
 
-(13:1) Unable to find uri in \\"@import url('')\\"",
+Code:
+  @import url()
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(13:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('')\\"
 
-(14:1) Unable to find uri in \\"@import url(\\"\\")\\"",
+Code:
+  @import url('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(14:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url(\\"\\")\\"
 
-(154:1) Unable to find uri in \\"@import url('!!../../helpers/string-loader.js?esModule=false!')\\"",
+Code:
+  @import url(\\"\\")
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(154:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('!!../../helpers/string-loader.js?esModule=false!')\\"
 
-(17:1) Unable to find uri in \\"@import ''\\"",
+Code:
+  @import url('!!../../helpers/string-loader.js?esModule=false!')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(17:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import ''\\"
 
-(18:1) Unable to find uri in \\"@import \\"\\"\\"",
+Code:
+  @import ''
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(18:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"\\"\\"
 
-(19:1) Unable to find uri in \\"@import \\"   \\"\\"",
+Code:
+  @import \\"\\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(19:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"   \\"\\"
 
-(20:1) Unable to find uri in \\"@import \\"
-\\"\\"",
+Code:
+  @import \\"   \\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(20:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"
+\\"\\"
 
-(22:1) Unable to find uri in \\"@import url()\\"",
+Code:
+  @import \\"
+\\"
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(22:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url()\\"
 
-(23:1) Unable to find uri in \\"@import url('')\\"",
+Code:
+  @import url()
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(23:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url('')\\"
 
-(24:1) Unable to find uri in \\"@import url(\\"\\")\\"",
+Code:
+  @import url('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(24:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import url(\\"\\")\\"
 
-(40:1) Unable to find uri in \\"@import \\"",
+Code:
+  @import url(\\"\\")
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(40:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import \\"
 
-(41:1) Unable to find uri in \\"@import foo-bar\\"",
+Code:
+  @import 
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(41:1) from \\"postcss-import-parser\\" plugin: Unable to find uri in \\"@import foo-bar\\"
 
-(43:1) It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
+Code:
+  @import foo-bar
+",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+(43:1) from \\"postcss-import-parser\\" plugin: It looks like you didn't end your @import statement correctly. Child nodes are attached to it.
+
+Code:
+  @import url('http://') :root {}
+",
 ]
 `;

@@ -7,8 +7,6 @@ import postcss from "postcss";
 import postcssPkg from "postcss/package.json";
 import { satisfies } from "semver";
 
-import CssSyntaxError from "./CssSyntaxError";
-import Warning from "./Warning";
 import schema from "./options.json";
 import { icssParser, importParser, urlParser } from "./plugins";
 import {
@@ -27,6 +25,8 @@ import {
   sort,
   combineRequests,
   stringifyRequest,
+  warningFactory,
+  syntaxErrorFactory,
 } from "./utils";
 
 export default async function loader(content, map, meta) {
@@ -189,14 +189,14 @@ export default async function loader(content, map, meta) {
     }
 
     callback(
-      error.name === "CssSyntaxError" ? new CssSyntaxError(error) : error
+      error.name === "CssSyntaxError" ? syntaxErrorFactory(error) : error
     );
 
     return;
   }
 
   for (const warning of result.warnings()) {
-    this.emitWarning(new Warning(warning));
+    this.emitWarning(warningFactory(warning));
   }
 
   const imports = []

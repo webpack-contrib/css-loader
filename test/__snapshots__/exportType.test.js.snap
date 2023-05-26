@@ -2202,68 +2202,101 @@ a {
 exports[`'exportType' option should work with 'css-style-sheet' value and urls: warnings 1`] = `
 Array [
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(120:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background: green url() xyz'
 
-(120:3) Unable to find uri in 'background: green url() xyz'",
+Code:
+  background: green url() xyz
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(124:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background: green url('') xyz'
 
-(124:3) Unable to find uri in 'background: green url('') xyz'",
+Code:
+  background: green url('') xyz
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(128:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background: green url(\\"\\") xyz'
 
-(128:3) Unable to find uri in 'background: green url(\\"\\") xyz'",
+Code:
+  background: green url(\\"\\") xyz
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(132:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background: green url('   ') xyz'
 
-(132:3) Unable to find uri in 'background: green url('   ') xyz'",
+Code:
+  background: green url('   ') xyz
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(136:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background: green url(
+  ) xyz'
 
-(136:3) Unable to find uri in 'background: green url(
-  ) xyz'",
+Code:
+  background: green url(
+  ) xyz
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(216:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: -webkit-image-set('')'
 
-(216:3) Unable to find uri in 'background-image: -webkit-image-set('')'",
+Code:
+  background-image: -webkit-image-set('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(218:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: image-set('')'
 
-(218:3) Unable to find uri in 'background-image: image-set('')'",
+Code:
+  background-image: image-set('')
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(219:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: image-set(\\"\\")'
 
-(219:3) Unable to find uri in 'background-image: image-set(\\"\\")'",
+Code:
+  background-image: image-set(\\"\\")
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(220:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: image-set(\\"\\" 1x)'
 
-(220:3) Unable to find uri in 'background-image: image-set(\\"\\" 1x)'",
+Code:
+  background-image: image-set(\\"\\" 1x)
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(221:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: image-set(url())'
 
-(221:3) Unable to find uri in 'background-image: image-set(url())'",
+Code:
+  background-image: image-set(url())
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
-
-(222:3) Unable to find uri in 'background-image: image-set(
+(222:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: image-set(
     url()
-  )'",
-  "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+  )'
 
-(225:3) Unable to find uri in 'background-image: image-set(URL())'",
+Code:
+  background-image: image-set(
+    url()
+  )
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(225:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: image-set(URL())'
 
-(226:3) Unable to find uri in 'background-image: image-set(url(''))'",
+Code:
+  background-image: image-set(URL())
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(226:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: image-set(url(''))'
 
-(227:3) Unable to find uri in 'background-image: image-set(url(\\"\\"))'",
+Code:
+  background-image: image-set(url(''))
+",
   "ModuleWarning: Module Warning (from \`replaced original path\`):
-Warning
+(227:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: image-set(url(\\"\\"))'
 
-(228:3) Unable to find uri in 'background-image: image-set(url('') 1x)'",
+Code:
+  background-image: image-set(url(\\"\\"))
+",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+(228:3) from \\"postcss-url-parser\\" plugin: Unable to find uri in 'background-image: image-set(url('') 1x)'
+
+Code:
+  background-image: image-set(url('') 1x)
+",
 ]
 `;
 
