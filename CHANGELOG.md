@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.8.0](https://github.com/webpack-contrib/css-loader/compare/v6.7.4...v6.8.0) (2023-05-27)
+
+
+### Features
+
+* use template literal when it possible to prevent `Maximum call stack size exceeded` ([#1525](https://github.com/webpack-contrib/css-loader/issues/1525)) ([6eb5661](https://github.com/webpack-contrib/css-loader/commit/6eb56618185e974abf339c952c263cc7b8a9a066))
+
+
+### Bug Fixes
+
+* warning and error serialization ([#1523](https://github.com/webpack-contrib/css-loader/issues/1523)) ([3e52969](https://github.com/webpack-contrib/css-loader/commit/3e52969f0f6b1c9d4d16db41ebff8804b340742c))
+
 ### [6.7.4](https://github.com/webpack-contrib/css-loader/compare/v6.7.3...v6.7.4) (2023-05-19)
 
 
