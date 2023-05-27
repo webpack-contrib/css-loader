@@ -1034,7 +1034,26 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
     )}`;
   }
 
-  let code = JSON.stringify(result.css);
+  let isTemplateLiteralSupported = false;
+
+  if (
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation &&
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation.options &&
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation.options.output &&
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation.options.output.environment &&
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation.options.output.environment.templateLiteral
+  ) {
+    isTemplateLiteralSupported = true;
+  }
+
+  let code = isTemplateLiteralSupported
+    ? convertToTemplateLiteral(result.css)
+    : JSON.stringify(result.css);
 
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${
     options.sourceMap
@@ -1067,12 +1086,21 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
     if (localName) {
       code = code.replace(new RegExp(replacementName, "g"), () =>
         options.modules.namedExport
-          ? `" + ${importName}_NAMED___[${JSON.stringify(
-              getValidLocalName(
-                localName,
-                options.modules.exportLocalsConvention
-              )
-            )}] + "`
+          ? isTemplateLiteralSupported
+            ? `\${ ${importName}_NAMED___[${JSON.stringify(
+                getValidLocalName(
+                  localName,
+                  options.modules.exportLocalsConvention
+                )
+              )}] }`
+            : `" + ${importName}_NAMED___[${JSON.stringify(
+                getValidLocalName(
+                  localName,
+                  options.modules.exportLocalsConvention
+                )
+              )}] + "`
+          : isTemplateLiteralSupported
+          ? `\${${importName}.locals[${JSON.stringify(localName)}]}`
           : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
       );
     } else {
@@ -1084,9 +1112,10 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
         getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(", ")} }` : "";
 
       beforeCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
-      code = code.replace(
-        new RegExp(replacementName, "g"),
-        () => `" + ${replacementName} + "`
+      code = code.replace(new RegExp(replacementName, "g"), () =>
+        isTemplateLiteralSupported
+          ? `\${${replacementName}}`
+          : `" + ${replacementName} + "`
       );
     }
   }
@@ -1099,6 +1128,25 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
   // 4 - supports
   // 5 - layer
   return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
+}
+
+const SLASH = "\\".charCodeAt(0);
+const BACKTICK = "`".charCodeAt(0);
+const DOLLAR = "$".charCodeAt(0);
+
+function convertToTemplateLiteral(str) {
+  let escapedString = "";
+
+  for (let i = 0; i < str.length; i++) {
+    const code = str.charCodeAt(i);
+
+    escapedString +=
+      code === SLASH || code === BACKTICK || code === DOLLAR
+        ? `\\${str[i]}`
+        : str[i];
+  }
+
+  return `\`${escapedString}\``;
 }
 
 function dashesCamelCase(str) {

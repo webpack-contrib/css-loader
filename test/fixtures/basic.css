@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-@import 'imported.css';
 
 /* Comment */
 
@@ -87,6 +86,20 @@ body {
 #\#fake-id {} /* matches the element with id="#fake-id" */
 #-a-b-c- {} /* matches the element with id="-a-b-c-" */
 #© {} /* matches the element with id="©" */
+
+\.\` {
+ color: aliceblue;
+}
+
+\.\$\{foo\} {
+  color: aliceblue;
+}
+
+/* ` */
+/* `` */
+/* ``` */
+/* ${} */
+/* \\` */
 
 :root {
   --title-align: center;

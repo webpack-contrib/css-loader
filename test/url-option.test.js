@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import url from "url";
 
 import webpack from "webpack";
 
@@ -588,6 +589,43 @@ describe('"url" option', () => {
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with a lot of urls when template syntax enabled", async () => {
+    // Create the file with absolute path
+    const fileDirectory = path.resolve(__dirname, "fixtures", "url");
+    const file = path.resolve(fileDirectory, "many-urls.css");
+    const imgUrl = url.pathToFileURL(path.resolve(fileDirectory, "img.png"));
+    const code = Array(10000)
+      .fill(`.background { background: url("${imgUrl}"); }`)
+      .join("\n");
+
+    fs.writeFileSync(file, code);
+
+    const compiler = getCompiler(
+      "./url/many-urls.js",
+      {},
+      {
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          publicPath: "/webpack/public/path/",
+          assetModuleFilename: "[name][ext]",
+          environment: {
+            templateLiteral: true,
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    // Just execute to check that it works
+    getModuleSource("./url/many-urls.css", stats);
+    getExecutedCode("main.bundle.js", compiler, stats);
+
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
