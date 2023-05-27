@@ -1994,6 +1994,40 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support', async () => {
+    const compiler = getCompiler(
+      "./modules/icss/tests-cases/import/source.js",
+      {
+        modules: {
+          mode: "icss",
+          exportOnlyLocals: true,
+        },
+      },
+      {
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          publicPath: "/webpack/public/path/",
+          assetModuleFilename: "[name][ext]",
+          environment: {
+            templateLiteral: true,
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/icss/tests-cases/import/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('show work with the "mode: icss" and "namedExport" options', async () => {
     const compiler = getCompiler(
       "./modules/icss/tests-cases/import/source.js",

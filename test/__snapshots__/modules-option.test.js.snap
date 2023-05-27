@@ -6556,8 +6556,8 @@ body {
 }
 \`, \\"\\"]);
 // Exports
-export var vUrl = \\"url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\")\\";
-export var vUrlOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"] + \\"\\";
+export var vUrl = \`url(\${___CSS_LOADER_URL_REPLACEMENT_0___})\`;
+export var vUrlOther = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vUrlOther\\"]}\`;
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -17358,53 +17358,53 @@ a {
 \`, \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	\\"v-def\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"] + \\"\\",
-	\\"v-other\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"] + \\"\\",
-	\\"s-white\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"] + \\"\\",
-	\\"m-small\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"] + \\"\\",
-	\\"v-something\\": \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"] + \\"\\",
-	\\"v-foo\\": \\"blue\\",
-	\\"v-bar\\": \\"block\\",
-	\\"v-primary\\": \\"#BF4040\\",
-	\\"s-black\\": \\"black-selector\\",
-	\\"m-large\\": \\"(min-width: 960px)\\",
-	\\"v-ident\\": \\"validIdent\\",
-	\\"v-pre-defined-ident\\": \\"left\\",
-	\\"v-string\\": \\"'content'\\",
-	\\"v-string-1\\": \\"''\\",
-	\\"v-url\\": \\"url(https://www.exammple.com/images/my-background.png)\\",
-	\\"v-url-1\\": \\"url('https://www.exammple.com/images/my-background.png')\\",
-	\\"v-url-2\\": \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\",
-	\\"v-integer\\": \\"100\\",
-	\\"v-integer-1\\": \\"-100\\",
-	\\"v-integer-2\\": \\"+100\\",
-	\\"v-number\\": \\".60\\",
-	\\"v-number-1\\": \\"-456.8\\",
-	\\"v-number-2\\": \\"-3.4e-2\\",
-	\\"v-dimension\\": \\"12px\\",
-	\\"v-percentage\\": \\"100%\\",
-	\\"v-hex\\": \\"#fff\\",
-	\\"v-comment\\": \\" /* comment */\\",
-	\\"v-function\\": \\"rgb(0,0,0)\\",
-	\\"v-unicode-range\\": \\"U+0025-00FF\\",
-	\\"ghi\\": \\"ozGmfTedr1GnFJDWqNUH\\",
-	\\"my-class\\": \\"zchqshjqLbPAHaRvIBET\\",
-	\\"other\\": \\"WZBxXqS2GytaA3IBhhnd\\",
-	\\"other-other\\": \\"W51zcAMuJMsNFi1CXgWr\\",
-	\\"green\\": \\"KEl5ZxzNkpjfWorrBglC\\",
-	\\"foo\\": \\"ecAEWh2vww9pNEdyj9Jn\\",
-	\\"simple\\": \\"CBlowYk8qiAgWWzFeXRA \\" + ___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"imported-simple\\"] + \\"\\",
-	\\"relative\\": \\"c_NHnDcX1bd_kuxgsuYi \\" + ___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"imported-relative\\"] + \\"\\",
-	\\"top-relative\\": \\"S0Kwou8pVmsENtBP3hYm \\" + ___CSS_LOADER_ICSS_IMPORT_4___.locals[\\"imported-relative\\"] + \\"\\",
-	\\"my-module\\": \\"rq663Pq_zV0CjpwttvK4 \\" + ___CSS_LOADER_ICSS_IMPORT_5___.locals[\\"imported-module\\"] + \\"\\",
-	\\"alias\\": \\"fadRMHArJofp7sWEbPVR \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
-	\\"alias-duplicate\\": \\"sg1HlXqlWy6l6_Wm5iA7 \\" + ___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"] + \\"\\",
-	\\"primary-selector\\": \\"bnRUswvicYag6u0SPnvI\\",
-	\\"black-selector\\": \\"kEJRwpukB2OtmkGTknbU\\",
-	\\"header\\": \\"hY2PI5vC9ABuJY1nkWnf\\",
-	\\"foobarbaz\\": \\"q8mv0HutzqdsVWjl8mAz\\",
-	\\"url\\": \\"xajoqP1d3SwrjJ4WEM8g\\",
-	\\"main\\": \\"Ix5nEHiVOsWuWxdx0twz \\" + ___CSS_LOADER_ICSS_IMPORT_7___.locals[\\"scssClass\\"] + \\"\\"
+	\\"v-def\\": \`\${___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-def\\"]}\`,
+	\\"v-other\\": \`\${___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"v-other\\"]}\`,
+	\\"s-white\\": \`\${___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"s-white\\"]}\`,
+	\\"m-small\\": \`\${___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"m-small\\"]}\`,
+	\\"v-something\\": \`\${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"v-something\\"]}\`,
+	\\"v-foo\\": \`blue\`,
+	\\"v-bar\\": \`block\`,
+	\\"v-primary\\": \`#BF4040\`,
+	\\"s-black\\": \`black-selector\`,
+	\\"m-large\\": \`(min-width: 960px)\`,
+	\\"v-ident\\": \`validIdent\`,
+	\\"v-pre-defined-ident\\": \`left\`,
+	\\"v-string\\": \`'content'\`,
+	\\"v-string-1\\": \`''\`,
+	\\"v-url\\": \`url(https://www.exammple.com/images/my-background.png)\`,
+	\\"v-url-1\\": \`url('https://www.exammple.com/images/my-background.png')\`,
+	\\"v-url-2\\": \`url(\\"https://www.exammple.com/images/my-background.png\\")\`,
+	\\"v-integer\\": \`100\`,
+	\\"v-integer-1\\": \`-100\`,
+	\\"v-integer-2\\": \`+100\`,
+	\\"v-number\\": \`.60\`,
+	\\"v-number-1\\": \`-456.8\`,
+	\\"v-number-2\\": \`-3.4e-2\`,
+	\\"v-dimension\\": \`12px\`,
+	\\"v-percentage\\": \`100%\`,
+	\\"v-hex\\": \`#fff\`,
+	\\"v-comment\\": \` /* comment */\`,
+	\\"v-function\\": \`rgb(0,0,0)\`,
+	\\"v-unicode-range\\": \`U+0025-00FF\`,
+	\\"ghi\\": \`ozGmfTedr1GnFJDWqNUH\`,
+	\\"my-class\\": \`zchqshjqLbPAHaRvIBET\`,
+	\\"other\\": \`WZBxXqS2GytaA3IBhhnd\`,
+	\\"other-other\\": \`W51zcAMuJMsNFi1CXgWr\`,
+	\\"green\\": \`KEl5ZxzNkpjfWorrBglC\`,
+	\\"foo\\": \`ecAEWh2vww9pNEdyj9Jn\`,
+	\\"simple\\": \`CBlowYk8qiAgWWzFeXRA \${___CSS_LOADER_ICSS_IMPORT_2___.locals[\\"imported-simple\\"]}\`,
+	\\"relative\\": \`c_NHnDcX1bd_kuxgsuYi \${___CSS_LOADER_ICSS_IMPORT_3___.locals[\\"imported-relative\\"]}\`,
+	\\"top-relative\\": \`S0Kwou8pVmsENtBP3hYm \${___CSS_LOADER_ICSS_IMPORT_4___.locals[\\"imported-relative\\"]}\`,
+	\\"my-module\\": \`rq663Pq_zV0CjpwttvK4 \${___CSS_LOADER_ICSS_IMPORT_5___.locals[\\"imported-module\\"]}\`,
+	\\"alias\\": \`fadRMHArJofp7sWEbPVR \${___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"]}\`,
+	\\"alias-duplicate\\": \`sg1HlXqlWy6l6_Wm5iA7 \${___CSS_LOADER_ICSS_IMPORT_6___.locals[\\"imported-alias\\"]}\`,
+	\\"primary-selector\\": \`bnRUswvicYag6u0SPnvI\`,
+	\\"black-selector\\": \`kEJRwpukB2OtmkGTknbU\`,
+	\\"header\\": \`hY2PI5vC9ABuJY1nkWnf\`,
+	\\"foobarbaz\\": \`q8mv0HutzqdsVWjl8mAz\`,
+	\\"url\\": \`xajoqP1d3SwrjJ4WEM8g\`,
+	\\"main\\": \`Ix5nEHiVOsWuWxdx0twz \${___CSS_LOADER_ICSS_IMPORT_7___.locals[\\"scssClass\\"]}\`
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -18271,3 +18271,23 @@ Array [
 `;
 
 exports[`"modules" option show work with the "mode: icss" option, case "multiple-keys-values-in-export": warnings 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support: errors 1`] = `Array []`;
+
+exports[`"modules" option show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support: module 1`] = `
+"// Imports
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../../../src/index.js??ruleSet[1].rules[0].use[0]!./vars.css\\";
+// Exports
+export default {
+	\\"primary-color\\": \`\${___CSS_LOADER_ICSS_IMPORT_0___[\\"primary-color\\"]}\`
+};
+"
+`;
+
+exports[`"modules" option show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support: result 1`] = `
+Object {
+  "primary-color": "red",
+}
+`;
+
+exports[`"modules" option show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support: warnings 1`] = `Array []`;

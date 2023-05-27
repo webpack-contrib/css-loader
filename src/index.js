@@ -243,7 +243,8 @@ export default async function loader(content, map, meta) {
     exports,
     replacements,
     needToUseIcssPlugin,
-    options
+    options,
+    this
   );
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);
