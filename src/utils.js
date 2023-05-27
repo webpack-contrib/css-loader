@@ -1018,7 +1018,14 @@ function printParams(media, dedupe, supports, layer) {
   return result;
 }
 
-function getModuleCode(result, api, replacements, options, loaderContext) {
+function getModuleCode(
+  result,
+  api,
+  replacements,
+  options,
+  isTemplateLiteralSupported,
+  loaderContext
+) {
   if (options.modules.exportOnlyLocals === true) {
     return "";
   }
@@ -1034,7 +1041,9 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
     )}`;
   }
 
-  let code = JSON.stringify(result.css);
+  let code = isTemplateLiteralSupported
+    ? convertToTemplateLiteral(result.css)
+    : JSON.stringify(result.css);
 
   let beforeCode = `var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(${
     options.sourceMap
@@ -1067,12 +1076,21 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
     if (localName) {
       code = code.replace(new RegExp(replacementName, "g"), () =>
         options.modules.namedExport
-          ? `" + ${importName}_NAMED___[${JSON.stringify(
-              getValidLocalName(
-                localName,
-                options.modules.exportLocalsConvention
-              )
-            )}] + "`
+          ? isTemplateLiteralSupported
+            ? `\${ ${importName}_NAMED___[${JSON.stringify(
+                getValidLocalName(
+                  localName,
+                  options.modules.exportLocalsConvention
+                )
+              )}] }`
+            : `" + ${importName}_NAMED___[${JSON.stringify(
+                getValidLocalName(
+                  localName,
+                  options.modules.exportLocalsConvention
+                )
+              )}] + "`
+          : isTemplateLiteralSupported
+          ? `\${${importName}.locals[${JSON.stringify(localName)}]}`
           : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
       );
     } else {
@@ -1084,9 +1102,10 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
         getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(", ")} }` : "";
 
       beforeCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
-      code = code.replace(
-        new RegExp(replacementName, "g"),
-        () => `" + ${replacementName} + "`
+      code = code.replace(new RegExp(replacementName, "g"), () =>
+        isTemplateLiteralSupported
+          ? `\${${replacementName}}`
+          : `" + ${replacementName} + "`
       );
     }
   }
@@ -1101,13 +1120,38 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
   return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
 }
 
+const SLASH = "\\".charCodeAt(0);
+const BACKTICK = "`".charCodeAt(0);
+const DOLLAR = "$".charCodeAt(0);
+
+function convertToTemplateLiteral(str) {
+  let escapedString = "";
+
+  for (let i = 0; i < str.length; i++) {
+    const code = str.charCodeAt(i);
+
+    escapedString +=
+      code === SLASH || code === BACKTICK || code === DOLLAR
+        ? `\\${str[i]}`
+        : str[i];
+  }
+
+  return `\`${escapedString}\``;
+}
+
 function dashesCamelCase(str) {
   return str.replace(/-+(\w)/g, (match, firstLetter) =>
     firstLetter.toUpperCase()
   );
 }
 
-function getExportCode(exports, replacements, icssPluginUsed, options) {
+function getExportCode(
+  exports,
+  replacements,
+  icssPluginUsed,
+  options,
+  isTemplateLiteralSupported
+) {
   let code = "// Exports\n";
 
   if (icssPluginUsed) {
@@ -1120,13 +1164,21 @@ function getExportCode(exports, replacements, icssPluginUsed, options) {
 
       for (const name of normalizedNames) {
         if (options.modules.namedExport) {
-          localsCode += `export var ${name} = ${JSON.stringify(value)};\n`;
+          localsCode += `export var ${name} = ${
+            isTemplateLiteralSupported
+              ? convertToTemplateLiteral(value)
+              : JSON.stringify(value)
+          };\n`;
         } else {
           if (localsCode) {
             localsCode += `,\n`;
           }
 
-          localsCode += `\t${JSON.stringify(name)}: ${JSON.stringify(value)}`;
+          localsCode += `\t${JSON.stringify(name)}: ${
+            isTemplateLiteralSupported
+              ? convertToTemplateLiteral(value)
+              : JSON.stringify(value)
+          }`;
         }
       }
     };
@@ -1148,23 +1200,35 @@ function getExportCode(exports, replacements, icssPluginUsed, options) {
           new RegExp(replacementName, "g"),
           () => {
             if (options.modules.namedExport) {
-              return `" + ${importName}_NAMED___[${JSON.stringify(
-                getValidLocalName(
-                  localName,
-                  options.modules.exportLocalsConvention
-                )
-              )}] + "`;
+              return isTemplateLiteralSupported
+                ? `\${${importName}_NAMED___[${JSON.stringify(
+                    getValidLocalName(
+                      localName,
+                      options.modules.exportLocalsConvention
+                    )
+                  )}]}`
+                : `" + ${importName}_NAMED___[${JSON.stringify(
+                    getValidLocalName(
+                      localName,
+                      options.modules.exportLocalsConvention
+                    )
+                  )}] + "`;
             } else if (options.modules.exportOnlyLocals) {
-              return `" + ${importName}[${JSON.stringify(localName)}] + "`;
+              return isTemplateLiteralSupported
+                ? `\${${importName}[${JSON.stringify(localName)}]}`
+                : `" + ${importName}[${JSON.stringify(localName)}] + "`;
             }
 
-            return `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
+            return isTemplateLiteralSupported
+              ? `\${${importName}.locals[${JSON.stringify(localName)}]}`
+              : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
           }
         );
       } else {
-        localsCode = localsCode.replace(
-          new RegExp(replacementName, "g"),
-          () => `" + ${replacementName} + "`
+        localsCode = localsCode.replace(new RegExp(replacementName, "g"), () =>
+          isTemplateLiteralSupported
+            ? `\${${replacementName}}`
+            : `" + ${replacementName} + "`
         );
       }
     }

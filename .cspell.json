@@ -36,7 +36,8 @@
     "Brotli",
     "Contex",
     "vspace",
-    "commitlint"
+    "commitlint",
+    "eslintcache"
   ],
 
   "ignorePaths": [
