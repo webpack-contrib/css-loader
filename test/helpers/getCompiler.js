@@ -18,9 +18,6 @@ export default (fixture, loaderOptions = {}, config = {}) => {
       chunkFilename: "[name].chunk.js",
       publicPath: "/webpack/public/path/",
       assetModuleFilename: "[name][ext]",
-      environment: {
-        templateLiteral: true,
-      },
     },
     module: {
       rules: [

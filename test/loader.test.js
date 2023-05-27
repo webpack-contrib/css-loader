@@ -245,7 +245,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.modules.size).toBe(14);
+    expect(stats.compilation.modules.size).toBe(13);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -274,7 +274,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.modules.size).toBe(14);
+    expect(stats.compilation.modules.size).toBe(13);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
@@ -303,7 +303,7 @@ describe("loader", () => {
     );
     const stats = await compile(compiler);
 
-    expect(stats.compilation.modules.size).toBe(13);
+    expect(stats.compilation.modules.size).toBe(12);
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
