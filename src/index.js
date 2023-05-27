@@ -227,12 +227,36 @@ export default async function loader(content, map, meta) {
     }
   }
 
+  let isTemplateLiteralSupported = false;
+
+  if (
+    // eslint-disable-next-line no-underscore-dangle
+    this._compilation &&
+    // eslint-disable-next-line no-underscore-dangle
+    this._compilation.options &&
+    // eslint-disable-next-line no-underscore-dangle
+    this._compilation.options.output &&
+    // eslint-disable-next-line no-underscore-dangle
+    this._compilation.options.output.environment &&
+    // eslint-disable-next-line no-underscore-dangle
+    this._compilation.options.output.environment.templateLiteral
+  ) {
+    isTemplateLiteralSupported = true;
+  }
+
   const importCode = getImportCode(imports, options);
 
   let moduleCode;
 
   try {
-    moduleCode = getModuleCode(result, api, replacements, options, this);
+    moduleCode = getModuleCode(
+      result,
+      api,
+      replacements,
+      options,
+      isTemplateLiteralSupported,
+      this
+    );
   } catch (error) {
     callback(error);
 
@@ -244,7 +268,7 @@ export default async function loader(content, map, meta) {
     replacements,
     needToUseIcssPlugin,
     options,
-    this
+    isTemplateLiteralSupported
   );
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);

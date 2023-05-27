@@ -1018,7 +1018,14 @@ function printParams(media, dedupe, supports, layer) {
   return result;
 }
 
-function getModuleCode(result, api, replacements, options, loaderContext) {
+function getModuleCode(
+  result,
+  api,
+  replacements,
+  options,
+  isTemplateLiteralSupported,
+  loaderContext
+) {
   if (options.modules.exportOnlyLocals === true) {
     return "";
   }
@@ -1032,23 +1039,6 @@ function getModuleCode(result, api, replacements, options, loaderContext) {
       sourceMap,
       loaderContext
     )}`;
-  }
-
-  let isTemplateLiteralSupported = false;
-
-  if (
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation &&
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation.options &&
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation.options.output &&
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation.options.output.environment &&
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation.options.output.environment.templateLiteral
-  ) {
-    isTemplateLiteralSupported = true;
   }
 
   let code = isTemplateLiteralSupported
@@ -1160,26 +1150,9 @@ function getExportCode(
   replacements,
   icssPluginUsed,
   options,
-  loaderContext
+  isTemplateLiteralSupported
 ) {
   let code = "// Exports\n";
-
-  let isTemplateLiteralSupported = false;
-
-  if (
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation &&
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation.options &&
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation.options.output &&
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation.options.output.environment &&
-    // eslint-disable-next-line no-underscore-dangle
-    loaderContext._compilation.options.output.environment.templateLiteral
-  ) {
-    isTemplateLiteralSupported = true;
-  }
 
   if (icssPluginUsed) {
     let localsCode = "";
