@@ -26,6 +26,33 @@ describe("loader", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should work with `templateLiteral` support", async () => {
+    const compiler = getCompiler(
+      "./basic.js",
+      {},
+      {
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          publicPath: "/webpack/public/path/",
+          assetModuleFilename: "[name][ext]",
+          environment: {
+            templateLiteral: true,
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it("should work in 'production' mode", async () => {
     const compiler = getCompiler(
       "./basic.js",

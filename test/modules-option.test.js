@@ -1854,6 +1854,39 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work with "url", "namedExport" and "templateLiteral" support', async () => {
+    const compiler = getCompiler(
+      "./modules/url/source.js",
+      {
+        modules: {
+          namedExport: true,
+        },
+      },
+      {
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          publicPath: "/webpack/public/path/",
+          assetModuleFilename: "[name][ext]",
+          environment: {
+            templateLiteral: true,
+          },
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./modules/url/source.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   it('should work with "url"', async () => {
     const compiler = getCompiler("./modules/url/source.js", {
       modules: true,
@@ -1989,6 +2022,39 @@ describe('"modules" option', () => {
         mode: "local",
       },
     });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/composes/composes.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it('show work with the "mode" option using the "local" value and "templateLiteral" support', async () => {
+    const compiler = getCompiler(
+      "./modules/composes/composes.js",
+      {
+        modules: {
+          mode: "local",
+        },
+      },
+      {
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].bundle.js",
+          chunkFilename: "[name].chunk.js",
+          publicPath: "/webpack/public/path/",
+          assetModuleFilename: "[name][ext]",
+          environment: {
+            templateLiteral: true,
+          },
+        },
+      }
+    );
     const stats = await compile(compiler);
 
     expect(
