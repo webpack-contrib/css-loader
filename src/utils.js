@@ -1345,55 +1345,55 @@ function combineRequests(preRequest, url) {
     : preRequest + url;
 }
 
-function warningFactory(obj) {
+function warningFactory(warning) {
   let message = "";
 
-  if (typeof obj.line !== "undefined") {
-    message += `(${obj.line}:${obj.column}) `;
+  if (typeof warning.line !== "undefined") {
+    message += `(${warning.line}:${warning.column}) `;
   }
 
-  if (typeof obj.plugin !== "undefined") {
-    message += `from "${obj.plugin}" plugin: `;
+  if (typeof warning.plugin !== "undefined") {
+    message += `from "${warning.plugin}" plugin: `;
   }
 
-  message += obj.text;
+  message += warning.text;
 
-  if (obj.node) {
-    message += `\n\nCode:\n  ${obj.node.toString()}\n`;
+  if (warning.node) {
+    message += `\n\nCode:\n  ${warning.node.toString()}\n`;
   }
 
-  const warning = new Error(message);
+  const obj = new Error(message, { cause: warning });
 
-  warning.stack = null;
+  obj.stack = null;
 
-  return warning;
+  return obj;
 }
 
-function syntaxErrorFactory(obj) {
+function syntaxErrorFactory(error) {
   let message = "\nSyntaxError\n\n";
 
-  if (typeof obj.line !== "undefined") {
-    message += `(${obj.line}:${obj.column}) `;
+  if (typeof error.line !== "undefined") {
+    message += `(${error.line}:${error.column}) `;
   }
 
-  if (typeof obj.plugin !== "undefined") {
-    message += `from "${obj.plugin}" plugin: `;
+  if (typeof error.plugin !== "undefined") {
+    message += `from "${error.plugin}" plugin: `;
   }
 
-  message += obj.file ? `${obj.file} ` : "<css input> ";
-  message += `${obj.reason}`;
+  message += error.file ? `${error.file} ` : "<css input> ";
+  message += `${error.reason}`;
 
-  const code = obj.showSourceCode();
+  const code = error.showSourceCode();
 
   if (code) {
     message += `\n\n${code}\n`;
   }
 
-  const error = new Error(message);
+  const obj = new Error(message, { cause: error });
 
-  error.stack = null;
+  obj.stack = null;
 
-  return error;
+  return obj;
 }
 
 export {
