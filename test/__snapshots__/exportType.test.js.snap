@@ -40,7 +40,157 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n\\\\\\\\.\\\\\\\\\` {\\\\n color: aliceblue;\\\\n}\\\\n\\\\n\\\\\\\\.\\\\\\\\$\\\\\\\\{foo\\\\\\\\} {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* \` */\\\\n/* \`\` */\\\\n/* \`\`\` */\\\\n/* \${} */\\\\n/* \\\\\\\\\\\\\\\\\` */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+\\\\\\\\.\\\\\\\\\\\\\` {
+ color: aliceblue;
+}
+
+\\\\\\\\.\\\\\\\\\\\\$\\\\\\\\{foo\\\\\\\\} {
+  color: aliceblue;
+}
+
+/* \\\\\` */
+/* \\\\\`\\\\\` */
+/* \\\\\`\\\\\`\\\\\` */
+/* \\\\\${} */
+/* \\\\\\\\\\\\\\\\\\\\\` */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -221,7 +371,157 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n\\\\\\\\.\\\\\\\\\` {\\\\n color: aliceblue;\\\\n}\\\\n\\\\n\\\\\\\\.\\\\\\\\$\\\\\\\\{foo\\\\\\\\} {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* \` */\\\\n/* \`\` */\\\\n/* \`\`\` */\\\\n/* \${} */\\\\n/* \\\\\\\\\\\\\\\\\` */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+\\\\\\\\.\\\\\\\\\\\\\` {
+ color: aliceblue;
+}
+
+\\\\\\\\.\\\\\\\\\\\\$\\\\\\\\{foo\\\\\\\\} {
+  color: aliceblue;
+}
+
+/* \\\\\` */
+/* \\\\\`\\\\\` */
+/* \\\\\`\\\\\`\\\\\` */
+/* \\\\\${} */
+/* \\\\\\\\\\\\\\\\\\\\\` */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -402,7 +702,142 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\"]);
 // Exports
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
@@ -421,7 +856,157 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n\\\\\\\\.\\\\\\\\\` {\\\\n color: aliceblue;\\\\n}\\\\n\\\\n\\\\\\\\.\\\\\\\\$\\\\\\\\{foo\\\\\\\\} {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* \` */\\\\n/* \`\` */\\\\n/* \`\`\` */\\\\n/* \${} */\\\\n/* \\\\\\\\\\\\\\\\\` */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+\\\\\\\\.\\\\\\\\\\\\\` {
+ color: aliceblue;
+}
+
+\\\\\\\\.\\\\\\\\\\\\$\\\\\\\\{foo\\\\\\\\} {
+  color: aliceblue;
+}
+
+/* \\\\\` */
+/* \\\\\`\\\\\` */
+/* \\\\\`\\\\\`\\\\\` */
+/* \\\\\${} */
+/* \\\\\\\\\\\\\\\\\\\\\` */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -761,55 +1346,175 @@ ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_6___, \\"\\", true);
 ___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_7___, \\"\\", true);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@import url(./test-other.css) (min-width: 100px);\\\\n\\\\n.ozGmfTedr1GnFJDWqNUH {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n}\\\\n\\\\n.zchqshjqLbPAHaRvIBET {\\\\n  color: blue;\\\\n}\\\\n\\\\n.WZBxXqS2GytaA3IBhhnd {\\\\n  display: block;\\\\n}\\\\n\\\\n.W51zcAMuJMsNFi1CXgWr {\\\\n  width: \\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\";\\\\n}\\\\n\\\\n.KEl5ZxzNkpjfWorrBglC {\\\\n  color: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\";\\\\n}\\\\n\\\\n.ecAEWh2vww9pNEdyj9Jn {\\\\n  prop: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\";\\\\n  duplicate: \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\";\\\\n}\\\\n\\\\n.CBlowYk8qiAgWWzFeXRA {\\\\n  color: red;\\\\n}\\\\n\\\\n.c_NHnDcX1bd_kuxgsuYi {\\\\n  color: yellow;\\\\n}\\\\n\\\\n.S0Kwou8pVmsENtBP3hYm {\\\\n  color: gray;\\\\n}\\\\n\\\\n.rq663Pq_zV0CjpwttvK4 {\\\\n  color: gray;\\\\n}\\\\n\\\\n.fadRMHArJofp7sWEbPVR {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n.sg1HlXqlWy6l6_Wm5iA7 {\\\\n  color: gainsboro;\\\\n}\\\\n\\\\n.bnRUswvicYag6u0SPnvI {\\\\n  color: #BF4040;\\\\n}\\\\n\\\\n.kEJRwpukB2OtmkGTknbU {\\\\n  color: black;\\\\n}\\\\n\\\\n@media (min-width: 960px) {\\\\n  .hY2PI5vC9ABuJY1nkWnf {\\\\n    padding: 0 20px;\\\\n  }\\\\n}\\\\n\\\\n.\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\" {\\\\n  color: white;\\\\n}\\\\n\\\\n@media \\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\" {\\\\n  .hY2PI5vC9ABuJY1nkWnf {\\\\n    padding: 20px 20px;\\\\n  }\\\\n}\\\\n\\\\n.q8mv0HutzqdsVWjl8mAz {\\\\n  v-ident: validIdent;\\\\n  v-pre-defined-ident: left;\\\\n  v-string: 'content';\\\\n  v-string-1: '';\\\\n  v-url: url(https://www.exammple.com/images/my-background.png);\\\\n  v-url-1: url('https://www.exammple.com/images/my-background.png');\\\\n  v-url-2: url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\");\\\\n  v-integer: 100;\\\\n  v-integer-1: -100;\\\\n  v-integer-2: +100;\\\\n  v-number: .60;\\\\n  v-number-1: -456.8;\\\\n  v-number-2: -3.4e-2;\\\\n  v-dimension: 12px;\\\\n  v-percentage: 100%;\\\\n  v-hex: #fff;\\\\n  v-comment:  /* comment */ 10px  /* comment */;\\\\n  v-function: rgb(0,0,0);\\\\n  v-unicode-range: U+0025-00FF;\\\\n  mutliple: #fff .60 100%;\\\\n}\\\\n\\\\n\\\\na {\\\\n  content: 'content';\\\\n}\\\\n\\\\n@supports (content: 'content') {\\\\n  a {\\\\n    content: 'content';\\\\n  }\\\\n}\\\\n\\\\n[class~='content'] {\\\\n  color:green;\\\\n}\\\\n\\\\n.xajoqP1d3SwrjJ4WEM8g {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.Ix5nEHiVOsWuWxdx0twz {\\\\n  background: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@import url(./test-other.css) (min-width: 100px);
+
+.ozGmfTedr1GnFJDWqNUH {
+  color: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] };
+}
+
+.zchqshjqLbPAHaRvIBET {
+  color: blue;
+}
+
+.WZBxXqS2GytaA3IBhhnd {
+  display: block;
+}
+
+.W51zcAMuJMsNFi1CXgWr {
+  width: \${ ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] };
+}
+
+.KEl5ZxzNkpjfWorrBglC {
+  color: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] };
+}
+
+.ecAEWh2vww9pNEdyj9Jn {
+  prop: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] };
+  duplicate: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] };
+}
+
+.CBlowYk8qiAgWWzFeXRA {
+  color: red;
+}
+
+.c_NHnDcX1bd_kuxgsuYi {
+  color: yellow;
+}
+
+.S0Kwou8pVmsENtBP3hYm {
+  color: gray;
+}
+
+.rq663Pq_zV0CjpwttvK4 {
+  color: gray;
+}
+
+.fadRMHArJofp7sWEbPVR {
+  color: gainsboro;
+}
+
+.sg1HlXqlWy6l6_Wm5iA7 {
+  color: gainsboro;
+}
+
+.bnRUswvicYag6u0SPnvI {
+  color: #BF4040;
+}
+
+.kEJRwpukB2OtmkGTknbU {
+  color: black;
+}
+
+@media (min-width: 960px) {
+  .hY2PI5vC9ABuJY1nkWnf {
+    padding: 0 20px;
+  }
+}
+
+.\${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] } {
+  color: white;
+}
+
+@media \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] } {
+  .hY2PI5vC9ABuJY1nkWnf {
+    padding: 20px 20px;
+  }
+}
+
+.q8mv0HutzqdsVWjl8mAz {
+  v-ident: validIdent;
+  v-pre-defined-ident: left;
+  v-string: 'content';
+  v-string-1: '';
+  v-url: url(https://www.exammple.com/images/my-background.png);
+  v-url-1: url('https://www.exammple.com/images/my-background.png');
+  v-url-2: url(\\"https://www.exammple.com/images/my-background.png\\");
+  v-integer: 100;
+  v-integer-1: -100;
+  v-integer-2: +100;
+  v-number: .60;
+  v-number-1: -456.8;
+  v-number-2: -3.4e-2;
+  v-dimension: 12px;
+  v-percentage: 100%;
+  v-hex: #fff;
+  v-comment:  /* comment */ 10px  /* comment */;
+  v-function: rgb(0,0,0);
+  v-unicode-range: U+0025-00FF;
+  mutliple: #fff .60 100%;
+}
+
+
+a {
+  content: 'content';
+}
+
+@supports (content: 'content') {
+  a {
+    content: 'content';
+  }
+}
+
+[class~='content'] {
+  color:green;
+}
+
+.xajoqP1d3SwrjJ4WEM8g {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.Ix5nEHiVOsWuWxdx0twz {
+  background: red;
+}
+\`, \\"\\"]);
 // Exports
-export var vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
-export var vOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\"\\";
-export var sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
-export var mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
-export var vSomething = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\"\\";
-export var vFoo = \\"blue\\";
-export var vBar = \\"block\\";
-export var vPrimary = \\"#BF4040\\";
-export var sBlack = \\"black-selector\\";
-export var mLarge = \\"(min-width: 960px)\\";
-export var vIdent = \\"validIdent\\";
-export var vPreDefinedIdent = \\"left\\";
-export var vString = \\"'content'\\";
-export var vString1 = \\"''\\";
-export var vUrl = \\"url(https://www.exammple.com/images/my-background.png)\\";
-export var vUrl1 = \\"url('https://www.exammple.com/images/my-background.png')\\";
-export var vUrl2 = \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\";
-export var vInteger = \\"100\\";
-export var vInteger1 = \\"-100\\";
-export var vInteger2 = \\"+100\\";
-export var vNumber = \\".60\\";
-export var vNumber1 = \\"-456.8\\";
-export var vNumber2 = \\"-3.4e-2\\";
-export var vDimension = \\"12px\\";
-export var vPercentage = \\"100%\\";
-export var vHex = \\"#fff\\";
-export var vComment = \\" /* comment */\\";
-export var vFunction = \\"rgb(0,0,0)\\";
-export var vUnicodeRange = \\"U+0025-00FF\\";
-export var ghi = \\"ozGmfTedr1GnFJDWqNUH\\";
-export var myClass = \\"zchqshjqLbPAHaRvIBET\\";
-export var other = \\"WZBxXqS2GytaA3IBhhnd\\";
-export var otherOther = \\"W51zcAMuJMsNFi1CXgWr\\";
-export var green = \\"KEl5ZxzNkpjfWorrBglC\\";
-export var foo = \\"ecAEWh2vww9pNEdyj9Jn\\";
-export var simple = \\"CBlowYk8qiAgWWzFeXRA \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
-export var relative = \\"c_NHnDcX1bd_kuxgsuYi \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
-export var topRelative = \\"S0Kwou8pVmsENtBP3hYm \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
-export var myModule = \\"rq663Pq_zV0CjpwttvK4 \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
-export var alias = \\"fadRMHArJofp7sWEbPVR \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export var aliasDuplicate = \\"sg1HlXqlWy6l6_Wm5iA7 \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export var primarySelector = \\"bnRUswvicYag6u0SPnvI\\";
-export var blackSelector = \\"kEJRwpukB2OtmkGTknbU\\";
-export var header = \\"hY2PI5vC9ABuJY1nkWnf\\";
-export var foobarbaz = \\"q8mv0HutzqdsVWjl8mAz\\";
-export var url = \\"xajoqP1d3SwrjJ4WEM8g\\";
-export var main = \\"Ix5nEHiVOsWuWxdx0twz \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
+export var vDef = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"]}\`;
+export var vOther = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"]}\`;
+export var sWhite = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"]}\`;
+export var mSmall = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"]}\`;
+export var vSomething = \`\${___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"]}\`;
+export var vFoo = \`blue\`;
+export var vBar = \`block\`;
+export var vPrimary = \`#BF4040\`;
+export var sBlack = \`black-selector\`;
+export var mLarge = \`(min-width: 960px)\`;
+export var vIdent = \`validIdent\`;
+export var vPreDefinedIdent = \`left\`;
+export var vString = \`'content'\`;
+export var vString1 = \`''\`;
+export var vUrl = \`url(https://www.exammple.com/images/my-background.png)\`;
+export var vUrl1 = \`url('https://www.exammple.com/images/my-background.png')\`;
+export var vUrl2 = \`url(\\"https://www.exammple.com/images/my-background.png\\")\`;
+export var vInteger = \`100\`;
+export var vInteger1 = \`-100\`;
+export var vInteger2 = \`+100\`;
+export var vNumber = \`.60\`;
+export var vNumber1 = \`-456.8\`;
+export var vNumber2 = \`-3.4e-2\`;
+export var vDimension = \`12px\`;
+export var vPercentage = \`100%\`;
+export var vHex = \`#fff\`;
+export var vComment = \` /* comment */\`;
+export var vFunction = \`rgb(0,0,0)\`;
+export var vUnicodeRange = \`U+0025-00FF\`;
+export var ghi = \`ozGmfTedr1GnFJDWqNUH\`;
+export var myClass = \`zchqshjqLbPAHaRvIBET\`;
+export var other = \`WZBxXqS2GytaA3IBhhnd\`;
+export var otherOther = \`W51zcAMuJMsNFi1CXgWr\`;
+export var green = \`KEl5ZxzNkpjfWorrBglC\`;
+export var foo = \`ecAEWh2vww9pNEdyj9Jn\`;
+export var simple = \`CBlowYk8qiAgWWzFeXRA \${___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"]}\`;
+export var relative = \`c_NHnDcX1bd_kuxgsuYi \${___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"]}\`;
+export var topRelative = \`S0Kwou8pVmsENtBP3hYm \${___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"]}\`;
+export var myModule = \`rq663Pq_zV0CjpwttvK4 \${___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"]}\`;
+export var alias = \`fadRMHArJofp7sWEbPVR \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"]}\`;
+export var aliasDuplicate = \`sg1HlXqlWy6l6_Wm5iA7 \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"]}\`;
+export var primarySelector = \`bnRUswvicYag6u0SPnvI\`;
+export var blackSelector = \`kEJRwpukB2OtmkGTknbU\`;
+export var header = \`hY2PI5vC9ABuJY1nkWnf\`;
+export var foobarbaz = \`q8mv0HutzqdsVWjl8mAz\`;
+export var url = \`xajoqP1d3SwrjJ4WEM8g\`;
+export var main = \`Ix5nEHiVOsWuWxdx0twz \${___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"]}\`;
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
 export default ___CSS_LOADER_STYLE_SHEET___;
@@ -1005,7 +1710,142 @@ var ___CSS_LOADER_URL_IMPORT_0___ = require(\\"./url/img.png\\");
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\"]);
 // Exports
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
@@ -1169,7 +2009,142 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\"]);
 // Exports
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
@@ -1333,7 +2308,142 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOUR
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://./basic-css-style-sheet.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA,gBAAgB;;AAEhB,YAAY;;AAEZ;EACE,UAAU;EACV,mDAAgC;AAClC;;AAEA;EACE,mDAAgC;AAClC;;AAEA;EACE,UAAU;EACV,UAAU;AACZ;;AAEA,SAAS,QAAQ,EAAE;;AAEnB,MAAM;;AAEN,SAAS,QAAQ,EAAE;;AAEnB,SAAS,iBAAiB;;AAE1B;EACE;IACE,2BAA2B;EAC7B;AACF;;AAEA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,sBAAsB;EACtB,0BAA0B;EAC1B,4BAA4B;AAC9B;;AAEA,OAAO;AACP,QAAQ;;AAER,SAAS;;AAET;EACE,aAAa;EACb,eAAe;AACjB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;AACvB;;AAEA,aAAa;;AAEb,YAAY;;AAEZ,QAAQ;;AAER;EACE,mBAAmB,EAAE,2BAA2B;AAClD;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;AAClB;;AAEA,IAAI;;AAEJ,WAAW,EAAE,sCAAsC;AACnD,YAAY,EAAE,yCAAyC;AACvD,YAAY,EAAE,2CAA2C;AACzD,UAAU,EAAE,0CAA0C;AACtD,IAAI,EAAE,oCAAoC;;AAE1C;EACE,qBAAqB;EACrB;;;;;;;;;;GAUC;AACH;;AAEA;EACE,mBAAmB;EACnB,oBAAoB;EACpB,oBAAoB;EACpB,mBAAmB;EACnB,iBAAiB;EACjB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mDAAq1B;AACv1B;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,WAAW;AACb\\",\\"sourcesContent\\":[\\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://./basic-css-style-sheet.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA,gBAAgB;;AAEhB,YAAY;;AAEZ;EACE,UAAU;EACV,mDAAgC;AAClC;;AAEA;EACE,mDAAgC;AAClC;;AAEA;EACE,UAAU;EACV,UAAU;AACZ;;AAEA,SAAS,QAAQ,EAAE;;AAEnB,MAAM;;AAEN,SAAS,QAAQ,EAAE;;AAEnB,SAAS,iBAAiB;;AAE1B;EACE;IACE,2BAA2B;EAC7B;AACF;;AAEA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,sBAAsB;EACtB,0BAA0B;EAC1B,4BAA4B;AAC9B;;AAEA,OAAO;AACP,QAAQ;;AAER,SAAS;;AAET;EACE,aAAa;EACb,eAAe;AACjB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;AACvB;;AAEA,aAAa;;AAEb,YAAY;;AAEZ,QAAQ;;AAER;EACE,mBAAmB,EAAE,2BAA2B;AAClD;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;AAClB;;AAEA,IAAI;;AAEJ,WAAW,EAAE,sCAAsC;AACnD,YAAY,EAAE,yCAAyC;AACvD,YAAY,EAAE,2CAA2C;AACzD,UAAU,EAAE,0CAA0C;AACtD,IAAI,EAAE,oCAAoC;;AAE1C;EACE,qBAAqB;EACrB;;;;;;;;;;GAUC;AACH;;AAEA;EACE,mBAAmB;EACnB,oBAAoB;EACpB,oBAAoB;EACpB,mBAAmB;EACnB,iBAAiB;EACjB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mDAAq1B;AACv1B;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,WAAW;AACb\\",\\"sourcesContent\\":[\\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
 // Exports
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
@@ -1498,7 +2608,157 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n\\\\\\\\.\\\\\\\\\` {\\\\n color: aliceblue;\\\\n}\\\\n\\\\n\\\\\\\\.\\\\\\\\$\\\\\\\\{foo\\\\\\\\} {\\\\n  color: aliceblue;\\\\n}\\\\n\\\\n/* \` */\\\\n/* \`\` */\\\\n/* \`\`\` */\\\\n/* \${} */\\\\n/* \\\\\\\\\\\\\\\\\` */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+\\\\\\\\.\\\\\\\\\\\\\` {
+ color: aliceblue;
+}
+
+\\\\\\\\.\\\\\\\\\\\\$\\\\\\\\{foo\\\\\\\\} {
+  color: aliceblue;
+}
+
+/* \\\\\` */
+/* \\\\\`\\\\\` */
+/* \\\\\`\\\\\`\\\\\` */
+/* \\\\\${} */
+/* \\\\\\\\\\\\\\\\\\\\\` */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\"]);
 // Exports
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
@@ -1785,7 +3045,430 @@ var ___CSS_LOADER_URL_REPLACEMENT_57___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS
 var ___CSS_LOADER_URL_REPLACEMENT_58___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_45___);
 var ___CSS_LOADER_URL_REPLACEMENT_59___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_46___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@import \\\\\\"./imported.css\\\\\\";\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\\\n    \\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\"\\\\n  );\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\") url(\\" + ___CSS_LOADER_URL_REPLACEMENT_3___ + \\") xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url( \\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\" ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\" + ___CSS_LOADER_URL_REPLACEMENT_5___ + \\") xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\" + ___CSS_LOADER_URL_REPLACEMENT_6___ + \\") url(http://example.com/image.jpg) url(//example.com/image.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_7___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_8___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  filter: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_9___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  filter: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_10___ + \\");\\\\n}\\\\n\\\\n.highlight {\\\\n  filter: url(#highlight);\\\\n}\\\\n\\\\n.highlight {\\\\n  filter: url('#line-marker');\\\\n}\\\\n\\\\n@font-face {\\\\n  src: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_11___ + \\") format('woff'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_12___ + \\") format('woff2'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_13___ + \\") format('eot'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_14___ + \\") format('truetype'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_15___ + \\") format(\\\\\\"embedded-opentype\\\\\\"),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_16___ + \\") format('svg'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_17___ + \\") format('woff2'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_18___ + \\") format('embedded-opentype'),\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_19___ + \\") format('embedded-opentype');\\\\n}\\\\n\\\\n@media (min-width: 500px) {\\\\n  body {\\\\n    background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n  }\\\\n}\\\\n\\\\na {\\\\n  content: \\\\\\"do not use url(path)\\\\\\";\\\\n}\\\\n\\\\nb {\\\\n  content: 'do not \\\\\\"use\\\\\\" url(path)';\\\\n}\\\\n\\\\n@keyframes anim {\\\\n  background: green url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") xyz;\\\\n}\\\\n\\\\n.a {\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x)\\\\n}\\\\n\\\\n.a {\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x)\\\\n}\\\\n\\\\n.class {\\\\n  background: green url() xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url('') xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\\\\\"\\\\\\") xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url('   ') xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(\\\\n  ) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_22___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_23___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_24___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_24___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_25___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\") url(\\" + ___CSS_LOADER_URL_REPLACEMENT_7___ + \\") url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: ___CSS_LOADER_URL___;\\\\n  background: ___CSS_LOADER_URL___INDEX___;\\\\n  background: ___CSS_LOADER_URL___99999___;\\\\n  background: ___CSS_LOADER_IMPORT___;\\\\n  background: ___CSS_LOADER_IMPORT___INDEX___;\\\\n  background: ___CSS_LOADER_IMPORT___99999___;\\\\n}\\\\n\\\\n.pure-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_26___ + \\");\\\\n}\\\\n\\\\n.root-relative {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_27___ + \\");\\\\n}\\\\n\\\\n.above-below {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_28___ + \\");\\\\n}\\\\n\\\\n.tilde {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\");\\\\n}\\\\n\\\\n.aliases {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_29___ + \\") ;\\\\n}\\\\n\\\\na {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_30___ + \\");\\\\n}\\\\n\\\\na {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_31___ + \\");\\\\n}\\\\n\\\\n@font-face {\\\\n  src: url(\\\\\\"//at.alicdn.com/t/font_515771_emcns5054x3whfr.eot\\\\\\");\\\\n}\\\\n\\\\n.class {\\\\n  /* Broken */\\\\n  background-image: -webkit-image-set();\\\\n  background-image: -webkit-image-set('');\\\\n  background-image: image-set();\\\\n  background-image: image-set('');\\\\n  background-image: image-set(\\\\\\"\\\\\\");\\\\n  background-image: image-set(\\\\\\"\\\\\\" 1x);\\\\n  background-image: image-set(url());\\\\n  background-image: image-set(\\\\n    url()\\\\n  );\\\\n  background-image: image-set(URL());\\\\n  background-image: image-set(url(''));\\\\n  background-image: image-set(url(\\\\\\"\\\\\\"));\\\\n  background-image: image-set(url('') 1x);\\\\n  background-image: image-set(1x);\\\\n  background-image: image-set(\\\\n    1x\\\\n  );\\\\n  background: image-set(calc(1rem + 1px) 1x);\\\\n\\\\n  /* Strings */\\\\n  background-image: -webkit-image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_34___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_34___ + \\" 2x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x),\\\\n    image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x);\\\\n  background-image: image-set(\\\\n    \\" + ___CSS_LOADER_URL_REPLACEMENT_32___ + \\" 1x,\\\\n    \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x,\\\\n    \\" + ___CSS_LOADER_URL_REPLACEMENT_35___ + \\" 600dpi\\\\n  );\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_36___ + \\" 1x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_37___ + \\" 1x);\\\\n  background-image: image-set(\\" + ___CSS_LOADER_URL_REPLACEMENT_38___ + \\" 1x);\\\\n\\\\n  /* With \`url\` function */\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x);\\\\n  background-image: -webkit-image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x);\\\\n  background-image: -webkit-image-set(\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x\\\\n  );\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x);\\\\n  background-image: image-set(\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x\\\\n  );\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x);\\\\n  background-image: image-set(\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_39___ + \\") 600dpi\\\\n  );\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") 2x);\\\\n\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_20___ + \\") 1x, \\" + ___CSS_LOADER_URL_REPLACEMENT_33___ + \\" 2x);\\\\n}\\\\n\\\\n.class {\\\\n  /* Not allowed on windows */\\\\n  /* background: url(./img\\\\\\\\\\\\\\"img.png); */\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n\\\\n  background-image: image-set(\\\\n    /* Not allowed on windows */\\\\n    /* url(./img\\\\\\\\\\\\\\"img.png) 1x, */\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\") 2x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\") 3x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\") 4x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\") 5x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\") 6x,\\\\n    url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\") 7x\\\\n  );\\\\n}\\\\n\\\\n.class-class-class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n}\\\\n\\\\n/* Comment */\\\\n\\\\n.class.class.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n}\\\\n\\\\n.other-test-case {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n}\\\\n\\\\n.qqq {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_45___ + \\");\\\\n}\\\\n\\\\n.www {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_41___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_42___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_43___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_40___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_44___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  /* Should be one import */\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_46___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_46___ + \\");\\\\n\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_47___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_47___ + \\");\\\\n\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_48___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_48___ + \\");\\\\n\\\\n  /* Should be two imports */\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_47___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_49___ + \\");\\\\n\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_50___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_51___ + \\");\\\\n\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_52___ + \\");\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_53___ + \\");\\\\n}\\\\n\\\\n.base {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_54___ + \\") 50% 50%/191px no-repeat;\\\\n}\\\\n\\\\n.strange {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.my-background {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_55___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\", 'foo', './img.png', url('./img.png'));\\\\n  background-image: image-set(url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\", 'foo', './img.png', url('./img.png')) 1x, url(\\" + ___CSS_LOADER_URL_REPLACEMENT_21___ + \\") 2x);\\\\n}\\\\n\\\\n.button {\\\\n  background-image: url('data:image/svg+xml;utf8,<svg xmlns=\\\\\\"http://www.w3.org/2000/svg\\\\\\"><rect width=\\\\\\"100%\\\\\\" height=\\\\\\"100%\\\\\\" style=\\\\\\"stroke: rgb(223,224,225); stroke-width: 2px; fill: none; stroke-dasharray: 6px 3px\\\\\\" /></svg>');\\\\n}\\\\n\\\\n/* We need to use \`resourceQuery: /inline/\` */\\\\n/* Hard to test on webpack v4 */\\\\n.qqq {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_56___ + \\")\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_45___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_45___ + \\");\\\\n}\\\\n\\\\n/** Prefer relative **/\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_31___ + \\");\\\\n}\\\\n\\\\n/** Prefer from modules **/\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_57___ + \\");\\\\n}\\\\n\\\\n.class {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \\");\\\\n}\\\\n\\\\n.foo {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_58___ + \\");\\\\n}\\\\n\\\\n.bar {\\\\n  background-image: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_59___ + \\");\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@import \\"./imported.css\\";
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+.class {
+  background: url(
+    \${___CSS_LOADER_URL_REPLACEMENT_0___}
+  );
+}
+
+.class {
+  background: green url( \${___CSS_LOADER_URL_REPLACEMENT_0___} ) xyz;
+}
+
+.class {
+  background: green url( \${___CSS_LOADER_URL_REPLACEMENT_0___} ) xyz;
+}
+
+.class {
+  background: green url( \${___CSS_LOADER_URL_REPLACEMENT_0___} ) xyz;
+}
+
+.class {
+  background: green url(\${___CSS_LOADER_URL_REPLACEMENT_2___}) url(\${___CSS_LOADER_URL_REPLACEMENT_3___}) xyz;
+}
+
+.class {
+  background: green url( \${___CSS_LOADER_URL_REPLACEMENT_4___} ) xyz;
+}
+
+.class {
+  background: green url( \${___CSS_LOADER_URL_REPLACEMENT_4___} ) xyz;
+}
+
+.class {
+  background: green url(\${___CSS_LOADER_URL_REPLACEMENT_5___}) xyz;
+}
+
+.class {
+  background: green url(\${___CSS_LOADER_URL_REPLACEMENT_6___}) url(http://example.com/image.jpg) url(//example.com/image.png) xyz;
+}
+
+.class {
+  background-image: url(\${___CSS_LOADER_URL_REPLACEMENT_7___});
+}
+
+.class {
+  background-image: url(\${___CSS_LOADER_URL_REPLACEMENT_8___});
+}
+
+.class {
+  filter: url(\${___CSS_LOADER_URL_REPLACEMENT_9___});
+}
+
+.class {
+  filter: url(\${___CSS_LOADER_URL_REPLACEMENT_10___});
+}
+
+.highlight {
+  filter: url(#highlight);
+}
+
+.highlight {
+  filter: url('#line-marker');
+}
+
+@font-face {
+  src: url(\${___CSS_LOADER_URL_REPLACEMENT_11___}) format('woff'),
+    url(\${___CSS_LOADER_URL_REPLACEMENT_12___}) format('woff2'),
+    url(\${___CSS_LOADER_URL_REPLACEMENT_13___}) format('eot'),
+    url(\${___CSS_LOADER_URL_REPLACEMENT_14___}) format('truetype'),
+    url(\${___CSS_LOADER_URL_REPLACEMENT_15___}) format(\\"embedded-opentype\\"),
+    url(\${___CSS_LOADER_URL_REPLACEMENT_16___}) format('svg'),
+    url(\${___CSS_LOADER_URL_REPLACEMENT_17___}) format('woff2'),
+    url(\${___CSS_LOADER_URL_REPLACEMENT_18___}) format('embedded-opentype'),
+    url(\${___CSS_LOADER_URL_REPLACEMENT_19___}) format('embedded-opentype');
+}
+
+@media (min-width: 500px) {
+  body {
+    background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+  }
+}
+
+a {
+  content: \\"do not use url(path)\\";
+}
+
+b {
+  content: 'do not \\"use\\" url(path)';
+}
+
+@keyframes anim {
+  background: green url(\${___CSS_LOADER_URL_REPLACEMENT_0___}) xyz;
+}
+
+.a {
+  background-image: -webkit-image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x, url(\${___CSS_LOADER_URL_REPLACEMENT_21___}) 2x)
+}
+
+.a {
+  background-image: image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x, url(\${___CSS_LOADER_URL_REPLACEMENT_21___}) 2x)
+}
+
+.class {
+  background: green url() xyz;
+}
+
+.class {
+  background: green url('') xyz;
+}
+
+.class {
+  background: green url(\\"\\") xyz;
+}
+
+.class {
+  background: green url('   ') xyz;
+}
+
+.class {
+  background: green url(
+  ) xyz;
+}
+
+.class {
+  background: green url(https://raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;
+}
+
+.class {
+  background: green url(//raw.githubusercontent.com/webpack/media/master/logo/icon.png) xyz;
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_22___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_23___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_24___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_24___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_25___});
+}
+
+.class {
+  background-image: url(\${___CSS_LOADER_URL_REPLACEMENT_0___}) url(\${___CSS_LOADER_URL_REPLACEMENT_7___}) url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class {
+  background: ___CSS_LOADER_URL___;
+  background: ___CSS_LOADER_URL___INDEX___;
+  background: ___CSS_LOADER_URL___99999___;
+  background: ___CSS_LOADER_IMPORT___;
+  background: ___CSS_LOADER_IMPORT___INDEX___;
+  background: ___CSS_LOADER_IMPORT___99999___;
+}
+
+.pure-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_26___});
+}
+
+.root-relative {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_27___});
+}
+
+.above-below {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_28___});
+}
+
+.tilde {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_2___});
+}
+
+.aliases {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_29___}) ;
+}
+
+a {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_30___});
+}
+
+a {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_31___});
+}
+
+@font-face {
+  src: url(\\"//at.alicdn.com/t/font_515771_emcns5054x3whfr.eot\\");
+}
+
+.class {
+  /* Broken */
+  background-image: -webkit-image-set();
+  background-image: -webkit-image-set('');
+  background-image: image-set();
+  background-image: image-set('');
+  background-image: image-set(\\"\\");
+  background-image: image-set(\\"\\" 1x);
+  background-image: image-set(url());
+  background-image: image-set(
+    url()
+  );
+  background-image: image-set(URL());
+  background-image: image-set(url(''));
+  background-image: image-set(url(\\"\\"));
+  background-image: image-set(url('') 1x);
+  background-image: image-set(1x);
+  background-image: image-set(
+    1x
+  );
+  background: image-set(calc(1rem + 1px) 1x);
+
+  /* Strings */
+  background-image: -webkit-image-set(\${___CSS_LOADER_URL_REPLACEMENT_32___} 1x, \${___CSS_LOADER_URL_REPLACEMENT_33___} 2x);
+  background-image: image-set(\${___CSS_LOADER_URL_REPLACEMENT_32___} 1x);
+  background-image: image-set(\${___CSS_LOADER_URL_REPLACEMENT_32___} 1x, \${___CSS_LOADER_URL_REPLACEMENT_33___} 2x);
+  background-image: image-set(\${___CSS_LOADER_URL_REPLACEMENT_34___} 1x, \${___CSS_LOADER_URL_REPLACEMENT_34___} 2x);
+  background-image: image-set(\${___CSS_LOADER_URL_REPLACEMENT_32___} 1x, \${___CSS_LOADER_URL_REPLACEMENT_33___} 2x),
+    image-set(\${___CSS_LOADER_URL_REPLACEMENT_32___} 1x, \${___CSS_LOADER_URL_REPLACEMENT_33___} 2x);
+  background-image: image-set(
+    \${___CSS_LOADER_URL_REPLACEMENT_32___} 1x,
+    \${___CSS_LOADER_URL_REPLACEMENT_33___} 2x,
+    \${___CSS_LOADER_URL_REPLACEMENT_35___} 600dpi
+  );
+  background-image: image-set(\${___CSS_LOADER_URL_REPLACEMENT_36___} 1x);
+  background-image: image-set(\${___CSS_LOADER_URL_REPLACEMENT_37___} 1x);
+  background-image: image-set(\${___CSS_LOADER_URL_REPLACEMENT_38___} 1x);
+
+  /* With \\\\\`url\\\\\` function */
+  background-image: -webkit-image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x, url(\${___CSS_LOADER_URL_REPLACEMENT_21___}) 2x);
+  background-image: -webkit-image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x);
+  background-image: -webkit-image-set(
+    url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x
+  );
+  background-image: image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x);
+  background-image: image-set(
+    url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x
+  );
+  background-image: image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x, url(\${___CSS_LOADER_URL_REPLACEMENT_21___}) 2x);
+  background-image: image-set(
+    url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x,
+    url(\${___CSS_LOADER_URL_REPLACEMENT_21___}) 2x,
+    url(\${___CSS_LOADER_URL_REPLACEMENT_39___}) 600dpi
+  );
+  background-image: image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_4___}) 1x, url(\${___CSS_LOADER_URL_REPLACEMENT_4___}) 2x);
+
+  background-image: image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_20___}) 1x, \${___CSS_LOADER_URL_REPLACEMENT_33___} 2x);
+}
+
+.class {
+  /* Not allowed on windows */
+  /* background: url(./img\\\\\\\\\\"img.png); */
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_40___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_41___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_42___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_43___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_4___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_44___});
+
+  background-image: image-set(
+    /* Not allowed on windows */
+    /* url(./img\\\\\\\\\\"img.png) 1x, */
+    url(\${___CSS_LOADER_URL_REPLACEMENT_41___}) 2x,
+    url(\${___CSS_LOADER_URL_REPLACEMENT_40___}) 3x,
+    url(\${___CSS_LOADER_URL_REPLACEMENT_42___}) 4x,
+    url(\${___CSS_LOADER_URL_REPLACEMENT_43___}) 5x,
+    url(\${___CSS_LOADER_URL_REPLACEMENT_4___}) 6x,
+    url(\${___CSS_LOADER_URL_REPLACEMENT_44___}) 7x
+  );
+}
+
+.class-class-class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_41___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_44___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_40___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_42___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_43___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_4___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_4___});
+}
+
+/* Comment */
+
+.class.class.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_42___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_42___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_42___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_42___});
+}
+
+.other-test-case {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_41___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_44___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_40___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_42___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_43___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_4___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_41___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_44___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_40___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_42___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_43___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_4___});
+}
+
+.qqq {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_45___});
+}
+
+.www {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_41___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_44___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_40___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_42___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_43___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_4___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_40___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_44___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_44___});
+}
+
+.class {
+  /* Should be one import */
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_46___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_46___});
+
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_47___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_47___});
+
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_48___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_48___});
+
+  /* Should be two imports */
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_47___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_49___});
+
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_50___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_51___});
+
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_52___});
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_53___});
+}
+
+.base {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_54___}) 50% 50%/191px no-repeat;
+}
+
+.strange {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.my-background {
+  background-image: url(\${___CSS_LOADER_URL_REPLACEMENT_55___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___}, 'foo', './img.png', url('./img.png'));
+  background-image: image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_0___}, 'foo', './img.png', url('./img.png')) 1x, url(\${___CSS_LOADER_URL_REPLACEMENT_21___}) 2x);
+}
+
+.button {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\"><rect width=\\"100%\\" height=\\"100%\\" style=\\"stroke: rgb(223,224,225); stroke-width: 2px; fill: none; stroke-dasharray: 6px 3px\\" /></svg>');
+}
+
+/* We need to use \\\\\`resourceQuery: /inline/\\\\\` */
+/* Hard to test on webpack v4 */
+.qqq {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_56___})
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_45___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_45___});
+}
+
+/** Prefer relative **/
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_31___});
+}
+
+/** Prefer from modules **/
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_57___});
+}
+
+.class {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_2___});
+}
+
+.foo {
+  background-image: url(\${___CSS_LOADER_URL_REPLACEMENT_58___});
+}
+
+.bar {
+  background-image: url(\${___CSS_LOADER_URL_REPLACEMENT_59___});
+}
+\`, \\"\\"]);
 // Exports
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
@@ -2331,7 +4014,10 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../src/runtime/noS
 import ___CSS_LOADER_API_IMPORT___ from \\"../../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"body {\\\\n  font: 100% Helvetica, sans-serif;\\\\n  color: #333;\\\\n}\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}\`, \\"\\"]);
 // Exports
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
@@ -2363,7 +4049,142 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\"]);
 // Exports
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
@@ -2522,9 +4343,12 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../src/runtime/noSour
 import ___CSS_LOADER_API_IMPORT___ from \\"../../src/runtime/api.js\\";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\".dvYI1gdIOPlJqjwAWOo8 {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`.dvYI1gdIOPlJqjwAWOo8 {
+  color: red;
+}
+\`, \\"\\"]);
 // Exports
-export var someClass = \\"dvYI1gdIOPlJqjwAWOo8\\";
+export var someClass = \`dvYI1gdIOPlJqjwAWOo8\`;
 export default ___CSS_LOADER_EXPORT___.toString();
 "
 `;
@@ -2556,7 +4380,142 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOUR
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://./basic-css-style-sheet.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA,gBAAgB;;AAEhB,YAAY;;AAEZ;EACE,UAAU;EACV,mDAAgC;AAClC;;AAEA;EACE,mDAAgC;AAClC;;AAEA;EACE,UAAU;EACV,UAAU;AACZ;;AAEA,SAAS,QAAQ,EAAE;;AAEnB,MAAM;;AAEN,SAAS,QAAQ,EAAE;;AAEnB,SAAS,iBAAiB;;AAE1B;EACE;IACE,2BAA2B;EAC7B;AACF;;AAEA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,sBAAsB;EACtB,0BAA0B;EAC1B,4BAA4B;AAC9B;;AAEA,OAAO;AACP,QAAQ;;AAER,SAAS;;AAET;EACE,aAAa;EACb,eAAe;AACjB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;AACvB;;AAEA,aAAa;;AAEb,YAAY;;AAEZ,QAAQ;;AAER;EACE,mBAAmB,EAAE,2BAA2B;AAClD;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;AAClB;;AAEA,IAAI;;AAEJ,WAAW,EAAE,sCAAsC;AACnD,YAAY,EAAE,yCAAyC;AACvD,YAAY,EAAE,2CAA2C;AACzD,UAAU,EAAE,0CAA0C;AACtD,IAAI,EAAE,oCAAoC;;AAE1C;EACE,qBAAqB;EACrB;;;;;;;;;;GAUC;AACH;;AAEA;EACE,mBAAmB;EACnB,oBAAoB;EACpB,oBAAoB;EACpB,mBAAmB;EACnB,iBAAiB;EACjB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mDAAq1B;AACv1B;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,WAAW;AACb\\",\\"sourcesContent\\":[\\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\",{\\"version\\":3,\\"sources\\":[\\"webpack://./basic-css-style-sheet.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA,gBAAgB;;AAEhB,YAAY;;AAEZ;EACE,UAAU;EACV,mDAAgC;AAClC;;AAEA;EACE,mDAAgC;AAClC;;AAEA;EACE,UAAU;EACV,UAAU;AACZ;;AAEA,SAAS,QAAQ,EAAE;;AAEnB,MAAM;;AAEN,SAAS,QAAQ,EAAE;;AAEnB,SAAS,iBAAiB;;AAE1B;EACE;IACE,2BAA2B;EAC7B;AACF;;AAEA;EACE,gBAAgB;EAChB,qBAAqB;EACrB,sBAAsB;EACtB,0BAA0B;EAC1B,4BAA4B;AAC9B;;AAEA,OAAO;AACP,QAAQ;;AAER,SAAS;;AAET;EACE,aAAa;EACb,eAAe;AACjB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,uBAAuB;AACzB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;AACvB;;AAEA,aAAa;;AAEb,YAAY;;AAEZ,QAAQ;;AAER;EACE,mBAAmB,EAAE,2BAA2B;AAClD;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;AAClB;;AAEA,IAAI;;AAEJ,WAAW,EAAE,sCAAsC;AACnD,YAAY,EAAE,yCAAyC;AACvD,YAAY,EAAE,2CAA2C;AACzD,UAAU,EAAE,0CAA0C;AACtD,IAAI,EAAE,oCAAoC;;AAE1C;EACE,qBAAqB;EACrB;;;;;;;;;;GAUC;AACH;;AAEA;EACE,mBAAmB;EACnB,oBAAoB;EACpB,oBAAoB;EACpB,mBAAmB;EACnB,iBAAiB;EACjB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mDAAq1B;AACv1B;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,WAAW;AACb\\",\\"sourcesContent\\":[\\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\\\\\"./url/img.png\\\\\\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhxJREFUSA3tk71rU1EYxnMTEoJUkowWwdJ2akEHBfGjCiIF6ZylVUKSm2TqZLGI+A/oIu2UXm8C4lAyF4SWji0tdFLo1Eo7VN0SaBEhH7e/Nz0nPTfGOjiaCyfPc5734zlfCQT6X/8E/vUErL81KBaL9y3LSnued5PcITjUOwR3gsFg2bbtjYt6/NGgXC4P1et1l2aPLmpAbD0SidjpdPqgV15PA9d17zQajU8UxHQRK/4G35Q5pveAK8LlI1ZjPMnlcltnyvnvbwaO41xvtVqy7YHztMACq5xnlb9EY3dRdvcGo1kj5wR+t1AofDG0gM+A875E8DNjRCexsrV8Pj9ZqVQitVrtqejxePxjMpmss5hVTB4buXvMb2DyU2tBTRS+BjvNlVYUpPl7iuVO3Gq1uoQx1FtSOW1gPgp5ZWrdBtNmUDgv5asgxQ8F1af5vhY0YjyjuWC3wTszKJz7GBOkcFlQfW2ONq4FjWi+Hj6DRCKxQOK2TlY4x92EuYd5dvMAbYIzfikau3pu5tJ8KxaLLfo0cyKci7tK4TZjUMcoXAmHwzle0Q/RaC5P1GFMyVx9R9Fo9HYqlTrSgqDvFelAqVQa5hmuMR/WGtjAaBdjwBoDQ0ZsnwVMZjKZ9n0Zem8DSeDPdrnZbL6F2l3NOvUYNZk4oVDoRTabPe4EDNJzB0ZcjAYxeoZ2i3FNxQ7BHYw/cB/fldaH//UETgHHO8S44KbfXgAAAABJRU5ErkJggg==);\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
 // Exports
 export default ___CSS_LOADER_EXPORT___.toString();
 "
@@ -2717,7 +4676,142 @@ var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_S
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \\"@charset \\\\\\"UTF-8\\\\\\";\\\\n\\\\n/* Comment */\\\\n\\\\n.class {\\\\n  color: red;\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n.class-duplicate-url {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \\");\\\\n}\\\\n\\\\n:root {\\\\n  --foo: 1px;\\\\n  --bar: 2px;\\\\n}\\\\n\\\\n.class { a: b c d; }\\\\n\\\\n.two {}\\\\n\\\\n.u-m\\\\\\\\+ { a: b c d; }\\\\n\\\\n.class { content: \\\\\\"\\\\\\\\F10C\\\\\\" }\\\\n\\\\n@media only screen and (max-width: 600px) {\\\\n  body {\\\\n    background-color: lightblue;\\\\n  }\\\\n}\\\\n\\\\n.class {\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\\\\\";\\\\n}\\\\n\\\\n.-top {}\\\\n.\\\\\\\\-top {}\\\\n\\\\n#\\\\\\\\#test {}\\\\n\\\\n.grid {\\\\n  display: flex;\\\\n  flex-wrap: wrap;\\\\n}\\\\n.grid.\\\\\\\\-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.-top {\\\\n  align-items: flex-start;\\\\n}\\\\n.grid.\\\\\\\\-middle {\\\\n  align-items: center;\\\\n}\\\\n.grid.\\\\\\\\-bottom {\\\\n  align-items: flex-end;\\\\n}\\\\n\\\\n.u-m\\\\\\\\00002b {}\\\\n\\\\n.u-m00002b {}\\\\n\\\\n#u-m\\\\\\\\+ {}\\\\n\\\\nbody {\\\\n  font-family: '微软雅黑'; /* some chinese font name */\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\e901';\\\\n}\\\\n\\\\n.myStyle {\\\\n  content: '\\\\\\\\E901';\\\\n}\\\\n\\\\n.♫ {}\\\\n\\\\n.\\\\\\\\3A \\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\\\\\":\`(\\\\\\" */\\\\n.\\\\\\\\31 a2b3c {} /* matches elements with class=\\\\\\"1a2b3c\\\\\\" */\\\\n#\\\\\\\\#fake-id {} /* matches the element with id=\\\\\\"#fake-id\\\\\\" */\\\\n#-a-b-c- {} /* matches the element with id=\\\\\\"-a-b-c-\\\\\\" */\\\\n#© {} /* matches the element with id=\\\\\\"©\\\\\\" */\\\\n\\\\n:root {\\\\n  --title-align: center;\\\\n  --sr-only: {\\\\n    position: absolute;\\\\n    width: 1px;\\\\n    height: 1px;\\\\n    padding: 0;\\\\n    overflow: hidden;\\\\n    clip: rect(0,0,0,0);\\\\n    white-space: nowrap;\\\\n    clip-path: inset(50%);\\\\n    border: 0;\\\\n  };\\\\n}\\\\n\\\\n.test {\\\\n  content: \\\\\\"\\\\\\\\2014\\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\2014 \\\\\\\\A0\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0 \\\\\\\\2014\\\\\\";\\\\n  content: \\\\\\"\\\\\\\\A0\\\\\\\\2014\\\\\\";\\\\n  margin-top: 1px\\\\\\\\9;\\\\n  background-color: #000\\\\\\\\9;\\\\n}\\\\n\\\\n.light.on .bulb:before{\\\\n  content: '💡';\\\\n}\\\\n\\\\n.base64 {\\\\n  background: url(\\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \\");\\\\n}\\\\n\\\\na[href=''] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href='' i] {\\\\n  color: red;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\"] {\\\\n  color: blue;\\\\n}\\\\n\\\\na[href=\\\\\\"\\\\\\" i] {\\\\n  color: blue;\\\\n}\\\\n\\", \\"\\"]);
+___CSS_LOADER_EXPORT___.push([module.id, \`@charset \\"UTF-8\\";
+
+/* Comment */
+
+.class {
+  color: red;
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+.class-duplicate-url {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_0___});
+}
+
+:root {
+  --foo: 1px;
+  --bar: 2px;
+}
+
+.class { a: b c d; }
+
+.two {}
+
+.u-m\\\\\\\\+ { a: b c d; }
+
+.class { content: \\"\\\\\\\\F10C\\" }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.class {
+  content: \\"\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193\\\\\\\\2193\\\\\\\\2193\\";
+  content: \\"\\\\\\\\2193 \\\\\\\\2193 \\\\\\\\2193\\";
+}
+
+.-top {}
+.\\\\\\\\-top {}
+
+#\\\\\\\\#test {}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid.\\\\\\\\-top {
+  align-items: flex-start;
+}
+.grid.-top {
+  align-items: flex-start;
+}
+.grid.\\\\\\\\-middle {
+  align-items: center;
+}
+.grid.\\\\\\\\-bottom {
+  align-items: flex-end;
+}
+
+.u-m\\\\\\\\00002b {}
+
+.u-m00002b {}
+
+#u-m\\\\\\\\+ {}
+
+body {
+  font-family: '微软雅黑'; /* some chinese font name */
+}
+
+.myStyle {
+  content: '\\\\\\\\e901';
+}
+
+.myStyle {
+  content: '\\\\\\\\E901';
+}
+
+.♫ {}
+
+.\\\\\\\\3A \\\\\\\\\\\\\`\\\\\\\\( {} /* matches elements with class=\\":\\\\\`(\\" */
+.\\\\\\\\31 a2b3c {} /* matches elements with class=\\"1a2b3c\\" */
+#\\\\\\\\#fake-id {} /* matches the element with id=\\"#fake-id\\" */
+#-a-b-c- {} /* matches the element with id=\\"-a-b-c-\\" */
+#© {} /* matches the element with id=\\"©\\" */
+
+:root {
+  --title-align: center;
+  --sr-only: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  };
+}
+
+.test {
+  content: \\"\\\\\\\\2014\\\\\\\\A0\\";
+  content: \\"\\\\\\\\2014 \\\\\\\\A0\\";
+  content: \\"\\\\\\\\A0 \\\\\\\\2014\\";
+  content: \\"\\\\\\\\A0\\\\\\\\2014\\";
+  margin-top: 1px\\\\\\\\9;
+  background-color: #000\\\\\\\\9;
+}
+
+.light.on .bulb:before{
+  content: '💡';
+}
+
+.base64 {
+  background: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
+}
+
+a[href=''] {
+  color: red;
+}
+
+a[href='' i] {
+  color: red;
+}
+
+a[href=\\"\\"] {
+  color: blue;
+}
+
+a[href=\\"\\" i] {
+  color: blue;
+}
+\`, \\"\\"]);
 // Exports
 export default ___CSS_LOADER_EXPORT___.toString();
 "
@@ -2877,53 +4971,53 @@ import * as ___CSS_LOADER_ICSS_IMPORT_5____NAMED___ from \\"-!../../../../src/in
 import * as ___CSS_LOADER_ICSS_IMPORT_6____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
 import * as ___CSS_LOADER_ICSS_IMPORT_7____NAMED___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss\\";
 // Exports
-export var vDef = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"] + \\"\\";
-export var vOther = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"] + \\"\\";
-export var sWhite = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"] + \\"\\";
-export var mSmall = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"] + \\"\\";
-export var vSomething = \\"\\" + ___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"] + \\"\\";
-export var vFoo = \\"blue\\";
-export var vBar = \\"block\\";
-export var vPrimary = \\"#BF4040\\";
-export var sBlack = \\"black-selector\\";
-export var mLarge = \\"(min-width: 960px)\\";
-export var vIdent = \\"validIdent\\";
-export var vPreDefinedIdent = \\"left\\";
-export var vString = \\"'content'\\";
-export var vString1 = \\"''\\";
-export var vUrl = \\"url(https://www.exammple.com/images/my-background.png)\\";
-export var vUrl1 = \\"url('https://www.exammple.com/images/my-background.png')\\";
-export var vUrl2 = \\"url(\\\\\\"https://www.exammple.com/images/my-background.png\\\\\\")\\";
-export var vInteger = \\"100\\";
-export var vInteger1 = \\"-100\\";
-export var vInteger2 = \\"+100\\";
-export var vNumber = \\".60\\";
-export var vNumber1 = \\"-456.8\\";
-export var vNumber2 = \\"-3.4e-2\\";
-export var vDimension = \\"12px\\";
-export var vPercentage = \\"100%\\";
-export var vHex = \\"#fff\\";
-export var vComment = \\" /* comment */\\";
-export var vFunction = \\"rgb(0,0,0)\\";
-export var vUnicodeRange = \\"U+0025-00FF\\";
-export var ghi = \\"ozGmfTedr1GnFJDWqNUH\\";
-export var myClass = \\"zchqshjqLbPAHaRvIBET\\";
-export var other = \\"WZBxXqS2GytaA3IBhhnd\\";
-export var otherOther = \\"W51zcAMuJMsNFi1CXgWr\\";
-export var green = \\"KEl5ZxzNkpjfWorrBglC\\";
-export var foo = \\"ecAEWh2vww9pNEdyj9Jn\\";
-export var simple = \\"CBlowYk8qiAgWWzFeXRA \\" + ___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"] + \\"\\";
-export var relative = \\"c_NHnDcX1bd_kuxgsuYi \\" + ___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"] + \\"\\";
-export var topRelative = \\"S0Kwou8pVmsENtBP3hYm \\" + ___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"] + \\"\\";
-export var myModule = \\"rq663Pq_zV0CjpwttvK4 \\" + ___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"] + \\"\\";
-export var alias = \\"fadRMHArJofp7sWEbPVR \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export var aliasDuplicate = \\"sg1HlXqlWy6l6_Wm5iA7 \\" + ___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"] + \\"\\";
-export var primarySelector = \\"bnRUswvicYag6u0SPnvI\\";
-export var blackSelector = \\"kEJRwpukB2OtmkGTknbU\\";
-export var header = \\"hY2PI5vC9ABuJY1nkWnf\\";
-export var foobarbaz = \\"q8mv0HutzqdsVWjl8mAz\\";
-export var url = \\"xajoqP1d3SwrjJ4WEM8g\\";
-export var main = \\"Ix5nEHiVOsWuWxdx0twz \\" + ___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"] + \\"\\";
+export var vDef = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vDef\\"]}\`;
+export var vOther = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"vOther\\"]}\`;
+export var sWhite = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"sWhite\\"]}\`;
+export var mSmall = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___[\\"mSmall\\"]}\`;
+export var vSomething = \`\${___CSS_LOADER_ICSS_IMPORT_1____NAMED___[\\"vSomething\\"]}\`;
+export var vFoo = \`blue\`;
+export var vBar = \`block\`;
+export var vPrimary = \`#BF4040\`;
+export var sBlack = \`black-selector\`;
+export var mLarge = \`(min-width: 960px)\`;
+export var vIdent = \`validIdent\`;
+export var vPreDefinedIdent = \`left\`;
+export var vString = \`'content'\`;
+export var vString1 = \`''\`;
+export var vUrl = \`url(https://www.exammple.com/images/my-background.png)\`;
+export var vUrl1 = \`url('https://www.exammple.com/images/my-background.png')\`;
+export var vUrl2 = \`url(\\"https://www.exammple.com/images/my-background.png\\")\`;
+export var vInteger = \`100\`;
+export var vInteger1 = \`-100\`;
+export var vInteger2 = \`+100\`;
+export var vNumber = \`.60\`;
+export var vNumber1 = \`-456.8\`;
+export var vNumber2 = \`-3.4e-2\`;
+export var vDimension = \`12px\`;
+export var vPercentage = \`100%\`;
+export var vHex = \`#fff\`;
+export var vComment = \` /* comment */\`;
+export var vFunction = \`rgb(0,0,0)\`;
+export var vUnicodeRange = \`U+0025-00FF\`;
+export var ghi = \`ozGmfTedr1GnFJDWqNUH\`;
+export var myClass = \`zchqshjqLbPAHaRvIBET\`;
+export var other = \`WZBxXqS2GytaA3IBhhnd\`;
+export var otherOther = \`W51zcAMuJMsNFi1CXgWr\`;
+export var green = \`KEl5ZxzNkpjfWorrBglC\`;
+export var foo = \`ecAEWh2vww9pNEdyj9Jn\`;
+export var simple = \`CBlowYk8qiAgWWzFeXRA \${___CSS_LOADER_ICSS_IMPORT_2____NAMED___[\\"importedSimple\\"]}\`;
+export var relative = \`c_NHnDcX1bd_kuxgsuYi \${___CSS_LOADER_ICSS_IMPORT_3____NAMED___[\\"importedRelative\\"]}\`;
+export var topRelative = \`S0Kwou8pVmsENtBP3hYm \${___CSS_LOADER_ICSS_IMPORT_4____NAMED___[\\"importedRelative\\"]}\`;
+export var myModule = \`rq663Pq_zV0CjpwttvK4 \${___CSS_LOADER_ICSS_IMPORT_5____NAMED___[\\"importedModule\\"]}\`;
+export var alias = \`fadRMHArJofp7sWEbPVR \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"]}\`;
+export var aliasDuplicate = \`sg1HlXqlWy6l6_Wm5iA7 \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___[\\"importedAlias\\"]}\`;
+export var primarySelector = \`bnRUswvicYag6u0SPnvI\`;
+export var blackSelector = \`kEJRwpukB2OtmkGTknbU\`;
+export var header = \`hY2PI5vC9ABuJY1nkWnf\`;
+export var foobarbaz = \`q8mv0HutzqdsVWjl8mAz\`;
+export var url = \`xajoqP1d3SwrjJ4WEM8g\`;
+export var main = \`Ix5nEHiVOsWuWxdx0twz \${___CSS_LOADER_ICSS_IMPORT_7____NAMED___[\\"scssClass\\"]}\`;
 "
 `;
 
