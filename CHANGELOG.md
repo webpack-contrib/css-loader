@@ -138,7 +138,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Notes
 
-* using `~` is deprecated when the `esModules` option is enabled (enabled by default) and can be removed from your code (**we recommend it**) (`url(~package/image.png)` -> `url(package/image.png)`, `@import url(~package/style.css)` -> `@import url(package/style.css)`, `composes: import from '~package/one.css';` -> `composes: import from 'package/one.css';`), but we still support it for historical reasons. Why can you remove it? The loader will first try to resolve `@import`/`url()`/etc as relative, if it cannot be resolved, the loader will try to resolve `@import`/`url()`/etc inside [`node_modules` or modules directories](https://webpack.js.org/configuration/resolve/#resolvemodules).
+* using `~` is deprecated when the `esModule` option is enabled (enabled by default) and can be removed from your code (**we recommend it**) (`url(~package/image.png)` -> `url(package/image.png)`, `@import url(~package/style.css)` -> `@import url(package/style.css)`, `composes: import from '~package/one.css';` -> `composes: import from 'package/one.css';`), but we still support it for historical reasons. Why can you remove it? The loader will first try to resolve `@import`/`url()`/etc as relative, if it cannot be resolved, the loader will try to resolve `@import`/`url()`/etc inside [`node_modules` or modules directories](https://webpack.js.org/configuration/resolve/#resolvemodules).
 * `file-loader` and `url-loader` are deprecated, please migrate on [`asset modules`](https://webpack.js.org/guides/asset-modules/), since v6 `css-loader` is generating `new URL(...)` syntax, it enables by default built-in [`assets modules`](https://webpack.js.org/guides/asset-modules/), i.e. `type: 'asset'` for all `url()`
 
 ### ⚠ BREAKING CHANGES
@@ -147,9 +147,9 @@ All notable changes to this project will be documented in this file. See [standa
 * minimum supported `webpack` version is `5`, we recommend to update to the latest version for better performance
 * for `url` and `import` options `Function` type was removed in favor `Object` type with the `filter` property, i.e. before `{ url: () => true }`, now `{ url: { filter: () => true } }` and  before `{ import: () => true }`, now `{ import: { filter: () => true } }`
 * the `modules.compileType` option was removed in favor the `modules.mode` option with `icss` value, also the `modules` option can have `icss` string value
-* `new URL()` syntax used for `url()`, only when the `esModules` option is enabled (enabled by default), it means you can bundle CSS for libraries
+* `new URL()` syntax used for `url()`, only when the `esModule` option is enabled (enabled by default), it means you can bundle CSS for libraries
 * [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) are handling in `url()`, it means you can register loaders for them, [example](https://webpack.js.org/configuration/module/#rulescheme)
-* aliases with `false` value for `url()` now generate empty data URI (i.e. `data:0,`), only when the `esModules` option is enabled (enabled by default)
+* aliases with `false` value for `url()` now generate empty data URI (i.e. `data:0,`), only when the `esModule` option is enabled (enabled by default)
 * `[ext]` placeholder don't need `.` (dot) before for the `localIdentName` option, i.e. please change `.[ext]` on `[ext]` (no dot before) 
 * `[folder]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic
 * `[emoji]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic

@@ -1538,7 +1538,7 @@ import "./styles.css";
 
 > **Warning**
 >
-> The `esModules` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
+> The `esModule` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
 
 The default export is `string`.
 
@@ -1577,7 +1577,7 @@ console.log(sheet);
 
 > **Warning**
 >
-> The `esModules` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
+> The `esModule` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
 
 > **Warning**
 >
