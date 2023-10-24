@@ -1119,11 +1119,15 @@ Enables/disables ES modules named export for locals.
 
 > **Warning**
 >
-> Names of locals are converted to camelcase, i.e. the `exportLocalsConvention` option has `camelCaseOnly` value by default.
+> Names of locals are converted to camelcase, i.e. the `exportLocalsConvention` option has
+> `camelCaseOnly` value by default. You can set this back to any other valid option but selectors
+> which are not valid JavaScript identifiers may run into problems which do not implement the entire
+> modules specification.
 
 > **Warning**
 >
-> It is not allowed to use JavaScript reserved words in css class names.
+> It is not allowed to use JavaScript reserved words in css class names unless
+> `exportLocalsConvention` is `"asIs"`.
 
 **styles.css**
 
@@ -1139,9 +1143,11 @@ Enables/disables ES modules named export for locals.
 **index.js**
 
 ```js
-import { fooBaz, bar } from "./styles.css";
+import * as styles from "./styles.css";
 
-console.log(fooBaz, bar);
+console.log(styles.fooBaz, styles.bar);
+// or if using `exportLocalsConvention: "asIs"`:
+console.log(styles["foo-baz"], styles.bar);
 ```
 
 You can enable a ES module named export using:
@@ -1223,10 +1229,6 @@ Style of exported class names.
 ###### `string`
 
 By default, the exported JSON keys mirror the class names (i.e `asIs` value).
-
-> **Warning**
->
-> Only `camelCaseOnly` value allowed if you set the `namedExport` value to `true`.
 
 |         Name          |   Type   | Description                                                                                      |
 | :-------------------: | :------: | :----------------------------------------------------------------------------------------------- |
@@ -1739,7 +1741,7 @@ With the help of the `/* webpackIgnore: true */`comment, it is possible to disab
 .class {
   /* Disabled url handling for the first url in the 'background' declaration */
   color: red;
-  background: 
+  background:
     /* webpackIgnore: true */ url("./url/img.png"), url("./url/img.png");
 }
 
@@ -1755,7 +1757,7 @@ With the help of the `/* webpackIgnore: true */`comment, it is possible to disab
   /* Disabled url handling for the second url in the 'background' declaration */
   color: red;
   background: url("./url/img.png"),
-    /* webpackIgnore: true */ 
+    /* webpackIgnore: true */
     url("./url/img.png");
 }
 

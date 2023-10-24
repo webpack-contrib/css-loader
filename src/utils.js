@@ -594,6 +594,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
         : "asIs",
     exportOnlyLocals: false,
     ...rawModulesOptions,
+    useExportsAs: rawModulesOptions.exportLocalsConvention === "asIs",
   };
 
   let exportLocalsConventionType;
@@ -679,6 +680,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
 
     if (
       typeof exportLocalsConventionType === "string" &&
+      exportLocalsConventionType !== "asIs" &&
       exportLocalsConventionType !== "camelCaseOnly" &&
       exportLocalsConventionType !== "dashesOnly"
     ) {
@@ -1158,6 +1160,7 @@ function getExportCode(
 
   if (icssPluginUsed) {
     let localsCode = "";
+    let identifierId = 0;
 
     const addExportToLocalsCode = (names, value) => {
       const normalizedNames = Array.isArray(names)
@@ -1165,22 +1168,24 @@ function getExportCode(
         : new Set([names]);
 
       for (const name of normalizedNames) {
+        const serializedValue = isTemplateLiteralSupported
+          ? convertToTemplateLiteral(value)
+          : JSON.stringify(value);
         if (options.modules.namedExport) {
-          localsCode += `export var ${name} = ${
-            isTemplateLiteralSupported
-              ? convertToTemplateLiteral(value)
-              : JSON.stringify(value)
-          };\n`;
+          if (options.modules.useExportsAs) {
+            identifierId += 1;
+            const id = `_${identifierId.toString(16)}`;
+            localsCode += `var ${id} = ${serializedValue};\n`;
+            localsCode += `export { ${id} as ${JSON.stringify(name)} };\n`;
+          } else {
+            localsCode += `export var ${name} = ${serializedValue};\n`;
+          }
         } else {
           if (localsCode) {
             localsCode += `,\n`;
           }
 
-          localsCode += `\t${JSON.stringify(name)}: ${
-            isTemplateLiteralSupported
-              ? convertToTemplateLiteral(value)
-              : JSON.stringify(value)
-          }`;
+          localsCode += `\t${JSON.stringify(name)}: ${serializedValue}`;
         }
       }
     };

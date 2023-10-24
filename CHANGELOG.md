@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* css nesting support 
+* css nesting support
 * `@scope` at-rule support
 
 ## [6.9.0](https://github.com/webpack-contrib/css-loader/compare/v6.8.1...v6.9.0) (2024-01-09)
@@ -170,7 +170,7 @@ All notable changes to this project will be documented in this file. See [standa
 * `new URL()` syntax used for `url()`, only when the `esModule` option is enabled (enabled by default), it means you can bundle CSS for libraries
 * [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) are handling in `url()`, it means you can register loaders for them, [example](https://webpack.js.org/configuration/module/#rulescheme)
 * aliases with `false` value for `url()` now generate empty data URI (i.e. `data:0,`), only when the `esModule` option is enabled (enabled by default)
-* `[ext]` placeholder don't need `.` (dot) before for the `localIdentName` option, i.e. please change `.[ext]` on `[ext]` (no dot before) 
+* `[ext]` placeholder don't need `.` (dot) before for the `localIdentName` option, i.e. please change `.[ext]` on `[ext]` (no dot before)
 * `[folder]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic
 * `[emoji]` placeholder was removed without replacement for the `localIdentName` option, please use a custom function if you need complex logic
 * the `localIdentHashPrefix` was removed in favor the `localIdentHashSalt` option
@@ -189,7 +189,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Notes
 
-* **we strongly recommend not to add `.css` to `resolve.extensions`, it reduces performance and in most cases it is simply not necessary, alternative you can set resolve options [by dependency](https://webpack.js.org/configuration/resolve/#resolvebydependency)**   
+* **we strongly recommend not to add `.css` to `resolve.extensions`, it reduces performance and in most cases it is simply not necessary, alternative you can set resolve options [by dependency](https://webpack.js.org/configuration/resolve/#resolvebydependency)**
 
 ### [5.2.7](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7) (2021-07-13)
 

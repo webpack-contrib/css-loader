@@ -8801,6 +8801,19 @@ Object {
 
 exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "true" value options: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with "exportOnlyLocals" and "exportLocalsConvention": "asIs": errors 1`] = `Array []`;
+
+exports[`"modules" option should work with "exportOnlyLocals" and "exportLocalsConvention": "asIs": module 1`] = `
+"// Exports
+var _1 = \`Sl3D7kVfPwS7_QdqSTVq\`;
+export { _1 as \\"class\\" };
+var _2 = \`tHyHTECdn65WISyToGeV\`;
+export { _2 as \\"class-name\\" };
+"
+`;
+
+exports[`"modules" option should work with "exportOnlyLocals" and "exportLocalsConvention": "asIs": warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with "exportOnlyLocals" and "namedExport" option: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with "exportOnlyLocals" and "namedExport" option: module 1`] = `
