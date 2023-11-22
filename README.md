@@ -163,7 +163,7 @@ module.exports = {
               }
 
               // Don't handle images under root-relative /external_images/
-              if (/^\/external_images\//.test(path)) {
+              if (/^\/external_images\//.test(url)) {
                 return false;
               }
 
