@@ -629,4 +629,36 @@ describe('"url" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work with url.filter", async () => {
+    const compiler = getCompiler("./url/url.js", {
+      url: {
+        filter: /img/gm,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should not work with url.filter", async () => {
+    const compiler = getCompiler("./url/url.js", {
+      url: {
+        filter: /broken/gm,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

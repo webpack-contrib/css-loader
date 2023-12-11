@@ -529,7 +529,9 @@ function getFilter(filter, resourcePath) {
     if (typeof filter === "function") {
       return filter(...args, resourcePath);
     }
-
+    if (filter instanceof RegExp) {
+      return filter.exec(...args);
+    }
     return true;
   };
 }
