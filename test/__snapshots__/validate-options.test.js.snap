@@ -386,7 +386,18 @@ exports[`validate options should throw an error on the "url" option with "[]" va
 
 exports[`validate options should throw an error on the "url" option with "{"filter":true}" value 1`] = `
 "Invalid options object. CSS Loader has been initialized using an options object that does not match the API schema.
- - options.url.filter should be an instance of function."
+ - options.url should be one of these:
+   boolean | object { filter? }
+   -> Allows to enables/disables \`url()\`/\`image-set()\` functions handling.
+   -> Read more at https://github.com/webpack-contrib/css-loader#url
+   Details:
+    * options.url.filter should be one of these:
+      RegExp | function
+      -> Allows to custom \`url()\`/\`image-set()\` functions handling via regexp or function.
+      -> Read more at https://github.com/webpack-contrib/css-loader#url
+      Details:
+       * options.url.filter should be an instance of RegExp.
+       * options.url.filter should be an instance of function."
 `;
 
 exports[`validate options should throw an error on the "url" option with "{}" value 1`] = `

@@ -13,7 +13,16 @@
           "type": "object",
           "properties": {
             "filter": {
-              "instanceof": "Function"
+              "description": "Allows to custom `url()`/`image-set()` functions handling via regexp or function.",
+              "link": "https://github.com/webpack-contrib/css-loader#url",
+              "anyOf": [
+                {
+                  "instanceof": "RegExp"
+                },
+                {
+                  "instanceof": "Function"
+                }
+              ]
             }
           },
           "additionalProperties": false
