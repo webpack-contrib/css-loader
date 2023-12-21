@@ -778,7 +778,7 @@ function getModulesPlugins(options, loaderContext) {
       localByDefault({ mode }),
       extractImports(),
       modulesScope({
-        generateScopedName(exportName) {
+        generateScopedName(exportName, resourceFile, rawCss, node) {
           let localIdent;
 
           if (typeof getLocalIdent !== "undefined") {
@@ -794,6 +794,7 @@ function getModulesPlugins(options, loaderContext) {
                 hashDigestLength: localIdentHashDigestLength,
                 hashStrategy,
                 regExp: localIdentRegExp,
+                node,
               }
             );
           }
@@ -813,6 +814,7 @@ function getModulesPlugins(options, loaderContext) {
                 hashDigestLength: localIdentHashDigestLength,
                 hashStrategy,
                 regExp: localIdentRegExp,
+                node,
               }
             );
 
