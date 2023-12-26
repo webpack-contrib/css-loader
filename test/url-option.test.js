@@ -149,7 +149,7 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should resolve absolute path when the 'esModules' is 'false'", async () => {
+  it("should resolve absolute path when the 'esModule' is 'false'", async () => {
     // Create the file with absolute path
     const fileDirectory = path.resolve(__dirname, "fixtures", "url");
     const file = path.resolve(fileDirectory, "url-absolute.css");
@@ -227,7 +227,7 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should resolve "file" protocol path when the "esModules" is "false"', async () => {
+  it('should resolve "file" protocol path when the "esModule" is "false"', async () => {
     // Create the file with absolute path
     const fileDirectory = path.resolve(__dirname, "fixtures", "url");
     const file = path.resolve(fileDirectory, "url-file-protocol.css");

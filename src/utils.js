@@ -659,7 +659,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
   if (needNamedExport) {
     if (rawOptions.esModule === false) {
       throw new Error(
-        "The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'esModules' option to be enabled"
+        "The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'esModule' option to be enabled"
       );
     }
 
@@ -673,7 +673,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
   if (modulesOptions.namedExport === true) {
     if (rawOptions.esModule === false) {
       throw new Error(
-        "The 'modules.namedExport' option requires the 'esModules' option to be enabled"
+        "The 'modules.namedExport' option requires the 'esModule' option to be enabled"
       );
     }
 
