@@ -329,7 +329,7 @@ describe('"modules" option', () => {
   });
 
   it('should work and respect the "getLocalIdent" option', async () => {
-    expect.assertions(389);
+    expect.assertions(444);
 
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
@@ -345,6 +345,7 @@ describe('"modules" option', () => {
           expect(options.regExp).toBe("regExp");
           expect(options.context).toBe("context");
           expect(options.hashSalt).toBe("hash");
+          expect(options.node).toBeDefined();
 
           return "foo";
         },
