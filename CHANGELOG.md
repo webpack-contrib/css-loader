@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.9.0](https://github.com/webpack-contrib/css-loader/compare/v6.8.1...v6.9.0) (2024-01-09)
+
+
+### Features
+
+* updated generateExportEntry to expose node details ([#1556](https://github.com/webpack-contrib/css-loader/issues/1556)) ([05002f3](https://github.com/webpack-contrib/css-loader/commit/05002f39e29afd7e12f9efca4d073bc23e3d2150))
+
+
+### Bug Fixes
+
+* css experiment detection ([#1559](https://github.com/webpack-contrib/css-loader/issues/1559)) ([f2cfe30](https://github.com/webpack-contrib/css-loader/commit/f2cfe30a8f6b0053a268c0d9c1943bb3c8f01338))
+
 ### [6.8.1](https://github.com/webpack-contrib/css-loader/compare/v6.8.0...v6.8.1) (2023-05-28)
 
 
