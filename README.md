@@ -1534,7 +1534,7 @@ import "./styles.css";
 
 > **Warning**
 >
-> You don't need [`style-loader`](https://github.com/webpack-contrib/style-loader) anymore, please remove it.
+> You should not use [`style-loader`](https://github.com/webpack-contrib/style-loader) or [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) with this value.
 
 > **Warning**
 >
