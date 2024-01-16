@@ -17,10 +17,10 @@ describe('"esModule" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./es-module/source.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -31,10 +31,10 @@ describe('"esModule" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./es-module/source.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -48,10 +48,10 @@ describe('"esModule" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./es-module/source.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -65,10 +65,10 @@ describe('"esModule" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./es-module/source.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -82,10 +82,10 @@ describe('"esModule" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./es-module/source.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -96,10 +96,10 @@ describe('"esModule" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./es-module/source.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -159,7 +159,7 @@ describe('"esModule" option', () => {
               },
             ],
           },
-        }
+        },
       );
       const stats = await compile(compiler);
 
@@ -221,12 +221,12 @@ describe('"esModule" option', () => {
               chunkFilename: "[id].css",
             }),
           ],
-        }
+        },
       );
       const stats = await compile(compiler);
 
       expect(
-        getExecutedCode("main.bundle.js", compiler, stats)
+        getExecutedCode("main.bundle.js", compiler, stats),
       ).toMatchSnapshot("result");
       expect(getWarnings(stats)).toMatchSnapshot("warnings");
       expect(getErrors(stats)).toMatchSnapshot("errors");

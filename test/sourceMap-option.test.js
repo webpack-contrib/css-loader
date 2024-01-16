@@ -21,10 +21,10 @@ describe('"sourceMap" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -37,10 +37,10 @@ describe('"sourceMap" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -53,10 +53,10 @@ describe('"sourceMap" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./source-map/with-query.css?url=false", stats)
+      getModuleSource("./source-map/with-query.css?url=false", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -68,15 +68,15 @@ describe('"sourceMap" option', () => {
       {},
       {
         devtool: "nosources-source-map",
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -99,7 +99,7 @@ describe('"sourceMap" option', () => {
                 {
                   loader: path.resolve(
                     __dirname,
-                    "./fixtures/source-map-loader.js"
+                    "./fixtures/source-map-loader.js",
                   ),
                   options: {
                     sourceMap: null,
@@ -109,15 +109,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -128,7 +128,7 @@ describe('"sourceMap" option', () => {
       __dirname,
       "fixtures",
       "source-map",
-      "basic.css"
+      "basic.css",
     );
 
     const compiler = getCompiler(
@@ -147,7 +147,7 @@ describe('"sourceMap" option', () => {
                 {
                   loader: path.resolve(
                     __dirname,
-                    "./fixtures/source-map-loader.js"
+                    "./fixtures/source-map-loader.js",
                   ),
                   options: {
                     sourceMap: JSON.stringify({
@@ -166,15 +166,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -184,12 +184,12 @@ describe('"sourceMap" option', () => {
     const absoluteSourceRoot = path.resolve(
       __dirname,
       "fixtures",
-      "source-map"
+      "source-map",
     );
     const absolutePath = path.resolve(absoluteSourceRoot, "basic-1.css");
     const relativePath = path.relative(
       absoluteSourceRoot,
-      path.resolve(__dirname, "fixtures", "source-map", "basic-2.css")
+      path.resolve(__dirname, "fixtures", "source-map", "basic-2.css"),
     );
 
     const compiler = getCompiler(
@@ -208,7 +208,7 @@ describe('"sourceMap" option', () => {
                 {
                   loader: path.resolve(
                     __dirname,
-                    "./fixtures/source-map-loader.js"
+                    "./fixtures/source-map-loader.js",
                   ),
                   options: {
                     sourceMap: JSON.stringify({
@@ -243,15 +243,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -261,7 +261,7 @@ describe('"sourceMap" option', () => {
     const absoluteSourceRoot = path.resolve(
       __dirname,
       "fixtures",
-      "source-map"
+      "source-map",
     );
     const compiler = getCompiler(
       "./source-map/basic.js",
@@ -279,7 +279,7 @@ describe('"sourceMap" option', () => {
                 {
                   loader: path.resolve(
                     __dirname,
-                    "./fixtures/source-map-loader.js"
+                    "./fixtures/source-map-loader.js",
                   ),
                   options: {
                     sourceMap: JSON.stringify({
@@ -300,15 +300,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -343,15 +343,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./source-map/basic.postcss.css", stats)
+      getModuleSource("./source-map/basic.postcss.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -385,15 +385,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.scss", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -425,15 +425,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/base.less", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -465,15 +465,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/base.styl", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -508,19 +508,19 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
     const chunkName = Object.keys(stats.compilation.assets).find((assetName) =>
-      /\.js$/.test(assetName)
+      /\.js$/.test(assetName),
     );
 
-    expect(chunkName).toBe("main.132d87bd187161cd37fd.bundle.js");
+    expect(chunkName).toBe("main.2fc4310b5596936c73e0.bundle.js");
     expect(
-      getModuleSource("fixtures/source-map/basic.css", stats)
+      getModuleSource("fixtures/source-map/basic.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode(chunkName, compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -559,15 +559,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(readAsset("main.css", compiler, stats)).toMatchSnapshot(
-      "extracted css"
+      "extracted css",
     );
     expect(
-      JSON.parse(readAsset("main.css.map", compiler, stats))
+      JSON.parse(readAsset("main.css.map", compiler, stats)),
     ).toMatchSnapshot("source map");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -606,15 +606,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(readAsset("main.css", compiler, stats)).toMatchSnapshot(
-      "extracted css"
+      "extracted css",
     );
     expect(
-      JSON.parse(readAsset("main.css.map", compiler, stats))
+      JSON.parse(readAsset("main.css.map", compiler, stats)),
     ).toMatchSnapshot("source map");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -653,15 +653,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(readAsset("main.css", compiler, stats)).toMatchSnapshot(
-      "extracted css"
+      "extracted css",
     );
     expect(
-      JSON.parse(readAsset("main.css.map", compiler, stats))
+      JSON.parse(readAsset("main.css.map", compiler, stats)),
     ).toMatchSnapshot("source map");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -700,15 +700,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(readAsset("main.css", compiler, stats)).toMatchSnapshot(
-      "extracted css"
+      "extracted css",
     );
     expect(
-      JSON.parse(readAsset("main.css.map", compiler, stats))
+      JSON.parse(readAsset("main.css.map", compiler, stats)),
     ).toMatchSnapshot("source map");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -751,11 +751,11 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
     const chunkName = Object.keys(stats.compilation.assets).find((assetName) =>
-      /\.css$/.test(assetName)
+      /\.css$/.test(assetName),
     );
 
     const extractedCSS = readAsset(chunkName, compiler, stats);
@@ -765,20 +765,20 @@ describe('"sourceMap" option', () => {
     expect(
       extractedCSS.replace(
         /=(.+?)\..+?\.css\.map/,
-        "=$1.xxxxxxxxxxxxxxxxxxxx.css.map"
-      )
+        "=$1.xxxxxxxxxxxxxxxxxxxx.css.map",
+      ),
     ).toMatchSnapshot("extracted css");
 
     const sourceMap = JSON.parse(
-      readAsset(`${chunkName}.map`, compiler, stats)
+      readAsset(`${chunkName}.map`, compiler, stats),
     );
 
     sourceMap.file = sourceMap.file.replace(
       /^(.+?)\..+?\.css$/,
-      "$1.xxxxxxxxxxxxxxxxxxxx.css"
+      "$1.xxxxxxxxxxxxxxxxxxxx.css",
     );
     sourceMap.sources = sourceMap.sources.map((source) =>
-      source.replace("css-loader", "")
+      source.replace("css-loader", ""),
     );
 
     expect(sourceMap).toMatchSnapshot("source map");
@@ -793,10 +793,10 @@ describe('"sourceMap" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -819,7 +819,7 @@ describe('"sourceMap" option', () => {
                 {
                   loader: path.resolve(
                     __dirname,
-                    "./fixtures/source-map-loader.js"
+                    "./fixtures/source-map-loader.js",
                   ),
                   options: {
                     // eslint-disable-next-line no-undefined
@@ -830,15 +830,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -861,7 +861,7 @@ describe('"sourceMap" option', () => {
                 {
                   loader: path.resolve(
                     __dirname,
-                    "./fixtures/source-map-loader.js"
+                    "./fixtures/source-map-loader.js",
                   ),
                   options: {
                     sourceMap: JSON.stringify({
@@ -879,15 +879,15 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./source-map/basic.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -925,12 +925,12 @@ describe('"sourceMap" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(readAsset("main.css", compiler, stats)).toMatchSnapshot(
-      "extracted css"
+      "extracted css",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");

@@ -8,7 +8,7 @@ module.exports = (item) => {
 
   if (typeof btoa === "function") {
     const base64 = btoa(
-      unescape(encodeURIComponent(JSON.stringify(cssMapping)))
+      unescape(encodeURIComponent(JSON.stringify(cssMapping))),
     );
     const data = `sourceMappingURL=data:application/json;charset=utf-8;base64,${base64}`;
     const sourceMapping = `/*# ${data} */`;

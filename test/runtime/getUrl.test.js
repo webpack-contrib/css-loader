@@ -31,101 +31,101 @@ describe("escape", () => {
     expect(getUrl('"image other.png"', { needQuotes: true })).toMatchSnapshot();
 
     expect(
-      getUrl({ default: "image.png", __esModule: true })
+      getUrl({ default: "image.png", __esModule: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl({ default: "'image.png'", __esModule: true })
+      getUrl({ default: "'image.png'", __esModule: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl({ default: '"image.png"', __esModule: true })
+      getUrl({ default: '"image.png"', __esModule: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl({ default: "image other.png", __esModule: true })
+      getUrl({ default: "image other.png", __esModule: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl({ default: '"image other.png"', __esModule: true })
+      getUrl({ default: '"image other.png"', __esModule: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl({ default: "'image other.png'", __esModule: true })
+      getUrl({ default: "'image other.png'", __esModule: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl({ default: 'image"other.png', __esModule: true })
+      getUrl({ default: 'image"other.png', __esModule: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl({ default: "image\nother.png", __esModule: true })
+      getUrl({ default: "image\nother.png", __esModule: true }),
     ).toMatchSnapshot();
 
     expect(
-      getUrl({ default: "image.png", __esModule: true }, { hash: "#hash" })
+      getUrl({ default: "image.png", __esModule: true }, { hash: "#hash" }),
     ).toMatchSnapshot();
     expect(
-      getUrl({ default: '"image.png"', __esModule: true }, { hash: "#hash" })
+      getUrl({ default: '"image.png"', __esModule: true }, { hash: "#hash" }),
     ).toMatchSnapshot();
     expect(
-      getUrl({ default: "'image.png'", __esModule: true }, { hash: "#hash" })
+      getUrl({ default: "'image.png'", __esModule: true }, { hash: "#hash" }),
     ).toMatchSnapshot();
     expect(
       getUrl(
         { default: "image other.png", __esModule: true },
-        { hash: "#hash" }
-      )
+        { hash: "#hash" },
+      ),
     ).toMatchSnapshot();
 
     expect(
       getUrl(
         { default: "image other.png", __esModule: true },
-        { needQuotes: true }
-      )
+        { needQuotes: true },
+      ),
     ).toMatchSnapshot();
     expect(
       getUrl(
         { default: "'image other.png'", __esModule: true },
-        { needQuotes: true }
-      )
+        { needQuotes: true },
+      ),
     ).toMatchSnapshot();
     expect(
       getUrl(
         { default: '"image other.png"', __esModule: true },
-        { needQuotes: true }
-      )
+        { needQuotes: true },
+      ),
     ).toMatchSnapshot();
 
     expect(
-      getUrl("image other.png", { hash: "#hash", needQuotes: true })
+      getUrl("image other.png", { hash: "#hash", needQuotes: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl('"image other.png"', { hash: "#hash", needQuotes: true })
+      getUrl('"image other.png"', { hash: "#hash", needQuotes: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl("'image other.png'", { hash: "#hash", needQuotes: true })
+      getUrl("'image other.png'", { hash: "#hash", needQuotes: true }),
     ).toMatchSnapshot();
     expect(
-      getUrl("image other.png", { hash: "#hash", needQuotes: true })
+      getUrl("image other.png", { hash: "#hash", needQuotes: true }),
     ).toMatchSnapshot();
 
     expect(
       getUrl(
         { default: "image other.png", __esModule: true },
-        { hash: "#hash", needQuotes: true }
-      )
+        { hash: "#hash", needQuotes: true },
+      ),
     ).toMatchSnapshot();
     expect(
       getUrl(
         { default: '"image other.png"', __esModule: true },
-        { hash: "#hash", needQuotes: true }
-      )
+        { hash: "#hash", needQuotes: true },
+      ),
     ).toMatchSnapshot();
     expect(
       getUrl(
         { default: "'image other.png'", __esModule: true },
-        { hash: "#hash", needQuotes: true }
-      )
+        { hash: "#hash", needQuotes: true },
+      ),
     ).toMatchSnapshot();
     expect(
       getUrl(
         { default: "image other.png", __esModule: true },
-        { hash: "#hash", needQuotes: true }
-      )
+        { hash: "#hash", needQuotes: true },
+      ),
     ).toMatchSnapshot();
   });
 });

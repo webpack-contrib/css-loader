@@ -23,7 +23,7 @@ describe('"url" option', () => {
 
     expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -35,7 +35,7 @@ describe('"url" option', () => {
 
     expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -47,7 +47,7 @@ describe('"url" option', () => {
 
     expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -67,17 +67,17 @@ describe('"url" option', () => {
             "~img.png": path.resolve(__dirname, "./fixtures/url/img.png"),
             "/guide/img/banWord/addCoinDialogTitleBg.png": path.resolve(
               __dirname,
-              "./fixtures/url/img.png"
+              "./fixtures/url/img.png",
             ),
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -86,15 +86,15 @@ describe('"url" option', () => {
   it("should work with url.filter", async () => {
     const compiler = getCompiler("./url/url.js", {
       url: {
-        filter: (url, resourcePath) => {
+        filter: (resourceUrl, resourcePath) => {
           expect(typeof resourcePath === "string").toBe(true);
 
-          if (url.startsWith("/guide/img")) {
+          if (resourceUrl.startsWith("/guide/img")) {
             return false;
           }
 
           // Don't handle `img.png`
-          if (url.includes("img.png")) {
+          if (resourceUrl.includes("img.png")) {
             return false;
           }
 
@@ -106,7 +106,7 @@ describe('"url" option', () => {
 
     expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -139,11 +139,11 @@ describe('"url" option', () => {
     expect(
       getModuleSource("./url/url-absolute.css", stats).replace(
         new RegExp(absolutePath.replace(/\\/g, "\\\\\\\\")),
-        "<absolute-path>"
-      )
+        "<absolute-path>",
+      ),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -178,11 +178,11 @@ describe('"url" option', () => {
     expect(
       getModuleSource("./url/url-absolute.css", stats).replace(
         absolutePath,
-        "<absolute-path>"
-      )
+        "<absolute-path>",
+      ),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -217,11 +217,11 @@ describe('"url" option', () => {
     expect(
       getModuleSource("./url/url-file-protocol.css", stats).replace(
         absolutePath,
-        "<file-protocol-url>"
-      )
+        "<file-protocol-url>",
+      ),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -258,11 +258,11 @@ describe('"url" option', () => {
     expect(
       getModuleSource("./url/url-file-protocol.css", stats).replace(
         absolutePath,
-        "<file-protocol-url>"
-      )
+        "<file-protocol-url>",
+      ),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -293,13 +293,13 @@ describe('"url" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -330,13 +330,13 @@ describe('"url" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -364,13 +364,13 @@ describe('"url" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -403,15 +403,15 @@ describe('"url" option', () => {
             "/logo.png": false,
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./url/false-alias.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -447,15 +447,15 @@ describe('"url" option', () => {
             "/logo.png": false,
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./url/false-alias.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -510,7 +510,7 @@ describe('"url" option', () => {
             chunkFilename: "[id].css",
           }),
         ],
-      }
+      },
     );
     const stats = await compile(compiler);
 
@@ -528,15 +528,15 @@ describe('"url" option', () => {
         resolve: {
           extensions: [".svg", "..."],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./url/resolve-extensions.css", stats)
+      getModuleSource("./url/resolve-extensions.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -548,17 +548,17 @@ describe('"url" option', () => {
 
     new webpack.IgnorePlugin({ resourceRegExp: /directory\// }).apply(compiler);
     new webpack.IgnorePlugin({ resourceRegExp: /unknwon\.png/ }).apply(
-      compiler
+      compiler,
     );
     new webpack.IgnorePlugin({ resourceRegExp: /img\.png/ }).apply(compiler);
 
     const stats = await compile(compiler);
 
     expect(getModuleSource("./url/ignore-plugin.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -574,20 +574,20 @@ describe('"url" option', () => {
             allowedUris: [() => true],
             lockfileLocation: path.resolve(
               __dirname,
-              "./lock-files/url/lock.json"
+              "./lock-files/url/lock.json",
             ),
             cacheLocation: path.resolve(__dirname, "./lock-files/url"),
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./url/absolute-url.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -618,7 +618,7 @@ describe('"url" option', () => {
             templateLiteral: true,
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 

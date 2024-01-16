@@ -192,7 +192,7 @@ type importFn =
         media: string,
         resourcePath: string,
         supports?: string,
-        layer?: string
+        layer?: string,
       ) => boolean;
     };
 ```
@@ -315,7 +315,7 @@ type modules =
       getLocalIdent: (
         context: LoaderContext,
         localIdentName: string,
-        localName: string
+        localName: string,
       ) => string;
       namedExport: boolean;
       exportGlobals: boolean;
@@ -1072,7 +1072,7 @@ Type:
 type getLocalIdent = (
   context: LoaderContext,
   localIdentName: string,
-  localName: string
+  localName: string,
 ) => string;
 ```
 
@@ -1309,7 +1309,7 @@ module.exports = {
                 name.replace(/-/g, "_"),
                 // dashesCamelCase
                 name.replace(/-+(\w)/g, (match, firstLetter) =>
-                  firstLetter.toUpperCase()
+                  firstLetter.toUpperCase(),
                 ),
               ];
             },
@@ -1746,7 +1746,8 @@ With the help of the `/* webpackIgnore: true */`comment, it is possible to disab
 .class {
   /* Disabled url handling for the second url in the 'background' declaration */
   color: red;
-  background: url("./url/img.png"),
+  background:
+    url("./url/img.png"),
     /* webpackIgnore: true */ url("./url/img.png");
 }
 
@@ -1880,7 +1881,7 @@ module.exports = {
     alias: {
       "/assets/unresolved/img.png": path.resolve(
         __dirname,
-        "assets/real-path-to-img/img.png"
+        "assets/real-path-to-img/img.png",
       ),
     },
   },

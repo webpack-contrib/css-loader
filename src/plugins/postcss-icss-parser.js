@@ -42,13 +42,13 @@ const plugin = (options = {}) => {
 
         const request = requestify(
           normalizeUrl(normalizedUrl, true),
-          loaderContext.rootContext
+          loaderContext.rootContext,
         );
         const doResolve = async () => {
           const resolvedUrl = await resolveRequests(
             resolver,
             loaderContext.context,
-            [...new Set([normalizedUrl, request])]
+            [...new Set([normalizedUrl, request])],
           );
 
           if (!resolvedUrl) {
@@ -92,7 +92,7 @@ const plugin = (options = {}) => {
         }
 
         for (const [replacementIndex, token] of Object.keys(
-          item.tokens
+          item.tokens,
         ).entries()) {
           const replacementName = `___CSS_LOADER_ICSS_IMPORT_${index}_REPLACEMENT_${replacementIndex}___`;
           const localName = item.tokens[token];
@@ -110,7 +110,7 @@ const plugin = (options = {}) => {
       for (const name of Object.keys(icssExports)) {
         const value = replaceValueSymbols(
           icssExports[name],
-          importReplacements
+          importReplacements,
         );
 
         options.exports.push({ name, value });
