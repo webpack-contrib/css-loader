@@ -16,7 +16,7 @@ describe("'exportType' option", () => {
 
     expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -30,7 +30,7 @@ describe("'exportType' option", () => {
 
     expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -43,10 +43,10 @@ describe("'exportType' option", () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./basic-css-style-sheet.css", stats)
+      getModuleSource("./basic-css-style-sheet.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -60,10 +60,10 @@ describe("'exportType' option", () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./basic-css-style-sheet.css", stats)
+      getModuleSource("./basic-css-style-sheet.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -78,7 +78,7 @@ describe("'exportType' option", () => {
 
     expect(getModuleSource("./simple.css", stats)).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -91,10 +91,10 @@ describe("'exportType' option", () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./basic-css-style-sheet.css", stats)
+      getModuleSource("./basic-css-style-sheet.css", stats),
     ).toMatchSnapshot("module");
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -109,10 +109,10 @@ describe("'exportType' option", () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./basic-css-style-sheet.css", stats)
+      getModuleSource("./basic-css-style-sheet.css", stats),
     ).toMatchSnapshot("module");
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -126,10 +126,10 @@ describe("'exportType' option", () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./basic-css-style-sheet.css", stats)
+      getModuleSource("./basic-css-style-sheet.css", stats),
     ).toMatchSnapshot("module");
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -143,10 +143,10 @@ describe("'exportType' option", () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./basic-css-style-sheet.css", stats)
+      getModuleSource("./basic-css-style-sheet.css", stats),
     ).toMatchSnapshot("module");
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -160,7 +160,7 @@ describe("'exportType' option", () => {
 
     expect(getModuleSource("./basic.css", stats)).toMatchSnapshot("module");
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -174,7 +174,7 @@ describe("'exportType' option", () => {
 
     expect(getModuleSource("./url/url.css", stats)).toMatchSnapshot("module");
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -186,15 +186,15 @@ describe("'exportType' option", () => {
       {
         exportType: "css-style-sheet",
         modules: true,
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes.css", stats)
+      getModuleSource("./modules/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -208,15 +208,15 @@ describe("'exportType' option", () => {
         modules: {
           exportOnlyLocals: true,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes.css", stats)
+      getModuleSource("./modules/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -244,18 +244,18 @@ describe("'exportType' option", () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./basic-css-style-sheet.css", stats)
+      getModuleSource("./basic-css-style-sheet.css", stats),
     ).toMatchSnapshot("module");
     expect(getModuleSource("./basic.css?foo=1", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -288,15 +288,15 @@ describe("'exportType' option", () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./scss/source.scss", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(
-      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet")
+      getExecutedCode("main.bundle.js", compiler, stats, "css-style-sheet"),
     ).toMatchSnapshot("result");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
