@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.9.1](https://github.com/webpack-contrib/css-loader/compare/v6.9.0...v6.9.1) (2024-01-18)
+
+
+### Bug Fixes
+
+* css nesting support 
+* `@scope` at-rule support
+
 ## [6.9.0](https://github.com/webpack-contrib/css-loader/compare/v6.8.1...v6.9.0) (2024-01-09)
 
 
