@@ -2361,4 +2361,32 @@ describe('"modules" option', () => {
     expect(getWarnings(serverStats)).toMatchSnapshot("server warnings");
     expect(getErrors(serverStats)).toMatchSnapshot("server errors");
   });
+
+  it("should work with CSS nesting", async () => {
+    const compiler = getCompiler("./modules/nesting/css.js", { modules: true });
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./modules/nesting/css.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with `@scope` at-rule", async () => {
+    const compiler = getCompiler("./modules/scope/css.js", { modules: true });
+    const stats = await compile(compiler);
+
+    expect(getModuleSource("./modules/scope/css.css", stats)).toMatchSnapshot(
+      "module"
+    );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

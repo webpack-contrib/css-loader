@@ -10255,6 +10255,274 @@ Array [
 
 exports[`"modules" option should work with \`@\` character in scoped packages: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with \`@scope\` at-rule: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with \`@scope\` at-rule: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`@scope (.kthHR5ALtmYK9QgapjA3) {
+  :scope {
+    background-color: plum;
+  }
+
+  .tHELZHxFZl5YuwVt1kmN {
+    color: darkmagenta;
+  }
+}
+
+@scope (.kodeNqRFoMkWN6SDcuTu) {
+  :scope {
+    background-color: darkmagenta;
+    color: antiquewhite;
+  }
+
+  .yv3SIfJTNkZjzBV3Fc0c {
+    color: plum;
+  }
+}
+\`, \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"class-a\\": \`tHELZHxFZl5YuwVt1kmN\`,
+	\\"class-b\\": \`yv3SIfJTNkZjzBV3Fc0c\`
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with \`@scope\` at-rule: result 1`] = `
+Array [
+  Array [
+    "./modules/scope/css.css",
+    "@scope (.kthHR5ALtmYK9QgapjA3) {
+  :scope {
+    background-color: plum;
+  }
+
+  .tHELZHxFZl5YuwVt1kmN {
+    color: darkmagenta;
+  }
+}
+
+@scope (.kodeNqRFoMkWN6SDcuTu) {
+  :scope {
+    background-color: darkmagenta;
+    color: antiquewhite;
+  }
+
+  .yv3SIfJTNkZjzBV3Fc0c {
+    color: plum;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with \`@scope\` at-rule: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with CSS nesting: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with CSS nesting: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`._pG6Ii1pxmcUMD0NzUtQ {
+  width: 90%;
+  justify-content: center;
+  border-radius: 1rem;
+  border: black solid 2px;
+  background-color: #ffc107;
+  color: black;
+  padding: 1rem;
+
+  .iUl5nI1Dv6TIu2YP4dWR:before {
+    /* equivalent to \\\\\`.notice .notice-heading:before\\\\\` */
+    content: \\"ℹ︎ \\";
+  }
+
+  &.TFrsdnZD18tk3GETl69r {
+     /* equivalent to \\\\\`.notice.warning\\\\\` */
+     background-color: #d81b60;
+     border-color: #d81b60;
+     color: white;
+    .q_ifMKrTEObqZgH3LvyG:before {
+      /* equivalent to \\\\\`.notice.warning .warning-heading:before\\\\\` */
+      content: \\"! \\";
+    }
+  }
+
+  &.qsxzhFlwpVGqHrGQJ1hN {
+     /* equivalent to \\\\\`.notice.success\\\\\` */
+     background-color: #004d40;
+     border-color: #004d40;
+     color: white;
+
+    .A8gfWSRbM9YW0L6tOjQF:before {
+      /* equivalent to \\\\\`.notice.success .success-heading:before\\\\\` */
+      content: \\"✓ \\";
+    }
+  }
+}
+
+.VqpL5NBnVLpSzG9MmKBr {
+  color: red;
+}
+
+.ql3V2zACcMFSFfphBZPW {
+
+  &.dszXEFjuKeRqj_gVSvHw {
+    color: blue;
+  }
+}
+
+.VqpL5NBnVLpSzG9MmKBr {
+  display: grid;
+
+  @media (orientation: landscape) {
+    & {
+      grid-auto-flow: column;
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  .cPifDMAgF2q_hT5k2Uk_ {
+    color: red;
+  }
+}
+
+@media (orientation: landscape) {
+  @media (orientation: landscape) {
+    .TmIpPZmDj78OxIhKF77L {
+      color: red;
+    }
+  }
+}
+
+._gVr6K1cS3fTgF_VlJkG {
+
+  @media (orientation: landscape) {
+    color: red;
+  }
+}
+\`, \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"notice\\": \`_pG6Ii1pxmcUMD0NzUtQ\`,
+	\\"notice-heading\\": \`iUl5nI1Dv6TIu2YP4dWR\`,
+	\\"warning\\": \`TFrsdnZD18tk3GETl69r\`,
+	\\"warning-heading\\": \`q_ifMKrTEObqZgH3LvyG\`,
+	\\"success\\": \`qsxzhFlwpVGqHrGQJ1hN\`,
+	\\"success-heading\\": \`A8gfWSRbM9YW0L6tOjQF\`,
+	\\"foo\\": \`VqpL5NBnVLpSzG9MmKBr\`,
+	\\"bar\\": \`ql3V2zACcMFSFfphBZPW VqpL5NBnVLpSzG9MmKBr\`,
+	\\"baz\\": \`dszXEFjuKeRqj_gVSvHw\`,
+	\\"a\\": \`cPifDMAgF2q_hT5k2Uk_\`,
+	\\"b\\": \`TmIpPZmDj78OxIhKF77L cPifDMAgF2q_hT5k2Uk_\`,
+	\\"n\\": \`_gVr6K1cS3fTgF_VlJkG cPifDMAgF2q_hT5k2Uk_\`
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with CSS nesting: result 1`] = `
+Array [
+  Array [
+    "./modules/nesting/css.css",
+    "._pG6Ii1pxmcUMD0NzUtQ {
+  width: 90%;
+  justify-content: center;
+  border-radius: 1rem;
+  border: black solid 2px;
+  background-color: #ffc107;
+  color: black;
+  padding: 1rem;
+
+  .iUl5nI1Dv6TIu2YP4dWR:before {
+    /* equivalent to \`.notice .notice-heading:before\` */
+    content: \\"ℹ︎ \\";
+  }
+
+  &.TFrsdnZD18tk3GETl69r {
+     /* equivalent to \`.notice.warning\` */
+     background-color: #d81b60;
+     border-color: #d81b60;
+     color: white;
+    .q_ifMKrTEObqZgH3LvyG:before {
+      /* equivalent to \`.notice.warning .warning-heading:before\` */
+      content: \\"! \\";
+    }
+  }
+
+  &.qsxzhFlwpVGqHrGQJ1hN {
+     /* equivalent to \`.notice.success\` */
+     background-color: #004d40;
+     border-color: #004d40;
+     color: white;
+
+    .A8gfWSRbM9YW0L6tOjQF:before {
+      /* equivalent to \`.notice.success .success-heading:before\` */
+      content: \\"✓ \\";
+    }
+  }
+}
+
+.VqpL5NBnVLpSzG9MmKBr {
+  color: red;
+}
+
+.ql3V2zACcMFSFfphBZPW {
+
+  &.dszXEFjuKeRqj_gVSvHw {
+    color: blue;
+  }
+}
+
+.VqpL5NBnVLpSzG9MmKBr {
+  display: grid;
+
+  @media (orientation: landscape) {
+    & {
+      grid-auto-flow: column;
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  .cPifDMAgF2q_hT5k2Uk_ {
+    color: red;
+  }
+}
+
+@media (orientation: landscape) {
+  @media (orientation: landscape) {
+    .TmIpPZmDj78OxIhKF77L {
+      color: red;
+    }
+  }
+}
+
+._gVr6K1cS3fTgF_VlJkG {
+
+  @media (orientation: landscape) {
+    color: red;
+  }
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with CSS nesting: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with a modules.auto Function that returns "false": errors 1`] = `Array []`;
 
 exports[`"modules" option should work with a modules.auto Function that returns "false": module 1`] = `
