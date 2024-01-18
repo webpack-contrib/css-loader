@@ -47,10 +47,10 @@
   },
   "dependencies": {
     "icss-utils": "^5.1.0",
-    "postcss": "^8.4.31",
+    "postcss": "^8.4.33",
     "postcss-modules-extract-imports": "^3.0.0",
-    "postcss-modules-local-by-default": "^4.0.3",
-    "postcss-modules-scope": "^3.1.0",
+    "postcss-modules-local-by-default": "^4.0.4",
+    "postcss-modules-scope": "^3.1.1",
     "postcss-modules-values": "^4.0.0",
     "postcss-value-parser": "^4.2.0",
     "semver": "^7.5.4"
