@@ -1566,7 +1566,6 @@ describe('"modules" option', () => {
   it('should work with the "namedExport" option', async () => {
     const compiler = getCompiler("./modules/namedExport/base/index.js", {
       modules: {
-        exportLocalsConvention: "camelCaseOnly",
         namedExport: true,
       },
     });
@@ -1606,7 +1605,6 @@ describe('"modules" option', () => {
     const compiler = getCompiler("./modules/namedExport/nested/index.js", {
       esModule: true,
       modules: {
-        exportLocalsConvention: "camelCaseOnly",
         namedExport: true,
       },
     });
@@ -1626,7 +1624,6 @@ describe('"modules" option', () => {
     const compiler = getCompiler("./modules/namedExport/template/index.js", {
       esModule: true,
       modules: {
-        exportLocalsConvention: "camelCaseOnly",
         localIdentName: "[local]",
         namedExport: true,
       },
@@ -1824,7 +1821,6 @@ describe('"modules" option', () => {
         mode: "local",
         localIdentName: "_[local]",
         namedExport: true,
-        exportLocalsConvention: "camelCaseOnly",
         exportOnlyLocals: true,
       },
       esModule: true,
@@ -1862,7 +1858,6 @@ describe('"modules" option', () => {
   it('should work with "url" and "namedExport"', async () => {
     const compiler = getCompiler("./modules/url/source.js", {
       modules: {
-        exportLocalsConvention: "camelCaseOnly",
         namedExport: true,
       },
     });
@@ -1883,7 +1878,6 @@ describe('"modules" option', () => {
       "./modules/url/source.js",
       {
         modules: {
-          exportLocalsConvention: "camelCaseOnly",
           namedExport: true,
         },
       },
@@ -2060,7 +2054,6 @@ describe('"modules" option', () => {
         modules: {
           mode: "icss",
           namedExport: true,
-          exportLocalsConvention: "camelCaseOnly",
         },
       }
     );

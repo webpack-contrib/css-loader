@@ -72,9 +72,7 @@ describe("'exportType' option", () => {
   it("should work with 'string' value and CSS modules", async () => {
     const compiler = getCompiler("./basic-string-css-modules.js", {
       exportType: "string",
-      modules: {
-        exportLocalsConvention: "camelCaseOnly",
-      },
+      modules: true,
     });
     const stats = await compile(compiler);
 
@@ -187,9 +185,7 @@ describe("'exportType' option", () => {
       "./modules/composes/composes-css-style-sheet.js",
       {
         exportType: "css-style-sheet",
-        modules: {
-          exportLocalsConvention: "camelCaseOnly",
-        },
+        modules: true,
       }
     );
     const stats = await compile(compiler);
@@ -210,7 +206,6 @@ describe("'exportType' option", () => {
       {
         exportType: "css-style-sheet",
         modules: {
-          exportLocalsConvention: "camelCaseOnly",
           exportOnlyLocals: true,
         },
       }
