@@ -1837,6 +1837,24 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it('should work with "exportOnlyLocals" and "exportLocalsConvention": "asIs"', async () => {
+    const compiler = getCompiler("./modules/namedExport/exportsAs/index.js", {
+      esModule: true,
+      modules: {
+        namedExport: true,
+        exportLocalsConvention: "asIs",
+        exportOnlyLocals: true,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/namedExport/exportsAs/exportsAs.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats, true)).toMatchSnapshot("errors");
+  });
+
   it('should work with "url" and "namedExport"', async () => {
     const compiler = getCompiler("./modules/url/source.js", {
       modules: {
