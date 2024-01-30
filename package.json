@@ -43,7 +43,16 @@
     "dist"
   ],
   "peerDependencies": {
+    "@rspack/core": "0.x || 1.x",
     "webpack": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@rspack/core": {
+      "optional": true
+    },
+    "webpack": {
+      "optional": true
+    }
   },
   "dependencies": {
     "icss-utils": "^5.1.0",
