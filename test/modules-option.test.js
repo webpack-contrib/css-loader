@@ -834,7 +834,11 @@ describe('"modules" option', () => {
   it("issue #1063", async () => {
     const compiler = getCompiler("./modules/issue-1063/issue-1063.js", {
       modules: {
-        mode: (resourcePath) => {
+        mode: (resourcePath, resourceQuery, resourceFragment) => {
+          expect(resourcePath).toBeDefined();
+          expect(resourceQuery).toBeDefined();
+          expect(resourceFragment).toBeDefined();
+
           if (/pure.css$/i.test(resourcePath)) {
             return "pure";
           }
@@ -1269,7 +1273,13 @@ describe('"modules" option', () => {
   it('should work with a modules.auto Function that returns "true"', async () => {
     const compiler = getCompiler("./modules/mode/modules.js", {
       modules: {
-        auto: (relativePath) => relativePath.endsWith("module.css"),
+        auto: (resourcePath, resourceQuery, resourceFragment) => {
+          expect(resourcePath).toBeDefined();
+          expect(resourceQuery).toBeDefined();
+          expect(resourceFragment).toBeDefined();
+
+          return resourcePath.endsWith("module.css");
+        },
       },
     });
     const stats = await compile(compiler);

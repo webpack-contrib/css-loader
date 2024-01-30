@@ -605,12 +605,19 @@ module.exports = {
 Type:
 
 ```ts
-type auto = boolean | regExp | ((resourcePath: string) => boolean);
+type auto =
+  | boolean
+  | regExp
+  | ((
+      resourcePath: string,
+      resourceQuery: string,
+      resourceFragment: string
+    ) => boolean);
 ```
 
 Default: `undefined`
 
-Allows auto enable CSS modules/ICSS based on filename when `modules` option is object.
+Allows auto enable CSS modules/ICSS based on the filename, query or fragment when `modules` option is object.
 
 Possible values:
 
@@ -673,7 +680,7 @@ module.exports = {
 
 ###### `function`
 
-Enable CSS modules for files based on the filename satisfying your filter function check.
+Enable CSS modules for files based on the filename, query or fragment satisfying your filter function check.
 
 **webpack.config.js**
 
@@ -686,7 +693,9 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            auto: (resourcePath) => resourcePath.endsWith(".custom-module.css"),
+            auto: (resourcePath, resourceQuery, resourceFragment) => {
+              return resourcePath.endsWith(".custom-module.css");
+            },
           },
         },
       },
@@ -705,7 +714,11 @@ type mode =
   | "global"
   | "pure"
   | "icss"
-  | ((resourcePath: string) => "local" | "global" | "pure" | "icss");
+  | ((
+      resourcePath: string,
+      resourceQuery: string,
+      resourceFragment: string
+    ) => "local" | "global" | "pure" | "icss");
 ```
 
 Default: `'local'`
@@ -745,7 +758,7 @@ module.exports = {
 
 ###### `function`
 
-Allows set different values for the `mode` option based on a filename
+Allows set different values for the `mode` option based on the filename, query or fragment.
 
 Possible return values - `local`, `global`, `pure` and `icss`.
 
@@ -761,7 +774,7 @@ module.exports = {
         options: {
           modules: {
             // Callback must return "local", "global", or "pure" values
-            mode: (resourcePath) => {
+            mode: (resourcePath, resourceQuery, resourceFragment) => {
               if (/pure.css$/i.test(resourcePath)) {
                 return "pure";
               }

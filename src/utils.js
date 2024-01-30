@@ -646,7 +646,12 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
       return false;
     }
   } else if (typeof modulesOptions.auto === "function") {
-    const isModule = modulesOptions.auto(resourcePath);
+    const { resourceQuery, resourceFragment } = loaderContext;
+    const isModule = modulesOptions.auto(
+      resourcePath,
+      resourceQuery,
+      resourceFragment
+    );
 
     if (!isModule) {
       return false;
@@ -654,7 +659,11 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
   }
 
   if (typeof modulesOptions.mode === "function") {
-    modulesOptions.mode = modulesOptions.mode(loaderContext.resourcePath);
+    modulesOptions.mode = modulesOptions.mode(
+      loaderContext.resourcePath,
+      loaderContext.resourceQuery,
+      loaderContext.resourceFragment
+    );
   }
 
   if (needNamedExport) {
