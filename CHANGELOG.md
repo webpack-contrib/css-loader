@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.10.0](https://github.com/webpack-contrib/css-loader/compare/v6.9.1...v6.10.0) (2024-01-30)
+
+
+### Features
+
+* add `@rspack/core` as an optional peer dependency ([#1568](https://github.com/webpack-contrib/css-loader/issues/1568)) ([3924679](https://github.com/webpack-contrib/css-loader/commit/3924679cb9a8f31996c742290a71a3446c9782b9))
+* pass the `resourceQuery` and `resourceFragment` to the `auto` and `mode` callback ([#1569](https://github.com/webpack-contrib/css-loader/issues/1569)) ([d641c4d](https://github.com/webpack-contrib/css-loader/commit/d641c4d48264518dfeb77d7e1e8ef03bbb09b645))
+* support named exports with any characters ([6f43929](https://github.com/webpack-contrib/css-loader/commit/6f439299838eab7e6fb18f6e9f47b9dee2208463))
+
 ### [6.9.1](https://github.com/webpack-contrib/css-loader/compare/v6.9.0...v6.9.1) (2024-01-18)
 
 
