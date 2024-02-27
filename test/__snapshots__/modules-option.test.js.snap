@@ -7930,6 +7930,14 @@ h1 #CEBxO1NI6KSE4aIOEe8g {
 .owPaXiJkt4EitYBDn5Yh .CP7zuaZH99lZJVmJwA3g .vvLsn8M1D1up5NfSbIYh {
   color: black;
 }
+
+.nnjcLLGI3W9kePCpF3rz {
+  color: red;
+
+  & > span {
+    color: green;
+  }
+}
 \`, \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
@@ -7947,7 +7955,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"bar-2\\": \`XbSw2R5rWm8FCPx8AUjP\`,
 	\\"baz-3\\": \`owPaXiJkt4EitYBDn5Yh\`,
 	\\"baz\\": \`CP7zuaZH99lZJVmJwA3g\`,
-	\\"bar-4\\": \`vvLsn8M1D1up5NfSbIYh\`
+	\\"bar-4\\": \`vvLsn8M1D1up5NfSbIYh\`,
+	\\"test\\": \`nnjcLLGI3W9kePCpF3rz\`
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -7995,6 +8004,14 @@ h1 #CEBxO1NI6KSE4aIOEe8g {
 
 .owPaXiJkt4EitYBDn5Yh .CP7zuaZH99lZJVmJwA3g .vvLsn8M1D1up5NfSbIYh {
   color: black;
+}
+
+.nnjcLLGI3W9kePCpF3rz {
+  color: red;
+
+  & > span {
+    color: green;
+  }
 }
 ",
     "",
@@ -8051,6 +8068,14 @@ h1 #CEBxO1NI6KSE4aIOEe8g {
 .owPaXiJkt4EitYBDn5Yh .CP7zuaZH99lZJVmJwA3g .vvLsn8M1D1up5NfSbIYh {
   color: black;
 }
+
+.nnjcLLGI3W9kePCpF3rz {
+  color: red;
+
+  & > span {
+    color: green;
+  }
+}
 \`, \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
@@ -8068,7 +8093,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"bar-2\\": \`XbSw2R5rWm8FCPx8AUjP\`,
 	\\"baz-3\\": \`owPaXiJkt4EitYBDn5Yh\`,
 	\\"baz\\": \`CP7zuaZH99lZJVmJwA3g\`,
-	\\"bar-4\\": \`vvLsn8M1D1up5NfSbIYh\`
+	\\"bar-4\\": \`vvLsn8M1D1up5NfSbIYh\`,
+	\\"test\\": \`nnjcLLGI3W9kePCpF3rz\`
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -8116,6 +8142,14 @@ h1 #CEBxO1NI6KSE4aIOEe8g {
 
 .owPaXiJkt4EitYBDn5Yh .CP7zuaZH99lZJVmJwA3g .vvLsn8M1D1up5NfSbIYh {
   color: black;
+}
+
+.nnjcLLGI3W9kePCpF3rz {
+  color: red;
+
+  & > span {
+    color: green;
+  }
 }
 ",
     "",
@@ -10717,6 +10751,14 @@ h1 #CEBxO1NI6KSE4aIOEe8g {
 .owPaXiJkt4EitYBDn5Yh .CP7zuaZH99lZJVmJwA3g .vvLsn8M1D1up5NfSbIYh {
   color: black;
 }
+
+.nnjcLLGI3W9kePCpF3rz {
+  color: red;
+
+  & > span {
+    color: green;
+  }
+}
 \`, \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
@@ -10734,7 +10776,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	\\"bar-2\\": \`XbSw2R5rWm8FCPx8AUjP\`,
 	\\"baz-3\\": \`owPaXiJkt4EitYBDn5Yh\`,
 	\\"baz\\": \`CP7zuaZH99lZJVmJwA3g\`,
-	\\"bar-4\\": \`vvLsn8M1D1up5NfSbIYh\`
+	\\"bar-4\\": \`vvLsn8M1D1up5NfSbIYh\`,
+	\\"test\\": \`nnjcLLGI3W9kePCpF3rz\`
 };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -10782,6 +10825,14 @@ h1 #CEBxO1NI6KSE4aIOEe8g {
 
 .owPaXiJkt4EitYBDn5Yh .CP7zuaZH99lZJVmJwA3g .vvLsn8M1D1up5NfSbIYh {
   color: black;
+}
+
+.nnjcLLGI3W9kePCpF3rz {
+  color: red;
+
+  & > span {
+    color: green;
+  }
 }
 ",
     "",

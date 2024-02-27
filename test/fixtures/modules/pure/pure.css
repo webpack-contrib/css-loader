@@ -37,3 +37,11 @@ h1 #foo-6 {
 .baz-3 :local(.baz) .bar-4 {
   color: black;
 }
+
+.test {
+  color: red;
+
+  & > span {
+    color: green;
+  }
+}
