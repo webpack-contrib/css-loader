@@ -46,9 +46,6 @@
     "webpack": "^5.0.0"
   },
   "peerDependenciesMeta": {
-    "@rspack/core": {
-      "optional": true
-    },
     "webpack": {
       "optional": true
     }
