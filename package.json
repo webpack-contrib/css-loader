@@ -43,7 +43,6 @@
     "dist"
   ],
   "peerDependencies": {
-    "@rspack/core": "^0.5.5",
     "webpack": "^5.0.0"
   },
   "peerDependenciesMeta": {
