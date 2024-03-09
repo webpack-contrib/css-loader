@@ -1122,6 +1122,75 @@ exports[`"modules" option should emit warning when localIdentName is emoji: erro
 
 exports[`"modules" option should emit warning when localIdentName is emoji: warnings 1`] = `Array []`;
 
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a function: errors 1`] = `Array []`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a function: mapping 1`] = `
+Object {
+  "a": "RT7ktT7mB7tfBR25sJDZ",
+  "b": "IZmhTnK9CIeu6ww6Zjbv",
+  "c": "PV11nPFlF7mzEgCXkQw4",
+}
+`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a function: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.RT7ktT7mB7tfBR25sJDZ {
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+  background-color: burlywood;
+}
+
+.PV11nPFlF7mzEgCXkQw4 {
+  background-color: chartreuse;
+}
+
+.d {
+  background-color: darkgoldenrod
+}
+\`, \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"a\\": \`RT7ktT7mB7tfBR25sJDZ\`,
+	\\"b\\": \`IZmhTnK9CIeu6ww6Zjbv\`,
+	\\"c\\": \`PV11nPFlF7mzEgCXkQw4\`
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a function: result 1`] = `
+Array [
+  Array [
+    "./modules/getJSON/source.css",
+    ".RT7ktT7mB7tfBR25sJDZ {
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+  background-color: burlywood;
+}
+
+.PV11nPFlF7mzEgCXkQw4 {
+  background-color: chartreuse;
+}
+
+.d {
+  background-color: darkgoldenrod
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a function: warnings 1`] = `Array []`;
+
 exports[`"modules" option should keep order: errors 1`] = `Array []`;
 
 exports[`"modules" option should keep order: module 1`] = `
@@ -1193,6 +1262,69 @@ Array [
 `;
 
 exports[`"modules" option should keep order: warnings 1`] = `Array []`;
+
+exports[`"modules" option should output a co-located CSS modules map file with getJSON as true: errors 1`] = `Array []`;
+
+exports[`"modules" option should output a co-located CSS modules map file with getJSON as true: mapping 1`] = `"{\\"a\\":\\"RT7ktT7mB7tfBR25sJDZ\\",\\"b\\":\\"IZmhTnK9CIeu6ww6Zjbv\\",\\"c\\":\\"PV11nPFlF7mzEgCXkQw4\\"}"`;
+
+exports[`"modules" option should output a co-located CSS modules map file with getJSON as true: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.RT7ktT7mB7tfBR25sJDZ {
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+  background-color: burlywood;
+}
+
+.PV11nPFlF7mzEgCXkQw4 {
+  background-color: chartreuse;
+}
+
+.d {
+  background-color: darkgoldenrod
+}
+\`, \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"a\\": \`RT7ktT7mB7tfBR25sJDZ\`,
+	\\"b\\": \`IZmhTnK9CIeu6ww6Zjbv\`,
+	\\"c\\": \`PV11nPFlF7mzEgCXkQw4\`
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should output a co-located CSS modules map file with getJSON as true: result 1`] = `
+Array [
+  Array [
+    "./modules/getJSON/source.css",
+    ".RT7ktT7mB7tfBR25sJDZ {
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+  background-color: burlywood;
+}
+
+.PV11nPFlF7mzEgCXkQw4 {
+  background-color: chartreuse;
+}
+
+.d {
+  background-color: darkgoldenrod
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should output a co-located CSS modules map file with getJSON as true: warnings 1`] = `Array []`;
 
 exports[`"modules" option should resolve absolute path in composes: errors 1`] = `Array []`;
 

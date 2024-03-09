@@ -1,0 +1,15 @@
+.a {
+  background-color: aliceblue;
+}
+
+.b {
+  background-color: burlywood;
+}
+
+.c {
+  background-color: chartreuse;
+}
+
+:global(.d) {
+  background-color: darkgoldenrod
+}

@@ -169,6 +169,18 @@
               "description": "Export only locals.",
               "link": "https://github.com/webpack-contrib/css-loader#exportonlylocals",
               "type": "boolean"
+            },
+            "getJSON": {
+              "description": "Output CSS modules mapping to a JSON file or through a callback.",
+              "link": "https://github.com/webpack-contrib/css-loader#getJSON",
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "instanceof": "Function"
+                }
+              ]
             }
           }
         }

@@ -327,6 +327,9 @@ type modules =
         | "dashesOnly"
         | ((name: string) => string);
       exportOnlyLocals: boolean;
+      getJSON:
+        | string
+        | ((resourcePath: string, json: object, outputPath: string) => any);
     };
 ```
 
@@ -592,6 +595,7 @@ module.exports = {
             namedExport: true,
             exportLocalsConvention: "camelCase",
             exportOnlyLocals: false,
+            getJSON: false,
           },
         },
       },
@@ -1364,6 +1368,75 @@ module.exports = {
         options: {
           modules: {
             exportOnlyLocals: true,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+##### `getJSON`
+
+Type:
+
+```ts
+type getJSON =
+  | boolean
+  | ((resourcePath: string, json: object, outputPath: string) => any);
+```
+
+Default: `undefined`
+
+Enables the outputting of the CSS modules mapping JSON. This can be omitted or set to a falsy value to disable any output.
+
+###### `boolean`
+
+Possible values:
+
+- `true` - writes a JSON file next located in the same directory as the loaded resource file. For example, given a resource file located at /foo/bar/baz.css, this would write the CSS modules mapping JSON to /foo/bar/baz.css.json
+- `false` - disables CSS modules mapping JSON output
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            getJSON: true,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+###### `function`
+
+Enables custom handling of the CSS modules mapping JSON output. The return value of the function is not used for anything internally and is only intended to customize output.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            getJSON: (resourcePath, json, outputPath) => {
+              // `resourcePath` is the original resource file path, e.g., /foo/bar/baz.css
+              // `json` is the CSS modules map
+              // `outputPath` is the expected output file path, e.g., /foo/bar/baz.css.json
+            },
           },
         },
       },

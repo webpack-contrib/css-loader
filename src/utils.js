@@ -4,6 +4,7 @@
 */
 import { fileURLToPath } from "url";
 import path from "path";
+import fsp from "fs/promises";
 
 import modulesValues from "postcss-modules-values";
 import localByDefault from "postcss-modules-local-by-default";
@@ -1412,6 +1413,26 @@ function syntaxErrorFactory(error) {
   return obj;
 }
 
+async function writeModulesMap(getJSON, resourcePath, exports) {
+  const json = exports.reduce((acc, { name, value }) => {
+    return { ...acc, [name]: value };
+  }, {});
+
+  const outputPath = path.resolve(
+    path.dirname(resourcePath),
+    `${path.basename(resourcePath)}.json`
+  );
+
+  if (getJSON === true) {
+    // If true, output a JSON CSS modules mapping file in the same directory as the resource
+    await fsp.writeFile(outputPath, JSON.stringify(json));
+  } else if (typeof getJSON === "function") {
+    // If function, call function with call getJSON with similar args as postcss-modules#getJSON
+    // https://github.com/madyankin/postcss-modules/tree/master?tab=readme-ov-file#saving-exported-classes
+    getJSON(resourcePath, json, outputPath);
+  }
+}
+
 export {
   normalizeOptions,
   shouldUseModulesPlugins,
@@ -1439,4 +1460,5 @@ export {
   defaultGetLocalIdent,
   warningFactory,
   syntaxErrorFactory,
+  writeModulesMap,
 };
