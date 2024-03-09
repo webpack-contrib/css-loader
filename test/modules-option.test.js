@@ -12,8 +12,10 @@ import {
   getWarnings,
   readAsset,
 } from "./helpers/index";
+import { removeCWD } from "./helpers/normalizeErrors";
 
-const testCasesPath = path.join(__dirname, "fixtures/modules/tests-cases");
+const modulesFixturesPath = path.join(__dirname, "fixtures/modules");
+const testCasesPath = path.join(modulesFixturesPath, "tests-cases");
 const testCases = fs.readdirSync(testCasesPath);
 
 jest.setTimeout(60000);
@@ -2594,6 +2596,35 @@ describe('"modules" option', () => {
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should invoke the custom getJSON function if provided", async () => {
+    const getJSONSpy = jest.fn();
+    const compiler = getCompiler("./modules/getJSON/source.js", {
+      modules: {
+        // need to wrap Jest spy since it doesn't pass ajv validation on its own
+        getJSON: (...args) => getJSONSpy(...args),
+      },
+    });
+    const stats = await compile(compiler);
+
+    const args = getJSONSpy.mock.calls.map((arg) => [
+      {
+        ...arg[0],
+        // resourcePaths are absolute so we need to make them relative for snapshots
+        resourcePath: removeCWD(arg[0].resourcePath),
+      },
+    ]);
+    expect(args).toMatchSnapshot("args");
+
+    expect(
+      getModuleSource("./modules/getJSON/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");

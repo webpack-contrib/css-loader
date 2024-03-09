@@ -273,5 +273,16 @@ export default async function loader(content, map, meta) {
     isTemplateLiteralSupported,
   );
 
+  const { getJSON } = options.modules;
+  if (typeof getJSON === "function") {
+    try {
+      await getJSON({ resourcePath, imports, exports, replacements });
+    } catch (error) {
+      callback(error);
+
+      return;
+    }
+  }
+
   callback(null, `${importCode}${moduleCode}${exportCode}`);
 }

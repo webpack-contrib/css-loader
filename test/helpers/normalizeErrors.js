@@ -1,6 +1,6 @@
 import stripAnsi from "strip-ansi";
 
-function removeCWD(str) {
+export function removeCWD(str) {
   const isWin = process.platform === "win32";
   let cwd = process.cwd();
 

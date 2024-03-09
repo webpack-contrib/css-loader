@@ -1,0 +1,7 @@
+.composedA {
+  height: 200px;
+}
+
+.composedB {
+  composes: composedA;
+}

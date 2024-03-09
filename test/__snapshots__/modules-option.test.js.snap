@@ -1101,6 +1101,142 @@ exports[`"modules" option should emit warning when localIdentName is emoji: erro
 
 exports[`"modules" option should emit warning when localIdentName is emoji: warnings 1`] = `[]`;
 
+exports[`"modules" option should invoke the custom getJSON function if provided: args 1`] = `
+[
+  [
+    {
+      "exports": [
+        {
+          "name": "a",
+          "value": "RT7ktT7mB7tfBR25sJDZ ___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_0___",
+        },
+        {
+          "name": "b",
+          "value": "IZmhTnK9CIeu6ww6Zjbv ___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_1___",
+        },
+      ],
+      "imports": [
+        {
+          "importName": "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+          "url": ""../../../../src/runtime/noSourceMaps.js"",
+        },
+        {
+          "importName": "___CSS_LOADER_API_IMPORT___",
+          "type": "api_import",
+          "url": ""../../../../src/runtime/api.js"",
+        },
+        {
+          "icss": true,
+          "importName": "___CSS_LOADER_ICSS_IMPORT_0___",
+          "index": 0,
+          "type": "icss_import",
+          "url": ""-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSource.css"",
+        },
+      ],
+      "replacements": [
+        {
+          "importName": "___CSS_LOADER_ICSS_IMPORT_0___",
+          "localName": "composedA",
+          "replacementName": "___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_0___",
+        },
+        {
+          "importName": "___CSS_LOADER_ICSS_IMPORT_0___",
+          "localName": "composedB",
+          "replacementName": "___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_1___",
+        },
+      ],
+      "resourcePath": "/test/fixtures/modules/getJSON/source.css",
+    },
+  ],
+  [
+    {
+      "exports": [
+        {
+          "name": "composedA",
+          "value": "mm3SuQiO3doywWWliORs",
+        },
+        {
+          "name": "composedB",
+          "value": "hFeFcgvjCoj_9RRA4E59 mm3SuQiO3doywWWliORs",
+        },
+      ],
+      "imports": [
+        {
+          "importName": "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+          "url": ""../../../../src/runtime/noSourceMaps.js"",
+        },
+        {
+          "importName": "___CSS_LOADER_API_IMPORT___",
+          "type": "api_import",
+          "url": ""../../../../src/runtime/api.js"",
+        },
+      ],
+      "replacements": [],
+      "resourcePath": "/test/fixtures/modules/getJSON/composeSource.css",
+    },
+  ],
+]
+`;
+
+exports[`"modules" option should invoke the custom getJSON function if provided: errors 1`] = `[]`;
+
+exports[`"modules" option should invoke the custom getJSON function if provided: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from "-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSource.css";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, "", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.RT7ktT7mB7tfBR25sJDZ {
+
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+
+  background-color: blanchedalmond;
+}
+\`, ""]);
+// Exports
+export var a = \`RT7ktT7mB7tfBR25sJDZ \${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["composedA"]}\`;
+export var b = \`IZmhTnK9CIeu6ww6Zjbv \${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["composedB"]}\`;
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should invoke the custom getJSON function if provided: result 1`] = `
+[
+  [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/getJSON/composeSource.css",
+    ".mm3SuQiO3doywWWliORs {
+  height: 200px;
+}
+
+.hFeFcgvjCoj_9RRA4E59 {
+}
+",
+    "",
+  ],
+  [
+    "./modules/getJSON/source.css",
+    ".RT7ktT7mB7tfBR25sJDZ {
+
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+
+  background-color: blanchedalmond;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should invoke the custom getJSON function if provided: warnings 1`] = `[]`;
+
 exports[`"modules" option should keep order: errors 1`] = `[]`;
 
 exports[`"modules" option should keep order: module 1`] = `
