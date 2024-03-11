@@ -2419,27 +2419,21 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should output a co-located CSS modules map file with getJSON as true", async () => {
-    const outputPath = path.resolve(
-      modulesFixturesPath,
-      "getJSON",
-      "source.css.json"
-    );
-    if (fs.existsSync(outputPath)) {
-      fs.unlinkSync(outputPath);
-    }
-
+  it("should invoke the custom getJSON function with getJSON as a synchronous function", async () => {
+    const getJSONSpy = jest.fn();
     const compiler = getCompiler("./modules/getJSON/source.js", {
       modules: {
-        getJSON: true,
+        // need to wrap Jest spy since it doesn't pass ajv validation on its own
+        getJSON: (...args) => getJSONSpy(...args),
       },
     });
-
     const stats = await compile(compiler);
 
-    const json = fs.readFileSync(outputPath).toString();
-    fs.unlinkSync(outputPath);
-    expect(json).toMatchSnapshot("mapping");
+    const [[resourcePath, mapping]] = getJSONSpy.mock.calls;
+    expect(resourcePath).toEqual(
+      path.resolve(modulesFixturesPath, "getJSON", "source.css")
+    );
+    expect(mapping).toMatchSnapshot("mapping");
 
     expect(
       getModuleSource("./modules/getJSON/source.css", stats)
@@ -2451,24 +2445,21 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should invoke the custom getJSON function with getJSON as a function", async () => {
+  it("should invoke the custom getJSON function with getJSON as an asynchronous function", async () => {
     const getJSONSpy = jest.fn();
     const compiler = getCompiler("./modules/getJSON/source.js", {
       modules: {
         // need to wrap Jest spy since it doesn't pass ajv validation on its own
-        getJSON: (...args) => getJSONSpy(...args),
+        getJSON: async (...args) => getJSONSpy(...args),
       },
     });
     const stats = await compile(compiler);
 
-    const [[resourcePath, mapping, outputPath]] = getJSONSpy.mock.calls;
+    const [[resourcePath, mapping]] = getJSONSpy.mock.calls;
     expect(resourcePath).toEqual(
       path.resolve(modulesFixturesPath, "getJSON", "source.css")
     );
     expect(mapping).toMatchSnapshot("mapping");
-    expect(outputPath).toEqual(
-      path.resolve(modulesFixturesPath, "getJSON", "source.css.json")
-    );
 
     expect(
       getModuleSource("./modules/getJSON/source.css", stats)

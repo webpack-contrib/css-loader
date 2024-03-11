@@ -27,7 +27,6 @@ import {
   stringifyRequest,
   warningFactory,
   syntaxErrorFactory,
-  writeModulesMap,
 } from "./utils";
 
 export default async function loader(content, map, meta) {
@@ -275,15 +274,19 @@ export default async function loader(content, map, meta) {
     isTemplateLiteralSupported
   );
 
-  try {
-    const { getJSON } = options.modules;
-    if (getJSON) {
-      await writeModulesMap(getJSON, resourcePath, exports);
-    }
-  } catch (error) {
-    callback(error);
+  const { getJSON } = options.modules;
+  if (typeof getJSON === "function") {
+    try {
+      const json = exports.reduce((acc, { name, value }) => {
+        return { ...acc, [name]: value };
+      }, {});
 
-    return;
+      await getJSON(resourcePath, json);
+    } catch (error) {
+      callback(error);
+
+      return;
+    }
   }
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);

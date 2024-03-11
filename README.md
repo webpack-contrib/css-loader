@@ -327,9 +327,7 @@ type modules =
         | "dashesOnly"
         | ((name: string) => string);
       exportOnlyLocals: boolean;
-      getJSON:
-        | string
-        | ((resourcePath: string, json: object, outputPath: string) => any);
+      getJSON: (resourcePath: string, json: object) => any;
     };
 ```
 
@@ -595,7 +593,7 @@ module.exports = {
             namedExport: true,
             exportLocalsConvention: "camelCase",
             exportOnlyLocals: false,
-            getJSON: false,
+            getJSON: (resourcePath, json) => {},
           },
         },
       },
@@ -1381,25 +1379,41 @@ module.exports = {
 Type:
 
 ```ts
-type getJSON =
-  | boolean
-  | ((resourcePath: string, json: object, outputPath: string) => any);
+type getJSON = (resourcePath: string, json: object) => any;
 ```
 
 Default: `undefined`
 
-Enables the outputting of the CSS modules mapping JSON. This can be omitted or set to a falsy value to disable any output.
+Enables a callback to output the CSS modules mapping JSON. The callback is invoked with two arguments:
 
-###### `boolean`
+- `resourcePath`: the absolutely path of the original resource, e.g., /foo/bar/baz.css
+- `json`: the CSS modules map object, e.g.,
 
-Possible values:
+```
+/* baz.css */
 
-- `true` - writes a JSON file next located in the same directory as the loaded resource file. For example, given a resource file located at /foo/bar/baz.css, this would write the CSS modules mapping JSON to /foo/bar/baz.css.json
-- `false` - disables CSS modules mapping JSON output
+.a {
+  background-color: aliceblue;
+}
+
+.b {
+  background-color: burlywood;
+}
+```
+
+`json` will be something like the following (depending on your other `modules` settings):
+
+```
+{
+  "a": "a__uRkh1",
+  "b": "b__pjFcy"
+}
+```
 
 **webpack.config.js**
 
 ```js
+// supports a synchronous callback
 module.exports = {
   module: {
     rules: [
@@ -1408,22 +1422,24 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            getJSON: true,
+            getJSON: (resourcePath, json) => {
+              // synchronously write a .json mapping file in the same directory as the resource
+              const outputPath = path.resolve(
+                path.dirname(resourcePath),
+                `${path.basename(resourcePath)}.json`
+              );
+
+              const fs = require("fs");
+              fs.writeFileSync(outputPath, JSON.stringify(json));
+            },
           },
         },
       },
     ],
   },
 };
-```
 
-###### `function`
-
-Enables custom handling of the CSS modules mapping JSON output. The return value of the function is not used for anything internally and is only intended to customize output.
-
-**webpack.config.js**
-
-```js
+// same as above, just asynchronous
 module.exports = {
   module: {
     rules: [
@@ -1432,10 +1448,14 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            getJSON: (resourcePath, json, outputPath) => {
-              // `resourcePath` is the original resource file path, e.g., /foo/bar/baz.css
-              // `json` is the CSS modules map
-              // `outputPath` is the expected output file path, e.g., /foo/bar/baz.css.json
+            getJSON: async (resourcePath, json) => {
+              const outputPath = path.resolve(
+                path.dirname(resourcePath),
+                `${path.basename(resourcePath)}.json`
+              );
+
+              const fsp = require("fs/promises");
+              await fsp.writeFile(outputPath, JSON.stringify(json));
             },
           },
         },
