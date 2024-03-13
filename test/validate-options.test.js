@@ -53,6 +53,9 @@ describe("validate options", () => {
         { namedExport: false },
         { exportOnlyLocals: true },
         { exportOnlyLocals: false },
+        {
+          getJSON: (resourcePath) => resourcePath,
+        },
       ],
       failure: [
         "true",
@@ -73,6 +76,8 @@ describe("validate options", () => {
         { exportLocalsConvention: "unknown" },
         { namedExport: "invalid" },
         { exportOnlyLocals: "invalid" },
+        { getJSON: true },
+        { getJSON: "invalid" },
       ],
     },
     sourceMap: {
