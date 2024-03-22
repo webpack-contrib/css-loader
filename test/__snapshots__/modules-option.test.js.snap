@@ -1122,6 +1122,446 @@ exports[`"modules" option should emit warning when localIdentName is emoji: erro
 
 exports[`"modules" option should emit warning when localIdentName is emoji: warnings 1`] = `Array []`;
 
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a synchronous function: args 1`] = `
+Array [
+  Array [
+    Object {
+      "exports": Array [
+        Object {
+          "name": "a",
+          "value": "RT7ktT7mB7tfBR25sJDZ",
+        },
+        Object {
+          "name": "b",
+          "value": "IZmhTnK9CIeu6ww6Zjbv ___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_0___",
+        },
+        Object {
+          "name": "c",
+          "value": "PV11nPFlF7mzEgCXkQw4 ___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_0___ ___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_1___",
+        },
+        Object {
+          "name": "d",
+          "value": "w9tLJiFrGdszjCX9N2R1 ___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_0___ ___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_0___ ___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_1___",
+        },
+      ],
+      "imports": Array [
+        Object {
+          "importName": "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+          "url": "\\"../../../../src/runtime/noSourceMaps.js\\"",
+        },
+        Object {
+          "importName": "___CSS_LOADER_API_IMPORT___",
+          "type": "api_import",
+          "url": "\\"../../../../src/runtime/api.js\\"",
+        },
+        Object {
+          "icss": true,
+          "importName": "___CSS_LOADER_ICSS_IMPORT_0___",
+          "index": 0,
+          "type": "icss_import",
+          "url": "\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSourceB.css\\"",
+        },
+        Object {
+          "icss": true,
+          "importName": "___CSS_LOADER_ICSS_IMPORT_1___",
+          "index": 1,
+          "type": "icss_import",
+          "url": "\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSourceC.css\\"",
+        },
+      ],
+      "replacements": Array [
+        Object {
+          "importName": "___CSS_LOADER_ICSS_IMPORT_0___",
+          "localName": "composedB",
+          "replacementName": "___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_0___",
+        },
+        Object {
+          "importName": "___CSS_LOADER_ICSS_IMPORT_1___",
+          "localName": "composedC1",
+          "replacementName": "___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_0___",
+        },
+        Object {
+          "importName": "___CSS_LOADER_ICSS_IMPORT_1___",
+          "localName": "composedC2",
+          "replacementName": "___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_1___",
+        },
+      ],
+      "resourcePath": "/Users/skao/workspace/webpack-contrib/css-loader/test/fixtures/modules/getJSON/source.css",
+    },
+  ],
+  Array [
+    Object {
+      "exports": Array [
+        Object {
+          "name": "composedB",
+          "value": "gFdUXtR3F_6oyBd_qgU8",
+        },
+      ],
+      "imports": Array [
+        Object {
+          "importName": "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+          "url": "\\"../../../../src/runtime/noSourceMaps.js\\"",
+        },
+        Object {
+          "importName": "___CSS_LOADER_API_IMPORT___",
+          "type": "api_import",
+          "url": "\\"../../../../src/runtime/api.js\\"",
+        },
+      ],
+      "replacements": Array [],
+      "resourcePath": "/Users/skao/workspace/webpack-contrib/css-loader/test/fixtures/modules/getJSON/composeSourceB.css",
+    },
+  ],
+  Array [
+    Object {
+      "exports": Array [
+        Object {
+          "name": "composedC1",
+          "value": "wzV7_RSrFO8_yYPxKBCs",
+        },
+        Object {
+          "name": "composedC2",
+          "value": "vsHct1x_FxZpoD1J8kEc",
+        },
+      ],
+      "imports": Array [
+        Object {
+          "importName": "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+          "url": "\\"../../../../src/runtime/noSourceMaps.js\\"",
+        },
+        Object {
+          "importName": "___CSS_LOADER_API_IMPORT___",
+          "type": "api_import",
+          "url": "\\"../../../../src/runtime/api.js\\"",
+        },
+      ],
+      "replacements": Array [],
+      "resourcePath": "/Users/skao/workspace/webpack-contrib/css-loader/test/fixtures/modules/getJSON/composeSourceC.css",
+    },
+  ],
+]
+`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a synchronous function: errors 1`] = `Array []`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a synchronous function: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSourceB.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSourceC.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.RT7ktT7mB7tfBR25sJDZ {
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+
+  background-color: burlywood;
+}
+
+.PV11nPFlF7mzEgCXkQw4 {
+
+  background-color: chartreuse;
+}
+
+.w9tLJiFrGdszjCX9N2R1 {
+
+  background-color: dodgerblue;
+}
+
+.e {
+  background-color: firebrick;
+}
+\`, \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"a\\": \`RT7ktT7mB7tfBR25sJDZ\`,
+	\\"b\\": \`IZmhTnK9CIeu6ww6Zjbv \${___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"composedB\\"]}\`,
+	\\"c\\": \`PV11nPFlF7mzEgCXkQw4 \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"composedC1\\"]} \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"composedC2\\"]}\`,
+	\\"d\\": \`w9tLJiFrGdszjCX9N2R1 \${___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"composedB\\"]} \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"composedC1\\"]} \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"composedC2\\"]}\`
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a synchronous function: result 1`] = `
+Array [
+  Array [
+    "./modules/getJSON/composeSourceB.css",
+    ".gFdUXtR3F_6oyBd_qgU8 {
+  width: 100px;
+}
+",
+    "",
+  ],
+  Array [
+    "./modules/getJSON/composeSourceC.css",
+    ".wzV7_RSrFO8_yYPxKBCs {
+  height: 200px;
+}
+
+.vsHct1x_FxZpoD1J8kEc {
+  border: 1px solid black;
+}
+",
+    "",
+  ],
+  Array [
+    "./modules/getJSON/source.css",
+    ".RT7ktT7mB7tfBR25sJDZ {
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+
+  background-color: burlywood;
+}
+
+.PV11nPFlF7mzEgCXkQw4 {
+
+  background-color: chartreuse;
+}
+
+.w9tLJiFrGdszjCX9N2R1 {
+
+  background-color: dodgerblue;
+}
+
+.e {
+  background-color: firebrick;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as a synchronous function: warnings 1`] = `Array []`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as an asynchronous function: args 1`] = `
+Array [
+  Array [
+    Object {
+      "exports": Array [
+        Object {
+          "name": "a",
+          "value": "RT7ktT7mB7tfBR25sJDZ",
+        },
+        Object {
+          "name": "b",
+          "value": "IZmhTnK9CIeu6ww6Zjbv ___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_0___",
+        },
+        Object {
+          "name": "c",
+          "value": "PV11nPFlF7mzEgCXkQw4 ___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_0___ ___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_1___",
+        },
+        Object {
+          "name": "d",
+          "value": "w9tLJiFrGdszjCX9N2R1 ___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_0___ ___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_0___ ___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_1___",
+        },
+      ],
+      "imports": Array [
+        Object {
+          "importName": "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+          "url": "\\"../../../../src/runtime/noSourceMaps.js\\"",
+        },
+        Object {
+          "importName": "___CSS_LOADER_API_IMPORT___",
+          "type": "api_import",
+          "url": "\\"../../../../src/runtime/api.js\\"",
+        },
+        Object {
+          "icss": true,
+          "importName": "___CSS_LOADER_ICSS_IMPORT_0___",
+          "index": 0,
+          "type": "icss_import",
+          "url": "\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSourceB.css\\"",
+        },
+        Object {
+          "icss": true,
+          "importName": "___CSS_LOADER_ICSS_IMPORT_1___",
+          "index": 1,
+          "type": "icss_import",
+          "url": "\\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSourceC.css\\"",
+        },
+      ],
+      "replacements": Array [
+        Object {
+          "importName": "___CSS_LOADER_ICSS_IMPORT_0___",
+          "localName": "composedB",
+          "replacementName": "___CSS_LOADER_ICSS_IMPORT_0_REPLACEMENT_0___",
+        },
+        Object {
+          "importName": "___CSS_LOADER_ICSS_IMPORT_1___",
+          "localName": "composedC1",
+          "replacementName": "___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_0___",
+        },
+        Object {
+          "importName": "___CSS_LOADER_ICSS_IMPORT_1___",
+          "localName": "composedC2",
+          "replacementName": "___CSS_LOADER_ICSS_IMPORT_1_REPLACEMENT_1___",
+        },
+      ],
+      "resourcePath": "/Users/skao/workspace/webpack-contrib/css-loader/test/fixtures/modules/getJSON/source.css",
+    },
+  ],
+  Array [
+    Object {
+      "exports": Array [
+        Object {
+          "name": "composedB",
+          "value": "gFdUXtR3F_6oyBd_qgU8",
+        },
+      ],
+      "imports": Array [
+        Object {
+          "importName": "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+          "url": "\\"../../../../src/runtime/noSourceMaps.js\\"",
+        },
+        Object {
+          "importName": "___CSS_LOADER_API_IMPORT___",
+          "type": "api_import",
+          "url": "\\"../../../../src/runtime/api.js\\"",
+        },
+      ],
+      "replacements": Array [],
+      "resourcePath": "/Users/skao/workspace/webpack-contrib/css-loader/test/fixtures/modules/getJSON/composeSourceB.css",
+    },
+  ],
+  Array [
+    Object {
+      "exports": Array [
+        Object {
+          "name": "composedC1",
+          "value": "wzV7_RSrFO8_yYPxKBCs",
+        },
+        Object {
+          "name": "composedC2",
+          "value": "vsHct1x_FxZpoD1J8kEc",
+        },
+      ],
+      "imports": Array [
+        Object {
+          "importName": "___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___",
+          "url": "\\"../../../../src/runtime/noSourceMaps.js\\"",
+        },
+        Object {
+          "importName": "___CSS_LOADER_API_IMPORT___",
+          "type": "api_import",
+          "url": "\\"../../../../src/runtime/api.js\\"",
+        },
+      ],
+      "replacements": Array [],
+      "resourcePath": "/Users/skao/workspace/webpack-contrib/css-loader/test/fixtures/modules/getJSON/composeSourceC.css",
+    },
+  ],
+]
+`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as an asynchronous function: errors 1`] = `Array []`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as an asynchronous function: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSourceB.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./composeSourceC.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.RT7ktT7mB7tfBR25sJDZ {
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+
+  background-color: burlywood;
+}
+
+.PV11nPFlF7mzEgCXkQw4 {
+
+  background-color: chartreuse;
+}
+
+.w9tLJiFrGdszjCX9N2R1 {
+
+  background-color: dodgerblue;
+}
+
+.e {
+  background-color: firebrick;
+}
+\`, \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"a\\": \`RT7ktT7mB7tfBR25sJDZ\`,
+	\\"b\\": \`IZmhTnK9CIeu6ww6Zjbv \${___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"composedB\\"]}\`,
+	\\"c\\": \`PV11nPFlF7mzEgCXkQw4 \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"composedC1\\"]} \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"composedC2\\"]}\`,
+	\\"d\\": \`w9tLJiFrGdszjCX9N2R1 \${___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"composedB\\"]} \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"composedC1\\"]} \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"composedC2\\"]}\`
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as an asynchronous function: result 1`] = `
+Array [
+  Array [
+    "./modules/getJSON/composeSourceB.css",
+    ".gFdUXtR3F_6oyBd_qgU8 {
+  width: 100px;
+}
+",
+    "",
+  ],
+  Array [
+    "./modules/getJSON/composeSourceC.css",
+    ".wzV7_RSrFO8_yYPxKBCs {
+  height: 200px;
+}
+
+.vsHct1x_FxZpoD1J8kEc {
+  border: 1px solid black;
+}
+",
+    "",
+  ],
+  Array [
+    "./modules/getJSON/source.css",
+    ".RT7ktT7mB7tfBR25sJDZ {
+  background-color: aliceblue;
+}
+
+.IZmhTnK9CIeu6ww6Zjbv {
+
+  background-color: burlywood;
+}
+
+.PV11nPFlF7mzEgCXkQw4 {
+
+  background-color: chartreuse;
+}
+
+.w9tLJiFrGdszjCX9N2R1 {
+
+  background-color: dodgerblue;
+}
+
+.e {
+  background-color: firebrick;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should invoke the custom getJSON function with getJSON as an asynchronous function: warnings 1`] = `Array []`;
+
 exports[`"modules" option should keep order: errors 1`] = `Array []`;
 
 exports[`"modules" option should keep order: module 1`] = `

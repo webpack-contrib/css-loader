@@ -13,7 +13,8 @@ import {
   readAsset,
 } from "./helpers/index";
 
-const testCasesPath = path.join(__dirname, "fixtures/modules/tests-cases");
+const modulesFixturesPath = path.join(__dirname, "fixtures/modules");
+const testCasesPath = path.join(modulesFixturesPath, "tests-cases");
 const testCases = fs.readdirSync(testCasesPath);
 
 jest.setTimeout(60000);
@@ -2411,6 +2412,52 @@ describe('"modules" option', () => {
     expect(getModuleSource("./modules/scope/css.css", stats)).toMatchSnapshot(
       "module"
     );
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should invoke the custom getJSON function with getJSON as a synchronous function", async () => {
+    const getJSONSpy = jest.fn();
+    const compiler = getCompiler("./modules/getJSON/source.js", {
+      modules: {
+        // need to wrap Jest spy since it doesn't pass ajv validation on its own
+        getJSON: (...args) => getJSONSpy(...args),
+      },
+    });
+    const stats = await compile(compiler);
+
+    const args = getJSONSpy.mock.calls;
+    expect(args).toMatchSnapshot("args");
+
+    expect(
+      getModuleSource("./modules/getJSON/source.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should invoke the custom getJSON function with getJSON as an asynchronous function", async () => {
+    const getJSONSpy = jest.fn();
+    const compiler = getCompiler("./modules/getJSON/source.js", {
+      modules: {
+        // need to wrap Jest spy since it doesn't pass ajv validation on its own
+        getJSON: async (...args) => getJSONSpy(...args),
+      },
+    });
+    const stats = await compile(compiler);
+
+    const args = getJSONSpy.mock.calls;
+    expect(args).toMatchSnapshot("args");
+
+    expect(
+      getModuleSource("./modules/getJSON/source.css", stats)
+    ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
       "result"
     );

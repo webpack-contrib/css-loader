@@ -593,6 +593,8 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
         ? "camelCaseOnly"
         : "asIs",
     exportOnlyLocals: false,
+    // eslint-disable-next-line no-undefined
+    getJSON: undefined,
     ...rawModulesOptions,
     useExportsAs: rawModulesOptions.exportLocalsConvention === "asIs",
   };
