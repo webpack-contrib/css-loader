@@ -334,8 +334,8 @@ type modules =
         replacements,
       }: {
         resourcePath: string;
-        imports: object;
-        exports: object;
+        imports: object[];
+        exports: object[];
         replacements: object[];
       }) => any;
     };
