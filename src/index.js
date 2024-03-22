@@ -277,11 +277,7 @@ export default async function loader(content, map, meta) {
   const { getJSON } = options.modules;
   if (typeof getJSON === "function") {
     try {
-      const json = exports.reduce((acc, { name, value }) => {
-        return { ...acc, [name]: value };
-      }, {});
-
-      await getJSON(resourcePath, json);
+      await getJSON({ resourcePath, imports, exports, replacements });
     } catch (error) {
       callback(error);
 

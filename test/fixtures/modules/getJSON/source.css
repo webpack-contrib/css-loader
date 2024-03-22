@@ -3,13 +3,26 @@
 }
 
 .b {
+  composes: composedB from "./composeSourceB.css";
+
   background-color: burlywood;
 }
 
 .c {
+  composes: composedC1 from "./composeSourceC.css";
+  composes: composedC2 from "./composeSourceC.css";
+
   background-color: chartreuse;
 }
 
-:global(.d) {
-  background-color: darkgoldenrod
+.d {
+  composes: composedB from "./composeSourceB.css";
+  composes: composedC1 from "./composeSourceC.css";
+  composes: composedC2 from "./composeSourceC.css";
+
+  background-color: dodgerblue;
+}
+
+:global(.e) {
+  background-color: firebrick;
 }

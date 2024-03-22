@@ -2429,11 +2429,8 @@ describe('"modules" option', () => {
     });
     const stats = await compile(compiler);
 
-    const [[resourcePath, mapping]] = getJSONSpy.mock.calls;
-    expect(resourcePath).toEqual(
-      path.resolve(modulesFixturesPath, "getJSON", "source.css")
-    );
-    expect(mapping).toMatchSnapshot("mapping");
+    const args = getJSONSpy.mock.calls;
+    expect(args).toMatchSnapshot("args");
 
     expect(
       getModuleSource("./modules/getJSON/source.css", stats)
@@ -2455,11 +2452,8 @@ describe('"modules" option', () => {
     });
     const stats = await compile(compiler);
 
-    const [[resourcePath, mapping]] = getJSONSpy.mock.calls;
-    expect(resourcePath).toEqual(
-      path.resolve(modulesFixturesPath, "getJSON", "source.css")
-    );
-    expect(mapping).toMatchSnapshot("mapping");
+    const args = getJSONSpy.mock.calls;
+    expect(args).toMatchSnapshot("args");
 
     expect(
       getModuleSource("./modules/getJSON/source.css", stats)
