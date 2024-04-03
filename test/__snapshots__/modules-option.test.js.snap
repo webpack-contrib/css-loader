@@ -10334,7 +10334,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`@scope (.kthHR5ALtmYK9QgapjA3) {
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	\\"class-a\\": \`tHELZHxFZl5YuwVt1kmN\`,
-	\\"class-b\\": \`yv3SIfJTNkZjzBV3Fc0c\`
+	\\"class-b\\": \`yv3SIfJTNkZjzBV3Fc0c\`,
+	\\"light-scheme\\": \`kthHR5ALtmYK9QgapjA3\`,
+	\\"dark-scheme\\": \`kodeNqRFoMkWN6SDcuTu\`
 };
 export default ___CSS_LOADER_EXPORT___;
 "
