@@ -489,6 +489,15 @@ To import from multiple modules use multiple `composes:` rules.
 
 ```css
 :local(.className) {
+  composes: edit highlight from "./edit.css", button from "module/button.css", classFromThisModule;
+  background: red;
+}
+```
+
+or
+
+```css
+:local(.className) {
   composes: edit highlight from "./edit.css";
   composes: button from "module/button.css";
   composes: classFromThisModule;
