@@ -10330,6 +10330,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`@scope (.kthHR5ALtmYK9QgapjA3) {
     color: plum;
   }
 }
+
+@scope {
+  :scope {
+    color: red;
+  }
+}
 \`, \\"\\"]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
@@ -10364,6 +10370,12 @@ Array [
 
   .yv3SIfJTNkZjzBV3Fc0c {
     color: plum;
+  }
+}
+
+@scope {
+  :scope {
+    color: red;
   }
 }
 ",
@@ -20967,6 +20979,57 @@ Array [
 `;
 
 exports[`"modules" option should work with composes when the "namedExport" is enabled and "exportLocalsConvention" options has "dashesOnly" value: warnings 1`] = `Array []`;
+
+exports[`"modules" option should work with global compose: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with global compose: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.global-class {
+  color: red;
+}
+
+.other-global-class {
+  color: red;
+}
+
+.oNDnA1BRHWFMyAdR4iF1 {
+  color: blue;
+}
+\`, \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"otherClassName\\": \`oNDnA1BRHWFMyAdR4iF1 global-class other-global-class\`
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with global compose: result 1`] = `
+Array [
+  Array [
+    "./modules/composes/global.css",
+    ".global-class {
+  color: red;
+}
+
+.other-global-class {
+  color: red;
+}
+
+.oNDnA1BRHWFMyAdR4iF1 {
+  color: blue;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with global compose: warnings 1`] = `Array []`;
 
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: errors 1`] = `Array []`;
 

@@ -2417,4 +2417,20 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work with global compose", async () => {
+    const compiler = getCompiler("./modules/composes/global.js", {
+      modules: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/composes/global.css", stats)
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result"
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

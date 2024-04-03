@@ -18,3 +18,9 @@
     color: plum;
   }
 }
+
+@scope {
+  :scope {
+    color: red;
+  }
+}
