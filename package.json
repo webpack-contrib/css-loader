@@ -44,7 +44,7 @@
   ],
   "peerDependencies": {
     "@rspack/core": "0.x || 1.x",
-    "webpack": "^5.0.0"
+    "webpack": "^5.27.0"
   },
   "peerDependenciesMeta": {
     "@rspack/core": {
