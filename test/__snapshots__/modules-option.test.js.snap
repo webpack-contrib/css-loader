@@ -21031,6 +21031,123 @@ Array [
 
 exports[`"modules" option should work with global compose: warnings 1`] = `Array []`;
 
+exports[`"modules" option should work with multiple compose: errors 1`] = `Array []`;
+
+exports[`"modules" option should work with multiple compose: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from \\"../../../../src/runtime/noSourceMaps.js\\";
+import ___CSS_LOADER_API_IMPORT___ from \\"../../../../src/runtime/api.js\\";
+import ___CSS_LOADER_ICSS_IMPORT_0___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css\\";
+import ___CSS_LOADER_ICSS_IMPORT_1___ from \\"-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias-1.css\\";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, \\"\\", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, \\"\\", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.RsClSIMkfTMmUvwYT4aD {
+  color: red;
+}
+
+.OdpZEdUc2oHF96Xqdoba {
+  color: blue;
+}
+
+.A3lCTIjOyIaMw91SUTt_ {
+  color: blue;
+}
+
+.global-class {
+  padding: 10px;
+}
+
+.global-class-1 {
+  padding: 10px;
+}
+
+.global-class-2 {
+  padding: 10px;
+}
+
+.BwiLdQraIwYyRAA53QEQ {
+  color: gainsboro;
+}
+
+.DemABT8Zz2xVnnu848uO {
+}
+\`, \\"\\"]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	\\"other-class\\": \`RsClSIMkfTMmUvwYT4aD\`,
+	\\"class-1\\": \`OdpZEdUc2oHF96Xqdoba\`,
+	\\"class-2\\": \`A3lCTIjOyIaMw91SUTt_\`,
+	\\"class\\": \`BwiLdQraIwYyRAA53QEQ RsClSIMkfTMmUvwYT4aD OdpZEdUc2oHF96Xqdoba A3lCTIjOyIaMw91SUTt_ \${___CSS_LOADER_ICSS_IMPORT_0___.locals[\\"imported-alias\\"]} \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"imported-alias-2\\"]} \${___CSS_LOADER_ICSS_IMPORT_1___.locals[\\"imported-alias-3\\"]} global-class global-class-1 global-class-2\`,
+	\\"class-other\\": \`DemABT8Zz2xVnnu848uO RsClSIMkfTMmUvwYT4aD OdpZEdUc2oHF96Xqdoba\`
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with multiple compose: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/alias.css",
+    ".dnhKs1AYKq4KodZdfzcx {
+  display: table;
+}
+",
+    "",
+  ],
+  Array [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/alias-1.css",
+    ".Lg5UPByIZH1XWiASCk_q {
+  background: red;
+}
+
+.QllkotlwlKJ4pFhiIzqP {
+  background: red;
+}
+",
+    "",
+  ],
+  Array [
+    "./modules/composes/multiple.css",
+    ".RsClSIMkfTMmUvwYT4aD {
+  color: red;
+}
+
+.OdpZEdUc2oHF96Xqdoba {
+  color: blue;
+}
+
+.A3lCTIjOyIaMw91SUTt_ {
+  color: blue;
+}
+
+.global-class {
+  padding: 10px;
+}
+
+.global-class-1 {
+  padding: 10px;
+}
+
+.global-class-2 {
+  padding: 10px;
+}
+
+.BwiLdQraIwYyRAA53QEQ {
+  color: gainsboro;
+}
+
+.DemABT8Zz2xVnnu848uO {
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with multiple compose: warnings 1`] = `Array []`;
+
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: errors 1`] = `Array []`;
 
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: module 1`] = `
