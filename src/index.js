@@ -91,6 +91,7 @@ export default async function loader(content, map, meta) {
   if (shouldUseImportPlugin(options)) {
     plugins.push(
       importParser({
+        // TODO need to fix on webpack side, webpack tries to resolve `./runtime/api.js paths like `http://site.com/runtime/api.js`, maybe we should try first request like absolute, the second like a relative to context
         isSupportAbsoluteURL: false,
         isSupportDataURL: false,
         isCSSStyleSheet: options.exportType === "css-style-sheet",
