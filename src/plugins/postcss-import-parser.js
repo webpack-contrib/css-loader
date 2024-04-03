@@ -42,7 +42,7 @@ function parseNode(atRule, key, options) {
   // Nodes do not exists - `@import url('http://') :root {}`
   if (atRule.nodes) {
     const error = new Error(
-      "It looks like you didn't end your @import statement correctly. Child nodes are attached to it."
+      "It looks like you didn't end your @import statement correctly. Child nodes are attached to it.",
     );
 
     error.node = atRule;
@@ -191,9 +191,9 @@ const plugin = (options = {}) => {
               options.loaderContext.emitError(
                 new Error(
                   atRule.error(
-                    "'@import' rules are not allowed here and will not be processed"
-                  ).message
-                )
+                    "'@import' rules are not allowed here and will not be processed",
+                  ).message,
+                ),
               );
 
               return;
@@ -253,7 +253,7 @@ const plugin = (options = {}) => {
                   media,
                   loaderContext.resourcePath,
                   supports,
-                  layer
+                  layer,
                 );
 
                 if (!needKeep) {
@@ -266,7 +266,7 @@ const plugin = (options = {}) => {
                 const resolvedUrl = await resolveRequests(
                   resolver,
                   loaderContext.context,
-                  [...new Set([request, url])]
+                  [...new Set([request, url])],
                 );
 
                 if (!resolvedUrl) {
@@ -296,7 +296,7 @@ const plugin = (options = {}) => {
 
               // eslint-disable-next-line consistent-return
               return { url, layer, supports, media, prefix, requestable };
-            })
+            }),
           );
 
           const urlToNameMap = new Map();

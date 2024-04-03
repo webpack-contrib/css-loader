@@ -31,8 +31,8 @@ function stringifyRequest(loaderContext, request) {
     return JSON.stringify(
       loaderContext.utils.contextify(
         loaderContext.context || loaderContext.rootContext,
-        request
-      )
+        request,
+      ),
     );
   }
 
@@ -65,7 +65,7 @@ function stringifyRequest(loaderContext, request) {
 
         return singlePath.replace(/\\/g, "/") + query;
       })
-      .join("!")
+      .join("!"),
   );
 }
 
@@ -320,7 +320,7 @@ function escapeLocalIdent(localident) {
       .replace(/^((-?[0-9])|--)/, "_$1")
       .replace(filenameReservedRegex, "-")
       .replace(reControlChars, "-")
-      .replace(/\./g, "-")
+      .replace(/\./g, "-"),
   );
 }
 
@@ -328,19 +328,19 @@ function defaultGetLocalIdent(
   loaderContext,
   localIdentName,
   localName,
-  options
+  options,
 ) {
   const { context, hashSalt, hashStrategy } = options;
   const { resourcePath } = loaderContext;
   let relativeResourcePath = normalizePath(
-    path.relative(context, resourcePath)
+    path.relative(context, resourcePath),
   );
 
   // eslint-disable-next-line no-underscore-dangle
   if (loaderContext._module && loaderContext._module.matchResource) {
     relativeResourcePath = `${normalizePath(
       // eslint-disable-next-line no-underscore-dangle
-      path.relative(context, loaderContext._module.matchResource)
+      path.relative(context, loaderContext._module.matchResource),
     )}`;
   }
 
@@ -352,7 +352,7 @@ function defaultGetLocalIdent(
 
   let { hashFunction, hashDigest, hashDigestLength } = options;
   const matches = localIdentName.match(
-    /\[(?:([^:\]]+):)?(?:(hash|contenthash|fullhash))(?::([a-z]+\d*))?(?::(\d+))?\]/i
+    /\[(?:([^:\]]+):)?(?:(hash|contenthash|fullhash))(?::([a-z]+\d*))?(?::(\d+))?\]/i,
   );
 
   if (matches) {
@@ -368,7 +368,7 @@ function defaultGetLocalIdent(
     // eslint-disable-next-line no-param-reassign
     localIdentName = localIdentName.replace(
       /\[(?:([^:\]]+):)?(?:hash|contenthash|fullhash)(?::([a-z]+\d*))?(?::(\d+))?\]/gi,
-      () => (hashName === "fullhash" ? "[fullhash]" : "[contenthash]")
+      () => (hashName === "fullhash" ? "[fullhash]" : "[contenthash]"),
     );
   }
 
@@ -425,7 +425,7 @@ function defaultGetLocalIdent(
   if (/\[folder\]/gi.test(result)) {
     const dirname = path.dirname(resourcePath);
     let directory = normalizePath(
-      path.relative(context, `${dirname + path.sep}_`)
+      path.relative(context, `${dirname + path.sep}_`),
     );
 
     directory = directory.substring(0, directory.length - 1);
@@ -650,7 +650,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
     const isModule = modulesOptions.auto(
       resourcePath,
       resourceQuery,
-      resourceFragment
+      resourceFragment,
     );
 
     if (!isModule) {
@@ -662,20 +662,20 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
     modulesOptions.mode = modulesOptions.mode(
       loaderContext.resourcePath,
       loaderContext.resourceQuery,
-      loaderContext.resourceFragment
+      loaderContext.resourceFragment,
     );
   }
 
   if (needNamedExport) {
     if (rawOptions.esModule === false) {
       throw new Error(
-        "The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'esModule' option to be enabled"
+        "The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'esModule' option to be enabled",
       );
     }
 
     if (modulesOptions.namedExport === false) {
       throw new Error(
-        "The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'modules.namedExport' option to be enabled"
+        "The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'modules.namedExport' option to be enabled",
       );
     }
   }
@@ -683,7 +683,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
   if (modulesOptions.namedExport === true) {
     if (rawOptions.esModule === false) {
       throw new Error(
-        "The 'modules.namedExport' option requires the 'esModule' option to be enabled"
+        "The 'modules.namedExport' option requires the 'esModule' option to be enabled",
       );
     }
 
@@ -694,7 +694,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
       exportLocalsConventionType !== "dashesOnly"
     ) {
       throw new Error(
-        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "camelCaseOnly" or "dashesOnly"'
+        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "camelCaseOnly" or "dashesOnly"',
       );
     }
   }
@@ -710,7 +710,7 @@ function normalizeOptions(rawOptions, loaderContext) {
   const modulesOptions = getModulesOptions(
     rawOptions,
     exportType,
-    loaderContext
+    loaderContext,
   );
 
   return {
@@ -806,7 +806,7 @@ function getModulesPlugins(options, loaderContext) {
                 hashStrategy,
                 regExp: localIdentRegExp,
                 node,
-              }
+              },
             );
           }
 
@@ -826,12 +826,12 @@ function getModulesPlugins(options, loaderContext) {
                 hashStrategy,
                 regExp: localIdentRegExp,
                 node,
-              }
+              },
             );
 
             return escapeLocalIdent(localIdent).replace(
               /\\\[local\\]/gi,
-              exportName
+              exportName,
             );
           }
 
@@ -922,7 +922,7 @@ function getPreRequester({ loaders, loaderIndex }) {
       const loadersRequest = loaders
         .slice(
           loaderIndex,
-          loaderIndex + 1 + (typeof number !== "number" ? 0 : number)
+          loaderIndex + 1 + (typeof number !== "number" ? 0 : number),
         )
         .map((x) => x.request)
         .join("!");
@@ -993,7 +993,7 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
       const resourceDirname = path.dirname(loaderContext.resourcePath);
       const absoluteSource = path.resolve(resourceDirname, source);
       const contextifyPath = normalizePath(
-        path.relative(loaderContext.rootContext, absoluteSource)
+        path.relative(loaderContext.rootContext, absoluteSource),
       );
 
       return `webpack://./${contextifyPath}`;
@@ -1037,7 +1037,7 @@ function getModuleCode(
   replacements,
   options,
   isTemplateLiteralSupported,
-  loaderContext
+  loaderContext,
 ) {
   if (options.modules.exportOnlyLocals === true) {
     return "";
@@ -1050,7 +1050,7 @@ function getModuleCode(
 
     sourceMapValue = `,${normalizeSourceMapForRuntime(
       sourceMap,
-      loaderContext
+      loaderContext,
     )}`;
   }
 
@@ -1072,7 +1072,7 @@ function getModuleCode(
       const printedParam = printParams(media, undefined, supports, layer);
 
       beforeCode += `___CSS_LOADER_EXPORT___.push([module.id, ${JSON.stringify(
-        `@import url(${url});`
+        `@import url(${url});`,
       )}${printedParam.length > 0 ? `, ${printedParam}` : ""}]);\n`;
     } else {
       const printedParam = printParams(media, dedupe, supports, layer);
@@ -1093,18 +1093,18 @@ function getModuleCode(
             ? `\${ ${importName}_NAMED___[${JSON.stringify(
                 getValidLocalName(
                   localName,
-                  options.modules.exportLocalsConvention
-                )
+                  options.modules.exportLocalsConvention,
+                ),
               )}] }`
             : `" + ${importName}_NAMED___[${JSON.stringify(
                 getValidLocalName(
                   localName,
-                  options.modules.exportLocalsConvention
-                )
+                  options.modules.exportLocalsConvention,
+                ),
               )}] + "`
           : isTemplateLiteralSupported
-          ? `\${${importName}.locals[${JSON.stringify(localName)}]}`
-          : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`
+            ? `\${${importName}.locals[${JSON.stringify(localName)}]}`
+            : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`,
       );
     } else {
       const { hash, needQuotes } = item;
@@ -1118,7 +1118,7 @@ function getModuleCode(
       code = code.replace(new RegExp(replacementName, "g"), () =>
         isTemplateLiteralSupported
           ? `\${${replacementName}}`
-          : `" + ${replacementName} + "`
+          : `" + ${replacementName} + "`,
       );
     }
   }
@@ -1154,7 +1154,7 @@ function convertToTemplateLiteral(str) {
 
 function dashesCamelCase(str) {
   return str.replace(/-+(\w)/g, (match, firstLetter) =>
-    firstLetter.toUpperCase()
+    firstLetter.toUpperCase(),
   );
 }
 
@@ -1163,7 +1163,7 @@ function getExportCode(
   replacements,
   icssPluginUsed,
   options,
-  isTemplateLiteralSupported
+  isTemplateLiteralSupported,
 ) {
   let code = "// Exports\n";
 
@@ -1202,7 +1202,7 @@ function getExportCode(
     for (const { name, value } of exports) {
       addExportToLocalsCode(
         options.modules.exportLocalsConvention(name),
-        value
+        value,
       );
     }
 
@@ -1220,14 +1220,14 @@ function getExportCode(
                 ? `\${${importName}_NAMED___[${JSON.stringify(
                     getValidLocalName(
                       localName,
-                      options.modules.exportLocalsConvention
-                    )
+                      options.modules.exportLocalsConvention,
+                    ),
                   )}]}`
                 : `" + ${importName}_NAMED___[${JSON.stringify(
                     getValidLocalName(
                       localName,
-                      options.modules.exportLocalsConvention
-                    )
+                      options.modules.exportLocalsConvention,
+                    ),
                   )}] + "`;
             } else if (options.modules.exportOnlyLocals) {
               return isTemplateLiteralSupported
@@ -1238,13 +1238,13 @@ function getExportCode(
             return isTemplateLiteralSupported
               ? `\${${importName}.locals[${JSON.stringify(localName)}]}`
               : `" + ${importName}.locals[${JSON.stringify(localName)}] + "`;
-          }
+          },
         );
       } else {
         localsCode = localsCode.replace(new RegExp(replacementName, "g"), () =>
           isTemplateLiteralSupported
             ? `\${${replacementName}}`
-            : `" + ${replacementName} + "`
+            : `" + ${replacementName} + "`,
         );
       }
     }

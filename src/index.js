@@ -46,8 +46,8 @@ export default async function loader(content, map, meta) {
   ) {
     this.emitWarning(
       new Error(
-        'You can\'t use `experiments.css` (`experiments.futureDefaults` enable built-in CSS support by default) and `css-loader` together, please set `experiments.css` to `false` or set `{ type: "javascript/auto" }` for rules with `css-loader` in your webpack config (now css-loader does nothing).'
-      )
+        'You can\'t use `experiments.css` (`experiments.futureDefaults` enable built-in CSS support by default) and `css-loader` together, please set `experiments.css` to `false` or set `{ type: "javascript/auto" }` for rules with `css-loader` in your webpack config (now css-loader does nothing).',
+      ),
     );
 
     callback(null, content, map, meta);
@@ -103,9 +103,9 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            combineRequests(getPreRequester(this)(options.importLoaders), url)
+            combineRequests(getPreRequester(this)(options.importLoaders), url),
           ),
-      })
+      }),
     );
   }
 
@@ -129,7 +129,7 @@ export default async function loader(content, map, meta) {
             undefined,
         urlHandler: (url) => stringifyRequest(this, url),
         // Support data urls as input in new URL added in webpack@5.38.0
-      })
+      }),
     );
   }
 
@@ -149,9 +149,9 @@ export default async function loader(content, map, meta) {
         urlHandler: (url) =>
           stringifyRequest(
             this,
-            combineRequests(getPreRequester(this)(options.importLoaders), url)
+            combineRequests(getPreRequester(this)(options.importLoaders), url),
           ),
-      })
+      }),
     );
   }
 
@@ -192,7 +192,7 @@ export default async function loader(content, map, meta) {
     }
 
     callback(
-      error.name === "CssSyntaxError" ? syntaxErrorFactory(error) : error
+      error.name === "CssSyntaxError" ? syntaxErrorFactory(error) : error,
     );
 
     return;
@@ -258,7 +258,7 @@ export default async function loader(content, map, meta) {
       replacements,
       options,
       isTemplateLiteralSupported,
-      this
+      this,
     );
   } catch (error) {
     callback(error);
@@ -271,7 +271,7 @@ export default async function loader(content, map, meta) {
     replacements,
     needToUseIcssPlugin,
     options,
-    isTemplateLiteralSupported
+    isTemplateLiteralSupported,
   );
 
   callback(null, `${importCode}${moduleCode}${exportCode}`);
