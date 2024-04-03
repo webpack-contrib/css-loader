@@ -192,7 +192,7 @@ type importFn =
         media: string,
         resourcePath: string,
         supports?: string,
-        layer?: string
+        layer?: string,
       ) => boolean;
     };
 ```
@@ -315,7 +315,7 @@ type modules =
       getLocalIdent: (
         context: LoaderContext,
         localIdentName: string,
-        localName: string
+        localName: string,
       ) => string;
       namedExport: boolean;
       exportGlobals: boolean;
@@ -489,7 +489,10 @@ To import from multiple modules use multiple `composes:` rules.
 
 ```css
 :local(.className) {
-  composes: edit highlight from "./edit.css", button from "module/button.css", classFromThisModule;
+  composes:
+    edit highlight from "./edit.css",
+    button from "module/button.css",
+    classFromThisModule;
   background: red;
 }
 ```
@@ -620,7 +623,7 @@ type auto =
   | ((
       resourcePath: string,
       resourceQuery: string,
-      resourceFragment: string
+      resourceFragment: string,
     ) => boolean);
 ```
 
@@ -726,7 +729,7 @@ type mode =
   | ((
       resourcePath: string,
       resourceQuery: string,
-      resourceFragment: string
+      resourceFragment: string,
     ) => "local" | "global" | "pure" | "icss");
 ```
 
@@ -1094,7 +1097,7 @@ Type:
 type getLocalIdent = (
   context: LoaderContext,
   localIdentName: string,
-  localName: string
+  localName: string,
 ) => string;
 ```
 
@@ -1333,7 +1336,7 @@ module.exports = {
                 name.replace(/-/g, "_"),
                 // dashesCamelCase
                 name.replace(/-+(\w)/g, (match, firstLetter) =>
-                  firstLetter.toUpperCase()
+                  firstLetter.toUpperCase(),
                 ),
               ];
             },
@@ -1770,7 +1773,8 @@ With the help of the `/* webpackIgnore: true */`comment, it is possible to disab
 .class {
   /* Disabled url handling for the second url in the 'background' declaration */
   color: red;
-  background: url("./url/img.png"),
+  background:
+    url("./url/img.png"),
     /* webpackIgnore: true */ url("./url/img.png");
 }
 
@@ -1904,7 +1908,7 @@ module.exports = {
     alias: {
       "/assets/unresolved/img.png": path.resolve(
         __dirname,
-        "assets/real-path-to-img/img.png"
+        "assets/real-path-to-img/img.png",
       ),
     },
   },

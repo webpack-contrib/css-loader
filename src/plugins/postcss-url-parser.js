@@ -67,7 +67,7 @@ function parseDeclaration(declaration, key, result, options) {
   const parsed = valueParser(
     declaration.raws && declaration.raws.value && declaration.raws.value.raw
       ? declaration.raws.value.raw
-      : declaration[key]
+      : declaration[key],
   );
 
   let inBetween;
@@ -130,7 +130,7 @@ function parseDeclaration(declaration, key, result, options) {
         url,
         declaration,
         result,
-        options
+        options,
       );
 
       // Do not traverse inside `url`
@@ -167,7 +167,7 @@ function parseDeclaration(declaration, key, result, options) {
         if (type === "function" && isUrlFunc.test(value)) {
           needIgnore = getWebpackIgnoreCommentValue(
             innerIndex,
-            valueNode.nodes
+            valueNode.nodes,
           );
 
           if (
@@ -196,7 +196,7 @@ function parseDeclaration(declaration, key, result, options) {
             url,
             declaration,
             result,
-            options
+            options,
           );
 
           // Do not traverse inside `url`
@@ -226,7 +226,7 @@ function parseDeclaration(declaration, key, result, options) {
         } else if (type === "string") {
           needIgnore = getWebpackIgnoreCommentValue(
             innerIndex,
-            valueNode.nodes
+            valueNode.nodes,
           );
 
           if (
@@ -248,7 +248,7 @@ function parseDeclaration(declaration, key, result, options) {
             url,
             declaration,
             result,
-            options
+            options,
           );
 
           // Do not traverse inside `url`
@@ -341,7 +341,7 @@ const plugin = (options = {}) => {
               const request = requestify(
                 pathname,
                 rootContext,
-                Boolean(resolver)
+                Boolean(resolver),
               );
 
               if (!resolver) {
@@ -352,7 +352,7 @@ const plugin = (options = {}) => {
               const resolvedURL = await resolveRequests(
                 resolver,
                 options.context,
-                [...new Set([request, url])]
+                [...new Set([request, url])],
               );
 
               if (!resolvedURL) {
@@ -362,7 +362,7 @@ const plugin = (options = {}) => {
 
               // eslint-disable-next-line consistent-return
               return { ...parsedDeclaration, url: resolvedURL, hash };
-            })
+            }),
           );
 
           const urlToNameMap = new Map();
@@ -387,7 +387,7 @@ const plugin = (options = {}) => {
                 type: "get_url_import",
                 importName: "___CSS_LOADER_GET_URL_IMPORT___",
                 url: options.urlHandler(
-                  require.resolve("../runtime/getUrl.js")
+                  require.resolve("../runtime/getUrl.js"),
                 ),
                 index: -1,
               });

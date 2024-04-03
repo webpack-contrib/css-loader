@@ -44,7 +44,7 @@ describe('"modules" option', () => {
 
         expect(getModuleSource(moduleId, stats)).toMatchSnapshot("module");
         expect(
-          getExecutedCode("main.bundle.js", compiler, stats)
+          getExecutedCode("main.bundle.js", compiler, stats),
         ).toMatchSnapshot("result");
         expect(getWarnings(stats)).toMatchSnapshot("warnings");
         expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -57,10 +57,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/pure/pure.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -73,10 +73,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/pure/pure.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -89,10 +89,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -108,10 +108,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -135,15 +135,15 @@ describe('"modules" option', () => {
           assetModuleFilename: "[name][ext]",
           hashDigestLength: 5,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -159,10 +159,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -178,10 +178,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -197,10 +197,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -216,10 +216,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -235,10 +235,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -255,10 +255,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -271,10 +271,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -287,10 +287,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -303,10 +303,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -319,10 +319,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -354,10 +354,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -373,10 +373,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -393,10 +393,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -413,10 +413,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -433,10 +433,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -457,10 +457,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -473,10 +473,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes.css", stats)
+      getModuleSource("./modules/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -488,14 +488,14 @@ describe('"modules" option', () => {
       __dirname,
       "fixtures",
       "modules",
-      "composes"
+      "composes",
     );
     const file = path.resolve(fileDirectory, "composes-absolute.css");
     const absolutePath = path.resolve(fileDirectory, "imported-simple.css");
 
     fs.writeFileSync(
       file,
-      `.simple { color: red; composes: imported-simple from '${absolutePath}'; }`
+      `.simple { color: red; composes: imported-simple from '${absolutePath}'; }`,
     );
 
     const compiler = getCompiler("./modules/composes/composes-absolute.js", {
@@ -504,10 +504,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes-absolute.css", stats)
+      getModuleSource("./modules/composes/composes-absolute.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -521,15 +521,15 @@ describe('"modules" option', () => {
           mode: "local",
           exportGlobals: true,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes-preprocessors.css", stats)
+      getModuleSource("./modules/composes/composes-preprocessors.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -564,15 +564,15 @@ describe('"modules" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-286/source.css", stats)
+      getModuleSource("./modules/issue-286/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -610,15 +610,15 @@ describe('"modules" option', () => {
             },
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-636/source.scss", stats)
+      getModuleSource("./modules/issue-636/source.scss", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -629,18 +629,18 @@ describe('"modules" option', () => {
       "./modules/issue-861/resolving-from-node_modules.js",
       {
         modules: true,
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
       getModuleSource(
         "./modules/issue-861/resolving-from-node_modules.css",
-        stats
-      )
+        stats,
+      ),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -655,10 +655,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-966/button.css", stats)
+      getModuleSource("./modules/issue-966/button.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -692,11 +692,11 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-966/issue-966.css", stats)
+      getModuleSource("./modules/issue-966/issue-966.css", stats),
     ).toMatchSnapshot("module");
 
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
 
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
@@ -714,10 +714,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-967/path-placeholder.css", stats)
+      getModuleSource("./modules/issue-967/path-placeholder.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -730,18 +730,18 @@ describe('"modules" option', () => {
         modules: {
           localIdentName: "[name]_[local]_[hash:base64:5]",
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
       getModuleSource(
         "./modules/issue-980/file.with.many.dots.in.name.css",
-        stats
-      )
+        stats,
+      ),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -757,10 +757,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-995/issue-995.css", stats)
+      getModuleSource("./modules/issue-995/issue-995.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -776,10 +776,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-995/issue-995.css", stats)
+      getModuleSource("./modules/issue-995/issue-995.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -792,10 +792,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes-duplicate.css", stats)
+      getModuleSource("./modules/composes/composes-duplicate.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -806,10 +806,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/order/index.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -822,10 +822,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/dedupe/source.css", stats)
+      getModuleSource("./modules/dedupe/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -854,16 +854,16 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-1063/local.css", stats)
+      getModuleSource("./modules/issue-1063/local.css", stats),
     ).toMatchSnapshot("module with the `local` mode");
     expect(
-      getModuleSource("./modules/issue-1063/global.css", stats)
+      getModuleSource("./modules/issue-1063/global.css", stats),
     ).toMatchSnapshot("module with the `global` mode");
     expect(
-      getModuleSource("./modules/issue-1063/pure.css", stats)
+      getModuleSource("./modules/issue-1063/pure.css", stats),
     ).toMatchSnapshot("module with the `pure` mode");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -878,13 +878,13 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-1063/local.css", stats)
+      getModuleSource("./modules/issue-1063/local.css", stats),
     ).toMatchSnapshot("module");
     expect(
-      getModuleSource("./modules/issue-1063/global.css", stats)
+      getModuleSource("./modules/issue-1063/global.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -901,11 +901,11 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-1191/issue-1191.css", stats)
+      getModuleSource("./modules/issue-1191/issue-1191.css", stats),
     ).toMatchSnapshot("module");
 
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
 
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
@@ -920,15 +920,18 @@ describe('"modules" option', () => {
           mode: "local",
           exportGlobals: true,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/exportGlobals-global/exportGlobals.css", stats)
+      getModuleSource(
+        "./modules/exportGlobals-global/exportGlobals.css",
+        stats,
+      ),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -942,15 +945,15 @@ describe('"modules" option', () => {
           mode: "global",
           exportGlobals: true,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/exportGlobals-local/exportGlobals.css", stats)
+      getModuleSource("./modules/exportGlobals-local/exportGlobals.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -964,15 +967,15 @@ describe('"modules" option', () => {
           mode: "pure",
           exportGlobals: true,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/exportGlobals-pure/exportGlobals.css", stats)
+      getModuleSource("./modules/exportGlobals-pure/exportGlobals.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -983,10 +986,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/relative.module.css", stats)
+      getModuleSource("./modules/mode/relative.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1000,13 +1003,13 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/mode/entry.css", stats)).toMatchSnapshot(
-      "entry"
+      "entry",
     );
     expect(
-      getModuleSource("./modules/mode/relative.module.css", stats)
+      getModuleSource("./modules/mode/relative.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1017,10 +1020,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/relative.modules.css", stats)
+      getModuleSource("./modules/mode/relative.modules.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1031,10 +1034,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/icss/relative.icss.css", stats)
+      getModuleSource("./modules/mode/icss/relative.icss.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1049,10 +1052,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/icss/relative.icss.css", stats)
+      getModuleSource("./modules/mode/icss/relative.icss.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1084,13 +1087,13 @@ describe('"modules" option', () => {
             chunkFilename: "[id].css",
           }),
         ],
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(readAsset("main.css", compiler, stats)).toMatchSnapshot("css");
     expect(
-      getModuleSource("./modules/mode/relative.module.css", stats)
+      getModuleSource("./modules/mode/relative.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1106,15 +1109,15 @@ describe('"modules" option', () => {
             "./unknown.css": false,
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/icss-false-alias/relative.icss.css", stats)
+      getModuleSource("./modules/icss-false-alias/relative.icss.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1125,13 +1128,13 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/style.modules.css", stats)
+      getModuleSource("./modules/mode/style.modules.css", stats),
     ).toMatchSnapshot("modules-module");
     expect(
-      getModuleSource("./modules/mode/no-modules.css", stats)
+      getModuleSource("./modules/mode/no-modules.css", stats),
     ).toMatchSnapshot("not-modules-module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1146,13 +1149,13 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/style.modules.css", stats)
+      getModuleSource("./modules/mode/style.modules.css", stats),
     ).toMatchSnapshot("modules-module");
     expect(
-      getModuleSource("./modules/mode/no-modules.css", stats)
+      getModuleSource("./modules/mode/no-modules.css", stats),
     ).toMatchSnapshot("not-modules-module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1163,14 +1166,14 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./index-loader-syntax.modules.css", stats)
+      getModuleSource("./index-loader-syntax.modules.css", stats),
     ).toMatchSnapshot("module 1");
     expect(getModuleSource("./simple.css", stats)).toMatchSnapshot("module 2");
     expect(getModuleSource("./simple-1.css", stats)).toMatchSnapshot(
-      "module 3"
+      "module 3",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1185,10 +1188,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/relative.module.css", stats)
+      getModuleSource("./modules/mode/relative.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1203,10 +1206,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/relative.module.css", stats)
+      getModuleSource("./modules/mode/relative.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1222,13 +1225,13 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/style.modules.css", stats)
+      getModuleSource("./modules/mode/style.modules.css", stats),
     ).toMatchSnapshot("modules-module");
     expect(
-      getModuleSource("./modules/mode/no-modules.css", stats)
+      getModuleSource("./modules/mode/no-modules.css", stats),
     ).toMatchSnapshot("not-modules-module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1243,10 +1246,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/relative.module.css", stats)
+      getModuleSource("./modules/mode/relative.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1261,10 +1264,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/relative.module.css", stats)
+      getModuleSource("./modules/mode/relative.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1285,10 +1288,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/relative.module.css", stats)
+      getModuleSource("./modules/mode/relative.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1303,10 +1306,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/mode/relative.module.css", stats)
+      getModuleSource("./modules/mode/relative.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1319,10 +1322,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-914/source.css", stats)
+      getModuleSource("./modules/issue-914/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1346,15 +1349,15 @@ describe('"modules" option', () => {
           mode: "local",
           exportLocalsConvention: "asIs",
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localsConvention/localsConvention.css", stats)
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1372,15 +1375,15 @@ describe('"modules" option', () => {
             `${localName.replace(/-/g, "_")}_TEST_3`,
           ],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localsConvention/localsConvention.css", stats)
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1394,15 +1397,15 @@ describe('"modules" option', () => {
           mode: "local",
           exportLocalsConvention: "camelCase",
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localsConvention/localsConvention.css", stats)
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1416,15 +1419,15 @@ describe('"modules" option', () => {
           mode: "local",
           exportLocalsConvention: "camelCaseOnly",
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localsConvention/localsConvention.css", stats)
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1438,15 +1441,15 @@ describe('"modules" option', () => {
           mode: "local",
           exportLocalsConvention: "dashes",
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localsConvention/localsConvention.css", stats)
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1460,15 +1463,15 @@ describe('"modules" option', () => {
           mode: "local",
           exportLocalsConvention: "dashesOnly",
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localsConvention/localsConvention.css", stats)
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1483,15 +1486,15 @@ describe('"modules" option', () => {
           exportLocalsConvention: (localName) =>
             `${localName.replace(/-/g, "_")}_TEST`,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localsConvention/localsConvention.css", stats)
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1508,10 +1511,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes.css", stats)
+      getModuleSource("./modules/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1529,10 +1532,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes.css", stats)
+      getModuleSource("./modules/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1550,10 +1553,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes.css", stats)
+      getModuleSource("./modules/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1564,10 +1567,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/pure/pure.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1582,10 +1585,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/base/index.css", stats)
+      getModuleSource("./modules/namedExport/base/index.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1602,10 +1605,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/base/index.css", stats)
+      getModuleSource("./modules/namedExport/base/index.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1621,10 +1624,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/nested/index.css", stats)
+      getModuleSource("./modules/namedExport/nested/index.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1641,10 +1644,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/template/index.css", stats)
+      getModuleSource("./modules/namedExport/template/index.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1663,10 +1666,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/template-2/index.css", stats)
+      getModuleSource("./modules/namedExport/template-2/index.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1683,10 +1686,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/dashesOnly/index.css", stats)
+      getModuleSource("./modules/namedExport/dashesOnly/index.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats, true)).toMatchSnapshot("errors");
@@ -1703,10 +1706,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/composes/composes.css", stats)
+      getModuleSource("./modules/namedExport/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1726,10 +1729,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/composes/composes.css", stats)
+      getModuleSource("./modules/namedExport/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1747,10 +1750,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/composes/composes.css", stats)
+      getModuleSource("./modules/namedExport/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1838,10 +1841,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes.css", stats)
+      getModuleSource("./modules/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1859,7 +1862,7 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/namedExport/exportsAs/exportsAs.css", stats)
+      getModuleSource("./modules/namedExport/exportsAs/exportsAs.css", stats),
     ).toMatchSnapshot("module");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats, true)).toMatchSnapshot("errors");
@@ -1874,10 +1877,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/url/source.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1902,15 +1905,15 @@ describe('"modules" option', () => {
             templateLiteral: true,
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/url/source.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1923,10 +1926,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/url/source.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1934,7 +1937,7 @@ describe('"modules" option', () => {
 
   const icssTestCasesPath = path.join(
     __dirname,
-    "fixtures/modules/icss/tests-cases"
+    "fixtures/modules/icss/tests-cases",
   );
   const icssTestCases = fs.readdirSync(icssTestCasesPath);
 
@@ -1944,15 +1947,15 @@ describe('"modules" option', () => {
         `./modules/icss/tests-cases/${name}/source.js`,
         {
           modules: "icss",
-        }
+        },
       );
       const stats = await compile(compiler);
 
       expect(
-        getModuleSource(`./modules/icss/tests-cases/${name}/source.css`, stats)
+        getModuleSource(`./modules/icss/tests-cases/${name}/source.css`, stats),
       ).toMatchSnapshot("module");
       expect(
-        getExecutedCode("main.bundle.js", compiler, stats)
+        getExecutedCode("main.bundle.js", compiler, stats),
       ).toMatchSnapshot("result");
       expect(getWarnings(stats)).toMatchSnapshot("warnings");
       expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1965,15 +1968,15 @@ describe('"modules" option', () => {
           modules: {
             mode: "icss",
           },
-        }
+        },
       );
       const stats = await compile(compiler);
 
       expect(
-        getModuleSource(`./modules/icss/tests-cases/${name}/source.css`, stats)
+        getModuleSource(`./modules/icss/tests-cases/${name}/source.css`, stats),
       ).toMatchSnapshot("module");
       expect(
-        getExecutedCode("main.bundle.js", compiler, stats)
+        getExecutedCode("main.bundle.js", compiler, stats),
       ).toMatchSnapshot("result");
       expect(getWarnings(stats)).toMatchSnapshot("warnings");
       expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -1986,15 +1989,15 @@ describe('"modules" option', () => {
           modules: {
             mode: () => "icss",
           },
-        }
+        },
       );
       const stats = await compile(compiler);
 
       expect(
-        getModuleSource(`./modules/icss/tests-cases/${name}/source.css`, stats)
+        getModuleSource(`./modules/icss/tests-cases/${name}/source.css`, stats),
       ).toMatchSnapshot("module");
       expect(
-        getExecutedCode("main.bundle.js", compiler, stats)
+        getExecutedCode("main.bundle.js", compiler, stats),
       ).toMatchSnapshot("result");
       expect(getWarnings(stats)).toMatchSnapshot("warnings");
       expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2009,15 +2012,15 @@ describe('"modules" option', () => {
           mode: "icss",
           exportOnlyLocals: true,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/icss/tests-cases/import/source.css", stats)
+      getModuleSource("./modules/icss/tests-cases/import/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2043,15 +2046,15 @@ describe('"modules" option', () => {
             templateLiteral: true,
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/icss/tests-cases/import/source.css", stats)
+      getModuleSource("./modules/icss/tests-cases/import/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2065,15 +2068,15 @@ describe('"modules" option', () => {
           mode: "icss",
           namedExport: true,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/icss/tests-cases/import/source.css", stats)
+      getModuleSource("./modules/icss/tests-cases/import/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2088,10 +2091,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes.css", stats)
+      getModuleSource("./modules/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2116,15 +2119,15 @@ describe('"modules" option', () => {
             templateLiteral: true,
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/composes.css", stats)
+      getModuleSource("./modules/composes/composes.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2151,10 +2154,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-1223/@foo/bar/index.module.css", stats)
+      getModuleSource("./modules/issue-1223/@foo/bar/index.module.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2167,10 +2170,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/issue-1228/source.css", stats)
+      getModuleSource("./modules/issue-1228/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2183,10 +2186,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/prefer-relative/source.css", stats)
+      getModuleSource("./modules/prefer-relative/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2202,15 +2205,15 @@ describe('"modules" option', () => {
         resolve: {
           extensions: [".css", "..."],
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/extensions/source.css", stats)
+      getModuleSource("./modules/extensions/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2230,15 +2233,15 @@ describe('"modules" option', () => {
             },
           },
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/extensions/source.css", stats)
+      getModuleSource("./modules/extensions/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2251,10 +2254,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2268,17 +2271,17 @@ describe('"modules" option', () => {
           __dirname,
           "fixtures",
           "modules",
-          "localIdentName"
+          "localIdentName",
         ),
       },
     });
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/localIdentName/localIdentName.css", stats)
+      getModuleSource("./modules/localIdentName/localIdentName.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2294,10 +2297,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/ComponentName/index.modules.css", stats)
+      getModuleSource("./modules/ComponentName/index.modules.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2313,10 +2316,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/ComponentName/index.modules.css", stats)
+      getModuleSource("./modules/ComponentName/index.modules.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2351,18 +2354,18 @@ describe('"modules" option', () => {
             chunkFilename: "[id].css",
           }),
         ],
-      }
+      },
     );
     const clientStats = await compile(clientCompiler);
 
     expect(
       getModuleSource(
         "./modules/localIdentName/localIdentName.css",
-        clientStats
-      )
+        clientStats,
+      ),
     ).toMatchSnapshot("client module");
     expect(
-      getExecutedCode("main.bundle.js", clientCompiler, clientStats)
+      getExecutedCode("main.bundle.js", clientCompiler, clientStats),
     ).toMatchSnapshot("client result");
     expect(getWarnings(clientStats)).toMatchSnapshot("client warnings");
     expect(getErrors(clientStats)).toMatchSnapshot("client errors");
@@ -2373,18 +2376,18 @@ describe('"modules" option', () => {
         modules: {
           exportOnlyLocals: true,
         },
-      }
+      },
     );
     const serverStats = await compile(serverCompiler);
 
     expect(
       getModuleSource(
         "./modules/localIdentName/localIdentName.css",
-        serverStats
-      )
+        serverStats,
+      ),
     ).toMatchSnapshot("server module");
     expect(
-      getExecutedCode("main.bundle.js", serverCompiler, serverStats)
+      getExecutedCode("main.bundle.js", serverCompiler, serverStats),
     ).toMatchSnapshot("server result");
     expect(getWarnings(serverStats)).toMatchSnapshot("server warnings");
     expect(getErrors(serverStats)).toMatchSnapshot("server errors");
@@ -2395,10 +2398,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/nesting/css.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2409,10 +2412,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(getModuleSource("./modules/scope/css.css", stats)).toMatchSnapshot(
-      "module"
+      "module",
     );
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2425,10 +2428,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/global.css", stats)
+      getModuleSource("./modules/composes/global.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -2441,10 +2444,10 @@ describe('"modules" option', () => {
     const stats = await compile(compiler);
 
     expect(
-      getModuleSource("./modules/composes/multiple.css", stats)
+      getModuleSource("./modules/composes/multiple.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");

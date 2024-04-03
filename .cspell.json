@@ -37,9 +37,9 @@
     "Contex",
     "vspace",
     "commitlint",
-    "eslintcache"
+    "eslintcache",
+    "akait"
   ],
-
   "ignorePaths": [
     "CHANGELOG.md",
     "package.json",

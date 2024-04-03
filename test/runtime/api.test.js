@@ -149,7 +149,7 @@ describe("api", () => {
       "screen and (mix-width: 100px)",
       false,
       "display: block",
-      "framework"
+      "framework",
     );
 
     expect(m.toString()).toMatchSnapshot();
