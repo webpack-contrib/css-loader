@@ -12,60 +12,12 @@ import modulesScope from "postcss-modules-scope";
 
 const WEBPACK_IGNORE_COMMENT_REGEXP = /webpackIgnore:(\s+)?(true|false)/;
 
-const matchRelativePath = /^\.\.?[/\\]/;
-
-function isAbsolutePath(str) {
-  return path.posix.isAbsolute(str) || path.win32.isAbsolute(str);
-}
-
-function isRelativePath(str) {
-  return matchRelativePath.test(str);
-}
-
-// TODO simplify for the next major release
 function stringifyRequest(loaderContext, request) {
-  if (
-    typeof loaderContext.utils !== "undefined" &&
-    typeof loaderContext.utils.contextify === "function"
-  ) {
-    return JSON.stringify(
-      loaderContext.utils.contextify(
-        loaderContext.context || loaderContext.rootContext,
-        request,
-      ),
-    );
-  }
-
-  const splitted = request.split("!");
-  const { context } = loaderContext;
-
   return JSON.stringify(
-    splitted
-      .map((part) => {
-        // First, separate singlePath from query, because the query might contain paths again
-        const splittedPart = part.match(/^(.*?)(\?.*)/);
-        const query = splittedPart ? splittedPart[2] : "";
-        let singlePath = splittedPart ? splittedPart[1] : part;
-
-        if (isAbsolutePath(singlePath) && context) {
-          singlePath = path.relative(context, singlePath);
-
-          if (isAbsolutePath(singlePath)) {
-            // If singlePath still matches an absolute path, singlePath was on a different drive than context.
-            // In this case, we leave the path platform-specific without replacing any separators.
-            // @see https://github.com/webpack/loader-utils/pull/14
-            return singlePath + query;
-          }
-
-          if (isRelativePath(singlePath) === false) {
-            // Ensure that the relative path starts at least with ./ otherwise it would be a request into the modules directory (like node_modules).
-            singlePath = `./${singlePath}`;
-          }
-        }
-
-        return singlePath.replace(/\\/g, "/") + query;
-      })
-      .join("!"),
+    loaderContext.utils.contextify(
+      loaderContext.context || loaderContext.rootContext,
+      request,
+    ),
   );
 }
 
@@ -313,7 +265,7 @@ const filenameReservedRegex = /[<>:"/\\|?*]/g;
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
 
 function escapeLocalIdent(localident) {
-  // TODO simplify in the next major release
+  // TODO simplify?
   return escape(
     localident
       // For `[hash]` placeholder
@@ -375,13 +327,8 @@ function defaultGetLocalIdent(
   let localIdentHash = "";
 
   for (let tier = 0; localIdentHash.length < hashDigestLength; tier++) {
-    // TODO remove this in the next major release
-    const hash =
-      loaderContext.utils &&
-      typeof loaderContext.utils.createHash === "function"
-        ? loaderContext.utils.createHash(hashFunction)
-        : // eslint-disable-next-line no-underscore-dangle
-          loaderContext._compiler.webpack.util.createHash(hashFunction);
+    // eslint-disable-next-line no-underscore-dangle
+    const hash = loaderContext._compiler.webpack.util.createHash(hashFunction);
 
     if (hashSalt) {
       hash.update(hashSalt);
