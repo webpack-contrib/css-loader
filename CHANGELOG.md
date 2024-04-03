@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.11.0](https://github.com/webpack-contrib/css-loader/compare/v6.10.0...v6.11.0) (2024-04-03)
+
+
+### Features
+
+* supports multiple composes ([#1582](https://github.com/webpack-contrib/css-loader/issues/1582)) ([bbca614](https://github.com/webpack-contrib/css-loader/commit/bbca61411dc5f82964653a6d1aa27854519b743d))
+
+
+### Bug Fixes
+
+* do not break `@scope` at-rule without params ([#1581](https://github.com/webpack-contrib/css-loader/issues/1581)) ([e022e3b](https://github.com/webpack-contrib/css-loader/commit/e022e3bb405472ac7d51ff1114783fc2811dfe04))
+
 ## [6.10.0](https://github.com/webpack-contrib/css-loader/compare/v6.9.1...v6.10.0) (2024-01-30)
 
 
