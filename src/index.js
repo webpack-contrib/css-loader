@@ -87,8 +87,6 @@ export default async function loader(content, map, meta) {
   ) {
     isSupportAbsoluteURL = true;
   }
-  const isSupportDataURL =
-    options.esModule && Boolean("fsStartTime" in this._compiler);
 
   if (shouldUseImportPlugin(options)) {
     plugins.push(
@@ -117,7 +115,7 @@ export default async function loader(content, map, meta) {
     plugins.push(
       urlParser({
         isSupportAbsoluteURL,
-        isSupportDataURL,
+        isSupportDataURL: options.esModule,
         imports: urlPluginImports,
         replacements,
         context: this.context,
