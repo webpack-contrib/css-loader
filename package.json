@@ -58,7 +58,7 @@
     "icss-utils": "^5.1.0",
     "postcss": "^8.4.33",
     "postcss-modules-extract-imports": "^3.0.0",
-    "postcss-modules-local-by-default": "^4.0.4",
+    "postcss-modules-local-by-default": "^4.0.5",
     "postcss-modules-scope": "^3.1.2",
     "postcss-modules-values": "^4.0.0",
     "postcss-value-parser": "^4.2.0",
