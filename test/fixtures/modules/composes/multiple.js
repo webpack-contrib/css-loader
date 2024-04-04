@@ -1,5 +1,5 @@
-import css from './multiple.css';
+import * as css from './multiple.css';
 
-__export__ = css;
+__export__ = css.default;
 
 export default css;

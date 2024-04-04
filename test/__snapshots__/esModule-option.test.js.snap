@@ -133,7 +133,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`@charset "UTF-8";
 }
 \`, ""]);
 // Exports
-___CSS_LOADER_EXPORT___.locals = {};
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -189,9 +188,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`@charset "UTF-8";
 }
 \`, ""]);
 // Exports
-___CSS_LOADER_EXPORT___.locals = {
-	"class": \`OZJqogC5EaF_wROug7zE\`
-};
+var _1 = \`OZJqogC5EaF_wROug7zE\`;
+export { _1 as "class" };
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -247,9 +245,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`@charset "UTF-8";
 }
 \`, ""]);
 // Exports
-___CSS_LOADER_EXPORT___.locals = {
-	"class": \`OZJqogC5EaF_wROug7zE\`
-};
+var _1 = \`OZJqogC5EaF_wROug7zE\`;
+export { _1 as "class" };
 export default ___CSS_LOADER_EXPORT___;
 "
 `;

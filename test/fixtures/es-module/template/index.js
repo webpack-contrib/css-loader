@@ -1,4 +1,4 @@
-import css from './index.css';
+import * as css from './index.css';
 import html from './template.js';
 
 const result = {css, html};

@@ -1,5 +1,5 @@
-import css from './pure.css';
+import * as css from './pure.css';
 
-__export__ = css;
+__export__ = css.default;
 
 export default css;

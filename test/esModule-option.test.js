@@ -127,7 +127,9 @@ describe('"esModule" option', () => {
   for (const test of styleLoaderTests) {
     it(`should work with ${test.localLoaderMode} css-loader + ${test.extractLoaderMode} style-loader`, async () => {
       const compiler = getCompiler(
-        "./es-module/template/index.js",
+        test.localLoaderMode === "commonjs"
+          ? "./es-module/template/index-commonjs.js"
+          : "./es-module/template/index.js",
         {},
         {
           output: {
@@ -190,7 +192,9 @@ describe('"esModule" option', () => {
   for (const test of miniCssExtractPluginTests) {
     it(`should work with ${test.localLoaderMode} css-loader + ${test.extractLoaderMode} mini-css-extract-plugin`, async () => {
       const compiler = getCompiler(
-        "./es-module/template/index.js",
+        test.localLoaderMode === "commonjs"
+          ? "./es-module/template/index-commonjs.js"
+          : "./es-module/template/index.js",
         {},
         {
           module: {

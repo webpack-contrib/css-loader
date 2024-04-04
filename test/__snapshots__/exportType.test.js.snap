@@ -1349,7 +1349,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 ___CSS_LOADER_EXPORT___.push([module.id, \`@import url(./test-other.css) (min-width: 100px);
 
 .ozGmfTedr1GnFJDWqNUH {
-  color: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["vDef"] };
+  color: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["v-def"] };
 }
 
 .zchqshjqLbPAHaRvIBET {
@@ -1361,16 +1361,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`@import url(./test-other.css) (min-wi
 }
 
 .W51zcAMuJMsNFi1CXgWr {
-  width: \${ ___CSS_LOADER_ICSS_IMPORT_1____NAMED___["vSomething"] };
+  width: \${ ___CSS_LOADER_ICSS_IMPORT_1____NAMED___["v-something"] };
 }
 
 .KEl5ZxzNkpjfWorrBglC {
-  color: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["vOther"] };
+  color: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["v-other"] };
 }
 
 .ecAEWh2vww9pNEdyj9Jn {
-  prop: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["vDef"] };
-  duplicate: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["vOther"] };
+  prop: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["v-def"] };
+  duplicate: \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["v-other"] };
 }
 
 .CBlowYk8qiAgWWzFeXRA {
@@ -1411,11 +1411,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`@import url(./test-other.css) (min-wi
   }
 }
 
-.\${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["sWhite"] } {
+.\${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["s-white"] } {
   color: white;
 }
 
-@media \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["mSmall"] } {
+@media \${ ___CSS_LOADER_ICSS_IMPORT_0____NAMED___["m-small"] } {
   .hY2PI5vC9ABuJY1nkWnf {
     padding: 20px 20px;
   }
@@ -1468,53 +1468,100 @@ a {
 }
 \`, ""]);
 // Exports
-export var vDef = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["vDef"]}\`;
-export var vOther = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["vOther"]}\`;
-export var sWhite = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["sWhite"]}\`;
-export var mSmall = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["mSmall"]}\`;
-export var vSomething = \`\${___CSS_LOADER_ICSS_IMPORT_1____NAMED___["vSomething"]}\`;
-export var vFoo = \`blue\`;
-export var vBar = \`block\`;
-export var vPrimary = \`#BF4040\`;
-export var sBlack = \`black-selector\`;
-export var mLarge = \`(min-width: 960px)\`;
-export var vIdent = \`validIdent\`;
-export var vPreDefinedIdent = \`left\`;
-export var vString = \`'content'\`;
-export var vString1 = \`''\`;
-export var vUrl = \`url(https://www.exammple.com/images/my-background.png)\`;
-export var vUrl1 = \`url('https://www.exammple.com/images/my-background.png')\`;
-export var vUrl2 = \`url("https://www.exammple.com/images/my-background.png")\`;
-export var vInteger = \`100\`;
-export var vInteger1 = \`-100\`;
-export var vInteger2 = \`+100\`;
-export var vNumber = \`.60\`;
-export var vNumber1 = \`-456.8\`;
-export var vNumber2 = \`-3.4e-2\`;
-export var vDimension = \`12px\`;
-export var vPercentage = \`100%\`;
-export var vHex = \`#fff\`;
-export var vComment = \` /* comment */\`;
-export var vFunction = \`rgb(0,0,0)\`;
-export var vUnicodeRange = \`U+0025-00FF\`;
-export var ghi = \`ozGmfTedr1GnFJDWqNUH\`;
-export var myClass = \`zchqshjqLbPAHaRvIBET\`;
-export var other = \`WZBxXqS2GytaA3IBhhnd\`;
-export var otherOther = \`W51zcAMuJMsNFi1CXgWr\`;
-export var green = \`KEl5ZxzNkpjfWorrBglC\`;
-export var foo = \`ecAEWh2vww9pNEdyj9Jn\`;
-export var simple = \`CBlowYk8qiAgWWzFeXRA \${___CSS_LOADER_ICSS_IMPORT_2____NAMED___["importedSimple"]}\`;
-export var relative = \`c_NHnDcX1bd_kuxgsuYi \${___CSS_LOADER_ICSS_IMPORT_3____NAMED___["importedRelative"]}\`;
-export var topRelative = \`S0Kwou8pVmsENtBP3hYm \${___CSS_LOADER_ICSS_IMPORT_4____NAMED___["importedRelative"]}\`;
-export var myModule = \`rq663Pq_zV0CjpwttvK4 \${___CSS_LOADER_ICSS_IMPORT_5____NAMED___["importedModule"]}\`;
-export var alias = \`fadRMHArJofp7sWEbPVR \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___["importedAlias"]}\`;
-export var aliasDuplicate = \`sg1HlXqlWy6l6_Wm5iA7 \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___["importedAlias"]}\`;
-export var primarySelector = \`bnRUswvicYag6u0SPnvI\`;
-export var blackSelector = \`kEJRwpukB2OtmkGTknbU\`;
-export var header = \`hY2PI5vC9ABuJY1nkWnf\`;
-export var foobarbaz = \`q8mv0HutzqdsVWjl8mAz\`;
-export var url = \`xajoqP1d3SwrjJ4WEM8g\`;
-export var main = \`Ix5nEHiVOsWuWxdx0twz \${___CSS_LOADER_ICSS_IMPORT_7____NAMED___["scssClass"]}\`;
+var _1 = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["v-def"]}\`;
+export { _1 as "v-def" };
+var _2 = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["v-other"]}\`;
+export { _2 as "v-other" };
+var _3 = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["s-white"]}\`;
+export { _3 as "s-white" };
+var _4 = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["m-small"]}\`;
+export { _4 as "m-small" };
+var _5 = \`\${___CSS_LOADER_ICSS_IMPORT_1____NAMED___["v-something"]}\`;
+export { _5 as "v-something" };
+var _6 = \`blue\`;
+export { _6 as "v-foo" };
+var _7 = \`block\`;
+export { _7 as "v-bar" };
+var _8 = \`#BF4040\`;
+export { _8 as "v-primary" };
+var _9 = \`black-selector\`;
+export { _9 as "s-black" };
+var _a = \`(min-width: 960px)\`;
+export { _a as "m-large" };
+var _b = \`validIdent\`;
+export { _b as "v-ident" };
+var _c = \`left\`;
+export { _c as "v-pre-defined-ident" };
+var _d = \`'content'\`;
+export { _d as "v-string" };
+var _e = \`''\`;
+export { _e as "v-string-1" };
+var _f = \`url(https://www.exammple.com/images/my-background.png)\`;
+export { _f as "v-url" };
+var _10 = \`url('https://www.exammple.com/images/my-background.png')\`;
+export { _10 as "v-url-1" };
+var _11 = \`url("https://www.exammple.com/images/my-background.png")\`;
+export { _11 as "v-url-2" };
+var _12 = \`100\`;
+export { _12 as "v-integer" };
+var _13 = \`-100\`;
+export { _13 as "v-integer-1" };
+var _14 = \`+100\`;
+export { _14 as "v-integer-2" };
+var _15 = \`.60\`;
+export { _15 as "v-number" };
+var _16 = \`-456.8\`;
+export { _16 as "v-number-1" };
+var _17 = \`-3.4e-2\`;
+export { _17 as "v-number-2" };
+var _18 = \`12px\`;
+export { _18 as "v-dimension" };
+var _19 = \`100%\`;
+export { _19 as "v-percentage" };
+var _1a = \`#fff\`;
+export { _1a as "v-hex" };
+var _1b = \` /* comment */\`;
+export { _1b as "v-comment" };
+var _1c = \`rgb(0,0,0)\`;
+export { _1c as "v-function" };
+var _1d = \`U+0025-00FF\`;
+export { _1d as "v-unicode-range" };
+var _1e = \`ozGmfTedr1GnFJDWqNUH\`;
+export { _1e as "ghi" };
+var _1f = \`zchqshjqLbPAHaRvIBET\`;
+export { _1f as "my-class" };
+var _20 = \`WZBxXqS2GytaA3IBhhnd\`;
+export { _20 as "other" };
+var _21 = \`W51zcAMuJMsNFi1CXgWr\`;
+export { _21 as "other-other" };
+var _22 = \`KEl5ZxzNkpjfWorrBglC\`;
+export { _22 as "green" };
+var _23 = \`ecAEWh2vww9pNEdyj9Jn\`;
+export { _23 as "foo" };
+var _24 = \`CBlowYk8qiAgWWzFeXRA \${___CSS_LOADER_ICSS_IMPORT_2____NAMED___["imported-simple"]}\`;
+export { _24 as "simple" };
+var _25 = \`c_NHnDcX1bd_kuxgsuYi \${___CSS_LOADER_ICSS_IMPORT_3____NAMED___["imported-relative"]}\`;
+export { _25 as "relative" };
+var _26 = \`S0Kwou8pVmsENtBP3hYm \${___CSS_LOADER_ICSS_IMPORT_4____NAMED___["imported-relative"]}\`;
+export { _26 as "top-relative" };
+var _27 = \`rq663Pq_zV0CjpwttvK4 \${___CSS_LOADER_ICSS_IMPORT_5____NAMED___["imported-module"]}\`;
+export { _27 as "my-module" };
+var _28 = \`fadRMHArJofp7sWEbPVR \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___["imported-alias"]}\`;
+export { _28 as "alias" };
+var _29 = \`sg1HlXqlWy6l6_Wm5iA7 \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___["imported-alias"]}\`;
+export { _29 as "alias-duplicate" };
+var _2a = \`bnRUswvicYag6u0SPnvI\`;
+export { _2a as "primary-selector" };
+var _2b = \`kEJRwpukB2OtmkGTknbU\`;
+export { _2b as "black-selector" };
+var _2c = \`hY2PI5vC9ABuJY1nkWnf\`;
+export { _2c as "header" };
+var _2d = \`q8mv0HutzqdsVWjl8mAz\`;
+export { _2d as "foobarbaz" };
+var _2e = \`xajoqP1d3SwrjJ4WEM8g\`;
+export { _2e as "url" };
+var _2f = \`Ix5nEHiVOsWuWxdx0twz \${___CSS_LOADER_ICSS_IMPORT_7____NAMED___["scssClass"]}\`;
+export { _2f as "main" };
 var ___CSS_LOADER_STYLE_SHEET___ = new CSSStyleSheet();
 ___CSS_LOADER_STYLE_SHEET___.replaceSync(___CSS_LOADER_EXPORT___.toString());
 export default ___CSS_LOADER_STYLE_SHEET___;
@@ -1525,53 +1572,53 @@ exports[`'exportType' option should work with 'css-style-sheet' value and CSS mo
 CSSStyleSheet {
   "named": {
     "alias": "fadRMHArJofp7sWEbPVR dnhKs1AYKq4KodZdfzcx",
-    "aliasDuplicate": "sg1HlXqlWy6l6_Wm5iA7 dnhKs1AYKq4KodZdfzcx",
-    "blackSelector": "kEJRwpukB2OtmkGTknbU",
+    "alias-duplicate": "sg1HlXqlWy6l6_Wm5iA7 dnhKs1AYKq4KodZdfzcx",
+    "black-selector": "kEJRwpukB2OtmkGTknbU",
     "default": [Circular],
     "foo": "ecAEWh2vww9pNEdyj9Jn",
     "foobarbaz": "q8mv0HutzqdsVWjl8mAz",
     "ghi": "ozGmfTedr1GnFJDWqNUH",
     "green": "KEl5ZxzNkpjfWorrBglC",
     "header": "hY2PI5vC9ABuJY1nkWnf",
-    "mLarge": "(min-width: 960px)",
-    "mSmall": "(min-width: 320px)",
+    "m-large": "(min-width: 960px)",
+    "m-small": "(min-width: 320px)",
     "main": "Ix5nEHiVOsWuWxdx0twz oNU7JF6MtPAFrlrthaOD",
-    "myClass": "zchqshjqLbPAHaRvIBET",
-    "myModule": "rq663Pq_zV0CjpwttvK4 q49Ogfvno__tAgAiYJcD",
+    "my-class": "zchqshjqLbPAHaRvIBET",
+    "my-module": "rq663Pq_zV0CjpwttvK4 q49Ogfvno__tAgAiYJcD",
     "other": "WZBxXqS2GytaA3IBhhnd",
-    "otherOther": "W51zcAMuJMsNFi1CXgWr",
-    "primarySelector": "bnRUswvicYag6u0SPnvI",
+    "other-other": "W51zcAMuJMsNFi1CXgWr",
+    "primary-selector": "bnRUswvicYag6u0SPnvI",
     "relative": "c_NHnDcX1bd_kuxgsuYi o0pMg4suYQOIzdBIQJv1",
-    "sBlack": "black-selector",
-    "sWhite": "white",
+    "s-black": "black-selector",
+    "s-white": "white",
     "simple": "CBlowYk8qiAgWWzFeXRA pCAAqHK9Lcplw9QM7Rj0",
-    "topRelative": "S0Kwou8pVmsENtBP3hYm l9CmW32NEl99tuNLdbzp",
+    "top-relative": "S0Kwou8pVmsENtBP3hYm l9CmW32NEl99tuNLdbzp",
     "url": "xajoqP1d3SwrjJ4WEM8g",
-    "vBar": "block",
-    "vComment": " /* comment */",
-    "vDef": "red",
-    "vDimension": "12px",
-    "vFoo": "blue",
-    "vFunction": "rgb(0,0,0)",
-    "vHex": "#fff",
-    "vIdent": "validIdent",
-    "vInteger": "100",
-    "vInteger1": "-100",
-    "vInteger2": "+100",
-    "vNumber": ".60",
-    "vNumber1": "-456.8",
-    "vNumber2": "-3.4e-2",
-    "vOther": "green",
-    "vPercentage": "100%",
-    "vPreDefinedIdent": "left",
-    "vPrimary": "#BF4040",
-    "vSomething": "2112moon",
-    "vString": "'content'",
-    "vString1": "''",
-    "vUnicodeRange": "U+0025-00FF",
-    "vUrl": "url(https://www.exammple.com/images/my-background.png)",
-    "vUrl1": "url('https://www.exammple.com/images/my-background.png')",
-    "vUrl2": "url("https://www.exammple.com/images/my-background.png")",
+    "v-bar": "block",
+    "v-comment": " /* comment */",
+    "v-def": "red",
+    "v-dimension": "12px",
+    "v-foo": "blue",
+    "v-function": "rgb(0,0,0)",
+    "v-hex": "#fff",
+    "v-ident": "validIdent",
+    "v-integer": "100",
+    "v-integer-1": "-100",
+    "v-integer-2": "+100",
+    "v-number": ".60",
+    "v-number-1": "-456.8",
+    "v-number-2": "-3.4e-2",
+    "v-other": "green",
+    "v-percentage": "100%",
+    "v-pre-defined-ident": "left",
+    "v-primary": "#BF4040",
+    "v-something": "2112moon",
+    "v-string": "'content'",
+    "v-string-1": "''",
+    "v-unicode-range": "U+0025-00FF",
+    "v-url": "url(https://www.exammple.com/images/my-background.png)",
+    "v-url-1": "url('https://www.exammple.com/images/my-background.png')",
+    "v-url-2": "url("https://www.exammple.com/images/my-background.png")",
   },
   "text": "@import url(./test-other.css) (min-width: 100px);
 
@@ -4348,7 +4395,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`.dvYI1gdIOPlJqjwAWOo8 {
 }
 \`, ""]);
 // Exports
-export var someClass = \`dvYI1gdIOPlJqjwAWOo8\`;
+var _1 = \`dvYI1gdIOPlJqjwAWOo8\`;
+export { _1 as "some-class" };
 export default ___CSS_LOADER_EXPORT___.toString();
 "
 `;
@@ -4971,53 +5019,100 @@ import * as ___CSS_LOADER_ICSS_IMPORT_5____NAMED___ from "-!../../../../src/inde
 import * as ___CSS_LOADER_ICSS_IMPORT_6____NAMED___ from "-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css";
 import * as ___CSS_LOADER_ICSS_IMPORT_7____NAMED___ from "-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!sass-loader!./scss-file.scss";
 // Exports
-export var vDef = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["vDef"]}\`;
-export var vOther = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["vOther"]}\`;
-export var sWhite = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["sWhite"]}\`;
-export var mSmall = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["mSmall"]}\`;
-export var vSomething = \`\${___CSS_LOADER_ICSS_IMPORT_1____NAMED___["vSomething"]}\`;
-export var vFoo = \`blue\`;
-export var vBar = \`block\`;
-export var vPrimary = \`#BF4040\`;
-export var sBlack = \`black-selector\`;
-export var mLarge = \`(min-width: 960px)\`;
-export var vIdent = \`validIdent\`;
-export var vPreDefinedIdent = \`left\`;
-export var vString = \`'content'\`;
-export var vString1 = \`''\`;
-export var vUrl = \`url(https://www.exammple.com/images/my-background.png)\`;
-export var vUrl1 = \`url('https://www.exammple.com/images/my-background.png')\`;
-export var vUrl2 = \`url("https://www.exammple.com/images/my-background.png")\`;
-export var vInteger = \`100\`;
-export var vInteger1 = \`-100\`;
-export var vInteger2 = \`+100\`;
-export var vNumber = \`.60\`;
-export var vNumber1 = \`-456.8\`;
-export var vNumber2 = \`-3.4e-2\`;
-export var vDimension = \`12px\`;
-export var vPercentage = \`100%\`;
-export var vHex = \`#fff\`;
-export var vComment = \` /* comment */\`;
-export var vFunction = \`rgb(0,0,0)\`;
-export var vUnicodeRange = \`U+0025-00FF\`;
-export var ghi = \`ozGmfTedr1GnFJDWqNUH\`;
-export var myClass = \`zchqshjqLbPAHaRvIBET\`;
-export var other = \`WZBxXqS2GytaA3IBhhnd\`;
-export var otherOther = \`W51zcAMuJMsNFi1CXgWr\`;
-export var green = \`KEl5ZxzNkpjfWorrBglC\`;
-export var foo = \`ecAEWh2vww9pNEdyj9Jn\`;
-export var simple = \`CBlowYk8qiAgWWzFeXRA \${___CSS_LOADER_ICSS_IMPORT_2____NAMED___["importedSimple"]}\`;
-export var relative = \`c_NHnDcX1bd_kuxgsuYi \${___CSS_LOADER_ICSS_IMPORT_3____NAMED___["importedRelative"]}\`;
-export var topRelative = \`S0Kwou8pVmsENtBP3hYm \${___CSS_LOADER_ICSS_IMPORT_4____NAMED___["importedRelative"]}\`;
-export var myModule = \`rq663Pq_zV0CjpwttvK4 \${___CSS_LOADER_ICSS_IMPORT_5____NAMED___["importedModule"]}\`;
-export var alias = \`fadRMHArJofp7sWEbPVR \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___["importedAlias"]}\`;
-export var aliasDuplicate = \`sg1HlXqlWy6l6_Wm5iA7 \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___["importedAlias"]}\`;
-export var primarySelector = \`bnRUswvicYag6u0SPnvI\`;
-export var blackSelector = \`kEJRwpukB2OtmkGTknbU\`;
-export var header = \`hY2PI5vC9ABuJY1nkWnf\`;
-export var foobarbaz = \`q8mv0HutzqdsVWjl8mAz\`;
-export var url = \`xajoqP1d3SwrjJ4WEM8g\`;
-export var main = \`Ix5nEHiVOsWuWxdx0twz \${___CSS_LOADER_ICSS_IMPORT_7____NAMED___["scssClass"]}\`;
+var _1 = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["v-def"]}\`;
+export { _1 as "v-def" };
+var _2 = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["v-other"]}\`;
+export { _2 as "v-other" };
+var _3 = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["s-white"]}\`;
+export { _3 as "s-white" };
+var _4 = \`\${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["m-small"]}\`;
+export { _4 as "m-small" };
+var _5 = \`\${___CSS_LOADER_ICSS_IMPORT_1____NAMED___["v-something"]}\`;
+export { _5 as "v-something" };
+var _6 = \`blue\`;
+export { _6 as "v-foo" };
+var _7 = \`block\`;
+export { _7 as "v-bar" };
+var _8 = \`#BF4040\`;
+export { _8 as "v-primary" };
+var _9 = \`black-selector\`;
+export { _9 as "s-black" };
+var _a = \`(min-width: 960px)\`;
+export { _a as "m-large" };
+var _b = \`validIdent\`;
+export { _b as "v-ident" };
+var _c = \`left\`;
+export { _c as "v-pre-defined-ident" };
+var _d = \`'content'\`;
+export { _d as "v-string" };
+var _e = \`''\`;
+export { _e as "v-string-1" };
+var _f = \`url(https://www.exammple.com/images/my-background.png)\`;
+export { _f as "v-url" };
+var _10 = \`url('https://www.exammple.com/images/my-background.png')\`;
+export { _10 as "v-url-1" };
+var _11 = \`url("https://www.exammple.com/images/my-background.png")\`;
+export { _11 as "v-url-2" };
+var _12 = \`100\`;
+export { _12 as "v-integer" };
+var _13 = \`-100\`;
+export { _13 as "v-integer-1" };
+var _14 = \`+100\`;
+export { _14 as "v-integer-2" };
+var _15 = \`.60\`;
+export { _15 as "v-number" };
+var _16 = \`-456.8\`;
+export { _16 as "v-number-1" };
+var _17 = \`-3.4e-2\`;
+export { _17 as "v-number-2" };
+var _18 = \`12px\`;
+export { _18 as "v-dimension" };
+var _19 = \`100%\`;
+export { _19 as "v-percentage" };
+var _1a = \`#fff\`;
+export { _1a as "v-hex" };
+var _1b = \` /* comment */\`;
+export { _1b as "v-comment" };
+var _1c = \`rgb(0,0,0)\`;
+export { _1c as "v-function" };
+var _1d = \`U+0025-00FF\`;
+export { _1d as "v-unicode-range" };
+var _1e = \`ozGmfTedr1GnFJDWqNUH\`;
+export { _1e as "ghi" };
+var _1f = \`zchqshjqLbPAHaRvIBET\`;
+export { _1f as "my-class" };
+var _20 = \`WZBxXqS2GytaA3IBhhnd\`;
+export { _20 as "other" };
+var _21 = \`W51zcAMuJMsNFi1CXgWr\`;
+export { _21 as "other-other" };
+var _22 = \`KEl5ZxzNkpjfWorrBglC\`;
+export { _22 as "green" };
+var _23 = \`ecAEWh2vww9pNEdyj9Jn\`;
+export { _23 as "foo" };
+var _24 = \`CBlowYk8qiAgWWzFeXRA \${___CSS_LOADER_ICSS_IMPORT_2____NAMED___["imported-simple"]}\`;
+export { _24 as "simple" };
+var _25 = \`c_NHnDcX1bd_kuxgsuYi \${___CSS_LOADER_ICSS_IMPORT_3____NAMED___["imported-relative"]}\`;
+export { _25 as "relative" };
+var _26 = \`S0Kwou8pVmsENtBP3hYm \${___CSS_LOADER_ICSS_IMPORT_4____NAMED___["imported-relative"]}\`;
+export { _26 as "top-relative" };
+var _27 = \`rq663Pq_zV0CjpwttvK4 \${___CSS_LOADER_ICSS_IMPORT_5____NAMED___["imported-module"]}\`;
+export { _27 as "my-module" };
+var _28 = \`fadRMHArJofp7sWEbPVR \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___["imported-alias"]}\`;
+export { _28 as "alias" };
+var _29 = \`sg1HlXqlWy6l6_Wm5iA7 \${___CSS_LOADER_ICSS_IMPORT_6____NAMED___["imported-alias"]}\`;
+export { _29 as "alias-duplicate" };
+var _2a = \`bnRUswvicYag6u0SPnvI\`;
+export { _2a as "primary-selector" };
+var _2b = \`kEJRwpukB2OtmkGTknbU\`;
+export { _2b as "black-selector" };
+var _2c = \`hY2PI5vC9ABuJY1nkWnf\`;
+export { _2c as "header" };
+var _2d = \`q8mv0HutzqdsVWjl8mAz\`;
+export { _2d as "foobarbaz" };
+var _2e = \`xajoqP1d3SwrjJ4WEM8g\`;
+export { _2e as "url" };
+var _2f = \`Ix5nEHiVOsWuWxdx0twz \${___CSS_LOADER_ICSS_IMPORT_7____NAMED___["scssClass"]}\`;
+export { _2f as "main" };
 "
 `;
 
@@ -5025,52 +5120,52 @@ exports[`'exportType' option should work with CSS modules and the 'exportOnlyLoc
 {
   "named": {
     "alias": "fadRMHArJofp7sWEbPVR dnhKs1AYKq4KodZdfzcx",
-    "aliasDuplicate": "sg1HlXqlWy6l6_Wm5iA7 dnhKs1AYKq4KodZdfzcx",
-    "blackSelector": "kEJRwpukB2OtmkGTknbU",
+    "alias-duplicate": "sg1HlXqlWy6l6_Wm5iA7 dnhKs1AYKq4KodZdfzcx",
+    "black-selector": "kEJRwpukB2OtmkGTknbU",
     "foo": "ecAEWh2vww9pNEdyj9Jn",
     "foobarbaz": "q8mv0HutzqdsVWjl8mAz",
     "ghi": "ozGmfTedr1GnFJDWqNUH",
     "green": "KEl5ZxzNkpjfWorrBglC",
     "header": "hY2PI5vC9ABuJY1nkWnf",
-    "mLarge": "(min-width: 960px)",
-    "mSmall": "(min-width: 320px)",
+    "m-large": "(min-width: 960px)",
+    "m-small": "(min-width: 320px)",
     "main": "Ix5nEHiVOsWuWxdx0twz oNU7JF6MtPAFrlrthaOD",
-    "myClass": "zchqshjqLbPAHaRvIBET",
-    "myModule": "rq663Pq_zV0CjpwttvK4 q49Ogfvno__tAgAiYJcD",
+    "my-class": "zchqshjqLbPAHaRvIBET",
+    "my-module": "rq663Pq_zV0CjpwttvK4 q49Ogfvno__tAgAiYJcD",
     "other": "WZBxXqS2GytaA3IBhhnd",
-    "otherOther": "W51zcAMuJMsNFi1CXgWr",
-    "primarySelector": "bnRUswvicYag6u0SPnvI",
+    "other-other": "W51zcAMuJMsNFi1CXgWr",
+    "primary-selector": "bnRUswvicYag6u0SPnvI",
     "relative": "c_NHnDcX1bd_kuxgsuYi o0pMg4suYQOIzdBIQJv1",
-    "sBlack": "black-selector",
-    "sWhite": "white",
+    "s-black": "black-selector",
+    "s-white": "white",
     "simple": "CBlowYk8qiAgWWzFeXRA pCAAqHK9Lcplw9QM7Rj0",
-    "topRelative": "S0Kwou8pVmsENtBP3hYm l9CmW32NEl99tuNLdbzp",
+    "top-relative": "S0Kwou8pVmsENtBP3hYm l9CmW32NEl99tuNLdbzp",
     "url": "xajoqP1d3SwrjJ4WEM8g",
-    "vBar": "block",
-    "vComment": " /* comment */",
-    "vDef": "red",
-    "vDimension": "12px",
-    "vFoo": "blue",
-    "vFunction": "rgb(0,0,0)",
-    "vHex": "#fff",
-    "vIdent": "validIdent",
-    "vInteger": "100",
-    "vInteger1": "-100",
-    "vInteger2": "+100",
-    "vNumber": ".60",
-    "vNumber1": "-456.8",
-    "vNumber2": "-3.4e-2",
-    "vOther": "green",
-    "vPercentage": "100%",
-    "vPreDefinedIdent": "left",
-    "vPrimary": "#BF4040",
-    "vSomething": "2112moon",
-    "vString": "'content'",
-    "vString1": "''",
-    "vUnicodeRange": "U+0025-00FF",
-    "vUrl": "url(https://www.exammple.com/images/my-background.png)",
-    "vUrl1": "url('https://www.exammple.com/images/my-background.png')",
-    "vUrl2": "url("https://www.exammple.com/images/my-background.png")",
+    "v-bar": "block",
+    "v-comment": " /* comment */",
+    "v-def": "red",
+    "v-dimension": "12px",
+    "v-foo": "blue",
+    "v-function": "rgb(0,0,0)",
+    "v-hex": "#fff",
+    "v-ident": "validIdent",
+    "v-integer": "100",
+    "v-integer-1": "-100",
+    "v-integer-2": "+100",
+    "v-number": ".60",
+    "v-number-1": "-456.8",
+    "v-number-2": "-3.4e-2",
+    "v-other": "green",
+    "v-percentage": "100%",
+    "v-pre-defined-ident": "left",
+    "v-primary": "#BF4040",
+    "v-something": "2112moon",
+    "v-string": "'content'",
+    "v-string-1": "''",
+    "v-unicode-range": "U+0025-00FF",
+    "v-url": "url(https://www.exammple.com/images/my-background.png)",
+    "v-url-1": "url('https://www.exammple.com/images/my-background.png')",
+    "v-url-2": "url("https://www.exammple.com/images/my-background.png")",
   },
 }
 `;

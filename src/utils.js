@@ -490,7 +490,7 @@ function getValidLocalName(localName, exportLocalsConvention) {
 const IS_MODULES = /\.module(s)?\.\w+$/i;
 const IS_ICSS = /\.icss\.\w+$/i;
 
-function getModulesOptions(rawOptions, exportType, loaderContext) {
+function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
   if (typeof rawOptions.modules === "boolean" && rawOptions.modules === false) {
     return false;
   }
@@ -519,6 +519,16 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
   const { outputOptions } = loaderContext._compilation;
   const needNamedExport =
     exportType === "css-style-sheet" || exportType === "string";
+  const namedExport =
+    typeof rawModulesOptions.namedExport !== "undefined"
+      ? rawModulesOptions.namedExport
+      : needNamedExport || esModule;
+  const exportLocalsConvention =
+    typeof rawModulesOptions.exportLocalsConvention !== "undefined"
+      ? rawModulesOptions.exportLocalsConvention
+      : namedExport
+        ? "asIs"
+        : "camelCaseOnly";
   const modulesOptions = {
     auto,
     mode: "local",
@@ -533,15 +543,11 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
     getLocalIdent: undefined,
-    namedExport: needNamedExport || false,
-    exportLocalsConvention:
-      (rawModulesOptions.namedExport === true || needNamedExport) &&
-      typeof rawModulesOptions.exportLocalsConvention === "undefined"
-        ? "camelCaseOnly"
-        : "asIs",
+    // TODO improve me and enable by default
     exportOnlyLocals: false,
     ...rawModulesOptions,
-    useExportsAs: rawModulesOptions.exportLocalsConvention === "asIs",
+    exportLocalsConvention,
+    namedExport,
   };
 
   let exportLocalsConventionType;
@@ -549,6 +555,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
   if (typeof modulesOptions.exportLocalsConvention === "string") {
     exportLocalsConventionType = modulesOptions.exportLocalsConvention;
 
+    modulesOptions.useExportsAs = exportLocalsConventionType === "asIs";
     modulesOptions.exportLocalsConvention = (name) => {
       switch (exportLocalsConventionType) {
         case "camelCase": {
@@ -614,7 +621,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
   }
 
   if (needNamedExport) {
-    if (rawOptions.esModule === false) {
+    if (esModule === false) {
       throw new Error(
         "The 'exportType' option with the 'css-style-sheet' or 'string' value requires the 'esModule' option to be enabled",
       );
@@ -628,7 +635,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
   }
 
   if (modulesOptions.namedExport === true) {
-    if (rawOptions.esModule === false) {
+    if (esModule === false) {
       throw new Error(
         "The 'modules.namedExport' option requires the 'esModule' option to be enabled",
       );
@@ -641,7 +648,7 @@ function getModulesOptions(rawOptions, exportType, loaderContext) {
       exportLocalsConventionType !== "dashesOnly"
     ) {
       throw new Error(
-        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "camelCaseOnly" or "dashesOnly"',
+        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "asIs", "camelCaseOnly" or "dashesOnly"',
       );
     }
   }
@@ -654,8 +661,11 @@ function normalizeOptions(rawOptions, loaderContext) {
     typeof rawOptions.exportType === "undefined"
       ? "array"
       : rawOptions.exportType;
+  const esModule =
+    typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule;
   const modulesOptions = getModulesOptions(
     rawOptions,
+    esModule,
     exportType,
     loaderContext,
   );
@@ -672,8 +682,7 @@ function normalizeOptions(rawOptions, loaderContext) {
       typeof rawOptions.importLoaders === "string"
         ? parseInt(rawOptions.importLoaders, 10)
         : rawOptions.importLoaders,
-    esModule:
-      typeof rawOptions.esModule === "undefined" ? true : rawOptions.esModule,
+    esModule,
     exportType,
   };
 }

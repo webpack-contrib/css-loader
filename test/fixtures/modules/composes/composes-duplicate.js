@@ -1,5 +1,5 @@
-import css from './composes-duplicate.css';
+import * as css from './composes-duplicate.css';
 
-__export__ = css;
+__export__ = css.default;
 
 export default css;
