@@ -154,10 +154,14 @@
                 {
                   "enum": [
                     "asIs",
+                    "as-is",
                     "camelCase",
+                    "camel-case",
                     "camelCaseOnly",
+                    "camel-case-only",
                     "dashes",
-                    "dashesOnly"
+                    "dashesOnly",
+                    "dashes-only"
                   ]
                 },
                 {

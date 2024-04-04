@@ -1412,14 +1412,13 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "localConvention" option with the "camelCaseOnly" value', async () => {
+  it('should work and respect the "localConvention" option with the "camel-case-only" value', async () => {
     const compiler = getCompiler(
       "./modules/localsConvention/localsConvention.js",
       {
         modules: {
           mode: "local",
-          exportLocalsConvention: "camelCaseOnly",
-          namedExport: false,
+          exportLocalsConvention: "camel-case-only",
         },
       },
     );

@@ -2552,7 +2552,7 @@ exports[`"modules" option should throw an error when class has unsupported name 
 exports[`"modules" option should throw an error when the "namedExport" is enabled and the "exportLocalsConvention" options has not "camelCaseOnly" value: errors 1`] = `
 [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "asIs", "camelCaseOnly" or "dashesOnly"",
+Error: The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "as-is", "camel-case-only" or "dashes-only"",
 ]
 `;
 
@@ -2579,7 +2579,7 @@ exports[`"modules" option should throw error when the "exportLocalsConvention" f
 exports[`"modules" option should throw error with composes when the "namedExport" is enabled and "exportLocalsConvention" options has invalid value: errors 1`] = `
 [
   "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "asIs", "camelCaseOnly" or "dashesOnly"",
+Error: The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "as-is", "camel-case-only" or "dashes-only"",
 ]
 `;
 
@@ -6454,6 +6454,76 @@ a {
 
 exports[`"modules" option should work and respect the "localConvention" option with the "asIs" value: warnings 1`] = `[]`;
 
+exports[`"modules" option should work and respect the "localConvention" option with the "camel-case-only" value: errors 1`] = `[]`;
+
+exports[`"modules" option should work and respect the "localConvention" option with the "camel-case-only" value: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.rmc8ltu8P1VXaeqLNU6N {
+  color: blue;
+}
+
+.AooVHuvzAIGXWngdfslc {
+  color: blue;
+}
+
+.snmJCrfw3LVnrlx87XVC {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+
+.vA4oeh0XymefKJVIJyg1 {
+  color: red;
+}
+\`, ""]);
+// Exports
+export var foo = \`bar\`;
+export var myBtnInfoIsDisabled = \`value\`;
+export var btnInfoIsDisabled = \`rmc8ltu8P1VXaeqLNU6N\`;
+export var btnInfoIsDisabled1 = \`AooVHuvzAIGXWngdfslc\`;
+export var simple = \`snmJCrfw3LVnrlx87XVC\`;
+export var fooBar = \`vA4oeh0XymefKJVIJyg1\`;
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "localConvention" option with the "camel-case-only" value: result 1`] = `
+[
+  [
+    "./modules/localsConvention/localsConvention.css",
+    ".rmc8ltu8P1VXaeqLNU6N {
+  color: blue;
+}
+
+.AooVHuvzAIGXWngdfslc {
+  color: blue;
+}
+
+.snmJCrfw3LVnrlx87XVC {
+  color: red;
+}
+
+a {
+  color: yellow;
+}
+
+.vA4oeh0XymefKJVIJyg1 {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "localConvention" option with the "camel-case-only" value: warnings 1`] = `[]`;
+
 exports[`"modules" option should work and respect the "localConvention" option with the "camelCase" value: errors 1`] = `[]`;
 
 exports[`"modules" option should work and respect the "localConvention" option with the "camelCase" value: module 1`] = `
@@ -6529,78 +6599,6 @@ a {
 `;
 
 exports[`"modules" option should work and respect the "localConvention" option with the "camelCase" value: warnings 1`] = `[]`;
-
-exports[`"modules" option should work and respect the "localConvention" option with the "camelCaseOnly" value: errors 1`] = `[]`;
-
-exports[`"modules" option should work and respect the "localConvention" option with the "camelCaseOnly" value: module 1`] = `
-"// Imports
-import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
-import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \`.rmc8ltu8P1VXaeqLNU6N {
-  color: blue;
-}
-
-.AooVHuvzAIGXWngdfslc {
-  color: blue;
-}
-
-.snmJCrfw3LVnrlx87XVC {
-  color: red;
-}
-
-a {
-  color: yellow;
-}
-
-.vA4oeh0XymefKJVIJyg1 {
-  color: red;
-}
-\`, ""]);
-// Exports
-___CSS_LOADER_EXPORT___.locals = {
-	"foo": \`bar\`,
-	"myBtnInfoIsDisabled": \`value\`,
-	"btnInfoIsDisabled": \`rmc8ltu8P1VXaeqLNU6N\`,
-	"btnInfoIsDisabled1": \`AooVHuvzAIGXWngdfslc\`,
-	"simple": \`snmJCrfw3LVnrlx87XVC\`,
-	"fooBar": \`vA4oeh0XymefKJVIJyg1\`
-};
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
-exports[`"modules" option should work and respect the "localConvention" option with the "camelCaseOnly" value: result 1`] = `
-[
-  [
-    "./modules/localsConvention/localsConvention.css",
-    ".rmc8ltu8P1VXaeqLNU6N {
-  color: blue;
-}
-
-.AooVHuvzAIGXWngdfslc {
-  color: blue;
-}
-
-.snmJCrfw3LVnrlx87XVC {
-  color: red;
-}
-
-a {
-  color: yellow;
-}
-
-.vA4oeh0XymefKJVIJyg1 {
-  color: red;
-}
-",
-    "",
-  ],
-]
-`;
-
-exports[`"modules" option should work and respect the "localConvention" option with the "camelCaseOnly" value: warnings 1`] = `[]`;
 
 exports[`"modules" option should work and respect the "localConvention" option with the "dashes" value: errors 1`] = `[]`;
 

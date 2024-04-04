@@ -114,12 +114,12 @@ exports[`validate options should throw an error on the "modules" option with "{"
    -> Read more at https://github.com/webpack-contrib/css-loader#modules
    Details:
     * options.modules.exportLocalsConvention should be one of these:
-      "asIs" | "camelCase" | "camelCaseOnly" | "dashes" | "dashesOnly" | function
+      "asIs" | "as-is" | "camelCase" | "camel-case" | "camelCaseOnly" | "camel-case-only" | "dashes" | "dashesOnly" | "dashes-only" | function
       -> Style of exported classnames.
       -> Read more at https://github.com/webpack-contrib/css-loader#localsconvention
       Details:
        * options.modules.exportLocalsConvention should be one of these:
-         "asIs" | "camelCase" | "camelCaseOnly" | "dashes" | "dashesOnly"
+         "asIs" | "as-is" | "camelCase" | "camel-case" | "camelCaseOnly" | "camel-case-only" | "dashes" | "dashesOnly" | "dashes-only"
        * options.modules.exportLocalsConvention should be an instance of function."
 `;
 

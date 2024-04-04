@@ -320,11 +320,11 @@ type modules =
       namedExport: boolean;
       exportGlobals: boolean;
       exportLocalsConvention:
-        | "asIs"
-        | "camelCase"
-        | "camelCaseOnly"
+        | "as-is"
+        | "camel-case"
+        | "camel-case-only"
         | "dashes"
-        | "dashesOnly"
+        | "dashes-only"
         | ((name: string) => string);
       exportOnlyLocals: boolean;
     };
@@ -602,7 +602,7 @@ module.exports = {
             localIdentContext: path.resolve(__dirname, "src"),
             localIdentHashSalt: "my-custom-hash",
             namedExport: true,
-            exportLocalsConvention: "camelCase",
+            exportLocalsConvention: "as-is",
             exportOnlyLocals: false,
           },
         },
@@ -1152,7 +1152,7 @@ Enables/disables ES modules named export for locals.
 > **Warning**
 >
 > It is not allowed to use JavaScript reserved words in css class names unless
-> `exportLocalsConvention` is `"asIs"`.
+> `exportLocalsConvention` is `"as-is"`.
 
 **styles.css**
 
@@ -1171,7 +1171,7 @@ Enables/disables ES modules named export for locals.
 import * as styles from "./styles.css";
 
 console.log(styles.fooBaz, styles.bar);
-// or if using `exportLocalsConvention: "asIs"`:
+// or if using `exportLocalsConvention: "as-is"`:
 console.log(styles["foo-baz"], styles.bar);
 ```
 
@@ -1239,29 +1239,29 @@ Type:
 
 ```ts
 type exportLocalsConvention =
-  | "asIs"
-  | "camelCase"
-  | "camelCaseOnly"
+  | "as-is"
+  | "camel-case"
+  | "camel-case-only"
   | "dashes"
-  | "dashesOnly"
+  | "dashes-only"
   | ((name: string) => string);
 ```
 
-Default: based on the `modules.namedExport` option value, if `true` - `camelCaseOnly`, otherwise `asIs`
+Default: based on the `modules.namedExport` option value, if `true` - `camelCaseOnly`, otherwise `as-is`
 
 Style of exported class names.
 
 ###### `string`
 
-By default, the exported JSON keys mirror the class names (i.e `asIs` value).
+By default, the exported JSON keys mirror the class names (i.e `as-is` value).
 
-|         Name          |   Type   | Description                                                                                      |
-| :-------------------: | :------: | :----------------------------------------------------------------------------------------------- |
-|     **`'asIs'`**      | `string` | Class names will be exported as is.                                                              |
-|   **`'camelCase'`**   | `string` | Class names will be camelized, the original class name will not to be removed from the locals    |
-| **`'camelCaseOnly'`** | `string` | Class names will be camelized, the original class name will be removed from the locals           |
-|    **`'dashes'`**     | `string` | Only dashes in class names will be camelized                                                     |
-|  **`'dashesOnly'`**   | `string` | Dashes in class names will be camelized, the original class name will be removed from the locals |
+|          Name           |   Type   | Description                                                                                      |
+| :---------------------: | :------: | :----------------------------------------------------------------------------------------------- |
+|      **`'as-is'`**      | `string` | Class names will be exported as is.                                                              |
+|   **`'camel-case'`**    | `string` | Class names will be camelized, the original class name will not to be removed from the locals    |
+| **`'camel-case-only'`** | `string` | Class names will be camelized, the original class name will be removed from the locals           |
+|     **`'dashes'`**      | `string` | Only dashes in class names will be camelized                                                     |
+|   **`'dashes-only'`**   | `string` | Dashes in class names will be camelized, the original class name will be removed from the locals |
 
 **file.css**
 
@@ -1287,7 +1287,7 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            exportLocalsConvention: "camelCase",
+            exportLocalsConvention: "camel-case",
           },
         },
       },
