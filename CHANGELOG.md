@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/webpack-contrib/css-loader/compare/v6.11.0...v7.0.0) (2024-04-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* The `modules.namedExport` option is `true` by default if you enable the `esModule` option
+
+Migration guide:
+
+Before:
+
+```js
+import style from "./style.css";
+
+console.log(style.myClass);
+```
+
+After:
+
+```js
+import * as style from "./style.css";
+
+console.log(style.myClass);
+```
+
+* The `modules.exportLocalsConvention` has the value `as-is` when the `modules.namedExport` option is `true` and you don't specify a value
+* Minimum supported webpack version is `5.27.0`
+* Minimum supported Node.js version is `18.12.0`
+
+### Features
+
+* The `modules.namedExports` option works fine with any `modules.exportLocalsConvention` values ([f96a110](https://github.com/webpack-contrib/css-loader/commit/f96a11007da55a632de7f58167895e1b5814d717))
+* Added dashed variants for the `modules.exportLocalsConvention` options ([40e1668](https://github.com/webpack-contrib/css-loader/commit/40e1668b8366f0df63343efe706ba848c2b5dfb2))
+
 ## [6.11.0](https://github.com/webpack-contrib/css-loader/compare/v6.10.0...v6.11.0) (2024-04-03)
 
 
