@@ -2551,8 +2551,8 @@ exports[`"modules" option should throw an error when class has unsupported name 
 
 exports[`"modules" option should throw an error when the "namedExport" is enabled and the "exportLocalsConvention" options has not "camelCaseOnly" value: errors 1`] = `
 [
-  "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "as-is", "camel-case-only" or "dashes-only"",
+  "ModuleParseError: Module parse failed: Unexpected keyword 'class' (11:11)
+File was processed with these loaders:",
 ]
 `;
 
@@ -2578,8 +2578,8 @@ exports[`"modules" option should throw error when the "exportLocalsConvention" f
 
 exports[`"modules" option should throw error with composes when the "namedExport" is enabled and "exportLocalsConvention" options has invalid value: errors 1`] = `
 [
-  "ModuleBuildError: Module build failed (from \`replaced original path\`):
-Error: The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "as-is", "camel-case-only" or "dashes-only"",
+  "ModuleParseError: Module parse failed: Unexpected token (30:18)
+File was processed with these loaders:",
 ]
 `;
 
