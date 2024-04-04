@@ -1063,7 +1063,7 @@ describe('"modules" option', () => {
 
   it("should work with the 'auto' and extract CSS using mini-css-extract-plugin", async () => {
     const compiler = getCompiler(
-      "./modules/mode/modules.js",
+      "./modules/mode/modules-extract.js",
       {},
       {
         module: {
@@ -1504,13 +1504,16 @@ describe('"modules" option', () => {
   });
 
   it('should work and respect the "exportOnlyLocals" option', async () => {
-    const compiler = getCompiler("./modules/composes/composes.js", {
-      modules: {
-        mode: "local",
-        localIdentName: "_[local]",
-        exportOnlyLocals: true,
+    const compiler = getCompiler(
+      "./modules/composes/composes-export-only-locals.js",
+      {
+        modules: {
+          mode: "local",
+          localIdentName: "_[local]",
+          exportOnlyLocals: true,
+        },
       },
-    });
+    );
     const stats = await compile(compiler);
 
     expect(
@@ -1524,14 +1527,17 @@ describe('"modules" option', () => {
   });
 
   it('should work with "exportOnlyLocals" and "esModule" with "true" value options', async () => {
-    const compiler = getCompiler("./modules/composes/composes.js", {
-      modules: {
-        mode: "local",
-        localIdentName: "_[local]",
-        exportOnlyLocals: true,
+    const compiler = getCompiler(
+      "./modules/composes/composes-export-only-locals.js",
+      {
+        modules: {
+          mode: "local",
+          localIdentName: "_[local]",
+          exportOnlyLocals: true,
+        },
+        esModule: true,
       },
-      esModule: true,
-    });
+    );
     const stats = await compile(compiler);
 
     expect(
@@ -1545,14 +1551,17 @@ describe('"modules" option', () => {
   });
 
   it('should work with "exportOnlyLocals" and "esModule" with "false" value options', async () => {
-    const compiler = getCompiler("./modules/composes/composes.js", {
-      modules: {
-        mode: "local",
-        localIdentName: "_[local]",
-        exportOnlyLocals: true,
+    const compiler = getCompiler(
+      "./modules/composes/composes-export-only-locals.js",
+      {
+        modules: {
+          mode: "local",
+          localIdentName: "_[local]",
+          exportOnlyLocals: true,
+        },
+        esModule: false,
       },
-      esModule: false,
-    });
+    );
     const stats = await compile(compiler);
 
     expect(
@@ -2009,7 +2018,7 @@ describe('"modules" option', () => {
 
   it('show work with the "mode: icss" and "exportOnlyLocals" options', async () => {
     const compiler = getCompiler(
-      "./modules/icss/tests-cases/import/source.js",
+      "./modules/icss/tests-cases/import/source-only-locals.js",
       {
         modules: {
           mode: "icss",
@@ -2031,7 +2040,7 @@ describe('"modules" option', () => {
 
   it('show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support', async () => {
     const compiler = getCompiler(
-      "./modules/icss/tests-cases/import/source.js",
+      "./modules/icss/tests-cases/import/source-only-locals.js",
       {
         modules: {
           mode: "icss",
@@ -2330,7 +2339,7 @@ describe('"modules" option', () => {
 
   it("should work and generate the same classes for client and server", async () => {
     const clientCompiler = getCompiler(
-      "./modules/localIdentName/localIdentName.js",
+      "./modules/localIdentName/localIdentName-export-only-locals.js",
       {},
       {
         module: {
@@ -2374,7 +2383,7 @@ describe('"modules" option', () => {
     expect(getErrors(clientStats)).toMatchSnapshot("client errors");
 
     const serverCompiler = getCompiler(
-      "./modules/localIdentName/localIdentName.js",
+      "./modules/localIdentName/localIdentName-export-only-locals.js",
       {
         modules: {
           exportOnlyLocals: true,

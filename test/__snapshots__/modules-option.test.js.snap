@@ -2991,13 +2991,60 @@ export { _1 as "123", _2 as "#", _3 as "##", _4 as "#.#.#", _5 as "#fake-id", _6
 "
 `;
 
-exports[`"modules" option should work and generate the same classes for client and server: client result 1`] = `undefined`;
-
-exports[`"modules" option should work and generate the same classes for client and server: client warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'css') was not found in './localIdentName.css' (possible exports: #, ##, #.#.#, #fake-id, ++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>., -a-b-c-, -a0-34a___f, ., 123, 1a2b3c, :), :\`(, :hover, :hover:focus:active, <><<<>><>, <p>, ?, @, B&W?, [attr=value], _, _test, className, f!o!o, f'o'o, f*o*o, f+o+o, f/o/o, f\\o\\o, foo.bar, foo/bar, foo/bar/baz, foo\\bar, foo\\bar\\baz, f~o~o, m_x_@, someId, subClass, test, {}, ©, “‘’”, ⌘⌥, ☺☃, ♥, 𝄞♪♩♫♬, 💩, 😍)",
-]
+exports[`"modules" option should work and generate the same classes for client and server: client result 1`] = `
+{
+  "#": "HkwIsjW5i7WNAxVRd5cg",
+  "##": "IJc6Xl4ZKVZvSoeIuI2Q",
+  "#.#.#": "BnPpnJmPeNr51pj2ZTlf",
+  "#fake-id": "AqiAGSfnwaXj3eqg0Om8",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "ByKoYcSrMT2cN3V2iAgZ",
+  "-a-b-c-": "CwXv27VMwyQqKBvNNaFr",
+  "-a0-34a___f": "DdFWMPoluIgmQirKzoS6",
+  ".": "zd5uIZq6KrAWTwBjwZdC",
+  "123": "oqRGsO4UR7_DWiqWXJMz",
+  "1a2b3c": "YR1u_buYf6paLzzUM6Vc",
+  ":)": "ZiZnRjRT03NgoqVQwkGO",
+  ":\`(": "fKJQkLarfQOel4wwbIrn",
+  ":hover": "HVudUNXnLNQoCLpVn82S",
+  ":hover:focus:active": "ZlaaXvHLUsJOCFzItB_1",
+  "<><<<>><>": "ozNsTIG0LL2gSQdL5dzv",
+  "<p>": "TdAx2ZSkw7Hbktc7KR72",
+  "?": "ndmpvNNltJXbDVvqKuxt",
+  "@": "v3gq0wPogd6ZPfq_pfyZ",
+  "B&W?": "h4SEF34CLwChRsak1742",
+  "[attr=value]": "PWvC4jVM5SwUmKmw2tfW",
+  "_": "bCwkZEDuxDAOhKnMdLVF",
+  "_test": "Lb3fhDAuJv4v7BXOPttP",
+  "className": "LdhpkZRWyKT7zDwJ0lt8",
+  "f!o!o": "_aIyR9ETAs8ipXmRrrDO",
+  "f'o'o": "HSXNnSjt1QaHBHUb_UIs",
+  "f*o*o": "gv1E2n_bVvy0iT8TaHIv",
+  "f+o+o": "EvMHRmCudyKg3GpLjAfj",
+  "f/o/o": "A5l5sDODF4CQBW_PtlQD",
+  "f\\o\\o": "DFfh4KyqOODVQsTPb3wt",
+  "foo.bar": "uajo7mHzD_tTqOXqaqdg",
+  "foo/bar": "hei2uQgDeX2YNkppCHp9",
+  "foo/bar/baz": "p6KJMhNWwmCU2bXHJB93",
+  "foo\\bar": "IgSzmmsCqiJBl4SibwgR",
+  "foo\\bar\\baz": "HZerWgmU0ffpPzySVi_g",
+  "f~o~o": "MrVzSIcSXyoDsr5G0K5_",
+  "m_x_@": "OdAmghrme3xnUYOdzoDw",
+  "someId": "b0rhwJStMR3eH63oapwW",
+  "subClass": "Mw9j4nIdjx1xCGDt7d6a",
+  "test": "KuIShlgsYfxvLoLHT1mu",
+  "{}": "IZkBfE9iUPen76w2bB_q",
+  "©": "jBj0sZiWBysiwRyGu_go",
+  "“‘’”": "GM0Y0nFCPtkVMz6Esfno",
+  "⌘⌥": "edHWpSne18gmGmfN6SV6",
+  "☺☃": "NKrBw7EAqPT7Cgn7JzrA",
+  "♥": "vJl9A9Ds21oujVsd5UD2",
+  "𝄞♪♩♫♬": "QyMp9YMEoYUmEHEdpRal",
+  "💩": "B82YxwgREHbKn8IpgaWw",
+  "😍": "CNLr9yJwqs3dm6FgpOqA",
+}
 `;
+
+exports[`"modules" option should work and generate the same classes for client and server: client warnings 1`] = `[]`;
 
 exports[`"modules" option should work and generate the same classes for client and server: server errors 1`] = `[]`;
 
@@ -3102,13 +3149,60 @@ export { _30 as "foo\\\\bar\\\\baz" };
 "
 `;
 
-exports[`"modules" option should work and generate the same classes for client and server: server result 1`] = `undefined`;
-
-exports[`"modules" option should work and generate the same classes for client and server: server warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'css') was not found in './localIdentName.css' (possible exports: #, ##, #.#.#, #fake-id, ++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>., -a-b-c-, -a0-34a___f, ., 123, 1a2b3c, :), :\`(, :hover, :hover:focus:active, <><<<>><>, <p>, ?, @, B&W?, [attr=value], _, _test, className, f!o!o, f'o'o, f*o*o, f+o+o, f/o/o, f\\o\\o, foo.bar, foo/bar, foo/bar/baz, foo\\bar, foo\\bar\\baz, f~o~o, m_x_@, someId, subClass, test, {}, ©, “‘’”, ⌘⌥, ☺☃, ♥, 𝄞♪♩♫♬, 💩, 😍)",
-]
+exports[`"modules" option should work and generate the same classes for client and server: server result 1`] = `
+{
+  "#": "HkwIsjW5i7WNAxVRd5cg",
+  "##": "IJc6Xl4ZKVZvSoeIuI2Q",
+  "#.#.#": "BnPpnJmPeNr51pj2ZTlf",
+  "#fake-id": "AqiAGSfnwaXj3eqg0Om8",
+  "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.": "ByKoYcSrMT2cN3V2iAgZ",
+  "-a-b-c-": "CwXv27VMwyQqKBvNNaFr",
+  "-a0-34a___f": "DdFWMPoluIgmQirKzoS6",
+  ".": "zd5uIZq6KrAWTwBjwZdC",
+  "123": "oqRGsO4UR7_DWiqWXJMz",
+  "1a2b3c": "YR1u_buYf6paLzzUM6Vc",
+  ":)": "ZiZnRjRT03NgoqVQwkGO",
+  ":\`(": "fKJQkLarfQOel4wwbIrn",
+  ":hover": "HVudUNXnLNQoCLpVn82S",
+  ":hover:focus:active": "ZlaaXvHLUsJOCFzItB_1",
+  "<><<<>><>": "ozNsTIG0LL2gSQdL5dzv",
+  "<p>": "TdAx2ZSkw7Hbktc7KR72",
+  "?": "ndmpvNNltJXbDVvqKuxt",
+  "@": "v3gq0wPogd6ZPfq_pfyZ",
+  "B&W?": "h4SEF34CLwChRsak1742",
+  "[attr=value]": "PWvC4jVM5SwUmKmw2tfW",
+  "_": "bCwkZEDuxDAOhKnMdLVF",
+  "_test": "Lb3fhDAuJv4v7BXOPttP",
+  "className": "LdhpkZRWyKT7zDwJ0lt8",
+  "f!o!o": "_aIyR9ETAs8ipXmRrrDO",
+  "f'o'o": "HSXNnSjt1QaHBHUb_UIs",
+  "f*o*o": "gv1E2n_bVvy0iT8TaHIv",
+  "f+o+o": "EvMHRmCudyKg3GpLjAfj",
+  "f/o/o": "A5l5sDODF4CQBW_PtlQD",
+  "f\\o\\o": "DFfh4KyqOODVQsTPb3wt",
+  "foo.bar": "uajo7mHzD_tTqOXqaqdg",
+  "foo/bar": "hei2uQgDeX2YNkppCHp9",
+  "foo/bar/baz": "p6KJMhNWwmCU2bXHJB93",
+  "foo\\bar": "IgSzmmsCqiJBl4SibwgR",
+  "foo\\bar\\baz": "HZerWgmU0ffpPzySVi_g",
+  "f~o~o": "MrVzSIcSXyoDsr5G0K5_",
+  "m_x_@": "OdAmghrme3xnUYOdzoDw",
+  "someId": "b0rhwJStMR3eH63oapwW",
+  "subClass": "Mw9j4nIdjx1xCGDt7d6a",
+  "test": "KuIShlgsYfxvLoLHT1mu",
+  "{}": "IZkBfE9iUPen76w2bB_q",
+  "©": "jBj0sZiWBysiwRyGu_go",
+  "“‘’”": "GM0Y0nFCPtkVMz6Esfno",
+  "⌘⌥": "edHWpSne18gmGmfN6SV6",
+  "☺☃": "NKrBw7EAqPT7Cgn7JzrA",
+  "♥": "vJl9A9Ds21oujVsd5UD2",
+  "𝄞♪♩♫♬": "QyMp9YMEoYUmEHEdpRal",
+  "💩": "B82YxwgREHbKn8IpgaWw",
+  "😍": "CNLr9yJwqs3dm6FgpOqA",
+}
 `;
+
+exports[`"modules" option should work and generate the same classes for client and server: server warnings 1`] = `[]`;
 
 exports[`"modules" option should work and has "undefined" context if no context was given: errors 1`] = `[]`;
 
@@ -4480,13 +4574,59 @@ export { _2f as "main" };
 "
 `;
 
-exports[`"modules" option should work and respect the "exportOnlyLocals" option: result 1`] = `undefined`;
-
-exports[`"modules" option should work and respect the "exportOnlyLocals" option: warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'css') was not found in './composes.css' (possible exports: alias, alias-duplicate, black-selector, foo, foobarbaz, ghi, green, header, m-large, m-small, main, my-class, my-module, other, other-other, primary-selector, relative, s-black, s-white, simple, top-relative, url, v-bar, v-comment, v-def, v-dimension, v-foo, v-function, v-hex, v-ident, v-integer, v-integer-1, v-integer-2, v-number, v-number-1, v-number-2, v-other, v-percentage, v-pre-defined-ident, v-primary, v-something, v-string, v-string-1, v-unicode-range, v-url, v-url-1, v-url-2)",
-]
+exports[`"modules" option should work and respect the "exportOnlyLocals" option: result 1`] = `
+{
+  "alias": "_alias _imported-alias",
+  "alias-duplicate": "_alias-duplicate _imported-alias",
+  "black-selector": "_black-selector",
+  "foo": "_foo",
+  "foobarbaz": "_foobarbaz",
+  "ghi": "_ghi",
+  "green": "_green",
+  "header": "_header",
+  "m-large": "(min-width: 960px)",
+  "m-small": "(min-width: 320px)",
+  "main": "_main _scssClass",
+  "my-class": "_my-class",
+  "my-module": "_my-module _imported-module",
+  "other": "_other",
+  "other-other": "_other-other",
+  "primary-selector": "_primary-selector",
+  "relative": "_relative _imported-relative",
+  "s-black": "black-selector",
+  "s-white": "white",
+  "simple": "_simple _imported-simple",
+  "top-relative": "_top-relative _imported-relative",
+  "url": "_url",
+  "v-bar": "block",
+  "v-comment": " /* comment */",
+  "v-def": "red",
+  "v-dimension": "12px",
+  "v-foo": "blue",
+  "v-function": "rgb(0,0,0)",
+  "v-hex": "#fff",
+  "v-ident": "validIdent",
+  "v-integer": "100",
+  "v-integer-1": "-100",
+  "v-integer-2": "+100",
+  "v-number": ".60",
+  "v-number-1": "-456.8",
+  "v-number-2": "-3.4e-2",
+  "v-other": "green",
+  "v-percentage": "100%",
+  "v-pre-defined-ident": "left",
+  "v-primary": "#BF4040",
+  "v-something": "2112moon",
+  "v-string": "'content'",
+  "v-string-1": "''",
+  "v-unicode-range": "U+0025-00FF",
+  "v-url": "url(https://www.exammple.com/images/my-background.png)",
+  "v-url-1": "url('https://www.exammple.com/images/my-background.png')",
+  "v-url-2": "url("https://www.exammple.com/images/my-background.png")",
+}
 `;
+
+exports[`"modules" option should work and respect the "exportOnlyLocals" option: warnings 1`] = `[]`;
 
 exports[`"modules" option should work and respect the "getLocalIdent" option: errors 1`] = `[]`;
 
@@ -9677,13 +9817,59 @@ export { _2f as "main" };
 "
 `;
 
-exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "true" value options: result 1`] = `undefined`;
-
-exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "true" value options: warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'css') was not found in './composes.css' (possible exports: alias, alias-duplicate, black-selector, foo, foobarbaz, ghi, green, header, m-large, m-small, main, my-class, my-module, other, other-other, primary-selector, relative, s-black, s-white, simple, top-relative, url, v-bar, v-comment, v-def, v-dimension, v-foo, v-function, v-hex, v-ident, v-integer, v-integer-1, v-integer-2, v-number, v-number-1, v-number-2, v-other, v-percentage, v-pre-defined-ident, v-primary, v-something, v-string, v-string-1, v-unicode-range, v-url, v-url-1, v-url-2)",
-]
+exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "true" value options: result 1`] = `
+{
+  "alias": "_alias _imported-alias",
+  "alias-duplicate": "_alias-duplicate _imported-alias",
+  "black-selector": "_black-selector",
+  "foo": "_foo",
+  "foobarbaz": "_foobarbaz",
+  "ghi": "_ghi",
+  "green": "_green",
+  "header": "_header",
+  "m-large": "(min-width: 960px)",
+  "m-small": "(min-width: 320px)",
+  "main": "_main _scssClass",
+  "my-class": "_my-class",
+  "my-module": "_my-module _imported-module",
+  "other": "_other",
+  "other-other": "_other-other",
+  "primary-selector": "_primary-selector",
+  "relative": "_relative _imported-relative",
+  "s-black": "black-selector",
+  "s-white": "white",
+  "simple": "_simple _imported-simple",
+  "top-relative": "_top-relative _imported-relative",
+  "url": "_url",
+  "v-bar": "block",
+  "v-comment": " /* comment */",
+  "v-def": "red",
+  "v-dimension": "12px",
+  "v-foo": "blue",
+  "v-function": "rgb(0,0,0)",
+  "v-hex": "#fff",
+  "v-ident": "validIdent",
+  "v-integer": "100",
+  "v-integer-1": "-100",
+  "v-integer-2": "+100",
+  "v-number": ".60",
+  "v-number-1": "-456.8",
+  "v-number-2": "-3.4e-2",
+  "v-other": "green",
+  "v-percentage": "100%",
+  "v-pre-defined-ident": "left",
+  "v-primary": "#BF4040",
+  "v-something": "2112moon",
+  "v-string": "'content'",
+  "v-string-1": "''",
+  "v-unicode-range": "U+0025-00FF",
+  "v-url": "url(https://www.exammple.com/images/my-background.png)",
+  "v-url-1": "url('https://www.exammple.com/images/my-background.png')",
+  "v-url-2": "url("https://www.exammple.com/images/my-background.png")",
+}
 `;
+
+exports[`"modules" option should work with "exportOnlyLocals" and "esModule" with "true" value options: warnings 1`] = `[]`;
 
 exports[`"modules" option should work with "exportOnlyLocals" and "exportLocalsConvention": "asIs": errors 1`] = `[]`;
 
@@ -23142,11 +23328,7 @@ export { _1 as "relative" }
 "
 `;
 
-exports[`"modules" option should work with the 'auto' and extract CSS using mini-css-extract-plugin: warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'relative') was not found in './relative.module.css' (possible exports: relative)",
-]
-`;
+exports[`"modules" option should work with the 'auto' and extract CSS using mini-css-extract-plugin: warnings 1`] = `[]`;
 
 exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`global\`): errors 1`] = `[]`;
 
@@ -24887,13 +25069,13 @@ export { _1 as "primary-color" };
 "
 `;
 
-exports[`"modules" option show work with the "mode: icss" and "exportOnlyLocals" options: result 1`] = `undefined`;
-
-exports[`"modules" option show work with the "mode: icss" and "exportOnlyLocals" options: warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'css') was not found in './source.css' (possible exports: primary-color)",
-]
+exports[`"modules" option show work with the "mode: icss" and "exportOnlyLocals" options: result 1`] = `
+{
+  "primary-color": "red",
+}
 `;
+
+exports[`"modules" option show work with the "mode: icss" and "exportOnlyLocals" options: warnings 1`] = `[]`;
 
 exports[`"modules" option show work with the "mode: icss" and "namedExport" options: errors 1`] = `[]`;
 
@@ -25284,10 +25466,10 @@ export { _1 as "primary-color" };
 "
 `;
 
-exports[`"modules" option show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support: result 1`] = `undefined`;
-
-exports[`"modules" option show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support: warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'css') was not found in './source.css' (possible exports: primary-color)",
-]
+exports[`"modules" option show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support: result 1`] = `
+{
+  "primary-color": "red",
+}
 `;
+
+exports[`"modules" option show work with the "mode: icss", "exportOnlyLocals" options and "templateLiteral" support: warnings 1`] = `[]`;
