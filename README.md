@@ -1138,21 +1138,13 @@ Type:
 type namedExport = boolean;
 ```
 
-Default: `false`
+Default: Depends on the value of the `esModule` option. If the value of the `esModule` options is `true`, this value will also be `true`, otherwise it will be `false`.
 
 Enables/disables ES modules named export for locals.
 
 > **Warning**
 >
-> Names of locals are converted to camelcase, i.e. the `exportLocalsConvention` option has
-> `camelCaseOnly` value by default. You can set this back to any other valid option but selectors
-> which are not valid JavaScript identifiers may run into problems which do not implement the entire
-> modules specification.
-
-> **Warning**
->
-> It is not allowed to use JavaScript reserved words in css class names unless
-> `exportLocalsConvention` is `"as-is"`.
+> It is not allowed to use JavaScript reserved words in css class names unless `exportLocalsConvention` is `"as-is"`.
 
 **styles.css**
 
@@ -1170,8 +1162,10 @@ Enables/disables ES modules named export for locals.
 ```js
 import * as styles from "./styles.css";
 
+// If using `exportLocalsConvention: "camel-case-only"`:
 console.log(styles.fooBaz, styles.bar);
-// or if using `exportLocalsConvention: "as-is"`:
+
+// If using `exportLocalsConvention: "as-is"`:
 console.log(styles["foo-baz"], styles.bar);
 ```
 
@@ -1247,7 +1241,18 @@ type exportLocalsConvention =
   | ((name: string) => string);
 ```
 
-Default: based on the `modules.namedExport` option value, if `true` - `camelCaseOnly`, otherwise `as-is`
+Default: Depends on the value of the `modules.namedExport` option, if `true` - `as-is`, otherwise `camel-case-only`.
+
+> **Warning**
+>
+> Names of locals are converted to camelcase when the named export is `false`, i.e. the `exportLocalsConvention` option has
+> `camelCaseOnly` value by default. You can set this back to any other valid option but selectors
+> which are not valid JavaScript identifiers may run into problems which do not implement the entire
+> modules specification.
+
+> **Warning**
+>
+> **You need to disable `modules.namedExport` if you want to use `'camel-case'` or `'dashes'` value.**
 
 Style of exported class names.
 
@@ -1287,7 +1292,7 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            exportLocalsConvention: "camel-case",
+            exportLocalsConvention: "camel-case-only",
           },
         },
       },

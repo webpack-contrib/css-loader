@@ -647,7 +647,7 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
       );
     }
 
-    if (
+    /* if (
       typeof exportLocalsConventionType === "string" &&
       exportLocalsConventionType !== "asIs" &&
       exportLocalsConventionType !== "as-is" &&
@@ -659,7 +659,7 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
       throw new Error(
         'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "as-is", "camel-case-only" or "dashes-only"',
       );
-    }
+    }*/
   }
 
   return modulesOptions;
