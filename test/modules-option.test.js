@@ -1389,7 +1389,74 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "localConvention" option with the "camelCase" value', async () => {
+  it('should work and respect the `localConvention` option with the "as-is" value', async () => {
+    const compiler = getCompiler(
+      "./modules/localsConvention/localsConvention.js",
+      {
+        modules: {
+          mode: "local",
+          exportLocalsConvention: "as-is",
+        },
+      },
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work and respect the `localConvention` option with the `as-is` value and `namedExport` is `false`", async () => {
+    const compiler = getCompiler(
+      "./modules/localsConvention/localsConvention.js",
+      {
+        modules: {
+          mode: "local",
+          exportLocalsConvention: "as-is",
+          namedExport: false,
+        },
+      },
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work and respect the `localConvention` option with the `camelCase` value", async () => {
+    const compiler = getCompiler(
+      "./modules/localsConvention/localsConvention.js",
+      {
+        modules: {
+          mode: "local",
+          exportLocalsConvention: "camelCase",
+        },
+      },
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work and respect the `localConvention` option with the `camelCase` value and `namedExport` false", async () => {
     const compiler = getCompiler(
       "./modules/localsConvention/localsConvention.js",
       {
@@ -1412,7 +1479,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "localConvention" option with the "camel-case-only" value', async () => {
+  it("should work and respect the `localConvention` option with the `camel-case-only` value", async () => {
     const compiler = getCompiler(
       "./modules/localsConvention/localsConvention.js",
       {
@@ -1434,7 +1501,52 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "localConvention" option with the "dashes" value', async () => {
+  it("should work and respect the `localConvention` option with the `camel-case-only` value and `namedExport` false", async () => {
+    const compiler = getCompiler(
+      "./modules/localsConvention/localsConvention.js",
+      {
+        modules: {
+          mode: "local",
+          exportLocalsConvention: "camel-case-only",
+          namedExport: false,
+        },
+      },
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work and respect the `localConvention` option with the `dashes` value", async () => {
+    const compiler = getCompiler(
+      "./modules/localsConvention/localsConvention.js",
+      {
+        modules: {
+          mode: "local",
+          exportLocalsConvention: "dashes",
+        },
+      },
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work and respect the `localConvention` option with the `dashes` value and `namedExport` false", async () => {
     const compiler = getCompiler(
       "./modules/localsConvention/localsConvention.js",
       {
@@ -1457,13 +1569,36 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "localConvention" option with the "dashesOnly" value', async () => {
+  it("should work and respect the `localConvention` option with the `dashesOnly` value", async () => {
     const compiler = getCompiler(
       "./modules/localsConvention/localsConvention.js",
       {
         modules: {
           mode: "local",
           exportLocalsConvention: "dashesOnly",
+        },
+      },
+    );
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/localsConvention/localsConvention.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work and respect the `localConvention` option with the `dashesOnly` value and `namedExport` false", async () => {
+    const compiler = getCompiler(
+      "./modules/localsConvention/localsConvention.js",
+      {
+        modules: {
+          mode: "local",
+          exportLocalsConvention: "dashesOnly",
+          namedExport: false,
         },
       },
     );

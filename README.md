@@ -1144,7 +1144,7 @@ Enables/disables ES modules named export for locals.
 
 > **Warning**
 >
-> It is not allowed to use JavaScript reserved words in css class names unless `exportLocalsConvention` is `"as-is"`.
+> It is not allowed to use the `default` reserved word in css classes.
 
 **styles.css**
 
@@ -1247,12 +1247,7 @@ Default: Depends on the value of the `modules.namedExport` option, if `true` - `
 >
 > Names of locals are converted to camelcase when the named export is `false`, i.e. the `exportLocalsConvention` option has
 > `camelCaseOnly` value by default. You can set this back to any other valid option but selectors
-> which are not valid JavaScript identifiers may run into problems which do not implement the entire
-> modules specification.
-
-> **Warning**
->
-> **You need to disable `modules.namedExport` if you want to use `'camel-case'` or `'dashes'` value.**
+> which are not valid JavaScript identifiers may run into problems which do not implement the entire modules specification.
 
 Style of exported class names.
 

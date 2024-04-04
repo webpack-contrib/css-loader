@@ -550,16 +550,12 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
     namedExport,
   };
 
-  let exportLocalsConventionType;
-
   if (typeof modulesOptions.exportLocalsConvention === "string") {
-    exportLocalsConventionType = modulesOptions.exportLocalsConvention;
+    // eslint-disable-next-line no-shadow
+    const { exportLocalsConvention } = modulesOptions;
 
-    modulesOptions.useExportsAs =
-      exportLocalsConventionType === "as-is" ||
-      exportLocalsConventionType === "asIs";
     modulesOptions.exportLocalsConvention = (name) => {
-      switch (exportLocalsConventionType) {
+      switch (exportLocalsConvention) {
         case "camel-case":
         case "camelCase": {
           return [name, camelCase(name)];
@@ -640,26 +636,10 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
     }
   }
 
-  if (modulesOptions.namedExport === true) {
-    if (esModule === false) {
-      throw new Error(
-        "The 'modules.namedExport' option requires the 'esModule' option to be enabled",
-      );
-    }
-
-    /* if (
-      typeof exportLocalsConventionType === "string" &&
-      exportLocalsConventionType !== "asIs" &&
-      exportLocalsConventionType !== "as-is" &&
-      exportLocalsConventionType !== "camelCaseOnly" &&
-      exportLocalsConventionType !== "camel-case-only" &&
-      exportLocalsConventionType !== "dashesOnly" &&
-      exportLocalsConventionType !== "dashes-only"
-    ) {
-      throw new Error(
-        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "as-is", "camel-case-only" or "dashes-only"',
-      );
-    }*/
+  if (modulesOptions.namedExport === true && esModule === false) {
+    throw new Error(
+      "The 'modules.namedExport' option requires the 'esModule' option to be enabled",
+    );
   }
 
   return modulesOptions;
@@ -1123,6 +1103,69 @@ function dashesCamelCase(str) {
   );
 }
 
+const validIdentifier = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/u;
+const keywords = new Set([
+  "abstract",
+  "boolean",
+  "break",
+  "byte",
+  "case",
+  "catch",
+  "char",
+  "class",
+  "const",
+  "continue",
+  "debugger",
+  "default",
+  "delete",
+  "do",
+  "double",
+  "else",
+  "enum",
+  "export",
+  "extends",
+  "false",
+  "final",
+  "finally",
+  "float",
+  "for",
+  "function",
+  "goto",
+  "if",
+  "implements",
+  "import",
+  "in",
+  "instanceof",
+  "int",
+  "interface",
+  "long",
+  "native",
+  "new",
+  "null",
+  "package",
+  "private",
+  "protected",
+  "public",
+  "return",
+  "short",
+  "static",
+  "super",
+  "switch",
+  "synchronized",
+  "this",
+  "throw",
+  "throws",
+  "transient",
+  "true",
+  "try",
+  "typeof",
+  "var",
+  "void",
+  "volatile",
+  "while",
+  "with",
+]);
+
 function getExportCode(
   exports,
   replacements,
@@ -1145,10 +1188,13 @@ function getExportCode(
         const serializedValue = isTemplateLiteralSupported
           ? convertToTemplateLiteral(value)
           : JSON.stringify(value);
+
         if (options.modules.namedExport) {
-          if (options.modules.useExportsAs) {
+          if (!validIdentifier.test(name) || keywords.has(name)) {
             identifierId += 1;
+
             const id = `_${identifierId.toString(16)}`;
+
             localsCode += `var ${id} = ${serializedValue};\n`;
             localsCode += `export { ${id} as ${JSON.stringify(name)} };\n`;
           } else {
