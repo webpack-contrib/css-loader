@@ -1,4 +1,4 @@
-import { headerBaz, body, footer } from './index.css';
+import { "header-baz" as headerBaz, body, footer } from './index.css';
 
 let html = '\n';
 

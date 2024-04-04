@@ -1,5 +1,5 @@
-import css from './path-placeholder.css';
+import * as css from './path-placeholder.css';
 
-__export__ = css;
+__export__ = css.default;
 
 export default css;

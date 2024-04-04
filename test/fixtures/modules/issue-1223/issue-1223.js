@@ -1,5 +1,5 @@
-import css from './@foo/bar/index.module.css';
+import * as css from './@foo/bar/index.module.css';
 
-__export__ = css;
+__export__ = css.default;
 
 export default css;

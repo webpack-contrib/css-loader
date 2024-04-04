@@ -1,5 +1,5 @@
-import relative from './relative.module.css';
+import * as relative from './relative.module.css';
 
-__export__ = relative;
+__export__ = relative.default;
 
 export default relative;

@@ -1396,6 +1396,7 @@ describe('"modules" option', () => {
         modules: {
           mode: "local",
           exportLocalsConvention: "camelCase",
+          namedExport: false,
         },
       },
     );
@@ -1418,6 +1419,7 @@ describe('"modules" option', () => {
         modules: {
           mode: "local",
           exportLocalsConvention: "camelCaseOnly",
+          namedExport: false,
         },
       },
     );
@@ -1440,6 +1442,7 @@ describe('"modules" option', () => {
         modules: {
           mode: "local",
           exportLocalsConvention: "dashes",
+          namedExport: false,
         },
       },
     );

@@ -41,9 +41,9 @@ describe("validate options", () => {
         { auto: /custom-regex/ },
         { auto: () => true },
         { exportLocalsConvention: "asIs" },
-        { exportLocalsConvention: "camelCase" },
+        { exportLocalsConvention: "camelCase", namedExport: false },
         { exportLocalsConvention: "camelCaseOnly" },
-        { exportLocalsConvention: "dashes" },
+        { exportLocalsConvention: "dashes", namedExport: false },
         { exportLocalsConvention: "dashesOnly" },
         {
           exportLocalsConvention: (localName) =>
