@@ -41,10 +41,13 @@ describe("validate options", () => {
         { auto: /custom-regex/ },
         { auto: () => true },
         { exportLocalsConvention: "asIs" },
+        { exportLocalsConvention: "as-is" },
         { exportLocalsConvention: "camelCase", namedExport: false },
+        { exportLocalsConvention: "camel-case", namedExport: false },
         { exportLocalsConvention: "camelCaseOnly" },
+        { exportLocalsConvention: "camel-case-only" },
         { exportLocalsConvention: "dashes", namedExport: false },
-        { exportLocalsConvention: "dashesOnly" },
+        { exportLocalsConvention: "dashes-only" },
         {
           exportLocalsConvention: (localName) =>
             `${localName.replace(/-/g, "_")}`,

@@ -527,8 +527,8 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
     typeof rawModulesOptions.exportLocalsConvention !== "undefined"
       ? rawModulesOptions.exportLocalsConvention
       : namedExport
-        ? "asIs"
-        : "camelCaseOnly";
+        ? "as-is"
+        : "camel-case-only";
   const modulesOptions = {
     auto,
     mode: "local",
@@ -555,21 +555,27 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
   if (typeof modulesOptions.exportLocalsConvention === "string") {
     exportLocalsConventionType = modulesOptions.exportLocalsConvention;
 
-    modulesOptions.useExportsAs = exportLocalsConventionType === "asIs";
+    modulesOptions.useExportsAs =
+      exportLocalsConventionType === "as-is" ||
+      exportLocalsConventionType === "asIs";
     modulesOptions.exportLocalsConvention = (name) => {
       switch (exportLocalsConventionType) {
+        case "camel-case":
         case "camelCase": {
           return [name, camelCase(name)];
         }
+        case "camel-case-only":
         case "camelCaseOnly": {
           return camelCase(name);
         }
         case "dashes": {
           return [name, dashesCamelCase(name)];
         }
+        case "dashes-only":
         case "dashesOnly": {
           return dashesCamelCase(name);
         }
+        case "as-is":
         case "asIs":
         default:
           return name;
@@ -644,11 +650,14 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
     if (
       typeof exportLocalsConventionType === "string" &&
       exportLocalsConventionType !== "asIs" &&
+      exportLocalsConventionType !== "as-is" &&
       exportLocalsConventionType !== "camelCaseOnly" &&
-      exportLocalsConventionType !== "dashesOnly"
+      exportLocalsConventionType !== "camel-case-only" &&
+      exportLocalsConventionType !== "dashesOnly" &&
+      exportLocalsConventionType !== "dashes-only"
     ) {
       throw new Error(
-        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "asIs", "camelCaseOnly" or "dashesOnly"',
+        'The "modules.namedExport" option requires the "modules.exportLocalsConvention" option to be "as-is", "camel-case-only" or "dashes-only"',
       );
     }
   }
