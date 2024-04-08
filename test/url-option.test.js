@@ -86,15 +86,15 @@ describe('"url" option', () => {
   it("should work with url.filter", async () => {
     const compiler = getCompiler("./url/url.js", {
       url: {
-        filter: (url, resourcePath) => {
+        filter: (_url, resourcePath) => {
           expect(typeof resourcePath === "string").toBe(true);
 
-          if (url.startsWith("/guide/img")) {
+          if (_url.startsWith("/guide/img")) {
             return false;
           }
 
           // Don't handle `img.png`
-          if (url.includes("img.png")) {
+          if (_url.includes("img.png")) {
             return false;
           }
 
