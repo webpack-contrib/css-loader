@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/webpack-contrib/css-loader/compare/v7.0.0...v7.1.0) (2024-04-08)
+
+
+### Features
+
+* added the `getJSON` option to output CSS modules mapping ([#1577](https://github.com/webpack-contrib/css-loader/issues/1577)) ([af834b4](https://github.com/webpack-contrib/css-loader/commit/af834b43b375f336108d74ff7bd9ed13bc79200a))
+
 ## [7.0.0](https://github.com/webpack-contrib/css-loader/compare/v6.11.0...v7.0.0) (2024-04-04)
 
 
