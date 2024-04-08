@@ -3,6 +3,8 @@ import fs from "fs";
 
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
+import { getJSON, CssModulesJsonPlugin } from "./helpers/get-json";
+
 import {
   compile,
   getCompiler,
@@ -2591,6 +2593,32 @@ describe('"modules" option', () => {
     });
     const stats = await compile(compiler);
 
+    expect(
+      getModuleSource("./modules/composes/multiple.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with the `getJSON` option and resolve all classes", async () => {
+    const compiler = getCompiler("./modules/composes/multiple.js", {
+      modules: { getJSON },
+    });
+
+    fs.mkdirSync(path.resolve(__dirname, "./outputs/"), { recursive: true });
+
+    const filepath = path.resolve(__dirname, "./outputs/modules.css.json");
+
+    new CssModulesJsonPlugin({ filepath }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(JSON.parse(fs.readFileSync(filepath, "utf8"))).toMatchSnapshot(
+      "locals",
+    );
     expect(
       getModuleSource("./modules/composes/multiple.css", stats),
     ).toMatchSnapshot("module");
