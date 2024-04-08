@@ -2621,10 +2621,10 @@ describe('"modules" option', () => {
     expect(args).toMatchSnapshot("args");
 
     expect(
-      getModuleSource("./modules/getJSON/source.css", stats)
+      getModuleSource("./modules/getJSON/source.css", stats),
     ).toMatchSnapshot("module");
     expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
-      "result"
+      "result",
     );
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");

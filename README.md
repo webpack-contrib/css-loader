@@ -1473,12 +1473,12 @@ module.exports = {
               // synchronously write a .json mapping file in the same directory as the resource
               const exportsJson = exports.reduce(
                 (acc, { name, value }) => ({ ...acc, [name]: value }),
-                {}
+                {},
               );
 
               const outputPath = path.resolve(
                 path.dirname(resourcePath),
-                `${path.basename(resourcePath)}.json`
+                `${path.basename(resourcePath)}.json`,
               );
 
               const fs = require("fs");
@@ -1503,12 +1503,12 @@ module.exports = {
             getJSON: async ({ resourcePath, exports }) => {
               const exportsJson = exports.reduce(
                 (acc, { name, value }) => ({ ...acc, [name]: value }),
-                {}
+                {},
               );
 
               const outputPath = path.resolve(
                 path.dirname(resourcePath),
-                `${path.basename(resourcePath)}.json`
+                `${path.basename(resourcePath)}.json`,
               );
 
               const fsp = require("fs/promises");
@@ -1548,7 +1548,7 @@ function addReplacements(resourcePath, imports, exportsJson, replacements) {
   importReplacementsMap[resourcePath] = replacements.reduce(
     (acc, { replacementName, importName, localName }) => {
       const replacementImportUrl = imports.find(
-        (importData) => importData.importName === importName
+        (importData) => importData.importName === importName,
       ).url;
       const relativePathRe = /.*!(.*)"/;
       const [, relativePath] = replacementImportUrl.match(relativePathRe);
@@ -1556,7 +1556,7 @@ function addReplacements(resourcePath, imports, exportsJson, replacements) {
       const identifier = generateIdentifier(importPath, localName);
       return { ...acc, [replacementName]: `___REPLACEMENT${identifier}___` };
     },
-    {}
+    {},
   );
 
   // iterate through the raw exports and add stand-in variables
@@ -1572,7 +1572,7 @@ function addReplacements(resourcePath, imports, exportsJson, replacements) {
         CSS_LOADER_REPLACEMENT_REGEX,
         (_, replacementName) => {
           return importReplacementsMap[resourcePath][replacementName];
-        }
+        },
       );
     } else {
       // otherwise, no class names need replacements so we can add them to
@@ -1598,7 +1598,7 @@ function replaceReplacements(classNames) {
       const canonicalValue = replaceReplacements(replacementsMap[identifier]);
       canonicalValuesMap[identifier] = canonicalValue;
       return canonicalValue;
-    }
+    },
   );
 
   return adjustedClassNames;
@@ -1615,7 +1615,7 @@ module.exports = {
             getJSON: ({ resourcePath, imports, exports, replacements }) => {
               const exportsJson = exports.reduce(
                 (acc, { name, value }) => ({ ...acc, [name]: value }),
-                {}
+                {},
               );
 
               if (replacements.length > 0) {
@@ -1625,7 +1625,7 @@ module.exports = {
                   resourcePath,
                   imports,
                   exportsJson,
-                  replacements
+                  replacements,
                 );
               } else {
                 // no replacements present --> add to canonicalValuesMap verbatim
@@ -1649,7 +1649,7 @@ module.exports = {
       apply(compiler) {
         compiler.hooks.done.tap("CssModulesJsonPlugin", () => {
           for (const [identifier, classNames] of Object.entries(
-            replacementsMap
+            replacementsMap,
           )) {
             const adjustedClassNames = replaceReplacements(classNames);
             replacementsMap[identifier] = adjustedClassNames;
@@ -1662,7 +1662,7 @@ module.exports = {
           fs.writeFileSync(
             "./output.css.json",
             JSON.stringify(allExportsJson, null, 2),
-            "utf8"
+            "utf8",
           );
         });
       },
