@@ -1,0 +1,11 @@
+.a {
+  composes: composedA from "./composeSource.css";
+
+  background-color: aliceblue;
+}
+
+.b {
+  composes: composedB from "./composeSource.css";
+
+  background-color: blanchedalmond;
+}
