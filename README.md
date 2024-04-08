@@ -47,7 +47,7 @@ Then add the plugin to your `webpack` config. For example:
 **file.js**
 
 ```js
-import css from "file.css";
+import * as css from "file.css";
 ```
 
 **webpack.config.js**
@@ -1162,11 +1162,11 @@ Enables/disables ES modules named export for locals.
 ```js
 import * as styles from "./styles.css";
 
+// If using `exportLocalsConvention: "as-is"` (default value):
+console.log(styles["foo-baz"], styles.bar);
+
 // If using `exportLocalsConvention: "camel-case-only"`:
 console.log(styles.fooBaz, styles.bar);
-
-// If using `exportLocalsConvention: "as-is"`:
-console.log(styles["foo-baz"], styles.bar);
 ```
 
 You can enable a ES module named export using:
@@ -2033,8 +2033,8 @@ File treated as `CSS Module`.
 Using both `CSS Module` functionality as well as SCSS variables directly in JavaScript.
 
 ```jsx
-import svars from "variables.scss";
-import styles from "Component.module.scss";
+import * as svars from "variables.scss";
+import * as styles from "Component.module.scss";
 
 // Render DOM with CSS modules class name
 // <div className={styles.componentClass}>
