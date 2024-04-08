@@ -125,7 +125,9 @@ class CssModulesJsonPlugin {
           Object.fromEntries(
             Object.entries(allExportsJson).map((key) => {
               // eslint-disable-next-line no-param-reassign
-              key[0] = path.relative(compiler.context, key[0]);
+              key[0] = path
+                .relative(compiler.context, key[0])
+                .replace(/\\/g, "/");
 
               return key;
             }),
