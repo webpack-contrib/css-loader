@@ -274,6 +274,7 @@ export default async function loader(content, map, meta) {
   );
 
   const { getJSON } = options.modules;
+
   if (typeof getJSON === "function") {
     try {
       await getJSON({ resourcePath, imports, exports, replacements });

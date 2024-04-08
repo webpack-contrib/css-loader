@@ -23787,6 +23787,145 @@ exports[`"modules" option should work with the \`exportGlobals\` option (the \`m
 
 exports[`"modules" option should work with the \`exportGlobals\` option (the \`mode\` option is \`pure\`): warnings 1`] = `[]`;
 
+exports[`"modules" option should work with the \`getJSON\` option and resolve all classes: errors 1`] = `[]`;
+
+exports[`"modules" option should work with the \`getJSON\` option and resolve all classes: locals 1`] = `
+{
+  "modules/composes/alias-1.css": {
+    "imported-alias-2": "Lg5UPByIZH1XWiASCk_q",
+    "imported-alias-3": "QllkotlwlKJ4pFhiIzqP",
+  },
+  "modules/composes/alias.css": {
+    "imported-alias": "dnhKs1AYKq4KodZdfzcx",
+  },
+  "modules/composes/multiple.css": {
+    "class": "BwiLdQraIwYyRAA53QEQ RsClSIMkfTMmUvwYT4aD OdpZEdUc2oHF96Xqdoba A3lCTIjOyIaMw91SUTt_ dnhKs1AYKq4KodZdfzcx Lg5UPByIZH1XWiASCk_q QllkotlwlKJ4pFhiIzqP global-class global-class-1 global-class-2",
+    "class-1": "OdpZEdUc2oHF96Xqdoba",
+    "class-2": "A3lCTIjOyIaMw91SUTt_",
+    "class-other": "DemABT8Zz2xVnnu848uO RsClSIMkfTMmUvwYT4aD OdpZEdUc2oHF96Xqdoba",
+    "other-class": "RsClSIMkfTMmUvwYT4aD",
+  },
+}
+`;
+
+exports[`"modules" option should work with the \`getJSON\` option and resolve all classes: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
+import ___CSS_LOADER_ICSS_IMPORT_0___, * as ___CSS_LOADER_ICSS_IMPORT_0____NAMED___ from "-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias.css";
+import ___CSS_LOADER_ICSS_IMPORT_1___, * as ___CSS_LOADER_ICSS_IMPORT_1____NAMED___ from "-!../../../../src/index.js??ruleSet[1].rules[0].use[0]!./alias-1.css";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_0___, "", true);
+___CSS_LOADER_EXPORT___.i(___CSS_LOADER_ICSS_IMPORT_1___, "", true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.RsClSIMkfTMmUvwYT4aD {
+  color: red;
+}
+
+.OdpZEdUc2oHF96Xqdoba {
+  color: blue;
+}
+
+.A3lCTIjOyIaMw91SUTt_ {
+  color: blue;
+}
+
+.global-class {
+  padding: 10px;
+}
+
+.global-class-1 {
+  padding: 10px;
+}
+
+.global-class-2 {
+  padding: 10px;
+}
+
+.BwiLdQraIwYyRAA53QEQ {
+  color: gainsboro;
+}
+
+.DemABT8Zz2xVnnu848uO {
+}
+\`, ""]);
+// Exports
+var _1 = \`RsClSIMkfTMmUvwYT4aD\`;
+export { _1 as "other-class" };
+var _2 = \`OdpZEdUc2oHF96Xqdoba\`;
+export { _2 as "class-1" };
+var _3 = \`A3lCTIjOyIaMw91SUTt_\`;
+export { _3 as "class-2" };
+var _4 = \`BwiLdQraIwYyRAA53QEQ RsClSIMkfTMmUvwYT4aD OdpZEdUc2oHF96Xqdoba A3lCTIjOyIaMw91SUTt_ \${___CSS_LOADER_ICSS_IMPORT_0____NAMED___["imported-alias"]} \${___CSS_LOADER_ICSS_IMPORT_1____NAMED___["imported-alias-2"]} \${___CSS_LOADER_ICSS_IMPORT_1____NAMED___["imported-alias-3"]} global-class global-class-1 global-class-2\`;
+export { _4 as "class" };
+var _5 = \`DemABT8Zz2xVnnu848uO RsClSIMkfTMmUvwYT4aD OdpZEdUc2oHF96Xqdoba\`;
+export { _5 as "class-other" };
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with the \`getJSON\` option and resolve all classes: result 1`] = `
+[
+  [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/alias.css",
+    ".dnhKs1AYKq4KodZdfzcx {
+  display: table;
+}
+",
+    "",
+  ],
+  [
+    "../../src/index.js??ruleSet[1].rules[0].use[0]!./modules/composes/alias-1.css",
+    ".Lg5UPByIZH1XWiASCk_q {
+  background: red;
+}
+
+.QllkotlwlKJ4pFhiIzqP {
+  background: red;
+}
+",
+    "",
+  ],
+  [
+    "./modules/composes/multiple.css",
+    ".RsClSIMkfTMmUvwYT4aD {
+  color: red;
+}
+
+.OdpZEdUc2oHF96Xqdoba {
+  color: blue;
+}
+
+.A3lCTIjOyIaMw91SUTt_ {
+  color: blue;
+}
+
+.global-class {
+  padding: 10px;
+}
+
+.global-class-1 {
+  padding: 10px;
+}
+
+.global-class-2 {
+  padding: 10px;
+}
+
+.BwiLdQraIwYyRAA53QEQ {
+  color: gainsboro;
+}
+
+.DemABT8Zz2xVnnu848uO {
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with the \`getJSON\` option and resolve all classes: warnings 1`] = `[]`;
+
 exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export": errors 1`] = `[]`;
 
 exports[`"modules" option show work when the "mode" option is function and return "icss" value, case "duplicate-export": module 1`] = `

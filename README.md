@@ -337,7 +337,7 @@ type modules =
         imports: object[];
         exports: object[];
         replacements: object[];
-      }) => any;
+      }) => Promise<void> | void;
     };
 ```
 
@@ -1411,7 +1411,7 @@ type getJSON = ({
   imports: object[];
   exports: object[];
   replacements: object[];
-}) => any;
+}) => Promise<void> | void;
 ```
 
 Default: `undefined`
@@ -1457,81 +1457,21 @@ Enables a callback to output the CSS modules mapping JSON. The callback is invok
 }
 ```
 
-**webpack.config.js**
-
-```js
-// supports a synchronous callback
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: "css-loader",
-        options: {
-          modules: {
-            getJSON: ({ resourcePath, exports }) => {
-              // synchronously write a .json mapping file in the same directory as the resource
-              const exportsJson = exports.reduce(
-                (acc, { name, value }) => ({ ...acc, [name]: value }),
-                {},
-              );
-
-              const outputPath = path.resolve(
-                path.dirname(resourcePath),
-                `${path.basename(resourcePath)}.json`,
-              );
-
-              const fs = require("fs");
-              fs.writeFileSync(outputPath, JSON.stringify(json));
-            },
-          },
-        },
-      },
-    ],
-  },
-};
-
-// supports an asynchronous callback
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: "css-loader",
-        options: {
-          modules: {
-            getJSON: async ({ resourcePath, exports }) => {
-              const exportsJson = exports.reduce(
-                (acc, { name, value }) => ({ ...acc, [name]: value }),
-                {},
-              );
-
-              const outputPath = path.resolve(
-                path.dirname(resourcePath),
-                `${path.basename(resourcePath)}.json`,
-              );
-
-              const fsp = require("fs/promises");
-              await fsp.writeFile(outputPath, JSON.stringify(json));
-            },
-          },
-        },
-      },
-    ],
-  },
-};
-```
-
 Using `getJSON`, it's possible to output a files with all CSS module mappings.
 In the following example, we use `getJSON` to cache canonical mappings and
 add stand-ins for any composed values (through `composes`), and we use a custom plugin
 to consolidate the values and output them to a file:
 
+**webpack.config.js**
+
 ```js
+const path = require("path");
+const fs = require("fs");
+
 const CSS_LOADER_REPLACEMENT_REGEX =
   /(___CSS_LOADER_ICSS_IMPORT_\d+_REPLACEMENT_\d+___)/g;
-const REPLACEMENT_REGEX = /___REPLACEMENT\[(.*?)\]\[(.*?)\]___/g;
-const IDENTIFIER_REGEX = /\[(.*?)\]\[(.*?)\]/;
+const REPLACEMENT_REGEX = /___REPLACEMENT\[(.*?)]\[(.*?)]___/g;
+const IDENTIFIER_REGEX = /\[(.*?)]\[(.*?)]/;
 const replacementsMap = {};
 const canonicalValuesMap = {};
 const allExportsJson = {};
@@ -1570,9 +1510,8 @@ function addReplacements(resourcePath, imports, exportsJson, replacements) {
       // add them all to the replacements map to be replaced altogether later
       replacementsMap[identifier] = classNames.replaceAll(
         CSS_LOADER_REPLACEMENT_REGEX,
-        (_, replacementName) => {
-          return importReplacementsMap[resourcePath][replacementName];
-        },
+        (_, replacementName) =>
+          importReplacementsMap[resourcePath][replacementName],
       );
     } else {
       // otherwise, no class names need replacements so we can add them to
@@ -1586,22 +1525,85 @@ function addReplacements(resourcePath, imports, exportsJson, replacements) {
 }
 
 function replaceReplacements(classNames) {
-  const adjustedClassNames = classNames.replaceAll(
+  return classNames.replaceAll(
     REPLACEMENT_REGEX,
     (_, resourcePath, localName) => {
       const identifier = generateIdentifier(resourcePath, localName);
+
       if (identifier in canonicalValuesMap) {
         return canonicalValuesMap[identifier];
       }
 
-      // recurse through other stand-in that may be imports
+      // Recurse through other stand-in that may be imports
       const canonicalValue = replaceReplacements(replacementsMap[identifier]);
+
       canonicalValuesMap[identifier] = canonicalValue;
+
       return canonicalValue;
     },
   );
+}
 
-  return adjustedClassNames;
+function getJSON({ resourcePath, imports, exports, replacements }) {
+  const exportsJson = exports.reduce((acc, { name, value }) => {
+    return { ...acc, [name]: value };
+  }, {});
+
+  if (replacements.length > 0) {
+    // replacements present --> add stand-in values for absolute paths and local names,
+    // which will be resolved to their canonical values in the plugin below
+    addReplacements(resourcePath, imports, exportsJson, replacements);
+  } else {
+    // no replacements present --> add to canonicalValuesMap verbatim
+    // since all values here are canonical/don't need resolution
+    for (const [key, value] of Object.entries(exportsJson)) {
+      const id = `[${resourcePath}][${key}]`;
+
+      canonicalValuesMap[id] = value;
+    }
+
+    allExportsJson[resourcePath] = exportsJson;
+  }
+}
+
+class CssModulesJsonPlugin {
+  constructor(options) {
+    this.options = options;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  apply(compiler) {
+    compiler.hooks.emit.tap("CssModulesJsonPlugin", () => {
+      for (const [identifier, classNames] of Object.entries(replacementsMap)) {
+        const adjustedClassNames = replaceReplacements(classNames);
+
+        replacementsMap[identifier] = adjustedClassNames;
+
+        const [, resourcePath, localName] = identifier.match(IDENTIFIER_REGEX);
+
+        allExportsJson[resourcePath] = allExportsJson[resourcePath] || {};
+        allExportsJson[resourcePath][localName] = adjustedClassNames;
+      }
+
+      fs.writeFileSync(
+        this.options.filepath,
+        JSON.stringify(
+          // Make path to be relative to `context` (your project root)
+          Object.fromEntries(
+            Object.entries(allExportsJson).map((key) => {
+              // eslint-disable-next-line no-param-reassign
+              key[0] = path.relative(compiler.context, key[0]);
+
+              return key;
+            }),
+          ),
+          null,
+          2,
+        ),
+        "utf8",
+      );
+    });
+  }
 }
 
 module.exports = {
@@ -1610,63 +1612,14 @@ module.exports = {
       {
         test: /\.css$/i,
         loader: "css-loader",
-        options: {
-          modules: {
-            getJSON: ({ resourcePath, imports, exports, replacements }) => {
-              const exportsJson = exports.reduce(
-                (acc, { name, value }) => ({ ...acc, [name]: value }),
-                {},
-              );
-
-              if (replacements.length > 0) {
-                // replacements present --> add stand-in values for absolute paths and local names,
-                // which will be resolved to their canonical values in the plugin below
-                addReplacements(
-                  resourcePath,
-                  imports,
-                  exportsJson,
-                  replacements,
-                );
-              } else {
-                // no replacements present --> add to canonicalValuesMap verbatim
-                // since all values here are canonical/don't need resolution
-                for (const [key, value] of Object.entries(exportsJson)) {
-                  const id = `[${resourcePath}][${key}]`;
-
-                  canonicalValuesMap[id] = value;
-                }
-
-                allExportsJson[resourcePath] = exportsJson;
-              }
-            },
-          },
-        },
+        options: { modules: { getJSON } },
       },
     ],
   },
   plugins: [
-    {
-      apply(compiler) {
-        compiler.hooks.done.tap("CssModulesJsonPlugin", () => {
-          for (const [identifier, classNames] of Object.entries(
-            replacementsMap,
-          )) {
-            const adjustedClassNames = replaceReplacements(classNames);
-            replacementsMap[identifier] = adjustedClassNames;
-            const [, resourcePath, localName] =
-              identifier.match(IDENTIFIER_REGEX);
-            allExportsJson[resourcePath] = allExportsJson[resourcePath] || {};
-            allExportsJson[resourcePath][localName] = adjustedClassNames;
-          }
-
-          fs.writeFileSync(
-            "./output.css.json",
-            JSON.stringify(allExportsJson, null, 2),
-            "utf8",
-          );
-        });
-      },
-    },
+    new CssModulesJsonPlugin({
+      filepath: path.resolve(__dirname, "./output.css.json"),
+    }),
   ],
 };
 ```
@@ -1675,11 +1628,11 @@ In the above, all import aliases are replaced with `___REPLACEMENT[<resourcePath
 
 ```json
 {
-  "/foo/bar/baz.module.css": {
+  "foo/bar/baz.module.css": {
     "main": "D2Oy",
     "header": "thNN"
   },
-  "/foot/bear/bath.module.css": {
+  "foot/bear/bath.module.css": {
     "logo": "sqiR",
     "info": "XMyI"
   }
