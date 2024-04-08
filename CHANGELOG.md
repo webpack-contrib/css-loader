@@ -27,6 +27,31 @@ import * as style from "./style.css";
 console.log(style.myClass);
 ```
 
+To restore 6.x behavior, please use:
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          modules: {
+            namedExport: false,
+            exportLocalsConvention: 'as-is',
+            //
+            // or, if you prefer camelcase style
+            //
+            // exportLocalsConvention: 'camel-case-only'
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
 * The `modules.exportLocalsConvention` has the value `as-is` when the `modules.namedExport` option is `true` and you don't specify a value
 * Minimum supported webpack version is `5.27.0`
 * Minimum supported Node.js version is `18.12.0`
