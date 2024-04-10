@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.1](https://github.com/webpack-contrib/css-loader/compare/v7.1.0...v7.1.1) (2024-04-10)
+
+
+### Bug Fixes
+
+* automatically rename class `default` to `_default` when named export is enabled ([#1590](https://github.com/webpack-contrib/css-loader/issues/1590)) ([d6c31a1](https://github.com/webpack-contrib/css-loader/commit/d6c31a17a0dde3e2bcf2b5e55f913c3645d32868))
+
 ## [7.1.0](https://github.com/webpack-contrib/css-loader/compare/v7.0.0...v7.1.0) (2024-04-08)
 
 
