@@ -2657,4 +2657,39 @@ describe('"modules" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should work with `default` class and without named export", async () => {
+    const compiler = getCompiler("./modules/issue-1589/source.js", {
+      modules: {
+        exportLocalsConvention: "as-is",
+        namedExport: false,
+      },
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/issue-1589/source.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with `default` class and with named export", async () => {
+    const compiler = getCompiler("./modules/issue-1589/source.js", {
+      modules: true,
+    });
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./modules/issue-1589/source.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });
