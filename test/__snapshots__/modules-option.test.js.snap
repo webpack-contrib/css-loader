@@ -12317,6 +12317,74 @@ exports[`"modules" option should work with \`@scope\` at-rule: result 1`] = `
 
 exports[`"modules" option should work with \`@scope\` at-rule: warnings 1`] = `[]`;
 
+exports[`"modules" option should work with \`default\` class and with named export: errors 1`] = `[]`;
+
+exports[`"modules" option should work with \`default\` class and with named export: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.VP7CYSvMVRONwmJxbckO {
+  background: red
+}
+\`, ""]);
+// Exports
+export var _default = \`VP7CYSvMVRONwmJxbckO\`;
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with \`default\` class and with named export: result 1`] = `
+[
+  [
+    "./modules/issue-1589/source.css",
+    ".VP7CYSvMVRONwmJxbckO {
+  background: red
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with \`default\` class and with named export: warnings 1`] = `[]`;
+
+exports[`"modules" option should work with \`default\` class and without named export: errors 1`] = `[]`;
+
+exports[`"modules" option should work with \`default\` class and without named export: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.VP7CYSvMVRONwmJxbckO {
+  background: red
+}
+\`, ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"default": \`VP7CYSvMVRONwmJxbckO\`
+};
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work with \`default\` class and without named export: result 1`] = `
+[
+  [
+    "./modules/issue-1589/source.css",
+    ".VP7CYSvMVRONwmJxbckO {
+  background: red
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work with \`default\` class and without named export: warnings 1`] = `[]`;
+
 exports[`"modules" option should work with CSS nesting: errors 1`] = `[]`;
 
 exports[`"modules" option should work with CSS nesting: module 1`] = `

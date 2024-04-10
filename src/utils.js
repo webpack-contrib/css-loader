@@ -1184,12 +1184,16 @@ function getExportCode(
         ? new Set(names)
         : new Set([names]);
 
-      for (const name of normalizedNames) {
+      for (let name of normalizedNames) {
         const serializedValue = isTemplateLiteralSupported
           ? convertToTemplateLiteral(value)
           : JSON.stringify(value);
 
         if (options.modules.namedExport) {
+          if (name === "default") {
+            name = `_${name}`;
+          }
+
           if (!validIdentifier.test(name) || keywords.has(name)) {
             identifierId += 1;
 

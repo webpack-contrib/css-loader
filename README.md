@@ -1156,7 +1156,7 @@ Enables/disables ES modules named export for locals.
 
 > **Warning**
 >
-> It is not allowed to use the `default` reserved word in css classes.
+> Because it is not allowed to use the `default` class in CSS when the `namedExport` is `true` (since ECMA modules have a reserved keyword `default` for default export), it will be automatically renamed to the `_default` class.
 
 **styles.css**
 
@@ -1166,6 +1166,9 @@ Enables/disables ES modules named export for locals.
 }
 .bar {
   color: blue;
+}
+.default {
+  color: green;
 }
 ```
 
@@ -1179,6 +1182,9 @@ console.log(styles["foo-baz"], styles.bar);
 
 // If using `exportLocalsConvention: "camel-case-only"`:
 console.log(styles.fooBaz, styles.bar);
+
+// For the `default` classname
+console.log(styles["_default"]);
 ```
 
 You can enable a ES module named export using:
