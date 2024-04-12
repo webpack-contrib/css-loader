@@ -1427,6 +1427,30 @@ function syntaxErrorFactory(error) {
   return obj;
 }
 
+function supportTemplateLiteral(loaderContext) {
+  if (loaderContext.environment && loaderContext.environment.templateLiteral) {
+    return true;
+  }
+
+  // TODO remove in the next major release
+  if (
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation &&
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation.options &&
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation.options.output &&
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation.options.output.environment &&
+    // eslint-disable-next-line no-underscore-dangle
+    loaderContext._compilation.options.output.environment.templateLiteral
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
 export {
   normalizeOptions,
   shouldUseModulesPlugins,
@@ -1454,4 +1478,5 @@ export {
   defaultGetLocalIdent,
   warningFactory,
   syntaxErrorFactory,
+  supportTemplateLiteral,
 };
