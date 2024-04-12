@@ -27,6 +27,7 @@ import {
   stringifyRequest,
   warningFactory,
   syntaxErrorFactory,
+  supportTemplateLiteral,
 } from "./utils";
 
 export default async function loader(content, map, meta) {
@@ -229,23 +230,7 @@ export default async function loader(content, map, meta) {
     }
   }
 
-  let isTemplateLiteralSupported = false;
-
-  if (
-    // eslint-disable-next-line no-underscore-dangle
-    this._compilation &&
-    // eslint-disable-next-line no-underscore-dangle
-    this._compilation.options &&
-    // eslint-disable-next-line no-underscore-dangle
-    this._compilation.options.output &&
-    // eslint-disable-next-line no-underscore-dangle
-    this._compilation.options.output.environment &&
-    // eslint-disable-next-line no-underscore-dangle
-    this._compilation.options.output.environment.templateLiteral
-  ) {
-    isTemplateLiteralSupported = true;
-  }
-
+  const isTemplateLiteralSupported = supportTemplateLiteral(this);
   const importCode = getImportCode(imports, options);
 
   let moduleCode;
