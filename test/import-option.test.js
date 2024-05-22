@@ -588,4 +588,18 @@ describe('"import" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("should jeep order of imports with 'webpackIgnore'", async () => {
+    const compiler = getCompiler("./import/webpackIgnore-order.js");
+    const stats = await compile(compiler);
+
+    expect(
+      getModuleSource("./import/webpackIgnore-order.css", stats),
+    ).toMatchSnapshot("module");
+    expect(getExecutedCode("main.bundle.js", compiler, stats)).toMatchSnapshot(
+      "result",
+    );
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });

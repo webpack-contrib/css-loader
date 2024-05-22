@@ -8,12 +8,7 @@ import {
   WEBPACK_IGNORE_COMMENT_REGEXP,
 } from "../utils";
 
-function parseNode(atRule, key, options) {
-  // Convert only top-level @import
-  if (atRule.parent.type !== "root") {
-    return;
-  }
-
+function isIgnoredAfterName(atRule) {
   if (
     atRule.raws &&
     atRule.raws.afterName &&
@@ -25,19 +20,34 @@ function parseNode(atRule, key, options) {
       .match(WEBPACK_IGNORE_COMMENT_REGEXP);
 
     if (matched && matched[2] === "true") {
-      return;
+      return true;
     }
   }
 
+  return false;
+}
+
+function isIgnoredPrevNode(atRule) {
   const prevNode = atRule.prev();
 
   if (prevNode && prevNode.type === "comment") {
     const matched = prevNode.text.match(WEBPACK_IGNORE_COMMENT_REGEXP);
 
     if (matched && matched[2] === "true") {
-      return;
+      return true;
     }
   }
+
+  return false;
+}
+
+function parseNode(atRule, key, options) {
+  // Convert only top-level @import
+  if (atRule.parent.type !== "root") {
+    return;
+  }
+
+  const isIgnored = isIgnoredAfterName(atRule) || isIgnoredPrevNode(atRule);
 
   // Nodes do not exists - `@import url('http://') :root {}`
   if (atRule.nodes) {
@@ -97,7 +107,12 @@ function parseNode(atRule, key, options) {
 
   url = normalizeUrl(url, isStringValue);
 
-  const { requestable, needResolve } = isURLRequestable(url, options);
+  let requestable = false;
+  let needResolve = false;
+
+  if (!isIgnored) {
+    ({ requestable, needResolve } = isURLRequestable(url, options));
+  }
 
   let prefix;
 
