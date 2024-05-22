@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.2](https://github.com/webpack-contrib/css-loader/compare/v7.1.1...v7.1.2) (2024-05-22)
+
+
+### Bug Fixes
+
+* keep order of `@import`s with the `webpackIgnore` comment ([#1600](https://github.com/webpack-contrib/css-loader/issues/1600)) ([76757ef](https://github.com/webpack-contrib/css-loader/commit/76757ef30ec37f88ccf9d8b82d8d84b7625c5d66))
+
 ### [7.1.1](https://github.com/webpack-contrib/css-loader/compare/v7.1.0...v7.1.1) (2024-04-10)
 
 
