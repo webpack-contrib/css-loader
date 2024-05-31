@@ -73,6 +73,26 @@ module.exports = {
 };
 ```
 
+Typescript migration:
+
+Before:
+
+```ts
+declare module '*.module.css' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+```
+
+After:
+
+```ts
+declare module '*.module.css' {
+  const classes: { [key: string]: string };
+  export = classes;
+}
+```
+
 * The `modules.exportLocalsConvention` has the value `as-is` when the `modules.namedExport` option is `true` and you don't specify a value
 * Minimum supported webpack version is `5.27.0`
 * Minimum supported Node.js version is `18.12.0`
