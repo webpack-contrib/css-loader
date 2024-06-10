@@ -20,7 +20,7 @@ The `css-loader` interprets `@import` and `url()` like `import/require()` and wi
 
 ## Getting Started
 
-> **Warning**
+> [!WARNING]
 >
 > To use the latest version of css-loader, webpack@5 is required
 
@@ -423,7 +423,7 @@ The loader replaces local selectors with unique identifiers. The chosen unique i
 }
 ```
 
-> **Note**
+> [!NOTE]
 >
 > Identifiers are exported
 
@@ -478,7 +478,7 @@ exports.locals = {
 
 To import a local classname from another module.
 
-> **Note**
+> [!NOTE]
 >
 > We strongly recommend that you specify the extension when importing a file, since it is possible to import a file with any extension and it is not known in advance which file to use.
 
@@ -1154,7 +1154,7 @@ Default: Depends on the value of the `esModule` option. If the value of the `esM
 
 Enables/disables ES modules named export for locals.
 
-> **Warning**
+> [!WARNING]
 >
 > Because it is not allowed to use the `default` class in CSS when the `namedExport` is `true` (since ECMA modules have a reserved keyword `default` for default export), it will be automatically renamed to the `_default` class.
 
@@ -1261,7 +1261,7 @@ type exportLocalsConvention =
 
 Default: Depends on the value of the `modules.namedExport` option, if `true` - `as-is`, otherwise `camel-case-only`.
 
-> **Warning**
+> [!WARNING]
 >
 > Names of locals are converted to camelcase when the named export is `false`, i.e. the `exportLocalsConvention` option has
 > `camelCaseOnly` value by default. You can set this back to any other valid option but selectors
@@ -1823,11 +1823,11 @@ import "./styles.css";
 
 #### `'string'`
 
-> **Warning**
+> [!WARNING]
 >
 > You should not use [`style-loader`](https://github.com/webpack-contrib/style-loader) or [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) with this value.
 
-> **Warning**
+> [!WARNING]
 >
 > The `esModule` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
 
@@ -1858,19 +1858,19 @@ console.log(sheet);
 
 #### `'css-style-sheet'`
 
-> **Warning**
+> [!WARNING]
 >
 > `@import` rules not yet allowed, more [information](https://web.dev/css-module-scripts/#@import-rules-not-yet-allowed)
 
-> **Warning**
+> [!WARNING]
 >
 > You don't need [`style-loader`](https://github.com/webpack-contrib/style-loader) anymore, please remove it.
 
-> **Warning**
+> [!WARNING]
 >
 > The `esModule` option should be enabled if you want to use it with [`CSS modules`](https://github.com/webpack-contrib/css-loader#modules), by default for locals will be used [named export](https://github.com/webpack-contrib/css-loader#namedexport).
 
-> **Warning**
+> [!WARNING]
 >
 > Source maps are not currently supported in `Chrome` due [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1174094&q=CSSStyleSheet%20source%20maps&can=2)
 
@@ -1981,7 +1981,7 @@ For `production` builds it's recommended to extract the CSS from your bundle bei
 This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
 For `development` mode (including `webpack-dev-server`) you can use [style-loader](https://github.com/webpack-contrib/style-loader), because it injects CSS into the DOM using multiple `<style></style>` and works faster.
 
-> **Note**
+> [!NOTE]
 >
 > Do not use `style-loader` and `mini-css-extract-plugin` together.
 
