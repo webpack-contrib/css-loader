@@ -519,8 +519,6 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
     ({ auto } = rawModulesOptions);
   }
 
-  // eslint-disable-next-line no-underscore-dangle
-  const { outputOptions } = loaderContext._compilation;
   const needNamedExport =
     exportType === "css-style-sheet" || exportType === "string";
   const namedExport =
@@ -539,10 +537,27 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
     exportGlobals: false,
     localIdentName: "[hash:base64]",
     localIdentContext: loaderContext.rootContext,
-    localIdentHashSalt: outputOptions.hashSalt,
-    localIdentHashFunction: outputOptions.hashFunction,
-    localIdentHashDigest: outputOptions.hashDigest,
-    localIdentHashDigestLength: outputOptions.hashDigestLength,
+    // eslint-disable-next-line no-underscore-dangle
+    localIdentHashSalt:
+      loaderContext.hashSalt ||
+      // TODO remove in the next major release
+      // eslint-disable-next-line no-underscore-dangle
+      loaderContext._compilation.outputOptions.hashSalt,
+    localIdentHashFunction:
+      loaderContext.hashFunction ||
+      // TODO remove in the next major release
+      // eslint-disable-next-line no-underscore-dangle
+      loaderContext._compilation.outputOptions.hashFunction,
+    localIdentHashDigest:
+      loaderContext.hashDigest ||
+      // TODO remove in the next major release
+      // eslint-disable-next-line no-underscore-dangle
+      loaderContext._compilation.outputOptions.hashDigest,
+    localIdentHashDigestLength:
+      loaderContext.hashDigestLength ||
+      // TODO remove in the next major release
+      // eslint-disable-next-line no-underscore-dangle
+      loaderContext._compilation.outputOptions.hashDigestLength,
     // eslint-disable-next-line no-undefined
     localIdentRegExp: undefined,
     // eslint-disable-next-line no-undefined
