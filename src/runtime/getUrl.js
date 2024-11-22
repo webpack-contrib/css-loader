@@ -21,7 +21,7 @@ module.exports = (url, options) => {
   // Should url be wrapped?
   // See https://drafts.csswg.org/css-values-3/#urls
   if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
-    return `"${url.replace(/"/g, '\\"').replace(/\n/g, "\\n")}"`;
+    return `"${url.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, "\\n')}"`;
   }
 
   return url;
