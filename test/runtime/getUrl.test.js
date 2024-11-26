@@ -127,5 +127,6 @@ describe("escape", () => {
         { hash: "#hash", needQuotes: true },
       ),
     ).toMatchSnapshot();
+    expect(getUrl("http://url/path\\/")).toMatchSnapshot();
   });
 });
