@@ -86,4 +86,4 @@ exports[`escape should escape url 42`] = `""image other.png#hash""`;
 
 exports[`escape should escape url 43`] = `""image other.png#hash""`;
 
-exports[`escape should escape url 44`] = `"http://url/path\\/"`;
+exports[`escape should escape url 44`] = `"https://www.example.com?path=path\\to\\resource"`;
