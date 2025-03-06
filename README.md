@@ -42,6 +42,12 @@ or
 pnpm add -D css-loader
 ```
 
+or
+
+```console
+bun add -D css-loader
+```
+
 Then add the plugin to your `webpack` config. For example:
 
 **file.js**
