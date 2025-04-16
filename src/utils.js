@@ -260,7 +260,7 @@ function normalizePath(file) {
 }
 
 // eslint-disable-next-line no-control-regex
-const filenameReservedRegex = /[<>:"/\\|?*]/g;
+const filenameReservedRegex = /[<>:"/\\|?*\s]/g;
 // eslint-disable-next-line no-control-regex
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
 
