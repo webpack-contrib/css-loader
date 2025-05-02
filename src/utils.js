@@ -259,8 +259,10 @@ function normalizePath(file) {
   return path.sep === "\\" ? file.replace(/\\/g, "/") : file;
 }
 
+const reversedChartMapper = {};
+
 // eslint-disable-next-line no-control-regex
-const filenameReservedRegex = /[<>:"/\\|?*\s]/g;
+const filenameReservedRegex = /([<>:"/\\|?*\s])/g;
 // eslint-disable-next-line no-control-regex
 const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
 
@@ -270,7 +272,21 @@ function escapeLocalIdent(localident) {
     localident
       // For `[hash]` placeholder
       .replace(/^((-?[0-9])|--)/, "_$1")
-      .replace(filenameReservedRegex, "-")
+      .replace(filenameReservedRegex, (_, $1) => {
+        // normalize Windows path `\` as unix `/` for constancy
+        const char = $1 === "\\" ? "/" : $1;
+
+        if (reversedChartMapper[char]) {
+          return reversedChartMapper[char];
+        }
+
+        const hex = char.charCodeAt(0).toString(16).toUpperCase();
+        const escaped = `\\C${hex}`;
+
+        reversedChartMapper[char] = escaped;
+
+        return escaped;
+      })
       .replace(reControlChars, "-")
       .replace(/\./g, "-"),
   );

@@ -165,7 +165,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`._7-foo-class {
   color: red;
 }
 
-.\\\\--bar-class {
+.\\\\\\\\C3E-bar-class {
   color: red;
 }
 
@@ -184,7 +184,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`._7-foo-class {
 // Exports
 var _1 = \`_7-foo-class\`;
 export { _1 as "foo-class" };
-var _2 = \`--bar-class\`;
+var _2 = \`\\\\C3E-bar-class\`;
 export { _2 as "bar-class" };
 var _3 = \`--baz-class\`;
 export { _3 as "baz-class" };
@@ -205,7 +205,7 @@ exports[`"modules" option issue #966 - values in selectors aren't escaped proper
   color: red;
 }
 
-.\\--bar-class {
+.\\\\C3E-bar-class {
   color: red;
 }
 
@@ -269,23 +269,23 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/no
 import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \`.modules-issue-967-path-placeholder__foo__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {
+___CSS_LOADER_EXPORT___.push([module.id, \`.modules\\\\\\\\C2Fissue-967\\\\\\\\C2Fpath-placeholder__foo__\\\\\\\\C2F-sep-\\\\\\\\C3F-sep-\\\\\\\\C3C-sep-\\\\\\\\C3E-sep-\\\\\\\\C2F\\\\\\\\C2F-sep-\\\\\\\\C3A-sep-\\\\\\\\C2A-sep-\\\\\\\\C7C-sep-\\\\\\\\C22-sep-\\\\\\\\C3A {
   color: red;
 }
 
-.modules-issue-967-path-placeholder__foo\\\\/bar__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {
+.modules\\\\\\\\C2Fissue-967\\\\\\\\C2Fpath-placeholder__foo\\\\/bar__\\\\\\\\C2F-sep-\\\\\\\\C3F-sep-\\\\\\\\C3C-sep-\\\\\\\\C3E-sep-\\\\\\\\C2F\\\\\\\\C2F-sep-\\\\\\\\C3A-sep-\\\\\\\\C2A-sep-\\\\\\\\C7C-sep-\\\\\\\\C22-sep-\\\\\\\\C3A {
   color: blue;
 }
 
-.modules-issue-967-path-placeholder__\\\\[\\\\/\\\\?\\\\<\\\\>\\\\\\\\\\\\\\\\\\\\3A \\\\*\\\\|\\\\"\\\\3A \\\\]__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {
+.modules\\\\\\\\C2Fissue-967\\\\\\\\C2Fpath-placeholder__\\\\[\\\\/\\\\?\\\\<\\\\>\\\\\\\\\\\\\\\\\\\\3A \\\\*\\\\|\\\\"\\\\3A \\\\]__\\\\\\\\C2F-sep-\\\\\\\\C3F-sep-\\\\\\\\C3C-sep-\\\\\\\\C3E-sep-\\\\\\\\C2F\\\\\\\\C2F-sep-\\\\\\\\C3A-sep-\\\\\\\\C2A-sep-\\\\\\\\C7C-sep-\\\\\\\\C22-sep-\\\\\\\\C3A {
   color: yellow;
 }
 \`, ""]);
 // Exports
-export var foo = \`modules-issue-967-path-placeholder__foo__--sep---sep---sep---sep----sep---sep---sep---sep---sep--\`;
-var _1 = \`modules-issue-967-path-placeholder__foo/bar__--sep---sep---sep---sep----sep---sep---sep---sep---sep--\`;
+export var foo = \`modules\\\\C2Fissue-967\\\\C2Fpath-placeholder__foo__\\\\C2F-sep-\\\\C3F-sep-\\\\C3C-sep-\\\\C3E-sep-\\\\C2F\\\\C2F-sep-\\\\C3A-sep-\\\\C2A-sep-\\\\C7C-sep-\\\\C22-sep-\\\\C3A\`;
+var _1 = \`modules\\\\C2Fissue-967\\\\C2Fpath-placeholder__foo/bar__\\\\C2F-sep-\\\\C3F-sep-\\\\C3C-sep-\\\\C3E-sep-\\\\C2F\\\\C2F-sep-\\\\C3A-sep-\\\\C2A-sep-\\\\C7C-sep-\\\\C22-sep-\\\\C3A\`;
 export { _1 as "foo/bar" };
-var _2 = \`modules-issue-967-path-placeholder__[/?<>\\\\\\\\:*|":]__--sep---sep---sep---sep----sep---sep---sep---sep---sep--\`;
+var _2 = \`modules\\\\C2Fissue-967\\\\C2Fpath-placeholder__[/?<>\\\\\\\\:*|":]__\\\\C2F-sep-\\\\C3F-sep-\\\\C3C-sep-\\\\C3E-sep-\\\\C2F\\\\C2F-sep-\\\\C3A-sep-\\\\C2A-sep-\\\\C7C-sep-\\\\C22-sep-\\\\C3A\`;
 export { _2 as "[/?<>\\\\\\\\:*|\\":]" };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -295,15 +295,15 @@ exports[`"modules" option issue #967: result 1`] = `
 [
   [
     "./modules/issue-967/path-placeholder.css",
-    ".modules-issue-967-path-placeholder__foo__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {
+    ".modules\\\\C2Fissue-967\\\\C2Fpath-placeholder__foo__\\\\C2F-sep-\\\\C3F-sep-\\\\C3C-sep-\\\\C3E-sep-\\\\C2F\\\\C2F-sep-\\\\C3A-sep-\\\\C2A-sep-\\\\C7C-sep-\\\\C22-sep-\\\\C3A {
   color: red;
 }
 
-.modules-issue-967-path-placeholder__foo\\/bar__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {
+.modules\\\\C2Fissue-967\\\\C2Fpath-placeholder__foo\\/bar__\\\\C2F-sep-\\\\C3F-sep-\\\\C3C-sep-\\\\C3E-sep-\\\\C2F\\\\C2F-sep-\\\\C3A-sep-\\\\C2A-sep-\\\\C7C-sep-\\\\C22-sep-\\\\C3A {
   color: blue;
 }
 
-.modules-issue-967-path-placeholder__\\[\\/\\?\\<\\>\\\\\\\\\\3A \\*\\|\\"\\3A \\]__--sep---sep---sep---sep----sep---sep---sep---sep---sep-- {
+.modules\\\\C2Fissue-967\\\\C2Fpath-placeholder__\\[\\/\\?\\<\\>\\\\\\\\\\3A \\*\\|\\"\\3A \\]__\\\\C2F-sep-\\\\C3F-sep-\\\\C3C-sep-\\\\C3E-sep-\\\\C2F\\\\C2F-sep-\\\\C3A-sep-\\\\C2A-sep-\\\\C7C-sep-\\\\C22-sep-\\\\C3A {
   color: yellow;
 }
 ",
@@ -403,17 +403,17 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`/* class="😀" */
 /* Local */
 
 /* class="😀" */
-.- {
+.\\\\\\\\C20 {
   color: red;
 }
 
 /* class="😀 😓" */
-.-.- {
+.\\\\\\\\C20.\\\\\\\\C20 {
   color: red;
 }
 
 /* class="😀" > class="😓" */
-.- .- {
+.\\\\\\\\C20  .\\\\\\\\C20 {
   color: red;
 }
 
@@ -421,38 +421,38 @@ ___CSS_LOADER_EXPORT___.push([module.id, \`/* class="😀" */
   color: red;
 }
 
-.- .- .- {
+.\\\\\\\\C20  .\\\\\\\\C20  .\\\\\\\\C20 {
   color: red;
 }
 
-div:not(.-) {
+div:not(.\\\\\\\\C20) {
   color: red;
 }
 
-.- .b {
+.\\\\\\\\C20  .b {
   color: red;
 }
 
-.b .- {
+.b .\\\\\\\\C20 {
   color: red;
 }
 
-.\\\\1F613  .- {
+.\\\\1F613  .\\\\\\\\C20 {
   color: red;
 }
 
-.\\\\1F613 .- {
+.\\\\1F613 .\\\\\\\\C20 {
   color: red;
 }
 
-.- > .- > .- {
+.\\\\\\\\C20 > .\\\\\\\\C20 > .\\\\\\\\C20 {
   color: red;
 }
 \`, ""]);
 // Exports
-export var a = \`-\`;
-export var b = \`-\`;
-export var c = \`-\`;
+export var a = \`\\\\C20\`;
+export var b = \`\\\\C20\`;
+export var c = \`\\\\C20\`;
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -509,17 +509,17 @@ exports[`"modules" option issue #995 #2: result 1`] = `
 /* Local */
 
 /* class="😀" */
-.- {
+.\\\\C20 {
   color: red;
 }
 
 /* class="😀 😓" */
-.-.- {
+.\\\\C20.\\\\C20 {
   color: red;
 }
 
 /* class="😀" > class="😓" */
-.- .- {
+.\\\\C20  .\\\\C20 {
   color: red;
 }
 
@@ -527,31 +527,31 @@ exports[`"modules" option issue #995 #2: result 1`] = `
   color: red;
 }
 
-.- .- .- {
+.\\\\C20  .\\\\C20  .\\\\C20 {
   color: red;
 }
 
-div:not(.-) {
+div:not(.\\\\C20) {
   color: red;
 }
 
-.- .b {
+.\\\\C20  .b {
   color: red;
 }
 
-.b .- {
+.b .\\\\C20 {
   color: red;
 }
 
-.\\1F613  .- {
+.\\1F613  .\\\\C20 {
   color: red;
 }
 
-.\\1F613 .- {
+.\\1F613 .\\\\C20 {
   color: red;
 }
 
-.- > .- > .- {
+.\\\\C20 > .\\\\C20 > .\\\\C20 {
   color: red;
 }
 ",
@@ -976,6 +976,46 @@ exports[`"modules" option issue #1191 - fallback to default getLocalIdent: resul
 `;
 
 exports[`"modules" option issue #1191 - fallback to default getLocalIdent: warnings 1`] = `[]`;
+
+exports[`"modules" option issue #1626: errors 1`] = `[]`;
+
+exports[`"modules" option issue #1626: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`a-b {
+  color: red;
+}
+
+a\\\\C20b /* i.e. with spaces */ {
+  color: red;
+}
+\`, ""]);
+// Exports
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option issue #1626: result 1`] = `
+[
+  [
+    "./modules/issue-1626/source.css",
+    "a-b {
+  color: red;
+}
+
+a\\C20b /* i.e. with spaces */ {
+  color: red;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option issue #1626: warnings 1`] = `[]`;
 
 exports[`"modules" option should avoid unnecessary "require": errors 1`] = `[]`;
 
@@ -8291,211 +8331,211 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/no
 import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \`.fixtures-modules-localIdentName-localIdentName__test {
+___CSS_LOADER_EXPORT___.push([module.id, \`.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__test {
   background: red;
 }
 
-.fixtures-modules-localIdentName-localIdentName___test {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName___test {
   background: blue;
 }
 
-.fixtures-modules-localIdentName-localIdentName__className {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__className {
   background: red;
 }
 
-#fixtures-modules-localIdentName-localIdentName__someId {
+#fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__someId {
   background: green;
 }
 
-.fixtures-modules-localIdentName-localIdentName__className .fixtures-modules-localIdentName-localIdentName__subClass {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__className .fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__subClass {
   color: green;
 }
 
-#fixtures-modules-localIdentName-localIdentName__someId .fixtures-modules-localIdentName-localIdentName__subClass {
+#fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__someId .fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__subClass {
   color: blue;
 }
 
-.fixtures-modules-localIdentName-localIdentName__-a0-34a___f {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__-a0-34a___f {
   color: red;
 }
 
-.fixtures-modules-localIdentName-localIdentName__m_x_\\\\@ {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__m_x_\\\\@ {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-.fixtures-modules-localIdentName-localIdentName__B\\\\&W\\\\? {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__B\\\\&W\\\\? {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
 /* matches elements with class=":\\\`(" */
-.fixtures-modules-localIdentName-localIdentName__\\\\3A \\\\\\\`\\\\( {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\3A \\\\\\\`\\\\( {
   color: aqua;
 }
 
 /* matches elements with class="1a2b3c" */
-.fixtures-modules-localIdentName-localIdentName__\\\\31 a2b3c {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\31 a2b3c {
   color: aliceblue;
 }
 
 /* matches the element with id="#fake-id" */
-#fixtures-modules-localIdentName-localIdentName__\\\\#fake-id {
+#fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\#fake-id {
   color: antiquewhite;
 }
 
 /* matches the element with id="-a-b-c-" */
-#fixtures-modules-localIdentName-localIdentName__-a-b-c- {
+#fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__-a-b-c- {
   color: azure;
 }
 
 /* matches the element with id="©" */
-#fixtures-modules-localIdentName-localIdentName__© {
+#fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__© {
   color: black;
 }
 
-.fixtures-modules-localIdentName-localIdentName__♥ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__© { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__😍 { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__“‘’” { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__☺☃ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__⌘⌥ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__𝄞♪♩♫♬ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__💩 { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\? { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\@ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\. { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\3A \\\\) { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\3A \\\\\\\`\\\\( { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\31 23 { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\31 a2b3c { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\<p\\\\> { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\> { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\. { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\# { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\#\\\\# { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\#\\\\.\\\\#\\\\.\\\\# { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\_ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\{\\\\} { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\#fake\\\\-id { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__foo\\\\.bar { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\3A hover { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\3A hover\\\\3A focus\\\\3A active { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\\\[attr\\\\=value\\\\] { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\\\/o\\\\/o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\\\\\\\o\\\\\\\\o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\\\*o\\\\*o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\\\!o\\\\!o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\\\'o\\\\'o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\\\~o\\\\~o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\\\+o\\\\+o { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__♥ { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__© { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__😍 { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__“‘’” { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__☺☃ { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__⌘⌥ { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__𝄞♪♩♫♬ { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__💩 { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\? { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\@ { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\. { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\3A \\\\) { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\3A \\\\\\\`\\\\( { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\31 23 { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\31 a2b3c { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\<p\\\\> { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\> { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\. { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\# { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\#\\\\# { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\#\\\\.\\\\#\\\\.\\\\# { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\_ { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\{\\\\} { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\#fake\\\\-id { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__foo\\\\.bar { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\3A hover { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\3A hover\\\\3A focus\\\\3A active { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__\\\\[attr\\\\=value\\\\] { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__f\\\\/o\\\\/o { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__f\\\\\\\\o\\\\\\\\o { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__f\\\\*o\\\\*o { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__f\\\\!o\\\\!o { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__f\\\\'o\\\\'o { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__f\\\\~o\\\\~o { background: lime; }
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__f\\\\+o\\\\+o { background: lime; }
 
-.fixtures-modules-localIdentName-localIdentName__foo\\\\/bar {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__foo\\\\/bar {
   background: hotpink;
 }
 
-.fixtures-modules-localIdentName-localIdentName__foo\\\\\\\\bar {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__foo\\\\\\\\bar {
   background: hotpink;
 }
 
-.fixtures-modules-localIdentName-localIdentName__foo\\\\/bar\\\\/baz {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__foo\\\\/bar\\\\/baz {
   background: hotpink;
 }
 
-.fixtures-modules-localIdentName-localIdentName__foo\\\\\\\\bar\\\\\\\\baz {
+.fixtures\\\\\\\\C2Fmodules\\\\\\\\C2FlocalIdentName\\\\\\\\C2FlocalIdentName__foo\\\\\\\\bar\\\\\\\\baz {
   background: hotpink;
 }
 \`, ""]);
 // Exports
-var _1 = \`fixtures-modules-localIdentName-localIdentName__123\`;
+var _1 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__123\`;
 export { _1 as "123" };
-export var test = \`fixtures-modules-localIdentName-localIdentName__test\`;
-export var _test = \`fixtures-modules-localIdentName-localIdentName___test\`;
-export var className = \`fixtures-modules-localIdentName-localIdentName__className\`;
-export var someId = \`fixtures-modules-localIdentName-localIdentName__someId\`;
-export var subClass = \`fixtures-modules-localIdentName-localIdentName__subClass\`;
-var _2 = \`fixtures-modules-localIdentName-localIdentName__-a0-34a___f\`;
+export var test = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__test\`;
+export var _test = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName___test\`;
+export var className = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__className\`;
+export var someId = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__someId\`;
+export var subClass = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__subClass\`;
+var _2 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__-a0-34a___f\`;
 export { _2 as "-a0-34a___f" };
-var _3 = \`fixtures-modules-localIdentName-localIdentName__m_x_@\`;
+var _3 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__m_x_@\`;
 export { _3 as "m_x_@" };
-var _4 = \`fixtures-modules-localIdentName-localIdentName__B&W?\`;
+var _4 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__B&W?\`;
 export { _4 as "B&W?" };
-var _5 = \`fixtures-modules-localIdentName-localIdentName__:\\\`(\`;
+var _5 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__:\\\`(\`;
 export { _5 as ":\`(" };
-var _6 = \`fixtures-modules-localIdentName-localIdentName__1a2b3c\`;
+var _6 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__1a2b3c\`;
 export { _6 as "1a2b3c" };
-var _7 = \`fixtures-modules-localIdentName-localIdentName__#fake-id\`;
+var _7 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__#fake-id\`;
 export { _7 as "#fake-id" };
-var _8 = \`fixtures-modules-localIdentName-localIdentName__-a-b-c-\`;
+var _8 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__-a-b-c-\`;
 export { _8 as "-a-b-c-" };
-var _9 = \`fixtures-modules-localIdentName-localIdentName__©\`;
+var _9 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__©\`;
 export { _9 as "©" };
-var _a = \`fixtures-modules-localIdentName-localIdentName__♥\`;
+var _a = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__♥\`;
 export { _a as "♥" };
-var _b = \`fixtures-modules-localIdentName-localIdentName__😍\`;
+var _b = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__😍\`;
 export { _b as "😍" };
-var _c = \`fixtures-modules-localIdentName-localIdentName__“‘’”\`;
+var _c = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__“‘’”\`;
 export { _c as "“‘’”" };
-var _d = \`fixtures-modules-localIdentName-localIdentName__☺☃\`;
+var _d = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__☺☃\`;
 export { _d as "☺☃" };
-var _e = \`fixtures-modules-localIdentName-localIdentName__⌘⌥\`;
+var _e = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__⌘⌥\`;
 export { _e as "⌘⌥" };
-var _f = \`fixtures-modules-localIdentName-localIdentName__𝄞♪♩♫♬\`;
+var _f = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__𝄞♪♩♫♬\`;
 export { _f as "𝄞♪♩♫♬" };
-var _10 = \`fixtures-modules-localIdentName-localIdentName__💩\`;
+var _10 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__💩\`;
 export { _10 as "💩" };
-var _11 = \`fixtures-modules-localIdentName-localIdentName__?\`;
+var _11 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__?\`;
 export { _11 as "?" };
-var _12 = \`fixtures-modules-localIdentName-localIdentName__@\`;
+var _12 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__@\`;
 export { _12 as "@" };
-var _13 = \`fixtures-modules-localIdentName-localIdentName__.\`;
+var _13 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__.\`;
 export { _13 as "." };
-var _14 = \`fixtures-modules-localIdentName-localIdentName__:)\`;
+var _14 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__:)\`;
 export { _14 as ":)" };
-var _15 = \`fixtures-modules-localIdentName-localIdentName__<p>\`;
+var _15 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__<p>\`;
 export { _15 as "<p>" };
-var _16 = \`fixtures-modules-localIdentName-localIdentName__<><<<>><>\`;
+var _16 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__<><<<>><>\`;
 export { _16 as "<><<<>><>" };
-var _17 = \`fixtures-modules-localIdentName-localIdentName__++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\`;
+var _17 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\`;
 export { _17 as "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>." };
-var _18 = \`fixtures-modules-localIdentName-localIdentName__#\`;
+var _18 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__#\`;
 export { _18 as "#" };
-var _19 = \`fixtures-modules-localIdentName-localIdentName__##\`;
+var _19 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__##\`;
 export { _19 as "##" };
-var _1a = \`fixtures-modules-localIdentName-localIdentName__#.#.#\`;
+var _1a = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__#.#.#\`;
 export { _1a as "#.#.#" };
-export var _ = \`fixtures-modules-localIdentName-localIdentName___\`;
-var _1b = \`fixtures-modules-localIdentName-localIdentName__{}\`;
+export var _ = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName___\`;
+var _1b = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__{}\`;
 export { _1b as "{}" };
-var _1c = \`fixtures-modules-localIdentName-localIdentName__foo.bar\`;
+var _1c = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo.bar\`;
 export { _1c as "foo.bar" };
-var _1d = \`fixtures-modules-localIdentName-localIdentName__:hover\`;
+var _1d = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__:hover\`;
 export { _1d as ":hover" };
-var _1e = \`fixtures-modules-localIdentName-localIdentName__:hover:focus:active\`;
+var _1e = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__:hover:focus:active\`;
 export { _1e as ":hover:focus:active" };
-var _1f = \`fixtures-modules-localIdentName-localIdentName__[attr=value]\`;
+var _1f = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__[attr=value]\`;
 export { _1f as "[attr=value]" };
-var _20 = \`fixtures-modules-localIdentName-localIdentName__f/o/o\`;
+var _20 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f/o/o\`;
 export { _20 as "f/o/o" };
-var _21 = \`fixtures-modules-localIdentName-localIdentName__f\\\\o\\\\o\`;
+var _21 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f\\\\o\\\\o\`;
 export { _21 as "f\\\\o\\\\o" };
-var _22 = \`fixtures-modules-localIdentName-localIdentName__f*o*o\`;
+var _22 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f*o*o\`;
 export { _22 as "f*o*o" };
-var _23 = \`fixtures-modules-localIdentName-localIdentName__f!o!o\`;
+var _23 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f!o!o\`;
 export { _23 as "f!o!o" };
-var _24 = \`fixtures-modules-localIdentName-localIdentName__f'o'o\`;
+var _24 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f'o'o\`;
 export { _24 as "f'o'o" };
-var _25 = \`fixtures-modules-localIdentName-localIdentName__f~o~o\`;
+var _25 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f~o~o\`;
 export { _25 as "f~o~o" };
-var _26 = \`fixtures-modules-localIdentName-localIdentName__f+o+o\`;
+var _26 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f+o+o\`;
 export { _26 as "f+o+o" };
-var _27 = \`fixtures-modules-localIdentName-localIdentName__foo/bar\`;
+var _27 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo/bar\`;
 export { _27 as "foo/bar" };
-var _28 = \`fixtures-modules-localIdentName-localIdentName__foo\\\\bar\`;
+var _28 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo\\\\bar\`;
 export { _28 as "foo\\\\bar" };
-var _29 = \`fixtures-modules-localIdentName-localIdentName__foo/bar/baz\`;
+var _29 = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo/bar/baz\`;
 export { _29 as "foo/bar/baz" };
-var _2a = \`fixtures-modules-localIdentName-localIdentName__foo\\\\bar\\\\baz\`;
+var _2a = \`fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo\\\\bar\\\\baz\`;
 export { _2a as "foo\\\\bar\\\\baz" };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -8505,118 +8545,118 @@ exports[`"modules" option should work and respect the "path" placeholder: result
 [
   [
     "./modules/localIdentName/localIdentName.css",
-    ".fixtures-modules-localIdentName-localIdentName__test {
+    ".fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__test {
   background: red;
 }
 
-.fixtures-modules-localIdentName-localIdentName___test {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName___test {
   background: blue;
 }
 
-.fixtures-modules-localIdentName-localIdentName__className {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__className {
   background: red;
 }
 
-#fixtures-modules-localIdentName-localIdentName__someId {
+#fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__someId {
   background: green;
 }
 
-.fixtures-modules-localIdentName-localIdentName__className .fixtures-modules-localIdentName-localIdentName__subClass {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__className .fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__subClass {
   color: green;
 }
 
-#fixtures-modules-localIdentName-localIdentName__someId .fixtures-modules-localIdentName-localIdentName__subClass {
+#fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__someId .fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__subClass {
   color: blue;
 }
 
-.fixtures-modules-localIdentName-localIdentName__-a0-34a___f {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__-a0-34a___f {
   color: red;
 }
 
-.fixtures-modules-localIdentName-localIdentName__m_x_\\@ {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__m_x_\\@ {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-.fixtures-modules-localIdentName-localIdentName__B\\&W\\? {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__B\\&W\\? {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
 /* matches elements with class=":\`(" */
-.fixtures-modules-localIdentName-localIdentName__\\3A \\\`\\( {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\3A \\\`\\( {
   color: aqua;
 }
 
 /* matches elements with class="1a2b3c" */
-.fixtures-modules-localIdentName-localIdentName__\\31 a2b3c {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\31 a2b3c {
   color: aliceblue;
 }
 
 /* matches the element with id="#fake-id" */
-#fixtures-modules-localIdentName-localIdentName__\\#fake-id {
+#fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\#fake-id {
   color: antiquewhite;
 }
 
 /* matches the element with id="-a-b-c-" */
-#fixtures-modules-localIdentName-localIdentName__-a-b-c- {
+#fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__-a-b-c- {
   color: azure;
 }
 
 /* matches the element with id="©" */
-#fixtures-modules-localIdentName-localIdentName__© {
+#fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__© {
   color: black;
 }
 
-.fixtures-modules-localIdentName-localIdentName__♥ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__© { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__😍 { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__“‘’” { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__☺☃ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__⌘⌥ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__𝄞♪♩♫♬ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__💩 { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\? { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\@ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\. { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\3A \\) { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\3A \\\`\\( { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\31 23 { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\31 a2b3c { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\<p\\> { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\<\\>\\<\\<\\<\\>\\>\\<\\> { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\[\\>\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\>\\+\\<\\<\\<\\<\\-\\]\\>\\+\\+\\.\\>\\+\\.\\+\\+\\+\\+\\+\\+\\+\\.\\.\\+\\+\\+\\.\\>\\+\\+\\.\\<\\<\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\.\\>\\.\\+\\+\\+\\.\\-\\-\\-\\-\\-\\-\\.\\-\\-\\-\\-\\-\\-\\-\\-\\.\\>\\+\\.\\>\\. { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\# { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\#\\# { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\#\\.\\#\\.\\# { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\_ { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\{\\} { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\#fake\\-id { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__foo\\.bar { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\3A hover { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\3A hover\\3A focus\\3A active { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__\\[attr\\=value\\] { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\/o\\/o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\\\o\\\\o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\*o\\*o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\!o\\!o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\'o\\'o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\~o\\~o { background: lime; }
-.fixtures-modules-localIdentName-localIdentName__f\\+o\\+o { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__♥ { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__© { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__😍 { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__“‘’” { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__☺☃ { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__⌘⌥ { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__𝄞♪♩♫♬ { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__💩 { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\? { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\@ { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\. { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\3A \\) { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\3A \\\`\\( { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\31 23 { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\31 a2b3c { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\<p\\> { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\<\\>\\<\\<\\<\\>\\>\\<\\> { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\[\\>\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\>\\+\\<\\<\\<\\<\\-\\]\\>\\+\\+\\.\\>\\+\\.\\+\\+\\+\\+\\+\\+\\+\\.\\.\\+\\+\\+\\.\\>\\+\\+\\.\\<\\<\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\.\\>\\.\\+\\+\\+\\.\\-\\-\\-\\-\\-\\-\\.\\-\\-\\-\\-\\-\\-\\-\\-\\.\\>\\+\\.\\>\\. { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\# { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\#\\# { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\#\\.\\#\\.\\# { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\_ { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\{\\} { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\#fake\\-id { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo\\.bar { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\3A hover { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\3A hover\\3A focus\\3A active { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__\\[attr\\=value\\] { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f\\/o\\/o { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f\\\\o\\\\o { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f\\*o\\*o { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f\\!o\\!o { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f\\'o\\'o { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f\\~o\\~o { background: lime; }
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__f\\+o\\+o { background: lime; }
 
-.fixtures-modules-localIdentName-localIdentName__foo\\/bar {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo\\/bar {
   background: hotpink;
 }
 
-.fixtures-modules-localIdentName-localIdentName__foo\\\\bar {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo\\\\bar {
   background: hotpink;
 }
 
-.fixtures-modules-localIdentName-localIdentName__foo\\/bar\\/baz {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo\\/bar\\/baz {
   background: hotpink;
 }
 
-.fixtures-modules-localIdentName-localIdentName__foo\\\\bar\\\\baz {
+.fixtures\\\\C2Fmodules\\\\C2FlocalIdentName\\\\C2FlocalIdentName__foo\\\\bar\\\\baz {
   background: hotpink;
 }
 ",
@@ -10058,12 +10098,12 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/no
 import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \`.modules-mode-style-modules__class {
+___CSS_LOADER_EXPORT___.push([module.id, \`.modules\\\\\\\\C2Fmode\\\\\\\\C2Fstyle-modules__class {
     color: red;
 }
 \`, ""]);
 // Exports
-var _1 = \`modules-mode-style-modules__class\`;
+var _1 = \`modules\\\\C2Fmode\\\\C2Fstyle-modules__class\`;
 export { _1 as "class" };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -10075,22 +10115,22 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/no
 import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \`.modules-mode-no-modules__class {
+___CSS_LOADER_EXPORT___.push([module.id, \`.modules\\\\\\\\C2Fmode\\\\\\\\C2Fno-modules__class {
     color: red;
 }
 \`, ""]);
 // Exports
-var _1 = \`modules-mode-no-modules__class\`;
+var _1 = \`modules\\\\C2Fmode\\\\C2Fno-modules__class\`;
 export { _1 as "class" };
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
 exports[`"modules" option should work when the "auto" is not specified, but specified other modules options: result 1`] = `
-".modules-mode-style-modules__class {
+".modules\\\\C2Fmode\\\\C2Fstyle-modules__class {
     color: red;
 }
-.modules-mode-no-modules__class {
+.modules\\\\C2Fmode\\\\C2Fno-modules__class {
     color: red;
 }
 "
@@ -10152,12 +10192,12 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/no
 import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \`.modules-mode-style-modules__class {
+___CSS_LOADER_EXPORT___.push([module.id, \`.modules\\\\\\\\C2Fmode\\\\\\\\C2Fstyle-modules__class {
     color: red;
 }
 \`, ""]);
 // Exports
-var _1 = \`modules-mode-style-modules__class\`;
+var _1 = \`modules\\\\C2Fmode\\\\C2Fstyle-modules__class\`;
 export { _1 as "class" };
 export default ___CSS_LOADER_EXPORT___;
 "
@@ -10179,7 +10219,7 @@ export default ___CSS_LOADER_EXPORT___;
 `;
 
 exports[`"modules" option should work when the "auto" option is "true" with other options: result 1`] = `
-".modules-mode-style-modules__class {
+".modules\\\\C2Fmode\\\\C2Fstyle-modules__class {
     color: red;
 }
 .class {
@@ -12254,11 +12294,11 @@ import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../../../src/runt
 import ___CSS_LOADER_API_IMPORT___ from "../../../../../../src/runtime/api.js";
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, \`.modules-issue-1223-\\\\@foo-bar--myClass {
+___CSS_LOADER_EXPORT___.push([module.id, \`.modules\\\\\\\\C2Fissue-1223\\\\\\\\C2F\\\\@foo\\\\\\\\C2Fbar\\\\\\\\C2F-myClass {
     color: red;
 }\`, ""]);
 // Exports
-export var myClass = \`modules-issue-1223-@foo-bar--myClass\`;
+export var myClass = \`modules\\\\C2Fissue-1223\\\\C2F@foo\\\\C2Fbar\\\\C2F-myClass\`;
 export default ___CSS_LOADER_EXPORT___;
 "
 `;
@@ -12267,7 +12307,7 @@ exports[`"modules" option should work with \`@\` character in scoped packages: r
 [
   [
     "./modules/issue-1223/@foo/bar/index.module.css",
-    ".modules-issue-1223-\\@foo-bar--myClass {
+    ".modules\\\\C2Fissue-1223\\\\C2F\\@foo\\\\C2Fbar\\\\C2F-myClass {
     color: red;
 }",
     "",
