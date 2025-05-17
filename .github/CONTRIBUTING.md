@@ -61,7 +61,7 @@ format that includes a **type**, a **scope** and a **subject**:
 
 The **header** is mandatory and the **scope** of the header is optional.
 
-o line in the commit message should exceed 100 characters! This makes the message easier to read on GitHub as well as in various git tools.
+Any line in the commit message should exceed 100 characters! This makes the message easier to read on GitHub as well as in various git tools.
 
 The footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
 
