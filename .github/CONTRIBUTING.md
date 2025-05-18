@@ -17,9 +17,9 @@ The issue tracker is for bug reports and feature discussions.
 
 ## <a name="issue"></a> Found an Issue or Bug?
 
-Before you submit an issue, please search the issue tracker, an issue for your problem may already exist and the discussion might inform you of workarounds readily available.
+Before you submit an issue, please search the issue tracker, an issue for your problem may already exist, and the discussion might inform you of workarounds readily available.
 
-We want to fix all the issues as soon as possible, but before fixing a bug we need to reproduce and confirm it. In order to reproduce bugs, we ask that you provide a minimal reproduction scenario (github repo or failing test case). Having a live, reproducible scenario gives us a wealth of important information without going back & forth to you with additional questions like:
+We want to fix all the issues as soon as possible, but before fixing a bug, we need to reproduce and confirm it. In order to reproduce bugs, we ask that you provide a minimal reproduction scenario (GitHub repo or failing test case). Having a live, reproducible scenario gives us a wealth of important information without going back & forth to you with additional questions like:
 
 - version of Webpack used
 - version of the loader / plugin you are creating a bug report for
@@ -27,24 +27,24 @@ We want to fix all the issues as soon as possible, but before fixing a bug we ne
 
 A minimal reproduce scenario allows us to quickly confirm a bug (or point out config problems) as well as confirm that we are fixing the right problem.
 
-We will be insisting on a minimal reproduce scenario in order to save maintainers time and ultimately be able to fix more bugs. We understand that sometimes it might be hard to extract essential bits of code from a larger codebase but we really need to isolate the problem before we can fix it.
+We will be insisting on a minimal reproduction scenario in order to save the maintainers' time and ultimately be able to fix more bugs. We understand that sometimes it might be hard to extract essential bits of code from a larger codebase, but we really need to isolate the problem before we can fix it.
 
-Unfortunately, we are unable to investigate or fix bugs without a minimal reproduction, so if we don't hear back from you we may have to close an issue that doesn't have enough info to be reproduced.
+Unfortunately, we are unable to investigate or fix bugs without a minimal reproduction, so if we don't hear back from you, we may have to close an issue that doesn't have enough info to be reproduced.
 
 ## <a name="feature"></a> Feature Requests?
 
-You can _request_ a new feature by creating an issue on Github.
+You can _request_ a new feature by creating an issue on GitHub.
 
-If you would like to _implement_ a new feature yourself, please `first` submit an issue with a proposal to ensure the idea aligns with the goals of the project.
+If you would like to _implement_ a new feature yourself, please **first submit an issue** with a proposal to ensure the idea aligns with the goals of the project.
 
 ## <a name="submit-pr"></a> Pull Request Submission Guidelines
 
 Before you submit your Pull Request (PR) consider the following guidelines:
 
-- Search Github for an open or closed PR related to your submission to avoid duplicating effort.
+- Search GitHub for an open or closed PR related to your submission to avoid duplicating effort.
 - Commit your changes using a descriptive commit message that follows our [commit message conventions](#commit). This is important because release notes are automatically generated from these messages.
 - Complete the `Pull Request Template`. Pull requests that ignore the template will not be reviewed.
-- Please sign the `Contributor License Agreement (CLA)` when you open your pull request. We cannot accept your contribution without it. Be sure to sign using the primary email address associated with your local and github account.
+- Please sign the `Contributor License Agreement (CLA)` when you open your pull request. We cannot accept your contribution without it. Be sure to sign using the primary email address associated with your local and GitHub account.
 
 ## <a name="commit"></a> Webpack Contrib Commit Conventions
 
@@ -132,7 +132,7 @@ Migration: see webpack/webpack#5225
 
 ## Testing Your Pull Request
 
-You may need to test your changes in a real-world project or dependent module. Thankfully, Github provides a means to do this. To add a dependency to the `package.json` of such a project, use the following syntax:
+You may need to test your changes in a real-world project or a dependent module. Thankfully, GitHub provides a means to do this. To add a dependency to the `package.json` of such a project, use the following syntax:
 
 ```json
 {
