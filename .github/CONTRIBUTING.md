@@ -117,7 +117,7 @@ The body should include the motivation for the change and contrast it with previ
 
 The footer should include any information about **Breaking Changes** and is also the place to reference GitHub issues that this commit **Closes**.
 
-**Breaking Changes** must start with the word `BREAKING CHANGE:` followed by a space or two newlines. The rest of the breaking change details should be provided after this.
+**Breaking Changes** must start with the word `BREAKING CHANGE:` followed by a space or two new lines. The rest of the breaking change details should be provided after this.
 
 Example
 
