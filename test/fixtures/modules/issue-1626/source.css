@@ -1,0 +1,7 @@
+a-b {
+  color: red;
+}
+
+a\C20b /* i.e. with spaces */ {
+  color: red;
+}
