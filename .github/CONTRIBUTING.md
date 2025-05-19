@@ -149,7 +149,7 @@ When submitting your contribution, a CLA (Contributor License Agreement) bot wil
 If it is your first time, it will link you to the right place to sign it.
 However, if the email used in your commits doesn’t match the email associated with your GitHub account, the CLA bot won’t accept your contribution.
 
-Run `Git config user.email` to see your Git email, and verify it with [your GitHub email](https://github.com/settings/emails).
+Run `git config user.email` to see your Git email, and verify it with [your GitHub email](https://github.com/settings/emails).
 
 ## Thanks
 
