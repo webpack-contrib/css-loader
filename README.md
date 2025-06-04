@@ -65,7 +65,7 @@ module.exports = {
 };
 ```
 
-Run `webpack` using your preferred method.
+Finally, run `webpack` using the method you normally use (e.g., via CLI or an npm script).
 
 If you need to extract CSS into a separate file (i.e. do not store CSS in a JS module), consider using the [recommend example](https://github.com/webpack-contrib/css-loader#recommend).
 
@@ -143,7 +143,9 @@ module.exports = {
 
 #### `object`
 
-Allows filtering of `url()` values. Any filtered `url()` will not be resolved (left in the code as they were written).
+Allows filtering of `url()` values.
+
+Any filtered `url()` will not be resolved (left in the code as they were written).
 
 **webpack.config.js**
 
@@ -202,7 +204,9 @@ type importFn =
 Default: `true`
 
 Allows you to enable or disable handling of `@import` at-rules.
+
 Controls how `@import` statements are resolved.
+
 Absolute URLs in `@import` will be moved in runtime code.
 
 Examples resolutions:
@@ -259,7 +263,9 @@ type filter = (url: string, media: string, resourcePath: string) => boolean;
 
 Default: `undefined`
 
-Allows filtering of `@import`. Any filtered `@import` will not be resolved (left in the code as they were written).
+Allows filtering of `@import`.
+
+Any filtered `@import` will not be resolved (left in the code as they were written).
 
 **webpack.config.js**
 
@@ -928,6 +934,7 @@ type localIdentHashSalt = string;
 Default: `undefined`
 
 Allows to add custom hash to generate more unique classes.
+
 For more information see [output.hashSalt](https://webpack.js.org/configuration/output/#outputhashsalt).
 
 **webpack.config.js**
@@ -961,6 +968,7 @@ type localIdentHashFunction = string;
 Default: `md4`
 
 Allows to specify hash function to generate classes .
+
 For more information see [output.hashFunction](https://webpack.js.org/configuration/output/#outputhashfunction).
 
 **webpack.config.js**
@@ -994,6 +1002,7 @@ type localIdentHashDigest = string;
 Default: `hex`
 
 Allows to specify hash digest to generate classes.
+
 For more information see [output.hashDigest](https://webpack.js.org/configuration/output/#outputhashdigest).
 
 **webpack.config.js**
@@ -1027,6 +1036,7 @@ type localIdentHashDigestLength = number;
 Default: `20`
 
 Allows to specify hash digest length to generate classes.
+
 For more information, see [output.hashDigestLength](https://webpack.js.org/configuration/output/#outputhashdigestlength).
 
 **webpack.config.js**
@@ -1124,7 +1134,9 @@ type getLocalIdent = (
 Default: `undefined`
 
 Allows to specify a function to generate the classname.
+
 By default we use built-in function to generate a classname.
+
 If your custom function returns `null` or `undefined`, the built-in generator is used as a `fallback`.
 
 **webpack.config.js**
@@ -1218,6 +1230,7 @@ module.exports = {
 ```
 
 To set a custom name for namedExport, can use [`exportLocalsConvention`](#exportLocalsConvention) option as a function.
+
 See below in the [`examples`](#examples) section.
 
 ##### `exportGlobals`
@@ -1388,7 +1401,9 @@ Default: `false`
 Export only locals.
 
 **Useful** when you use **css modules** for pre-rendering (for example SSR).
+
 For pre-rendering with `mini-css-extract-plugin` you should use this option instead of `style-loader!css-loader` **in the pre-rendering bundle**.
+
 It doesn't embed CSS; it only exports the identifier mappings.
 
 **webpack.config.js**
@@ -1431,7 +1446,9 @@ type getJSON = ({
 
 Default: `undefined`
 
-Enables a callback to output the CSS modules mapping JSON. The callback is invoked with an object containing the following:
+Enables a callback to output the CSS modules mapping JSON.
+
+The callback is invoked with an object containing the following:
 
 - `resourcePath`: the absolute path of the original resource, e.g., `/foo/bar/baz.module.css`
 
@@ -1473,6 +1490,7 @@ Enables a callback to output the CSS modules mapping JSON. The callback is invok
 ```
 
 Using `getJSON`, it's possible to output a file with all CSS module mappings.
+
 In the following example, we use `getJSON` to cache canonical mappings and add stand-ins for any composed values (through `composes`), and we use a custom plugin to consolidate the values and output them to a file:
 
 **webpack.config.js**
@@ -1740,6 +1758,7 @@ type esModule = boolean;
 Default: `true`
 
 By default, `css-loader` generates JS modules that use the ES modules syntax.
+
 There are some cases in which using ES modules is beneficial, like in the case of [module concatenation](https://webpack.js.org/plugins/module-concatenation-plugin/) and [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 You can enable CommonJS module syntax using:
@@ -1773,6 +1792,7 @@ type exportType = "array" | "string" | "css-style-sheet";
 Default: `'array'`
 
 Allows exporting styles as array with modules, string or [constructable stylesheet](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) (i.e. [`CSSStyleSheet`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)).
+
 The default value is `'array'`, i.e. loader exports an array of modules with a specific API which is used in `style-loader` or other.
 
 **webpack.config.js**
@@ -1983,7 +2003,9 @@ module.exports = {
 ### Recommend
 
 For `production` builds, it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
+
 This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
+
 For `development` mode (including `webpack-dev-server`) you can use [style-loader](https://github.com/webpack-contrib/style-loader), because it injects CSS into the DOM using multiple `<style></style>` and works faster.
 
 > [!NOTE]
@@ -2212,6 +2234,7 @@ module.exports = {
 ### Separating `Interoperable CSS`-only and `CSS Module` features
 
 The following setup is an example of allowing `Interoperable CSS` features only (such as `:import` and `:export`) without using further `CSS Module` functionality by setting the `mode` option for all files that do not match the `*.module.scss` naming convention. This is for reference, as having `ICSS` features applied to all files was default `css-loader` behavior before v4.
+
 Meanwhile, all files matching `*.module.scss` are treated as `CSS Modules` in this example.
 
 An example case is assumed where a project requires canvas drawing variables to be synchronized with CSS - canvas drawing uses the same color (set by color name in JavaScript) as HTML background (set by class name in CSS).
@@ -2317,7 +2340,9 @@ ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
 
 ## Contributing
 
-Please take a moment to read our contributing guidelines if you haven't yet done so.
+We welcome all contributions!
+
+If you are new here, please take a moment to review our contributing guidelines before submitting issues or pull requests.
 
 [CONTRIBUTING](./.github/CONTRIBUTING.md)
 
