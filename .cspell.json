@@ -50,6 +50,7 @@
     "**/fonts/**",
     "node_modules",
     "coverage",
-    "*.log"
+    "*.log",
+    "test/outputs"
   ]
 }
