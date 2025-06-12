@@ -71,7 +71,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
-    "babel-jest": "^29.7.0",
+    "babel-jest": "^30.0.0",
     "cross-env": "^7.0.3",
     "cspell": "^8.13.1",
     "del-cli": "^5.1.0",
