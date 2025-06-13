@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`"sourceMap" option should generate source maps and do not change "[contenthash]" on different platform: errors 1`] = `[]`;
 
@@ -807,7 +807,14 @@ body {
 ]
 `;
 
-exports[`"sourceMap" option should generate source maps when previous loader generates source maps ("sass-loader"): warnings 1`] = `[]`;
+exports[`"sourceMap" option should generate source maps when previous loader generates source maps ("sass-loader"): warnings 1`] = `
+[
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+]
+`;
 
 exports[`"sourceMap" option should generate source maps when previous loader generates source maps ("stylus-loader"): errors 1`] = `[]`;
 

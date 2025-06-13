@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`'exportType' option should throw an error with 'css-style-sheet' value for CSS modules when \`esModule\` disabled, but 'modules.namedExport' enabled: errors 1`] = `
 [
@@ -1733,7 +1733,14 @@ a {
 }
 `;
 
-exports[`'exportType' option should work with 'css-style-sheet' value and CSS modules and still emit error on '@import' at-rules: warnings 1`] = `[]`;
+exports[`'exportType' option should work with 'css-style-sheet' value and CSS modules and still emit error on '@import' at-rules: warnings 1`] = `
+[
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+]
+`;
 
 exports[`'exportType' option should work with 'css-style-sheet' value and CommonJS modules: errors 1`] = `[]`;
 
@@ -4070,7 +4077,14 @@ CSSStyleSheet {
 }
 `;
 
-exports[`'exportType' option should work with 'css-style-sheet' value and with 'sass-loader': warnings 1`] = `[]`;
+exports[`'exportType' option should work with 'css-style-sheet' value and with 'sass-loader': warnings 1`] = `
+[
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+]
+`;
 
 exports[`'exportType' option should work with 'css-style-sheet' value: errors 1`] = `[]`;
 
@@ -5148,4 +5162,11 @@ exports[`'exportType' option should work with CSS modules and the 'exportOnlyLoc
 }
 `;
 
-exports[`'exportType' option should work with CSS modules and the 'exportOnlyLocals' option: warnings 1`] = `[]`;
+exports[`'exportType' option should work with CSS modules and the 'exportOnlyLocals' option: warnings 1`] = `
+[
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+]
+`;

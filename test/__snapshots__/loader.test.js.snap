@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`loader issue #1033 (2): errors 1`] = `[]`;
 
@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
   background-image: image-set(url(\${___CSS_LOADER_URL_REPLACEMENT_0___}) 1x, url(\${___CSS_LOADER_URL_REPLACEMENT_1___}) 2x);
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (min-resolution: 192dpi) {
 
 .hero:matches(main, .main) {
   background-image: url(\${___CSS_LOADER_URL_REPLACEMENT_1___});
@@ -215,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
   background-image: image-set(url(replaced_file_protocol_/webpack/public/path/img1x.png) 1x, url(replaced_file_protocol_/webpack/public/path/img2x.png) 2x);
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (min-resolution: 192dpi) {
 
 .hero:matches(main, .main) {
   background-image: url(replaced_file_protocol_/webpack/public/path/img2x.png);
@@ -243,7 +243,7 @@ exports[`loader should throw an error on invisible spaces: errors 1`] = `
 
 SyntaxError
 
-(1:8) /test/fixtures/invisible-space.css Unknown word
+(1:8) /test/fixtures/invisible-space.css Unknown word color
 
 > 1 | a {    color: red;    }
     |        ^
@@ -259,7 +259,7 @@ exports[`loader should throw error on invalid css syntax: errors 1`] = `
 
 SyntaxError
 
-(2:3) /test/fixtures/error.css Unknown word
+(2:3) /test/fixtures/error.css Unknown word invalid
 
   1 | .some {
 > 2 |   invalid css;
@@ -1294,7 +1294,14 @@ exports[`loader should work with "sass-loader": result 1`] = `
 ]
 `;
 
-exports[`loader should work with "sass-loader": warnings 1`] = `[]`;
+exports[`loader should work with "sass-loader": warnings 1`] = `
+[
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+]
+`;
 
 exports[`loader should work with \`templateLiteral\` support: errors 1`] = `[]`;
 
@@ -2454,7 +2461,42 @@ exports[`loader should work with inline module syntax: result 1`] = `
 ]
 `;
 
-exports[`loader should work with inline module syntax: warnings 1`] = `[]`;
+exports[`loader should work with inline module syntax: warnings 1`] = `
+[
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+]
+`;
 
 exports[`loader should work with none AST metadata: errors 1`] = `[]`;
 
@@ -2541,7 +2583,18 @@ exports[`loader should work with the "modules.auto" option and the "import.loade
 "
 `;
 
-exports[`loader should work with the "modules.auto" option and the "import.loaders" option: warnings 1`] = `[]`;
+exports[`loader should work with the "modules.auto" option and the "import.loaders" option: warnings 1`] = `
+[
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+  "ModuleWarning: Module Warning (from \`replaced original path\`):
+Deprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api",
+]
+`;
 
 exports[`loader should work with webpackIgnore comment: errors 1`] = `[]`;
 
