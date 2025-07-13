@@ -2,13 +2,13 @@
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
-import { fileURLToPath } from "url";
-import path from "path";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-import modulesValues from "postcss-modules-values";
-import localByDefault from "postcss-modules-local-by-default";
 import extractImports from "postcss-modules-extract-imports";
+import localByDefault from "postcss-modules-local-by-default";
 import modulesScope from "postcss-modules-scope";
+import modulesValues from "postcss-modules-values";
 
 const WEBPACK_IGNORE_COMMENT_REGEXP = /webpackIgnore:(\s+)?(true|false)/;
 
@@ -52,7 +52,7 @@ function urlToRequest(url, root) {
 // eslint-disable-next-line no-useless-escape
 const regexSingleEscape = /[ -,.\/:-@[\]\^`{-~]/;
 const regexExcessiveSpaces =
-  /(^|\\+)?(\\[A-F0-9]{1,6})\x20(?![a-fA-F0-9\x20])/g;
+  /(^|\\+)?(\\[A-F0-9]{1,6})\u0020(?![a-fA-F0-9\u0020])/g;
 
 const preserveCamelCase = (string) => {
   let result = string;
@@ -112,8 +112,8 @@ function camelCase(input) {
   return result
     .replace(/^[_.\- ]+/, "")
     .toLowerCase()
-    .replace(/[_.\- ]+([\p{Alpha}\p{N}_]|$)/gu, (_, p1) => p1.toUpperCase())
-    .replace(/\d+([\p{Alpha}\p{N}_]|$)/gu, (m) => m.toUpperCase());
+    .replaceAll(/[_.\- ]+([\p{Alpha}\p{N}_]|$)/gu, (_, p1) => p1.toUpperCase())
+    .replaceAll(/\d+([\p{Alpha}\p{N}_]|$)/gu, (m) => m.toUpperCase());
 }
 
 function escape(string) {
@@ -121,13 +121,12 @@ function escape(string) {
   let counter = 0;
 
   while (counter < string.length) {
-    // eslint-disable-next-line no-plusplus
     const character = string.charAt(counter++);
 
     let value;
 
     // eslint-disable-next-line no-control-regex
-    if (/[\t\n\f\r\x0B]/.test(character)) {
+    if (/[\t\n\f\r\u000B]/.test(character)) {
       const codePoint = character.charCodeAt();
 
       value = `\\${codePoint.toString(16).toUpperCase()} `;
@@ -151,7 +150,7 @@ function escape(string) {
   // Remove spaces after `\HEX` escapes that are not followed by a hex digit,
   // since they’re redundant. Note that this is only possible if the escape
   // sequence isn’t preceded by an odd number of backslashes.
-  output = output.replace(regexExcessiveSpaces, ($0, $1, $2) => {
+  output = output.replaceAll(regexExcessiveSpaces, ($0, $1, $2) => {
     if ($1 && $1.length % 2) {
       // It’s not safe to remove the space, so don’t.
       return $0;
@@ -169,7 +168,6 @@ function gobbleHex(str) {
   let hex = "";
   let spaceTerminated = false;
 
-  // eslint-disable-next-line no-undefined
   for (let i = 0; i < 6 && lower[i] !== undefined; i++) {
     const code = lower.charCodeAt(i);
     // check to see if we are dealing with a valid hex char [a-f|0-9]
@@ -185,11 +183,10 @@ function gobbleHex(str) {
   }
 
   if (hex.length === 0) {
-    // eslint-disable-next-line no-undefined
     return undefined;
   }
 
-  const codePoint = parseInt(hex, 16);
+  const codePoint = Number.parseInt(hex, 16);
 
   const isSurrogate = codePoint >= 0xd800 && codePoint <= 0xdfff;
   // Add special case for
@@ -220,12 +217,10 @@ function unescape(str) {
     if (str[i] === "\\") {
       const gobbled = gobbleHex(str.slice(i + 1, i + 7));
 
-      // eslint-disable-next-line no-undefined
       if (gobbled !== undefined) {
         ret += gobbled[0];
         i += gobbled[1];
 
-        // eslint-disable-next-line no-continue
         continue;
       }
 
@@ -235,7 +230,6 @@ function unescape(str) {
         ret += "\\";
         i += 1;
 
-        // eslint-disable-next-line no-continue
         continue;
       }
 
@@ -245,7 +239,6 @@ function unescape(str) {
         ret += str[i];
       }
 
-      // eslint-disable-next-line no-continue
       continue;
     }
 
@@ -256,13 +249,12 @@ function unescape(str) {
 }
 
 function normalizePath(file) {
-  return path.sep === "\\" ? file.replace(/\\/g, "/") : file;
+  return path.sep === "\\" ? file.replaceAll("\\", "/") : file;
 }
 
-// eslint-disable-next-line no-control-regex
 const filenameReservedRegex = /[<>:"/\\|?*]/g;
 // eslint-disable-next-line no-control-regex
-const reControlChars = /[\u0000-\u001f\u0080-\u009f]/g;
+const reControlChars = /[\u0000-\u001F\u0080-\u009F]/g;
 
 function escapeLocalIdent(localident) {
   // TODO simplify?
@@ -270,9 +262,9 @@ function escapeLocalIdent(localident) {
     localident
       // For `[hash]` placeholder
       .replace(/^((-?[0-9])|--)/, "_$1")
-      .replace(filenameReservedRegex, "-")
-      .replace(reControlChars, "-")
-      .replace(/\./g, "-"),
+      .replaceAll(filenameReservedRegex, "-")
+      .replaceAll(reControlChars, "-")
+      .replaceAll(".", "-"),
   );
 }
 
@@ -288,19 +280,16 @@ function defaultGetLocalIdent(
     path.relative(context, resourcePath),
   );
 
-  // eslint-disable-next-line no-underscore-dangle
   if (loaderContext._module && loaderContext._module.matchResource) {
     relativeResourcePath = `${normalizePath(
-      // eslint-disable-next-line no-underscore-dangle
       path.relative(context, loaderContext._module.matchResource),
     )}`;
   }
 
-  // eslint-disable-next-line no-param-reassign
   options.content =
     hashStrategy === "minimal-subset" && /\[local\]/.test(localIdentName)
       ? relativeResourcePath
-      : `${relativeResourcePath}\x00${localName}`;
+      : `${relativeResourcePath}\u0000${localName}`;
 
   let { hashFunction, hashDigest, hashDigestLength } = options;
   const matches = localIdentName.match(
@@ -317,8 +306,7 @@ function defaultGetLocalIdent(
     // `hash` and `contenthash` are same in `loader-utils` context
     // let's keep `hash` for backward compatibility
 
-    // eslint-disable-next-line no-param-reassign
-    localIdentName = localIdentName.replace(
+    localIdentName = localIdentName.replaceAll(
       /\[(?:([^:\]]+):)?(?:hash|contenthash|fullhash)(?::([a-z]+\d*))?(?::(\d+))?\]/gi,
       () => (hashName === "fullhash" ? "[fullhash]" : "[contenthash]"),
     );
@@ -330,7 +318,7 @@ function defaultGetLocalIdent(
     const hash = (
       loaderContext.utils.createHash ||
       // TODO remove in the next major release
-      // eslint-disable-next-line no-underscore-dangle
+
       loaderContext._compiler.webpack.util.createHash
     )(hashFunction);
 
@@ -350,9 +338,9 @@ function defaultGetLocalIdent(
       // Remove all leading digits
       .replace(/^\d+/, "")
       // Replace all slashes with underscores (same as in base64url)
-      .replace(/\//g, "_")
+      .replaceAll("/", "_")
       // Remove everything that is not an alphanumeric or underscore
-      .replace(/[^A-Za-z0-9_]+/g, "")
+      .replaceAll(/[^A-Za-z0-9_]+/g, "")
       .slice(0, hashDigestLength);
   }
 
@@ -370,7 +358,6 @@ function defaultGetLocalIdent(
     },
   };
 
-  // eslint-disable-next-line no-underscore-dangle
   let result = loaderContext._compilation.getPath(localIdentName, data);
 
   if (/\[folder\]/gi.test(result)) {
@@ -379,7 +366,7 @@ function defaultGetLocalIdent(
       path.relative(context, `${dirname + path.sep}_`),
     );
 
-    directory = directory.substring(0, directory.length - 1);
+    directory = directory.slice(0, Math.max(0, directory.length - 1));
 
     let folder = "";
 
@@ -387,16 +374,16 @@ function defaultGetLocalIdent(
       folder = path.basename(directory);
     }
 
-    result = result.replace(/\[folder\]/gi, () => folder);
+    result = result.replaceAll(/\[folder\]/gi, () => folder);
   }
 
   if (options.regExp) {
     const match = resourcePath.match(options.regExp);
 
     if (match) {
-      match.forEach((matched, i) => {
-        result = result.replace(new RegExp(`\\[${i}\\]`, "ig"), matched);
-      });
+      for (const [i, matched] of match.entries()) {
+        result = result.replaceAll(new RegExp(`\\[${i}\\]`, "ig"), matched);
+      }
     }
   }
 
@@ -404,7 +391,10 @@ function defaultGetLocalIdent(
 }
 
 function fixedEncodeURIComponent(str) {
-  return str.replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16)}`);
+  return str.replaceAll(
+    /[!'()*]/g,
+    (char) => `%${char.charCodeAt(0).toString(16)}`,
+  );
 }
 
 function isDataUrl(url) {
@@ -419,17 +409,17 @@ const NATIVE_WIN32_PATH = /^[A-Z]:[/\\]|^\\\\/i;
 
 function normalizeUrl(url, isStringValue) {
   let normalizedUrl = url
-    .replace(/^( |\t\n|\r\n|\r|\f)*/g, "")
-    .replace(/( |\t\n|\r\n|\r|\f)*$/g, "");
+    .replaceAll(/^( |\t\n|\r\n|\r|\f)*/g, "")
+    .replaceAll(/( |\t\n|\r\n|\r|\f)*$/g, "");
 
   if (isStringValue && /\\(\n|\r\n|\r|\f)/.test(normalizedUrl)) {
-    normalizedUrl = normalizedUrl.replace(/\\(\n|\r\n|\r|\f)/g, "");
+    normalizedUrl = normalizedUrl.replaceAll(/\\(\n|\r\n|\r|\f)/g, "");
   }
 
   if (NATIVE_WIN32_PATH.test(url)) {
     try {
       normalizedUrl = decodeURI(normalizedUrl);
-    } catch (error) {
+    } catch {
       // Ignore
     }
 
@@ -445,7 +435,7 @@ function normalizeUrl(url, isStringValue) {
 
   try {
     normalizedUrl = decodeURI(normalizedUrl);
-  } catch (error) {
+  } catch {
     // Ignore
   }
 
@@ -494,13 +484,18 @@ function getValidLocalName(localName, exportLocalsConvention) {
 const IS_MODULES = /\.module(s)?\.\w+$/i;
 const IS_ICSS = /\.icss\.\w+$/i;
 
+function dashesCamelCase(str) {
+  return str.replaceAll(/-+(\w)/g, (match, firstLetter) =>
+    firstLetter.toUpperCase(),
+  );
+}
+
 function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
   if (typeof rawOptions.modules === "boolean" && rawOptions.modules === false) {
     return false;
   }
 
   const resourcePath =
-    // eslint-disable-next-line no-underscore-dangle
     (loaderContext._module && loaderContext._module.matchResource) ||
     loaderContext.resourcePath;
 
@@ -537,30 +532,30 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
     exportGlobals: false,
     localIdentName: "[hash:base64]",
     localIdentContext: loaderContext.rootContext,
-    // eslint-disable-next-line no-underscore-dangle
+
     localIdentHashSalt:
       loaderContext.hashSalt ||
       // TODO remove in the next major release
-      // eslint-disable-next-line no-underscore-dangle
+
       loaderContext._compilation.outputOptions.hashSalt,
     localIdentHashFunction:
       loaderContext.hashFunction ||
       // TODO remove in the next major release
-      // eslint-disable-next-line no-underscore-dangle
+
       loaderContext._compilation.outputOptions.hashFunction,
     localIdentHashDigest:
       loaderContext.hashDigest ||
       // TODO remove in the next major release
-      // eslint-disable-next-line no-underscore-dangle
+
       loaderContext._compilation.outputOptions.hashDigest,
     localIdentHashDigestLength:
       loaderContext.hashDigestLength ||
       // TODO remove in the next major release
-      // eslint-disable-next-line no-underscore-dangle
+
       loaderContext._compilation.outputOptions.hashDigestLength,
-    // eslint-disable-next-line no-undefined
+
     localIdentRegExp: undefined,
-    // eslint-disable-next-line no-undefined
+
     getLocalIdent: undefined,
     // TODO improve me and enable by default
     exportOnlyLocals: false,
@@ -570,7 +565,6 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
   };
 
   if (typeof modulesOptions.exportLocalsConvention === "string") {
-    // eslint-disable-next-line no-shadow
     const { exportLocalsConvention } = modulesOptions;
 
     modulesOptions.exportLocalsConvention = (name) => {
@@ -688,7 +682,7 @@ function normalizeOptions(rawOptions, loaderContext) {
         : loaderContext.sourceMap,
     importLoaders:
       typeof rawOptions.importLoaders === "string"
-        ? parseInt(rawOptions.importLoaders, 10)
+        ? Number.parseInt(rawOptions.importLoaders, 10)
         : rawOptions.importLoaders,
     esModule,
     exportType,
@@ -793,7 +787,7 @@ function getModulesPlugins(options, loaderContext) {
               },
             );
 
-            return escapeLocalIdent(localIdent).replace(
+            return escapeLocalIdent(localIdent).replaceAll(
               /\\\[local\\]/gi,
               exportName,
             );
@@ -888,7 +882,7 @@ function getPreRequester({ loaders, loaderIndex }) {
           loaderIndex,
           loaderIndex + 1 + (typeof number !== "number" ? 0 : number),
         )
-        .map((x) => x.request)
+        .map((loader) => loader.request)
         .join("!");
 
       cache[number] = `-!${loadersRequest}!`;
@@ -929,15 +923,12 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
   if (resultMap) {
     delete resultMap.file;
 
-    /* eslint-disable no-underscore-dangle */
     if (
       loaderContext._compilation &&
       loaderContext._compilation.options &&
       loaderContext._compilation.options.devtool &&
       loaderContext._compilation.options.devtool.includes("nosources")
     ) {
-      /* eslint-enable no-underscore-dangle */
-
       delete resultMap.sourcesContent;
     }
 
@@ -995,6 +986,25 @@ function printParams(media, dedupe, supports, layer) {
   return result;
 }
 
+const SLASH = "\\".charCodeAt(0);
+const BACKTICK = "`".charCodeAt(0);
+const DOLLAR = "$".charCodeAt(0);
+
+function convertToTemplateLiteral(str) {
+  let escapedString = "";
+
+  for (let i = 0; i < str.length; i++) {
+    const code = str.charCodeAt(i);
+
+    escapedString +=
+      code === SLASH || code === BACKTICK || code === DOLLAR
+        ? `\\${str[i]}`
+        : str[i];
+  }
+
+  return `\`${escapedString}\``;
+}
+
 function getModuleCode(
   result,
   api,
@@ -1032,7 +1042,6 @@ function getModuleCode(
     const { url, layer, supports, media, dedupe } = item;
 
     if (url) {
-      // eslint-disable-next-line no-undefined
       const printedParam = printParams(media, undefined, supports, layer);
 
       beforeCode += `___CSS_LOADER_EXPORT___.push([module.id, ${JSON.stringify(
@@ -1051,7 +1060,7 @@ function getModuleCode(
     const { replacementName, importName, localName } = item;
 
     if (localName) {
-      code = code.replace(new RegExp(replacementName, "g"), () =>
+      code = code.replaceAll(new RegExp(replacementName, "g"), () =>
         options.modules.namedExport
           ? isTemplateLiteralSupported
             ? `\${ ${importName}_NAMED___[${JSON.stringify(
@@ -1072,14 +1081,15 @@ function getModuleCode(
       );
     } else {
       const { hash, needQuotes } = item;
-      const getUrlOptions = []
-        .concat(hash ? [`hash: ${JSON.stringify(hash)}`] : [])
-        .concat(needQuotes ? "needQuotes: true" : []);
+      const getUrlOptions = [
+        ...(hash ? [`hash: ${JSON.stringify(hash)}`] : []),
+        ...(needQuotes ? ["needQuotes: true"] : []),
+      ];
       const preparedOptions =
         getUrlOptions.length > 0 ? `, { ${getUrlOptions.join(", ")} }` : "";
 
       beforeCode += `var ${replacementName} = ___CSS_LOADER_GET_URL_IMPORT___(${importName}${preparedOptions});\n`;
-      code = code.replace(new RegExp(replacementName, "g"), () =>
+      code = code.replaceAll(new RegExp(replacementName, "g"), () =>
         isTemplateLiteralSupported
           ? `\${${replacementName}}`
           : `" + ${replacementName} + "`,
@@ -1095,31 +1105,6 @@ function getModuleCode(
   // 4 - supports
   // 5 - layer
   return `${beforeCode}// Module\n___CSS_LOADER_EXPORT___.push([module.id, ${code}, ""${sourceMapValue}]);\n`;
-}
-
-const SLASH = "\\".charCodeAt(0);
-const BACKTICK = "`".charCodeAt(0);
-const DOLLAR = "$".charCodeAt(0);
-
-function convertToTemplateLiteral(str) {
-  let escapedString = "";
-
-  for (let i = 0; i < str.length; i++) {
-    const code = str.charCodeAt(i);
-
-    escapedString +=
-      code === SLASH || code === BACKTICK || code === DOLLAR
-        ? `\\${str[i]}`
-        : str[i];
-  }
-
-  return `\`${escapedString}\``;
-}
-
-function dashesCamelCase(str) {
-  return str.replace(/-+(\w)/g, (match, firstLetter) =>
-    firstLetter.toUpperCase(),
-  );
 }
 
 const validIdentifier = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/u;
@@ -1225,7 +1210,7 @@ function getExportCode(
           }
         } else {
           if (localsCode) {
-            localsCode += `,\n`;
+            localsCode += ",\n";
           }
 
           localsCode += `\t${JSON.stringify(name)}: ${serializedValue}`;
@@ -1246,7 +1231,7 @@ function getExportCode(
       if (localName) {
         const { importName } = item;
 
-        localsCode = localsCode.replace(
+        localsCode = localsCode.replaceAll(
           new RegExp(replacementName, "g"),
           () => {
             if (options.modules.namedExport) {
@@ -1275,10 +1260,12 @@ function getExportCode(
           },
         );
       } else {
-        localsCode = localsCode.replace(new RegExp(replacementName, "g"), () =>
-          isTemplateLiteralSupported
-            ? `\${${replacementName}}`
-            : `" + ${replacementName} + "`,
+        localsCode = localsCode.replaceAll(
+          new RegExp(replacementName, "g"),
+          () =>
+            isTemplateLiteralSupported
+              ? `\${${replacementName}}`
+              : `" + ${replacementName} + "`,
         );
       }
     }
@@ -1317,8 +1304,8 @@ function getExportCode(
     case "css-style-sheet":
       finalExport = "___CSS_LOADER_STYLE_SHEET___";
       break;
-    default:
     case "array":
+    default:
       finalExport = "___CSS_LOADER_EXPORT___";
       break;
   }
@@ -1351,7 +1338,7 @@ function isURLRequestable(url, options = {}) {
   }
 
   // `#` URLs
-  if (/^#/.test(url)) {
+  if (url.startsWith("#")) {
     return { requestable: false, needResolve: false };
   }
 
@@ -1359,7 +1346,7 @@ function isURLRequestable(url, options = {}) {
   if (isDataUrl(url) && options.isSupportDataURL) {
     try {
       decodeURIComponent(url);
-    } catch (ignoreError) {
+    } catch {
       return { requestable: false, needResolve: false };
     }
 
@@ -1453,15 +1440,10 @@ function supportTemplateLiteral(loaderContext) {
 
   // TODO remove in the next major release
   if (
-    // eslint-disable-next-line no-underscore-dangle
     loaderContext._compilation &&
-    // eslint-disable-next-line no-underscore-dangle
     loaderContext._compilation.options &&
-    // eslint-disable-next-line no-underscore-dangle
     loaderContext._compilation.options.output &&
-    // eslint-disable-next-line no-underscore-dangle
     loaderContext._compilation.options.output.environment &&
-    // eslint-disable-next-line no-underscore-dangle
     loaderContext._compilation.options.output.environment.templateLiteral
   ) {
     return true;
@@ -1471,31 +1453,31 @@ function supportTemplateLiteral(loaderContext) {
 }
 
 export {
-  normalizeOptions,
-  shouldUseModulesPlugins,
-  shouldUseImportPlugin,
-  shouldUseURLPlugin,
-  shouldUseIcssPlugin,
-  normalizeUrl,
-  requestify,
+  WEBPACK_IGNORE_COMMENT_REGEXP,
+  camelCase,
+  combineRequests,
+  defaultGetLocalIdent,
+  getExportCode,
   getFilter,
-  getModulesOptions,
-  getModulesPlugins,
-  normalizeSourceMap,
-  getPreRequester,
   getImportCode,
   getModuleCode,
-  getExportCode,
-  resolveRequests,
-  isURLRequestable,
-  sort,
-  WEBPACK_IGNORE_COMMENT_REGEXP,
-  combineRequests,
-  camelCase,
-  stringifyRequest,
+  getModulesOptions,
+  getModulesPlugins,
+  getPreRequester,
   isDataUrl,
-  defaultGetLocalIdent,
-  warningFactory,
-  syntaxErrorFactory,
+  isURLRequestable,
+  normalizeOptions,
+  normalizeSourceMap,
+  normalizeUrl,
+  requestify,
+  resolveRequests,
+  shouldUseIcssPlugin,
+  shouldUseImportPlugin,
+  shouldUseModulesPlugins,
+  shouldUseURLPlugin,
+  sort,
+  stringifyRequest,
   supportTemplateLiteral,
+  syntaxErrorFactory,
+  warningFactory,
 };

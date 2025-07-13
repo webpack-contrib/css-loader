@@ -1,11 +1,11 @@
 import valueParser from "postcss-value-parser";
 
 import {
-  normalizeUrl,
-  resolveRequests,
-  isURLRequestable,
-  requestify,
   WEBPACK_IGNORE_COMMENT_REGEXP,
+  isURLRequestable,
+  normalizeUrl,
+  requestify,
+  resolveRequests,
 } from "../utils";
 
 function isIgnoredAfterName(atRule) {
@@ -153,9 +153,9 @@ function parseNode(atRule, key, options) {
 
       if (isLayerFunction || isLayerWord) {
         if (isLayerFunction) {
-          nodes.splice(nodes.length - 1, 1, ...node.nodes);
+          nodes.splice(-1, 1, ...node.nodes);
         } else {
-          nodes.splice(nodes.length - 1, 1, {
+          nodes.splice(-1, 1, {
             type: "string",
             value: "",
             unclosed: false,
@@ -168,7 +168,7 @@ function parseNode(atRule, key, options) {
         node.type === "function" &&
         node.value.toLowerCase() === "supports"
       ) {
-        nodes.splice(nodes.length - 1, 1, ...node.nodes);
+        nodes.splice(-1, 1, ...node.nodes);
 
         supports = valueParser.stringify(nodes).trim().toLowerCase();
         nodes = [];
@@ -180,7 +180,6 @@ function parseNode(atRule, key, options) {
     }
   }
 
-  // eslint-disable-next-line consistent-return
   return {
     atRule,
     prefix,
@@ -193,169 +192,163 @@ function parseNode(atRule, key, options) {
   };
 }
 
-const plugin = (options = {}) => {
-  return {
-    postcssPlugin: "postcss-import-parser",
-    prepare(result) {
-      const parsedAtRules = [];
+const plugin = (options = {}) => ({
+  postcssPlugin: "postcss-import-parser",
+  prepare(result) {
+    const parsedAtRules = [];
 
-      return {
-        AtRule: {
-          import(atRule) {
-            if (options.isCSSStyleSheet) {
-              options.loaderContext.emitError(
-                new Error(
-                  atRule.error(
-                    "'@import' rules are not allowed here and will not be processed",
-                  ).message,
-                ),
-              );
+    return {
+      AtRule: {
+        import(atRule) {
+          if (options.isCSSStyleSheet) {
+            options.loaderContext.emitError(
+              new Error(
+                atRule.error(
+                  "'@import' rules are not allowed here and will not be processed",
+                ).message,
+              ),
+            );
 
-              return;
-            }
-
-            const { isSupportDataURL, isSupportAbsoluteURL } = options;
-
-            let parsedAtRule;
-
-            try {
-              parsedAtRule = parseNode(atRule, "params", {
-                isSupportAbsoluteURL,
-                isSupportDataURL,
-              });
-            } catch (error) {
-              result.warn(error.message, { node: error.node });
-            }
-
-            if (!parsedAtRule) {
-              return;
-            }
-
-            parsedAtRules.push(parsedAtRule);
-          },
-        },
-        async OnceExit() {
-          if (parsedAtRules.length === 0) {
             return;
           }
 
-          const { loaderContext } = options;
-          const resolver = loaderContext.getResolve({
-            dependencyType: "css",
-            conditionNames: ["style"],
-            mainFields: ["css", "style", "main", "..."],
-            mainFiles: ["index", "..."],
-            extensions: [".css", "..."],
-            preferRelative: true,
-          });
+          const { isSupportDataURL, isSupportAbsoluteURL } = options;
 
-          const resolvedAtRules = await Promise.all(
-            parsedAtRules.map(async (parsedAtRule) => {
-              const {
-                atRule,
-                requestable,
-                needResolve,
-                prefix,
+          let parsedAtRule;
+
+          try {
+            parsedAtRule = parseNode(atRule, "params", {
+              isSupportAbsoluteURL,
+              isSupportDataURL,
+            });
+          } catch (error) {
+            result.warn(error.message, { node: error.node });
+          }
+
+          if (!parsedAtRule) {
+            return;
+          }
+
+          parsedAtRules.push(parsedAtRule);
+        },
+      },
+      async OnceExit() {
+        if (parsedAtRules.length === 0) {
+          return;
+        }
+
+        const { loaderContext } = options;
+        const resolver = loaderContext.getResolve({
+          dependencyType: "css",
+          conditionNames: ["style"],
+          mainFields: ["css", "style", "main", "..."],
+          mainFiles: ["index", "..."],
+          extensions: [".css", "..."],
+          preferRelative: true,
+        });
+
+        const resolvedAtRules = await Promise.all(
+          parsedAtRules.map(async (parsedAtRule) => {
+            const {
+              atRule,
+              requestable,
+              needResolve,
+              prefix,
+              url,
+              layer,
+              supports,
+              media,
+            } = parsedAtRule;
+
+            if (options.filter) {
+              const needKeep = await options.filter(
                 url,
-                layer,
-                supports,
                 media,
-              } = parsedAtRule;
+                loaderContext.resourcePath,
+                supports,
+                layer,
+              );
 
-              if (options.filter) {
-                const needKeep = await options.filter(
-                  url,
-                  media,
-                  loaderContext.resourcePath,
-                  supports,
-                  layer,
-                );
+              if (!needKeep) {
+                return;
+              }
+            }
 
-                if (!needKeep) {
-                  return;
-                }
+            if (needResolve) {
+              const request = requestify(url, loaderContext.rootContext);
+              const resolvedUrl = await resolveRequests(
+                resolver,
+                loaderContext.context,
+                [...new Set([request, url])],
+              );
+
+              if (!resolvedUrl) {
+                return;
               }
 
-              if (needResolve) {
-                const request = requestify(url, loaderContext.rootContext);
-                const resolvedUrl = await resolveRequests(
-                  resolver,
-                  loaderContext.context,
-                  [...new Set([request, url])],
-                );
-
-                if (!resolvedUrl) {
-                  return;
-                }
-
-                if (resolvedUrl === loaderContext.resourcePath) {
-                  atRule.remove();
-
-                  return;
-                }
-
+              if (resolvedUrl === loaderContext.resourcePath) {
                 atRule.remove();
 
-                // eslint-disable-next-line consistent-return
-                return {
-                  url: resolvedUrl,
-                  layer,
-                  supports,
-                  media,
-                  prefix,
-                  requestable,
-                };
+                return;
               }
 
               atRule.remove();
 
-              // eslint-disable-next-line consistent-return
-              return { url, layer, supports, media, prefix, requestable };
-            }),
-          );
-
-          const urlToNameMap = new Map();
-
-          for (let index = 0; index <= resolvedAtRules.length - 1; index++) {
-            const resolvedAtRule = resolvedAtRules[index];
-
-            if (!resolvedAtRule) {
-              // eslint-disable-next-line no-continue
-              continue;
+              return {
+                url: resolvedUrl,
+                layer,
+                supports,
+                media,
+                prefix,
+                requestable,
+              };
             }
 
-            const { url, requestable, layer, supports, media } = resolvedAtRule;
+            atRule.remove();
 
-            if (!requestable) {
-              options.api.push({ url, layer, supports, media, index });
+            return { url, layer, supports, media, prefix, requestable };
+          }),
+        );
 
-              // eslint-disable-next-line no-continue
-              continue;
-            }
+        const urlToNameMap = new Map();
 
-            const { prefix } = resolvedAtRule;
-            const newUrl = prefix ? `${prefix}!${url}` : url;
-            let importName = urlToNameMap.get(newUrl);
+        for (let index = 0; index <= resolvedAtRules.length - 1; index++) {
+          const resolvedAtRule = resolvedAtRules[index];
 
-            if (!importName) {
-              importName = `___CSS_LOADER_AT_RULE_IMPORT_${urlToNameMap.size}___`;
-              urlToNameMap.set(newUrl, importName);
-
-              options.imports.push({
-                type: "rule_import",
-                importName,
-                url: options.urlHandler(newUrl),
-                index,
-              });
-            }
-
-            options.api.push({ importName, layer, supports, media, index });
+          if (!resolvedAtRule) {
+            continue;
           }
-        },
-      };
-    },
-  };
-};
+
+          const { url, requestable, layer, supports, media } = resolvedAtRule;
+
+          if (!requestable) {
+            options.api.push({ url, layer, supports, media, index });
+
+            continue;
+          }
+
+          const { prefix } = resolvedAtRule;
+          const newUrl = prefix ? `${prefix}!${url}` : url;
+          let importName = urlToNameMap.get(newUrl);
+
+          if (!importName) {
+            importName = `___CSS_LOADER_AT_RULE_IMPORT_${urlToNameMap.size}___`;
+            urlToNameMap.set(newUrl, importName);
+
+            options.imports.push({
+              type: "rule_import",
+              importName,
+              url: options.urlHandler(newUrl),
+              index,
+            });
+          }
+
+          options.api.push({ importName, layer, supports, media, index });
+        }
+      },
+    };
+  },
+});
 
 plugin.postcss = true;
 

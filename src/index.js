@@ -10,24 +10,24 @@ import { satisfies } from "semver";
 import schema from "./options.json";
 import { icssParser, importParser, urlParser } from "./plugins";
 import {
-  normalizeOptions,
-  shouldUseModulesPlugins,
-  shouldUseImportPlugin,
-  shouldUseURLPlugin,
-  shouldUseIcssPlugin,
-  getPreRequester,
+  combineRequests,
   getExportCode,
   getFilter,
   getImportCode,
   getModuleCode,
   getModulesPlugins,
+  getPreRequester,
+  normalizeOptions,
   normalizeSourceMap,
+  shouldUseIcssPlugin,
+  shouldUseImportPlugin,
+  shouldUseModulesPlugins,
+  shouldUseURLPlugin,
   sort,
-  combineRequests,
   stringifyRequest,
-  warningFactory,
-  syntaxErrorFactory,
   supportTemplateLiteral,
+  syntaxErrorFactory,
+  warningFactory,
 } from "./utils";
 
 export default async function loader(content, map, meta) {
@@ -125,8 +125,7 @@ export default async function loader(content, map, meta) {
         filter: getFilter(options.url.filter, this.resourcePath),
         resolver: needToResolveURL
           ? this.getResolve({ mainFiles: [], extensions: [] })
-          : // eslint-disable-next-line no-undefined
-            undefined,
+          : undefined,
         urlHandler: (url) => stringifyRequest(this, url),
         // Support data urls as input in new URL added in webpack@5.38.0
       }),
@@ -164,7 +163,6 @@ export default async function loader(content, map, meta) {
       ast.type === "postcss" &&
       satisfies(ast.version, `^${postcssPkg.version}`)
     ) {
-      // eslint-disable-next-line no-param-reassign
       content = ast.root;
     }
   }
@@ -202,13 +200,12 @@ export default async function loader(content, map, meta) {
     this.emitWarning(warningFactory(warning));
   }
 
-  const imports = []
-    .concat(icssPluginImports.sort(sort))
-    .concat(importPluginImports.sort(sort))
-    .concat(urlPluginImports.sort(sort));
-  const api = []
-    .concat(importPluginApi.sort(sort))
-    .concat(icssPluginApi.sort(sort));
+  const imports = [
+    ...icssPluginImports.sort(sort),
+    ...importPluginImports.sort(sort),
+    ...urlPluginImports.sort(sort),
+  ];
+  const api = [...importPluginApi.sort(sort), ...icssPluginApi.sort(sort)];
 
   if (options.modules.exportOnlyLocals !== true) {
     imports.unshift({

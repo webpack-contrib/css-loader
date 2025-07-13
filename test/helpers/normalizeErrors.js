@@ -13,18 +13,17 @@ export function removeCWD(str) {
 
       return stripAnsi(str)
         .replace(/\(from .*?\)/, "(from `replaced original path`)")
-        .replace(new RegExp(cwd, "g"), "");
+        .replaceAll(new RegExp(cwd, "g"), "");
     }
 
-    // eslint-disable-next-line no-param-reassign
-    str = str.replace(/\\/g, "/");
-    // eslint-disable-next-line no-param-reassign
-    cwd = cwd.replace(/\\/g, "/");
+    str = str.replaceAll("\\", "/");
+
+    cwd = cwd.replaceAll("\\", "/");
   }
 
   return stripAnsi(str)
     .replace(/\(from .*?\)/, "(from `replaced original path`)")
-    .replace(new RegExp(cwd, "g"), "");
+    .replaceAll(new RegExp(cwd, "g"), "");
 }
 
 export default (errors, shortError, type) =>
