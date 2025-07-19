@@ -8,19 +8,5 @@ export default defineConfig([
       "@typescript-eslint": (await import("@typescript-eslint/eslint-plugin"))
         .default,
     },
-    ignores: [
-      "*.md",
-      "CHANGELOG.md",
-      "dist/**",
-      "node_modules/**",
-      "coverage/**",
-      "*.log",
-    ],
-  },
-  {
-    files: ["eslint.config.mjs"],
-    rules: {
-      "import/no-unresolved": "off",
-    },
   },
 ]);
