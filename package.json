@@ -65,6 +65,7 @@
     "@eslint/markdown": "^6.6.0",
     "@stylistic/eslint-plugin": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
     "babel-jest": "^30.0.0",
     "cross-env": "^7.0.3",
     "cspell": "^8.13.1",
