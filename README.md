@@ -439,7 +439,7 @@ Output (example):
 > Identifiers are exported
 
 ```js
-exports.locals = {
+module.exports.locals = {
   className: "_23_aKvs-b8bW2Vg3fwHozO",
   subClass: "_13LGdX8RMStbBE9w-t0gZ1",
 };
@@ -468,7 +468,7 @@ When declaring a local class name, you can compose it from one or more other loc
 This does not alter the final CSS output, but the generated `subClass` will include both class names in its export.
 
 ```js
-exports.locals = {
+module.exports.locals = {
   className: "_23_aKvs-b8bW2Vg3fwHozO",
   subClass: "_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO",
 };
@@ -1547,7 +1547,7 @@ function addReplacements(resourcePath, imports, exportsJson, replacements) {
       // canonical values map and all exports JSON verbatim
       canonicalValuesMap[identifier] = classNames;
 
-      allExportsJson[resourcePath] = allExportsJson[resourcePath] || {};
+      allExportsJson[resourcePath] ||= {};
       allExportsJson[resourcePath][localName] = classNames;
     }
   }
@@ -1609,7 +1609,7 @@ class CssModulesJsonPlugin {
 
         const [, resourcePath, localName] = identifier.match(IDENTIFIER_REGEX);
 
-        allExportsJson[resourcePath] = allExportsJson[resourcePath] || {};
+        allExportsJson[resourcePath] ||= {};
         allExportsJson[resourcePath][localName] = adjustedClassNames;
       }
 
@@ -2323,8 +2323,8 @@ File treated as `CSS Module`.
 Using both `CSS Module` functionality as well as SCSS variables directly in JavaScript.
 
 ```jsx
-import * as styles from "Component.module.scss";
-import * as svars from "variables.scss";
+import * as _styles from "./Component.module.scss";
+import * as _svars from "./variables.scss";
 
 // Render DOM with CSS modules class name
 // <div className={styles.componentClass}>
@@ -2333,7 +2333,7 @@ import * as svars from "variables.scss";
 
 // Somewhere in JavaScript canvas drawing code use the variable directly
 // const ctx = mountsCanvas.current.getContext('2d',{alpha: false});
-ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
+// ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
 ```
 
 ## Contributing

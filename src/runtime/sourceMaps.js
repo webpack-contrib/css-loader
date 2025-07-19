@@ -1,5 +1,4 @@
 // Polyfill for btoa in Node.js
-/* global btoa */
 /**
  *
  */
