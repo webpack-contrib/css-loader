@@ -12,10 +12,18 @@ const isUrlFunc = /url/i;
 const isImageSetFunc = /^(?:-webkit-)?image-set$/i;
 const needParseDeclaration = /(?:url|(?:-webkit-)?image-set)\(/i;
 
+/**
+ * @param node
+ */
 function getNodeFromUrlFunc(node) {
   return node.nodes && node.nodes[0];
 }
 
+/**
+ * @param index
+ * @param nodes
+ * @param inBetween
+ */
 function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   if (index === 0 && typeof inBetween !== "undefined") {
     return inBetween;
@@ -44,6 +52,12 @@ function getWebpackIgnoreCommentValue(index, nodes, inBetween) {
   return matched && matched[2] === "true";
 }
 
+/**
+ * @param url
+ * @param declaration
+ * @param result
+ * @param options
+ */
 function shouldHandleURL(url, declaration, result, options) {
   if (url.length === 0) {
     result.warn(`Unable to find uri in '${declaration.toString()}'`, {
@@ -56,6 +70,12 @@ function shouldHandleURL(url, declaration, result, options) {
   return isURLRequestable(url, options);
 }
 
+/**
+ * @param declaration
+ * @param key
+ * @param result
+ * @param options
+ */
 function parseDeclaration(declaration, key, result, options) {
   if (!needParseDeclaration.test(declaration[key])) {
     return;

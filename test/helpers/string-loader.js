@@ -1,3 +1,6 @@
+/**
+ *
+ */
 function loader() {
   return "a { color: red };";
 }

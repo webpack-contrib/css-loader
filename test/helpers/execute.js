@@ -3,6 +3,9 @@ import path from "node:path";
 
 const parentModule = module;
 
+/**
+ * @param data
+ */
 function replaceAbsolutePath(data) {
   if (Array.isArray(data)) {
     return data.map((_) => replaceAbsolutePath(_));

@@ -8,6 +8,9 @@ import {
   resolveRequests,
 } from "../utils";
 
+/**
+ * @param atRule
+ */
 function isIgnoredAfterName(atRule) {
   if (
     atRule.raws &&
@@ -27,6 +30,9 @@ function isIgnoredAfterName(atRule) {
   return false;
 }
 
+/**
+ * @param atRule
+ */
 function isIgnoredPrevNode(atRule) {
   const prevNode = atRule.prev();
 
@@ -41,6 +47,11 @@ function isIgnoredPrevNode(atRule) {
   return false;
 }
 
+/**
+ * @param atRule
+ * @param key
+ * @param options
+ */
 function parseNode(atRule, key, options) {
   // Convert only top-level @import
   if (atRule.parent.type !== "root") {

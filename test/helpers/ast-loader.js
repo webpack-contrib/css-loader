@@ -5,6 +5,9 @@ import semver from "semver";
 
 const incomingVersion = semver.inc(postcssPkg.version, "minor");
 
+/**
+ * @param content
+ */
 export default function astLoader(content) {
   const callback = this.async();
 

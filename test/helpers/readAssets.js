@@ -1,5 +1,9 @@
 import readAsset from "./readAsset";
 
+/**
+ * @param compiler
+ * @param stats
+ */
 export default function readAssets(compiler, stats) {
   const assets = {};
 

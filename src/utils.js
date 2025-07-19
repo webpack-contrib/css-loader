@@ -12,6 +12,10 @@ import modulesValues from "postcss-modules-values";
 
 const WEBPACK_IGNORE_COMMENT_REGEXP = /webpackIgnore:(\s+)?(true|false)/;
 
+/**
+ * @param loaderContext
+ * @param request
+ */
 function stringifyRequest(loaderContext, request) {
   return JSON.stringify(
     loaderContext.utils.contextify(
@@ -25,6 +29,10 @@ function stringifyRequest(loaderContext, request) {
 const IS_NATIVE_WIN32_PATH = /^[a-z]:[/\\]|^\\\\/i;
 const IS_MODULE_REQUEST = /^[^?]*~/;
 
+/**
+ * @param url
+ * @param root
+ */
 function urlToRequest(url, root) {
   let request;
 
@@ -92,6 +100,9 @@ const preserveCamelCase = (string) => {
   return result;
 };
 
+/**
+ * @param input
+ */
 function camelCase(input) {
   let result = input.trim();
 
@@ -116,6 +127,9 @@ function camelCase(input) {
     .replaceAll(/\d+([\p{Alpha}\p{N}_]|$)/gu, (m) => m.toUpperCase());
 }
 
+/**
+ * @param string
+ */
 function escape(string) {
   let output = "";
   let counter = 0;
@@ -163,6 +177,9 @@ function escape(string) {
   return output;
 }
 
+/**
+ * @param str
+ */
 function gobbleHex(str) {
   const lower = str.toLowerCase();
   let hex = "";
@@ -204,6 +221,9 @@ function gobbleHex(str) {
 
 const CONTAINS_ESCAPE = /\\/;
 
+/**
+ * @param str
+ */
 function unescape(str) {
   const needToProcess = CONTAINS_ESCAPE.test(str);
 
@@ -248,6 +268,9 @@ function unescape(str) {
   return ret;
 }
 
+/**
+ * @param file
+ */
 function normalizePath(file) {
   return path.sep === "\\" ? file.replaceAll("\\", "/") : file;
 }
@@ -256,6 +279,9 @@ const filenameReservedRegex = /[<>:"/\\|?*]/g;
 // eslint-disable-next-line no-control-regex
 const reControlChars = /[\u0000-\u001F\u0080-\u009F]/g;
 
+/**
+ * @param localident
+ */
 function escapeLocalIdent(localident) {
   // TODO simplify?
   return escape(
@@ -268,6 +294,12 @@ function escapeLocalIdent(localident) {
   );
 }
 
+/**
+ * @param loaderContext
+ * @param localIdentName
+ * @param localName
+ * @param options
+ */
 function defaultGetLocalIdent(
   loaderContext,
   localIdentName,
@@ -390,6 +422,9 @@ function defaultGetLocalIdent(
   return result;
 }
 
+/**
+ * @param str
+ */
 function fixedEncodeURIComponent(str) {
   return str.replaceAll(
     /[!'()*]/g,
@@ -397,6 +432,9 @@ function fixedEncodeURIComponent(str) {
   );
 }
 
+/**
+ * @param url
+ */
 function isDataUrl(url) {
   if (/^data:/i.test(url)) {
     return true;
@@ -407,6 +445,10 @@ function isDataUrl(url) {
 
 const NATIVE_WIN32_PATH = /^[A-Z]:[/\\]|^\\\\/i;
 
+/**
+ * @param url
+ * @param isStringValue
+ */
 function normalizeUrl(url, isStringValue) {
   let normalizedUrl = url
     .replaceAll(/^( |\t\n|\r\n|\r|\f)*/g, "")
@@ -442,6 +484,11 @@ function normalizeUrl(url, isStringValue) {
   return normalizedUrl;
 }
 
+/**
+ * @param url
+ * @param rootContext
+ * @param needToResolveURL
+ */
 function requestify(url, rootContext, needToResolveURL = true) {
   if (needToResolveURL) {
     if (/^file:/i.test(url)) {
@@ -465,6 +512,10 @@ function requestify(url, rootContext, needToResolveURL = true) {
   return url;
 }
 
+/**
+ * @param filter
+ * @param resourcePath
+ */
 function getFilter(filter, resourcePath) {
   return (...args) => {
     if (typeof filter === "function") {
@@ -475,6 +526,10 @@ function getFilter(filter, resourcePath) {
   };
 }
 
+/**
+ * @param localName
+ * @param exportLocalsConvention
+ */
 function getValidLocalName(localName, exportLocalsConvention) {
   const result = exportLocalsConvention(localName);
 
@@ -484,12 +539,21 @@ function getValidLocalName(localName, exportLocalsConvention) {
 const IS_MODULES = /\.module(s)?\.\w+$/i;
 const IS_ICSS = /\.icss\.\w+$/i;
 
+/**
+ * @param str
+ */
 function dashesCamelCase(str) {
   return str.replaceAll(/-+(\w)/g, (match, firstLetter) =>
     firstLetter.toUpperCase(),
   );
 }
 
+/**
+ * @param rawOptions
+ * @param esModule
+ * @param exportType
+ * @param loaderContext
+ */
 function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
   if (typeof rawOptions.modules === "boolean" && rawOptions.modules === false) {
     return false;
@@ -658,6 +722,10 @@ function getModulesOptions(rawOptions, esModule, exportType, loaderContext) {
   return modulesOptions;
 }
 
+/**
+ * @param rawOptions
+ * @param loaderContext
+ */
 function normalizeOptions(rawOptions, loaderContext) {
   const exportType =
     typeof rawOptions.exportType === "undefined"
@@ -689,6 +757,9 @@ function normalizeOptions(rawOptions, loaderContext) {
   };
 }
 
+/**
+ * @param options
+ */
 function shouldUseImportPlugin(options) {
   if (options.modules.exportOnlyLocals) {
     return false;
@@ -701,6 +772,9 @@ function shouldUseImportPlugin(options) {
   return true;
 }
 
+/**
+ * @param options
+ */
 function shouldUseURLPlugin(options) {
   if (options.modules.exportOnlyLocals) {
     return false;
@@ -713,6 +787,9 @@ function shouldUseURLPlugin(options) {
   return true;
 }
 
+/**
+ * @param options
+ */
 function shouldUseModulesPlugins(options) {
   if (typeof options.modules === "boolean" && options.modules === false) {
     return false;
@@ -721,10 +798,17 @@ function shouldUseModulesPlugins(options) {
   return options.modules.mode !== "icss";
 }
 
+/**
+ * @param options
+ */
 function shouldUseIcssPlugin(options) {
   return Boolean(options.modules);
 }
 
+/**
+ * @param options
+ * @param loaderContext
+ */
 function getModulesPlugins(options, loaderContext) {
   const {
     mode,
@@ -807,6 +891,9 @@ function getModulesPlugins(options, loaderContext) {
 
 const ABSOLUTE_SCHEME = /^[a-z0-9+\-.]+:/i;
 
+/**
+ * @param source
+ */
 function getURLType(source) {
   if (source[0] === "/") {
     if (source[1] === "/") {
@@ -823,6 +910,10 @@ function getURLType(source) {
   return ABSOLUTE_SCHEME.test(source) ? "absolute" : "path-relative";
 }
 
+/**
+ * @param map
+ * @param resourcePath
+ */
 function normalizeSourceMap(map, resourcePath) {
   let newMap = map;
 
@@ -866,6 +957,11 @@ function normalizeSourceMap(map, resourcePath) {
   return newMap;
 }
 
+/**
+ * @param root0
+ * @param root0.loaders
+ * @param root0.loaderIndex
+ */
 function getPreRequester({ loaders, loaderIndex }) {
   const cache = Object.create(null);
 
@@ -892,6 +988,10 @@ function getPreRequester({ loaders, loaderIndex }) {
   };
 }
 
+/**
+ * @param imports
+ * @param options
+ */
 function getImportCode(imports, options) {
   let code = "";
 
@@ -917,6 +1017,10 @@ function getImportCode(imports, options) {
   return code ? `// Imports\n${code}` : "";
 }
 
+/**
+ * @param map
+ * @param loaderContext
+ */
 function normalizeSourceMapForRuntime(map, loaderContext) {
   const resultMap = map ? map.toJSON() : null;
 
@@ -958,6 +1062,12 @@ function normalizeSourceMapForRuntime(map, loaderContext) {
   return JSON.stringify(resultMap);
 }
 
+/**
+ * @param media
+ * @param dedupe
+ * @param supports
+ * @param layer
+ */
 function printParams(media, dedupe, supports, layer) {
   let result = "";
 
@@ -990,6 +1100,9 @@ const SLASH = "\\".charCodeAt(0);
 const BACKTICK = "`".charCodeAt(0);
 const DOLLAR = "$".charCodeAt(0);
 
+/**
+ * @param str
+ */
 function convertToTemplateLiteral(str) {
   let escapedString = "";
 
@@ -1005,6 +1118,14 @@ function convertToTemplateLiteral(str) {
   return `\`${escapedString}\``;
 }
 
+/**
+ * @param result
+ * @param api
+ * @param replacements
+ * @param options
+ * @param isTemplateLiteralSupported
+ * @param loaderContext
+ */
 function getModuleCode(
   result,
   api,
@@ -1170,6 +1291,13 @@ const keywords = new Set([
   "with",
 ]);
 
+/**
+ * @param exports
+ * @param replacements
+ * @param icssPluginUsed
+ * @param options
+ * @param isTemplateLiteralSupported
+ */
 function getExportCode(
   exports,
   replacements,
@@ -1317,6 +1445,11 @@ function getExportCode(
   return code;
 }
 
+/**
+ * @param resolve
+ * @param context
+ * @param possibleRequests
+ */
 async function resolveRequests(resolve, context, possibleRequests) {
   return resolve(context, possibleRequests[0])
     .then((result) => result)
@@ -1331,6 +1464,10 @@ async function resolveRequests(resolve, context, possibleRequests) {
     });
 }
 
+/**
+ * @param url
+ * @param options
+ */
 function isURLRequestable(url, options = {}) {
   // Protocol-relative URLs
   if (/^\/\//.test(url)) {
@@ -1370,10 +1507,18 @@ function isURLRequestable(url, options = {}) {
   return { requestable: true, needResolve: true };
 }
 
+/**
+ * @param a
+ * @param b
+ */
 function sort(a, b) {
   return a.index - b.index;
 }
 
+/**
+ * @param preRequest
+ * @param url
+ */
 function combineRequests(preRequest, url) {
   const idx = url.indexOf("!=!");
 
@@ -1382,6 +1527,9 @@ function combineRequests(preRequest, url) {
     : preRequest + url;
 }
 
+/**
+ * @param warning
+ */
 function warningFactory(warning) {
   let message = "";
 
@@ -1406,6 +1554,9 @@ function warningFactory(warning) {
   return obj;
 }
 
+/**
+ * @param error
+ */
 function syntaxErrorFactory(error) {
   let message = "\nSyntaxError\n\n";
 
@@ -1433,6 +1584,9 @@ function syntaxErrorFactory(error) {
   return obj;
 }
 
+/**
+ * @param loaderContext
+ */
 function supportTemplateLiteral(loaderContext) {
   if (loaderContext.environment && loaderContext.environment.templateLiteral) {
     return true;

@@ -9,10 +9,20 @@ const replacementsMap = {};
 const canonicalValuesMap = {};
 const allExportsJson = {};
 
+/**
+ * @param resourcePath
+ * @param localName
+ */
 function generateIdentifier(resourcePath, localName) {
   return `[${resourcePath}][${localName}]`;
 }
 
+/**
+ * @param resourcePath
+ * @param imports
+ * @param exportsJson
+ * @param replacements
+ */
 function addReplacements(resourcePath, imports, exportsJson, replacements) {
   const importReplacementsMap = {};
 
@@ -57,6 +67,9 @@ function addReplacements(resourcePath, imports, exportsJson, replacements) {
   }
 }
 
+/**
+ * @param classNames
+ */
 function replaceReplacements(classNames) {
   return classNames.replaceAll(
     REPLACEMENT_REGEX,
@@ -77,6 +90,13 @@ function replaceReplacements(classNames) {
   );
 }
 
+/**
+ * @param root0
+ * @param root0.resourcePath
+ * @param root0.imports
+ * @param root0.exports
+ * @param root0.replacements
+ */
 function getJSON({ resourcePath, imports, exports, replacements }) {
   const exportsJson = Object.fromEntries(
     exports.map(({ name, value }) => [name, value]),

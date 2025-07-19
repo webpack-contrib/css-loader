@@ -1,5 +1,8 @@
 // Polyfill for btoa in Node.js
 /* global btoa */
+/**
+ *
+ */
 function getBtoa() {
   if (typeof btoa === "function") return btoa;
   return (str) => Buffer.from(str, "binary").toString("base64");

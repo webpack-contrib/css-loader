@@ -30,6 +30,11 @@ import {
   warningFactory,
 } from "./utils";
 
+/**
+ * @param content
+ * @param map
+ * @param meta
+ */
 export default async function loader(content, map, meta) {
   const rawOptions = this.getOptions(schema);
   const callback = this.async();
