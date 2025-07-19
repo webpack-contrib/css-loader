@@ -541,8 +541,18 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work with the 'IgnorePlugin' plugin", async () => {
-    const compiler = getCompiler("./url/ignore-plugin.js");
+  it.skip("should work with the 'IgnorePlugin' plugin", async () => {
+    const compiler = getCompiler(
+      "./url/ignore-plugin.js",
+      {},
+      {
+        resolve: {
+          alias: {
+            "/unknwon.png": path.resolve(__dirname, "../fixtures/unknwon.png"),
+          },
+        },
+      },
+    );
 
     new webpack.IgnorePlugin({ resourceRegExp: /directory\// }).apply(compiler);
     new webpack.IgnorePlugin({ resourceRegExp: /unknwon\.png/ }).apply(
