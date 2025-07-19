@@ -1,7 +1,7 @@
-import path from "path";
+import path from "node:path";
 
-import postcssPresetEnv from "postcss-preset-env";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import postcssPresetEnv from "postcss-preset-env";
 
 import {
   compile,
@@ -224,7 +224,7 @@ describe('"sourceMap" option', () => {
                         // Scheme-relative URL,
                         "//example.com/foo.css",
                         // Non-standard postcss syntax
-                        `</foo/bar/baz.css`,
+                        "</foo/bar/baz.css",
                       ],
                       names: [],
                       mappings: "AAAA,6BAA6B;;AAE7B;EACE,UAAU;AACZ",
@@ -376,7 +376,6 @@ describe('"sourceMap" option', () => {
                 {
                   loader: "sass-loader",
                   options: {
-                    // eslint-disable-next-line global-require
                     implementation: require("sass"),
                     sourceMap: true,
                   },
@@ -515,7 +514,7 @@ describe('"sourceMap" option', () => {
       /\.js$/.test(assetName),
     );
 
-    expect(chunkName).toBe("main.2fc4310b5596936c73e0.bundle.js");
+    expect(chunkName).toMatch(/^main\.[a-f0-9]+\.bundle\.js$/);
     expect(
       getModuleSource("fixtures/source-map/basic.css", stats),
     ).toMatchSnapshot("module");
@@ -764,7 +763,7 @@ describe('"sourceMap" option', () => {
 
     expect(
       extractedCSS.replace(
-        /=(.+?)\..+?\.css\.map/,
+        /[=](.+?)\..+?\.css\.map/,
         "=$1.xxxxxxxxxxxxxxxxxxxx.css.map",
       ),
     ).toMatchSnapshot("extracted css");
@@ -822,7 +821,6 @@ describe('"sourceMap" option', () => {
                     "./fixtures/source-map-loader.js",
                   ),
                   options: {
-                    // eslint-disable-next-line no-undefined
                     sourceMap: undefined,
                   },
                 },

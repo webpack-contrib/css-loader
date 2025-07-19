@@ -60,7 +60,7 @@ module.exports = {
         options: {
           modules: {
             namedExport: false,
-            exportLocalsConvention: 'as-is',
+            exportLocalsConvention: "as-is",
             //
             // or, if you prefer camelcase style
             //

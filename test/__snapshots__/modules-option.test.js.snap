@@ -6563,9 +6563,351 @@ a {
 
 exports[`"modules" option should work and respect the "localConvention" option with the "asIs" value: warnings 1`] = `[]`;
 
-exports[`"modules" option should work and respect the "localIdentHashFunction" option: errors 1`] = `[]`;
+exports[`"modules" option should work and respect the "localIdentHashFunction" option with digest: errors 1`] = `[]`;
 
-exports[`"modules" option should work and respect the "localIdentHashFunction" option: errors 2`] = `[]`;
+exports[`"modules" option should work and respect the "localIdentHashFunction" option with digest: module 1`] = `
+"// Imports
+import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, \`.test--KuIShlgsYf {
+  background: red;
+}
+
+._test--Lb3fhDAuJv {
+  background: blue;
+}
+
+.className--LdhpkZRWyK {
+  background: red;
+}
+
+#someId--b0rhwJStMR {
+  background: green;
+}
+
+.className--LdhpkZRWyK .subClass--Mw9j4nIdjx {
+  color: green;
+}
+
+#someId--b0rhwJStMR .subClass--Mw9j4nIdjx {
+  color: blue;
+}
+
+.-a0-34a___f--DdFWMPoluI {
+  color: red;
+}
+
+.m_x_\\\\@--OdAmghrme3 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\\\&W\\\\?--h4SEF34CLw {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=":\\\`(" */
+.\\\\3A \\\\\\\`\\\\(--fKJQkLarfQ {
+  color: aqua;
+}
+
+/* matches elements with class="1a2b3c" */
+.\\\\31 a2b3c--YR1u_buYf6 {
+  color: aliceblue;
+}
+
+/* matches the element with id="#fake-id" */
+#\\\\#fake-id--AqiAGSfnwa {
+  color: antiquewhite;
+}
+
+/* matches the element with id="-a-b-c-" */
+#-a-b-c---CwXv27VMwy {
+  color: azure;
+}
+
+/* matches the element with id="©" */
+#©--jBj0sZiWBy {
+  color: black;
+}
+
+.♥--vJl9A9Ds21 { background: lime; }
+.©--jBj0sZiWBy { background: lime; }
+.😍--CNLr9yJwqs { background: lime; }
+.“‘’”--GM0Y0nFCPt { background: lime; }
+.☺☃--NKrBw7EAqP { background: lime; }
+.⌘⌥--edHWpSne18 { background: lime; }
+.𝄞♪♩♫♬--QyMp9YMEoY { background: lime; }
+.💩--B82YxwgREH { background: lime; }
+.\\\\?--ndmpvNNltJ { background: lime; }
+.\\\\@--v3gq0wPogd { background: lime; }
+.\\\\.--zd5uIZq6Kr { background: lime; }
+.\\\\3A \\\\)--ZiZnRjRT03 { background: lime; }
+.\\\\3A \\\\\\\`\\\\(--fKJQkLarfQ { background: lime; }
+.\\\\31 23--oqRGsO4UR7 { background: lime; }
+.\\\\31 a2b3c--YR1u_buYf6 { background: lime; }
+.\\\\<p\\\\>--TdAx2ZSkw7 { background: lime; }
+.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>--ozNsTIG0LL { background: lime; }
+.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.--ByKoYcSrMT { background: lime; }
+.\\\\#--HkwIsjW5i7 { background: lime; }
+.\\\\#\\\\#--IJc6Xl4ZKV { background: lime; }
+.\\\\#\\\\.\\\\#\\\\.\\\\#--BnPpnJmPeN { background: lime; }
+.\\\\_--bCwkZEDuxD { background: lime; }
+.\\\\{\\\\}--IZkBfE9iUP { background: lime; }
+.\\\\#fake\\\\-id--AqiAGSfnwa { background: lime; }
+.foo\\\\.bar--uajo7mHzD_ { background: lime; }
+.\\\\3A hover--HVudUNXnLN { background: lime; }
+.\\\\3A hover\\\\3A focus\\\\3A active--ZlaaXvHLUs { background: lime; }
+.\\\\[attr\\\\=value\\\\]--PWvC4jVM5S { background: lime; }
+.f\\\\/o\\\\/o--A5l5sDODF4 { background: lime; }
+.f\\\\\\\\o\\\\\\\\o--DFfh4KyqOO { background: lime; }
+.f\\\\*o\\\\*o--gv1E2n_bVv { background: lime; }
+.f\\\\!o\\\\!o--_aIyR9ETAs { background: lime; }
+.f\\\\'o\\\\'o--HSXNnSjt1Q { background: lime; }
+.f\\\\~o\\\\~o--MrVzSIcSXy { background: lime; }
+.f\\\\+o\\\\+o--EvMHRmCudy { background: lime; }
+
+.foo\\\\/bar--hei2uQgDeX {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar--IgSzmmsCqi {
+  background: hotpink;
+}
+
+.foo\\\\/bar\\\\/baz--p6KJMhNWwm {
+  background: hotpink;
+}
+
+.foo\\\\\\\\bar\\\\\\\\baz--HZerWgmU0f {
+  background: hotpink;
+}
+\`, ""]);
+// Exports
+var _1 = \`123--oqRGsO4UR7\`;
+export { _1 as "123" };
+export var test = \`test--KuIShlgsYf\`;
+export var _test = \`_test--Lb3fhDAuJv\`;
+export var className = \`className--LdhpkZRWyK\`;
+export var someId = \`someId--b0rhwJStMR\`;
+export var subClass = \`subClass--Mw9j4nIdjx\`;
+var _2 = \`-a0-34a___f--DdFWMPoluI\`;
+export { _2 as "-a0-34a___f" };
+var _3 = \`m_x_@--OdAmghrme3\`;
+export { _3 as "m_x_@" };
+var _4 = \`B&W?--h4SEF34CLw\`;
+export { _4 as "B&W?" };
+var _5 = \`:\\\`(--fKJQkLarfQ\`;
+export { _5 as ":\`(" };
+var _6 = \`1a2b3c--YR1u_buYf6\`;
+export { _6 as "1a2b3c" };
+var _7 = \`#fake-id--AqiAGSfnwa\`;
+export { _7 as "#fake-id" };
+var _8 = \`-a-b-c---CwXv27VMwy\`;
+export { _8 as "-a-b-c-" };
+var _9 = \`©--jBj0sZiWBy\`;
+export { _9 as "©" };
+var _a = \`♥--vJl9A9Ds21\`;
+export { _a as "♥" };
+var _b = \`😍--CNLr9yJwqs\`;
+export { _b as "😍" };
+var _c = \`“‘’”--GM0Y0nFCPt\`;
+export { _c as "“‘’”" };
+var _d = \`☺☃--NKrBw7EAqP\`;
+export { _d as "☺☃" };
+var _e = \`⌘⌥--edHWpSne18\`;
+export { _e as "⌘⌥" };
+var _f = \`𝄞♪♩♫♬--QyMp9YMEoY\`;
+export { _f as "𝄞♪♩♫♬" };
+var _10 = \`💩--B82YxwgREH\`;
+export { _10 as "💩" };
+var _11 = \`?--ndmpvNNltJ\`;
+export { _11 as "?" };
+var _12 = \`@--v3gq0wPogd\`;
+export { _12 as "@" };
+var _13 = \`.--zd5uIZq6Kr\`;
+export { _13 as "." };
+var _14 = \`:)--ZiZnRjRT03\`;
+export { _14 as ":)" };
+var _15 = \`<p>--TdAx2ZSkw7\`;
+export { _15 as "<p>" };
+var _16 = \`<><<<>><>--ozNsTIG0LL\`;
+export { _16 as "<><<<>><>" };
+var _17 = \`++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.--ByKoYcSrMT\`;
+export { _17 as "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>." };
+var _18 = \`#--HkwIsjW5i7\`;
+export { _18 as "#" };
+var _19 = \`##--IJc6Xl4ZKV\`;
+export { _19 as "##" };
+var _1a = \`#.#.#--BnPpnJmPeN\`;
+export { _1a as "#.#.#" };
+export var _ = \`_--bCwkZEDuxD\`;
+var _1b = \`{}--IZkBfE9iUP\`;
+export { _1b as "{}" };
+var _1c = \`foo.bar--uajo7mHzD_\`;
+export { _1c as "foo.bar" };
+var _1d = \`:hover--HVudUNXnLN\`;
+export { _1d as ":hover" };
+var _1e = \`:hover:focus:active--ZlaaXvHLUs\`;
+export { _1e as ":hover:focus:active" };
+var _1f = \`[attr=value]--PWvC4jVM5S\`;
+export { _1f as "[attr=value]" };
+var _20 = \`f/o/o--A5l5sDODF4\`;
+export { _20 as "f/o/o" };
+var _21 = \`f\\\\o\\\\o--DFfh4KyqOO\`;
+export { _21 as "f\\\\o\\\\o" };
+var _22 = \`f*o*o--gv1E2n_bVv\`;
+export { _22 as "f*o*o" };
+var _23 = \`f!o!o--_aIyR9ETAs\`;
+export { _23 as "f!o!o" };
+var _24 = \`f'o'o--HSXNnSjt1Q\`;
+export { _24 as "f'o'o" };
+var _25 = \`f~o~o--MrVzSIcSXy\`;
+export { _25 as "f~o~o" };
+var _26 = \`f+o+o--EvMHRmCudy\`;
+export { _26 as "f+o+o" };
+var _27 = \`foo/bar--hei2uQgDeX\`;
+export { _27 as "foo/bar" };
+var _28 = \`foo\\\\bar--IgSzmmsCqi\`;
+export { _28 as "foo\\\\bar" };
+var _29 = \`foo/bar/baz--p6KJMhNWwm\`;
+export { _29 as "foo/bar/baz" };
+var _2a = \`foo\\\\bar\\\\baz--HZerWgmU0f\`;
+export { _2a as "foo\\\\bar\\\\baz" };
+export default ___CSS_LOADER_EXPORT___;
+"
+`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option with digest: result 1`] = `
+[
+  [
+    "./modules/localIdentName/localIdentName.css",
+    ".test--KuIShlgsYf {
+  background: red;
+}
+
+._test--Lb3fhDAuJv {
+  background: blue;
+}
+
+.className--LdhpkZRWyK {
+  background: red;
+}
+
+#someId--b0rhwJStMR {
+  background: green;
+}
+
+.className--LdhpkZRWyK .subClass--Mw9j4nIdjx {
+  color: green;
+}
+
+#someId--b0rhwJStMR .subClass--Mw9j4nIdjx {
+  color: blue;
+}
+
+.-a0-34a___f--DdFWMPoluI {
+  color: red;
+}
+
+.m_x_\\@--OdAmghrme3 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.B\\&W\\?--h4SEF34CLw {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* matches elements with class=":\`(" */
+.\\3A \\\`\\(--fKJQkLarfQ {
+  color: aqua;
+}
+
+/* matches elements with class="1a2b3c" */
+.\\31 a2b3c--YR1u_buYf6 {
+  color: aliceblue;
+}
+
+/* matches the element with id="#fake-id" */
+#\\#fake-id--AqiAGSfnwa {
+  color: antiquewhite;
+}
+
+/* matches the element with id="-a-b-c-" */
+#-a-b-c---CwXv27VMwy {
+  color: azure;
+}
+
+/* matches the element with id="©" */
+#©--jBj0sZiWBy {
+  color: black;
+}
+
+.♥--vJl9A9Ds21 { background: lime; }
+.©--jBj0sZiWBy { background: lime; }
+.😍--CNLr9yJwqs { background: lime; }
+.“‘’”--GM0Y0nFCPt { background: lime; }
+.☺☃--NKrBw7EAqP { background: lime; }
+.⌘⌥--edHWpSne18 { background: lime; }
+.𝄞♪♩♫♬--QyMp9YMEoY { background: lime; }
+.💩--B82YxwgREH { background: lime; }
+.\\?--ndmpvNNltJ { background: lime; }
+.\\@--v3gq0wPogd { background: lime; }
+.\\.--zd5uIZq6Kr { background: lime; }
+.\\3A \\)--ZiZnRjRT03 { background: lime; }
+.\\3A \\\`\\(--fKJQkLarfQ { background: lime; }
+.\\31 23--oqRGsO4UR7 { background: lime; }
+.\\31 a2b3c--YR1u_buYf6 { background: lime; }
+.\\<p\\>--TdAx2ZSkw7 { background: lime; }
+.\\<\\>\\<\\<\\<\\>\\>\\<\\>--ozNsTIG0LL { background: lime; }
+.\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\[\\>\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\>\\+\\<\\<\\<\\<\\-\\]\\>\\+\\+\\.\\>\\+\\.\\+\\+\\+\\+\\+\\+\\+\\.\\.\\+\\+\\+\\.\\>\\+\\+\\.\\<\\<\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\.\\>\\.\\+\\+\\+\\.\\-\\-\\-\\-\\-\\-\\.\\-\\-\\-\\-\\-\\-\\-\\-\\.\\>\\+\\.\\>\\.--ByKoYcSrMT { background: lime; }
+.\\#--HkwIsjW5i7 { background: lime; }
+.\\#\\#--IJc6Xl4ZKV { background: lime; }
+.\\#\\.\\#\\.\\#--BnPpnJmPeN { background: lime; }
+.\\_--bCwkZEDuxD { background: lime; }
+.\\{\\}--IZkBfE9iUP { background: lime; }
+.\\#fake\\-id--AqiAGSfnwa { background: lime; }
+.foo\\.bar--uajo7mHzD_ { background: lime; }
+.\\3A hover--HVudUNXnLN { background: lime; }
+.\\3A hover\\3A focus\\3A active--ZlaaXvHLUs { background: lime; }
+.\\[attr\\=value\\]--PWvC4jVM5S { background: lime; }
+.f\\/o\\/o--A5l5sDODF4 { background: lime; }
+.f\\\\o\\\\o--DFfh4KyqOO { background: lime; }
+.f\\*o\\*o--gv1E2n_bVv { background: lime; }
+.f\\!o\\!o--_aIyR9ETAs { background: lime; }
+.f\\'o\\'o--HSXNnSjt1Q { background: lime; }
+.f\\~o\\~o--MrVzSIcSXy { background: lime; }
+.f\\+o\\+o--EvMHRmCudy { background: lime; }
+
+.foo\\/bar--hei2uQgDeX {
+  background: hotpink;
+}
+
+.foo\\\\bar--IgSzmmsCqi {
+  background: hotpink;
+}
+
+.foo\\/bar\\/baz--p6KJMhNWwm {
+  background: hotpink;
+}
+
+.foo\\\\bar\\\\baz--HZerWgmU0f {
+  background: hotpink;
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option with digest: warnings 1`] = `[]`;
+
+exports[`"modules" option should work and respect the "localIdentHashFunction" option: errors 1`] = `[]`;
 
 exports[`"modules" option should work and respect the "localIdentHashFunction" option: module 1`] = `
 "// Imports
@@ -6783,222 +7125,6 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option should work and respect the "localIdentHashFunction" option: module 2`] = `
-"// Imports
-import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
-import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___);
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, \`.test--KuIShlgsYf {
-  background: red;
-}
-
-._test--Lb3fhDAuJv {
-  background: blue;
-}
-
-.className--LdhpkZRWyK {
-  background: red;
-}
-
-#someId--b0rhwJStMR {
-  background: green;
-}
-
-.className--LdhpkZRWyK .subClass--Mw9j4nIdjx {
-  color: green;
-}
-
-#someId--b0rhwJStMR .subClass--Mw9j4nIdjx {
-  color: blue;
-}
-
-.-a0-34a___f--DdFWMPoluI {
-  color: red;
-}
-
-.m_x_\\\\@--OdAmghrme3 {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.B\\\\&W\\\\?--h4SEF34CLw {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* matches elements with class=":\\\`(" */
-.\\\\3A \\\\\\\`\\\\(--fKJQkLarfQ {
-  color: aqua;
-}
-
-/* matches elements with class="1a2b3c" */
-.\\\\31 a2b3c--YR1u_buYf6 {
-  color: aliceblue;
-}
-
-/* matches the element with id="#fake-id" */
-#\\\\#fake-id--AqiAGSfnwa {
-  color: antiquewhite;
-}
-
-/* matches the element with id="-a-b-c-" */
-#-a-b-c---CwXv27VMwy {
-  color: azure;
-}
-
-/* matches the element with id="©" */
-#©--jBj0sZiWBy {
-  color: black;
-}
-
-.♥--vJl9A9Ds21 { background: lime; }
-.©--jBj0sZiWBy { background: lime; }
-.😍--CNLr9yJwqs { background: lime; }
-.“‘’”--GM0Y0nFCPt { background: lime; }
-.☺☃--NKrBw7EAqP { background: lime; }
-.⌘⌥--edHWpSne18 { background: lime; }
-.𝄞♪♩♫♬--QyMp9YMEoY { background: lime; }
-.💩--B82YxwgREH { background: lime; }
-.\\\\?--ndmpvNNltJ { background: lime; }
-.\\\\@--v3gq0wPogd { background: lime; }
-.\\\\.--zd5uIZq6Kr { background: lime; }
-.\\\\3A \\\\)--ZiZnRjRT03 { background: lime; }
-.\\\\3A \\\\\\\`\\\\(--fKJQkLarfQ { background: lime; }
-.\\\\31 23--oqRGsO4UR7 { background: lime; }
-.\\\\31 a2b3c--YR1u_buYf6 { background: lime; }
-.\\\\<p\\\\>--TdAx2ZSkw7 { background: lime; }
-.\\\\<\\\\>\\\\<\\\\<\\\\<\\\\>\\\\>\\\\<\\\\>--ozNsTIG0LL { background: lime; }
-.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\[\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\>\\\\+\\\\+\\\\+\\\\>\\\\+\\\\<\\\\<\\\\<\\\\<\\\\-\\\\]\\\\>\\\\+\\\\+\\\\.\\\\>\\\\+\\\\.\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\.\\\\+\\\\+\\\\+\\\\.\\\\>\\\\+\\\\+\\\\.\\\\<\\\\<\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\+\\\\.\\\\>\\\\.\\\\+\\\\+\\\\+\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\-\\\\.\\\\>\\\\+\\\\.\\\\>\\\\.--ByKoYcSrMT { background: lime; }
-.\\\\#--HkwIsjW5i7 { background: lime; }
-.\\\\#\\\\#--IJc6Xl4ZKV { background: lime; }
-.\\\\#\\\\.\\\\#\\\\.\\\\#--BnPpnJmPeN { background: lime; }
-.\\\\_--bCwkZEDuxD { background: lime; }
-.\\\\{\\\\}--IZkBfE9iUP { background: lime; }
-.\\\\#fake\\\\-id--AqiAGSfnwa { background: lime; }
-.foo\\\\.bar--uajo7mHzD_ { background: lime; }
-.\\\\3A hover--HVudUNXnLN { background: lime; }
-.\\\\3A hover\\\\3A focus\\\\3A active--ZlaaXvHLUs { background: lime; }
-.\\\\[attr\\\\=value\\\\]--PWvC4jVM5S { background: lime; }
-.f\\\\/o\\\\/o--A5l5sDODF4 { background: lime; }
-.f\\\\\\\\o\\\\\\\\o--DFfh4KyqOO { background: lime; }
-.f\\\\*o\\\\*o--gv1E2n_bVv { background: lime; }
-.f\\\\!o\\\\!o--_aIyR9ETAs { background: lime; }
-.f\\\\'o\\\\'o--HSXNnSjt1Q { background: lime; }
-.f\\\\~o\\\\~o--MrVzSIcSXy { background: lime; }
-.f\\\\+o\\\\+o--EvMHRmCudy { background: lime; }
-
-.foo\\\\/bar--hei2uQgDeX {
-  background: hotpink;
-}
-
-.foo\\\\\\\\bar--IgSzmmsCqi {
-  background: hotpink;
-}
-
-.foo\\\\/bar\\\\/baz--p6KJMhNWwm {
-  background: hotpink;
-}
-
-.foo\\\\\\\\bar\\\\\\\\baz--HZerWgmU0f {
-  background: hotpink;
-}
-\`, ""]);
-// Exports
-var _1 = \`123--oqRGsO4UR7\`;
-export { _1 as "123" };
-export var test = \`test--KuIShlgsYf\`;
-export var _test = \`_test--Lb3fhDAuJv\`;
-export var className = \`className--LdhpkZRWyK\`;
-export var someId = \`someId--b0rhwJStMR\`;
-export var subClass = \`subClass--Mw9j4nIdjx\`;
-var _2 = \`-a0-34a___f--DdFWMPoluI\`;
-export { _2 as "-a0-34a___f" };
-var _3 = \`m_x_@--OdAmghrme3\`;
-export { _3 as "m_x_@" };
-var _4 = \`B&W?--h4SEF34CLw\`;
-export { _4 as "B&W?" };
-var _5 = \`:\\\`(--fKJQkLarfQ\`;
-export { _5 as ":\`(" };
-var _6 = \`1a2b3c--YR1u_buYf6\`;
-export { _6 as "1a2b3c" };
-var _7 = \`#fake-id--AqiAGSfnwa\`;
-export { _7 as "#fake-id" };
-var _8 = \`-a-b-c---CwXv27VMwy\`;
-export { _8 as "-a-b-c-" };
-var _9 = \`©--jBj0sZiWBy\`;
-export { _9 as "©" };
-var _a = \`♥--vJl9A9Ds21\`;
-export { _a as "♥" };
-var _b = \`😍--CNLr9yJwqs\`;
-export { _b as "😍" };
-var _c = \`“‘’”--GM0Y0nFCPt\`;
-export { _c as "“‘’”" };
-var _d = \`☺☃--NKrBw7EAqP\`;
-export { _d as "☺☃" };
-var _e = \`⌘⌥--edHWpSne18\`;
-export { _e as "⌘⌥" };
-var _f = \`𝄞♪♩♫♬--QyMp9YMEoY\`;
-export { _f as "𝄞♪♩♫♬" };
-var _10 = \`💩--B82YxwgREH\`;
-export { _10 as "💩" };
-var _11 = \`?--ndmpvNNltJ\`;
-export { _11 as "?" };
-var _12 = \`@--v3gq0wPogd\`;
-export { _12 as "@" };
-var _13 = \`.--zd5uIZq6Kr\`;
-export { _13 as "." };
-var _14 = \`:)--ZiZnRjRT03\`;
-export { _14 as ":)" };
-var _15 = \`<p>--TdAx2ZSkw7\`;
-export { _15 as "<p>" };
-var _16 = \`<><<<>><>--ozNsTIG0LL\`;
-export { _16 as "<><<<>><>" };
-var _17 = \`++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.--ByKoYcSrMT\`;
-export { _17 as "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>." };
-var _18 = \`#--HkwIsjW5i7\`;
-export { _18 as "#" };
-var _19 = \`##--IJc6Xl4ZKV\`;
-export { _19 as "##" };
-var _1a = \`#.#.#--BnPpnJmPeN\`;
-export { _1a as "#.#.#" };
-export var _ = \`_--bCwkZEDuxD\`;
-var _1b = \`{}--IZkBfE9iUP\`;
-export { _1b as "{}" };
-var _1c = \`foo.bar--uajo7mHzD_\`;
-export { _1c as "foo.bar" };
-var _1d = \`:hover--HVudUNXnLN\`;
-export { _1d as ":hover" };
-var _1e = \`:hover:focus:active--ZlaaXvHLUs\`;
-export { _1e as ":hover:focus:active" };
-var _1f = \`[attr=value]--PWvC4jVM5S\`;
-export { _1f as "[attr=value]" };
-var _20 = \`f/o/o--A5l5sDODF4\`;
-export { _20 as "f/o/o" };
-var _21 = \`f\\\\o\\\\o--DFfh4KyqOO\`;
-export { _21 as "f\\\\o\\\\o" };
-var _22 = \`f*o*o--gv1E2n_bVv\`;
-export { _22 as "f*o*o" };
-var _23 = \`f!o!o--_aIyR9ETAs\`;
-export { _23 as "f!o!o" };
-var _24 = \`f'o'o--HSXNnSjt1Q\`;
-export { _24 as "f'o'o" };
-var _25 = \`f~o~o--MrVzSIcSXy\`;
-export { _25 as "f~o~o" };
-var _26 = \`f+o+o--EvMHRmCudy\`;
-export { _26 as "f+o+o" };
-var _27 = \`foo/bar--hei2uQgDeX\`;
-export { _27 as "foo/bar" };
-var _28 = \`foo\\\\bar--IgSzmmsCqi\`;
-export { _28 as "foo\\\\bar" };
-var _29 = \`foo/bar/baz--p6KJMhNWwm\`;
-export { _29 as "foo/bar/baz" };
-var _2a = \`foo\\\\bar\\\\baz--HZerWgmU0f\`;
-export { _2a as "foo\\\\bar\\\\baz" };
-export default ___CSS_LOADER_EXPORT___;
-"
-`;
-
 exports[`"modules" option should work and respect the "localIdentHashFunction" option: result 1`] = `
 [
   [
@@ -7123,133 +7249,7 @@ exports[`"modules" option should work and respect the "localIdentHashFunction" o
 ]
 `;
 
-exports[`"modules" option should work and respect the "localIdentHashFunction" option: result 2`] = `
-[
-  [
-    "./modules/localIdentName/localIdentName.css",
-    ".test--KuIShlgsYf {
-  background: red;
-}
-
-._test--Lb3fhDAuJv {
-  background: blue;
-}
-
-.className--LdhpkZRWyK {
-  background: red;
-}
-
-#someId--b0rhwJStMR {
-  background: green;
-}
-
-.className--LdhpkZRWyK .subClass--Mw9j4nIdjx {
-  color: green;
-}
-
-#someId--b0rhwJStMR .subClass--Mw9j4nIdjx {
-  color: blue;
-}
-
-.-a0-34a___f--DdFWMPoluI {
-  color: red;
-}
-
-.m_x_\\@--OdAmghrme3 {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.B\\&W\\?--h4SEF34CLw {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* matches elements with class=":\`(" */
-.\\3A \\\`\\(--fKJQkLarfQ {
-  color: aqua;
-}
-
-/* matches elements with class="1a2b3c" */
-.\\31 a2b3c--YR1u_buYf6 {
-  color: aliceblue;
-}
-
-/* matches the element with id="#fake-id" */
-#\\#fake-id--AqiAGSfnwa {
-  color: antiquewhite;
-}
-
-/* matches the element with id="-a-b-c-" */
-#-a-b-c---CwXv27VMwy {
-  color: azure;
-}
-
-/* matches the element with id="©" */
-#©--jBj0sZiWBy {
-  color: black;
-}
-
-.♥--vJl9A9Ds21 { background: lime; }
-.©--jBj0sZiWBy { background: lime; }
-.😍--CNLr9yJwqs { background: lime; }
-.“‘’”--GM0Y0nFCPt { background: lime; }
-.☺☃--NKrBw7EAqP { background: lime; }
-.⌘⌥--edHWpSne18 { background: lime; }
-.𝄞♪♩♫♬--QyMp9YMEoY { background: lime; }
-.💩--B82YxwgREH { background: lime; }
-.\\?--ndmpvNNltJ { background: lime; }
-.\\@--v3gq0wPogd { background: lime; }
-.\\.--zd5uIZq6Kr { background: lime; }
-.\\3A \\)--ZiZnRjRT03 { background: lime; }
-.\\3A \\\`\\(--fKJQkLarfQ { background: lime; }
-.\\31 23--oqRGsO4UR7 { background: lime; }
-.\\31 a2b3c--YR1u_buYf6 { background: lime; }
-.\\<p\\>--TdAx2ZSkw7 { background: lime; }
-.\\<\\>\\<\\<\\<\\>\\>\\<\\>--ozNsTIG0LL { background: lime; }
-.\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\[\\>\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\>\\+\\<\\<\\<\\<\\-\\]\\>\\+\\+\\.\\>\\+\\.\\+\\+\\+\\+\\+\\+\\+\\.\\.\\+\\+\\+\\.\\>\\+\\+\\.\\<\\<\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\.\\>\\.\\+\\+\\+\\.\\-\\-\\-\\-\\-\\-\\.\\-\\-\\-\\-\\-\\-\\-\\-\\.\\>\\+\\.\\>\\.--ByKoYcSrMT { background: lime; }
-.\\#--HkwIsjW5i7 { background: lime; }
-.\\#\\#--IJc6Xl4ZKV { background: lime; }
-.\\#\\.\\#\\.\\#--BnPpnJmPeN { background: lime; }
-.\\_--bCwkZEDuxD { background: lime; }
-.\\{\\}--IZkBfE9iUP { background: lime; }
-.\\#fake\\-id--AqiAGSfnwa { background: lime; }
-.foo\\.bar--uajo7mHzD_ { background: lime; }
-.\\3A hover--HVudUNXnLN { background: lime; }
-.\\3A hover\\3A focus\\3A active--ZlaaXvHLUs { background: lime; }
-.\\[attr\\=value\\]--PWvC4jVM5S { background: lime; }
-.f\\/o\\/o--A5l5sDODF4 { background: lime; }
-.f\\\\o\\\\o--DFfh4KyqOO { background: lime; }
-.f\\*o\\*o--gv1E2n_bVv { background: lime; }
-.f\\!o\\!o--_aIyR9ETAs { background: lime; }
-.f\\'o\\'o--HSXNnSjt1Q { background: lime; }
-.f\\~o\\~o--MrVzSIcSXy { background: lime; }
-.f\\+o\\+o--EvMHRmCudy { background: lime; }
-
-.foo\\/bar--hei2uQgDeX {
-  background: hotpink;
-}
-
-.foo\\\\bar--IgSzmmsCqi {
-  background: hotpink;
-}
-
-.foo\\/bar\\/baz--p6KJMhNWwm {
-  background: hotpink;
-}
-
-.foo\\\\bar\\\\baz--HZerWgmU0f {
-  background: hotpink;
-}
-",
-    "",
-  ],
-]
-`;
-
 exports[`"modules" option should work and respect the "localIdentHashFunction" option: warnings 1`] = `[]`;
-
-exports[`"modules" option should work and respect the "localIdentHashFunction" option: warnings 2`] = `[]`;
 
 exports[`"modules" option should work and respect the "localIdentName" option 2: errors 1`] = `[]`;
 
@@ -23276,9 +23276,9 @@ exports[`"modules" option should work with the "[local]" placeholder for the "lo
 
 exports[`"modules" option should work with the "[local]" placeholder for the "localIdentName" option: warnings 1`] = `[]`;
 
-exports[`"modules" option should work with the "animation" : errors 1`] = `[]`;
+exports[`"modules" option should work with the "animation": errors 1`] = `[]`;
 
-exports[`"modules" option should work with the "animation" : module 1`] = `
+exports[`"modules" option should work with the "animation": module 1`] = `
 "// Imports
 import ___CSS_LOADER_API_NO_SOURCEMAP_IMPORT___ from "../../../../src/runtime/noSourceMaps.js";
 import ___CSS_LOADER_API_IMPORT___ from "../../../../src/runtime/api.js";
@@ -23313,7 +23313,7 @@ export default ___CSS_LOADER_EXPORT___;
 "
 `;
 
-exports[`"modules" option should work with the "animation" : result 1`] = `
+exports[`"modules" option should work with the "animation": result 1`] = `
 [
   [
     "./modules/issue-1228/source.css",
@@ -23342,7 +23342,7 @@ exports[`"modules" option should work with the "animation" : result 1`] = `
 ]
 `;
 
-exports[`"modules" option should work with the "animation" : warnings 1`] = `[]`;
+exports[`"modules" option should work with the "animation": warnings 1`] = `[]`;
 
 exports[`"modules" option should work with the "auto" by default for icss: errors 1`] = `[]`;
 

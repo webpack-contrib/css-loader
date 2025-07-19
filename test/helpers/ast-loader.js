@@ -1,18 +1,21 @@
 import postcss from "postcss";
-import postcssPresetEnv from "postcss-preset-env";
 import postcssPkg from "postcss/package.json";
+import postcssPresetEnv from "postcss-preset-env";
 import semver from "semver";
 
 const incomingVersion = semver.inc(postcssPkg.version, "minor");
 
+/**
+ * @param content
+ */
 export default function astLoader(content) {
   const callback = this.async();
 
+  // eslint-disable-next-line no-undef
   const { spy = jest.fn() } = this.query;
 
   postcss([postcssPresetEnv({ stage: 0 })])
     .process(content, {
-      // eslint-disable-next-line no-undefined
       from: undefined,
     })
     .then(({ css, map, root, messages }) => {

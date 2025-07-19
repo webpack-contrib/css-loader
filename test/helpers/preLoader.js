@@ -1,3 +1,7 @@
+/**
+ * @param content
+ * @param map
+ */
 export default function loader(content, map) {
   const callback = this.async();
 

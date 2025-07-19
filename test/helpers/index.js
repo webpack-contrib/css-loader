@@ -1,23 +1,10 @@
-import compile from "./compile";
-import execute from "./execute";
-import getCompiler from "./getCompiler";
-import getErrors from "./getErrors";
-import getExecutedCode from "./getExecutedCode";
-import getModuleSource from "./getModuleSource";
-import getWarnings from "./getWarnings";
-import normalizeErrors from "./normalizeErrors";
-import readAsset from "./readAsset";
-import readsAssets from "./readAssets";
-
-export {
-  compile,
-  execute,
-  getCompiler,
-  getErrors,
-  getExecutedCode,
-  getModuleSource,
-  getWarnings,
-  normalizeErrors,
-  readAsset,
-  readsAssets,
-};
+export { default as compile } from "./compile";
+export { default as getCompiler } from "./getCompiler";
+export { default as execute } from "./execute";
+export { default as getExecutedCode } from "./getExecutedCode";
+export { default as getErrors } from "./getErrors";
+export { default as getWarnings } from "./getWarnings";
+export { default as getModuleSource } from "./getModuleSource";
+export { default as readAsset } from "./readAsset";
+export { default as normalizeErrors } from "./normalizeErrors";
+export { default as readsAssets } from "./readAssets";

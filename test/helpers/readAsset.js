@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 
 export default (asset, compiler, stats) => {
   const usedFs = compiler.outputFileSystem;

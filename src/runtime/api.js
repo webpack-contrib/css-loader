@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
@@ -54,14 +55,14 @@ module.exports = (cssWithMappingToString) => {
       for (let k = 0; k < this.length; k++) {
         const id = this[k][0];
 
-        if (id != null) {
+        if (id !== null) {
           alreadyImportedModules[id] = true;
         }
       }
     }
 
     for (let k = 0; k < modules.length; k++) {
-      const item = [].concat(modules[k]);
+      const item = Array.isArray(modules[k]) ? modules[k] : [modules[k]];
 
       if (dedupe && alreadyImportedModules[item[0]]) {
         continue;

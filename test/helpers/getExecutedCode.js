@@ -6,10 +6,9 @@ export default (asset, compiler, stats, type) => {
   if (Array.isArray(executed)) {
     executed = executed.map((module) => {
       if (module[0] && typeof module[0].replace === "function") {
-        // eslint-disable-next-line no-param-reassign
-        module[0] = module[0].replace(/!\.\/=!/g, "!=!");
-        // eslint-disable-next-line no-param-reassign
-        module[0] = module[0].replace(/\.\/(.+)!=!/g, "$1!=!");
+        module[0] = module[0].replaceAll("!./=!", "!=!");
+
+        module[0] = module[0].replaceAll(/\.\/(.+)!=!/g, "$1!=!");
       }
 
       return module;
@@ -17,14 +16,16 @@ export default (asset, compiler, stats, type) => {
   }
 
   if (executed && typeof executed.text !== "undefined") {
-    executed.text = executed.text.replace(/file:\/\/\/[a-z]:\//gi, "file:///");
+    executed.text = executed.text.replaceAll(
+      /file:\/\/\/[a-z]:\//gi,
+      "file:///",
+    );
   } else if (Array.isArray(executed)) {
-    executed.forEach((item) => {
+    for (const item of executed) {
       if (typeof item.text !== "undefined") {
-        // eslint-disable-next-line no-param-reassign
-        item.text = item.text.replace(/file:\/\/\/[a-z]:\//gi, "file:///");
+        item.text = item.text.replaceAll(/file:\/\/\/[a-z]:\//gi, "file:///");
       }
-    });
+    }
   }
 
   return executed;

@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 import postcssPresetEnv from "postcss-preset-env";
 
@@ -216,7 +216,7 @@ describe('"import" option', () => {
     const file = path.resolve(fileDirectory, "import-file-protocol.css");
     const absolutePath = path
       .resolve(fileDirectory, "test.css")
-      .replace(/\\/g, "/");
+      .replaceAll("\\", "/");
 
     fs.writeFileSync(file, `@import "file://${absolutePath}";`);
 

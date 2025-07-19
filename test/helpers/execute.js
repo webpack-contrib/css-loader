@@ -1,22 +1,25 @@
-import Module from "module";
-import path from "path";
+import Module from "node:module";
+import path from "node:path";
 
 const parentModule = module;
 
+/**
+ * @param data
+ */
 function replaceAbsolutePath(data) {
   if (Array.isArray(data)) {
     return data.map((_) => replaceAbsolutePath(_));
   }
 
   return typeof data === "string"
-    ? data.replace(/file:\/\/\/(\D:\/)?/gi, "replaced_file_protocol_/")
+    ? data.replaceAll(/file:\/\/\/(\D:\/)?/gi, "replaced_file_protocol_/")
     : data;
 }
 
 export default (code, type) => {
   const resource = "test.js";
   const module = new Module(resource, parentModule);
-  // eslint-disable-next-line no-underscore-dangle
+
   module.paths = Module._nodeModulePaths(
     path.resolve(__dirname, "../fixtures"),
   );
@@ -37,7 +40,6 @@ ${newCode}
 `;
   }
 
-  // eslint-disable-next-line no-underscore-dangle
   module._compile(
     `let __export__;${newCode};\nmodule.exports = __export__;`,
     resource,

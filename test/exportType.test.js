@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 
 import {
   compile,
@@ -280,7 +280,6 @@ describe("'exportType' option", () => {
                 {
                   loader: "sass-loader",
                   options: {
-                    // eslint-disable-next-line global-require
                     implementation: require("sass"),
                   },
                 },
