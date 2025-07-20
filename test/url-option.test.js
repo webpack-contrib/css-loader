@@ -541,7 +541,7 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it.skip("should work with the 'IgnorePlugin' plugin", async () => {
+  it("should work with the 'IgnorePlugin' plugin", async () => {
     const compiler = getCompiler(
       "./url/ignore-plugin.js",
       {},
