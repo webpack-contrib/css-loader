@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 const api = require("../../src/runtime/api");
 const noSourceMaps = require("../../src/runtime/noSourceMaps");
 const sourceMaps = require("../../src/runtime/sourceMaps");
