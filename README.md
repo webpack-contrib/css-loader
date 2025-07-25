@@ -102,6 +102,8 @@ As of version [4.0.0](https://github.com/webpack-contrib/css-loader/blob/master/
 
 Examples resolutions:
 
+<!-- eslint-skip -->
+
 ```js
 url(image.png) => require('./image.png')
 url('image.png') => require('./image.png')
@@ -112,6 +114,8 @@ image-set(url('image2x.png') 1x, url('image1x.png') 2x) => require('./image1x.pn
 ```
 
 To import assets from a `node_modules` path (including `resolve.modules`) or an `alias`, prefix it with a `~`:
+
+<!-- eslint-skip -->
 
 ```js
 url(~module/image.png) => require('module/image.png')
@@ -1812,6 +1816,8 @@ module.exports = {
 
 **src/index.js**
 
+<!-- eslint-skip -->
+
 ```js
 import sheet from "./styles.css" assert { type: "css" };
 
@@ -1945,6 +1951,8 @@ module.exports = {
 ```
 
 **src/index.js**
+
+<!-- eslint-skip -->
 
 ```js
 // Example for Sass/SCSS:
@@ -2311,6 +2319,8 @@ $colorBackground: red;
 
 File treated as `CSS Module`.
 
+<!-- eslint-skip -->
+
 ```scss
 @import "variables.scss";
 .componentClass {
@@ -2321,6 +2331,8 @@ File treated as `CSS Module`.
 **Component.jsx**
 
 Using both `CSS Module` functionality as well as SCSS variables directly in JavaScript.
+
+<!-- eslint-skip -->
 
 ```jsx
 import * as _styles from "./Component.module.scss";
