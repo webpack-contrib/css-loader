@@ -1,5 +1,5 @@
-const path = require("path");
-const fs = require("fs");
+const fs = require("node:fs");
+const path = require("node:path");
 
 const CSS_LOADER_REPLACEMENT_REGEX =
   /(___CSS_LOADER_ICSS_IMPORT_\d+_REPLACEMENT_\d+___)/g;
@@ -9,10 +9,20 @@ const replacementsMap = {};
 const canonicalValuesMap = {};
 const allExportsJson = {};
 
+/**
+ * @param resourcePath
+ * @param localName
+ */
 function generateIdentifier(resourcePath, localName) {
   return `[${resourcePath}][${localName}]`;
 }
 
+/**
+ * @param resourcePath
+ * @param imports
+ * @param exportsJson
+ * @param replacements
+ */
 function addReplacements(resourcePath, imports, exportsJson, replacements) {
   const importReplacementsMap = {};
 
@@ -51,12 +61,15 @@ function addReplacements(resourcePath, imports, exportsJson, replacements) {
       // canonical values map and all exports JSON verbatim
       canonicalValuesMap[identifier] = classNames;
 
-      allExportsJson[resourcePath] = allExportsJson[resourcePath] || {};
+      allExportsJson[resourcePath] ||= {};
       allExportsJson[resourcePath][localName] = classNames;
     }
   }
 }
 
+/**
+ * @param classNames
+ */
 function replaceReplacements(classNames) {
   return classNames.replaceAll(
     REPLACEMENT_REGEX,
@@ -77,10 +90,17 @@ function replaceReplacements(classNames) {
   );
 }
 
+/**
+ * @param root0
+ * @param root0.resourcePath
+ * @param root0.imports
+ * @param root0.exports
+ * @param root0.replacements
+ */
 function getJSON({ resourcePath, imports, exports, replacements }) {
-  const exportsJson = exports.reduce((acc, { name, value }) => {
-    return { ...acc, [name]: value };
-  }, {});
+  const exportsJson = Object.fromEntries(
+    exports.map(({ name, value }) => [name, value]),
+  );
 
   if (replacements.length > 0) {
     // replacements present --> add stand-in values for absolute paths and local names,
@@ -104,7 +124,6 @@ class CssModulesJsonPlugin {
     this.options = options;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   apply(compiler) {
     compiler.hooks.emit.tap("CssModulesJsonPlugin", () => {
       for (const [identifier, classNames] of Object.entries(replacementsMap)) {
@@ -114,7 +133,7 @@ class CssModulesJsonPlugin {
 
         const [, resourcePath, localName] = identifier.match(IDENTIFIER_REGEX);
 
-        allExportsJson[resourcePath] = allExportsJson[resourcePath] || {};
+        allExportsJson[resourcePath] ||= {};
         allExportsJson[resourcePath][localName] = adjustedClassNames;
       }
 
@@ -124,10 +143,9 @@ class CssModulesJsonPlugin {
           // Make path to be relative to `context` (your project root)
           Object.fromEntries(
             Object.entries(allExportsJson).map((key) => {
-              // eslint-disable-next-line no-param-reassign
               key[0] = path
                 .relative(compiler.context, key[0])
-                .replace(/\\/g, "/");
+                .replaceAll("\\", "/");
 
               return key;
             }),
@@ -141,4 +159,4 @@ class CssModulesJsonPlugin {
   }
 }
 
-module.exports = { getJSON, CssModulesJsonPlugin };
+module.exports = { CssModulesJsonPlugin, getJSON };

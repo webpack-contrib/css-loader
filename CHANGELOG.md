@@ -60,7 +60,7 @@ module.exports = {
         options: {
           modules: {
             namedExport: false,
-            exportLocalsConvention: 'as-is',
+            exportLocalsConvention: "as-is",
             //
             // or, if you prefer camelcase style
             //
@@ -78,8 +78,9 @@ Typescript migration:
 Before:
 
 ```ts
-declare module '*.module.css' {
-  const classes: { [key: string]: string };
+declare module "*.module.css" {
+  const classes: Record<string, string>;
+
   export default classes;
 }
 ```
@@ -87,8 +88,8 @@ declare module '*.module.css' {
 After:
 
 ```ts
-declare module '*.module.css' {
-  const classes: { [key: string]: string };
+declare module "*.module.css" {
+  const classes: Record<string, string>;
   export = classes;
 }
 ```

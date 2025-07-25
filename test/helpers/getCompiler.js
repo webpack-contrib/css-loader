@@ -1,7 +1,7 @@
-import path from "path";
+import path from "node:path";
 
+import { Volume, createFsFromVolume } from "memfs";
 import webpack from "webpack";
-import { createFsFromVolume, Volume } from "memfs";
 
 export default (fixture, loaderOptions = {}, config = {}) => {
   const fullConfig = {

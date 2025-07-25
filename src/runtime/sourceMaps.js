@@ -1,20 +1,25 @@
+// Polyfill for btoa in Node.js
+/**
+ *
+ */
+function getBtoa() {
+  if (typeof btoa === "function") return btoa;
+  return (str) => Buffer.from(str, "binary").toString("base64");
+}
+
 module.exports = (item) => {
-  const content = item[1];
-  const cssMapping = item[3];
+  const [, content, , cssMapping] = item;
 
   if (!cssMapping) {
     return content;
   }
 
-  if (typeof btoa === "function") {
-    const base64 = btoa(
-      unescape(encodeURIComponent(JSON.stringify(cssMapping))),
-    );
-    const data = `sourceMappingURL=data:application/json;charset=utf-8;base64,${base64}`;
-    const sourceMapping = `/*# ${data} */`;
+  const btoaFn = getBtoa();
+  const base64 = btoaFn(
+    unescape(encodeURIComponent(JSON.stringify(cssMapping))),
+  );
+  const data = `sourceMappingURL=data:application/json;charset=utf-8;base64,${base64}`;
+  const sourceMapping = `/*# ${data} */`;
 
-    return [content].concat([sourceMapping]).join("\n");
-  }
-
-  return [content].join("\n");
+  return [content, sourceMapping].join("\n");
 };

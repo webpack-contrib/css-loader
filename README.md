@@ -102,6 +102,8 @@ As of version [4.0.0](https://github.com/webpack-contrib/css-loader/blob/master/
 
 Examples resolutions:
 
+<!-- eslint-skip -->
+
 ```js
 url(image.png) => require('./image.png')
 url('image.png') => require('./image.png')
@@ -112,6 +114,8 @@ image-set(url('image2x.png') 1x, url('image1x.png') 2x) => require('./image1x.pn
 ```
 
 To import assets from a `node_modules` path (including `resolve.modules`) or an `alias`, prefix it with a `~`:
+
+<!-- eslint-skip -->
 
 ```js
 url(~module/image.png) => require('module/image.png')
@@ -439,7 +443,7 @@ Output (example):
 > Identifiers are exported
 
 ```js
-exports.locals = {
+module.exports.locals = {
   className: "_23_aKvs-b8bW2Vg3fwHozO",
   subClass: "_13LGdX8RMStbBE9w-t0gZ1",
 };
@@ -468,7 +472,7 @@ When declaring a local class name, you can compose it from one or more other loc
 This does not alter the final CSS output, but the generated `subClass` will include both class names in its export.
 
 ```js
-exports.locals = {
+module.exports.locals = {
   className: "_23_aKvs-b8bW2Vg3fwHozO",
   subClass: "_13LGdX8RMStbBE9w-t0gZ1 _23_aKvs-b8bW2Vg3fwHozO",
 };
@@ -732,9 +736,8 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            auto: (resourcePath, resourceQuery, resourceFragment) => {
-              return resourcePath.endsWith(".custom-module.css");
-            },
+            auto: (resourcePath, resourceQuery, resourceFragment) =>
+              resourcePath.endsWith(".custom-module.css"),
           },
         },
       },
@@ -1150,9 +1153,8 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            getLocalIdent: (context, localIdentName, localName, options) => {
-              return "whatever_random_class_name";
-            },
+            getLocalIdent: (context, localIdentName, localName, options) =>
+              "whatever_random_class_name",
           },
         },
       },
@@ -1203,7 +1205,7 @@ console.log(styles["foo-baz"], styles.bar);
 console.log(styles.fooBaz, styles.bar);
 
 // For the `default` classname
-console.log(styles["_default"]);
+console.log(styles._default);
 ```
 
 You can enable ES module named export using:
@@ -1349,8 +1351,8 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            exportLocalsConvention: function (name) {
-              return name.replace(/-/g, "_");
+            exportLocalsConvention(name) {
+              return name.replaceAll("-", "_");
             },
           },
         },
@@ -1371,11 +1373,11 @@ module.exports = {
         loader: "css-loader",
         options: {
           modules: {
-            exportLocalsConvention: function (name) {
+            exportLocalsConvention(name) {
               return [
-                name.replace(/-/g, "_"),
+                name.replaceAll("-", "_"),
                 // dashesCamelCase
-                name.replace(/-+(\w)/g, (match, firstLetter) =>
+                name.replaceAll(/-+(\w)/g, (match, firstLetter) =>
                   firstLetter.toUpperCase(),
                 ),
               ];
@@ -1496,8 +1498,8 @@ In the following example, we use `getJSON` to cache canonical mappings and add s
 **webpack.config.js**
 
 ```js
-const path = require("path");
-const fs = require("fs");
+const fs = require("node:fs");
+const path = require("node:path");
 
 const CSS_LOADER_REPLACEMENT_REGEX =
   /(___CSS_LOADER_ICSS_IMPORT_\d+_REPLACEMENT_\d+___)/g;
@@ -1549,7 +1551,7 @@ function addReplacements(resourcePath, imports, exportsJson, replacements) {
       // canonical values map and all exports JSON verbatim
       canonicalValuesMap[identifier] = classNames;
 
-      allExportsJson[resourcePath] = allExportsJson[resourcePath] || {};
+      allExportsJson[resourcePath] ||= {};
       allExportsJson[resourcePath][localName] = classNames;
     }
   }
@@ -1576,9 +1578,9 @@ function replaceReplacements(classNames) {
 }
 
 function getJSON({ resourcePath, imports, exports, replacements }) {
-  const exportsJson = exports.reduce((acc, { name, value }) => {
-    return { ...acc, [name]: value };
-  }, {});
+  const exportsJson = Object.fromEntries(
+    exports.map(({ name, value }) => [name, value]),
+  );
 
   if (replacements.length > 0) {
     // replacements present --> add stand-in values for absolute paths and local names,
@@ -1602,7 +1604,6 @@ class CssModulesJsonPlugin {
     this.options = options;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   apply(compiler) {
     compiler.hooks.emit.tap("CssModulesJsonPlugin", () => {
       for (const [identifier, classNames] of Object.entries(replacementsMap)) {
@@ -1612,7 +1613,7 @@ class CssModulesJsonPlugin {
 
         const [, resourcePath, localName] = identifier.match(IDENTIFIER_REGEX);
 
-        allExportsJson[resourcePath] = allExportsJson[resourcePath] || {};
+        allExportsJson[resourcePath] ||= {};
         allExportsJson[resourcePath][localName] = adjustedClassNames;
       }
 
@@ -1624,7 +1625,7 @@ class CssModulesJsonPlugin {
             Object.entries(allExportsJson).map((key) => {
               key[0] = path
                 .relative(compiler.context, key[0])
-                .replace(/\\/g, "/");
+                .replaceAll("\\", "/");
 
               return key;
             }),
@@ -1815,6 +1816,8 @@ module.exports = {
 
 **src/index.js**
 
+<!-- eslint-skip -->
+
 ```js
 import sheet from "./styles.css" assert { type: "css" };
 
@@ -1949,6 +1952,8 @@ module.exports = {
 
 **src/index.js**
 
+<!-- eslint-skip -->
+
 ```js
 // Example for Sass/SCSS:
 // import sheet from "./styles.scss" assert { type: "css" };
@@ -2016,6 +2021,7 @@ For `development` mode (including `webpack-dev-server`) you can use [style-loade
 
 ```js
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
@@ -2034,7 +2040,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
+  plugins: [devMode ? [] : [new MiniCssExtractPlugin()]].flat(),
 };
 ```
 
@@ -2220,8 +2226,8 @@ module.exports = {
         options: {
           modules: {
             namedExport: true,
-            exportLocalsConvention: function (name) {
-              return name.replace(/-/g, "_");
+            exportLocalsConvention(name) {
+              return name.replaceAll("-", "_");
             },
           },
         },
@@ -2313,6 +2319,8 @@ $colorBackground: red;
 
 File treated as `CSS Module`.
 
+<!-- eslint-skip -->
+
 ```scss
 @import "variables.scss";
 .componentClass {
@@ -2324,9 +2332,11 @@ File treated as `CSS Module`.
 
 Using both `CSS Module` functionality as well as SCSS variables directly in JavaScript.
 
+<!-- eslint-skip -->
+
 ```jsx
-import * as svars from "variables.scss";
-import * as styles from "Component.module.scss";
+import * as _styles from "./Component.module.scss";
+import * as _svars from "./variables.scss";
 
 // Render DOM with CSS modules class name
 // <div className={styles.componentClass}>
@@ -2335,7 +2345,7 @@ import * as styles from "Component.module.scss";
 
 // Somewhere in JavaScript canvas drawing code use the variable directly
 // const ctx = mountsCanvas.current.getContext('2d',{alpha: false});
-ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
+// ctx.fillStyle = `${svars.colorBackgroundCanvas}`;
 ```
 
 ## Contributing

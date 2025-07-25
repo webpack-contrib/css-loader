@@ -1,30 +1,21 @@
-/**
- * @jest-environment jsdom
- */
-
-/* eslint-disable func-names, no-undefined */
-
 const api = require("../../src/runtime/api");
 const noSourceMaps = require("../../src/runtime/noSourceMaps");
 const sourceMaps = require("../../src/runtime/sourceMaps");
 
 describe("api", () => {
   beforeAll(() => {
-    global.btoa = function btoa(str) {
+    globalThis.btoa = function btoa(str) {
       let buffer = null;
 
-      if (str instanceof Buffer) {
-        buffer = str;
-      } else {
-        buffer = Buffer.from(str.toString(), "binary");
-      }
+      buffer =
+        str instanceof Buffer ? str : Buffer.from(str.toString(), "binary");
 
       return buffer.toString("base64");
     };
   });
 
   afterAll(() => {
-    global.btoa = null;
+    globalThis.btoa = null;
   });
 
   it("should toString a single module", () => {
@@ -222,7 +213,7 @@ describe("api", () => {
   });
 
   it("should toString without source mapping if btoa not available", () => {
-    global.btoa = null;
+    globalThis.btoa = null;
 
     const m = api(sourceMaps);
 
@@ -267,7 +258,7 @@ describe("api", () => {
     m.i([m3], "", true);
 
     expect(m.toString()).toMatchSnapshot();
-    expect(m.length).toBe(3);
+    expect(m).toHaveLength(3);
   });
 
   it("should import modules when module string", () => {

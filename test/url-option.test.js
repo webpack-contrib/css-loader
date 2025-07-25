@@ -1,10 +1,9 @@
-import fs from "fs";
-import path from "path";
-import url from "url";
-
-import webpack from "webpack";
+import fs from "node:fs";
+import path from "node:path";
+import url from "node:url";
 
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import webpack from "webpack";
 
 import {
   compile,
@@ -87,7 +86,7 @@ describe('"url" option', () => {
     const compiler = getCompiler("./url/url.js", {
       url: {
         filter: (_url, resourcePath) => {
-          expect(typeof resourcePath === "string").toBe(true);
+          expect(typeof resourcePath).toBe("string");
 
           if (_url.startsWith("/guide/img")) {
             return false;
@@ -123,11 +122,11 @@ describe('"url" option', () => {
 }
 
 .background-other {
-  background: url(${absolutePath.replace(/e/g, "%65")});
+  background: url(${absolutePath.replaceAll("e", "%65")});
 }
 
 .background-other {
-  background: url('${absolutePath.replace(/e/g, "\\\ne")}');
+  background: url('${absolutePath.replaceAll("e", "\\\ne")}');
 }
 `;
 
@@ -138,7 +137,7 @@ describe('"url" option', () => {
 
     expect(
       getModuleSource("./url/url-absolute.css", stats).replace(
-        new RegExp(absolutePath.replace(/\\/g, "\\\\\\\\")),
+        new RegExp(absolutePath.replaceAll("\\", "\\\\\\\\")),
         "<absolute-path>",
       ),
     ).toMatchSnapshot("module");
@@ -160,11 +159,11 @@ describe('"url" option', () => {
 }
 
 .background-other {
-  background: url(${absolutePath.replace(/e/g, "%65")});
+  background: url(${absolutePath.replaceAll("e", "%65")});
 }
 
 .background-other {
-  background: url('${absolutePath.replace(/e/g, "\\\ne")}');
+  background: url('${absolutePath.replaceAll("e", "\\\ne")}');
 }
 `;
 
@@ -194,18 +193,18 @@ describe('"url" option', () => {
     const file = path.resolve(fileDirectory, "url-file-protocol.css");
     const absolutePath = path
       .resolve(fileDirectory, "img.png")
-      .replace(/\\/g, "/");
+      .replaceAll("\\", "/");
     const code = `
 .background {
   background: url(file://${absolutePath});
 }
 
 .background-other {
-  background: url(file://${absolutePath.replace(/e/g, "%65")});
+  background: url(file://${absolutePath.replaceAll("e", "%65")});
 }
 
 .background-other {
-  background: url('file://${absolutePath.replace(/e/g, "\\\ne")}');
+  background: url('file://${absolutePath.replaceAll("e", "\\\ne")}');
 }
 `;
 
@@ -233,18 +232,18 @@ describe('"url" option', () => {
     const file = path.resolve(fileDirectory, "url-file-protocol.css");
     const absolutePath = path
       .resolve(fileDirectory, "img.png")
-      .replace(/\\/g, "/");
+      .replaceAll("\\", "/");
     const code = `
 .background {
   background: url(file://${absolutePath});
 }
 
 .background-other {
-  background: url(file://${absolutePath.replace(/e/g, "%65")});
+  background: url(file://${absolutePath.replaceAll("e", "%65")});
 }
 
 .background-other {
-  background: url('file://${absolutePath.replace(/e/g, "\\\ne")}');
+  background: url('file://${absolutePath.replaceAll("e", "\\\ne")}');
 }
 `;
 
@@ -542,12 +541,12 @@ describe('"url" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  // TODO bug on webpack side
+  // eslint-disable-next-line jest/no-disabled-tests
   it.skip("should work with the 'IgnorePlugin' plugin", async () => {
-    const compiler = getCompiler("./url/ignore-plugin.js");
+    const compiler = getCompiler("./url/ignore-plugin.js", {}, {});
 
     new webpack.IgnorePlugin({ resourceRegExp: /directory\// }).apply(compiler);
-    new webpack.IgnorePlugin({ resourceRegExp: /unknwon\.png/ }).apply(
+    new webpack.IgnorePlugin({ resourceRegExp: /unknwon(\.png)?/i }).apply(
       compiler,
     );
     new webpack.IgnorePlugin({ resourceRegExp: /img\.png/ }).apply(compiler);
@@ -598,7 +597,7 @@ describe('"url" option', () => {
     const fileDirectory = path.resolve(__dirname, "fixtures", "url");
     const file = path.resolve(fileDirectory, "many-urls.css");
     const imgUrl = url.pathToFileURL(path.resolve(fileDirectory, "img.png"));
-    const code = Array(10000)
+    const code = Array.from({ length: 10000 })
       .fill(`.background { background: url("${imgUrl}"); }`)
       .join("\n");
 

@@ -36,7 +36,7 @@ describe("camelCase", () => {
   ];
 
   for (const entry of data) {
-    it(`should transform`, () => {
+    it("should transform", () => {
       expect(camelCase(entry)).toMatchSnapshot(`${entry}`);
     });
   }

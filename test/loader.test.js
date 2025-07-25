@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 
 import postcssPresetEnv from "postcss-preset-env";
 
@@ -221,7 +221,6 @@ describe("loader", () => {
                 {
                   loader: "sass-loader",
                   options: {
-                    // eslint-disable-next-line global-require
                     implementation: require("sass"),
                   },
                 },
@@ -475,7 +474,6 @@ describe("loader", () => {
     });
     const stats = await compile(compiler);
 
-    // eslint-disable-next-line no-console
     expect(console.warn).not.toHaveBeenCalledWith(
       "You did not set any plugins, parser, or stringifier. " +
         "Right now, PostCSS does nothing. Pick plugins for your case " +
@@ -593,7 +591,7 @@ describe("loader", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work and nothing to do with built-in CSS support", async () => {
+  it("should work and nothing to do with built-in CSS support with futureDefaults", async () => {
     const compiler = getCompiler(
       "./basic-built-in-css-support.js",
       {},

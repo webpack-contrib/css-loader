@@ -1,9 +1,9 @@
-import path from "path";
-import fs from "fs";
+import fs from "node:fs";
+import path from "node:path";
 
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-import { getJSON, CssModulesJsonPlugin } from "./helpers/get-json";
+import { CssModulesJsonPlugin, getJSON } from "./helpers/get-json";
 
 import {
   compile,
@@ -23,15 +23,15 @@ const testCases = fs.readdirSync(testCasesPath);
 jest.setTimeout(60000);
 
 describe('"modules" option', () => {
-  [
+  for (const modulesValue of [
     true,
     false,
     "local",
     "global",
     { mode: "local" },
     { mode: "global" },
-  ].forEach((modulesValue) => {
-    testCases.forEach((name) => {
+  ]) {
+    for (const name of testCases) {
       it(`should work with case \`${name}\` (\`modules\` value is \`${
         modulesValue.mode
           ? `object with mode ${modulesValue.mode}`
@@ -53,8 +53,8 @@ describe('"modules" option', () => {
         expect(getWarnings(stats)).toMatchSnapshot("warnings");
         expect(getErrors(stats)).toMatchSnapshot("errors");
       });
-    });
-  });
+    }
+  }
 
   it('should work and support "pure" mode', async () => {
     const compiler = getCompiler("./modules/pure/pure.js", { modules: "pure" });
@@ -248,7 +248,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and respect the "localIdentHashFunction" option', async () => {
+  it('should work and respect the "localIdentHashFunction" option with digest', async () => {
     const compiler = getCompiler("./modules/localIdentName/localIdentName.js", {
       modules: {
         localIdentName: "[local]--[hash]",
@@ -606,7 +606,6 @@ describe('"modules" option', () => {
                 {
                   loader: "sass-loader",
                   options: {
-                    // eslint-disable-next-line global-require
                     implementation: require("sass"),
                   },
                 },
@@ -1374,9 +1373,9 @@ describe('"modules" option', () => {
         modules: {
           mode: "local",
           exportLocalsConvention: (localName) => [
-            `${localName.replace(/-/g, "_")}_TEST_1`,
-            `${localName.replace(/-/g, "_")}_TEST_1`,
-            `${localName.replace(/-/g, "_")}_TEST_3`,
+            `${localName.replaceAll("-", "_")}_TEST_1`,
+            `${localName.replaceAll("-", "_")}_TEST_1`,
+            `${localName.replaceAll("-", "_")}_TEST_3`,
           ],
         },
       },
@@ -1625,7 +1624,7 @@ describe('"modules" option', () => {
         modules: {
           mode: "local",
           exportLocalsConvention: (localName) =>
-            `${localName.replace(/-/g, "_")}_TEST`,
+            `${localName.replaceAll("-", "_")}_TEST`,
         },
       },
     );
@@ -1749,7 +1748,7 @@ describe('"modules" option', () => {
       modules: {
         namedExport: true,
         exportLocalsConvention: (localName) =>
-          `${localName.replace(/-/g, "_")}_TEST`,
+          `${localName.replaceAll("-", "_")}_TEST`,
       },
     });
     const stats = await compile(compiler);
@@ -1810,7 +1809,7 @@ describe('"modules" option', () => {
         localIdentName: "[local]",
         namedExport: true,
         exportLocalsConvention: (localName) =>
-          `${localName.replace(/-/g, "_")}_TEST`,
+          `${localName.replaceAll("-", "_")}_TEST`,
       },
     });
     const stats = await compile(compiler);
@@ -1870,9 +1869,9 @@ describe('"modules" option', () => {
       modules: {
         namedExport: true,
         exportLocalsConvention: (localName) => [
-          `${localName.replace(/-/g, "_")}_TEST_1`,
-          `${localName.replace(/-/g, "_")}_TEST_1`,
-          `${localName.replace(/-/g, "_")}_TEST_3`,
+          `${localName.replaceAll("-", "_")}_TEST_1`,
+          `${localName.replaceAll("-", "_")}_TEST_1`,
+          `${localName.replaceAll("-", "_")}_TEST_3`,
         ],
       },
     });
@@ -1894,7 +1893,7 @@ describe('"modules" option', () => {
         localIdentName: "_[local]",
         namedExport: true,
         exportLocalsConvention: (localName) =>
-          `${localName.replace(/-/g, "_")}_TEST`,
+          `${localName.replaceAll("-", "_")}_TEST`,
       },
     });
     const stats = await compile(compiler);
@@ -2091,7 +2090,7 @@ describe('"modules" option', () => {
   );
   const icssTestCases = fs.readdirSync(icssTestCasesPath);
 
-  icssTestCases.forEach((name) => {
+  for (const name of icssTestCases) {
     it(`show work when the "modules" option is "icss", case "${name}"`, async () => {
       const compiler = getCompiler(
         `./modules/icss/tests-cases/${name}/source.js`,
@@ -2152,7 +2151,7 @@ describe('"modules" option', () => {
       expect(getWarnings(stats)).toMatchSnapshot("warnings");
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
-  });
+  }
 
   it('show work with the "mode: icss" and "exportOnlyLocals" options', async () => {
     const compiler = getCompiler(
@@ -2313,7 +2312,7 @@ describe('"modules" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with the "animation" ', async () => {
+  it('should work with the "animation"', async () => {
     const compiler = getCompiler("./modules/issue-1228/source.js", {
       modules: { mode: "local" },
     });
